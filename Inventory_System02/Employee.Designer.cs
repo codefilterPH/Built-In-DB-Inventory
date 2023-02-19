@@ -290,7 +290,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(307, 125);
+            this.label4.Location = new System.Drawing.Point(316, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 17);
             this.label4.TabIndex = 29;
@@ -299,7 +299,7 @@ namespace Inventory_System02.Profiles
             // txt_Phone
             // 
             this.txt_Phone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Phone.Location = new System.Drawing.Point(418, 119);
+            this.txt_Phone.Location = new System.Drawing.Point(418, 118);
             this.txt_Phone.MaxLength = 11;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(131, 25);
@@ -308,7 +308,8 @@ namespace Inventory_System02.Profiles
             // 
             // txt_Email
             // 
-            this.txt_Email.Location = new System.Drawing.Point(85, 119);
+            this.txt_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_Email.Location = new System.Drawing.Point(344, 88);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(205, 25);
             this.txt_Email.TabIndex = 7;
@@ -316,8 +317,9 @@ namespace Inventory_System02.Profiles
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 122);
+            this.label3.Location = new System.Drawing.Point(299, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 26;
@@ -325,9 +327,8 @@ namespace Inventory_System02.Profiles
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(307, 90);
+            this.label2.Location = new System.Drawing.Point(10, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 25;
@@ -335,10 +336,9 @@ namespace Inventory_System02.Profiles
             // 
             // txt_LN
             // 
-            this.txt_LN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_LN.Location = new System.Drawing.Point(418, 87);
+            this.txt_LN.Location = new System.Drawing.Point(85, 119);
             this.txt_LN.Name = "txt_LN";
-            this.txt_LN.Size = new System.Drawing.Size(131, 25);
+            this.txt_LN.Size = new System.Drawing.Size(146, 25);
             this.txt_LN.TabIndex = 6;
             // 
             // label1

@@ -215,14 +215,14 @@ namespace Inventory_System02.Includes
 
         }
         string ext;
-        public void Reload_Images(PictureBox pictureBox1, string ID, string Category)
+        public void Reload_Images(PictureBox pictureBox1, string ID, string Brand)
         {
-            //Category is either Employee, Company, Staff, Cust FOLDER PATH
+            //Brand is either Employee, Company, Staff, Cust FOLDER PATH
             try
             {
                 try
                 {
-                    ext = Path.GetExtension( Category + ID);
+                    ext = Path.GetExtension(Brand + ID);
                 }
                 catch
                 {
@@ -234,7 +234,7 @@ namespace Inventory_System02.Includes
 
                 try
                 {
-                    FileStream fs = new System.IO.FileStream( Category + ID + ext, FileMode.Open, FileAccess.Read);
+                    FileStream fs = new System.IO.FileStream(Brand + ID + ext, FileMode.Open, FileAccess.Read);
                     pictureBox1.Image = Image.FromStream(fs);
                     fs.Close();
                 }
@@ -242,13 +242,13 @@ namespace Inventory_System02.Includes
                 {
                     try
                     {
-                        FileStream fs = new System.IO.FileStream(Category + ID + ".PNG", FileMode.Open, FileAccess.Read);
+                        FileStream fs = new System.IO.FileStream(Brand + ID + ".PNG", FileMode.Open, FileAccess.Read);
                         pictureBox1.Image = Image.FromStream(fs);
                         fs.Close();
                     }
                     catch
                     {
-                        FileStream fs = new System.IO.FileStream(Category + ID + ".JPG", FileMode.Open, FileAccess.Read);
+                        FileStream fs = new System.IO.FileStream(Brand + ID + ".JPG", FileMode.Open, FileAccess.Read);
                         pictureBox1.Image = Image.FromStream(fs);
                         fs.Close();
                     }
@@ -260,7 +260,7 @@ namespace Inventory_System02.Includes
             {
                 try
                 {
-                    FileStream fs = new System.IO.FileStream( Category + @"DONOTDELETE_SUBIMAGE" + ext, FileMode.Open, FileAccess.Read);
+                    FileStream fs = new System.IO.FileStream(Brand + @"DONOTDELETE_SUBIMAGE" + ext, FileMode.Open, FileAccess.Read);
                     pictureBox1.Image = Image.FromStream(fs);
                     fs.Close();
                 }
@@ -268,13 +268,13 @@ namespace Inventory_System02.Includes
                 {
                     try
                     {
-                        FileStream fs = new System.IO.FileStream(Category + @"DONOTDELETE_SUBIMAGE.PNG", FileMode.Open, FileAccess.Read);
+                        FileStream fs = new System.IO.FileStream(Brand + @"DONOTDELETE_SUBIMAGE.PNG", FileMode.Open, FileAccess.Read);
                         pictureBox1.Image = Image.FromStream(fs);
                         fs.Close();
                     }
                     catch
                     {
-                        FileStream fs = new System.IO.FileStream(Category + @"DONOTDELETE_SUBIMAGE.JPG", FileMode.Open, FileAccess.Read);
+                        FileStream fs = new System.IO.FileStream(Brand + @"DONOTDELETE_SUBIMAGE.JPG", FileMode.Open, FileAccess.Read);
                         pictureBox1.Image = Image.FromStream(fs);
                         fs.Close();
                     }
@@ -331,7 +331,7 @@ namespace Inventory_System02.Includes
             }
         }
         string appPath, filepath;
-        public void DoubleClick_Picture_Then_Replace_Existing(PictureBox pic, string ID, string Category)
+        public void DoubleClick_Picture_Then_Replace_Existing(PictureBox pic, string ID, string Brand)
         {
 
             if (ID == null || ID == "")
@@ -343,12 +343,12 @@ namespace Inventory_System02.Includes
             }
             try
             {
-                ext = Path.GetExtension( Category + ID);
+                ext = Path.GetExtension(Brand + ID);
 
             }
             catch
             {
-                ext = Path.GetExtension(Category + ID + ".PNG");
+                ext = Path.GetExtension(Brand + ID + ".PNG");
             }
 
 
@@ -361,7 +361,7 @@ namespace Inventory_System02.Includes
             {
                 if (ext == "PNG files (*.PNG)|*.PNG" || ext == "JPEG files (*.JPG)|*.JPG" || ext == "")
                 {
-                    appPath = Category;
+                    appPath = Brand;
                     if (Directory.Exists(appPath) == false)
                     {
                         Directory.CreateDirectory(appPath);
@@ -375,7 +375,7 @@ namespace Inventory_System02.Includes
                             {
                                 try
                                 {
-                                    System.IO.File.Delete(Category + ID + ext);
+                                    System.IO.File.Delete(Brand + ID + ext);
                                 }
                                 catch (Exception ex)
                                 {
@@ -432,7 +432,7 @@ namespace Inventory_System02.Includes
             }
 
         }
-        public void DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(PictureBox pic, string ID, string Category)
+        public void DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(PictureBox pic, string ID, string Brand)
         {
 
             if (ID == null || ID == "")
@@ -444,12 +444,12 @@ namespace Inventory_System02.Includes
             }
             try
             {
-                ext = Path.GetExtension(Category + ID);
+                ext = Path.GetExtension(Brand + ID);
 
             }
             catch
             {
-                ext = Path.GetExtension(Category + ID + ".JPG");
+                ext = Path.GetExtension(Brand + ID + ".JPG");
             }
 
 
@@ -462,7 +462,7 @@ namespace Inventory_System02.Includes
             {
                 if (ext == "PNG files (*.PNG)|*.PNG" || ext == "JPEG files (*.JPG)|*.JPG" || ext == "")
                 {
-                    appPath = Category;
+                    appPath = Brand;
                     if (Directory.Exists(appPath) == false)
                     {
                         Directory.CreateDirectory(appPath);
@@ -476,7 +476,7 @@ namespace Inventory_System02.Includes
                             {
                                 try
                                 {
-                                    System.IO.File.Delete(Category + ID + ext);
+                                    System.IO.File.Delete(Brand + ID + ext);
                                 }
                                 catch (Exception ex)
                                 {

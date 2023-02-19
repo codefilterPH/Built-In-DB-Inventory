@@ -220,8 +220,7 @@ namespace Inventory_System02.Profiles
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
-        {
-
+        {     
             if (txt_ID.Text == "admin")
             {
                 if ( Global_ID != "admin")
@@ -230,7 +229,7 @@ namespace Inventory_System02.Profiles
                 }
             }
             else
-            {
+            { 
 
                 if (MessageBox.Show("Are you sure to update this user? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                   == DialogResult.Yes)
@@ -246,7 +245,7 @@ namespace Inventory_System02.Profiles
                     {
                         func.Error_Message1 = "Last Name";
                         func.Error_Message();
-                        txt_FN.Focus();
+                        txt_LN.Focus();
                         return;
                     }
 

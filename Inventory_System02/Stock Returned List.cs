@@ -93,7 +93,7 @@ namespace Inventory_System02
             }
             if (chk_Cat.Checked)
             {
-                what_column = "`Category`";
+                what_column = "`Brand`";
             }
             if (chk_Date.Checked)
             {

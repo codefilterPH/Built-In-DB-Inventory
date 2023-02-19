@@ -130,7 +130,7 @@ namespace Inventory_System02
             }
             if (chk_Desc.Checked)
             {
-                colmn = "`Category`";
+                colmn = "`Brand`";
             }
             if (chk_Cat.Checked)
             {

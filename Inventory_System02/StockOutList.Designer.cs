@@ -29,7 +29,7 @@ namespace Inventory_System02
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOutList));
             this.dtg_outlist = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@ namespace Inventory_System02
             this.refreshTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_print_invoice = new System.Windows.Forms.ToolStripMenuItem();
             this.batchTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txt_Trans_number = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.out_amt = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@ namespace Inventory_System02
             this.label16 = new System.Windows.Forms.Label();
             this.lbl_DueDate = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.printInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
@@ -81,13 +81,13 @@ namespace Inventory_System02
             this.dtg_outlist.GridColor = System.Drawing.Color.White;
             this.dtg_outlist.Location = new System.Drawing.Point(12, 192);
             this.dtg_outlist.Name = "dtg_outlist";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_outlist.RowTemplate.Height = 60;
             this.dtg_outlist.Size = new System.Drawing.Size(783, 214);
             this.dtg_outlist.TabIndex = 0;
@@ -129,10 +129,10 @@ namespace Inventory_System02
             // chk_Date
             // 
             this.chk_Date.AutoSize = true;
-            this.chk_Date.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Date.Location = new System.Drawing.Point(432, 7);
             this.chk_Date.Name = "chk_Date";
-            this.chk_Date.Size = new System.Drawing.Size(57, 21);
+            this.chk_Date.Size = new System.Drawing.Size(52, 19);
             this.chk_Date.TabIndex = 81;
             this.chk_Date.Text = "Date";
             this.chk_Date.UseVisualStyleBackColor = true;
@@ -141,10 +141,10 @@ namespace Inventory_System02
             // chk_Desc
             // 
             this.chk_Desc.AutoSize = true;
-            this.chk_Desc.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Desc.Location = new System.Drawing.Point(331, 7);
             this.chk_Desc.Name = "chk_Desc";
-            this.chk_Desc.Size = new System.Drawing.Size(95, 21);
+            this.chk_Desc.Size = new System.Drawing.Size(88, 19);
             this.chk_Desc.TabIndex = 80;
             this.chk_Desc.Text = "Description";
             this.chk_Desc.UseVisualStyleBackColor = true;
@@ -153,10 +153,10 @@ namespace Inventory_System02
             // chk_ItemName
             // 
             this.chk_ItemName.AutoSize = true;
-            this.chk_ItemName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_ItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_ItemName.Location = new System.Drawing.Point(13, 7);
             this.chk_ItemName.Name = "chk_ItemName";
-            this.chk_ItemName.Size = new System.Drawing.Size(93, 21);
+            this.chk_ItemName.Size = new System.Drawing.Size(87, 19);
             this.chk_ItemName.TabIndex = 78;
             this.chk_ItemName.Text = "Item Name";
             this.chk_ItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -166,10 +166,10 @@ namespace Inventory_System02
             // chk_ItemID
             // 
             this.chk_ItemID.AutoSize = true;
-            this.chk_ItemID.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_ItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_ItemID.Location = new System.Drawing.Point(108, 7);
             this.chk_ItemID.Name = "chk_ItemID";
-            this.chk_ItemID.Size = new System.Drawing.Size(131, 21);
+            this.chk_ItemID.Size = new System.Drawing.Size(122, 19);
             this.chk_ItemID.TabIndex = 79;
             this.chk_ItemID.Text = "Search by Item ID";
             this.chk_ItemID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,12 +179,12 @@ namespace Inventory_System02
             // chk_Cat
             // 
             this.chk_Cat.AutoSize = true;
-            this.chk_Cat.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_Cat.Location = new System.Drawing.Point(242, 7);
             this.chk_Cat.Name = "chk_Cat";
-            this.chk_Cat.Size = new System.Drawing.Size(83, 21);
+            this.chk_Cat.Size = new System.Drawing.Size(59, 19);
             this.chk_Cat.TabIndex = 77;
-            this.chk_Cat.Text = "Category";
+            this.chk_Cat.Text = "Brand";
             this.chk_Cat.UseVisualStyleBackColor = true;
             this.chk_Cat.CheckedChanged += new System.EventHandler(this.chk_Cat_CheckedChanged);
             // 
@@ -233,6 +233,17 @@ namespace Inventory_System02
             this.batchTransactionToolStripMenuItem.Text = "Batch Transaction";
             this.batchTransactionToolStripMenuItem.Click += new System.EventHandler(this.batchTransactionToolStripMenuItem_Click);
             // 
+            // printInvoiceToolStripMenuItem
+            // 
+            this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.printInvoiceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
+            this.printInvoiceToolStripMenuItem.Name = "printInvoiceToolStripMenuItem";
+            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.printInvoiceToolStripMenuItem.Text = "Print Invoice";
+            this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
+            // 
             // txt_Trans_number
             // 
             this.txt_Trans_number.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,30 +267,30 @@ namespace Inventory_System02
             // 
             this.out_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.out_amt.AutoSize = true;
-            this.out_amt.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.out_amt.Location = new System.Drawing.Point(656, 435);
             this.out_amt.Name = "out_amt";
-            this.out_amt.Size = new System.Drawing.Size(0, 15);
+            this.out_amt.Size = new System.Drawing.Size(0, 13);
             this.out_amt.TabIndex = 90;
             // 
             // out_qty
             // 
             this.out_qty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.out_qty.AutoSize = true;
-            this.out_qty.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.out_qty.Location = new System.Drawing.Point(656, 420);
             this.out_qty.Name = "out_qty";
-            this.out_qty.Size = new System.Drawing.Size(0, 15);
+            this.out_qty.Size = new System.Drawing.Size(0, 13);
             this.out_qty.TabIndex = 89;
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(571, 435);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 15);
+            this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 88;
             this.label5.Text = "Total Amount:";
             // 
@@ -287,10 +298,10 @@ namespace Inventory_System02
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(549, 420);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 15);
+            this.label9.Size = new System.Drawing.Size(107, 13);
             this.label9.TabIndex = 87;
             this.label9.Text = "Over All Quantity:";
             // 
@@ -361,10 +372,10 @@ namespace Inventory_System02
             // chk_all
             // 
             this.chk_all.AutoSize = true;
-            this.chk_all.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_all.Location = new System.Drawing.Point(11, 165);
             this.chk_all.Name = "chk_all";
-            this.chk_all.Size = new System.Drawing.Size(84, 21);
+            this.chk_all.Size = new System.Drawing.Size(76, 19);
             this.chk_all.TabIndex = 115;
             this.chk_all.Text = "Select All";
             this.chk_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -413,17 +424,6 @@ namespace Inventory_System02
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(491, 39);
             this.panel1.TabIndex = 119;
-            // 
-            // printInvoiceToolStripMenuItem
-            // 
-            this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.printInvoiceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
-            this.printInvoiceToolStripMenuItem.Name = "printInvoiceToolStripMenuItem";
-            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.printInvoiceToolStripMenuItem.Text = "Print Invoice";
-            this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
             // 
             // StockOutList
             // 

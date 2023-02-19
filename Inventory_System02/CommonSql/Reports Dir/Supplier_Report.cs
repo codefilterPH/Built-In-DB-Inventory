@@ -309,8 +309,6 @@ namespace Inventory_System02.Reports_Dir
             string[] streams;
             Warning[] warnings;
 
-            string contentType = "application/pdf";
-
             Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
                             out extension, out encoding,
                             out mimeType, out streams, out warnings); //for exporting to PDF  

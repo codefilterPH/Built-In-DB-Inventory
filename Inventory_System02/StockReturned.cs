@@ -218,7 +218,7 @@ namespace Inventory_System02
             }
             if (chk_Cat.Checked)
             {
-                db_column = "`Category`";
+                db_column = "`Brand`";
             }
             if (chk_Desc.Checked)
             {
@@ -579,7 +579,7 @@ namespace Inventory_System02
                                 " `Entry Date` " +
                                 ",`Stock ID` " +
                                 ",`Item Name` " +
-                                ",`Category` " +
+                                ",`Brand` " +
                                 ",`Description` " +
                                 ",`Quantity` " +
                                 ",`Price` " +
@@ -610,7 +610,7 @@ namespace Inventory_System02
                          " `Entry Date` " +
                          ", `Stock ID` " +
                          ",`Item Name` " +
-                         ",`Category` " +
+                         ",`Brand` " +
                          ",`Description` " +
                          ",`Quantity` " +
                          ",`Price` " +

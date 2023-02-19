@@ -27,7 +27,7 @@ private void StringBuilderSetup()
             chk_Entry_Date.Text = "`Entry Date`";
             chk_Item_ID.Text = "`Stock ID`";
             chk_Item_Name.Text = "`Item Name`";
-            chk_Category.Text = "Category";
+            chk_Brand.Text = "Brand";
             chk_Description.Text = "Description";
             chk_Quantity.Text = "Quantity";
             chk_Price.Text = "Price";
@@ -53,7 +53,7 @@ private void StringBuilderSetup()
             chk_Entry_Date.Text = "`Entry Date`";
             chk_Item_ID.Text = "`Stock ID`";
             chk_Item_Name.Text = "`Item Name`";
-            chk_Category.Text = "`Category`";
+            chk_Brand.Text = "`Brand`";
             chk_Description.Text = "`Description`";
             chk_Quantity.Text = "`Quantity`";
             chk_Price.Text = "`Total`";
@@ -85,7 +85,7 @@ private void StringBuilderSetup()
     chk_Entry_Date.Text = "Entry Date";
     chk_Item_ID.Text = "Item ID";
     chk_Item_Name.Text = "Item Name";
-    chk_Category.Text = "Category";
+    chk_Brand.Text = "Brand";
     chk_Description.Text = "Description";
     chk_Quantity.Text = "Quantity";
     chk_Price.Text = "Price";

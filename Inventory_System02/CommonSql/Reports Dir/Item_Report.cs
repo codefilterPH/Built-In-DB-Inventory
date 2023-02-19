@@ -206,7 +206,7 @@ namespace Inventory_System02.Reports_Dir
                          Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
                          Item_ID = dataRow.Field<string>("Stock ID").ToString(),
                          Item_Name = dataRow.Field<string>("Item Name").ToString(),
-                         Category = dataRow.Field<string>("Category").ToString(),
+                         Brand = dataRow.Field<string>("Brand").ToString(),
                          Description = dataRow.Field<string>("Description").ToString(),
                          Quantity = dataRow.Field<string>("Quantity").ToString(),
                          Price = dataRow.Field<string>("Price").ToString(),
@@ -231,7 +231,7 @@ namespace Inventory_System02.Reports_Dir
                       Entry_Date = dataRow.Field<string>("Entry Date"),
                       Item_ID = dataRow.Field<string>("Stock ID"),
                       Item_Name = dataRow.Field<string>("Item Name"),
-                      Category = dataRow.Field<string>("Category"),
+                      Brand = dataRow.Field<string>("Brand"),
                       Description = dataRow.Field<string>("Description"),
                       Quantity = dataRow.Field<string>("Quantity"),
                       Price = dataRow.Field<string>("Total"),
@@ -355,13 +355,13 @@ namespace Inventory_System02.Reports_Dir
                 reportParameters.Add(new ReportParameter("Hide_Item_Name", "False"));
             }
 
-            if (chk_Category.Checked == false)
+            if (chk_Brand.Checked == false)
             {
-                reportParameters.Add(new ReportParameter("Hide_Category", "True"));
+                reportParameters.Add(new ReportParameter("Hide_Brand", "True"));
             }
             else
             {
-                reportParameters.Add(new ReportParameter("Hide_Category", "False"));
+                reportParameters.Add(new ReportParameter("Hide_Brand", "False"));
             }
 
             if (chk_Description.Checked == false)
@@ -521,7 +521,7 @@ namespace Inventory_System02.Reports_Dir
             dtg_PreviewPage.Columns["Entry Date"].DisplayIndex = 0;
             dtg_PreviewPage.Columns["Stock ID"].DisplayIndex = 1;
             dtg_PreviewPage.Columns["Item Name"].DisplayIndex = 2;
-            dtg_PreviewPage.Columns["Category"].DisplayIndex = 3;
+            dtg_PreviewPage.Columns["Brand"].DisplayIndex = 3;
             dtg_PreviewPage.Columns["Description"].DisplayIndex = 4;
             dtg_PreviewPage.Columns["Quantity"].DisplayIndex = 5;
             dtg_PreviewPage.Columns["Price"].DisplayIndex = 6;
@@ -597,8 +597,6 @@ namespace Inventory_System02.Reports_Dir
             string mimeType;
             string[] streams;
             Warning[] warnings;
-
-            string contentType = "application/pdf";
 
             Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
                             out extension, out encoding,
@@ -691,7 +689,7 @@ namespace Inventory_System02.Reports_Dir
         public string Entry_Date { get; set; }
         public string Item_ID { get; set; }
         public string Item_Name { get; set; }
-        public string Category { get; set; }
+        public string Brand { get; set; }
         public string Description { get; set; }
         public string Quantity { get; set; }
         public string Price { get; set; }

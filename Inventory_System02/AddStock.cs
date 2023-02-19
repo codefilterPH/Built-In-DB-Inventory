@@ -1,4 +1,5 @@
 ﻿using Inventory_System02.Includes;
+using Inventory_System02.Items;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -39,12 +40,8 @@ namespace Inventory_System02
             sql = "Select Name from `Product Name`";
             config.fiil_CBO(sql, txt_ItemName);
 
-            sql = "Select Name from Category";
-            config.fiil_CBO(sql, cbo_categ);
-
-            sql = "Select Name from Description";
-            config.fiil_CBO(sql, cbo_desc);
-
+            sql = "Select Name from Brand";
+            config.fiil_CBO(sql, cbo_brand);
 
             sql = "Select * from Stocks order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_Items);
@@ -54,7 +51,8 @@ namespace Inventory_System02
             }
             Calculator_Timer.Start();
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
-            chk_trans_Gen.Checked = true;
+
+
 
         }
         double totalrows = 0;
@@ -101,7 +99,7 @@ namespace Inventory_System02
                 totalrows = i;
             }
             totalrows += 1;
-            lbl_numb_items.Text = "Items Count: " + totalrows.ToString();
+            lbl_numb_items.Text = "Rows Count: " + totalrows.ToString();
 
 
             dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -131,10 +129,6 @@ namespace Inventory_System02
             }
         }
 
-        private void clearTextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            btn_Clear_Text_Click(sender, e);
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -142,7 +136,7 @@ namespace Inventory_System02
             {
                 txt_Barcode.Text = dtg_Items.CurrentRow.Cells[2].Value.ToString();
                 txt_ItemName.Text = dtg_Items.CurrentRow.Cells[3].Value.ToString();
-                cbo_categ.Text = dtg_Items.CurrentRow.Cells[4].Value.ToString();
+                cbo_brand.Text = dtg_Items.CurrentRow.Cells[4].Value.ToString();
                 cbo_desc.Text = dtg_Items.CurrentRow.Cells[5].Value.ToString();
                 txt_Qty.Text = dtg_Items.CurrentRow.Cells[6].Value.ToString();
                 txt_Price.Text = dtg_Items.CurrentRow.Cells[7].Value.ToString();
@@ -180,7 +174,7 @@ namespace Inventory_System02
 
                     sql = "Update Stocks set " +
                         " `Item Name` = '" + txt_ItemName.Text + "' " +
-                        ", `Category` = '" + cbo_categ.Text + "' " +
+                        ", `Brand` = '" + cbo_brand.Text + "' " +
                         ", `Description` = '" + cbo_desc.Text + "' " +
                         ", `Quantity` = '" + txt_Qty.Text + "' " +
                         ", `Price` = '" + txt_Price.Text + "' " +
@@ -258,21 +252,45 @@ namespace Inventory_System02
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (chk_ItemID.Checked)
+            if (cbo_srch_type.Text == "Date")
+            {
+                search_for = "`Entry Date`";
+            }
+            else if (cbo_srch_type.Text == "Id")
             {
                 search_for = "`Stock ID`";
             }
-            else if (chk_ItemName.Checked)
+            else if (cbo_srch_type.Text == "Name")
             {
                 search_for = "`Item Name`";
             }
-            else if (chk_Cat.Checked)
+            else if (cbo_srch_type.Text == "Brand")
             {
-                search_for = "`Category`";
+                search_for = "`Brand`";
             }
-            else if (chk_Desc.Checked)
+            else if (cbo_srch_type.Text == "Description")
             {
                 search_for = "`Description`";
+            }
+            else if (cbo_srch_type.Text == "Quantity")
+            {
+                search_for = "`Quantity`";
+            }
+            else if (cbo_srch_type.Text == "Price")
+            {
+                search_for = "`Price`";
+            }
+            else if (cbo_srch_type.Text == "Supplier")
+            {
+                search_for = "`Supplier Name`";
+            }
+            else if (cbo_srch_type.Text == "Job")
+            {
+                search_for = "`Job Role`";
+            }
+            else if (cbo_srch_type.Text == "Trans Ref")
+            {
+                search_for = "`Transaction Reference`";
             }
             else
             {
@@ -290,11 +308,6 @@ namespace Inventory_System02
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            func.clearTxt(panel1);
-            btn_Gen_Click(sender, e);
-            txt_TransRef.Focus();
-            txt_TransRef.SelectionLength = txt_TransRef.Text.Length;
-            func.Two_Decimal_Places(sender, e, txt_Price);
 
         }
         public void Calculations()
@@ -340,86 +353,6 @@ namespace Inventory_System02
             supplierListToolStripMenuItem_Click(sender, e);
         }
 
-        private void chk_trans_Gen_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_trans_Gen.Checked)
-            {
-                chk_Desc.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_ItemName.Checked = false;
-                chk_Cat.Checked = false;
-            }
-            else
-            {
-                chk_trans_Gen.Checked = false;
-            }
-
-        }
-
-        private void chk_ItemID_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemID.Checked)
-            {
-                chk_Desc.Checked = false;
-                chk_ItemName.Checked = false;
-                chk_Cat.Checked = false;
-                chk_trans_Gen.Checked = false;
-            }
-            else
-            {
-                chk_ItemID.Checked = false;
-            }
-        }
-
-        private void chk_ItemName_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemName.Checked)
-            {
-                chk_Desc.Checked = false;
-                chk_Cat.Checked = false;
-                chk_trans_Gen.Checked = false;
-                chk_ItemID.Checked = false;
-            }
-            else
-            {
-                chk_ItemName.Checked = false;
-            }
-        }
-
-        private void chk_Cat_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (chk_Cat.Checked)
-            {
-                chk_Desc.Checked = false;
-                chk_ItemName.Checked = false;
-                chk_trans_Gen.Checked = false;
-                chk_ItemID.Checked = false;
-            }
-            else
-            {
-                chk_Cat.Checked = false;
-            }
-
-        }
-
-        private void chk_Desc_CheckedChanged(object sender, EventArgs e)
-        {
-
-            if (chk_Desc.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_Cat.Checked = false;
-                chk_trans_Gen.Checked = false;
-                chk_ItemID.Checked = false;
-            }
-            else
-            {
-                chk_Desc.Checked = false;
-            }
-
-        }
-
         private void btn_upload_Click(object sender, EventArgs e)
         {
             Item_Image_DoubleClick(sender, e);
@@ -461,6 +394,39 @@ namespace Inventory_System02
             {
                 txt_TransRef.Text = "Empty Field!";
                 txt_TransRef.Focus();
+            }
+        }
+
+        private void dtg_Items_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Preview();
+        }
+
+        private void btn_preview_Click(object sender, EventArgs e)
+        {
+            Preview();
+        }
+
+        private void Preview()
+        {
+            if (dtg_Items.Rows.Count >= 1)
+            {
+                if (txt_Barcode.Text != "" || txt_Barcode.Text != null)
+                {
+                       Items.Item_Preview frm = new Items.Item_Preview(
+                       dtg_Items.CurrentRow.Cells[1].Value.ToString(),
+                       txt_Barcode.Text,
+                       txt_TransRef.Text,
+                       txt_ItemName.Text,
+                       cbo_brand.Text,
+                       cbo_desc.Text,
+                       txt_Qty.Text,
+                       txt_Price.Text,
+                       lbl_ProductValue.Text,
+                       txt_Sup_Name.Text);
+
+                        frm.ShowDialog();
+                }
             }
         }
 
@@ -540,19 +506,16 @@ namespace Inventory_System02
                 func.Error_Message();
 
             }
-            else if (cbo_categ.Text == "" || cbo_categ.Text == null)
+            else if (cbo_brand.Text == "" || cbo_brand.Text == null)
             {
-                func.Error_Message1 = "Item Category";
-                cbo_categ.Focus();
+                func.Error_Message1 = "Item Brand";
+                cbo_brand.Focus();
                 func.Error_Message();
 
             }
             else if (cbo_desc.Text == "" || cbo_desc.Text == null)
             {
-                func.Error_Message1 = "Item Description";
-                cbo_desc.Focus();
-                func.Error_Message();
-
+                cbo_desc.Text = "None";
 
             }
             else if (txt_Qty.Value == 0 || txt_Qty.Text == null)
@@ -579,7 +542,7 @@ namespace Inventory_System02
                     " `Entry Date` " +
                     ",`Stock ID` " +
                     ",`Item Name` " +
-                    ",`Category` " +
+                    ",`Brand` " +
                     ",`Description` " +
                     ",`Quantity` " +
                     ",`Price` " +
@@ -593,7 +556,7 @@ namespace Inventory_System02
                     " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
                     ",'" + Item_ID1 + "' " +
                     ",'" + txt_ItemName.Text + "' " +
-                    ",'" + cbo_categ.Text + "' " +
+                    ",'" + cbo_brand.Text + "' " +
                     ",'" + cbo_desc.Text + "' " +
                     ",'" + txt_Qty.Text + "' " +
                     ",'" + txt_Price.Text + "' " +

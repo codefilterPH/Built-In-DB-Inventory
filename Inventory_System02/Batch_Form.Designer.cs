@@ -1,4 +1,5 @@
-﻿
+﻿using AxAcroPDFLib;
+
 namespace Inventory_System02
 {
     partial class Batch_Form

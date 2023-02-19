@@ -28,8 +28,8 @@
           <DataField>Amount</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Category">
-          <DataField>Category</DataField>
+        <Field Name="Brand">
+          <DataField>Brand</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Customer_Address">
@@ -209,7 +209,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Category</Value>
+                                  <Value>Brand</Value>
                                   <Style>
                                     <FontFamily>Courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -411,14 +411,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Category">
+                        <Textbox Name="Brand">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Category.Value</Value>
+                                  <Value>=Fields!Brand.Value</Value>
                                   <Style>
                                     <FontFamily>Courier New</FontFamily>
                                   </Style>
@@ -427,7 +427,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Category</rd:DefaultName>
+                          <rd:DefaultName>Brand</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

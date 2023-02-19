@@ -42,9 +42,9 @@ namespace Inventory_System02
                 sql = "Select * from `Product Name`";
                 config.Load_DTG(sql, dtg_settings);
             }
-            else if (cbo_type.Text == "Category")
+            else if (cbo_type.Text == "Brand")
             {
-                sql = "Select * from Category";
+                sql = "Select * from Brand";
                 config.Load_DTG(sql, dtg_settings);
             }
             else
@@ -128,9 +128,9 @@ namespace Inventory_System02
             {
                 setting_name = "`Product Name`";
             }
-            else if (cbo_type.Text == "Category")
+            else if (cbo_type.Text == "Brand")
             {
-                setting_name = "`Category`";
+                setting_name = "`Brand`";
             }
             else if (cbo_type.Text == "Description")
             {
@@ -153,7 +153,7 @@ namespace Inventory_System02
                 setting_name = "`Employee Type`";
             }
 
-            if (setting_name == "`Product Name`" || setting_name == "`Category`" || setting_name == "`Description`")
+            if (setting_name == "`Product Name`" || setting_name == "`Brand`" || setting_name == "`Description`")
             {
                 col = "Name";
             }
@@ -445,9 +445,9 @@ namespace Inventory_System02
                 sql = "Select * from `Product Name`";
                 config.Load_DTG(sql, dtg_settings);
             }
-            else if (cbo_type.Text == "Category")
+            else if (cbo_type.Text == "Brand")
             {
-                sql = "Select * from Category";
+                sql = "Select * from Brand";
                 config.Load_DTG(sql, dtg_settings);
             }
             else if ( cbo_type.Text == "Description")

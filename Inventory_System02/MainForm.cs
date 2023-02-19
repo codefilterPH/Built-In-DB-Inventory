@@ -23,7 +23,7 @@ namespace Inventory_System02
         public MainForm(string userid,string name,string acctype, string phone, string email )
         {
             InitializeComponent();
-            this.Text = "Inventory Management System - Welcome "+ name;
+            this.Text = "Inventory System - Welcome "+ name;
             Global_ID = userid;
             lbl_Fullname.Text = userid + " " + name;
             lbl_Acc.Text = "Job Role " + acctype;

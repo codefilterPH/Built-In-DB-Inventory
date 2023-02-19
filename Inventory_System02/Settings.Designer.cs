@@ -118,7 +118,7 @@ namespace Inventory_System02
             this.cbo_type.FormattingEnabled = true;
             this.cbo_type.Items.AddRange(new object[] {
             "Product Name",
-            "Category",
+            "Brand",
             "Description",
             "Customer Type",
             "Supplier Type",

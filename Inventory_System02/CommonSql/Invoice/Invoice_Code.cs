@@ -59,6 +59,20 @@ namespace Inventory_System02.Invoice_Code
                     address = config.dt.Rows[0].Field<string>("Customer Address");
                 }
             }
+            else if ( out_return == "item_preview" )
+            {
+                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
+                config.Load_Datasource(sql, ds);
+
+                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    report_date = config.dt.Rows[0].Field<string>("Entry Date");
+                    cust_name = config.dt.Rows[0].Field<string>("Supplier ID");
+                    address = config.dt.Rows[0].Field<string>("Supplier Name");
+                }
+            }
             else
             {
                 sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ";
@@ -83,7 +97,7 @@ namespace Inventory_System02.Invoice_Code
                  {
                      Item_ID = dataRow.Field<string>("Stock ID").ToString(),
                      Item_Name = dataRow.Field<string>("Item Name").ToString(),
-                     Category = dataRow.Field<string>("Category").ToString(),
+                     Brand = dataRow.Field<string>("Brand").ToString(),
                      Description = dataRow.Field<string>("Description").ToString(),
                      Quantity = dataRow.Field<string>("Quantity").ToString(),
                      Price = dataRow.Field<string>("Price").ToString(),
@@ -160,8 +174,6 @@ namespace Inventory_System02.Invoice_Code
                     string[] streams;
                     Warning[] warnings;
 
-                    string contentType = "application/pdf";
-
                     Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
                                     out extension, out encoding,
                                     out mimeType, out streams, out warnings); //for exporting to PDF  
@@ -184,7 +196,7 @@ namespace Inventory_System02.Invoice_Code
         public string Entry_Date { get; set; }
         public string Item_ID { get; set; }
         public string Item_Name { get; set; }
-        public string Category { get; set; }
+        public string Brand { get; set; }
         public string Description { get; set; }
         public string Quantity { get; set; }
         public string Supplier_ID { get; set; }

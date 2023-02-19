@@ -290,7 +290,7 @@ namespace Inventory_System02
                 chk_Desc.Checked = false;
                 chk_Date.Checked = false;
 
-                what_to_search = "`Category`";
+                what_to_search = "`Brand`";
             }
 
             txt_Search.Focus();
@@ -564,7 +564,7 @@ namespace Inventory_System02
                          " `Entry Date` " +
                          ", `Stock ID` " +
                          ",`Item Name` " +
-                         ",`Category` " +
+                         ",`Brand` " +
                          ",`Description` " +
                          ",`Quantity` " +
                          ",`Price` " +
