@@ -5,7 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace Inventory_System02
 {
@@ -407,7 +408,7 @@ namespace Inventory_System02
             e.Control.KeyPress -= new KeyPressEventHandler(func.NumbersOnlyDTG_Keypress);
             if (dtg_AddedStocks.CurrentCell.ColumnIndex == 4) //Desired Column
             {
-                TextBox tb = e.Control as TextBox;
+                System.Windows.Forms.TextBox tb = e.Control as System.Windows.Forms.TextBox;
                 if (tb != null)
                 {
                     tb.KeyPress += new KeyPressEventHandler(func.NumbersOnlyDTG_Keypress);
@@ -419,6 +420,64 @@ namespace Inventory_System02
         {
             dtg_Stocks.CurrentRow.Selected = dtg_Stocks.CurrentCell.Selected;
             btn_sup_add_Click(sender, e);
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+            if (dtg_Stocks.Rows.Count > 0)
+            {
+                if (dtg_Stocks.SelectedRows.Count >= 1 )
+                {
+                    decimal total_amount = Convert.ToDecimal(dtg_Stocks.CurrentRow.Cells[6].Value) * Convert.ToDecimal(dtg_Stocks.CurrentRow.Cells[7].Value);
+
+                    Items.Item_Preview frm = new Items.Item_Preview(
+                    dtg_Stocks.CurrentRow.Cells[1].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[2].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[14].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[3].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[4].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[5].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[6].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[7].Value.ToString(),
+                    total_amount.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[12].Value.ToString());
+
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    dtg_Stocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dtg_Stocks.Rows[0].Selected = true;
+                }
+            }
+          
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if ( dtg_AddedStocks.SelectedRows.Count > 0)
+            {
+                Edit_Form.Edit_Form myForm = new Edit_Form.Edit_Form( dtg_AddedStocks.CurrentRow.Cells[1].Value.ToString(), Convert.ToInt32( dtg_AddedStocks.CurrentRow.Cells[4].Value ));
+               
+                DialogResult result = myForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    // Get the data entered by the user from the MyData property of the form
+                    dtg_AddedStocks.CurrentRow.Cells[4].Value = myForm.MyData_qty;
+                    Update_Qty_Stocks();
+                }
+            }  
+            else
+            {
+                dtg_AddedStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dtg_AddedStocks.Rows[0].Selected = true;    
+            }
+        }
+        private ToolTip toolTip;
+        private void btn_searchCustomer_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip ( btn_searchCustomer, "Click to search an existing customer." );
         }
         private void Update_Qty_Stocks()
         {
@@ -494,6 +553,12 @@ namespace Inventory_System02
                 refreshTableToolStripMenuItem.Enabled = true;
             }
         }
+
+        private void cbo_srch_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_Search_TextChanged(sender, e);
+        }
+
         private void dtg_AddedStocks_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             Update_Qty_Stocks();
@@ -502,9 +567,13 @@ namespace Inventory_System02
         private void customerListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustSupplier.CustSupp frm = new CustSupplier.CustSupp(Global_ID, Fullname, JobRole, "Cust");
-            frm.ShowDialog();
+            DialogResult result = frm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                cbo_CustID.Text = frm.cusID;
+            }
         }
-
+        Inventory_System02.Invoice_Code.Invoice_Code out_trans_rec = new Invoice_Code.Invoice_Code();
         private void btn_Saved_Click(object sender, EventArgs e)
         {
 
@@ -536,10 +605,10 @@ namespace Inventory_System02
             else
             {
 
-                if (MessageBox.Show("Warehouse will updated all items will be removed to record. \n\nPlease confirm stock out?", "Important Message", MessageBoxButtons.YesNo,
-                 MessageBoxIcon.Question) == DialogResult.Yes)
+                if ( MessageBox.Show("Warehouse will updated all items will be removed to record. \n\nPlease confirm stock out?", "Important Message", MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Question ) == DialogResult.Yes )
                 {
-
+                  
                     foreach (DataGridViewRow rw in dtg_Stocks.Rows)
                     {
                         sql = "Select Quantity from Stocks where `Stock ID` = '" + rw.Cells[2].Value + "' ";
@@ -557,7 +626,7 @@ namespace Inventory_System02
                     if (config.dt.Rows.Count > 0)
                     {
                         Gen_Trans = config.dt.Rows[0].Field<string>("Transaction Reference");
-                    }
+                    } 
 
                     foreach (DataGridViewRow stock_out_row in dtg_AddedStocks.Rows)
                     {
@@ -597,14 +666,40 @@ namespace Inventory_System02
                         func.Due_Date_Warranty(Gen_Trans);
                     }
 
-                    MessageBox.Show("Successfully Updated the \"Stock Records\" and Item Move to \"Stock Out\" list! \n\nTransaction Successful!", "Important Message",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dtg_AddedStocks.Rows.Clear();
+                    if (MessageBox.Show("Print Transaction?", "Important Message", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (Gen_Trans != "")
+                        {
+                            out_trans_rec.Invoice("out", Gen_Trans, "print");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Print unsuccussfel due to no Transaction Reference Number Generated! Contact developers for hotfix.",
+                                "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
 
-                    cbo_CustID.Text = "";
-                    txt_Cust_Name.Text = "";
-                    txt_Cust_SAddress.Text = "";
-                    refreshTableToolStripMenuItem_Click(sender, e);
+                    sql = "Select * from `Stock Out` where `Transaction Reference` =   '" + Gen_Trans + "' ";
+                    config.singleResult(sql);
+                    if ( config.dt.Rows.Count > 0 ) 
+                    {
+                        MessageBox.Show("Successfully Updated the \"Stock Records\" and Item Move to \"Stock Out\" list! \n\nTransaction Successful!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dtg_AddedStocks.Rows.Clear();
+
+                        cbo_CustID.Text = "";
+                        txt_Cust_Name.Text = "";
+                        txt_Cust_SAddress.Text = "";
+                        refreshTableToolStripMenuItem_Click(sender, e);
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unsuccessful transaction please try again", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+       
+                
 
                 }
                 else

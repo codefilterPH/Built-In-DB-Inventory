@@ -322,3 +322,4 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\zh-Hans\Micro
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Items.Item_Preview.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In_Item.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Edit_Form.Edit_Form.resources

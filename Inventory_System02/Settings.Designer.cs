@@ -61,6 +61,7 @@ namespace Inventory_System02
             this.btn_Address = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_Com_Address = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_settings)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Company_Logo)).BeginInit();
@@ -189,7 +190,7 @@ namespace Inventory_System02
             this.txt_company_name.Enabled = false;
             this.txt_company_name.Location = new System.Drawing.Point(24, 32);
             this.txt_company_name.Name = "txt_company_name";
-            this.txt_company_name.Size = new System.Drawing.Size(252, 25);
+            this.txt_company_name.Size = new System.Drawing.Size(262, 25);
             this.txt_company_name.TabIndex = 10;
             this.txt_company_name.Leave += new System.EventHandler(this.txt_company_name_Leave);
             // 
@@ -216,7 +217,7 @@ namespace Inventory_System02
             // 
             this.btn_company_name.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_company_name.BackgroundImage")));
             this.btn_company_name.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_company_name.Location = new System.Drawing.Point(282, 32);
+            this.btn_company_name.Location = new System.Drawing.Point(289, 32);
             this.btn_company_name.Name = "btn_company_name";
             this.btn_company_name.Size = new System.Drawing.Size(27, 23);
             this.btn_company_name.TabIndex = 14;
@@ -284,9 +285,9 @@ namespace Inventory_System02
             // num_SL_Detection
             // 
             this.num_SL_Detection.Enabled = false;
-            this.num_SL_Detection.Location = new System.Drawing.Point(169, 152);
+            this.num_SL_Detection.Location = new System.Drawing.Point(151, 152);
             this.num_SL_Detection.Name = "num_SL_Detection";
-            this.num_SL_Detection.Size = new System.Drawing.Size(74, 25);
+            this.num_SL_Detection.Size = new System.Drawing.Size(60, 25);
             this.num_SL_Detection.TabIndex = 44;
             this.num_SL_Detection.DoubleClick += new System.EventHandler(this.num_SL_Detection_DoubleClick);
             this.num_SL_Detection.Leave += new System.EventHandler(this.num_SL_Detection_Leave);
@@ -295,7 +296,7 @@ namespace Inventory_System02
             // 
             this.btn_SL_save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_SL_save.BackgroundImage")));
             this.btn_SL_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_SL_save.Location = new System.Drawing.Point(249, 152);
+            this.btn_SL_save.Location = new System.Drawing.Point(259, 152);
             this.btn_SL_save.Name = "btn_SL_save";
             this.btn_SL_save.Size = new System.Drawing.Size(27, 23);
             this.btn_SL_save.TabIndex = 45;
@@ -306,7 +307,7 @@ namespace Inventory_System02
             // 
             this.btn_Warranty.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Warranty.BackgroundImage")));
             this.btn_Warranty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Warranty.Location = new System.Drawing.Point(249, 181);
+            this.btn_Warranty.Location = new System.Drawing.Point(259, 181);
             this.btn_Warranty.Name = "btn_Warranty";
             this.btn_Warranty.Size = new System.Drawing.Size(27, 23);
             this.btn_Warranty.TabIndex = 48;
@@ -316,9 +317,9 @@ namespace Inventory_System02
             // num_Warranty
             // 
             this.num_Warranty.Enabled = false;
-            this.num_Warranty.Location = new System.Drawing.Point(169, 181);
+            this.num_Warranty.Location = new System.Drawing.Point(151, 181);
             this.num_Warranty.Name = "num_Warranty";
-            this.num_Warranty.Size = new System.Drawing.Size(74, 25);
+            this.num_Warranty.Size = new System.Drawing.Size(60, 25);
             this.num_Warranty.TabIndex = 47;
             this.num_Warranty.DoubleClick += new System.EventHandler(this.num_Warranty_DoubleClick);
             this.num_Warranty.Leave += new System.EventHandler(this.num_Warranty_Leave);
@@ -336,7 +337,7 @@ namespace Inventory_System02
             // 
             this.btn_edit_detection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_edit_detection.BackgroundImage")));
             this.btn_edit_detection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_edit_detection.Location = new System.Drawing.Point(280, 151);
+            this.btn_edit_detection.Location = new System.Drawing.Point(287, 151);
             this.btn_edit_detection.Name = "btn_edit_detection";
             this.btn_edit_detection.Size = new System.Drawing.Size(27, 23);
             this.btn_edit_detection.TabIndex = 49;
@@ -347,7 +348,7 @@ namespace Inventory_System02
             // 
             this.btn_edit_warranty.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_edit_warranty.BackgroundImage")));
             this.btn_edit_warranty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_edit_warranty.Location = new System.Drawing.Point(280, 181);
+            this.btn_edit_warranty.Location = new System.Drawing.Point(287, 181);
             this.btn_edit_warranty.Name = "btn_edit_warranty";
             this.btn_edit_warranty.Size = new System.Drawing.Size(27, 23);
             this.btn_edit_warranty.TabIndex = 50;
@@ -358,7 +359,7 @@ namespace Inventory_System02
             // 
             this.btn_Address.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Address.BackgroundImage")));
             this.btn_Address.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Address.Location = new System.Drawing.Point(282, 83);
+            this.btn_Address.Location = new System.Drawing.Point(289, 83);
             this.btn_Address.Name = "btn_Address";
             this.btn_Address.Size = new System.Drawing.Size(27, 23);
             this.btn_Address.TabIndex = 53;
@@ -380,15 +381,25 @@ namespace Inventory_System02
             this.txt_Com_Address.Location = new System.Drawing.Point(24, 83);
             this.txt_Com_Address.Multiline = true;
             this.txt_Com_Address.Name = "txt_Com_Address";
-            this.txt_Com_Address.Size = new System.Drawing.Size(252, 63);
+            this.txt_Com_Address.Size = new System.Drawing.Size(262, 63);
             this.txt_Com_Address.TabIndex = 51;
             this.txt_Com_Address.Leave += new System.EventHandler(this.txt_Com_Address_Leave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(214, 183);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 17);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Day(s)";
             // 
             // Settings
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(507, 541);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_Address);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_Com_Address);
@@ -457,5 +468,6 @@ namespace Inventory_System02
         private System.Windows.Forms.Button btn_Address;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_Com_Address;
+        private System.Windows.Forms.Label label8;
     }
 }

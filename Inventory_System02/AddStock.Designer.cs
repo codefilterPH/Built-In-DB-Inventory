@@ -506,6 +506,7 @@ namespace Inventory_System02
             this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
             this.cbo_srch_type.TabIndex = 72;
             this.cbo_srch_type.Text = "Name";
+            this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
             // lbl_stock_low
             // 

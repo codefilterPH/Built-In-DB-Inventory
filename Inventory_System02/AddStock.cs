@@ -430,6 +430,11 @@ namespace Inventory_System02
             }
         }
 
+        private void cbo_srch_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_Search_TextChanged(sender, e);
+        }
+
         private void txt_Price_Click(object sender, EventArgs e)
         {
             txt_Price.SelectionStart = 0;

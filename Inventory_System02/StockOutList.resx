@@ -121,7 +121,7 @@
   <data name="btn_Delete.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        6wAAAOsBK2zXwgAAAb5JREFUWEft17FOFFEUxvFVgqWU8gBYGiBQYkfUylBAQ3gSKUggARKfAAJqodFo
+        6QAAAOkBVJIUSwAAAb5JREFUWEft17FOFFEUxvFVgqWU8gBYGiBQYkfUylBAQ3gSKUggARKfAAJqodFo
         RwWvAAUJHTQKDXZIQEgIZvx/5p7N5d7D7gwZqeZLfslw5szdw51NdqZVFEUVw3iHI1zBouNDrGEQ3rUu
         t+h4gHlco1vUMwdvnYxbdCwgznds4Gug4x+IU2oIt5gYwh8oF5iGdiTte4gZXELRNc+Q9t3gFhO65xZ9
         uNcT0xAWfSe8nrb4j14swbbV/IKie/sN6fmUeuy7coL0/CL0WdkAr3BfeYFsgH4c4H9nH0+QDRDTVlm8
@@ -170,7 +170,7 @@
   <data name="batchTransactionToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        6wAAAOsBK2zXwgAAAYtJREFUWEft1zsvBFEYxvFFaCRLS+MDiMKlFBoSH4KajyASaqKSqARR0NBpEIkv
+        6QAAAOkBVJIUSwAAAYtJREFUWEft1zsvBFEYxvFFaCRLS+MDiMKlFBoSH4KajyASaqKSqARR0NBpEIkv
         4BaJdhOyhSBxv4Rg/J+zOZNjsjIze5tmnuS3mTM7c953Z2ezZzKe5yUquKMBI5jHBjYdKxhFE4Lnlcwd
         9OEcYbnEBCrSiN0YxBvi5ALjaMafSePQSytuYLODbjTCPbgDC3hH3HxCDS+jC/68epmBzSrq4B9QRDtK
         bUT5hmqaOprwFMo9sggW/E8bJrEO92YtZhu6Am6mYRp4NkPP20WwSCXVQ78ie699oVNv2KjT4EnVMAab

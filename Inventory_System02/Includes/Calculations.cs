@@ -105,6 +105,5 @@ namespace Inventory_System02.Includes
                 config.Execute_Query(sql); 
             }
         }
-
     }
 }

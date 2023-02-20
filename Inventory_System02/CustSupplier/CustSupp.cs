@@ -15,6 +15,7 @@ namespace Inventory_System02.CustSupplier
         string cust_path = string.Empty;
         string sup_path = string.Empty;
         string main_path = string.Empty;
+        public string cusID { get; set; }
 
         public CustSupp(string global_id, string fullname, string jobrole, string Type_of_Need)
         {
@@ -354,6 +355,12 @@ namespace Inventory_System02.CustSupplier
 
         private void cust_ID_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cusID = cust_ID.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
@@ -437,6 +444,13 @@ namespace Inventory_System02.CustSupplier
                 Sup_ID.SelectionLength = cust_ID.Text.Length;
                 Sup_ID.Focus();
             }
+        }
+    
+        private void dtg_Customer_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cusID = cust_ID.Text;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)

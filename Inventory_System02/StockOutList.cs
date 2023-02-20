@@ -49,7 +49,6 @@ namespace Inventory_System02
                 out_qty.Text = qty.ToString();
                 out_amt.Text = val.ToString();
             }
-            chk_ItemName.Checked = true;
             DTG_Property();
 
         }
@@ -117,67 +116,7 @@ namespace Inventory_System02
                 chk_all.Checked = false;
             }
         }
-        string colmn = string.Empty;
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemID.Checked)
-            {
-                colmn = "`Stock ID`";
-            }
-            if (chk_ItemName.Checked)
-            {
-                colmn = "`Item Name`";
-            }
-            if (chk_Desc.Checked)
-            {
-                colmn = "`Brand`";
-            }
-            if (chk_Cat.Checked)
-            {
-                colmn = "`Description`";
-            }
-            if (chk_Date.Checked)
-            {
-                colmn = "`Entry Date`";
-            }
-            foreach (CheckBox bx in panel1.Controls)
-            {
-                if (bx is CheckBox)
-                {
-                    if (bx.Checked)
-                    {
-                        sql = "Select * from `Stock Out` where " + colmn + " like '%" + txt_Search.Text + "%' ";
-                        config.Load_DTG(sql, dtg_outlist);
-                        DTG_Property();
-                    }
-                }
-            }
-        }
-
-        private void chk_ItemID_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemID.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-            }
-            txt_Search.Focus();
-        }
-
-        private void chk_ItemName_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemName.Checked)
-            {
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-            }
-
-            txt_Search.Focus();
-        }
+       
         private void txt_Trans_number_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -207,7 +146,7 @@ namespace Inventory_System02
 
         private void batchTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "")
+            if (txt_Trans_number.Text != "" || txt_Trans_number.Text != null || txt_Trans_number.Text != "Empty Field!")
             {
                 voice.Invoice("out", txt_Trans_number.Text, "batch");
             }
@@ -220,7 +159,7 @@ namespace Inventory_System02
 
         private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "")
+            if (txt_Trans_number.Text != "" || txt_Trans_number.Text != "Empty Field!" || txt_Trans_number.Text != null)
             {
                 voice.Invoice("out", txt_Trans_number.Text, "print");
             }
@@ -230,10 +169,63 @@ namespace Inventory_System02
                 txt_Trans_number.Focus();
             }
         }
+        string search_for = string.Empty;
+        private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            if (cbo_srch_type.Text == "Date")
+            {
+                search_for = "`Entry Date`";
+            }
+            else if (cbo_srch_type.Text == "Id")
+            {
+                search_for = "`Stock ID`";
+            }
+            else if (cbo_srch_type.Text == "Name")
+            {
+                search_for = "`Item Name`";
+            }
+            else if (cbo_srch_type.Text == "Brand")
+            {
+                search_for = "`Brand`";
+            }
+            else if (cbo_srch_type.Text == "Description")
+            {
+                search_for = "`Description`";
+            }
+            else if (cbo_srch_type.Text == "Quantity")
+            {
+                search_for = "`Quantity`";
+            }
+            else if (cbo_srch_type.Text == "Price")
+            {
+                search_for = "`Price`";
+            }
+            else if (cbo_srch_type.Text == "Supplier")
+            {
+                search_for = "`Supplier Name`";
+            }
+            else if (cbo_srch_type.Text == "Job")
+            {
+                search_for = "`Job Role`";
+            }
+            else
+            {
+                search_for = "`Transaction Reference`";
+            }
+            sql = "Select * from `Stock Out` where " + search_for + " like '%" + txt_Search.Text + "%' ";
+            config.Load_DTG(sql, dtg_outlist);
+            DTG_Property();
+
+            if (txt_Search.Text == "")
+            {
+                refreshTableToolStripMenuItem_Click(sender, e);
+            }
+
+        }
 
         private void btn_print_invoice_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "")
+            if ( txt_Trans_number.Text != "" || txt_Trans_number.Text != "Empty Field!" || txt_Trans_number.Text != null )
             {
                 voice.Invoice("out", txt_Trans_number.Text, "preview");
             }
@@ -243,46 +235,6 @@ namespace Inventory_System02
                 txt_Trans_number.Focus();
             }
 
-        }
-
-        private void chk_Cat_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Cat.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-            }
-
-            txt_Search.Focus();
-
-        }
-
-        private void chk_Desc_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Desc.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Date.Checked = false;
-            }
-
-            txt_Search.Focus();
-        }
-
-        private void chk_Date_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Date.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-            }
-
-            txt_Search.Focus();
         }
     }
 }
