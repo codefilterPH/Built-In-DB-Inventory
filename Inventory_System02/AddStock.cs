@@ -7,6 +7,8 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using ZXing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace Inventory_System02
 {
@@ -434,6 +436,12 @@ namespace Inventory_System02
         {
             txt_Search_TextChanged(sender, e);
         }
+        private ToolTip toolTip;
+        private void btn_searchSup_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(btn_searchSup, "Click to search for an existing supplier.");
+        }
 
         private void txt_Price_Click(object sender, EventArgs e)
         {
@@ -449,7 +457,12 @@ namespace Inventory_System02
         private void supplierListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustSupplier.CustSupp frm = new CustSupplier.CustSupp(Global_ID, Fullname, JobRole, "Sup");
-            frm.ShowDialog();
+           
+            DialogResult result = frm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txt_SupID.Text = frm.supID;
+            }
         }
 
         private void txt_SupID_TextChanged(object sender, EventArgs e)

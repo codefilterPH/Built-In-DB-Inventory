@@ -171,7 +171,7 @@ namespace Inventory_System02
         {
             if ( dtg_AddedStocks.Rows.Count > 0 )
             {
-                HashSet<double> distinctValues = new HashSet<double>();
+                HashSet<double> distinctQuantities = new HashSet<double>();
                 double totalQty = 0;
                 double totalAmt = 0;
 
@@ -180,19 +180,15 @@ namespace Inventory_System02
                     double.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out double qty);
                     double.TryParse(dtg_AddedStocks.Rows[i].Cells[5].Value.ToString(), out double price);
 
-                    // Check if the quantity value is already in the set
-                    if (!distinctValues.Contains(qty))
-                    {
-                        distinctValues.Add(qty);
-                        totalQty += qty;
-                    }
-
+                    totalQty += qty;
                     totalAmt += qty * price;
+
+                    distinctQuantities.Add(qty);
                 }
 
                 out_qty.Text = totalQty.ToString();
                 out_amt.Text = totalAmt.ToString();
-                lbl_numb_out_items.Text = "Number of outbound items: " + distinctValues.Count.ToString();
+                lbl_numb_out_items.Text = "Number of outbound items: " + distinctQuantities.Count.ToString();
 
             }
             else
@@ -477,7 +473,7 @@ namespace Inventory_System02
         private void btn_searchCustomer_MouseHover(object sender, EventArgs e)
         {
             toolTip = new ToolTip();
-            toolTip.SetToolTip ( btn_searchCustomer, "Click to search an existing customer." );
+            toolTip.SetToolTip ( btn_searchCustomer, "Click to search for an existing customer." );
         }
         private void Update_Qty_Stocks()
         {
@@ -519,6 +515,7 @@ namespace Inventory_System02
                                         dtg_AddedStocks.Rows[i].Cells[4].Value = 1;
                                         rw.Cells[6].Value = Convert.ToDouble(ds.Tables[0].Rows[0].Field<string>("Quantity")) - 1;
                                     }
+                                    return;
                                 }
 
                                 if (Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) == 0)
@@ -527,6 +524,7 @@ namespace Inventory_System02
                                     func.Error_Message();
                                     dtg_AddedStocks.Focus();
                                     btn_Saved.Enabled = false;
+                                    return;
                                 }
                                 else
                                 {
@@ -536,12 +534,12 @@ namespace Inventory_System02
                                         Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);
                                     btn_Saved.Enabled = true;
                                     
-                                }
-                                TOTALS();
+                                } 
                             }
                         }
                     }
                 }
+                TOTALS();
             }
 
             if (dtg_AddedStocks.Rows.Count > 0)
@@ -557,6 +555,12 @@ namespace Inventory_System02
         private void cbo_srch_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_Search_TextChanged(sender, e);
+        }
+
+        private void checkBox1_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(checkBox1, "Check to review and enable confirm stock out.");
         }
 
         private void dtg_AddedStocks_CellEndEdit(object sender, DataGridViewCellEventArgs e)

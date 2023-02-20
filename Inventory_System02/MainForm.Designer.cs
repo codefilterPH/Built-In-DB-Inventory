@@ -499,7 +499,7 @@ namespace Inventory_System02
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(213, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(899, 72);
@@ -529,11 +529,11 @@ namespace Inventory_System02
             // lbl_Acc
             // 
             this.lbl_Acc.AutoSize = true;
-            this.lbl_Acc.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Acc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Acc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbl_Acc.Location = new System.Drawing.Point(78, 37);
             this.lbl_Acc.Name = "lbl_Acc";
-            this.lbl_Acc.Size = new System.Drawing.Size(0, 21);
+            this.lbl_Acc.Size = new System.Drawing.Size(0, 15);
             this.lbl_Acc.TabIndex = 3;
             // 
             // panel5
@@ -541,6 +541,7 @@ namespace Inventory_System02
             this.panel5.Controls.Add(this.lbl_Email);
             this.panel5.Controls.Add(this.lbl_Phone);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(319, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(354, 72);
@@ -549,23 +550,23 @@ namespace Inventory_System02
             // lbl_Email
             // 
             this.lbl_Email.AutoSize = true;
-            this.lbl_Email.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Email.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbl_Email.Location = new System.Drawing.Point(15, 37);
             this.lbl_Email.Name = "lbl_Email";
             this.lbl_Email.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl_Email.Size = new System.Drawing.Size(0, 21);
+            this.lbl_Email.Size = new System.Drawing.Size(0, 15);
             this.lbl_Email.TabIndex = 5;
             // 
             // lbl_Phone
             // 
             this.lbl_Phone.AutoSize = true;
-            this.lbl_Phone.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Phone.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Phone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lbl_Phone.Location = new System.Drawing.Point(15, 9);
             this.lbl_Phone.Name = "lbl_Phone";
             this.lbl_Phone.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl_Phone.Size = new System.Drawing.Size(0, 21);
+            this.lbl_Phone.Size = new System.Drawing.Size(0, 15);
             this.lbl_Phone.TabIndex = 4;
             // 
             // panel3
@@ -582,10 +583,10 @@ namespace Inventory_System02
             // 
             this.company_Name.BackColor = System.Drawing.Color.Transparent;
             this.company_Name.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.company_Name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.company_Name.Location = new System.Drawing.Point(0, 37);
+            this.company_Name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.company_Name.Location = new System.Drawing.Point(0, 51);
             this.company_Name.Name = "company_Name";
-            this.company_Name.Size = new System.Drawing.Size(226, 35);
+            this.company_Name.Size = new System.Drawing.Size(226, 21);
             this.company_Name.TabIndex = 1;
             this.company_Name.Text = "TEST COMPANY NAME";
             this.company_Name.TextAlign = System.Drawing.ContentAlignment.TopCenter;
