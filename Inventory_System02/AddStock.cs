@@ -360,7 +360,7 @@ namespace Inventory_System02
 
         private void batchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_TransRef.Text != "")
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
                 rdlc.Invoice("in", txt_TransRef.Text, "batch");
             }
@@ -373,7 +373,7 @@ namespace Inventory_System02
 
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_TransRef.Text != "")
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
                 rdlc.Invoice("in", txt_TransRef.Text, "preview");
             }
@@ -386,7 +386,7 @@ namespace Inventory_System02
 
         private void printTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_TransRef.Text != "")
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
                 rdlc.Invoice("in", txt_TransRef.Text, "print");
             }

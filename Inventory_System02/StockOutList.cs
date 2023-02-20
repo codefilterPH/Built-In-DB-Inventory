@@ -103,18 +103,22 @@ namespace Inventory_System02
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (dtg_outlist.SelectedRows.Count > 0)
+            if ( MessageBox.Show("This will delete an entire transaction reference which consist of 1 or more items on it!", "Warning Message", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes )
             {
-                foreach (DataGridViewRow rw in dtg_outlist.SelectedRows)
+                if (dtg_outlist.SelectedRows.Count > 0)
                 {
-                    sql = "Delete from `Stock Out` where `Transaction Reference` = '" + rw.Cells[16].Value.ToString() + "' ";
-                    config.Execute_Query(sql);
+                    foreach (DataGridViewRow rw in dtg_outlist.SelectedRows)
+                    {
+                        sql = "Delete from `Stock Out` where `Transaction Reference` = '" + rw.Cells[16].Value.ToString() + "' ";
+                        config.Execute_Query(sql);
 
+                    }
+                    MessageBox.Show("Out Stocks successfully deleted");
+                    refreshTableToolStripMenuItem_Click(sender, e);
+                    chk_all.Checked = false;
                 }
-                MessageBox.Show("Out Stocks successfully deleted");
-                refreshTableToolStripMenuItem_Click(sender, e);
-                chk_all.Checked = false;
-            }
+            }     
         }
        
         private void txt_Trans_number_KeyDown(object sender, KeyEventArgs e)
@@ -146,7 +150,7 @@ namespace Inventory_System02
 
         private void batchTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "" || txt_Trans_number.Text != null || txt_Trans_number.Text != "Empty Field!")
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
                 voice.Invoice("out", txt_Trans_number.Text, "batch");
             }
@@ -159,7 +163,7 @@ namespace Inventory_System02
 
         private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "" || txt_Trans_number.Text != "Empty Field!" || txt_Trans_number.Text != null)
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
                 voice.Invoice("out", txt_Trans_number.Text, "print");
             }
@@ -225,7 +229,7 @@ namespace Inventory_System02
 
         private void btn_print_invoice_Click(object sender, EventArgs e)
         {
-            if ( txt_Trans_number.Text != "" || txt_Trans_number.Text != "Empty Field!" || txt_Trans_number.Text != null )
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!" )
             {
                 voice.Invoice("out", txt_Trans_number.Text, "preview");
             }
