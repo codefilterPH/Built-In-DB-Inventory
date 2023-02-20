@@ -74,5 +74,18 @@ namespace Inventory_System02.Items
             }
         }
 
+        Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                rdlc.Invoice("in-single-print", txt_id.Text, "single-item-print");
+            }
+            else
+            {
+                txt_id.Text = "Empty Field!";
+                txt_id.Focus();
+            }
+        }
     }
 }

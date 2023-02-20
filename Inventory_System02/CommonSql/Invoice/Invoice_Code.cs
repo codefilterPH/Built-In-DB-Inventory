@@ -45,7 +45,7 @@ namespace Inventory_System02.Invoice_Code
 
                 }
             }
-            else if ( out_return == "return")
+            else if ( out_return == "return" )
             {
                 sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + Trans_ref + "' ";
                 config.Load_Datasource(sql, ds);
@@ -59,7 +59,7 @@ namespace Inventory_System02.Invoice_Code
                     address = config.dt.Rows[0].Field<string>("Customer Address");
                 }
             }
-            else if ( out_return == "item_preview" )
+            else if ( out_return == "in-single-print" && what_to_do == "single-item-print" )
             {
                 sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
                 config.Load_Datasource(sql, ds);
@@ -131,7 +131,10 @@ namespace Inventory_System02.Invoice_Code
             {
                 frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_In.rdlc");
             }
-
+            else if (out_return == "in-single-print")
+            {
+                frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_In_Item.rdlc");
+            }
 
             //Load Text to RDLC TextBox
             reportParameters.Add(new ReportParameter("ReportDate", report_date));
@@ -148,6 +151,11 @@ namespace Inventory_System02.Invoice_Code
                 frm.ShowDialog();
             }
             else if ( what_to_do == "print")
+            {
+                Print_To_The_Printer prt = new Print_To_The_Printer();
+                prt.PrintToPrinter(frm.reportViewer1.LocalReport);
+            }
+            else if (what_to_do == "single-item-print")
             {
                 Print_To_The_Printer prt = new Print_To_The_Printer();
                 prt.PrintToPrinter(frm.reportViewer1.LocalReport);

@@ -51,6 +51,7 @@
             this.txt_date = new System.Windows.Forms.Label();
             this.txt_name = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Item_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
             this.panel1.SuspendLayout();
@@ -298,10 +299,23 @@
             this.panel1.Size = new System.Drawing.Size(627, 40);
             this.panel1.TabIndex = 33;
             // 
+            // btn_print
+            // 
+            this.btn_print.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_print.ForeColor = System.Drawing.Color.White;
+            this.btn_print.Location = new System.Drawing.Point(564, 391);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(79, 31);
+            this.btn_print.TabIndex = 34;
+            this.btn_print.Text = "Print";
+            this.btn_print.UseVisualStyleBackColor = false;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // Item_Preview
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(658, 434);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.txt_date);
             this.Controls.Add(this.txt_person_name);
             this.Controls.Add(this.txt_amt);
@@ -365,5 +379,6 @@
         private System.Windows.Forms.Label txt_date;
         private System.Windows.Forms.Label txt_name;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btn_print;
     }
 }

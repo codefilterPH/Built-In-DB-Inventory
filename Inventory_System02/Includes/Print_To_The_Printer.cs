@@ -38,12 +38,12 @@ namespace Inventory_System02.Includes
             string deviceInfo =
              @"<DeviceInfo>
                 <OutputFormat>EMF</OutputFormat>
-                <PageWidth>3in</PageWidth>
-                <PageHeight>8.3in</PageHeight>
-                <MarginTop>0in</MarginTop>
-                <MarginLeft>0.1in</MarginLeft>
-                <MarginRight>0.1in</MarginRight>
-                <MarginBottom>0in</MarginBottom>
+                <PageWidth>8.5in</PageWidth>
+                <PageHeight>11in</PageHeight>
+                <MarginTop>1in</MarginTop>
+                <MarginLeft>1in</MarginLeft>
+                <MarginRight>1in</MarginRight>
+                <MarginBottom>1in</MarginBottom>
             </DeviceInfo>";
             Warning[] warnings;
             m_streams = new List<Stream>();
