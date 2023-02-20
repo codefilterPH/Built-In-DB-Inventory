@@ -59,7 +59,7 @@ namespace Inventory_System02
             // 
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
             this.Logo.Location = new System.Drawing.Point(13, 63);
-            this.Logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Logo.Margin = new System.Windows.Forms.Padding(4);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(161, 155);
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +180,7 @@ namespace Inventory_System02
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(10, 268);
+            this.label12.Location = new System.Drawing.Point(10, 269);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 17);
@@ -190,7 +190,7 @@ namespace Inventory_System02
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(10, 292);
+            this.label13.Location = new System.Drawing.Point(10, 293);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(69, 17);
@@ -200,7 +200,7 @@ namespace Inventory_System02
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 317);
+            this.label14.Location = new System.Drawing.Point(10, 318);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 17);
@@ -210,7 +210,7 @@ namespace Inventory_System02
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(108, 268);
+            this.label15.Location = new System.Drawing.Point(108, 269);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(66, 17);
@@ -220,27 +220,27 @@ namespace Inventory_System02
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(108, 292);
+            this.label16.Location = new System.Drawing.Point(108, 293);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 17);
+            this.label16.Size = new System.Drawing.Size(84, 17);
             this.label16.TabIndex = 16;
-            this.label16.Text = "None";
+            this.label16.Text = "CodefilterPH";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(108, 317);
+            this.linkLabel1.Location = new System.Drawing.Point(108, 318);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(293, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(243, 17);
             this.linkLabel1.TabIndex = 17;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://www.facebook.com/eugenereybulahan/";
+            this.linkLabel1.Text = "https://codefilter.pythonanywhere.com";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(10, 343);
+            this.label17.Location = new System.Drawing.Point(10, 344);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 17);
@@ -250,7 +250,7 @@ namespace Inventory_System02
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(10, 368);
+            this.label18.Location = new System.Drawing.Point(10, 369);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(43, 17);
@@ -260,7 +260,7 @@ namespace Inventory_System02
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(108, 343);
+            this.label19.Location = new System.Drawing.Point(108, 344);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(247, 17);
@@ -270,14 +270,14 @@ namespace Inventory_System02
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(108, 368);
+            this.label20.Location = new System.Drawing.Point(108, 369);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(195, 17);
             this.label20.TabIndex = 22;
             this.label20.Text = "eugenereybulahan@gmail.com";
             // 
-            // Form1
+            // About
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -306,8 +306,8 @@ namespace Inventory_System02
             this.Controls.Add(this.Logo);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Version 1.0.0";
             this.Load += new System.EventHandler(this.Form1_Load);

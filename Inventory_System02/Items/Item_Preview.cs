@@ -87,5 +87,18 @@ namespace Inventory_System02.Items
                 txt_id.Focus();
             }
         }
+
+        private void btn_print_preview_Click(object sender, EventArgs e)
+        {
+            if (txt_id.Text != "")
+            {
+                rdlc.Invoice("in-single-view", txt_id.Text, "single-item-view");
+            }
+            else
+            {
+                txt_id.Text = "Empty Field!";
+                txt_id.Focus();
+            }
+        }
     }
 }

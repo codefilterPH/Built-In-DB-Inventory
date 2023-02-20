@@ -73,6 +73,20 @@ namespace Inventory_System02.Invoice_Code
                     address = config.dt.Rows[0].Field<string>("Supplier Name");
                 }
             }
+            else if (out_return == "in-single-view" && what_to_do == "single-item-view")
+            {
+                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
+                config.Load_Datasource(sql, ds);
+
+                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    report_date = config.dt.Rows[0].Field<string>("Entry Date");
+                    cust_name = config.dt.Rows[0].Field<string>("Supplier ID");
+                    address = config.dt.Rows[0].Field<string>("Supplier Name");
+                }
+            }
             else
             {
                 sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ";
@@ -131,7 +145,7 @@ namespace Inventory_System02.Invoice_Code
             {
                 frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_In.rdlc");
             }
-            else if (out_return == "in-single-print")
+            else if (out_return == "in-single-print" || out_return == "in-single-view" )
             {
                 frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_In_Item.rdlc");
             }
@@ -146,16 +160,11 @@ namespace Inventory_System02.Invoice_Code
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();
 
-            if (what_to_do == "preview")
+            if (what_to_do == "preview" || what_to_do == "single-item-view")
             {
                 frm.ShowDialog();
             }
-            else if ( what_to_do == "print")
-            {
-                Print_To_The_Printer prt = new Print_To_The_Printer();
-                prt.PrintToPrinter(frm.reportViewer1.LocalReport);
-            }
-            else if (what_to_do == "single-item-print")
+            else if ( what_to_do == "print" || what_to_do == "single-item-print" )
             {
                 Print_To_The_Printer prt = new Print_To_The_Printer();
                 prt.PrintToPrinter(frm.reportViewer1.LocalReport);
@@ -170,7 +179,7 @@ namespace Inventory_System02.Invoice_Code
                 {
                     FileName = "Return Invoice " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                 }
-                else
+                else if ( out_return == "in")
                 {
                     FileName = "Inbound Invoice " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                 }

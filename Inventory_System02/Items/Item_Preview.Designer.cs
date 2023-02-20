@@ -52,6 +52,7 @@
             this.txt_name = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_print = new System.Windows.Forms.Button();
+            this.btn_print_preview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Item_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_qty)).BeginInit();
             this.panel1.SuspendLayout();
@@ -302,19 +303,34 @@
             // btn_print
             // 
             this.btn_print.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_print.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print.ForeColor = System.Drawing.Color.White;
-            this.btn_print.Location = new System.Drawing.Point(564, 391);
+            this.btn_print.Location = new System.Drawing.Point(547, 391);
             this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(79, 31);
+            this.btn_print.Size = new System.Drawing.Size(96, 31);
             this.btn_print.TabIndex = 34;
             this.btn_print.Text = "Print";
             this.btn_print.UseVisualStyleBackColor = false;
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
+            // btn_print_preview
+            // 
+            this.btn_print_preview.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_print_preview.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_print_preview.ForeColor = System.Drawing.Color.White;
+            this.btn_print_preview.Location = new System.Drawing.Point(445, 391);
+            this.btn_print_preview.Name = "btn_print_preview";
+            this.btn_print_preview.Size = new System.Drawing.Size(96, 31);
+            this.btn_print_preview.TabIndex = 35;
+            this.btn_print_preview.Text = "Print Preview";
+            this.btn_print_preview.UseVisualStyleBackColor = false;
+            this.btn_print_preview.Click += new System.EventHandler(this.btn_print_preview_Click);
+            // 
             // Item_Preview
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(658, 434);
+            this.Controls.Add(this.btn_print_preview);
             this.Controls.Add(this.btn_print);
             this.Controls.Add(this.txt_date);
             this.Controls.Add(this.txt_person_name);
@@ -380,5 +396,6 @@
         private System.Windows.Forms.Label txt_name;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_print;
+        private System.Windows.Forms.Button btn_print_preview;
     }
 }
