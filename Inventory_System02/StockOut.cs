@@ -1,5 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -49,7 +50,7 @@ namespace Inventory_System02
         {
             sql = "Select * from Stocks order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_Stocks);
-            chk_ItemID.Checked = true;
+         
             DTG_Property();
 
             sql = "Select Low_Detection from Settings";
@@ -135,7 +136,6 @@ namespace Inventory_System02
                         if (rw.Cells[2].Value == dtg_AddedStocks.Rows[i].Cells[0].Value)
                         {
                             MessageBox.Show("This item is already added to the table \n\nWarning!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            TOTALS();
                             return;
                          
                         }
@@ -152,10 +152,9 @@ namespace Inventory_System02
                              Convert.ToString(Convert.ToDouble(rw.Cells[6].Value) * Convert.ToDouble(rw.Cells[7].Value))
                              );
                         dtg_AddedStocks.Rows[0].Cells[4].Selected = true;
-
-                        Update_Qty_Stocks();
-                        TOTALS();
+                        Update_Qty_Stocks();   
                         chk_all.Checked = false;
+                        return;
                     }
 
                 }
@@ -164,31 +163,42 @@ namespace Inventory_System02
             {
                 dtg_Stocks.CurrentRow.Selected = true;
             }
-            TOTALS();
-
         }
-        double qty1 = 0, amt1 = 0, price1 = 0, amt2 = 0, quan = 0;
+        double quan = 0;
+        
         private void TOTALS()
         {
             if ( dtg_AddedStocks.Rows.Count > 0 )
             {
+                HashSet<double> distinctValues = new HashSet<double>();
+                double totalQty = 0;
+                double totalAmt = 0;
+
                 for (int i = 0; i < dtg_AddedStocks.Rows.Count; i++)
                 {
-                    double.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out qty1);
-                    double.TryParse(dtg_AddedStocks.Rows[i].Cells[6].Value.ToString(), out price1);
-                    amt1 += qty1;
-                    amt2 += price1;
-                    quan = i;
-                    
+                    double.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out double qty);
+                    double.TryParse(dtg_AddedStocks.Rows[i].Cells[5].Value.ToString(), out double price);
+
+                    // Check if the quantity value is already in the set
+                    if (!distinctValues.Contains(qty))
+                    {
+                        distinctValues.Add(qty);
+                        totalQty += qty;
+                    }
+
+                    totalAmt += qty * price;
                 }
-                out_qty.Text = amt1.ToString();
-                out_amt.Text = amt2.ToString();
-                quan += 1;
-                lbl_numb_out_items.Text = "Number of outbound items: " + quan.ToString();
+
+                out_qty.Text = totalQty.ToString();
+                out_amt.Text = totalAmt.ToString();
+                lbl_numb_out_items.Text = "Number of outbound items: " + distinctValues.Count.ToString();
+
             }
             else
             {
                 lbl_numb_out_items.Text = "";
+                out_qty.Text = "";
+                out_amt.Text = "";
             }
         
             if ( dtg_Stocks.Rows.Count > 0 )
@@ -228,7 +238,6 @@ namespace Inventory_System02
                 refreshTableToolStripMenuItem.Enabled = true;
                 refreshTableToolStripMenuItem_Click(sender, e);
             }
-            TOTALS();
             Update_Qty_Stocks();
             chk_all.Checked = false;
         }
@@ -239,94 +248,67 @@ namespace Inventory_System02
             StockOutList frm = new StockOutList(Global_ID, Fullname, JobRole);
             frm.ShowDialog();
         }
-
+        string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (what_to_search != "" || what_to_search != null)
+            if (cbo_srch_type.Text == "Date")
             {
-                sql = "Select * from Stocks where " + what_to_search + " like '%" + txt_Search.Text + "%'";
+                search_for = "`Entry Date`";
+            }
+            else if (cbo_srch_type.Text == "Id")
+            {
+                search_for = "`Stock ID`";
+            }
+            else if (cbo_srch_type.Text == "Name")
+            {
+                search_for = "`Item Name`";
+            }
+            else if (cbo_srch_type.Text == "Brand")
+            {
+                search_for = "`Brand`";
+            }
+            else if (cbo_srch_type.Text == "Description")
+            {
+                search_for = "`Description`";
+            }
+            else if (cbo_srch_type.Text == "Quantity")
+            {
+                search_for = "`Quantity`";
+            }
+            else if (cbo_srch_type.Text == "Price")
+            {
+                search_for = "`Price`";
+            }
+            else if (cbo_srch_type.Text == "Supplier")
+            {
+                search_for = "`Supplier Name`";
+            }
+            else if (cbo_srch_type.Text == "Job")
+            {
+                search_for = "`Job Role`";
+            }
+            else if (cbo_srch_type.Text == "Trans Ref")
+            {
+                search_for = "`Transaction Reference`";
+            }
+            else
+            {
+                search_for = "`Transaction Reference`";
+            }
+            sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%'";
                 config.Load_DTG(sql, dtg_Stocks);
                 DTG_Property();
-            }
-        }
-        string what_to_search = string.Empty;
-        private void chk_ItemID_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemID.Checked)
+            if ( dtg_AddedStocks.Rows.Count > 0)
             {
-                chk_ItemName.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-
-                what_to_search = "`Stock ID`";
+                Update_Qty_Stocks();
             }
-            txt_Search.Focus();
 
-        }
-
-        private void chk_ItemName_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemName.Checked)
+            if (txt_Search.Text == "")
             {
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-
-                what_to_search = "`Item Name`";
+                refreshTableToolStripMenuItem_Click(sender, e);
             }
-
-            txt_Search.Focus();
-
         }
-
-        private void chk_Cat_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Cat.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-
-                what_to_search = "`Brand`";
-            }
-
-            txt_Search.Focus();
-
-        }
-
-        private void chk_Desc_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Desc.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Date.Checked = false;
-
-                what_to_search = "`Description`";
-            }
-
-            txt_Search.Focus();
-        }
-
-        private void chk_Date_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Date.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-
-                what_to_search = "`Entry Date`";
-            }
-
-            txt_Search.Focus();
-        }
-
+  
         private void cbo_CustID_TextChanged(object sender, EventArgs e)
         {
             sql = "Select * from `Customer` where `Customer ID` = '" + cbo_CustID.Text + "' ";
@@ -438,11 +420,6 @@ namespace Inventory_System02
             dtg_Stocks.CurrentRow.Selected = dtg_Stocks.CurrentCell.Selected;
             btn_sup_add_Click(sender, e);
         }
-
-        private void cbo_CustID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void Update_Qty_Stocks()
         {
             if (dtg_AddedStocks.Rows.Count > 0)
@@ -459,10 +436,16 @@ namespace Inventory_System02
                             if (config.dt.Rows.Count > 0)
                             {
                                 rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
-
+                                //check the quantity if its greater or equal to added stocks
                                 if (Convert.ToDouble(rw.Cells[6].Value) >= Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value))
                                 {
+                                    //Change the value of the stocks minus the added stocks
                                     rw.Cells[6].Value = Convert.ToDouble(rw.Cells[6].Value) - Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value);
+                                    //Calculate the total (qty of added stocks * the price )
+                                    dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
+                                    dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) *
+                                        Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);
+                                
                                 }
                                 else
                                 {
@@ -478,6 +461,24 @@ namespace Inventory_System02
                                         rw.Cells[6].Value = Convert.ToDouble(ds.Tables[0].Rows[0].Field<string>("Quantity")) - 1;
                                     }
                                 }
+
+                                if (Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) == 0)
+                                {
+                                    func.Error_Message1 = "Quantiy is zero";
+                                    func.Error_Message();
+                                    dtg_AddedStocks.Focus();
+                                    btn_Saved.Enabled = false;
+                                }
+                                else
+                                {
+                                    //Calculate the total (qty of added stocks * the price )
+                                    dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
+                                    dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) *
+                                        Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);
+                                    btn_Saved.Enabled = true;
+                                    
+                                }
+                                TOTALS();
                             }
                         }
                     }
@@ -510,27 +511,27 @@ namespace Inventory_System02
             if (cbo_CustID.Text == "" || cbo_CustID.Text == null)
             {
                 func.Error_Message1 = "Customer ID";
-                btn_searchCustomer.Focus();
                 func.Error_Message();
+                btn_searchCustomer.Focus();
             }
             else if (txt_Cust_Name.Text == "" || txt_Cust_Name.Text == null)
             {
                 func.Error_Message1 = "Customer Name";
-                txt_Cust_Name.Focus();
                 func.Error_Message();
+                txt_Cust_Name.Focus();
 
             }
             else if (txt_Cust_SAddress.Text == "" || txt_Cust_SAddress.Text == null)
             {
                 func.Error_Message1 = "Customer Address";
-                txt_Cust_SAddress.Focus();
                 func.Error_Message();
+                txt_Cust_SAddress.Focus();
             }
             else if (dtg_AddedStocks.Rows.Count == 0)
             {
                 func.Error_Message1 = "Stocks Out table";
-                dtg_AddedStocks.Focus();
                 func.Error_Message();
+                dtg_AddedStocks.Focus();
             }
             else
             {
@@ -609,7 +610,6 @@ namespace Inventory_System02
                 else
                 {
                     checkBox1.Checked = false;
-                    TOTALS();
                     return;
                 }
 
