@@ -1,5 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
@@ -12,7 +13,7 @@ namespace Inventory_System02
         usableFunction func = new usableFunction(); Calculations cal = new Calculations();
         ID_Generator gen = new ID_Generator();
         string sql, Global_ID, JobRole, Fullname, Gen_Trans, due, date;
-
+        double price = 0, qty = 0, quan = 0;
         string sup_image_location = @"CommonSql\Pictures\Customers\";
         string item_image_location = @"CommonSql\Pictures\Item\Image\";
 
@@ -28,7 +29,11 @@ namespace Inventory_System02
         private void stockOutListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StockOutList frm = new StockOutList(Global_ID, Fullname, JobRole);
-            frm.ShowDialog();
+            DialogResult result = frm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txt_TransRefOut.Text = frm.passed_trans_ref;
+            }
         }
 
         private void customerListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,8 +44,7 @@ namespace Inventory_System02
 
         private void btn_searchStocks_Click(object sender, EventArgs e)
         {
-            StockOutList frm = new StockOutList(Global_ID, Fullname, JobRole);
-            frm.ShowDialog();
+            stockOutListToolStripMenuItem_Click(sender, e);
         }
 
         private void txt_TransRefOut_TextChanged(object sender, EventArgs e)
@@ -87,71 +91,6 @@ namespace Inventory_System02
             TOTALS();
         }
 
-        private void chk_ItemID_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemID.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-            }
-            txt_Search.Focus();
-
-        }
-
-        private void chk_ItemName_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_ItemName.Checked)
-            {
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-            }
-
-            txt_Search.Focus();
-
-        }
-
-        private void chk_Cat_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Cat.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Desc.Checked = false;
-                chk_Date.Checked = false;
-            }
-
-            txt_Search.Focus();
-        }
-
-        private void chk_Desc_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Desc.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Date.Checked = false;
-            }
-
-            txt_Search.Focus();
-        }
-
-        private void chk_Date_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_Date.Checked)
-            {
-                chk_ItemName.Checked = false;
-                chk_ItemID.Checked = false;
-                chk_Cat.Checked = false;
-                chk_Desc.Checked = false;
-            }
-
-            txt_Search.Focus();
-        }
         private void DTG_Properties()
         {
             if (dtg_Items.Columns.Count > 0)
@@ -205,37 +144,62 @@ namespace Inventory_System02
                 TOTALS();
             }
         }
-        string db_column = string.Empty;
+        string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (chk_ItemID.Checked)
+            if (cbo_srch_type.Text == "Date")
             {
-                db_column = "`Stock ID`";
+                search_for = "`Entry Date`";
             }
-            if (chk_ItemName.Checked)
+            else if (cbo_srch_type.Text == "Id")
             {
-                db_column = "`Item Name`";
+                search_for = "`Stock ID`";
             }
-            if (chk_Cat.Checked)
+            else if (cbo_srch_type.Text == "Name")
             {
-                db_column = "`Brand`";
+                search_for = "`Item Name`";
             }
-            if (chk_Desc.Checked)
+            else if (cbo_srch_type.Text == "Brand")
             {
-                db_column = "`Description`";
+                search_for = "`Brand`";
             }
-            if (chk_Date.Checked)
+            else if (cbo_srch_type.Text == "Description")
             {
-                db_column = "`Entry Date`";
+                search_for = "`Description`";
             }
-            sql = "Select * from `Stock Out` where " + db_column + " = '" + txt_Search.Text + "' and `Transaction Reference` = '" + txt_TransRefOut.Text + "' ";
+            else if (cbo_srch_type.Text == "Quantity")
+            {
+                search_for = "`Quantity`";
+            }
+            else if (cbo_srch_type.Text == "Price")
+            {
+                search_for = "`Price`";
+            }
+            else if (cbo_srch_type.Text == "Supplier")
+            {
+                search_for = "`Supplier Name`";
+            }
+            else if (cbo_srch_type.Text == "Job")
+            {
+                search_for = "`Job Role`";
+            }
+            else
+            {
+                search_for = "`Transaction Reference`";
+            }
+            sql = "Select * from `Stock Out` where " + search_for + " = '" + txt_Search.Text + "' and `Transaction Reference` = '" + txt_TransRefOut.Text + "' ";
             config.Load_DTG(sql, dtg_Items);
             DTG_Properties();
+
+            if (txt_Search.Text == "")
+            {
+                refreshToolStripMenuItem_Click(sender, e);
+            }
         }
 
         private void StockReturned_Load(object sender, EventArgs e)
         {
-            chk_ItemID.Checked = true;
+           
         }
 
         private void btn_sup_add_Click(object sender, EventArgs e)
@@ -376,7 +340,74 @@ namespace Inventory_System02
             }
         }
 
-        double amt = 0, price = 0, amt1 = 0, qty = 0, quan = 0;
+        private void cbo_srch_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_Search_TextChanged(sender, e);
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            func.clearTxt(panel1);
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+
+            if (dtg_Items.Rows.Count > 0)
+            {
+                if (dtg_Items.SelectedRows.Count >= 1)
+                {
+                    decimal total_amount = Convert.ToDecimal(dtg_Items.CurrentRow.Cells[6].Value) * Convert.ToDecimal(dtg_Items.CurrentRow.Cells[7].Value);
+
+                    Items.Item_Preview frm = new Items.Item_Preview(
+                    dtg_Items.CurrentRow.Cells[1].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[2].Value.ToString(),
+                    txt_TransRefOut.Text,
+                    dtg_Items.CurrentRow.Cells[3].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[4].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[5].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[6].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[7].Value.ToString(),
+                    total_amount.ToString(),
+                    dtg_Items.CurrentRow.Cells[13].Value.ToString());
+
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    dtg_Items.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dtg_Items.Rows[0].Selected = true;
+                }
+            }
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            if (dtg_Return.SelectedRows.Count > 0)
+            {
+                Edit_Form.Edit_Form myForm = new Edit_Form.Edit_Form(dtg_Return.CurrentRow.Cells[1].Value.ToString(), Convert.ToInt32(dtg_Return.CurrentRow.Cells[4].Value));
+
+                DialogResult result = myForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    // Get the data entered by the user from the MyData property of the form
+                    dtg_Return.CurrentRow.Cells[4].Value = myForm.MyData_qty;
+                    Update_Qty_Stocks();
+                }
+            }
+            else
+            {
+                dtg_Return.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dtg_Return.Rows[0].Selected = true;
+            }
+        }
+
+        private ToolTip toolTip;
+        private void btn_searchStocks_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(btn_searchStocks, "Click to search for an existing stocks out transaction.");
+        }
 
         private void dtg_Return_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -388,22 +419,28 @@ namespace Inventory_System02
         {
             if (dtg_Return.Rows.Count > 0)
             {
+                HashSet<double> distinctQuantities = new HashSet<double>();
+                double totalQty = 0;
+                double totalAmt = 0;
+
                 for (int i = 0; i < dtg_Return.Rows.Count; i++)
                 {
                     double.TryParse(dtg_Return.Rows[i].Cells[4].Value.ToString(), out qty);
-                    double.TryParse(dtg_Return.Rows[i].Cells[6].Value.ToString(), out price);
-                    amt += qty;
-                    amt1 += price;
-                    quan = i;
+                    double.TryParse(dtg_Return.Rows[i].Cells[5].Value.ToString(), out price);
+                    totalQty += qty;
+                    totalAmt += qty * price;
+                    distinctQuantities.Add(qty);
                 }
                 quan += 1;
-                out_qty.Text = amt.ToString();
-                out_amt.Text = amt1.ToString();
-                lbl_numb_items_return.Text = "Number of return items: " + quan.ToString();
+                out_qty.Text = totalQty.ToString();
+                out_amt.Text = totalAmt.ToString();
+                lbl_numb_items_return.Text = "Number of return items: " + distinctQuantities.Count.ToString();
             }
             else
             {
                 lbl_numb_items_return.Text = "";
+                out_qty.Text = "";
+                out_amt.Text = "";
             }
 
             if (dtg_Items.Rows.Count > 0)
@@ -456,38 +493,83 @@ namespace Inventory_System02
         }
         private void Update_Qty_Stocks()
         {
+            //check if there are existing rows added in return dtg
             if (dtg_Return.Rows.Count > 0)
             {
+                //do the ff code to each rows
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
                 {
+                    //i will be used as row # in dtg_return
                     for (int i = 0; i < dtg_Return.Rows.Count; i++)
                     {
+                        //verify if the item is already added below cell 2 is item id of the stock table
                         if (rw.Cells[2].Value.ToString() == dtg_Return.Rows[i].Cells[0].Value.ToString())
                         {
+                            //if added get the quantity based on every item row id and reference #
                             DataSet ds = new DataSet();
                             sql = "Select Quantity from `Stock Out` where `Stock ID` = '" + dtg_Return.Rows[i].Cells[0].Value.ToString() + "' and `Transaction Reference` = '" + txt_TransRefOut.Text + "'  ";
                             config.Load_Datasource(sql, ds);
+                            //there are any items found
                             if (config.dt.Rows.Count > 0)
                             {
+                               //assign the result from the stock out table
                                 rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
-
+                                //check the quantity if its greater or equal to added stocks
                                 if (Convert.ToDouble(rw.Cells[6].Value) >= Convert.ToDouble(dtg_Return.Rows[i].Cells[4].Value))
                                 {
+                                    //Change the value of the stocks minus the added stocks
                                     rw.Cells[6].Value = Convert.ToDouble(rw.Cells[6].Value) - Convert.ToDouble(dtg_Return.Rows[i].Cells[4].Value);
+                                    dtg_Return.Rows[i].Cells[6].Value = 0;
+                                    dtg_Return.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_Return.Rows[i].Cells[4].Value) *
+                                       Convert.ToDouble(dtg_Return.Rows[i].Cells[5].Value);
                                 }
                                 else
                                 {
-                                    dtg_Return.Rows[i].Cells[4].Value = 0;
-                                    rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
+                                    
                                     MessageBox.Show("Quantity is more than Stocks, Invalid Quantity!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    if (Convert.ToDouble(rw.Cells[6].Value) == 0)
+                                    {
+                                        dtg_Return.Rows[i].Cells[4].Value = 0;
+                                        rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
+                                    }
+                                    else if (Convert.ToDouble(rw.Cells[6].Value) > 0)
+                                    {
+                                        dtg_Return.Rows[i].Cells[4].Value = 1;
+                                        rw.Cells[6].Value = Convert.ToDouble(ds.Tables[0].Rows[0].Field<string>("Quantity")) - 1;
+                                    }
+                                    return;
+                                }
+                                if (Convert.ToDouble(dtg_Return.Rows[i].Cells[4].Value) == 0)
+                                {
+                                    func.Error_Message1 = "Quantiy is zero";
+                                    func.Error_Message();
+                                    dtg_Return.Focus();
+                                    btn_StockReturn.Enabled = false;
+                                    return;
+                                }
+                                else
+                                {
+                                    //Calculate the total (qty of added stocks * the price )
+                                    dtg_Return.Rows[i].Cells[6].Value = 0;
+                                    dtg_Return.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_Return.Rows[i].Cells[4].Value) *
+                                        Convert.ToDouble(dtg_Return.Rows[i].Cells[5].Value);
+                                    btn_StockReturn.Enabled = true;
+
                                 }
                             }
                         }
                     }
                 }
+                TOTALS();
+                refreshToolStripMenuItem.Enabled = false;
             }
+            else
+            {
+                refreshToolStripMenuItem.Enabled = true;
+            }
+         
         }
-
+        Inventory_System02.Invoice_Code.Invoice_Code return_trans_rec = new Invoice_Code.Invoice_Code();
         private void btn_StockReturn_Click(object sender, EventArgs e)
         {
 
@@ -550,12 +632,11 @@ namespace Inventory_System02
                         config.singleResult(sql);
                         if (config.dt.Rows.Count > 0)
                         {
-                            sql = "Update `Stock Out` set Quantity = '" + rw.Cells[6].Value.ToString() + "' where  `Stock ID` = '" + rw.Cells[2].Value + "' and " +
-                                " `Transaction Reference` = '" + txt_TransRefOut.Text + "' ";
+                            double new_total = Convert.ToDouble ( rw.Cells[6].Value ) * Convert.ToDouble ( rw.Cells[7].Value );
+                            sql = "Update `Stock Out` set Quantity = '" + rw.Cells[6].Value.ToString() + "', Total = '"+ new_total.ToString() +"' where  `Stock ID` = '" + rw.Cells[2].Value + "' and " + " `Transaction Reference` = '" + txt_TransRefOut.Text + "' ";
                             config.Execute_Query(sql);
                         }
                     }
-
 
                     gen.Generate_Transaction();
 
@@ -642,15 +723,40 @@ namespace Inventory_System02
 
                     cal.ReturnReason(Gen_Trans, txt_CustID.Text, txt_Reasons.Text);
 
-                    MessageBox.Show("Successfully Updated the \"Stock Records\" and Item Move to \"Stock Out\" list! \n\nTransaction Successful!", "Important Message",
+                    if (MessageBox.Show("Print Transaction?", "Important Message", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (Gen_Trans != "")
+                        {
+                            return_trans_rec.Invoice("return", Gen_Trans, "print");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Print unsuccussfel due to no Transaction Reference Number Generated! Contact developers for hotfix.",
+                                "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+
+                    sql = "Select * from `Stock Returned` where `Transaction Reference` =   '" + Gen_Trans + "' ";
+                    config.singleResult(sql);
+
+                    if (config.dt.Rows.Count > 0)
+                    {
+                        MessageBox.Show("Successfully Updated the \"Stock Records\" and Item Move to \"Stock Out\" list! \n\nTransaction Successful!", "Important Message",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dtg_Return.Rows.Clear();
-                    txt_CustID.Text = "";
-                    txt_CustName.Text = "";
-                    txt_CustAddress.Text = "";
-                    checkBox1.Checked = false;
-                    txt_TransRefOut_TextChanged(sender, e);
-                    txt_Reasons.Text = "";
+                        dtg_Return.Rows.Clear();
+                        txt_CustID.Text = "";
+                        txt_CustName.Text = "";
+                        txt_CustAddress.Text = "";
+                        checkBox1.Checked = false;
+                        txt_TransRefOut_TextChanged(sender, e);
+                        txt_Reasons.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unsuccessful transaction please try again", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 else
                 {

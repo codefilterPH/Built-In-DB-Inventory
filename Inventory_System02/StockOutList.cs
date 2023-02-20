@@ -10,6 +10,8 @@ namespace Inventory_System02
         SQLConfig config = new SQLConfig();
         usableFunction func = new usableFunction();
         string sql, Global_ID, Fullname, JobRole;
+        public string passed_trans_ref { get; set; }
+
         public StockOutList(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
@@ -123,6 +125,13 @@ namespace Inventory_System02
        
         private void txt_Trans_number_KeyDown(object sender, KeyEventArgs e)
         {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                passed_trans_ref = txt_Trans_number.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
@@ -159,6 +168,13 @@ namespace Inventory_System02
                 txt_Trans_number.Text = "Empty Field!";
                 txt_Trans_number.Focus();
             }
+        }
+
+        private void dtg_outlist_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            passed_trans_ref = txt_Trans_number.Text;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)

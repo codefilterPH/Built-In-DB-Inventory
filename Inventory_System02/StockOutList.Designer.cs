@@ -87,6 +87,7 @@ namespace Inventory_System02
             this.dtg_outlist.Size = new System.Drawing.Size(783, 214);
             this.dtg_outlist.TabIndex = 0;
             this.dtg_outlist.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dtg_outlist.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_outlist_CellContentDoubleClick);
             // 
             // label1
             // 

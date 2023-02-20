@@ -476,20 +476,27 @@ namespace Inventory_System02
             toolTip.SetToolTip ( btn_searchCustomer, "Click to search for an existing customer." );
         }
         private void Update_Qty_Stocks()
-        {
+        {   
+            //verify if there are rows in dtg_return
             if (dtg_AddedStocks.Rows.Count > 0)
             {
+                //do the ff code to each rows
                 foreach (DataGridViewRow rw in dtg_Stocks.Rows)
                 {
+                    //i will be used as row number # in dtg_outstack
                     for (int i = 0; i < dtg_AddedStocks.Rows.Count; i++)
                     {
+                        //verify if the item is already added below cell 2 is item id of the stock table
                         if (rw.Cells[2].Value.ToString() == dtg_AddedStocks.Rows[i].Cells[0].Value.ToString())
                         {
+                            //if added get the quantity based on every item row id only
                             DataSet ds = new DataSet();
                             sql = "Select Quantity from `Stocks` where `Stock ID` = '" + dtg_AddedStocks.Rows[i].Cells[0].Value.ToString() + "' ";
                             config.Load_Datasource(sql, ds);
+                            //if there are any of item found
                             if (config.dt.Rows.Count > 0)
                             {
+                                //assign the result from the stock table
                                 rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
                                 //check the quantity if its greater or equal to added stocks
                                 if (Convert.ToDouble(rw.Cells[6].Value) >= Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value))
@@ -540,10 +547,6 @@ namespace Inventory_System02
                     }
                 }
                 TOTALS();
-            }
-
-            if (dtg_AddedStocks.Rows.Count > 0)
-            {
                 refreshTableToolStripMenuItem.Enabled = false;
             }
             else
