@@ -284,10 +284,6 @@ namespace Inventory_System02
             {
                 search_for = "`Job Role`";
             }
-            else if (cbo_srch_type.Text == "Trans Ref")
-            {
-                search_for = "`Transaction Reference`";
-            }
             else
             {
                 search_for = "`Transaction Reference`";

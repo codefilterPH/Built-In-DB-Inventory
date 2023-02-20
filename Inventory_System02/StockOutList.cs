@@ -177,6 +177,11 @@ namespace Inventory_System02
             this.Close();
         }
 
+        private void cbo_srch_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_Search_TextChanged(sender, e);
+        }
+
         private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")

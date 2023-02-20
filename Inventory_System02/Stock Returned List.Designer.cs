@@ -36,11 +36,6 @@ namespace Inventory_System02
             this.btn_print_invoice = new System.Windows.Forms.ToolStripMenuItem();
             this.batchTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chk_Date = new System.Windows.Forms.CheckBox();
-            this.chk_Desc = new System.Windows.Forms.CheckBox();
-            this.chk_ItemName = new System.Windows.Forms.CheckBox();
-            this.chk_ItemID = new System.Windows.Forms.CheckBox();
-            this.chk_Cat = new System.Windows.Forms.CheckBox();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,11 +59,11 @@ namespace Inventory_System02
             this.chk_all = new System.Windows.Forms.CheckBox();
             this.lbl_items_count = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbo_srch_type = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_return_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -126,68 +121,6 @@ namespace Inventory_System02
             this.printInvoiceToolStripMenuItem.Text = "Print Invoice";
             this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
             // 
-            // chk_Date
-            // 
-            this.chk_Date.AutoSize = true;
-            this.chk_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Date.Location = new System.Drawing.Point(395, 11);
-            this.chk_Date.Name = "chk_Date";
-            this.chk_Date.Size = new System.Drawing.Size(49, 17);
-            this.chk_Date.TabIndex = 95;
-            this.chk_Date.Text = "Date";
-            this.chk_Date.UseVisualStyleBackColor = true;
-            this.chk_Date.CheckedChanged += new System.EventHandler(this.chk_Date_CheckedChanged);
-            // 
-            // chk_Desc
-            // 
-            this.chk_Desc.AutoSize = true;
-            this.chk_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Desc.Location = new System.Drawing.Point(300, 11);
-            this.chk_Desc.Name = "chk_Desc";
-            this.chk_Desc.Size = new System.Drawing.Size(79, 17);
-            this.chk_Desc.TabIndex = 94;
-            this.chk_Desc.Text = "Description";
-            this.chk_Desc.UseVisualStyleBackColor = true;
-            this.chk_Desc.CheckedChanged += new System.EventHandler(this.chk_Desc_CheckedChanged);
-            // 
-            // chk_ItemName
-            // 
-            this.chk_ItemName.AutoSize = true;
-            this.chk_ItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_ItemName.Location = new System.Drawing.Point(0, 11);
-            this.chk_ItemName.Name = "chk_ItemName";
-            this.chk_ItemName.Size = new System.Drawing.Size(77, 17);
-            this.chk_ItemName.TabIndex = 92;
-            this.chk_ItemName.Text = "Item Name";
-            this.chk_ItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chk_ItemName.UseVisualStyleBackColor = true;
-            this.chk_ItemName.CheckedChanged += new System.EventHandler(this.chk_ItemName_CheckedChanged);
-            // 
-            // chk_ItemID
-            // 
-            this.chk_ItemID.AutoSize = true;
-            this.chk_ItemID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_ItemID.Location = new System.Drawing.Point(91, 11);
-            this.chk_ItemID.Name = "chk_ItemID";
-            this.chk_ItemID.Size = new System.Drawing.Size(111, 17);
-            this.chk_ItemID.TabIndex = 93;
-            this.chk_ItemID.Text = "Search by Item ID";
-            this.chk_ItemID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chk_ItemID.UseVisualStyleBackColor = true;
-            this.chk_ItemID.CheckedChanged += new System.EventHandler(this.chk_ItemID_CheckedChanged);
-            // 
-            // chk_Cat
-            // 
-            this.chk_Cat.AutoSize = true;
-            this.chk_Cat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Cat.Location = new System.Drawing.Point(216, 11);
-            this.chk_Cat.Name = "chk_Cat";
-            this.chk_Cat.Size = new System.Drawing.Size(54, 17);
-            this.chk_Cat.TabIndex = 91;
-            this.chk_Cat.Text = "Brand";
-            this.chk_Cat.UseVisualStyleBackColor = true;
-            this.chk_Cat.CheckedChanged += new System.EventHandler(this.chk_Cat_CheckedChanged);
-            // 
             // btn_Delete
             // 
             this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -209,7 +142,7 @@ namespace Inventory_System02
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(108, 23);
             this.txt_Search.TabIndex = 87;
-            this.txt_Search.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
             // 
             // label1
             // 
@@ -441,24 +374,47 @@ namespace Inventory_System02
             this.label16.TabIndex = 118;
             this.label16.Text = "Total Item:";
             // 
-            // panel1
+            // label8
             // 
-            this.panel1.Controls.Add(this.chk_Date);
-            this.panel1.Controls.Add(this.chk_Desc);
-            this.panel1.Controls.Add(this.chk_ItemName);
-            this.panel1.Controls.Add(this.chk_ItemID);
-            this.panel1.Controls.Add(this.chk_Cat);
-            this.panel1.Location = new System.Drawing.Point(175, 179);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 37);
-            this.panel1.TabIndex = 120;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Location = new System.Drawing.Point(171, 192);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 122;
+            this.label8.Text = "Search by";
+            // 
+            // cbo_srch_type
+            // 
+            this.cbo_srch_type.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_srch_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbo_srch_type.FormattingEnabled = true;
+            this.cbo_srch_type.Items.AddRange(new object[] {
+            "Date",
+            "Id",
+            "Name",
+            "Brand",
+            "Description",
+            "Quantity",
+            "Price",
+            "Supplier",
+            "Job",
+            "Trans Ref"});
+            this.cbo_srch_type.Location = new System.Drawing.Point(233, 189);
+            this.cbo_srch_type.Name = "cbo_srch_type";
+            this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
+            this.cbo_srch_type.TabIndex = 121;
+            this.cbo_srch_type.Text = "Trans Ref";
+            this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
             // Stock_Returned
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cbo_srch_type);
             this.Controls.Add(this.lbl_items_count);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.chk_all);
@@ -493,8 +449,6 @@ namespace Inventory_System02
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_return_list)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,11 +458,6 @@ namespace Inventory_System02
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem refreshTableToolStripMenuItem;
-        private System.Windows.Forms.CheckBox chk_Date;
-        private System.Windows.Forms.CheckBox chk_Desc;
-        private System.Windows.Forms.CheckBox chk_ItemName;
-        private System.Windows.Forms.CheckBox chk_ItemID;
-        private System.Windows.Forms.CheckBox chk_Cat;
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.TextBox txt_Search;
         private System.Windows.Forms.Label label1;
@@ -534,7 +483,8 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem batchTransactionToolStripMenuItem;
         private System.Windows.Forms.Label lbl_items_count;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem printInvoiceToolStripMenuItem;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbo_srch_type;
     }
 }
