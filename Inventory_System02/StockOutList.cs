@@ -115,10 +115,22 @@ namespace Inventory_System02
                         sql = "Delete from `Stock Out` where `Transaction Reference` = '" + rw.Cells[16].Value.ToString() + "' ";
                         config.Execute_Query(sql);
 
+                        sql = "Select * from `Stock Out` where `Transaction Reference` = '" + rw.Cells[16].Value.ToString() + "' ";
+                        config.singleResult(sql);
+                        if (config.dt.Rows.Count == 0)
+                        {
+                            MessageBox.Show("Stocks deleted successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unsucessful deletion of stocks out please review and try again.", "Warning Message",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        refreshTableToolStripMenuItem_Click(sender, e);
+                        chk_all.Checked = false;
+
                     }
-                    MessageBox.Show("Out Stocks successfully deleted");
-                    refreshTableToolStripMenuItem_Click(sender, e);
-                    chk_all.Checked = false;
                 }
             }     
         }

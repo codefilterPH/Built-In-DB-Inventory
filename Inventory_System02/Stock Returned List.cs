@@ -62,16 +62,33 @@ namespace Inventory_System02
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (dtg_return_list.SelectedRows.Count > 0)
+            if (MessageBox.Show("This will delete an entire transaction reference which consist of 1 or more items on it!", "Warning Message",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                foreach (DataGridViewRow rw in dtg_return_list.SelectedRows)
+                if (dtg_return_list.SelectedRows.Count > 0)
                 {
-                    sql = "Delete from `Stock Returned` where `Stock ID` = '" + rw.Cells[2].Value.ToString() + "' ";
-                    config.Execute_Query(sql);         
+                    foreach (DataGridViewRow rw in dtg_return_list.SelectedRows)
+                    {
+                        sql = "Delete from `Stock Returned` where `Transaction Reference` = '" + rw.Cells[15].Value.ToString() + "' ";
+                        config.Execute_Query(sql);
+
+                        sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + rw.Cells[15].Value.ToString() + "' ";
+                        config.singleResult(sql);
+                        if (config.dt.Rows.Count == 0)
+                        {
+                            MessageBox.Show("Returned Stocks successfully deleted");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Unsucessful deletion of returned stocks please review and try again.", "Warning Message",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        refreshTableToolStripMenuItem_Click(sender, e);
+                        chk_all.Checked = false;
+                    }
+
                 }
-                MessageBox.Show("Returned Stocks successfully deleted");
-                refreshTableToolStripMenuItem_Click(sender, e);
-                chk_all.Checked = false;
             }
 
         }

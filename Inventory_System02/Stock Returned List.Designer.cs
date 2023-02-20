@@ -30,7 +30,7 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock_Returned));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.refreshTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_print_invoice = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,14 +124,16 @@ namespace Inventory_System02
             // btn_Delete
             // 
             this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Delete.BackgroundImage")));
+            this.btn_Delete.BackColor = System.Drawing.Color.Maroon;
             this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Delete.Location = new System.Drawing.Point(758, 214);
+            this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Delete.Location = new System.Drawing.Point(649, 213);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(27, 23);
+            this.btn_Delete.Size = new System.Drawing.Size(139, 23);
             this.btn_Delete.TabIndex = 90;
+            this.btn_Delete.Text = "By transaction deletion";
             this.btn_Delete.UseVisualStyleBackColor = false;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
@@ -166,13 +168,13 @@ namespace Inventory_System02
             this.dtg_return_list.GridColor = System.Drawing.Color.White;
             this.dtg_return_list.Location = new System.Drawing.Point(9, 239);
             this.dtg_return_list.Name = "dtg_return_list";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_return_list.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_return_list.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_return_list.RowTemplate.Height = 60;
             this.dtg_return_list.Size = new System.Drawing.Size(779, 161);
             this.dtg_return_list.TabIndex = 85;
