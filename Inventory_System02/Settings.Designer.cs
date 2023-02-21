@@ -120,7 +120,6 @@ namespace Inventory_System02
             this.cbo_type.Items.AddRange(new object[] {
             "Product Name",
             "Brand",
-            "Description",
             "Customer Type",
             "Supplier Type",
             "Employee Type",

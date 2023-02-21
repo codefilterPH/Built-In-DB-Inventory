@@ -72,7 +72,7 @@ namespace Inventory_System02
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(486, 47);
             this.label1.TabIndex = 2;
-            this.label1.Text = "MY DOCUMENTS";
+            this.label1.Text = "MY BATCHED DOCUMENTS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3

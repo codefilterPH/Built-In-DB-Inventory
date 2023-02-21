@@ -443,6 +443,12 @@ namespace Inventory_System02
             toolTip.SetToolTip(btn_searchSup, "Click to search for an existing supplier.");
         }
 
+        private void txt_Barcode_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(txt_Barcode, "If left empty system will auto create an item id.");
+        }
+
         private void txt_Price_Click(object sender, EventArgs e)
         {
             txt_Price.SelectionStart = 0;

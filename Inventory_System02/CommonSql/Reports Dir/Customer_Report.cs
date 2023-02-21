@@ -166,25 +166,9 @@ namespace Inventory_System02.Reports_Dir
             {
                 datef = datefrom1.AddDays(-14).ToString("dd-MM-yyyy");
             }
-            else if (bx.Text == "1 Month")
-            {
-                datef = datefrom1.AddMonths(-1).ToString("dd-MM-yyyy");
-            }
-            else if (bx.Text == "6 Months")
-            {
-                datef = datefrom1.AddMonths(-6).ToString("dd-MM-yyyy");
-            }
-            else if (bx.Text == "1 Year")
-            {
-                datef = datefrom1.AddMonths(-12).ToString("dd-MM-yyyy");
-            }
-            else if (bx.Text == "2 Years")
-            {
-                datef = datefrom1.AddMonths(-24).ToString("dd-MM-yyyy");
-            }
             else
             {
-                datef = "01-02-2022";
+                datef = "01-02-2023";
             }
 
 
@@ -206,17 +190,21 @@ namespace Inventory_System02.Reports_Dir
                 txt_rep_date.Focus();
                 return;
             }
-            if ( cbo_date.Text == "All Dates")
-            {
-                sql = " SELECT * from Customer where count = '1'";
-            }
-            else if ( cbo_date.Text == "Today")
+            if (cbo_date.Text == "Today")
             {
                 sql = " SELECT * from Customer where count = '1' and `Entry Date` = '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
             }
+            else if ( cbo_date.Text == "1 Week")
+            {
+                sql = " SELECT * from Customer WHERE `Entry Date` >= '"+ datef + "' AND `Entry Date` <= '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
+            }
+            else if (cbo_date.Text == "2 Weeks")
+            { 
+                sql = " SELECT * from Customer WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
+            }
             else
             {
-                sql = " SELECT * from Customer where count = '1' and `Entry Date` between '" + datef+"' and '" + DateTime.Now.ToString("dd-MM-yyyy") + "'  ";
+                sql = " SELECT * from Customer";
             }
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();

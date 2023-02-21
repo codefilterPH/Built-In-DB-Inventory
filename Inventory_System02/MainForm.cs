@@ -68,8 +68,7 @@ namespace Inventory_System02
             func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
             func.Reload_Images(Company_Logo, "Company_Logo1", @"CommonSql\Pictures\Company\");
             Load_Company_name();
-
-
+      
         }
         SQLConfig config = new SQLConfig();
         public void  Load_Company_name()

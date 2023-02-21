@@ -30,9 +30,9 @@ namespace Inventory_System02.CustSupplier
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustSupp));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbl_total_cust = new System.Windows.Forms.Label();
@@ -121,7 +121,7 @@ namespace Inventory_System02.CustSupplier
             this.tabControl1.Location = new System.Drawing.Point(0, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(735, 423);
+            this.tabControl1.Size = new System.Drawing.Size(861, 423);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -155,7 +155,7 @@ namespace Inventory_System02.CustSupplier
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(727, 393);
+            this.tabPage1.Size = new System.Drawing.Size(853, 393);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Customer";
             // 
@@ -164,7 +164,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_cust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_cust.AutoSize = true;
             this.lbl_total_cust.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_cust.Location = new System.Drawing.Point(688, 192);
+            this.lbl_total_cust.Location = new System.Drawing.Point(814, 192);
             this.lbl_total_cust.Name = "lbl_total_cust";
             this.lbl_total_cust.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_cust.TabIndex = 78;
@@ -174,7 +174,7 @@ namespace Inventory_System02.CustSupplier
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(589, 192);
+            this.label16.Location = new System.Drawing.Point(715, 192);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 15);
             this.label16.TabIndex = 77;
@@ -188,7 +188,7 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(713, 130);
+            this.panel2.Size = new System.Drawing.Size(839, 122);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -201,14 +201,14 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Customer.GridColor = System.Drawing.Color.White;
             this.dtg_Customer.Location = new System.Drawing.Point(0, 0);
             this.dtg_Customer.Name = "dtg_Customer";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Customer.RowTemplate.Height = 90;
-            this.dtg_Customer.Size = new System.Drawing.Size(713, 130);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 122);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -236,7 +236,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(362, 63);
+            this.label13.Location = new System.Drawing.Point(343, 73);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(35, 17);
             this.label13.TabIndex = 73;
@@ -246,7 +246,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.cbo_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbo_type.FormattingEnabled = true;
-            this.cbo_type.Location = new System.Drawing.Point(429, 60);
+            this.cbo_type.Location = new System.Drawing.Point(410, 70);
             this.cbo_type.Name = "cbo_type";
             this.cbo_type.Size = new System.Drawing.Size(160, 25);
             this.cbo_type.TabIndex = 4;
@@ -254,9 +254,9 @@ namespace Inventory_System02.CustSupplier
             // Cust_Image
             // 
             this.Cust_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cust_Image.Location = new System.Drawing.Point(595, 60);
+            this.Cust_Image.Location = new System.Drawing.Point(721, 41);
             this.Cust_Image.Name = "Cust_Image";
-            this.Cust_Image.Size = new System.Drawing.Size(124, 90);
+            this.Cust_Image.Size = new System.Drawing.Size(124, 128);
             this.Cust_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Cust_Image.TabIndex = 71;
             this.Cust_Image.TabStop = false;
@@ -265,14 +265,16 @@ namespace Inventory_System02.CustSupplier
             // btn_Clear_Text
             // 
             this.btn_Clear_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear_Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btn_Clear_Text.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Clear_Text.BackgroundImage")));
+            this.btn_Clear_Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_Clear_Text.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear_Text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Clear_Text.Location = new System.Drawing.Point(693, 157);
+            this.btn_Clear_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Clear_Text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Clear_Text.Location = new System.Drawing.Point(576, 146);
             this.btn_Clear_Text.Name = "btn_Clear_Text";
-            this.btn_Clear_Text.Size = new System.Drawing.Size(27, 23);
+            this.btn_Clear_Text.Size = new System.Drawing.Size(139, 23);
             this.btn_Clear_Text.TabIndex = 68;
+            this.btn_Clear_Text.Text = "Clear Text";
             this.btn_Clear_Text.UseVisualStyleBackColor = false;
             this.btn_Clear_Text.Click += new System.EventHandler(this.btn_Clear_Text_Click);
             // 
@@ -292,7 +294,8 @@ namespace Inventory_System02.CustSupplier
             this.cust_SAddress.Location = new System.Drawing.Point(138, 134);
             this.cust_SAddress.Multiline = true;
             this.cust_SAddress.Name = "cust_SAddress";
-            this.cust_SAddress.Size = new System.Drawing.Size(451, 46);
+            this.cust_SAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.cust_SAddress.Size = new System.Drawing.Size(432, 46);
             this.cust_SAddress.TabIndex = 6;
             // 
             // btn_Gen_ID
@@ -300,11 +303,11 @@ namespace Inventory_System02.CustSupplier
             this.btn_Gen_ID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Gen_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_Gen_ID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Gen_ID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Gen_ID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Gen_ID.ForeColor = System.Drawing.Color.White;
-            this.btn_Gen_ID.Location = new System.Drawing.Point(595, 31);
+            this.btn_Gen_ID.Location = new System.Drawing.Point(576, 42);
             this.btn_Gen_ID.Name = "btn_Gen_ID";
-            this.btn_Gen_ID.Size = new System.Drawing.Size(125, 23);
+            this.btn_Gen_ID.Size = new System.Drawing.Size(139, 23);
             this.btn_Gen_ID.TabIndex = 0;
             this.btn_Gen_ID.Text = "Generate ID";
             this.btn_Gen_ID.UseVisualStyleBackColor = false;
@@ -314,7 +317,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(362, 34);
+            this.label11.Location = new System.Drawing.Point(343, 44);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(80, 17);
             this.label11.TabIndex = 63;
@@ -323,7 +326,7 @@ namespace Inventory_System02.CustSupplier
             // cust_ID
             // 
             this.cust_ID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cust_ID.Location = new System.Drawing.Point(458, 31);
+            this.cust_ID.Location = new System.Drawing.Point(439, 41);
             this.cust_ID.Name = "cust_ID";
             this.cust_ID.Size = new System.Drawing.Size(131, 25);
             this.cust_ID.TabIndex = 1;
@@ -382,13 +385,15 @@ namespace Inventory_System02.CustSupplier
             // 
             this.btn_Cust_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cust_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_Cust_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Cust_Delete.BackgroundImage")));
             this.btn_Cust_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Cust_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Cust_Delete.Location = new System.Drawing.Point(660, 157);
+            this.btn_Cust_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cust_Delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Cust_Delete.Location = new System.Drawing.Point(576, 120);
             this.btn_Cust_Delete.Name = "btn_Cust_Delete";
-            this.btn_Cust_Delete.Size = new System.Drawing.Size(27, 23);
+            this.btn_Cust_Delete.Size = new System.Drawing.Size(139, 23);
             this.btn_Cust_Delete.TabIndex = 24;
+            this.btn_Cust_Delete.Text = "Delete Selected";
             this.btn_Cust_Delete.UseVisualStyleBackColor = false;
             this.btn_Cust_Delete.Click += new System.EventHandler(this.btn_Cust_Delete_Click);
             // 
@@ -396,27 +401,31 @@ namespace Inventory_System02.CustSupplier
             // 
             this.btn_Cust_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cust_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_Cust_edit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Cust_edit.BackgroundImage")));
             this.btn_Cust_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Cust_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Cust_edit.Location = new System.Drawing.Point(627, 157);
+            this.btn_Cust_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cust_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Cust_edit.Location = new System.Drawing.Point(576, 94);
             this.btn_Cust_edit.Name = "btn_Cust_edit";
-            this.btn_Cust_edit.Size = new System.Drawing.Size(27, 23);
+            this.btn_Cust_edit.Size = new System.Drawing.Size(139, 23);
             this.btn_Cust_edit.TabIndex = 23;
+            this.btn_Cust_edit.Text = "Save Current";
             this.btn_Cust_edit.UseVisualStyleBackColor = false;
             this.btn_Cust_edit.Click += new System.EventHandler(this.btn_Cust_edit_Click);
             // 
             // btn_Cust_add
             // 
             this.btn_Cust_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cust_add.BackColor = System.Drawing.Color.Green;
-            this.btn_Cust_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Cust_add.BackgroundImage")));
+            this.btn_Cust_add.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_Cust_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Cust_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Cust_add.Location = new System.Drawing.Point(594, 157);
+            this.btn_Cust_add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cust_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Cust_add.Location = new System.Drawing.Point(576, 68);
             this.btn_Cust_add.Name = "btn_Cust_add";
-            this.btn_Cust_add.Size = new System.Drawing.Size(27, 23);
+            this.btn_Cust_add.Size = new System.Drawing.Size(139, 23);
             this.btn_Cust_add.TabIndex = 22;
+            this.btn_Cust_add.Text = "Add to Record";
             this.btn_Cust_add.UseVisualStyleBackColor = false;
             this.btn_Cust_add.Click += new System.EventHandler(this.btn_Cust_add_Click);
             // 
@@ -430,7 +439,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Upload_Cust});
             this.menuStrip1.Location = new System.Drawing.Point(3, 3);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(721, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(847, 24);
             this.menuStrip1.TabIndex = 67;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -513,7 +522,7 @@ namespace Inventory_System02.CustSupplier
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(727, 393);
+            this.tabPage2.Size = new System.Drawing.Size(853, 393);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Supplier";
             // 
@@ -522,7 +531,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_sup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_sup.AutoSize = true;
             this.lbl_total_sup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_sup.Location = new System.Drawing.Point(680, 192);
+            this.lbl_total_sup.Location = new System.Drawing.Point(806, 192);
             this.lbl_total_sup.Name = "lbl_total_sup";
             this.lbl_total_sup.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_sup.TabIndex = 82;
@@ -532,7 +541,7 @@ namespace Inventory_System02.CustSupplier
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(588, 192);
+            this.label18.Location = new System.Drawing.Point(714, 192);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(96, 15);
             this.label18.TabIndex = 81;
@@ -566,7 +575,7 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(711, 140);
+            this.panel1.Size = new System.Drawing.Size(837, 132);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -580,14 +589,14 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Supplier.Location = new System.Drawing.Point(0, 0);
             this.dtg_Supplier.Name = "dtg_Supplier";
             this.dtg_Supplier.ReadOnly = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Supplier.RowTemplate.Height = 90;
-            this.dtg_Supplier.Size = new System.Drawing.Size(711, 140);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 132);
             this.dtg_Supplier.TabIndex = 25;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);
@@ -611,9 +620,9 @@ namespace Inventory_System02.CustSupplier
             // Sup_Image
             // 
             this.Sup_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Sup_Image.Location = new System.Drawing.Point(593, 62);
+            this.Sup_Image.Location = new System.Drawing.Point(717, 34);
             this.Sup_Image.Name = "Sup_Image";
-            this.Sup_Image.Size = new System.Drawing.Size(124, 90);
+            this.Sup_Image.Size = new System.Drawing.Size(124, 127);
             this.Sup_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Sup_Image.TabIndex = 70;
             this.Sup_Image.TabStop = false;
@@ -622,14 +631,16 @@ namespace Inventory_System02.CustSupplier
             // btn_Clear
             // 
             this.btn_Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btn_Clear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Clear.BackgroundImage")));
+            this.btn_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Clear.Location = new System.Drawing.Point(692, 158);
+            this.btn_Clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Clear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Clear.Location = new System.Drawing.Point(585, 138);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(27, 23);
+            this.btn_Clear.Size = new System.Drawing.Size(128, 23);
             this.btn_Clear.TabIndex = 12;
+            this.btn_Clear.Text = "Clear Text";
             this.btn_Clear.UseVisualStyleBackColor = false;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
@@ -642,7 +653,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Upload_sup});
             this.menuStrip2.Location = new System.Drawing.Point(3, 3);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(721, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(847, 24);
             this.menuStrip2.TabIndex = 68;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -684,11 +695,11 @@ namespace Inventory_System02.CustSupplier
             this.btn_GenerateID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_GenerateID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_GenerateID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_GenerateID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_GenerateID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GenerateID.ForeColor = System.Drawing.Color.White;
-            this.btn_GenerateID.Location = new System.Drawing.Point(592, 33);
+            this.btn_GenerateID.Location = new System.Drawing.Point(585, 34);
             this.btn_GenerateID.Name = "btn_GenerateID";
-            this.btn_GenerateID.Size = new System.Drawing.Size(125, 23);
+            this.btn_GenerateID.Size = new System.Drawing.Size(128, 23);
             this.btn_GenerateID.TabIndex = 0;
             this.btn_GenerateID.Text = "Generate ID";
             this.btn_GenerateID.UseVisualStyleBackColor = false;
@@ -813,13 +824,15 @@ namespace Inventory_System02.CustSupplier
             // 
             this.btn_sup_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_sup_delete.BackColor = System.Drawing.Color.Maroon;
-            this.btn_sup_delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_sup_delete.BackgroundImage")));
             this.btn_sup_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_sup_delete.Location = new System.Drawing.Point(659, 158);
+            this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sup_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_sup_delete.Location = new System.Drawing.Point(585, 112);
             this.btn_sup_delete.Name = "btn_sup_delete";
-            this.btn_sup_delete.Size = new System.Drawing.Size(27, 23);
+            this.btn_sup_delete.Size = new System.Drawing.Size(128, 23);
             this.btn_sup_delete.TabIndex = 11;
+            this.btn_sup_delete.Text = "Delete Selected";
             this.btn_sup_delete.UseVisualStyleBackColor = false;
             this.btn_sup_delete.Click += new System.EventHandler(this.btn_sup_delete_Click);
             // 
@@ -827,13 +840,15 @@ namespace Inventory_System02.CustSupplier
             // 
             this.btn_sup_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_sup_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_sup_edit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_sup_edit.BackgroundImage")));
             this.btn_sup_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_sup_edit.Location = new System.Drawing.Point(626, 158);
+            this.btn_sup_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sup_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_sup_edit.Location = new System.Drawing.Point(585, 86);
             this.btn_sup_edit.Name = "btn_sup_edit";
-            this.btn_sup_edit.Size = new System.Drawing.Size(27, 23);
+            this.btn_sup_edit.Size = new System.Drawing.Size(128, 23);
             this.btn_sup_edit.TabIndex = 10;
+            this.btn_sup_edit.Text = "Save Current";
             this.btn_sup_edit.UseVisualStyleBackColor = false;
             this.btn_sup_edit.Click += new System.EventHandler(this.btn_sup_edit_Click);
             // 
@@ -841,13 +856,15 @@ namespace Inventory_System02.CustSupplier
             // 
             this.btn_sup_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_sup_add.BackColor = System.Drawing.Color.Green;
-            this.btn_sup_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_sup_add.BackgroundImage")));
             this.btn_sup_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_sup_add.Location = new System.Drawing.Point(593, 158);
+            this.btn_sup_add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sup_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_sup_add.Location = new System.Drawing.Point(585, 60);
             this.btn_sup_add.Name = "btn_sup_add";
-            this.btn_sup_add.Size = new System.Drawing.Size(27, 23);
+            this.btn_sup_add.Size = new System.Drawing.Size(128, 23);
             this.btn_sup_add.TabIndex = 9;
+            this.btn_sup_add.Text = "Add to Record";
             this.btn_sup_add.UseVisualStyleBackColor = false;
             this.btn_sup_add.Click += new System.EventHandler(this.btn_sup_add_Click);
             // 
@@ -859,7 +876,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(739, 428);
+            this.ClientSize = new System.Drawing.Size(865, 428);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;

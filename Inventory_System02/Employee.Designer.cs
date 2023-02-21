@@ -30,8 +30,8 @@ namespace Inventory_System02.Profiles
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Change_pass = new System.Windows.Forms.Button();
             this.lbl_total_emp = new System.Windows.Forms.Label();
@@ -107,7 +107,7 @@ namespace Inventory_System02.Profiles
             this.panel2.Controls.Add(this.dtg_User);
             this.panel2.Location = new System.Drawing.Point(6, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(725, 420);
+            this.panel2.Size = new System.Drawing.Size(835, 420);
             this.panel2.TabIndex = 1;
             // 
             // btn_Change_pass
@@ -129,7 +129,7 @@ namespace Inventory_System02.Profiles
             this.lbl_total_emp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_emp.AutoSize = true;
             this.lbl_total_emp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_emp.Location = new System.Drawing.Point(677, 399);
+            this.lbl_total_emp.Location = new System.Drawing.Point(787, 399);
             this.lbl_total_emp.Name = "lbl_total_emp";
             this.lbl_total_emp.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_emp.TabIndex = 45;
@@ -139,7 +139,7 @@ namespace Inventory_System02.Profiles
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(579, 399);
+            this.label9.Location = new System.Drawing.Point(689, 399);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 15);
             this.label9.TabIndex = 44;
@@ -149,33 +149,37 @@ namespace Inventory_System02.Profiles
             // 
             this.btn_upload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_upload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_upload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_upload.BackgroundImage")));
             this.btn_upload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_upload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_upload.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_upload.FlatAppearance.BorderSize = 0;
             this.btn_upload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_upload.Location = new System.Drawing.Point(687, 181);
+            this.btn_upload.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_upload.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_upload.Location = new System.Drawing.Point(523, 171);
             this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(27, 23);
+            this.btn_upload.Size = new System.Drawing.Size(133, 23);
             this.btn_upload.TabIndex = 10;
+            this.btn_upload.Text = "Upload Image";
             this.btn_upload.UseVisualStyleBackColor = false;
             this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 
             // btn_Clear_Text
             // 
             this.btn_Clear_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear_Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btn_Clear_Text.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Clear_Text.BackgroundImage")));
+            this.btn_Clear_Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_Clear_Text.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear_Text.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Clear_Text.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Clear_Text.FlatAppearance.BorderSize = 0;
             this.btn_Clear_Text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Clear_Text.Location = new System.Drawing.Point(655, 181);
+            this.btn_Clear_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Clear_Text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Clear_Text.Location = new System.Drawing.Point(523, 145);
             this.btn_Clear_Text.Name = "btn_Clear_Text";
-            this.btn_Clear_Text.Size = new System.Drawing.Size(27, 23);
+            this.btn_Clear_Text.Size = new System.Drawing.Size(133, 23);
             this.btn_Clear_Text.TabIndex = 15;
+            this.btn_Clear_Text.Text = "Clear Text";
             this.btn_Clear_Text.UseVisualStyleBackColor = false;
             this.btn_Clear_Text.Click += new System.EventHandler(this.btn_Clear_Text_Click);
             // 
@@ -200,9 +204,9 @@ namespace Inventory_System02.Profiles
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(557, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(662, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 120);
+            this.pictureBox1.Size = new System.Drawing.Size(157, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
@@ -224,14 +228,15 @@ namespace Inventory_System02.Profiles
             this.txt_Address.Location = new System.Drawing.Point(85, 148);
             this.txt_Address.Multiline = true;
             this.txt_Address.Name = "txt_Address";
-            this.txt_Address.Size = new System.Drawing.Size(464, 56);
+            this.txt_Address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt_Address.Size = new System.Drawing.Size(409, 56);
             this.txt_Address.TabIndex = 9;
             // 
             // txt_Job_role
             // 
             this.txt_Job_role.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Job_role.FormattingEnabled = true;
-            this.txt_Job_role.Location = new System.Drawing.Point(418, 55);
+            this.txt_Job_role.Location = new System.Drawing.Point(363, 55);
             this.txt_Job_role.Name = "txt_Job_role";
             this.txt_Job_role.Size = new System.Drawing.Size(131, 25);
             this.txt_Job_role.TabIndex = 4;
@@ -241,7 +246,7 @@ namespace Inventory_System02.Profiles
             this.dtp_Hired_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_Hired_date.CustomFormat = "dd-MM-yyyy";
             this.dtp_Hired_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Hired_date.Location = new System.Drawing.Point(604, 17);
+            this.dtp_Hired_date.Location = new System.Drawing.Point(709, 17);
             this.dtp_Hired_date.Name = "dtp_Hired_date";
             this.dtp_Hired_date.Size = new System.Drawing.Size(110, 25);
             this.dtp_Hired_date.TabIndex = 3;
@@ -250,7 +255,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(521, 20);
+            this.label6.Location = new System.Drawing.Point(632, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 17);
             this.label6.TabIndex = 34;
@@ -290,7 +295,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(316, 122);
+            this.label4.Location = new System.Drawing.Point(261, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 17);
             this.label4.TabIndex = 29;
@@ -299,7 +304,7 @@ namespace Inventory_System02.Profiles
             // txt_Phone
             // 
             this.txt_Phone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Phone.Location = new System.Drawing.Point(418, 118);
+            this.txt_Phone.Location = new System.Drawing.Point(363, 118);
             this.txt_Phone.MaxLength = 11;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(131, 25);
@@ -309,7 +314,7 @@ namespace Inventory_System02.Profiles
             // txt_Email
             // 
             this.txt_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Email.Location = new System.Drawing.Point(344, 88);
+            this.txt_Email.Location = new System.Drawing.Point(289, 88);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(205, 25);
             this.txt_Email.TabIndex = 7;
@@ -319,7 +324,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(299, 91);
+            this.label3.Location = new System.Drawing.Point(244, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 26;
@@ -361,50 +366,56 @@ namespace Inventory_System02.Profiles
             // 
             this.btn_Del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Del.BackColor = System.Drawing.Color.Firebrick;
-            this.btn_Del.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Del.BackgroundImage")));
             this.btn_Del.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Del.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Del.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Del.FlatAppearance.BorderSize = 0;
             this.btn_Del.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Del.Location = new System.Drawing.Point(623, 181);
+            this.btn_Del.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Del.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Del.Location = new System.Drawing.Point(523, 119);
             this.btn_Del.Name = "btn_Del";
-            this.btn_Del.Size = new System.Drawing.Size(27, 23);
+            this.btn_Del.Size = new System.Drawing.Size(133, 23);
             this.btn_Del.TabIndex = 14;
+            this.btn_Del.Text = "Delete Selected";
             this.btn_Del.UseVisualStyleBackColor = false;
             this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
             // 
             // btn_Edit
             // 
             this.btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_Edit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Edit.BackgroundImage")));
+            this.btn_Edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_Edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Edit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Edit.FlatAppearance.BorderSize = 0;
             this.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Edit.Location = new System.Drawing.Point(591, 181);
+            this.btn_Edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Edit.Location = new System.Drawing.Point(523, 93);
             this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(27, 23);
+            this.btn_Edit.Size = new System.Drawing.Size(133, 23);
             this.btn_Edit.TabIndex = 13;
+            this.btn_Edit.Text = "Save Text";
             this.btn_Edit.UseVisualStyleBackColor = false;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_Add
             // 
             this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Add.BackColor = System.Drawing.Color.LimeGreen;
-            this.btn_Add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Add.BackgroundImage")));
+            this.btn_Add.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Add.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btn_Add.FlatAppearance.BorderSize = 0;
             this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Add.Location = new System.Drawing.Point(559, 181);
+            this.btn_Add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Add.Location = new System.Drawing.Point(523, 67);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(27, 23);
+            this.btn_Add.Size = new System.Drawing.Size(133, 23);
             this.btn_Add.TabIndex = 11;
+            this.btn_Add.Text = "Add to Record";
             this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
@@ -421,14 +432,14 @@ namespace Inventory_System02.Profiles
             this.dtg_User.Location = new System.Drawing.Point(13, 210);
             this.dtg_User.Name = "dtg_User";
             this.dtg_User.ReadOnly = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_User.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_User.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_User.RowTemplate.Height = 90;
-            this.dtg_User.Size = new System.Drawing.Size(701, 184);
+            this.dtg_User.Size = new System.Drawing.Size(811, 184);
             this.dtg_User.TabIndex = 12;
             this.dtg_User.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_User_CellClick);
             // 
@@ -444,7 +455,7 @@ namespace Inventory_System02.Profiles
             this.newEmployeeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(736, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -474,7 +485,7 @@ namespace Inventory_System02.Profiles
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(736, 450);
+            this.ClientSize = new System.Drawing.Size(846, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -139,7 +139,7 @@
   <data name="btn_searchStocks.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAATJhJREFUeF7t3XlsXdedJ/h0F+AJxj3BBJMKOkAAA4ExnjHgKcMYA2kESBvIwEAG
+        DQAACw0B7QfALAAATJhJREFUeF7t3XlsXdedJ/h0F+AJxj3BBJMKOkAAA4ExnjHgKcMYA2kESBvIwEAG
         gYFgUu2qtAF3ucvTRjDpcrerHEm0Za3ctFC6onYuorjvIikuIiXupMRFJEVSoiguEiVRkm3ZlhzH2mif
         ub8nPfuJ/krvvfvuu/eee79/fJDkF1km37vn9z13O+d7SikiIiIKGFgkIiIif4NFIiIi8jdYJCIiIn+D
         RSIiIvI3WCQiIiJ/g0UiIiLyN1gkIiIif4NFIiIi8jdYJCIiIn+DRSIiIvI3WCQiIiJ/g0UiIiLyN1gk
@@ -475,7 +475,7 @@
   <data name="stockOutListToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5wAAAOcB8BtYtQAAAZVJREFUWEfF17suBHEUx/HdiHgCjZa4RChEeAEJlYIseuIVVMRDqFwbGgUKWl5D
+        5gAAAOYBIly6UQAAAZVJREFUWEfF17suBHEUx/HdiHgCjZa4RChEeAEJlYIseuIVVMRDqFwbGgUKWl5D
         3BVoJTQE4/tLHJk7ycyZ/SWfk8nsmfzPzqwxUwuCIGwQm7jDOyyvmEa8vzDbqGMVn8jKBiIHl8E2tHg4
         FzjC/o9tdCJycBlUdNrtm79gHolGLypbsFS6uKjoB6dcItHgTcV+7brmiYaC2jGOltC+CBWLfmyJhoLO
         oRyiFYkeFYvHAPprsqQOoWLxGKAbD7CcoA2/PSoWjwEkdwgVi9cAkjmEPrR4DiC9eIRlD3V9YPEeQOJD
@@ -488,7 +488,7 @@
   <data name="customerListToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5wAAAOcB8BtYtQAAAn9JREFUWEe91jmLFFEUxfFxwTVQP4C4pG4oCCaiYmQyiWuoGOsXMBU0EcQVE5cP
+        5gAAAOYBIly6UQAAAn9JREFUWEe91jmLFFEUxfFxwTVQP4C4pG4oCCaiYmQyiWuoGOsXMBU0EcQVE5cP
         MDLBiI4bBqLmKhqKGygqKK64tP8D7xbvVZ0qu8dhDvyg677b1dVV71XVUK/XG9RqnMJT/MQPPMFpaMx9
         p5UttpiLc/iDtvzGGcyG20eDLRr68TvI8xpXcCt9znMbfR2ELRpnEXmJYUxDjE/HTrxCRJck34dlizVr
         oFOr6McXw/XJMsRB6Dur4PoqtlijfxLRP3c9uT2InITrqdhijWa4on+Wn/Y2uhzvoDyG66nYYs1XKFfh
@@ -547,7 +547,7 @@
   <data name="btn_StockReturn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5wAAAOcB8BtYtQAAAZJJREFUWEfF10suBFEYxXHCHjxGhHjEYxUGTAnmiIEdSBDr8BxjYgEsxCtMRJgY
+        5gAAAOYBIly6UQAAAZJJREFUWEfF10suBFEYxXHCHjxGhHjEYxUGTAnmiIEdSBDr8BxjYgEsxCtMRJgY
         MCGk/E/iJNVdt6tLd111kt+XinyV+3VV6a7bkSRJ2jQO8IBPOO9YQH1/23zQiV18o1H2UXNyGXygxdO5
         xjlOfx1hCDUnl0FFl92f/A2ryDTGonII518XFxU9cMoNMg2xqfhp1z3PNDTQjzl0pf7WEhVHD1umIWAS
         z1B2EOopTMUpMsAUXuBsItRXmIrTbIBxPME5QzdCvYWpOHkDRFlcVJxGA0RbXFSc0ACD8AOnnKC0xUXF

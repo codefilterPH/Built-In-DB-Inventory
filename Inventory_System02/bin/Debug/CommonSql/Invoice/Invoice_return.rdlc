@@ -806,7 +806,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>INVOICE</Value>
+                    <Value>RETURNING STOCKS </Value>
                     <Style>
                       <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -827,9 +827,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
             <Top>0.7112cm</Top>
-            <Left>9.81349cm</Left>
-            <Height>0.9525cm</Height>
-            <Width>6.67979cm</Width>
+            <Left>6.68196cm</Left>
+            <Height>2.09021cm</Height>
+            <Width>9.81132cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>

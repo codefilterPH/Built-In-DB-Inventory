@@ -199,7 +199,7 @@ namespace Inventory_System02.Invoice_Code
                     {
                         fs.Write(mybytes, 0, mybytes.Length);
 
-                        MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Batched!", "Sent to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     return;
                 }   

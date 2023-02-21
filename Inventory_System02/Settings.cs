@@ -131,11 +131,7 @@ namespace Inventory_System02
             else if (cbo_type.Text == "Brand")
             {
                 setting_name = "`Brand`";
-            }
-            else if (cbo_type.Text == "Description")
-            {
-                setting_name = "`Description`";
-            }
+            }   
             else if (cbo_type.Text == "Customer Type")
             {
                 setting_name = "`Customer Type`";
@@ -449,12 +445,6 @@ namespace Inventory_System02
             {
                 sql = "Select * from Brand";
                 config.Load_DTG(sql, dtg_settings);
-            }
-            else if ( cbo_type.Text == "Description")
-            {
-                sql = "Select * from Description";
-                config.Load_DTG(sql, dtg_settings);
-
             }
             else if (cbo_type.Text == "Customer Type")
             {

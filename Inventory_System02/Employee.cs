@@ -213,8 +213,12 @@ namespace Inventory_System02.Profiles
             }
             else
             {
-                sql = "Delete from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
-                config.Execute_CUD(sql, "Unsuccessful deletion of profile!", "Profile successfully deleted!");
+                if ( MessageBox.Show("Are you sure you want to delete "+ txt_FN.Text +"?", "Warning Deletion Prompt",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    sql = "Delete from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
+                    config.Execute_CUD(sql, "Unsuccessful deletion of profile!", "Profile successfully deleted!");
+                }     
             }
             reloadTableToolStripMenuItem_Click(sender, e);
         }

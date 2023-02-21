@@ -188,25 +188,9 @@ namespace Inventory_System02.Reports_Dir
             {
                 datef = datefrom1.AddDays(-14).ToString("dd-MM-yyyy");
             }
-            else if (bx.Text == "1 Month")
-            {
-                datef = datefrom1.AddMonths(-1).ToString("dd-MM-yyyy");
-            }
-            else if (bx.Text == "6 Months")
-            {
-                datef = datefrom1.AddMonths(-6).ToString("dd-MM-yyyy");
-            }
-            else if (bx.Text == "1 Year")
-            {
-                datef = datefrom1.AddMonths(-12).ToString("dd-MM-yyyy");
-            }
-            else if (bx.Text == "2 Years")
-            {
-                datef = datefrom1.AddMonths(-24).ToString("dd-MM-yyyy");
-            }
             else
             {
-                datef = "01-02-2022";
+                datef = "01-02-2023";
             }
 
 
@@ -320,6 +304,11 @@ namespace Inventory_System02.Reports_Dir
                 MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             return;
+        }
+
+        private void cbo_date_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Calculate_Filtering("load");
         }
 
         private void Group_Filtering_MustNotEmpty()

@@ -108,7 +108,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(133, 218);
+            this.lbl_Personnel.Location = new System.Drawing.Point(133, 210);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(0, 21);
             this.lbl_Personnel.TabIndex = 25;
@@ -118,7 +118,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 218);
+            this.label7.Location = new System.Drawing.Point(6, 210);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 21);
             this.label7.TabIndex = 24;
@@ -145,7 +145,7 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.Location = new System.Drawing.Point(10, 37);
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 169);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 161);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_date
@@ -157,17 +157,13 @@ namespace Inventory_System02.Reports_Dir
             "All Dates",
             "Today",
             "1 Week",
-            "2 Weeks",
-            "1 Month",
-            "6 Months",
-            "1 Year",
-            "2 Years",
-            "More than 2 Years"});
+            "2 Weeks"});
             this.cbo_date.Location = new System.Drawing.Point(607, 6);
             this.cbo_date.Name = "cbo_date";
             this.cbo_date.Size = new System.Drawing.Size(136, 25);
             this.cbo_date.TabIndex = 21;
             this.cbo_date.Text = "All Dates";
+            this.cbo_date.SelectedIndexChanged += new System.EventHandler(this.cbo_date_SelectedIndexChanged);
             // 
             // grp_filters
             // 
@@ -182,7 +178,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Supplier_Name);
             this.grp_filters.Controls.Add(this.chk_Supplier_ID);
             this.grp_filters.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_filters.Location = new System.Drawing.Point(248, 211);
+            this.grp_filters.Location = new System.Drawing.Point(248, 203);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(495, 89);
             this.grp_filters.TabIndex = 20;

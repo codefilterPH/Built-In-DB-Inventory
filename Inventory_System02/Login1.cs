@@ -1,7 +1,10 @@
 ﻿using Inventory_System02.Includes;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
+using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace Inventory_System02
 {
@@ -82,50 +85,90 @@ namespace Inventory_System02
         string status = string.Empty;
         private void Login1_Load(object sender, EventArgs e)
         {
+            bool isPdfInstalled = false;
 
-
-            func.Reload_Images(Company_Logo, "Company_Logo1", @"CommonSql\Pictures\Company\");
-
-
-            sql = "Select * from Administration";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
+            // Check if Adobe Reader is installed by looking at the registry
+            RegistryKey key = Registry.ClassesRoot.OpenSubKey(".pdf");
+            if (key != null)
             {
-                status = config.dt.Rows[0].Field<string>("Status");
-                date = config.dt.Rows[0].Field<string>("Date");
-
-                if (status == "Full") 
+                string pdfDefault = key.GetValue("") as string;
+                if (!string.IsNullOrEmpty(pdfDefault))
                 {
-                    txt_Username.Focus();
+                    RegistryKey pdfKey = Registry.ClassesRoot.OpenSubKey(pdfDefault);
+                    if (pdfKey != null)
+                    {
+                        string pdfAppName = pdfKey.GetValue("") as string;
+                        if (!string.IsNullOrEmpty(pdfAppName))
+                        {
+                            isPdfInstalled = true;
+                        }
+                    }
+                }
+            }
+
+            if (isPdfInstalled)
+            {
+                // Get the current date in the format "dd-MM-yyyy"
+                string currentDate = DateTime.Now.ToString("dd-MM-yyyy");
+
+                // Check if the current date is not in the desired format
+                if (!Regex.IsMatch(currentDate, @"^\d{2}-\d{2}-\d{4}$"))
+                {
+                    // Display an error message and exit the application
+                    MessageBox.Show("The date format on this computer is not supported by this application. Please set the date format to 'dd-MM-yyyy' and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
                 }
                 else
                 {
-                    if (date == "")
-                    {             
-                        sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString("dd-MM-yyyy") + "' where Count = '0'";
-                        config.Execute_Query(sql);
-                        txt_Username.Focus();
-                    }
-                    else
+                    func.Reload_Images(Company_Logo, "Company_Logo1", @"CommonSql\Pictures\Company\");
+
+
+                    sql = "Select * from Administration";
+                    config.singleResult(sql);
+                    if (config.dt.Rows.Count > 0)
                     {
-                        string date1 = DateTime.Now.ToString("dd-MM-yyyy");
-                        if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
-                        {
-                            Admin.Verify frm = new Admin.Verify();
-                            frm.ShowDialog();
-                        }
-                        else
+                        status = config.dt.Rows[0].Field<string>("Status");
+                        date = config.dt.Rows[0].Field<string>("Date");
+
+                        if (status == "Full")
                         {
                             txt_Username.Focus();
                         }
+                        else
+                        {
+                            if (date == "")
+                            {
+                                sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString("dd-MM-yyyy") + "' where Count = '0'";
+                                config.Execute_Query(sql);
+                                txt_Username.Focus();
+                            }
+                            else
+                            {
+                                string date1 = DateTime.Now.ToString("dd-MM-yyyy");
+                                if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
+                                {
+                                    Admin.Verify frm = new Admin.Verify();
+                                    frm.ShowDialog();
+                                }
+                                else
+                                {
+                                    txt_Username.Focus();
+                                }
+                            }
+                        }
                     }
-                }
-            }   
+                    else
+                    {
+                        sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString("dd-MM-yyyy") + "' , '100' ) ";
+                        config.Execute_Query(sql);
+                        txt_Username.Focus();
+                    }
+                }  
+            }
             else
             {
-                sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString("dd-MM-yyyy") + "' , '100' ) ";
-                config.Execute_Query(sql);
-                txt_Username.Focus();
+                MessageBox.Show("Adobe Reader is not installed. Please install Adobe Reader before running this application.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 

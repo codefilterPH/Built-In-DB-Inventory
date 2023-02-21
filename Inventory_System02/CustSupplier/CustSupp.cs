@@ -126,9 +126,13 @@ namespace Inventory_System02.CustSupplier
             {
                 if (Sup_ID.Text != "" || Sup_ID.Text != null)
                 {
-                    sql = "Delete from Supplier where `Company ID` = '" + Sup_ID.Text + "'";
-                    config.Execute_CUD(sql, "Unsuccessfully to Delete " + sup_CName.Text, "Successfully Deleted " + sup_CName.Text);
-                    supplier_refresh_Click(sender, e);
+                    if (MessageBox.Show("Are you sure you want to delete " + sup_CName.Text + "?", "Warning Deletion Prompt",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        sql = "Delete from Supplier where `Company ID` = '" + Sup_ID.Text + "'";
+                        config.Execute_CUD(sql, "Unsuccessfully to Delete " + sup_CName.Text, "Successfully Deleted " + sup_CName.Text);
+                        supplier_refresh_Click(sender, e);
+                    }
                 }
             }
         }
@@ -476,9 +480,13 @@ namespace Inventory_System02.CustSupplier
         {
             if (cust_ID.Text != "" || cust_ID.Text != null)
             {
-                sql = "Delete from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
-                config.Execute_CUD(sql, "Unable to delete customer information", "Successfully deleted customer information");
-                refreshToolStripMenuItem_Click(sender, e);
+                if (MessageBox.Show("Are you sure you want to delete " + cust_FN.Text + "?", "Warning Deletion Prompt",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    sql = "Delete from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
+                    config.Execute_CUD(sql, "Unable to delete customer information", "Successfully deleted customer information");
+                    refreshToolStripMenuItem_Click(sender, e);
+                }
             }
         }
 

@@ -10,6 +10,10 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices.ComTypes;
+using Microsoft.Office.Interop.Word;
+using DataTable = System.Data.DataTable;
+using CheckBox = System.Windows.Forms.CheckBox;
 
 namespace Inventory_System02.Reports_Dir
 {
@@ -27,10 +31,11 @@ namespace Inventory_System02.Reports_Dir
         string Global_ID, Fullname, JobRole;
         string sql, image_path = @"CommonSql\Reports Dir\";
         string company_name = string.Empty, company_address = string.Empty, company_image_path = string.Empty;
-        string db_table = string.Empty, datef =string.Empty, datenow = DateTime.Now.ToString("dd-MM-yyyy"), dateformat = "dd-MM-yyyy";
+        string db_table = string.Empty;
+        string datef = string.Empty;
+        string datenow = DateTime.Now.ToString("dd-MM-yyyy");
+        string dateformat = "dd-MM-yyyy";
         double price = 0, quantity = 0, sub_amt = 0, total_val = 0;
-
-        int count = 0;
 
         public Item_Report(string userid, string name, string jobrole)
         {
@@ -42,23 +47,24 @@ namespace Inventory_System02.Reports_Dir
         }
         private void Group_Filtering_MustNotEmpty()
         {
+            int count = 0;
             foreach (Control c in grp_filters.Controls)
             {
-                CheckBox chkbox = c as CheckBox;
-                if (chkbox != null && chkbox.Checked)
+                if (c is System.Windows.Forms.CheckBox && ((System.Windows.Forms.CheckBox)c).Checked)
                 {
                     count++;
                 }
             }
             if (count == 0)
             {
+                MessageBox.Show("Please select at least one filter.");
                 chk_Item_ID.Checked = true;
                 chk_Item_Name.Checked = true;
                 chk_Quantity.Checked = true;
                 chk_Price.Checked = true;
-                return;
             }
         }
+
         private void WhatTable_To_Select()
         {
             if (cbo_report_type.Text == "Stock In")
@@ -120,40 +126,25 @@ namespace Inventory_System02.Reports_Dir
             lbl_total_quantity.Text = quantity1.ToString();
             lbl_total_value.Text = total_val.ToString();
         }
+
         private void DateAdjuster_local(ComboBox bx)
         {
-            DateTime datefrom1 = Convert.ToDateTime(datenow);
+            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString("dd-MM-yyyy"));
             if (bx.Text == "Today")
             {
-                datef = datefrom1.ToString(dateformat);
+                datef = datefrom1.ToString("dd-MM-yyyy");
             }
             else if (bx.Text == "1 Week")
             {
-                datef = datefrom1.AddDays(-7).ToString(dateformat);
+                datef = datefrom1.AddDays(-7).ToString("dd-MM-yyyy");
             }
             else if (bx.Text == "2 Weeks")
             {
-                datef = datefrom1.AddDays(-14).ToString(dateformat);
-            }
-            else if (bx.Text == "1 Month")
-            {
-                datef = datefrom1.AddMonths(-1).ToString(dateformat);
-            }
-            else if (bx.Text == "6 Months")
-            {
-                datef = datefrom1.AddMonths(-6).ToString(dateformat);
-            }
-            else if (bx.Text == "1 Year")
-            {
-                datef = datefrom1.AddMonths(-12).ToString(dateformat);
-            }
-            else if (bx.Text == "2 Years")
-            {
-                datef = datefrom1.AddMonths(-24).ToString(dateformat);
-            }
+                datef = datefrom1.AddDays(-14).ToString("dd-MM-yyyy");
+            }    
             else
             {
-                datef = "01-02-2022";
+                datef = "01-02-2023";
             }
 
 
@@ -161,6 +152,7 @@ namespace Inventory_System02.Reports_Dir
 
         public void Calculate_Filtering(string preview_or_print)
         {
+            DateAdjuster_local(cbo_Date);
             rs = new ReportDataSource();
             reportParameters = new ReportParameterCollection();
             frm = new Report_Viewer();
@@ -177,21 +169,23 @@ namespace Inventory_System02.Reports_Dir
             }
             Group_Filtering_MustNotEmpty();
             WhatTable_To_Select();
-            DateAdjuster_local(cbo_Date);
-                
-            if (cbo_Date.Text == "All Dates")
+
+            if (cbo_Date.Text == "Today")
             {
-                sql = " SELECT * from " + db_table + " where count = '1' ";
+                sql = "SELECT * FROM " + db_table + " WHERE `Entry Date` = '" + datenow + "'";
             }
-            else if ( cbo_Date.Text == "Today")
+            else if (cbo_Date.Text == "1 Week")
             {
-                sql = " SELECT * from " + db_table + " where count = '1' and `Entry Date` = '"+datenow+"' ";
+                sql = "SELECT * FROM " + db_table + " WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + datenow + "'";
+            }
+            else if (cbo_Date.Text == "2 Weeks")
+            {
+                sql = "SELECT * FROM " + db_table + " WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + datenow + "'";
             }
             else
             {
-                sql = " SELECT * from " + db_table + " where count = '1' and `Entry Date` between '" + Convert.ToDateTime(datef)+"' and '"+ datenow +"' ";
+                sql = "SELECT * FROM " + db_table;
             }
-           
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
