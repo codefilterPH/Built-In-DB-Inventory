@@ -188,7 +188,7 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 122);
+            this.panel2.Size = new System.Drawing.Size(839, 110);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -208,7 +208,7 @@ namespace Inventory_System02.CustSupplier
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Customer.RowTemplate.Height = 90;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 122);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 110);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -319,9 +319,9 @@ namespace Inventory_System02.CustSupplier
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(343, 44);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 17);
+            this.label11.Size = new System.Drawing.Size(69, 17);
             this.label11.TabIndex = 63;
-            this.label11.Text = "Customer ID";
+            this.label11.Text = "Division ID";
             // 
             // cust_ID
             // 
@@ -473,8 +473,8 @@ namespace Inventory_System02.CustSupplier
             this.btn_new_customer.ForeColor = System.Drawing.Color.White;
             this.btn_new_customer.Image = ((System.Drawing.Image)(resources.GetObject("btn_new_customer.Image")));
             this.btn_new_customer.Name = "btn_new_customer";
-            this.btn_new_customer.Size = new System.Drawing.Size(113, 20);
-            this.btn_new_customer.Text = "New Customer";
+            this.btn_new_customer.Size = new System.Drawing.Size(161, 20);
+            this.btn_new_customer.Text = "New Division/Customer";
             this.btn_new_customer.Click += new System.EventHandler(this.btn_new_customer_Click);
             // 
             // btn_Upload_Cust
@@ -575,7 +575,7 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 132);
+            this.panel1.Size = new System.Drawing.Size(837, 128);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -596,7 +596,7 @@ namespace Inventory_System02.CustSupplier
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Supplier.RowTemplate.Height = 90;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 132);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 128);
             this.dtg_Supplier.TabIndex = 25;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);

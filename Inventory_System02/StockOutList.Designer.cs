@@ -271,11 +271,11 @@ namespace Inventory_System02
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(285, 37);
+            this.label3.Location = new System.Drawing.Point(296, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 17);
+            this.label3.Size = new System.Drawing.Size(92, 17);
             this.label3.TabIndex = 110;
-            this.label3.Text = "Customer Name";
+            this.label3.Text = "Division Name";
             // 
             // txt_Cust_ID
             // 
@@ -289,9 +289,9 @@ namespace Inventory_System02
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(65, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 17);
+            this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 108;
-            this.label4.Text = "Customer ID";
+            this.label4.Text = "Division ID";
             // 
             // cust_Image
             // 

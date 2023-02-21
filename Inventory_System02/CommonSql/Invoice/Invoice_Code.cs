@@ -9,27 +9,24 @@ using System.Linq;
 using System.Windows.Forms;
 
 
-
 namespace Inventory_System02.Invoice_Code
 {
     class Invoice_Code
-    {
-        SQLConfig config = new SQLConfig();
-
-        DataSet ds = new DataSet();
-
-        Report_Viewer frm = new Report_Viewer();
-        ReportDataSource rs = new ReportDataSource();
-        ReportParameterCollection reportParameters = new ReportParameterCollection();
-        usableFunction func = new usableFunction();
-
-        string sql = string.Empty;
-        string report_date = string.Empty, cust_name = string.Empty, address = string.Empty, FileName = string.Empty;
-        double total = 0;
-
-        string rdlc_path = @"CommonSql\Invoice\";
+    {   
         public void Invoice(string out_return, string Trans_ref, string what_to_do)
         {
+            SQLConfig config = new SQLConfig();
+
+            DataSet ds = new DataSet();
+
+            Report_Viewer frm = new Report_Viewer();
+            ReportDataSource rs = new ReportDataSource();
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+            usableFunction func = new usableFunction();
+            string report_date = string.Empty, cust_name = string.Empty, address = string.Empty, FileName = string.Empty;
+            double total = 0;
+            string rdlc_path = @"CommonSql\Invoice\";
+            string sql = string.Empty;
             if (out_return == "out")
             {
                 sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ";

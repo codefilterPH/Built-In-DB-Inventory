@@ -176,35 +176,11 @@ namespace Inventory_System02.CustSupplier
                 cust_ID.Focus();
 
             }
-            else if (cust_FN.Text == null || cust_LN.Text == "")
+            else if (cust_FN.Text == null || cust_FN.Text == "")
             {
                 func.Error_Message1 = "First Name";
                 func.Error_Message();
                 cust_FN.Focus();
-            }
-            else if (cust_LN.Text == null || cust_LN.Text == "")
-            {
-                func.Error_Message1 = "Last Name";
-                func.Error_Message();
-                cust_LN.Focus();
-            }
-            else if (cust_Phone.Text == null || cust_Phone.Text == "")
-            {
-                func.Error_Message1 = "Phone Numbers";
-                func.Error_Message();
-                cust_Phone.Focus();
-            }
-            else if (cust_Phone.Text == null || cust_Phone.Text == "")
-            {
-                func.Error_Message1 = "Address";
-                func.Error_Message();
-                cust_SAddress.Focus();
-            }
-            else if (cbo_type.Text == null || cbo_type.Text == "")
-            {
-                func.Error_Message1 = "Customer Type";
-                func.Error_Message();
-                cbo_type.Focus();
             }
             else
             {
@@ -213,7 +189,7 @@ namespace Inventory_System02.CustSupplier
                     ", `Customer ID` " +
                     ",`First Name` " +
                     ",`Last Name` " +
-                    ",`Phone` " +
+                    ",`Phone Number` " +
                     ",`Address`" +
                     ",`Type`) values ( " +
                     " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
