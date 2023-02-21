@@ -34,7 +34,6 @@ namespace Inventory_System02.Reports_Dir
         string db_table = string.Empty;
         string datef = string.Empty;
         string datenow = DateTime.Now.ToString("dd-MM-yyyy");
-        string dateformat = "dd-MM-yyyy";
         double price = 0, quantity = 0, sub_amt = 0, total_val = 0;
 
         public Item_Report(string userid, string name, string jobrole)

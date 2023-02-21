@@ -235,8 +235,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.Rep
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Buffers.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Data.SQLite.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Data.SQLite.EF6.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Memory.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
@@ -244,12 +242,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\System.ValueT
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\zxing.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\zxing.presentation.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\EnvDTE.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.MSXML.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\EntityFramework.xml
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Microsoft.Extensions.Configuration.xml

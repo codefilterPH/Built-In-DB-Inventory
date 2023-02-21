@@ -44,12 +44,6 @@ namespace Inventory_System02.Profiles
                 func.Error_Message();
                 txt_FN.Focus();
             }
-            else if (txt_LN.Text == "" || txt_LN.Text == null)
-            {
-                func.Error_Message1 = "Last Name";
-                func.Error_Message();
-                txt_LN.Focus();
-            }
             else
             {
                 sql = "Select * from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
@@ -238,22 +232,23 @@ namespace Inventory_System02.Profiles
                 if (MessageBox.Show("Are you sure to update this user? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                   == DialogResult.Yes)
                 {
-                    if (txt_FN.Text == "" || txt_FN.Text == null)
+                    if (txt_ID.Text == "" || txt_ID.Text == null)
                     {
-                        func.Error_Message1 = "First Name";
+                        func.Error_Message1 = "ID";
+                        func.Error_Message();
+                        txt_ID.Focus();
+                        return;
+                    }
+                    else if (txt_FN.Text == "" || txt_FN.Text == null)
+                    {
+                        func.Error_Message1 = "Last Name";
                         func.Error_Message();
                         txt_FN.Focus();
                         return;
                     }
-                    else if (txt_LN.Text == "" || txt_LN.Text == null)
+                    else
                     {
-                        func.Error_Message1 = "Last Name";
-                        func.Error_Message();
-                        txt_LN.Focus();
-                        return;
-                    }
-
-                    sql = "Update Employee set " +
+                        sql = "Update Employee set " +
                         " `Hired Date` = '" + dtp_Hired_date.Text + "' " +
                         ", `First Name` = '" + txt_FN.Text + "'" +
                         ", `Last Name` = '" + txt_LN.Text + "' " +
@@ -262,7 +257,9 @@ namespace Inventory_System02.Profiles
                         ", `Address` = '" + txt_Address.Text + "' " +
                         ", `Job Role` = '" + txt_Job_role.Text + "' " +
                         " where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
+                        config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
+
+                    }
                 }
                 reloadTableToolStripMenuItem_Click(sender, e);
             }
