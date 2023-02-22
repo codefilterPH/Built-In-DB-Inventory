@@ -89,19 +89,7 @@ namespace Inventory_System02.CustSupplier
                 func.Error_Message1 = "First Name";
                 func.Error_Message();
                 sup_CName.Focus();
-            }
-            else if (sup_Phone.Text == "" || sup_Phone.Text == null)
-            {
-                func.Error_Message1 = "Last Name";
-                func.Error_Message();
-                sup_Phone.Focus();
-            }
-            else if (sup_Phone.Text == "" || sup_Phone.Text == null)
-            {
-                func.Error_Message1 = "Last Name";
-                func.Error_Message();
-                sup_Address.Focus();
-            }
+            }        
             else
             {
                 sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, Street , City, Province, `Address`) values (" +

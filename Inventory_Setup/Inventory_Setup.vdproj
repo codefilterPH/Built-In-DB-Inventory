@@ -40,19 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_14DB8037A8764D5F88787E90B3A8BCB0"
-        "OwnerKey" = "8:_D77786CF8311B0D8FDF3221AAA8F0715"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_14DB8037A8764D5F88787E90B3A8BCB0"
         "OwnerKey" = "8:_DA5D7C39A7CF4C07AA8FB2B7DF1F6CD4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_19207296E82640C7BED538920BB03D07"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_14DB8037A8764D5F88787E90B3A8BCB0"
+        "OwnerKey" = "8:_D77786CF8311B0D8FDF3221AAA8F0715"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -111,6 +105,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3E874554A39C40CA93B4275EE54290F3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_41ED297C61842E0C2805924381E0B4A0"
         "OwnerKey" = "8:_DA5D7C39A7CF4C07AA8FB2B7DF1F6CD4"
         "MsmSig" = "8:_UNDEFINED"
@@ -135,12 +135,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_507049AD12A04566B3E6E1F0DCD9ACFF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_644985B75DB36D1042AECC98042FE8CF"
         "OwnerKey" = "8:_DA5D7C39A7CF4C07AA8FB2B7DF1F6CD4"
         "MsmSig" = "8:_UNDEFINED"
@@ -148,6 +142,12 @@
         "Entry"
         {
         "MsmKey" = "8:_66A971D773F34886B915D52CC7535232"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6B82CAC46EFF4295903FC2799773B48F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -167,6 +167,12 @@
         {
         "MsmKey" = "8:_6EB56F1171EE348AB958BADC70AD2124"
         "OwnerKey" = "8:_D77786CF8311B0D8FDF3221AAA8F0715"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_709CA2F829F04D2DA8AC2406FC6BB2D5"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -275,18 +281,6 @@
         {
         "MsmKey" = "8:_B114457D5EC07D8427D22B9E624FC523"
         "OwnerKey" = "8:_EE85312FCD89676E7CB61AF87F8908A2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B1638CF12C594F19B3B80AB3B351AA54"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B1E76358AED34263ADFBBDCD74E7D83E"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -418,6 +412,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F75F4E704CF6453CA6193EE4BF8C1076"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FC1EBA8641A44F4C8835CA8E9EB40A61"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -768,26 +768,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_19207296E82640C7BED538920BB03D07"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Customers\\DONOTDELETE_SUBIMAGE.JPG"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_53BC33C5E61B4211974C5D4D39529C66"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_235EEF6BAD11AB4148A9494D41FA1045"
             {
             "AssemblyRegister" = "3:1"
@@ -952,6 +932,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E874554A39C40CA93B4275EE54290F3"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Customers\\DONOTDELETE_SUBIMAGE.JPG"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.JPG"
+            "Tag" = "8:"
+            "Folder" = "8:_53BC33C5E61B4211974C5D4D39529C66"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_41ED297C61842E0C2805924381E0B4A0"
             {
             "AssemblyRegister" = "3:1"
@@ -1034,26 +1034,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_507049AD12A04566B3E6E1F0DCD9ACFF"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Suppliers\\DONOTDELETE_SUBIMAGE.JPG"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_8342567F6C9A4B75BC994E964DF50BBB"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_644985B75DB36D1042AECC98042FE8CF"
             {
             "AssemblyRegister" = "3:1"
@@ -1091,6 +1071,26 @@
             "TargetName" = "8:Item Report.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B82CAC46EFF4295903FC2799773B48F"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\DONOTDELETE_SUBIMAGE.JPG"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.JPG"
+            "Tag" = "8:"
+            "Folder" = "8:_8342567F6C9A4B75BC994E964DF50BBB"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1163,6 +1163,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_709CA2F829F04D2DA8AC2406FC6BB2D5"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
+            "TargetName" = "8:Database.db"
+            "Tag" = "8:"
+            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73E465E514C74BD090D2338725E65EA4"
@@ -1440,46 +1460,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1638CF12C594F19B3B80AB3B351AA54"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Employee\\DONOTDELETE_SUBIMAGE.JPG"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_34865E4229FA45069E80CA0D137845CA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1E76358AED34263ADFBBDCD74E7D83E"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
-            "TargetName" = "8:Database.db"
-            "Tag" = "8:"
-            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B6F7EC0FF252066DED152DD343A6097A"
@@ -1830,6 +1810,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC1EBA8641A44F4C8835CA8E9EB40A61"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Employee\\DONOTDELETE_SUBIMAGE.JPG"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.JPG"
+            "Tag" = "8:"
+            "Folder" = "8:_34865E4229FA45069E80CA0D137845CA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -2030,7 +2030,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inventory_Setup"
         "ProductCode" = "8:{74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319}"
-        "PackageCode" = "8:{C12EC103-C936-4167-833D-4820F46989B7}"
+        "PackageCode" = "8:{794B0E1E-F0CD-4890-A32A-DFE4CDB826AE}"
         "UpgradeCode" = "8:{CB3894DF-9F2C-4F1C-8087-BD875F362B65}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
