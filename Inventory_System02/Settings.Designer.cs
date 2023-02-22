@@ -122,7 +122,7 @@ namespace Inventory_System02
             "Brand",
             "Customer Type",
             "Supplier Type",
-            "Employee Type",
+            "Employee Role",
             "Customer Models"});
             this.cbo_type.Location = new System.Drawing.Point(54, 55);
             this.cbo_type.Name = "cbo_type";

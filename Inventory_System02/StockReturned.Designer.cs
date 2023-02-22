@@ -380,7 +380,7 @@ namespace Inventory_System02
             // 
             this.dtg_Items.AllowUserToAddRows = false;
             this.dtg_Items.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -399,7 +399,7 @@ namespace Inventory_System02
             this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Items.EnableHeadersVisualStyles = false;
-            this.dtg_Items.GridColor = System.Drawing.Color.White;
+            this.dtg_Items.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Items.Location = new System.Drawing.Point(3, 50);
             this.dtg_Items.Name = "dtg_Items";
             this.dtg_Items.ReadOnly = true;

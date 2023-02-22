@@ -184,7 +184,7 @@ namespace Inventory_System02
                         ", `Supplier ID` = '" + txt_SupID.Text + "' " +
                         ", `Supplier Name` = '" + txt_Sup_Name.Text + "' " +
                         " where `Stock ID` = '" + txt_Barcode.Text + "' ";
-                    config.Execute_CUD(sql, "Unsuccessful to update profile", "Profile successfully updated!");
+                    config.Execute_CUD(sql, "Unsuccessful to update item information", "Item information successfully updated!");
                     AddStock_Load(sender, e);
 
                 }
@@ -199,14 +199,16 @@ namespace Inventory_System02
         {
             if (dtg_Items.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow rw in dtg_Items.SelectedRows)
+                if ( MessageBox.Show("You are about to deleted selected item(s), Please confirm deletion.", "Warning Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    sql = "Delete from Stocks where `Stock ID`  = '" + rw.Cells[2].Value.ToString() + "' ";
-                    config.Execute_Query(sql);
+                    foreach (DataGridViewRow rw in dtg_Items.SelectedRows)
+                    {
+                        sql = "Delete from Stocks where `Stock ID`  = '" + rw.Cells[2].Value.ToString() + "' ";
+                        config.Execute_Query(sql);
+                    }
+                    MessageBox.Show("Deleted from inbound stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("Deleted from stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             AddStock_Load(sender, e);
         }
 
@@ -447,6 +449,18 @@ namespace Inventory_System02
         {
             toolTip = new ToolTip();
             toolTip.SetToolTip(txt_Barcode, "If left empty system will auto create an item id.");
+        }
+
+        private void txt_SupID_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(txt_SupID, "Type any known ID, System will populate the names if exists.");
+        }
+
+        private void Item_Image_MouseHover(object sender, EventArgs e)
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(Item_Image, "Double click me to change picture.");
         }
 
         private void txt_Price_Click(object sender, EventArgs e)

@@ -447,23 +447,26 @@ namespace Inventory_System02
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if ( dtg_AddedStocks.SelectedRows.Count > 0)
+            if (dtg_AddedStocks.Rows.Count > 0)
             {
-                Edit_Form.Edit_Form myForm = new Edit_Form.Edit_Form( dtg_AddedStocks.CurrentRow.Cells[1].Value.ToString(), Convert.ToInt32( dtg_AddedStocks.CurrentRow.Cells[4].Value ));
-               
-                DialogResult result = myForm.ShowDialog();
-                if (result == DialogResult.OK)
+                if (dtg_AddedStocks.SelectedRows.Count > 0)
                 {
-                    // Get the data entered by the user from the MyData property of the form
-                    dtg_AddedStocks.CurrentRow.Cells[4].Value = myForm.MyData_qty;
-                    Update_Qty_Stocks();
+                    Edit_Form.Edit_Form myForm = new Edit_Form.Edit_Form(dtg_AddedStocks.CurrentRow.Cells[1].Value.ToString(), Convert.ToInt32(dtg_AddedStocks.CurrentRow.Cells[4].Value));
+
+                    DialogResult result = myForm.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        // Get the data entered by the user from the MyData property of the form
+                        dtg_AddedStocks.CurrentRow.Cells[4].Value = myForm.MyData_qty;
+                        Update_Qty_Stocks();
+                    }
                 }
-            }  
-            else
-            {
-                dtg_AddedStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dtg_AddedStocks.Rows[0].Selected = true;    
-            }
+                else
+                {
+                    dtg_AddedStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dtg_AddedStocks.Rows[0].Selected = true;
+                }
+            }   
         }
         private ToolTip toolTip;
         private void btn_searchCustomer_MouseHover(object sender, EventArgs e)
@@ -559,7 +562,7 @@ namespace Inventory_System02
         private void checkBox1_MouseHover(object sender, EventArgs e)
         {
             toolTip = new ToolTip();
-            toolTip.SetToolTip(checkBox1, "Check to review and enable confirm stock out.");
+            toolTip.SetToolTip(checkBox1, "Click me to verify or confirm that stock out button is enabled.\nIf not, therefore you need to add customer info or  just complete the process.");
         }
 
         private void dtg_AddedStocks_CellEndEdit(object sender, DataGridViewCellEventArgs e)

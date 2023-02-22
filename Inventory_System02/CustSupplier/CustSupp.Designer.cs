@@ -31,10 +31,13 @@ namespace Inventory_System02.CustSupplier
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustSupp));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustSupp));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_cusid_select = new System.Windows.Forms.Button();
             this.lbl_total_cust = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,6 +68,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_new_customer = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Upload_Cust = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_supid_select = new System.Windows.Forms.Button();
             this.lbl_total_sup = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -128,6 +132,7 @@ namespace Inventory_System02.CustSupplier
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.btn_cusid_select);
             this.tabPage1.Controls.Add(this.lbl_total_cust);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.panel2);
@@ -159,6 +164,22 @@ namespace Inventory_System02.CustSupplier
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Customer";
             // 
+            // btn_cusid_select
+            // 
+            this.btn_cusid_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cusid_select.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_cusid_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_cusid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_cusid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cusid_select.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_cusid_select.Location = new System.Drawing.Point(576, 172);
+            this.btn_cusid_select.Name = "btn_cusid_select";
+            this.btn_cusid_select.Size = new System.Drawing.Size(139, 23);
+            this.btn_cusid_select.TabIndex = 123;
+            this.btn_cusid_select.Text = "Select";
+            this.btn_cusid_select.UseVisualStyleBackColor = false;
+            this.btn_cusid_select.Click += new System.EventHandler(this.btn_cusid_select_Click);
+            // 
             // lbl_total_cust
             // 
             this.lbl_total_cust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -188,27 +209,30 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 110);
+            this.panel2.Size = new System.Drawing.Size(839, 170);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
             // 
             this.dtg_Customer.AllowUserToAddRows = false;
             this.dtg_Customer.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_Customer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Customer.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Customer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_Customer.GridColor = System.Drawing.Color.White;
+            this.dtg_Customer.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Customer.Location = new System.Drawing.Point(0, 0);
             this.dtg_Customer.Name = "dtg_Customer";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Customer.RowTemplate.Height = 90;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 110);
+            this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 170);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -491,6 +515,7 @@ namespace Inventory_System02.CustSupplier
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.btn_supid_select);
             this.tabPage2.Controls.Add(this.lbl_total_sup);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label19);
@@ -525,6 +550,22 @@ namespace Inventory_System02.CustSupplier
             this.tabPage2.Size = new System.Drawing.Size(853, 393);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Supplier";
+            // 
+            // btn_supid_select
+            // 
+            this.btn_supid_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_supid_select.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_supid_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_supid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_supid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_supid_select.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_supid_select.Location = new System.Drawing.Point(585, 164);
+            this.btn_supid_select.Name = "btn_supid_select";
+            this.btn_supid_select.Size = new System.Drawing.Size(128, 23);
+            this.btn_supid_select.TabIndex = 124;
+            this.btn_supid_select.Text = "Select";
+            this.btn_supid_select.UseVisualStyleBackColor = false;
+            this.btn_supid_select.Click += new System.EventHandler(this.btn_supid_select_Click);
             // 
             // lbl_total_sup
             // 
@@ -575,28 +616,31 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 128);
+            this.panel1.Size = new System.Drawing.Size(837, 172);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
             // 
             this.dtg_Supplier.AllowUserToAddRows = false;
             this.dtg_Supplier.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_Supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_Supplier.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Supplier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtg_Supplier.GridColor = System.Drawing.Color.White;
+            this.dtg_Supplier.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Supplier.Location = new System.Drawing.Point(0, 0);
             this.dtg_Supplier.Name = "dtg_Supplier";
             this.dtg_Supplier.ReadOnly = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_Supplier.RowTemplate.Height = 90;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 128);
+            this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 172);
             this.dtg_Supplier.TabIndex = 25;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);
@@ -971,5 +1015,7 @@ namespace Inventory_System02.CustSupplier
         private System.Windows.Forms.TextBox txt_Search_sup;
         private System.Windows.Forms.ToolStripMenuItem btn_Upload_Cust;
         private System.Windows.Forms.ToolStripMenuItem btn_Upload_sup;
+        private System.Windows.Forms.Button btn_cusid_select;
+        private System.Windows.Forms.Button btn_supid_select;
     }
 }

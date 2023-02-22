@@ -383,23 +383,26 @@ namespace Inventory_System02
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if (dtg_Return.SelectedRows.Count > 0)
+            if (dtg_Return.Rows.Count > 0)
             {
-                Edit_Form.Edit_Form myForm = new Edit_Form.Edit_Form(dtg_Return.CurrentRow.Cells[1].Value.ToString(), Convert.ToInt32(dtg_Return.CurrentRow.Cells[4].Value));
-
-                DialogResult result = myForm.ShowDialog();
-                if (result == DialogResult.OK)
+                if (dtg_Return.SelectedRows.Count > 0)
                 {
-                    // Get the data entered by the user from the MyData property of the form
-                    dtg_Return.CurrentRow.Cells[4].Value = myForm.MyData_qty;
-                    Update_Qty_Stocks();
+                    Edit_Form.Edit_Form myForm = new Edit_Form.Edit_Form(dtg_Return.CurrentRow.Cells[1].Value.ToString(), Convert.ToInt32(dtg_Return.CurrentRow.Cells[4].Value));
+
+                    DialogResult result = myForm.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        // Get the data entered by the user from the MyData property of the form
+                        dtg_Return.CurrentRow.Cells[4].Value = myForm.MyData_qty;
+                        Update_Qty_Stocks();
+                    }
                 }
-            }
-            else
-            {
-                dtg_Return.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dtg_Return.Rows[0].Selected = true;
-            }
+                else
+                {
+                    dtg_Return.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dtg_Return.Rows[0].Selected = true;
+                }
+            }       
         }
 
         private ToolTip toolTip;

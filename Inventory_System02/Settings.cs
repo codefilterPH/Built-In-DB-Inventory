@@ -146,7 +146,7 @@ namespace Inventory_System02
             }
             else
             {
-                setting_name = "`Employee Type`";
+                setting_name = "`Employee Role`";
             }
 
             if (setting_name == "`Product Name`" || setting_name == "`Brand`" || setting_name == "`Description`")
@@ -277,6 +277,12 @@ namespace Inventory_System02
                 txt_company_name.Enabled = true;
                 txt_company_name.Focus();
             }
+            else
+            {
+                btn_company_name.Focus();
+                txt_company_name.Enabled = false;
+                MessageBox.Show("Saved! Try to restart the app to apply changes!", "Prompt Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void txt_company_name_Leave(object sender, EventArgs e)
@@ -309,13 +315,14 @@ namespace Inventory_System02
             {
 
                 sql = "Update Settings set Low_Detection = '" + num_SL_Detection.Text + "' ";
-                config.singleResult(sql);
+                config.Execute_CUD(sql, "Unable to update stock low detection, Please try again or contact administrator.",
+                    "Successfully updated stock low detection!");
                 Settings_Load(sender, e);
             }
             else
             {
                 sql = "Insert into Settings ( `Low_Detection` ) values ( '" + num_SL_Detection.Text + "' ) ";
-                config.singleResult(sql);
+                config.Execute_CUD(sql, "Unable to add stock low detection. Please contact administrator!", "Successfully setup stock low detection!");
                 Settings_Load(sender, e);
             }
         }
@@ -339,13 +346,13 @@ namespace Inventory_System02
             {
 
                 sql = "Update Settings set Warranty = '" + num_Warranty.Text + "' ";
-                config.singleResult(sql);
+                config.Execute_CUD(sql, "Unable to update warranty, Please contact administrator!", "Successfully updated warranty value!");
                 Settings_Load(sender, e);
             }
             else
             {
                 sql = "Insert into Settings ( `Warranty` ) values ( '" + num_Warranty.Text + "' ) ";
-                config.singleResult(sql);
+                config.Execute_CUD(sql, "Unable to insert warranty value, Please contact administrator!", "Successfully inserted warranty value!");
                 Settings_Load(sender, e);
             }
         }
@@ -378,10 +385,15 @@ namespace Inventory_System02
             if (txt_Com_Address.Enabled == false)
             {
                 txt_Com_Address.Enabled = true;
-                txt_Com_Address.Focus(); 
-
+                btn_Address.Focus(); 
             }
-          
+            else
+            {
+                btn_Address.Focus();
+                txt_Com_Address.Enabled = false;
+                MessageBox.Show("Saved! Try to restart the app to apply changes!", "Prompt Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void txt_Com_Address_Leave(object sender, EventArgs e)
@@ -465,7 +477,7 @@ namespace Inventory_System02
             }
             else
             {
-                sql = "Select * from `Employee Type`";
+                sql = "Select * from `Employee Role`";
                 config.Load_DTG(sql, dtg_settings);     
 
             }

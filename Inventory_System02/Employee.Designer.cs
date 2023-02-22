@@ -30,6 +30,7 @@ namespace Inventory_System02.Profiles
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.panel2 = new System.Windows.Forms.Panel();
@@ -423,12 +424,14 @@ namespace Inventory_System02.Profiles
             // 
             this.dtg_User.AllowUserToAddRows = false;
             this.dtg_User.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_User.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_User.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_User.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtg_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_User.GridColor = System.Drawing.Color.White;
+            this.dtg_User.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_User.Location = new System.Drawing.Point(13, 210);
             this.dtg_User.Name = "dtg_User";
             this.dtg_User.ReadOnly = true;

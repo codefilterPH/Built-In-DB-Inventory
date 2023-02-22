@@ -328,7 +328,7 @@ namespace Inventory_System02.Profiles
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            sql = "Select Type from `Employee Type`";
+            sql = "Select Type from `Employee Role`";
             config.fiil_CBO(sql, txt_Job_role);
             timer1.Stop();
         }

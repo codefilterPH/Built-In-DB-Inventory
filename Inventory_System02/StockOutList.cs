@@ -23,13 +23,6 @@ namespace Inventory_System02
         private void StockOutList_Load(object sender, EventArgs e)
         {
             refreshTableToolStripMenuItem_Click(sender, e);
-            if (dtg_outlist.Columns.Count > 0)
-            {
-                if (dtg_outlist.SelectedRows.Count > 0)
-                {
-                    txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[16].Value.ToString();
-                }
-            }
         }
         double val = 0, qty = 0;
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +86,7 @@ namespace Inventory_System02
                 {
                     if (Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[1].Value) >= Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[15].Value))
                     {
-                        lbl_DueDate.Text = "Warning this Transaction is due on " + dtg_outlist.CurrentRow.Cells[15].Value.ToString();
+                        lbl_DueDate.Text = "Warning this Transaction is due " + dtg_outlist.CurrentRow.Cells[15].Value.ToString();
                     }
                     else
                     {
@@ -105,8 +98,8 @@ namespace Inventory_System02
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if ( MessageBox.Show("This will delete an entire transaction reference which consist of 1 or more items on it!", "Warning Message", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes )
+            if ( MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes )
             {
                 if (dtg_outlist.SelectedRows.Count > 0)
                 {
@@ -119,11 +112,11 @@ namespace Inventory_System02
                         config.singleResult(sql);
                         if (config.dt.Rows.Count == 0)
                         {
-                            MessageBox.Show("Stocks deleted successfully.");
+                            MessageBox.Show("Transaction deleted successfully.");
                         }
                         else
                         {
-                            MessageBox.Show("Unsucessful deletion of stocks out please review and try again.", "Warning Message",
+                            MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
@@ -192,6 +185,49 @@ namespace Inventory_System02
         private void cbo_srch_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_Search_TextChanged(sender, e);
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+            if (dtg_outlist.Rows.Count >= 1)
+            {
+                if ( dtg_outlist.SelectedRows.Count > 0  && txt_Trans_number.Text != "Empty Field!" &&
+                    !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                {
+                    Items.Outbound_Preview frm = new Items.Outbound_Preview(
+                    dtg_outlist.CurrentRow.Cells[1].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[2].Value.ToString(),
+                    txt_Trans_number.Text,
+                    dtg_outlist.CurrentRow.Cells[10].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[11].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[3].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[4].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[5].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[6].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[7].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[8].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[13].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[15].Value.ToString()
+                    );
+
+                    frm.ShowDialog();
+                }
+
+            }
+        }
+
+        private void btn_select_Click(object sender, EventArgs e)
+        {
+            if (dtg_outlist.Rows.Count >= 1)
+            {
+                if (dtg_outlist.SelectedRows.Count > 0 && txt_Trans_number.Text != "Empty Field!" &&
+                    !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                {
+                    passed_trans_ref = txt_Trans_number.Text;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
         }
 
         private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)

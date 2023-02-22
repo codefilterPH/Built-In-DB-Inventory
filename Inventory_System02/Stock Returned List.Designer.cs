@@ -30,6 +30,7 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock_Returned));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.refreshTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,7 @@ namespace Inventory_System02
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbo_srch_type = new System.Windows.Forms.ComboBox();
+            this.btn_view = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_return_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
@@ -96,8 +98,8 @@ namespace Inventory_System02
             this.btn_print_invoice.ForeColor = System.Drawing.Color.White;
             this.btn_print_invoice.Image = ((System.Drawing.Image)(resources.GetObject("btn_print_invoice.Image")));
             this.btn_print_invoice.Name = "btn_print_invoice";
-            this.btn_print_invoice.Size = new System.Drawing.Size(105, 20);
-            this.btn_print_invoice.Text = "Show Invoice";
+            this.btn_print_invoice.Size = new System.Drawing.Size(123, 20);
+            this.btn_print_invoice.Text = "View Transaction";
             this.btn_print_invoice.Click += new System.EventHandler(this.btn_print_invoice_Click);
             // 
             // batchTransactionToolStripMenuItem
@@ -117,8 +119,8 @@ namespace Inventory_System02
             this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
             this.printInvoiceToolStripMenuItem.Name = "printInvoiceToolStripMenuItem";
-            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.printInvoiceToolStripMenuItem.Text = "Print Invoice";
+            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.printInvoiceToolStripMenuItem.Text = "Print Transaction";
             this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
             // 
             // btn_Delete
@@ -160,12 +162,14 @@ namespace Inventory_System02
             // 
             this.dtg_return_list.AllowUserToAddRows = false;
             this.dtg_return_list.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_return_list.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_return_list.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_return_list.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_return_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_return_list.GridColor = System.Drawing.Color.White;
+            this.dtg_return_list.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_return_list.Location = new System.Drawing.Point(9, 239);
             this.dtg_return_list.Name = "dtg_return_list";
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -176,6 +180,7 @@ namespace Inventory_System02
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_return_list.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_return_list.RowTemplate.Height = 60;
+            this.dtg_return_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_return_list.Size = new System.Drawing.Size(779, 161);
             this.dtg_return_list.TabIndex = 85;
             this.dtg_return_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_return_list_CellClick);
@@ -410,11 +415,28 @@ namespace Inventory_System02
             this.cbo_srch_type.Text = "Trans Ref";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
+            // btn_view
+            // 
+            this.btn_view.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_view.BackColor = System.Drawing.Color.Teal;
+            this.btn_view.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_view.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_view.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_view.Location = new System.Drawing.Point(493, 213);
+            this.btn_view.Name = "btn_view";
+            this.btn_view.Size = new System.Drawing.Size(150, 23);
+            this.btn_view.TabIndex = 123;
+            this.btn_view.Text = "View details";
+            this.btn_view.UseVisualStyleBackColor = false;
+            this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
+            // 
             // Stock_Returned
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_view);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cbo_srch_type);
             this.Controls.Add(this.lbl_items_count);
@@ -488,5 +510,6 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem printInvoiceToolStripMenuItem;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbo_srch_type;
+        private System.Windows.Forms.Button btn_view;
     }
 }

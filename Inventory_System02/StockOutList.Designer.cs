@@ -29,6 +29,7 @@ namespace Inventory_System02
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOutList));
             this.dtg_outlist = new System.Windows.Forms.DataGridView();
@@ -59,6 +60,8 @@ namespace Inventory_System02
             this.lbl_DueDate = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cbo_srch_type = new System.Windows.Forms.ComboBox();
+            this.btn_view = new System.Windows.Forms.Button();
+            this.btn_select = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
@@ -68,6 +71,8 @@ namespace Inventory_System02
             // 
             this.dtg_outlist.AllowUserToAddRows = false;
             this.dtg_outlist.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_outlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -84,6 +89,7 @@ namespace Inventory_System02
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_outlist.RowTemplate.Height = 60;
+            this.dtg_outlist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_outlist.Size = new System.Drawing.Size(783, 214);
             this.dtg_outlist.TabIndex = 0;
             this.dtg_outlist.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -155,8 +161,8 @@ namespace Inventory_System02
             this.btn_print_invoice.ForeColor = System.Drawing.Color.White;
             this.btn_print_invoice.Image = ((System.Drawing.Image)(resources.GetObject("btn_print_invoice.Image")));
             this.btn_print_invoice.Name = "btn_print_invoice";
-            this.btn_print_invoice.Size = new System.Drawing.Size(105, 20);
-            this.btn_print_invoice.Text = "Show Invoice";
+            this.btn_print_invoice.Size = new System.Drawing.Size(123, 20);
+            this.btn_print_invoice.Text = "View Transaction";
             this.btn_print_invoice.Click += new System.EventHandler(this.btn_print_invoice_Click);
             // 
             // batchTransactionToolStripMenuItem
@@ -176,8 +182,8 @@ namespace Inventory_System02
             this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
             this.printInvoiceToolStripMenuItem.Name = "printInvoiceToolStripMenuItem";
-            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.printInvoiceToolStripMenuItem.Text = "Print Invoice";
+            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.printInvoiceToolStripMenuItem.Text = "Print Transaction";
             this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
             // 
             // txt_Trans_number
@@ -383,11 +389,45 @@ namespace Inventory_System02
             this.cbo_srch_type.Text = "Trans Ref";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
+            // btn_view
+            // 
+            this.btn_view.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_view.BackColor = System.Drawing.Color.Teal;
+            this.btn_view.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_view.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_view.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_view.Location = new System.Drawing.Point(514, 165);
+            this.btn_view.Name = "btn_view";
+            this.btn_view.Size = new System.Drawing.Size(125, 23);
+            this.btn_view.TabIndex = 121;
+            this.btn_view.Text = "View details";
+            this.btn_view.UseVisualStyleBackColor = false;
+            this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
+            // 
+            // btn_select
+            // 
+            this.btn_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_select.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_select.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_select.Location = new System.Drawing.Point(383, 165);
+            this.btn_select.Name = "btn_select";
+            this.btn_select.Size = new System.Drawing.Size(125, 23);
+            this.btn_select.TabIndex = 122;
+            this.btn_select.Text = "Select";
+            this.btn_select.UseVisualStyleBackColor = false;
+            this.btn_select.Click += new System.EventHandler(this.btn_select_Click);
+            // 
             // StockOutList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(807, 462);
+            this.Controls.Add(this.btn_select);
+            this.Controls.Add(this.btn_view);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbo_srch_type);
             this.Controls.Add(this.lbl_DueDate);
@@ -457,5 +497,7 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem printInvoiceToolStripMenuItem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbo_srch_type;
+        private System.Windows.Forms.Button btn_view;
+        private System.Windows.Forms.Button btn_select;
     }
 }

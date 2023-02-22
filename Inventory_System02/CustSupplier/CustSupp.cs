@@ -435,6 +435,34 @@ namespace Inventory_System02.CustSupplier
             this.Close();
         }
 
+        private void btn_cusid_select_Click(object sender, EventArgs e)
+        {
+            if (dtg_Customer.Rows.Count >= 1)
+            {
+                if (dtg_Customer.SelectedRows.Count > 0 && cust_ID.Text != "Empty Field!" &&
+                    !string.IsNullOrWhiteSpace(cust_ID.Text))
+                {
+                    cusID = cust_ID.Text;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
+
+        private void btn_supid_select_Click(object sender, EventArgs e)
+        {
+            if (dtg_Supplier.Rows.Count >= 1)
+            {
+                if (dtg_Supplier.SelectedRows.Count > 0 && Sup_ID.Text != "Empty Field!" &&
+                    !string.IsNullOrWhiteSpace(Sup_ID.Text))
+                {
+                    supID = Sup_ID.Text;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
+
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             func.clearTxt(tabPage2);

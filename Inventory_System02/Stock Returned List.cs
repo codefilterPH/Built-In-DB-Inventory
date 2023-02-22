@@ -62,8 +62,8 @@ namespace Inventory_System02
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("This will delete an entire transaction reference which consist of 1 or more items on it!", "Warning Message",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (dtg_return_list.SelectedRows.Count > 0)
                 {
@@ -168,7 +168,7 @@ namespace Inventory_System02
         Inventory_System02.Invoice_Code.Invoice_Code voice = new Invoice_Code.Invoice_Code();
         private void btn_print_invoice_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "")
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
                 voice.Invoice("return", txt_Trans_number.Text, "preview");
             }
@@ -181,7 +181,7 @@ namespace Inventory_System02
 
         private void batchTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "")
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
                 voice.Invoice("return",txt_Trans_number.Text, "batch");
             }
@@ -194,7 +194,7 @@ namespace Inventory_System02
 
         private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (txt_Trans_number.Text != "")
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
                 voice.Invoice("return", txt_Trans_number.Text, "print");
             }
@@ -202,6 +202,33 @@ namespace Inventory_System02
             {
                 txt_Trans_number.Text = "Empty Field!";
                 txt_Trans_number.Focus();
+            }
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+            if (dtg_return_list.Rows.Count >= 1)
+            {
+                if (dtg_return_list.SelectedRows.Count > 0 && txt_Trans_number.Text != "Empty Field!"
+                    && !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                {
+                    Items.Return_Preview frm = new Items.Return_Preview(
+                    dtg_return_list.CurrentRow.Cells[1].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[2].Value.ToString(),
+                    txt_Trans_number.Text,
+                    dtg_return_list.CurrentRow.Cells[10].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[11].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[3].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[4].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[5].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[6].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[7].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[8].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[13].Value.ToString());
+
+                    frm.ShowDialog();
+                }
+
             }
         }
 

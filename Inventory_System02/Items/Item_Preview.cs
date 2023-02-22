@@ -74,9 +74,10 @@ namespace Inventory_System02.Items
             }
         }
 
-        Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
+       
         private void btn_print_Click(object sender, EventArgs e)
         {
+            Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
             if (txt_id.Text != "")
             {
                 rdlc.Invoice("in-single-print", txt_id.Text, "single-item-print");
@@ -90,6 +91,7 @@ namespace Inventory_System02.Items
 
         private void btn_print_preview_Click(object sender, EventArgs e)
         {
+            Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
             if (txt_id.Text != "")
             {
                 rdlc.Invoice("in-single-view", txt_id.Text, "single-item-view");

@@ -126,7 +126,7 @@ namespace Inventory_System02
             this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Items.EnableHeadersVisualStyles = false;
-            this.dtg_Items.GridColor = System.Drawing.Color.White;
+            this.dtg_Items.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Items.Location = new System.Drawing.Point(3, 23);
             this.dtg_Items.Name = "dtg_Items";
             this.dtg_Items.ReadOnly = true;
@@ -139,7 +139,7 @@ namespace Inventory_System02
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -274,8 +274,8 @@ namespace Inventory_System02
             this.supplierListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.supplierListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("supplierListToolStripMenuItem.Image")));
             this.supplierListToolStripMenuItem.Name = "supplierListToolStripMenuItem";
-            this.supplierListToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.supplierListToolStripMenuItem.Text = "Supplier List";
+            this.supplierListToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.supplierListToolStripMenuItem.Text = "Supplier list";
             this.supplierListToolStripMenuItem.ToolTipText = "List of all suppliers";
             this.supplierListToolStripMenuItem.Click += new System.EventHandler(this.supplierListToolStripMenuItem_Click);
             // 
@@ -299,8 +299,8 @@ namespace Inventory_System02
             this.batchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.batchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchToolStripMenuItem.Image")));
             this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
-            this.batchToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
-            this.batchToolStripMenuItem.Text = "Batch Trans Ref";
+            this.batchToolStripMenuItem.Size = new System.Drawing.Size(152, 20);
+            this.batchToolStripMenuItem.Text = "Batch current trans ref";
             this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
@@ -310,8 +310,8 @@ namespace Inventory_System02
             this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.viewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewToolStripMenuItem.Image")));
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(176, 20);
-            this.viewToolStripMenuItem.Text = "Preview Items By Trans Ref";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.viewToolStripMenuItem.Text = "Preview by trans ref";
             this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // printTransactionToolStripMenuItem
@@ -321,8 +321,8 @@ namespace Inventory_System02
             this.printTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printTransactionToolStripMenuItem.Image")));
             this.printTransactionToolStripMenuItem.Name = "printTransactionToolStripMenuItem";
-            this.printTransactionToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
-            this.printTransactionToolStripMenuItem.Text = "Print Cur Trans Ref";
+            this.printTransactionToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.printTransactionToolStripMenuItem.Text = "Print trans ref";
             this.printTransactionToolStripMenuItem.Click += new System.EventHandler(this.printTransactionToolStripMenuItem_Click);
             // 
             // label7
@@ -404,7 +404,7 @@ namespace Inventory_System02
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btn_preview);
             this.panel1.Controls.Add(this.cbo_desc);
@@ -529,6 +529,7 @@ namespace Inventory_System02
             this.Item_Image.TabIndex = 47;
             this.Item_Image.TabStop = false;
             this.Item_Image.DoubleClick += new System.EventHandler(this.Item_Image_DoubleClick);
+            this.Item_Image.MouseHover += new System.EventHandler(this.Item_Image_MouseHover);
             // 
             // btn_upload
             // 
@@ -672,6 +673,7 @@ namespace Inventory_System02
             this.txt_SupID.Size = new System.Drawing.Size(127, 25);
             this.txt_SupID.TabIndex = 9;
             this.txt_SupID.TextChanged += new System.EventHandler(this.txt_SupID_TextChanged);
+            this.txt_SupID.MouseHover += new System.EventHandler(this.txt_SupID_MouseHover);
             // 
             // txt_Sup_Name
             // 
