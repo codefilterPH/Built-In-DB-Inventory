@@ -50,7 +50,7 @@ namespace Inventory_System02.Reports_Dir
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Report_Viewer";
-            this.Text = "Report_Viewer";
+            this.Text = "Print Preview";
             this.Load += new System.EventHandler(this.Report_Viewer_Load);
             this.ResumeLayout(false);
 
