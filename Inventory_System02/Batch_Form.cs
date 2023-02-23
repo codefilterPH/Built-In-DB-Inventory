@@ -30,8 +30,6 @@ namespace Inventory_System02
 
             string[] files = Directory.GetFiles(@"CommonSql\Document Center Files");
             //string[] files = Directory.GetFiles(@"\\" + config.computerName + @"\DB\BATCH FILES");
-            //if (File.Exists(@"CommonSql\Document Center Files\"))
-            //{
 
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Date");
@@ -44,8 +42,12 @@ namespace Inventory_System02
                 //dt.Rows.Add(file.CreationTime, file.Name, file.Extension);
                 dt.Rows.Add(file.CreationTime, file.Name);
             }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
-            // }  
         }
         string what_to_del = string.Empty;
         private void chk_Select_all_CheckedChanged(object sender, EventArgs e)
@@ -177,6 +179,179 @@ namespace Inventory_System02
             {
                 column.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
+        }
+
+        private void inboundTransToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Inbound TRANS*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void outboundTransToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Outbound TRANS*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void returnTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Return TRANS*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Item Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void allItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Batch_Form_Load(sender, e);
+        }
+
+        private void supplierReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Supplier Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void customerReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Customer Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void employeeReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Employee Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
         }
 
         private void Batch_Form_Load(object sender, EventArgs e)

@@ -170,15 +170,15 @@ namespace Inventory_System02.Invoice_Code
             {
                 if ( out_return == "out")
                 {
-                    FileName = "Outbound Invoice " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    FileName = "Outbound " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                 }
                 else if ( out_return == "return")
                 {
-                    FileName = "Return Invoice " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    FileName = "Return " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                 }
                 else if ( out_return == "in")
                 {
-                    FileName = "Inbound Invoice " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    FileName = "Inbound " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                 }
                 if (FileName != null )
                 {

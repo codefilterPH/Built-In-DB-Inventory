@@ -463,6 +463,20 @@ namespace Inventory_System02
             toolTip.SetToolTip(Item_Image, "Double click me to change picture.");
         }
 
+        private void newItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btn_Gen_Click(sender, e);
+            gen.Item_ID();
+            sql = "Select `Item ID` from ID_Generated where count = '1'";
+            config.singleResult(sql);
+            if (config.dt.Rows.Count > 0)
+            {
+                txt_Barcode.Text = config.dt.Rows[0].Field<string>("Item ID");
+                cbo_brand.Text = "Replace me with existing brand or enter new one.";
+                txt_ItemName.Text = "Replace me with new name.";
+            }
+        }
+
         private void txt_Price_Click(object sender, EventArgs e)
         {
             txt_Price.SelectionStart = 0;

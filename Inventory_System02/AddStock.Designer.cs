@@ -30,10 +30,10 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStock));
             this.dtg_Items = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
@@ -92,6 +92,7 @@ namespace Inventory_System02
             this.lbl_TotalAmt = new System.Windows.Forms.Label();
             this.lbl_TotalQty = new System.Windows.Forms.Label();
             this.Calculator_Timer = new System.Windows.Forms.Timer(this.components);
+            this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Items)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -106,24 +107,24 @@ namespace Inventory_System02
             // 
             this.dtg_Items.AllowUserToAddRows = false;
             this.dtg_Items.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dtg_Items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_Items.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dtg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Items.EnableHeadersVisualStyles = false;
             this.dtg_Items.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -131,21 +132,21 @@ namespace Inventory_System02
             this.dtg_Items.Name = "dtg_Items";
             this.dtg_Items.ReadOnly = true;
             this.dtg_Items.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dtg_Items.RowTemplate.Height = 70;
             this.dtg_Items.Size = new System.Drawing.Size(850, 196);
             this.dtg_Items.TabIndex = 0;
@@ -188,7 +189,7 @@ namespace Inventory_System02
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(322, 42);
+            this.label3.Location = new System.Drawing.Point(361, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 17);
             this.label3.TabIndex = 6;
@@ -200,7 +201,7 @@ namespace Inventory_System02
             this.cbo_brand.FormattingEnabled = true;
             this.cbo_brand.Location = new System.Drawing.Point(112, 101);
             this.cbo_brand.Name = "cbo_brand";
-            this.cbo_brand.Size = new System.Drawing.Size(201, 25);
+            this.cbo_brand.Size = new System.Drawing.Size(209, 25);
             this.cbo_brand.TabIndex = 4;
             // 
             // label4
@@ -217,7 +218,7 @@ namespace Inventory_System02
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(322, 73);
+            this.label5.Location = new System.Drawing.Point(361, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 17);
             this.label5.TabIndex = 10;
@@ -244,7 +245,8 @@ namespace Inventory_System02
             this.refreshToolStripMenuItem,
             this.batchToolStripMenuItem,
             this.viewToolStripMenuItem,
-            this.printTransactionToolStripMenuItem});
+            this.printTransactionToolStripMenuItem,
+            this.newItemToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -469,7 +471,7 @@ namespace Inventory_System02
             this.cbo_desc.Multiline = true;
             this.cbo_desc.Name = "cbo_desc";
             this.cbo_desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cbo_desc.Size = new System.Drawing.Size(202, 43);
+            this.cbo_desc.Size = new System.Drawing.Size(210, 43);
             this.cbo_desc.TabIndex = 74;
             // 
             // label16
@@ -588,7 +590,7 @@ namespace Inventory_System02
             this.txt_Barcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_Barcode.Location = new System.Drawing.Point(112, 39);
             this.txt_Barcode.Name = "txt_Barcode";
-            this.txt_Barcode.Size = new System.Drawing.Size(201, 25);
+            this.txt_Barcode.Size = new System.Drawing.Size(209, 25);
             this.txt_Barcode.TabIndex = 2;
             this.txt_Barcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_Barcode.TextChanged += new System.EventHandler(this.txt_Barcode_TextChanged);
@@ -629,7 +631,7 @@ namespace Inventory_System02
             this.btn_Gen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Gen.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Gen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_Gen.Location = new System.Drawing.Point(318, 6);
+            this.btn_Gen.Location = new System.Drawing.Point(327, 6);
             this.btn_Gen.Name = "btn_Gen";
             this.btn_Gen.Size = new System.Drawing.Size(62, 25);
             this.btn_Gen.TabIndex = 0;
@@ -642,7 +644,7 @@ namespace Inventory_System02
             this.txt_TransRef.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_TransRef.Location = new System.Drawing.Point(147, 6);
             this.txt_TransRef.Name = "txt_TransRef";
-            this.txt_TransRef.Size = new System.Drawing.Size(167, 25);
+            this.txt_TransRef.Size = new System.Drawing.Size(174, 25);
             this.txt_TransRef.TabIndex = 1;
             // 
             // label10
@@ -661,7 +663,7 @@ namespace Inventory_System02
             this.txt_ItemName.FormattingEnabled = true;
             this.txt_ItemName.Location = new System.Drawing.Point(112, 70);
             this.txt_ItemName.Name = "txt_ItemName";
-            this.txt_ItemName.Size = new System.Drawing.Size(202, 25);
+            this.txt_ItemName.Size = new System.Drawing.Size(210, 25);
             this.txt_ItemName.TabIndex = 3;
             // 
             // txt_SupID
@@ -881,6 +883,18 @@ namespace Inventory_System02
             // 
             this.Calculator_Timer.Tick += new System.EventHandler(this.Calculator_Timer_Tick);
             // 
+            // newItemToolStripMenuItem
+            // 
+            this.newItemToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.newItemToolStripMenuItem.BackColor = System.Drawing.SystemColors.Highlight;
+            this.newItemToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newItemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.newItemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newItemToolStripMenuItem.Image")));
+            this.newItemToolStripMenuItem.Name = "newItemToolStripMenuItem";
+            this.newItemToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.newItemToolStripMenuItem.Text = "New item";
+            this.newItemToolStripMenuItem.Click += new System.EventHandler(this.newItemToolStripMenuItem_Click);
+            // 
             // AddStock
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -979,6 +993,7 @@ namespace Inventory_System02
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox cbo_desc;
         private System.Windows.Forms.Button btn_preview;
+        private System.Windows.Forms.ToolStripMenuItem newItemToolStripMenuItem;
     }
 }
 

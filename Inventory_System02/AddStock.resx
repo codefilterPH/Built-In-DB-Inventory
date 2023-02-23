@@ -550,6 +550,22 @@
   <metadata name="Calculator_Timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <data name="newItemToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5gMCAgsXgsNoBgAAAi9JREFU
+        WEfNl79qFGEUxZeEEEwpEkivaGVhIeQVEpuQBAz6DDba+ADBxspHsJIoiGIZsFBIE8EHsBTBwj8QtDFx
+        /J1775fJzs7sfDOzYH5wYObec+8cdjabmVEdRVHMoztoH/1ETfxF39Bb9ABdihX9Yckyeof6cITuo7lY
+        1w0Gl9BHlDhG79FztFejl6iOF2gx1ubD0K6NO4focrQacavxGf32Q+M1yg8hM/qhSfiKsu6n2w19ItfR
+        Fztz8kNgXLURZzfKrYRf7MX5VdQ9BKZNszs7UW4l/MICCI67h8CwbVZnO8qthF+cBhCcV0O8QgvRnoTm
+        TAMIatUQj6M1Cc2+AfSnKt5EaQzq19B3cxTFCboRrXFo9A2Qfjf+oIdIe6p6ihLPYnQcGjImugS47SPZ
+        6LfiQoyXUOwVQOC/h37ZZB43Y7SEYu8AgpmLaF2zDXqCEhsxVkJRpkTnAG1op682Jver6D3j/AfAs4I+
+        hVai3Ih2osRMAmy51diKciN4Zh5gtn4VvWecvwDU0j1vo/Y7QW1wgDVvZbEWY6dQGxxgAT1C6XnwACV0
+        nOryTPzbpTYsQBV53GoM96voPeO/BOj0SIbnlluN9Sg3gmfHrcZmlEsodnooxZO+E7X3vIp2osRqlEso
+        9nosz0G7YqfQNeofUGmcTfkBXYlWb7QjdiWaP12aXV/Npkkzmk3PjEK7l+Jy9WAY8nI6De1cjstMB2Pu
+        63kbmtWOu2g+1p9hNPoHGgHgC4J8fjkAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>41</value>
   </metadata>
