@@ -37,20 +37,15 @@ namespace Inventory_System02.Reports_Dir
 
         private void Customer_Report_Load(object sender, EventArgs e)
         {
-            txt_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+          
             chk_Cust_ID.Checked = true;
             chk_FN.Checked = true;
             chk_LN.Checked = true;
-
-
-            sql = " SELECT * from Customer where count = '1' ";
-            config.Load_DTG(sql, dtg_PreviewPage);
-            DTG_Properties();
-            cbo_date.DropDownStyle = ComboBoxStyle.DropDownList;
-
+       
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
 
         }
-
 
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)
         {

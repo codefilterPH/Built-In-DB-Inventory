@@ -39,10 +39,8 @@ namespace Inventory_System02.Reports_Dir
             this.btn_Batch = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbl_Personnel = new System.Windows.Forms.Label();
             this.dtg_PreviewPage = new System.Windows.Forms.DataGridView();
-            this.cbo_date = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.grp_filters = new System.Windows.Forms.GroupBox();
             this.chk_HiredDate = new System.Windows.Forms.CheckBox();
@@ -53,11 +51,13 @@ namespace Inventory_System02.Reports_Dir
             this.chk_LN = new System.Windows.Forms.CheckBox();
             this.chk_FN = new System.Windows.Forms.CheckBox();
             this.chk_Emp_ID = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_rep_date = new System.Windows.Forms.TextBox();
             this.jobRolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_Print = new System.Windows.Forms.Button();
             this.classEmployeeVarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtp_date_from = new System.Windows.Forms.DateTimePicker();
+            this.dtp_date_to = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_PreviewPage)).BeginInit();
@@ -132,18 +132,17 @@ namespace Inventory_System02.Reports_Dir
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(764, 344);
             this.tabControl1.TabIndex = 47;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.dtp_date_from);
+            this.tabPage1.Controls.Add(this.dtp_date_to);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.lbl_Personnel);
             this.tabPage1.Controls.Add(this.dtg_PreviewPage);
-            this.tabPage1.Controls.Add(this.cbo_date);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.grp_filters);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.txt_rep_date);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -152,23 +151,12 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(542, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 17);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Date Within";
-            // 
             // lbl_Personnel
             // 
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(705, 171);
+            this.lbl_Personnel.Location = new System.Drawing.Point(705, 231);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(0, 15);
             this.lbl_Personnel.TabIndex = 24;
@@ -197,36 +185,15 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.Location = new System.Drawing.Point(9, 37);
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 123);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 183);
             this.dtg_PreviewPage.TabIndex = 22;
-            // 
-            // cbo_date
-            // 
-            this.cbo_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbo_date.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbo_date.FormattingEnabled = true;
-            this.cbo_date.Items.AddRange(new object[] {
-            "All Dates",
-            "Today",
-            "1 Week",
-            "2 Weeks",
-            "1 Month",
-            "3 Months",
-            "6 Months",
-            "1 Year"});
-            this.cbo_date.Location = new System.Drawing.Point(626, 6);
-            this.cbo_date.Name = "cbo_date";
-            this.cbo_date.Size = new System.Drawing.Size(120, 25);
-            this.cbo_date.TabIndex = 21;
-            this.cbo_date.Text = "All Dates";
-            this.cbo_date.SelectedIndexChanged += new System.EventHandler(this.cbo_date_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(609, 171);
+            this.label7.Location = new System.Drawing.Point(609, 231);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 15);
             this.label7.TabIndex = 23;
@@ -243,7 +210,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_LN);
             this.grp_filters.Controls.Add(this.chk_FN);
             this.grp_filters.Controls.Add(this.chk_Emp_ID);
-            this.grp_filters.Location = new System.Drawing.Point(6, 166);
+            this.grp_filters.Location = new System.Drawing.Point(6, 226);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(596, 82);
             this.grp_filters.TabIndex = 20;
@@ -346,24 +313,6 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Emp_ID.Text = "Employee ID";
             this.chk_Emp_ID.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(6, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Report Date";
-            // 
-            // txt_rep_date
-            // 
-            this.txt_rep_date.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txt_rep_date.Location = new System.Drawing.Point(93, 6);
-            this.txt_rep_date.Name = "txt_rep_date";
-            this.txt_rep_date.Size = new System.Drawing.Size(119, 25);
-            this.txt_rep_date.TabIndex = 2;
-            // 
             // btn_Print
             // 
             this.btn_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -381,6 +330,50 @@ namespace Inventory_System02.Reports_Dir
             // classEmployeeVarBindingSource
             // 
             this.classEmployeeVarBindingSource.DataSource = typeof(Inventory_System02.Reports_Dir.Class_Employee_Var);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(216, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 17);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "to";
+            // 
+            // dtp_date_from
+            // 
+            this.dtp_date_from.CalendarFont = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_date_from.CustomFormat = "yyyy-MM-dd";
+            this.dtp_date_from.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_date_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_date_from.Location = new System.Drawing.Point(93, 9);
+            this.dtp_date_from.Name = "dtp_date_from";
+            this.dtp_date_from.Size = new System.Drawing.Size(117, 22);
+            this.dtp_date_from.TabIndex = 41;
+            this.dtp_date_from.ValueChanged += new System.EventHandler(this.dtp_date_from_ValueChanged);
+            // 
+            // dtp_date_to
+            // 
+            this.dtp_date_to.CalendarFont = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_date_to.CustomFormat = "yyyy-MM-dd";
+            this.dtp_date_to.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_date_to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_date_to.Location = new System.Drawing.Point(239, 9);
+            this.dtp_date_to.Name = "dtp_date_to";
+            this.dtp_date_to.Size = new System.Drawing.Size(117, 22);
+            this.dtp_date_to.TabIndex = 40;
+            this.dtp_date_to.ValueChanged += new System.EventHandler(this.dtp_date_to_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(6, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Report Date";
             // 
             // Employee_Report
             // 
@@ -426,18 +419,18 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.CheckBox chk_LN;
         private System.Windows.Forms.CheckBox chk_FN;
         private System.Windows.Forms.CheckBox chk_Emp_ID;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_rep_date;
         private System.Windows.Forms.CheckBox chk_HiredDate;
         private System.Windows.Forms.CheckBox chk_JobRole;
         private System.Windows.Forms.CheckBox chk_Address;
         private System.Windows.Forms.BindingSource classEmployeeVarBindingSource;
         private System.Windows.Forms.BindingSource jobRolesBindingSource;
-        private System.Windows.Forms.ComboBox cbo_date;
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.Label lbl_Personnel;
         public System.Windows.Forms.DataGridView dtg_PreviewPage;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtp_date_from;
+        private System.Windows.Forms.DateTimePicker dtp_date_to;
+        private System.Windows.Forms.Label label2;
     }
 }

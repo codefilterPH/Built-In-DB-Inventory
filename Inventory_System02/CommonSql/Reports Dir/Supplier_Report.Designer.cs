@@ -35,6 +35,7 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dtp_sup_rep_date = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_Personnel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Supplier_Name = new System.Windows.Forms.CheckBox();
             this.chk_Supplier_ID = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_rep_date = new System.Windows.Forms.TextBox();
             this.chk_Unselect = new System.Windows.Forms.CheckBox();
             this.btn_Print_Preview = new System.Windows.Forms.Button();
             this.btn_Batch = new System.Windows.Forms.Button();
@@ -90,6 +90,7 @@ namespace Inventory_System02.Reports_Dir
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dtp_sup_rep_date);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.lbl_Personnel);
             this.tabPage1.Controls.Add(this.label7);
@@ -97,7 +98,6 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.Controls.Add(this.cbo_date);
             this.tabPage1.Controls.Add(this.grp_filters);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.txt_rep_date);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -105,6 +105,15 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dtp_sup_rep_date
+            // 
+            this.dtp_sup_rep_date.CustomFormat = "yyyy-MM-dd";
+            this.dtp_sup_rep_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_sup_rep_date.Location = new System.Drawing.Point(88, 6);
+            this.dtp_sup_rep_date.Name = "dtp_sup_rep_date";
+            this.dtp_sup_rep_date.Size = new System.Drawing.Size(117, 25);
+            this.dtp_sup_rep_date.TabIndex = 38;
             // 
             // label1
             // 
@@ -122,7 +131,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(133, 194);
+            this.lbl_Personnel.Location = new System.Drawing.Point(133, 186);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(0, 21);
             this.lbl_Personnel.TabIndex = 25;
@@ -132,7 +141,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 194);
+            this.label7.Location = new System.Drawing.Point(6, 186);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 21);
             this.label7.TabIndex = 24;
@@ -161,7 +170,7 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.Location = new System.Drawing.Point(10, 37);
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 145);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 137);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_date
@@ -194,7 +203,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Supplier_Name);
             this.grp_filters.Controls.Add(this.chk_Supplier_ID);
             this.grp_filters.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_filters.Location = new System.Drawing.Point(248, 187);
+            this.grp_filters.Location = new System.Drawing.Point(248, 179);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(495, 89);
             this.grp_filters.TabIndex = 20;
@@ -302,14 +311,6 @@ namespace Inventory_System02.Reports_Dir
             this.label2.TabIndex = 1;
             this.label2.Text = "Report Date";
             // 
-            // txt_rep_date
-            // 
-            this.txt_rep_date.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txt_rep_date.Location = new System.Drawing.Point(94, 6);
-            this.txt_rep_date.Name = "txt_rep_date";
-            this.txt_rep_date.Size = new System.Drawing.Size(119, 25);
-            this.txt_rep_date.TabIndex = 2;
-            // 
             // chk_Unselect
             // 
             this.chk_Unselect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -407,7 +408,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.CheckBox chk_Supplier_Name;
         private System.Windows.Forms.CheckBox chk_Supplier_ID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_rep_date;
         private System.Windows.Forms.CheckBox chk_Unselect;
         private System.Windows.Forms.Button btn_Print_Preview;
         private System.Windows.Forms.Button btn_Batch;
@@ -419,5 +419,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.CheckBox chk_entry_date;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtp_sup_rep_date;
     }
 }

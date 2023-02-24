@@ -38,7 +38,6 @@ namespace Inventory_System02.Reports_Dir
         string db_table = string.Empty;
         string datef = string.Empty;
         string FileName = string.Empty;
-        string datenow = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
         double price = 0, quantity = 0, sub_amt = 0, total_val = 0, rows_count = 0;
        
 
@@ -48,6 +47,24 @@ namespace Inventory_System02.Reports_Dir
             Global_ID = userid;
             Fullname = name;
             JobRole = jobrole;
+
+        }
+      
+        private void Item_Report_Load_1(object sender, EventArgs e)
+        {
+            chk_Cust_ID.Visible = false;
+            chk_Cust_Name.Visible = false;
+            chk_Cust_Address.Visible = false;
+            chk_Entry_Date.Checked = true;
+            chk_Item_ID.Checked = true;
+            chk_Item_Name.Checked = true;
+            chk_Quantity.Checked = true;
+            chk_Price.Checked = true;
+            chk_total.Checked = true;
+          
+            cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
 
         }
         private void Group_Filtering_MustNotEmpty()
@@ -88,27 +105,6 @@ namespace Inventory_System02.Reports_Dir
                 db_table = "`Stock Returned`";
             }
         }
-
-        private void Item_Report_Load_1(object sender, EventArgs e)
-        {
-            config = new SQLConfig();
-            ds = new DataSet();
-           
-            txt_rep_date.Text = datenow;
-
-            sql = "Select * from `Stocks` order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_PreviewPage);
-            Dtg_Properties();
-            config.Load_Datasource(sql, ds);
-            calculate_Total();
-
-            chk_Cust_ID.Visible = false;
-            chk_Cust_Name.Visible = false;
-            chk_Cust_Address.Visible = false;
-            cbo_Date.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
-
-        }
         private void calculate_Total()
         {
             ClearVariables();
@@ -127,45 +123,6 @@ namespace Inventory_System02.Reports_Dir
             lbl_total_value.Text = total_val.ToString();
         }
 
-        private void DateAdjuster_local(ComboBox bx)
-        {
-            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString(Includes.AppSettings.DateFormat));
-            if (bx.Text == "Today")
-            {
-                datef = datefrom1.ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "1 Week")
-            {
-                datef = datefrom1.AddDays(-7).ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "2 Weeks")
-            {
-                datef = datefrom1.AddDays(-14).ToString(Includes.AppSettings.DateFormat);
-            }    
-            else if ( bx.Text == "1 Month")
-            {
-                datef = datefrom1.AddMonths(-1).ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "3 Months")
-            {
-                datef = datefrom1.AddMonths(-3).ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "6 Months")
-            {
-                datef = datefrom1.AddMonths(-6).ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "1 Year")
-            {
-                datef = datefrom1.AddYears(-1).ToString(Includes.AppSettings.DateFormat);
-            }
-            else
-            {
-                datef = "2023-01-01";
-            }
-
-
-        }
-
         public void Calculate_Filtering(string preview_or_print, string report_type)
         {
             rs = new ReportDataSource();
@@ -174,228 +131,218 @@ namespace Inventory_System02.Reports_Dir
             func = new usableFunction();
             config = new SQLConfig();
             ds = new DataSet();
-            DateAdjuster_local(cbo_Date);
 
             list2 = new List<Class_Item_Var>();
 
-            if (txt_rep_date.Text == "")
+            if (string.IsNullOrWhiteSpace(dtp_date_to.Text))
             {
-                func.Error_Message1 = "Report date";
+                func.Error_Message1 = "Report \'Date To\'";
                 func.Error_Message();
-                txt_rep_date.Focus();
+                dtp_date_to.Focus();
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(dtp_date_from.Text))
+            {
+                func.Error_Message1 = "Report \'Date From\'";
+                func.Error_Message();
+                dtp_date_from.Focus();
                 return;
             }
             Group_Filtering_MustNotEmpty();
             WhatTable_To_Select();
 
-            if (cbo_Date.Text == "Today")
-            {
-                sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` =  '" + datenow + "' ORDER BY `Entry Date` DESC";
-            }
-            else if ( cbo_Date.Text == "All Dates")
-            {
-                sql = "SELECT * FROM " + db_table +" ORDER BY `Entry Date` DESC";
-            }
-            else
-            {
-                sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '"+datef+"' AND  '" + datenow + "' ORDER BY `Entry Date` DESC";
-            }
+             sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '"+ dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
+       
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
 
-            if (cbo_report_type.Text == "Stock In")
+            if (preview_or_print != "load")
             {
-                if (ds != null)
+                if (cbo_report_type.Text == "Stock In")
                 {
-                    list2 = ds.Tables[0].AsEnumerable().Select(
-                     dataRow => new Class_Item_Var
-                     {
-                         Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
-                         Item_ID = dataRow.Field<string>("Stock ID").ToString(),
-                         Item_Name = dataRow.Field<string>("Item Name").ToString(),
-                         Brand = dataRow.Field<string>("Brand").ToString(),
-                         Description = dataRow.Field<string>("Description").ToString(),
-                         Quantity = dataRow.Field<string>("Quantity").ToString(),
-                         Price = dataRow.Field<string>("Price").ToString(),
-                         Supplier_ID = dataRow.Field<string>("Supplier ID").ToString(),
-                         Supplier_Name = dataRow.Field<string>("Supplier Name").ToString(),
-                         Use_ID = dataRow.Field<string>("User ID").ToString(),
-                         Staff_Name = dataRow.Field<string>("Warehouse Staff Name").ToString(),
-                         Job_Role = dataRow.Field<string>("Job Role").ToString(),
-                         Trans_Ref = dataRow.Field<string>("Transaction Reference").ToString(),
-                         Amount = (Convert.ToDouble(dataRow.Field<string>("Quantity")) * Convert.ToDouble(dataRow.Field<string>("Price"))).ToString()
+                    if (ds != null)
+                    {
+                        list2 = ds.Tables[0].AsEnumerable().Select(
+                         dataRow => new Class_Item_Var
+                         {
+                             Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
+                             Item_ID = dataRow.Field<string>("Stock ID").ToString(),
+                             Item_Name = dataRow.Field<string>("Item Name").ToString(),
+                             Brand = dataRow.Field<string>("Brand").ToString(),
+                             Description = dataRow.Field<string>("Description").ToString(),
+                             Quantity = dataRow.Field<string>("Quantity").ToString(),
+                             Price = dataRow.Field<string>("Price").ToString(),
+                             Supplier_ID = dataRow.Field<string>("Supplier ID").ToString(),
+                             Supplier_Name = dataRow.Field<string>("Supplier Name").ToString(),
+                             Use_ID = dataRow.Field<string>("User ID").ToString(),
+                             Staff_Name = dataRow.Field<string>("Warehouse Staff Name").ToString(),
+                             Job_Role = dataRow.Field<string>("Job Role").ToString(),
+                             Trans_Ref = dataRow.Field<string>("Transaction Reference").ToString(),
+                             Amount = (Convert.ToDouble(dataRow.Field<string>("Quantity")) * Convert.ToDouble(dataRow.Field<string>("Price"))).ToString()
 
-                     }).ToList();
-                    rs.Value = list2;
-                }
-            }
-            else
-            {
-                if (ds != null)
-                {
-                    list2 = ds.Tables[0].AsEnumerable().Select(
-                  dataRow => new Class_Item_Var
-                  {
-                      Entry_Date = dataRow.Field<string>("Entry Date"),
-                      Item_ID = dataRow.Field<string>("Stock ID"),
-                      Item_Name = dataRow.Field<string>("Item Name"),
-                      Brand = dataRow.Field<string>("Brand"),
-                      Description = dataRow.Field<string>("Description"),
-                      Quantity = dataRow.Field<string>("Quantity"),
-                      Price = dataRow.Field<string>("Price"),
-                      Amount = dataRow.Field<string>("Total"),
-                      Customer_ID = dataRow.Field<string>("Customer ID"),
-                      Customer_Name = dataRow.Field<string>("Customer Name"),
-                      Customer_Address = dataRow.Field<string>("Customer Address"),
-                      Use_ID = dataRow.Field<string>("User ID"),
-                      Staff_Name = dataRow.Field<string>("Warehouse Staff Name"),
-                      Job_Role = dataRow.Field<string>("Job Role"),
-                      Trans_Ref = dataRow.Field<string>("Transaction Reference"),
-
-                  }).ToList();
-                    rs.Value = list2;
-                }
-            }
-
-            rs.Name = "DataSet1";
-            frm.reportViewer1.LocalReport.DataSources.Clear();
-            frm.reportViewer1.LocalReport.DataSources.Add(rs);
-            frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-
-        
-            frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Item_RDLC_DIR + @"Item Report.rdlc");
-
-            //Load Text to RDLC TextBox
-            reportParameters.Add(new ReportParameter("param_report_date", txt_rep_date.Text));
-            reportParameters.Add(new ReportParameter("DateStart", datef));
-            reportParameters.Add(new ReportParameter("DateEnd", datenow));
-
-            //Get Company Info
-            sql = "Select * from Settings ";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
-            {
-                company_name = config.dt.Rows[0].Field<string>("Company_Name");
-                company_address = config.dt.Rows[0].Field<string>("Company Address");
-               // Includes.AppSettings.Company_DIR = config.dt.Rows[0].Field<string>("Company_Image");
-            }
-            if (company_name == "" || company_name == null)
-            {
-                company_name = "No Company Name";
-            }
-            if (company_address == "" || company_address == null)
-            {
-                company_address = "No Company Address";
-            }
-          
-           // reportParameters.Add(new ReportParameter("Includes.AppSettings.Item_RDLC_DIR", @"C:\Users\eugen\Desktop\Inventory_System02\Inventory_System02\bin\Debug\CommonSql\Pictures\Company\Company_Logo1.PNG"));
-            reportParameters.Add(new ReportParameter("CompanyName", company_name));
-            reportParameters.Add(new ReportParameter("CompanyAddress", company_address));
-
-            if (ds.Tables[0].Rows.Count >= 1)
-            {
-                reportParameters.Add(new ReportParameter("Total_Items", ds.Tables[0].Rows.Count.ToString()));
-                calculate_Total();
-                reportParameters.Add(new ReportParameter("Total_Quantity", quantity1.ToString()));
-                reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString()));   
-
-            }
-            else if (ds.Tables[0].Rows.Count <= 0)
-            {
-                reportParameters.Add(new ReportParameter("Total_Items", 0.ToString()));
-                reportParameters.Add(new ReportParameter("Total_Quantity", 0.ToString()));
-                reportParameters.Add(new ReportParameter("Total_Value", 0.ToString()));
-            }
-            foreach (CheckBox chk2 in grp_filters.Controls)
-            {
-                if (chk2.Checked == false)
-                {
-                    reportParameters.Add(new ReportParameter("Total_Items", 0.ToString()));
-                }
-            }
-
-            //HIDING COLUMNS
-            reportParameters.Add(new ReportParameter("Hide_Entry_Date", (!chk_Entry_Date.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Item_ID", (!chk_Item_ID.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Item_Name", (!chk_Item_Name.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Brand", (!chk_Brand.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Description", (!chk_Description.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Quantity", (!chk_Quantity.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Price", (!chk_Price.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Amount", (!chk_total.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Supplier_ID", (!chk_Sup_ID.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Supplier_Name", (!chk_Sup_Name.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Customer_ID", (!chk_Cust_ID.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Customer_Name", (!chk_Cust_Name.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Customer_Address", (!chk_Cust_Address.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_User_ID", (!chk_User_ID.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Staff_Name", (!chk_Staff_Name.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Job_Role", (!chk_Job.Checked).ToString()));
-            reportParameters.Add(new ReportParameter("Hide_Trans_Ref", (!chk_Trans_Ref.Checked).ToString()));
-
-            frm.reportViewer1.LocalReport.SetParameters(reportParameters);
-
-            frm.reportViewer1.RefreshReport();
-
-            if (preview_or_print == "preview")
-            {
-                frm.ShowDialog();
-            }
-            else if ( preview_or_print == "print")
-            {
-                Print_To_The_Printer prt = new Print_To_The_Printer();
-                prt.PrintToPrinter(frm.reportViewer1.LocalReport);
-            }
-            else if ( preview_or_print == "batch")
-            {
-                if ( report_type == "Stock In" )
-                {
-                    FileName = "Inbound Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-                }
-                else if (report_type == "Stock Out")
-                {
-                    FileName = "Outbound Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-                }
-                else if (report_type == "Stock Return")
-                {
-                    FileName = "Return Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                         }).ToList();
+                        rs.Value = list2;
+                    }
                 }
                 else
                 {
-                    FileName = "Item Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-                }
-                if (!string.IsNullOrWhiteSpace(FileName))
-                {
-                    string extension;
-                    string encoding;
-                    string mimeType;
-                    string[] streams;
-                    Warning[] warnings;
-
-                    Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
-                                    out extension, out encoding,
-                                    out mimeType, out streams, out warnings); //for exporting to PDF  
-                                                                              //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                    using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                    if (ds != null)
                     {
-                        fs.Write(mybytes, 0, mybytes.Length);
+                        list2 = ds.Tables[0].AsEnumerable().Select(
+                      dataRow => new Class_Item_Var
+                      {
+                          Entry_Date = dataRow.Field<string>("Entry Date"),
+                          Item_ID = dataRow.Field<string>("Stock ID"),
+                          Item_Name = dataRow.Field<string>("Item Name"),
+                          Brand = dataRow.Field<string>("Brand"),
+                          Description = dataRow.Field<string>("Description"),
+                          Quantity = dataRow.Field<string>("Quantity"),
+                          Price = dataRow.Field<string>("Price"),
+                          Amount = dataRow.Field<string>("Total"),
+                          Customer_ID = dataRow.Field<string>("Customer ID"),
+                          Customer_Name = dataRow.Field<string>("Customer Name"),
+                          Customer_Address = dataRow.Field<string>("Customer Address"),
+                          Use_ID = dataRow.Field<string>("User ID"),
+                          Staff_Name = dataRow.Field<string>("Warehouse Staff Name"),
+                          Job_Role = dataRow.Field<string>("Job Role"),
+                          Trans_Ref = dataRow.Field<string>("Transaction Reference"),
 
-                        MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      }).ToList();
+                        rs.Value = list2;
                     }
-                    return;
-                }             
-            }
-        }
+                }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])
-            {
-                db_table = string.Empty;
-                dtg_PreviewPage.Columns.Clear();
+                rs.Name = "DataSet1";
+                frm.reportViewer1.LocalReport.DataSources.Clear();
+                frm.reportViewer1.LocalReport.DataSources.Add(rs);
+                frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
+
+
+                frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Item_RDLC_DIR + @"Item Report.rdlc");
+
+                //Load Text to RDLC TextBox
+                reportParameters.Add(new ReportParameter("param_report_date", dtp_date_to.Text));
+                reportParameters.Add(new ReportParameter("DateStart", dtp_date_from.Text));
+                reportParameters.Add(new ReportParameter("DateEnd", dtp_date_to.Text));
+
+                //Get Company Info
+                sql = "Select * from Settings ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    company_name = config.dt.Rows[0].Field<string>("Company_Name");
+                    company_address = config.dt.Rows[0].Field<string>("Company Address");
+                    // Includes.AppSettings.Company_DIR = config.dt.Rows[0].Field<string>("Company_Image");
+                }
+                if (company_name == "" || company_name == null)
+                {
+                    company_name = "No Company Name";
+                }
+                if (company_address == "" || company_address == null)
+                {
+                    company_address = "No Company Address";
+                }
+
+                // reportParameters.Add(new ReportParameter("Includes.AppSettings.Item_RDLC_DIR", @"C:\Users\eugen\Desktop\Inventory_System02\Inventory_System02\bin\Debug\CommonSql\Pictures\Company\Company_Logo1.PNG"));
+                reportParameters.Add(new ReportParameter("CompanyName", company_name));
+                reportParameters.Add(new ReportParameter("CompanyAddress", company_address));
+
+                if (ds.Tables[0].Rows.Count >= 1)
+                {
+                    reportParameters.Add(new ReportParameter("Total_Items", ds.Tables[0].Rows.Count.ToString()));
+                    calculate_Total();
+                    reportParameters.Add(new ReportParameter("Total_Quantity", quantity1.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString()));
+
+                }
+                else if (ds.Tables[0].Rows.Count <= 0)
+                {
+                    reportParameters.Add(new ReportParameter("Total_Items", 0.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Quantity", 0.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Value", 0.ToString()));
+                }
+                foreach (CheckBox chk2 in grp_filters.Controls)
+                {
+                    if (chk2.Checked == false)
+                    {
+                        reportParameters.Add(new ReportParameter("Total_Items", 0.ToString()));
+                    }
+                }
+
+                //HIDING COLUMNS
+                reportParameters.Add(new ReportParameter("Hide_Entry_Date", (!chk_Entry_Date.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Item_ID", (!chk_Item_ID.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Item_Name", (!chk_Item_Name.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Brand", (!chk_Brand.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Description", (!chk_Description.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Quantity", (!chk_Quantity.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Price", (!chk_Price.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Amount", (!chk_total.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Supplier_ID", (!chk_Sup_ID.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Supplier_Name", (!chk_Sup_Name.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Customer_ID", (!chk_Cust_ID.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Customer_Name", (!chk_Cust_Name.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Customer_Address", (!chk_Cust_Address.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_User_ID", (!chk_User_ID.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Staff_Name", (!chk_Staff_Name.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Job_Role", (!chk_Job.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Trans_Ref", (!chk_Trans_Ref.Checked).ToString()));
+
+                frm.reportViewer1.LocalReport.SetParameters(reportParameters);
+                frm.reportViewer1.RefreshReport();
+
+                if (preview_or_print == "preview")
+                {
+                    frm.ShowDialog();
+                }
+                else if (preview_or_print == "print")
+                {
+                    Print_To_The_Printer prt = new Print_To_The_Printer();
+                    prt.PrintToPrinter(frm.reportViewer1.LocalReport);
+                }
+                else if (preview_or_print == "batch")
+                {
+                    if (report_type == "Stock In")
+                    {
+                        FileName = "Inbound Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    }
+                    else if (report_type == "Stock Out")
+                    {
+                        FileName = "Outbound Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    }
+                    else if (report_type == "Stock Return")
+                    {
+                        FileName = "Return Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    }
+                    else
+                    {
+                        FileName = "Item Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    }
+                    if (!string.IsNullOrWhiteSpace(FileName))
+                    {
+                        string extension;
+                        string encoding;
+                        string mimeType;
+                        string[] streams;
+                        Warning[] warnings;
+
+                        Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
+                                        out extension, out encoding,
+                                        out mimeType, out streams, out warnings); //for exporting to PDF  
+                                                                                  //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
+                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                        {
+                            fs.Write(mybytes, 0, mybytes.Length);
+
+                            MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        return;
+                    }
+                }
+
             }
-     
+           
         }
 
         private void chk_Unselect_CheckedChanged(object sender, EventArgs e)
@@ -470,7 +417,7 @@ namespace Inventory_System02.Reports_Dir
 
         private void cbo_Date_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Calculate_Filtering("load_todtg", cbo_report_type.Text);
+            Calculate_Filtering("load", cbo_report_type.Text);
         }
 
         private void chk_Select_All_CheckedChanged_1(object sender, EventArgs e)
@@ -508,6 +455,16 @@ namespace Inventory_System02.Reports_Dir
         private void btn_Print_Click_1(object sender, EventArgs e)
         {
             Calculate_Filtering("print", cbo_report_type.Text);
+        }
+
+        private void dtp_date_from_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate_Filtering("load", cbo_report_type.Text);
+        }
+
+        private void txt_rep_date_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate_Filtering("load", cbo_report_type.Text);
         }
 
         private void btn_Batch_Click_1(object sender, EventArgs e)
@@ -571,19 +528,6 @@ namespace Inventory_System02.Reports_Dir
             chk_Item_Name.Checked = true;
             chk_Quantity.Checked = true;
             chk_Price.Checked = true;
-        }
-
-        private void Item_Report_Load(object sender, EventArgs e)
-        {
-            this.Refresh();
-            txt_rep_date.Text = datenow;
-            cbo_report_type_SelectedIndexChanged(sender, e);
-
-            chk_Sup_ID.Checked = false;
-            chk_Sup_Name.Checked = false;
-            chk_Cust_Name.Visible = false;
-            chk_Cust_ID.Visible = false;
-            chk_Cust_Address.Visible = false;
         }
     }
     public class Class_Item_Var

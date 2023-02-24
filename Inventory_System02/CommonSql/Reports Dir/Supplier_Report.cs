@@ -95,11 +95,11 @@ namespace Inventory_System02.Reports_Dir
             Group_Filtering_MustNotEmpty();
             List<Class_Supplier_Var> list2 = new List<Class_Supplier_Var>();
 
-            if (txt_rep_date.Text == "")
+            if (dtp_sup_rep_date.Text == "")
             {
                 func.Error_Message1 = "Report date";
                 func.Error_Message();
-                txt_rep_date.Focus();
+                dtp_sup_rep_date.Focus();
                 return;
             }
             if (cbo_date.Text == "All Dates")
@@ -143,7 +143,7 @@ namespace Inventory_System02.Reports_Dir
             frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Supplier_RDLC_DIR);
 
             //Load Text to RDLC TextBox
-            reportParameters.Add(new ReportParameter("param_report_date", txt_rep_date.Text));
+            reportParameters.Add(new ReportParameter("param_report_date", dtp_sup_rep_date.Text));
 
             if (ds.Tables[0].Rows.Count >= 1)
             {
@@ -335,7 +335,7 @@ namespace Inventory_System02.Reports_Dir
         {
             this.Refresh();
 
-            txt_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_sup_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
 
             chk_Supplier_ID.Checked = true;
             chk_Supplier_Name.Checked = true;
