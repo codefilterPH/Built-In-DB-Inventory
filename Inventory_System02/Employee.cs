@@ -13,7 +13,6 @@ namespace Inventory_System02.Profiles
         usableFunction func = new usableFunction();
         string sql, Global_ID, Fullname, JobRole;
 
-        string emp_image_location = string.Empty;
         public Employees(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
@@ -21,7 +20,7 @@ namespace Inventory_System02.Profiles
             Fullname = fullname;
             JobRole = jobrole;
 
-            emp_image_location = @"CommonSql\Pictures\Employee\";
+           
         }
 
         private void btn_Add_Click(object sender, EventArgs e)
@@ -120,28 +119,28 @@ namespace Inventory_System02.Profiles
                 {
                     try
                     {
-                        if (File.Exists(emp_image_location + rw[2].ToString() + ".JPG"))
+                        if (File.Exists(Includes.AppSettings.Employee_DIR + rw[2].ToString() + ".JPG"))
                         {
-                            rw["Image"] = File.ReadAllBytes(emp_image_location + rw[2].ToString() + ".JPG");
+                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + rw[2].ToString() + ".JPG");
                         }
                         else
                         {
-                            rw["Image"] = File.ReadAllBytes(emp_image_location + "DONOTDELETE_SUBIMAGE.JPG");
+                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + "DONOTDELETE_SUBIMAGE.JPG");
                         }
                     }
                     catch
                     {
                         for (int i = 0; i < dtg_User.Rows.Count; i++)
                         {
-                            if (File.Exists(emp_image_location + dtg_User.Rows[i].Cells[2].ToString() + ".JPG"))
+                            if (File.Exists(Includes.AppSettings.Employee_DIR + dtg_User.Rows[i].Cells[2].ToString() + ".JPG"))
                             {
-                                rw["Image"] = File.ReadAllBytes(emp_image_location + dtg_User.Rows[i].Cells[2].ToString() + ".JPG");
+                                rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + dtg_User.Rows[i].Cells[2].ToString() + ".JPG");
                             }
                             else
                             {
                                 if (0 == dtg_User.Rows.Count)
                                 {
-                                    rw["Image"] = File.ReadAllBytes(emp_image_location + "DONOTDELETE_SUBIMAGE.JPG");
+                                    rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + "DONOTDELETE_SUBIMAGE.JPG");
                                 }
                             }
                         }
@@ -168,7 +167,7 @@ namespace Inventory_System02.Profiles
                 lbl_total_emp.Text = count1.ToString();
             }
             dtg_User.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtp_Hired_date.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
             timer1.Start();
         }
 

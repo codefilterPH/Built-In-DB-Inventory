@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory_System02.Analytics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

@@ -83,7 +83,7 @@ namespace Inventory_System02
         }
         private void Load_to_Adobe()
         {
-            string file = @"CommonSql\Document Center Files\" + dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string file = Includes.AppSettings.Doc_DIR + dataGridView1.CurrentRow.Cells[1].Value.ToString();
             axAcroPDF1.LoadFile(file);
         }
         private void btn_Delete_Click_1(object sender, EventArgs e)
@@ -379,7 +379,7 @@ namespace Inventory_System02
             chk_Select_all.Checked = false;
             if (dataGridView1.Rows.Count > 0)
             {
-                string file = @"CommonSql\Document Center Files\" + dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                string file = Includes.AppSettings.Doc_DIR + dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 System.Diagnostics.Process.Start(file);
             }
 

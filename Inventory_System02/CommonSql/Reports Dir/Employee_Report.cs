@@ -36,7 +36,7 @@ namespace Inventory_System02.Reports_Dir
         {
             this.Refresh();
 
-            txt_rep_date.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            txt_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
        
             chk_Emp_ID.Checked = false;
             chk_FN.Checked = false;
@@ -48,6 +48,7 @@ namespace Inventory_System02.Reports_Dir
             chk_FN.Checked = true;
             chk_LN.Checked = true;
             chk_Emp_ID.Checked = true;
+            cbo_date.DropDownStyle = ComboBoxStyle.DropDownList;
         }
       
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,7 +159,7 @@ namespace Inventory_System02.Reports_Dir
                             out extension, out encoding,
                             out mimeType, out streams, out warnings); //for exporting to PDF  
             //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-            using (FileStream fs = File.Create((@"CommonSql\Document Center Files\") + FileName))
+            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
             {
                 fs.Write(mybytes, 0, mybytes.Length);
 
@@ -176,22 +177,22 @@ namespace Inventory_System02.Reports_Dir
         }
         private void DateAdjuster_local(ComboBox bx)
         {
-            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString("dd-MM-yyyy"));
+            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString(Includes.AppSettings.DateFormat));
             if (bx.Text == "Today")
             {
-                datef = datefrom1.ToString("dd-MM-yyyy");
+                datef = datefrom1.ToString(Includes.AppSettings.DateFormat);
             }
             else if (bx.Text == "1 Week")
             {
-                datef = datefrom1.AddDays(-7).ToString("dd-MM-yyyy");
+                datef = datefrom1.AddDays(-7).ToString(Includes.AppSettings.DateFormat);
             }
             else if (bx.Text == "2 Weeks")
             {
-                datef = datefrom1.AddDays(-14).ToString("dd-MM-yyyy");
+                datef = datefrom1.AddDays(-14).ToString(Includes.AppSettings.DateFormat);
             }
             else
             {
-                datef = "01-02-2023";
+                datef = "2023-01-01";
             }
 
 
@@ -224,7 +225,7 @@ namespace Inventory_System02.Reports_Dir
             }
             else
             {
-                sql = " SELECT * from Employee where count = '1' and `Hired Date` between '" + datef + "' and '" + DateTime.Now.ToString("dd-MM-yyyy")+ "' ";
+                sql = " SELECT * from Employee where count = '1' and `Hired Date` between '" + datef + "' and '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat)+ "' ";
 
             }
             config.Load_DTG(sql, dtg_PreviewPage);
@@ -317,20 +318,20 @@ namespace Inventory_System02.Reports_Dir
 
             if (chk_Email.Checked == false)
             {
-                reportParameters.Add(new ReportParameter("Hide_Phone", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Phone", "False"));
-            }
-
-            if (chk_Phone.Checked == false)
-            {
                 reportParameters.Add(new ReportParameter("Hide_Email", "True"));
             }
             else
             {
                 reportParameters.Add(new ReportParameter("Hide_Email", "False"));
+            }
+
+            if (chk_Phone.Checked == false)
+            {
+                reportParameters.Add(new ReportParameter("chk_Phone", "True"));
+            }
+            else
+            {
+                reportParameters.Add(new ReportParameter("chk_Phone", "False"));
             }
 
             if (chk_Address.Checked == false)

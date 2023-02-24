@@ -317,3 +317,4 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Inv
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Edit_Form.Edit_Form.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Items.Outbound_Preview.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Items.Return_Preview.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Analytics.dashboard.resources

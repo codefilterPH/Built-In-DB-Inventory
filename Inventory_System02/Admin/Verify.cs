@@ -17,8 +17,6 @@ namespace Inventory_System02.Admin
         SQLConfig config = new SQLConfig();
         usableFunction func = new usableFunction();
         string sql = string.Empty;
-
-        App_Settings settngs = new App_Settings();
         //string date_format;
         public Verify()
         {
@@ -78,7 +76,7 @@ namespace Inventory_System02.Admin
             {
                 DisableActivaitonKey();
                 EnableTrialDate();
-                dtp_date_extend.Text = DateTime.Now.AddDays(90).ToString("dd-MM-yyyy"   );
+                dtp_date_extend.Text = DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormat);
                 dtp_date_extend.Focus();
               
             }
@@ -164,7 +162,7 @@ namespace Inventory_System02.Admin
             DisableActivaitonKey();
             EnableTrialDate();
             dtp_date_extend.Focus();
-            dtp_date_extend.Text = DateTime.Now.AddDays(180).ToString("dd-MM-yyyy");
+            dtp_date_extend.Text = DateTime.Now.AddDays(180).ToString(Includes.AppSettings.DateFormat);
 
         }
 

@@ -37,7 +37,7 @@ namespace Inventory_System02.Reports_Dir
 
         private void Customer_Report_Load(object sender, EventArgs e)
         {
-            txt_rep_date.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            txt_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
             chk_Cust_ID.Checked = true;
             chk_FN.Checked = true;
             chk_LN.Checked = true;
@@ -46,6 +46,7 @@ namespace Inventory_System02.Reports_Dir
             sql = " SELECT * from Customer where count = '1' ";
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
+            cbo_date.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
         }
@@ -113,7 +114,7 @@ namespace Inventory_System02.Reports_Dir
                             out extension, out encoding,
                             out mimeType, out streams, out warnings); //for exporting to PDF  
             //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-            using (FileStream fs = File.Create((@"CommonSql\Document Center Files\") + FileName))
+            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
             {
                 fs.Write(mybytes, 0, mybytes.Length);
 
@@ -153,22 +154,22 @@ namespace Inventory_System02.Reports_Dir
         }
         private void DateAdjuster_local(ComboBox bx)
         {
-            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString("dd-MM-yyyy"));
+            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString(Includes.AppSettings.DateFormat));
             if (bx.Text == "Today")
             {
-                datef = datefrom1.ToString("dd-MM-yyyy");
+                datef = datefrom1.ToString(Includes.AppSettings.DateFormat);
             }
             else if (bx.Text == "1 Week")
             {
-                datef = datefrom1.AddDays(-7).ToString("dd-MM-yyyy");
+                datef = datefrom1.AddDays(-7).ToString(Includes.AppSettings.DateFormat);
             }
             else if (bx.Text == "2 Weeks")
             {
-                datef = datefrom1.AddDays(-14).ToString("dd-MM-yyyy");
+                datef = datefrom1.AddDays(-14).ToString(Includes.AppSettings.DateFormat);
             }
             else
             {
-                datef = "01-02-2023";
+                datef = "2023-01-01";
             }
 
 
@@ -192,15 +193,15 @@ namespace Inventory_System02.Reports_Dir
             }
             if (cbo_date.Text == "Today")
             {
-                sql = " SELECT * from Customer where count = '1' and `Entry Date` = '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
+                sql = " SELECT * from Customer where count = '1' and `Entry Date` = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' ";
             }
             else if ( cbo_date.Text == "1 Week")
             {
-                sql = " SELECT * from Customer WHERE `Entry Date` >= '"+ datef + "' AND `Entry Date` <= '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
+                sql = " SELECT * from Customer WHERE `Entry Date` >= '"+ datef + "' AND `Entry Date` <= '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' ";
             }
             else if (cbo_date.Text == "2 Weeks")
             { 
-                sql = " SELECT * from Customer WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
+                sql = " SELECT * from Customer WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' ";
             }
             else
             {

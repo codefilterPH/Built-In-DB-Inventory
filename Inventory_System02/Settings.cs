@@ -11,7 +11,6 @@ namespace Inventory_System02
         usableFunction func = new usableFunction();
         string sql, Global_ID, Fullname, JobRole, setting_name;
         string col;
-        string company_image_path = @"CommonSql\Pictures\Company\";
 
         public Settings(string global_id, string fullname, string jobrole)
         {
@@ -20,7 +19,7 @@ namespace Inventory_System02
             Fullname = fullname;
             JobRole = jobrole;
             
-            func.Reload_Images(Company_Logo, "Company_Logo1", company_image_path);
+            func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -253,14 +252,14 @@ namespace Inventory_System02
         private void btn_Browse_Click(object sender, EventArgs e)
         {
   
-            func.DoubleClick_Picture_Then_Replace_Existing(Company_Logo, "Company_Logo1", company_image_path);
-            func.Reload_Images(Company_Logo, "Company_Logo1", company_image_path);
+            func.DoubleClick_Picture_Then_Replace_Existing(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
+            func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
 
             sql = "Select Company_Image from Settings";
             config.singleResult(sql);
             if ( config.dt.Rows.Count > 0 )
             {
-                sql = "Update Settings set Company_Image = '" + company_image_path + "Company_Logo1.PNG" + "' ";
+                sql = "Update Settings set Company_Image = '" + Includes.AppSettings.Company_DIR + "Company_Logo1.PNG" + "' ";
                 config.Execute_Query(sql);
             }
 

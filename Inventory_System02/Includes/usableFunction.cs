@@ -19,6 +19,7 @@ namespace Inventory_System02.Includes
 {
     class usableFunction
     {
+
         public void clearTxt(Control container)
         {
             try
@@ -310,9 +311,9 @@ namespace Inventory_System02.Includes
 
 
                 DateTime dtTarget = default(DateTime); // (or) DateTime.MinValue , use this for comparision
-                if (DateTime.TryParseExact(txt, "dd-MM-yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out dtTarget))
+                if (DateTime.TryParseExact(txt, Includes.AppSettings.DateFormat, CultureInfo.CurrentCulture, DateTimeStyles.None, out dtTarget))
                 {
-                    if (DateTime.ParseExact(txt, "dd-MM-yyyy", null) < DateTime.ParseExact(dateText, "dd-MM-yyyy", null))
+                    if (DateTime.ParseExact(txt, Includes.AppSettings.DateFormat, null) < DateTime.ParseExact(dateText, Includes.AppSettings.DateFormat, null))
                     {
                         MessageBox.Show("Time must be exact or greater than " + dateText, "First Item Date is " + dateText, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
@@ -320,14 +321,14 @@ namespace Inventory_System02.Includes
                 }
                 else
                 {
-                    MessageBox.Show("Date is not valid! It must be dd-MM-yyyy", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Date is not valid! It must be Includes.AppSettings.DateFormat", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
             }
             else
             {
-                txt = DateTime.Now.ToString("dd-MM-yyyy");
+                txt = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
             }
         }
         string appPath, filepath;
@@ -560,7 +561,7 @@ namespace Inventory_System02.Includes
                 Due1 = Convert.ToInt32(config.dt.Rows[0].Field<string>("Warranty"));
 
             }         
-            Due = DateTime.Now.AddDays(Due1).ToString("dd-MM-yyyy");     
+            Due = DateTime.Now.AddDays(Due1).ToString(Includes.AppSettings.DateFormat);     
             
             sql = "Select * from `Stock Out` where `Transaction Reference` = '" + TransRef + "' ";
             config.singleResult(sql);

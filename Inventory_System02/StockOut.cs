@@ -19,9 +19,6 @@ namespace Inventory_System02
 
         string sql, Global_ID, Fullname, JobRole, Gen_Trans;
 
-
-        string item_image_location = @"CommonSql\Pictures\Item\Image\";
-
         public StockOut(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
@@ -31,8 +28,9 @@ namespace Inventory_System02
         }
 
         private void StockOut_Load(object sender, EventArgs e)
-        {
+        {   
             refreshTableToolStripMenuItem_Click(sender, e);
+            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
             btn_Saved.Enabled = false;
         }
 
@@ -98,7 +96,7 @@ namespace Inventory_System02
                     }
                     else
                     {
-                        rw["Image"] = File.ReadAllBytes(item_image_location + "DONOTDELETE_SUBIMAGE.PNG");
+                        rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE.PNG");
                     }
                 }
 
@@ -312,7 +310,7 @@ namespace Inventory_System02
                 txt_Cust_SAddress.Text = config.dt.Rows[0].Field<string>("Address").ToString();
                 txt_Type.Text = config.dt.Rows[0].Field<string>("Type").ToString();
 
-                func.Reload_Images(cust_Image, cbo_CustID.Text, @"CommonSql\Pictures\Customers\");
+                func.Reload_Images(cust_Image, cbo_CustID.Text, Includes.AppSettings.Customer_DIR);
 
 
                 //dtg_Stocks.Rows[0].Selected = true;
@@ -652,7 +650,7 @@ namespace Inventory_System02
                          ",`Warehouse Staff Name` " +
                          ",`Job Role` " +
                          ",`Transaction Reference` ) values ( " +
-                         " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
+                         " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                          ", '" + stock_out_row.Cells[0].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[1].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[2].Value.ToString() + "' " +

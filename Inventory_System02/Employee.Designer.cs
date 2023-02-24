@@ -245,7 +245,7 @@ namespace Inventory_System02.Profiles
             // dtp_Hired_date
             // 
             this.dtp_Hired_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_Hired_date.CustomFormat = "dd-MM-yyyy";
+            this.dtp_Hired_date.CustomFormat = "yyyy-MM-dd";
             this.dtp_Hired_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Hired_date.Location = new System.Drawing.Point(709, 17);
             this.dtp_Hired_date.Name = "dtp_Hired_date";
@@ -464,6 +464,7 @@ namespace Inventory_System02.Profiles
             // 
             // reloadTableToolStripMenuItem
             // 
+            this.reloadTableToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.reloadTableToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.reloadTableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reloadTableToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -475,6 +476,7 @@ namespace Inventory_System02.Profiles
             // 
             // newEmployeeToolStripMenuItem
             // 
+            this.newEmployeeToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.newEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.newEmployeeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newEmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White;

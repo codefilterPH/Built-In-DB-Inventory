@@ -45,10 +45,6 @@
           <DataField>LN</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Password">
-          <DataField>Password</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Phone">
           <DataField>Phone</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -223,6 +219,9 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox58</rd:DefaultName>
+                          <Visibility>
+                            <Hidden>=Parameters!Hide_Phone.Value=true</Hidden>
+                          </Visibility>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -503,6 +502,9 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Phone</rd:DefaultName>
+                          <Visibility>
+                            <Hidden>=Parameters!Hide_Phone.Value=true</Hidden>
+                          </Visibility>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -706,7 +708,7 @@
             <Top>0.65828cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.2cm</Height>
-            <Width>16.21453cm</Width>
+            <Width>16.21454cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

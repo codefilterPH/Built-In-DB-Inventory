@@ -30,11 +30,11 @@ namespace Inventory_System02.CustSupplier
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustSupp));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btn_cusid_select = new System.Windows.Forms.Button();
@@ -167,7 +167,7 @@ namespace Inventory_System02.CustSupplier
             // btn_cusid_select
             // 
             this.btn_cusid_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cusid_select.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_cusid_select.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btn_cusid_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_cusid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_cusid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,30 +209,30 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 170);
+            this.panel2.Size = new System.Drawing.Size(839, 166);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
             // 
             this.dtg_Customer.AllowUserToAddRows = false;
             this.dtg_Customer.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_Customer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_Customer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtg_Customer.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Customer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_Customer.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Customer.Location = new System.Drawing.Point(0, 0);
             this.dtg_Customer.Name = "dtg_Customer";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_Customer.RowTemplate.Height = 90;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 170);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 166);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -457,10 +457,10 @@ namespace Inventory_System02.CustSupplier
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Upload_Cust,
             this.refreshToolStripMenuItem,
             this.customerModelsToolStripMenuItem,
-            this.btn_new_customer,
-            this.btn_Upload_Cust});
+            this.btn_new_customer});
             this.menuStrip1.Location = new System.Drawing.Point(3, 3);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(847, 24);
@@ -469,6 +469,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // refreshToolStripMenuItem
             // 
+            this.refreshToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -480,7 +481,6 @@ namespace Inventory_System02.CustSupplier
             // 
             // customerModelsToolStripMenuItem
             // 
-            this.customerModelsToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.customerModelsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.customerModelsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerModelsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -492,17 +492,19 @@ namespace Inventory_System02.CustSupplier
             // 
             // btn_new_customer
             // 
+            this.btn_new_customer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.btn_new_customer.BackColor = System.Drawing.Color.Teal;
             this.btn_new_customer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_new_customer.ForeColor = System.Drawing.Color.White;
             this.btn_new_customer.Image = ((System.Drawing.Image)(resources.GetObject("btn_new_customer.Image")));
             this.btn_new_customer.Name = "btn_new_customer";
-            this.btn_new_customer.Size = new System.Drawing.Size(161, 20);
-            this.btn_new_customer.Text = "New Division/Customer";
+            this.btn_new_customer.Size = new System.Drawing.Size(105, 20);
+            this.btn_new_customer.Text = "New Division";
             this.btn_new_customer.Click += new System.EventHandler(this.btn_new_customer_Click);
             // 
             // btn_Upload_Cust
             // 
+            this.btn_Upload_Cust.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.btn_Upload_Cust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_Upload_Cust.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Upload_Cust.ForeColor = System.Drawing.Color.White;
@@ -554,7 +556,7 @@ namespace Inventory_System02.CustSupplier
             // btn_supid_select
             // 
             this.btn_supid_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_supid_select.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_supid_select.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btn_supid_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_supid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_supid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -616,15 +618,15 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 172);
+            this.panel1.Size = new System.Drawing.Size(837, 168);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
             // 
             this.dtg_Supplier.AllowUserToAddRows = false;
             this.dtg_Supplier.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_Supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_Supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dtg_Supplier.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Supplier.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -632,15 +634,15 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Supplier.Location = new System.Drawing.Point(0, 0);
             this.dtg_Supplier.Name = "dtg_Supplier";
             this.dtg_Supplier.ReadOnly = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtg_Supplier.RowTemplate.Height = 90;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 172);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 168);
             this.dtg_Supplier.TabIndex = 25;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);
@@ -692,9 +694,9 @@ namespace Inventory_System02.CustSupplier
             // 
             this.menuStrip2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_Upload_sup,
             this.supplier_refresh,
-            this.btn_new_supplier,
-            this.btn_Upload_sup});
+            this.btn_new_supplier});
             this.menuStrip2.Location = new System.Drawing.Point(3, 3);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(847, 24);
@@ -703,6 +705,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // supplier_refresh
             // 
+            this.supplier_refresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.supplier_refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.supplier_refresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplier_refresh.ForeColor = System.Drawing.Color.White;
@@ -714,6 +717,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // btn_new_supplier
             // 
+            this.btn_new_supplier.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.btn_new_supplier.BackColor = System.Drawing.Color.Teal;
             this.btn_new_supplier.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_new_supplier.ForeColor = System.Drawing.Color.White;
@@ -725,6 +729,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // btn_Upload_sup
             // 
+            this.btn_Upload_sup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.btn_Upload_sup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_Upload_sup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Upload_sup.ForeColor = System.Drawing.Color.White;

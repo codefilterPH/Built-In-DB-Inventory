@@ -15,7 +15,7 @@ namespace Inventory_System02
         string sql, Global_ID, JobRole, Fullname, Gen_Trans, due, date;
         double price = 0, qty = 0, quan = 0;
         string sup_image_location = @"CommonSql\Pictures\Customers\";
-        string item_image_location = @"CommonSql\Pictures\Item\Image\";
+        string item_image_location = Includes.AppSettings.Image_DIR;
 
         public StockReturned(string globalid, string fullname, string jobrole)
         {
@@ -23,7 +23,7 @@ namespace Inventory_System02
             Global_ID = globalid;
             Fullname = fullname;
             JobRole = jobrole;
-            date = DateTime.Now.ToString("dd-MM-yyyy");
+            date = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
         }
 
         private void stockOutListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -199,7 +199,7 @@ namespace Inventory_System02
 
         private void StockReturned_Load(object sender, EventArgs e)
         {
-           
+            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btn_sup_add_Click(object sender, EventArgs e)
@@ -245,6 +245,10 @@ namespace Inventory_System02
                         chk_all.Checked = false;
                         Update_Qty_Stocks();
                         TOTALS();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing to return, \'quantity\' is zero!", "Error Prompt", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
 
                 }
@@ -671,7 +675,7 @@ namespace Inventory_System02
                                 ",`Warehouse Staff Name`    " +
                                 ",`Job Role` " +
                                 ",`Transaction Reference` ) values (" +
-                                " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
+                                " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                                 ",'" + rw.Cells[0].Value.ToString() + "' " +
                                 ",'" + rw.Cells[1].Value.ToString() + "' " +
                                 ",'" + rw.Cells[2].Value.ToString() + "' " +
@@ -706,7 +710,7 @@ namespace Inventory_System02
                          ",`Warehouse Staff Name` " +
                          ",`Job Role` " +
                          ",`Transaction Reference` ) values ( " +
-                         " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
+                         " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                          ", '" + stock_out_row.Cells[0].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[1].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[2].Value.ToString() + "' " +

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace Inventory_System02
 {
@@ -13,7 +14,6 @@ namespace Inventory_System02
         usableFunction func = new usableFunction();
         string sql;
         SQLConfig config = new SQLConfig();
-        App_Settings settngs = new App_Settings();
 
         public Login1()
         {
@@ -108,14 +108,14 @@ namespace Inventory_System02
 
             if (isPdfInstalled)
             {
-                // Get the current date in the format "dd-MM-yyyy"
-                string currentDate = DateTime.Now.ToString("dd-MM-yyyy");
+                // Get the current date in the format Includes.AppSettings.DateFormat
+                string formattedDate = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
 
                 // Check if the current date is not in the desired format
-                if (!Regex.IsMatch(currentDate, @"^\d{2}-\d{2}-\d{4}$"))
+                if (!Regex.IsMatch(formattedDate, @"^\d{4}-\d{2}-\d{2}$"))
                 {
                     // Display an error message and exit the application
-                    MessageBox.Show("The date format on this computer is not supported by this application. Please set the date format to 'dd-MM-yyyy' and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The date format on this computer is not supported by this application. Please set the date format to 'Includes.AppSettings.DateFormat' and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                 }
                 else
@@ -138,13 +138,13 @@ namespace Inventory_System02
                         {
                             if (date == "")
                             {
-                                sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString("dd-MM-yyyy") + "' where Count = '0'";
+                                sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormat) + "' where Count = '0'";
                                 config.Execute_Query(sql);
                                 txt_Username.Focus();
                             }
                             else
                             {
-                                string date1 = DateTime.Now.ToString("dd-MM-yyyy");
+                                string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
                                 if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
                                 {
                                     Admin.Verify frm = new Admin.Verify();
@@ -159,7 +159,7 @@ namespace Inventory_System02
                     }
                     else
                     {
-                        sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString("dd-MM-yyyy") + "' , '100' ) ";
+                        sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormat) + "' , '100' ) ";
                         config.Execute_Query(sql);
                         txt_Username.Focus();
                     }

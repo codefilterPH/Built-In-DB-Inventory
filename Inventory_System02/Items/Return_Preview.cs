@@ -66,7 +66,7 @@ namespace Inventory_System02.Items
             {
                 txt_id.Text = id;
                 txt_date.Text = entry_date;
-                item_image_location = @"CommonSql\Pictures\Item\Image\";
+                item_image_location = Includes.AppSettings.Image_DIR;
                 func.Reload_Images(Item_Image, id, item_image_location);
 
                 txt_name.Text = name;

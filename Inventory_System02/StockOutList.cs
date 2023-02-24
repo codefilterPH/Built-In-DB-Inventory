@@ -23,6 +23,7 @@ namespace Inventory_System02
         private void StockOutList_Load(object sender, EventArgs e)
         {
             refreshTableToolStripMenuItem_Click(sender, e);
+            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         double val = 0, qty = 0;
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -220,9 +221,12 @@ namespace Inventory_System02
         {
             if (dtg_outlist.Rows.Count >= 1)
             {
-                if (dtg_outlist.SelectedRows.Count > 0 && txt_Trans_number.Text != "Empty Field!" &&
-                    !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                if (dtg_outlist.SelectedRows.Count > 0 )
                 {
+                    if ( txt_Trans_number.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                    {
+                        txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[16].Value.ToString();
+                    }
                     passed_trans_ref = txt_Trans_number.Text;
                     this.DialogResult = DialogResult.OK;
                     this.Close();

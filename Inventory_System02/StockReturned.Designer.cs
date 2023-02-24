@@ -289,7 +289,7 @@ namespace Inventory_System02
             // btn_view
             // 
             this.btn_view.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_view.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_view.BackColor = System.Drawing.Color.DarkCyan;
             this.btn_view.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_view.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -490,7 +490,7 @@ namespace Inventory_System02
             // btn_edit
             // 
             this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_edit.BackColor = System.Drawing.Color.Gray;
+            this.btn_edit.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_edit.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

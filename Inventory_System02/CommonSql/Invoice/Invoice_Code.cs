@@ -192,7 +192,7 @@ namespace Inventory_System02.Invoice_Code
                                     out extension, out encoding,
                                     out mimeType, out streams, out warnings); //for exporting to PDF  
                                                                               //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                    using (FileStream fs = File.Create((@"CommonSql\Document Center Files\") + FileName))
+                    using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
                     {
                         fs.Write(mybytes, 0, mybytes.Length);
 

@@ -12,8 +12,7 @@ namespace Inventory_System02.CustSupplier
         usableFunction func = new usableFunction();
         ID_Generator gen = new ID_Generator();
         string sql, Global_ID, Fullname, JobRole, CustSup;
-        string cust_path = string.Empty;
-        string sup_path = string.Empty;
+
         string main_path = string.Empty;
         public string cusID { get; set; }
         public string supID { get; set; }
@@ -25,8 +24,7 @@ namespace Inventory_System02.CustSupplier
             Fullname = fullname;
             JobRole = jobrole;
             CustSup = Type_of_Need;
-            cust_path = @"CommonSql\Pictures\Customers\";
-            sup_path = @"CommonSql\Pictures\Suppliers\";
+          
             string main_path = string.Empty;
 
         }
@@ -49,13 +47,13 @@ namespace Inventory_System02.CustSupplier
             if (CustSup == "Sup")
             {
                 tabControl1.SelectedTab = tabPage2;
-                func.Reload_Images(Sup_Image, Sup_ID.Text, sup_path);
+                func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 Sup_ID.Focus();
             }
             else
             {
                 tabControl1.SelectedTab = tabPage1;
-                func.Reload_Images(Cust_Image, cust_ID.Text, cust_path);
+                func.Reload_Images(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
 
             }
             timer1.Start();
@@ -93,7 +91,7 @@ namespace Inventory_System02.CustSupplier
             else
             {
                 sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, Street , City, Province, `Address`) values (" +
-               " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
+               " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                ", '" + Sup_ID.Text + "' " +
                ", '" + sup_CName.Text + "'" +
                ", '" + sup_Email.Text + "' " +
@@ -138,7 +136,7 @@ namespace Inventory_System02.CustSupplier
                 sup_City.Text = dtg_Supplier.CurrentRow.Cells[7].Value.ToString();
                 sup_Province.Text = dtg_Supplier.CurrentRow.Cells[8].Value.ToString();
                 sup_Address.Text = dtg_Supplier.CurrentRow.Cells[9].Value.ToString();
-                func.Reload_Images(Sup_Image, Sup_ID.Text, sup_path);
+                func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 func.Change_Font_DTG(sender, e, dtg_Supplier);
                 Sup_ID.Focus();
             }
@@ -180,7 +178,7 @@ namespace Inventory_System02.CustSupplier
                     ",`Phone Number` " +
                     ",`Address`" +
                     ",`Type`) values ( " +
-                    " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
+                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                     ",'" + cust_ID.Text + "' " +
                     ",'" + cust_FN.Text + "' " +
                     ",'" + cust_LN.Text + "' " +
@@ -204,7 +202,7 @@ namespace Inventory_System02.CustSupplier
             if (dtg_Customer.Rows.Count > 0)
             {
                 dtg_Customer.Columns[0].Visible = false;
-                main_path = cust_path;
+                main_path = Includes.AppSettings.Customer_DIR;
                 Load_Images(dtg_Customer);
             }
 
@@ -224,7 +222,7 @@ namespace Inventory_System02.CustSupplier
             if (dtg_Supplier.Rows.Count > 0)
             {
                 dtg_Supplier.Columns[0].Visible = false;
-                main_path = sup_path;
+                main_path = Includes.AppSettings.Supplier_DIR;
                 Load_Images(dtg_Supplier);
 
             }
@@ -289,7 +287,7 @@ namespace Inventory_System02.CustSupplier
             if (tabControl1.SelectedTab == tabPage2)
             {
                 timer1.Start();
-                func.Reload_Images(Sup_Image, Sup_ID.Text, sup_path);
+                func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 supplier_refresh_Click(sender, e);
 
 
@@ -309,16 +307,16 @@ namespace Inventory_System02.CustSupplier
 
         private void Cust_Image_DoubleClick(object sender, EventArgs e)
         {
-            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(Cust_Image, cust_ID.Text, cust_path);
-            func.Reload_Images(Cust_Image, cust_ID.Text, cust_path);
+            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
+            func.Reload_Images(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
             refreshToolStripMenuItem_Click(sender, e);
 
         }
 
         private void Sup_Image_DoubleClick(object sender, EventArgs e)
         {
-            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(Sup_Image, Sup_ID.Text, sup_path);
-            func.Reload_Images(Sup_Image, Sup_ID.Text, sup_path);
+            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
+            func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
             supplier_refresh_Click(sender, e);
         }
 
@@ -439,9 +437,12 @@ namespace Inventory_System02.CustSupplier
         {
             if (dtg_Customer.Rows.Count >= 1)
             {
-                if (dtg_Customer.SelectedRows.Count > 0 && cust_ID.Text != "Empty Field!" &&
-                    !string.IsNullOrWhiteSpace(cust_ID.Text))
+                if (dtg_Customer.SelectedRows.Count > 0 )
                 {
+                    if (cust_ID.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(cust_ID.Text))
+                    {
+                        cust_ID.Text = dtg_Customer.CurrentRow.Cells[2].Value.ToString();
+                    }
                     cusID = cust_ID.Text;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -453,9 +454,12 @@ namespace Inventory_System02.CustSupplier
         {
             if (dtg_Supplier.Rows.Count >= 1)
             {
-                if (dtg_Supplier.SelectedRows.Count > 0 && Sup_ID.Text != "Empty Field!" &&
-                    !string.IsNullOrWhiteSpace(Sup_ID.Text))
+                if ( dtg_Supplier.SelectedRows.Count > 0 )
                 {
+                    if (Sup_ID.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(Sup_ID.Text))
+                    {
+                        Sup_ID.Text = dtg_Supplier.CurrentRow.Cells[2].Value.ToString();
+                    }
                     supID = Sup_ID.Text;
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -493,7 +497,7 @@ namespace Inventory_System02.CustSupplier
                 cust_SAddress.Text = dtg_Customer.CurrentRow.Cells[6].Value.ToString();
                 cbo_type.Text = dtg_Customer.CurrentRow.Cells[7].Value.ToString();
 
-                func.Reload_Images(Cust_Image, cust_ID.Text, cust_path);
+                func.Reload_Images(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
                 func.Change_Font_DTG(sender, e, dtg_Customer );
                 cust_ID.Focus();
             }

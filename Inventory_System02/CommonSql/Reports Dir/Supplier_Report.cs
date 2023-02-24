@@ -108,11 +108,11 @@ namespace Inventory_System02.Reports_Dir
             }
             else if (cbo_date.Text == "Today")
             {
-                sql = " SELECT * from Supplier where count = '1' and `Entry Date` = '" + DateTime.Now.ToString("dd-MM-yyyy") + "' ";
+                sql = " SELECT * from Supplier where count = '1' and `Entry Date` = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' ";
             }
             else
             {
-                sql = " SELECT * from Supplier where count = '1' and `Entry Date` between '" + datef + "' and '" + DateTime.Now.ToString("dd-MM-yyyy") + "'  ";
+                sql = " SELECT * from Supplier where count = '1' and `Entry Date` between '" + datef + "' and '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "'  ";
             }
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
@@ -140,7 +140,7 @@ namespace Inventory_System02.Reports_Dir
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(rs);
             frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            frm.reportViewer1.LocalReport.ReportPath = (@"CommonSql\Reports Dir\Supplier_Report.rdlc");
+            frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Supplier_RDLC_DIR);
 
             //Load Text to RDLC TextBox
             reportParameters.Add(new ReportParameter("param_report_date", txt_rep_date.Text));
@@ -175,22 +175,22 @@ namespace Inventory_System02.Reports_Dir
         }
         private void DateAdjuster_local(ComboBox bx)
         {
-            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString("dd-MM-yyyy"));
+            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString(Includes.AppSettings.DateFormat));
             if (bx.Text == "Today")
             {
-                datef = datefrom1.ToString("dd-MM-yyyy");
+                datef = datefrom1.ToString(Includes.AppSettings.DateFormat);
             }
             else if (bx.Text == "1 Week")
             {
-                datef = datefrom1.AddDays(-7).ToString("dd-MM-yyyy");
+                datef = datefrom1.AddDays(-7).ToString(Includes.AppSettings.DateFormat);
             }
             else if (bx.Text == "2 Weeks")
             {
-                datef = datefrom1.AddDays(-14).ToString("dd-MM-yyyy");
+                datef = datefrom1.AddDays(-14).ToString(Includes.AppSettings.DateFormat);
             }
             else
             {
-                datef = "01-02-2023";
+                datef = "2023-01-01";
             }
 
 
@@ -297,7 +297,7 @@ namespace Inventory_System02.Reports_Dir
                             out extension, out encoding,
                             out mimeType, out streams, out warnings); //for exporting to PDF  
             //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-            using (FileStream fs = File.Create((@"CommonSql\Document Center Files\") + FileName))
+            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
             {
                 fs.Write(mybytes, 0, mybytes.Length);
 
@@ -335,7 +335,7 @@ namespace Inventory_System02.Reports_Dir
         {
             this.Refresh();
 
-            txt_rep_date.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            txt_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
 
             chk_Supplier_ID.Checked = true;
             chk_Supplier_Name.Checked = true;
@@ -345,6 +345,7 @@ namespace Inventory_System02.Reports_Dir
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
 
+            cbo_date.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void DTG_Properties()
         {

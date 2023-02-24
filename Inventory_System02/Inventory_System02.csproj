@@ -100,6 +100,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -128,6 +129,12 @@
     </Compile>
     <Compile Include="Admin\Verify.Designer.cs">
       <DependentUpon>Verify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analytics\dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analytics\dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Batch_Form.cs">
       <SubType>Form</SubType>
@@ -276,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Verify.resx">
       <DependentUpon>Verify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analytics\dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Batch_Form.resx">
       <DependentUpon>Batch_Form.cs</DependentUpon>

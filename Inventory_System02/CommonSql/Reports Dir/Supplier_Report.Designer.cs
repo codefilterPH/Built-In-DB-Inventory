@@ -35,6 +35,7 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbl_Personnel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtg_PreviewPage = new System.Windows.Forms.DataGridView();
@@ -89,6 +90,7 @@ namespace Inventory_System02.Reports_Dir
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.lbl_Personnel);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.dtg_PreviewPage);
@@ -104,12 +106,23 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(523, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Date Within";
+            // 
             // lbl_Personnel
             // 
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(133, 206);
+            this.lbl_Personnel.Location = new System.Drawing.Point(133, 198);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(0, 21);
             this.lbl_Personnel.TabIndex = 25;
@@ -119,7 +132,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 206);
+            this.label7.Location = new System.Drawing.Point(6, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 21);
             this.label7.TabIndex = 24;
@@ -148,7 +161,7 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.Location = new System.Drawing.Point(10, 37);
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 157);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 149);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_date
@@ -181,7 +194,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Supplier_Name);
             this.grp_filters.Controls.Add(this.chk_Supplier_ID);
             this.grp_filters.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_filters.Location = new System.Drawing.Point(248, 199);
+            this.grp_filters.Location = new System.Drawing.Point(248, 191);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(495, 89);
             this.grp_filters.TabIndex = 20;
@@ -399,5 +412,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.CheckBox chk_Province;
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.CheckBox chk_entry_date;
+        private System.Windows.Forms.Label label1;
     }
 }

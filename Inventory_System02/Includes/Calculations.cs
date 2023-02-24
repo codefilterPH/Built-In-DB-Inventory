@@ -22,7 +22,7 @@ namespace Inventory_System02.Includes
         public void Calculate_Todays_Entry_StockIn(string Type_Of_Process )
         {
 
-            sql = "Select * from "+ Type_Of_Process + " where `Entry Date` = '"+DateTime.Now.ToString("dd-MM-yyyy") +"' ";
+            sql = "Select * from "+ Type_Of_Process + " where `Entry Date` = '"+DateTime.Now.ToString(Includes.AppSettings.DateFormat) +"' ";
             config.singleResult(sql);
 
             if (config.dt.Rows.Count == 1)
@@ -59,8 +59,8 @@ namespace Inventory_System02.Includes
             {
                 for ( int i = 0; i < config.dt.Rows.Count; i ++ )
                 {
-                    qty = Convert.ToDouble( config.dt.Rows[i].Field<string>("Quantity"));
-                    price = Convert.ToDouble(config.dt.Rows[i].Field<string>("Price"));
+                    qty = Convert.ToDouble( config.dt.Rows[i].Field<string>("Quantity") );
+                    price = Convert.ToDouble( config.dt.Rows[i].Field<string>("Price") );
 
                     t_qty += qty;
                     sub_amt = qty * price;

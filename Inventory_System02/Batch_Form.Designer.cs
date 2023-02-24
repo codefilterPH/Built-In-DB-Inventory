@@ -31,8 +31,9 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Batch_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -42,18 +43,18 @@ namespace Inventory_System02
             this.panel5 = new System.Windows.Forms.Panel();
             this.chk_Select_all = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.allItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.inboundFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inboundTransToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.outboundTransToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.allItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.adobe_show.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
@@ -158,6 +159,15 @@ namespace Inventory_System02
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // allItemsToolStripMenuItem
+            // 
+            this.allItemsToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue;
+            this.allItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.allItemsToolStripMenuItem.Name = "allItemsToolStripMenuItem";
+            this.allItemsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.allItemsToolStripMenuItem.Text = "All Items";
+            this.allItemsToolStripMenuItem.Click += new System.EventHandler(this.allItemsToolStripMenuItem_Click);
+            // 
             // btn_Delete
             // 
             this.btn_Delete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -208,54 +218,6 @@ namespace Inventory_System02
             this.returnTransactionsToolStripMenuItem.Text = "Return Transactions";
             this.returnTransactionsToolStripMenuItem.Click += new System.EventHandler(this.returnTransactionsToolStripMenuItem_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(353, 344);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
-            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            // 
-            // allItemsToolStripMenuItem
-            // 
-            this.allItemsToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue;
-            this.allItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.allItemsToolStripMenuItem.Name = "allItemsToolStripMenuItem";
-            this.allItemsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.allItemsToolStripMenuItem.Text = "All Items";
-            this.allItemsToolStripMenuItem.Click += new System.EventHandler(this.allItemsToolStripMenuItem_Click);
-            // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -274,7 +236,7 @@ namespace Inventory_System02
             this.itemToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.itemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.itemToolStripMenuItem.Text = "Item Report";
             this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
@@ -283,7 +245,7 @@ namespace Inventory_System02
             this.supplierReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.supplierReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.supplierReportToolStripMenuItem.Name = "supplierReportToolStripMenuItem";
-            this.supplierReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplierReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.supplierReportToolStripMenuItem.Text = "Supplier Report";
             this.supplierReportToolStripMenuItem.Click += new System.EventHandler(this.supplierReportToolStripMenuItem_Click);
             // 
@@ -292,7 +254,7 @@ namespace Inventory_System02
             this.customerReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.customerReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerReportToolStripMenuItem.Name = "customerReportToolStripMenuItem";
-            this.customerReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customerReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.customerReportToolStripMenuItem.Text = "Customer Report";
             this.customerReportToolStripMenuItem.Click += new System.EventHandler(this.customerReportToolStripMenuItem_Click);
             // 
@@ -301,9 +263,50 @@ namespace Inventory_System02
             this.employeeReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.employeeReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.employeeReportToolStripMenuItem.Name = "employeeReportToolStripMenuItem";
-            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.employeeReportToolStripMenuItem.Text = "Employee Report";
             this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 52);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.Size = new System.Drawing.Size(353, 344);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // Batch_Form
             // 

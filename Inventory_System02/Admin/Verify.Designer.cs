@@ -216,7 +216,7 @@ namespace Inventory_System02.Admin
             // 
             // dtp_date_extend
             // 
-            this.dtp_date_extend.CustomFormat = "dd-MM-yyyy";
+            this.dtp_date_extend.CustomFormat = "yyyy-MM-dd";
             this.dtp_date_extend.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_date_extend.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_date_extend.Location = new System.Drawing.Point(198, 120);

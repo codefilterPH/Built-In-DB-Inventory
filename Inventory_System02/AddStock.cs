@@ -27,7 +27,7 @@ namespace Inventory_System02
             Fullname = fullname;
             JobRole = jobrole;
 
-            item_image_location = @"CommonSql\Pictures\Item\Image\";
+            item_image_location = Includes.AppSettings.Image_DIR;
 
         }
 
@@ -53,6 +53,7 @@ namespace Inventory_System02
             }
             Calculator_Timer.Start();
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
+            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
 
@@ -63,7 +64,7 @@ namespace Inventory_System02
             this.dtg_Items.Columns[6].DefaultCellStyle.Format = "0.00";
 
             //Format to date dtg cell
-            dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = "dd-MM-yyyy";
+            dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormat;
             //sorting
             dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
 
@@ -360,6 +361,7 @@ namespace Inventory_System02
         private void btn_upload_Click(object sender, EventArgs e)
         {
             Item_Image_DoubleClick(sender, e);
+            refreshToolStripMenuItem_Click(sender, e);
         }
 
         private void batchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -605,7 +607,7 @@ namespace Inventory_System02
                     ",`Warehouse Staff Name`    " +
                     ",`Job Role` " +
                     ",`Transaction Reference` ) values (" +
-                    " '" + DateTime.Now.ToString("dd-MM-yyyy") + "' " +
+                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                     ",'" + Item_ID1 + "' " +
                     ",'" + txt_ItemName.Text + "' " +
                     ",'" + cbo_brand.Text + "' " +

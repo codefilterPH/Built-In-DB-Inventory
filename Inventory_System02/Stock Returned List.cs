@@ -58,6 +58,7 @@ namespace Inventory_System02
         private void Stock_Returned_Load(object sender, EventArgs e)
         {
             refreshTableToolStripMenuItem_Click(sender, e);
+            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
