@@ -168,7 +168,8 @@ namespace Inventory_System02.Reports_Dir
                 frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Employee_RDLC_DIR);
 
                 //Load Text to RDLC TextBox
-                reportParameters.Add(new ReportParameter("param_report_date", dtp_date_to.Text));
+                reportParameters.Add(new ReportParameter("From_Date", dtp_date_from.Text));
+                reportParameters.Add(new ReportParameter("To_Date", dtp_date_to.Text));
 
                 if (ds.Tables[0].Rows.Count >= 1)
                 {

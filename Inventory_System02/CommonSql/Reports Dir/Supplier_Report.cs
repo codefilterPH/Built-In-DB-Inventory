@@ -13,25 +13,38 @@ namespace Inventory_System02.Reports_Dir
 {
     public partial class Supplier_Report : Form
     {
-        SQLConfig config = new SQLConfig();
-        string sql;
-        DataSet ds = new DataSet();
+        SQLConfig config;
+        string sql = string.Empty;
+        int count = 0;
+        DataSet ds;
 
-        Report_Viewer frm = new Report_Viewer();
-        ReportDataSource rs = new ReportDataSource();
-        ReportParameterCollection reportParameters = new ReportParameterCollection();
-        usableFunction func = new usableFunction();
+        Report_Viewer frm;
+        ReportDataSource rs;
+        ReportParameterCollection reportParameters;
+        usableFunction func;
+        List<Class_Supplier_Var> list2;
 
         string Global_ID, Fullname, JobRole, datef = string.Empty;
-
-        private void chk_Supplier_ID_CheckedChanged(object sender, EventArgs e)
+        public Supplier_Report(string global_id, string fullname, string jobrole)
         {
-
+            InitializeComponent();
+            Global_ID = global_id;
+            Fullname = fullname;
+            JobRole = jobrole;
         }
+        private void Supplier_Report_Load(object sender, EventArgs e)
+        {
+            chk_Supplier_ID.Checked = true;
+            chk_Supplier_Name.Checked = true;
+            chk_Phone.Checked = true;
+            chk_Address.Checked = true;
 
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+        }
+    
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)
         {
-
             if (chk_Select_All.Checked == true)
             {
                 foreach (CheckBox ch in grp_filters.Controls)
@@ -66,249 +79,128 @@ namespace Inventory_System02.Reports_Dir
             }
         }
 
-        private void btn_Print_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Print_Preview_Click(object sender, EventArgs e)
-        {
-            Calculate_Filtering("preview");
-        }
-
-        public Supplier_Report(string global_id, string fullname, string jobrole)
-        {
-            InitializeComponent();
-            Global_ID = global_id;
-            Fullname = fullname;
-            JobRole = jobrole;
-        }
-
-
         private void Calculate_Filtering(string what_to_do)
         {
-            DateAdjuster_local(cbo_date);
             rs = new ReportDataSource();
             reportParameters = new ReportParameterCollection();
             frm = new Report_Viewer();
             ds = new DataSet();
+            config = new SQLConfig();
+            func = new usableFunction();
             Group_Filtering_MustNotEmpty();
-            List<Class_Supplier_Var> list2 = new List<Class_Supplier_Var>();
 
-            if (dtp_sup_rep_date.Text == "")
+            if (string.IsNullOrWhiteSpace(dtp_date_to.Text))
             {
-                func.Error_Message1 = "Report date";
+                func.Error_Message1 = "Report \'Date To\'";
                 func.Error_Message();
-                dtp_sup_rep_date.Focus();
+                dtp_date_to.Focus();
                 return;
             }
-            if (cbo_date.Text == "All Dates")
+            else if (string.IsNullOrWhiteSpace(dtp_date_from.Text))
             {
-                sql = " SELECT * from Supplier where count = '1'";
+                func.Error_Message1 = "Report \'Date From\'";
+                func.Error_Message();
+                dtp_date_from.Focus();
+                return;
             }
-            else if (cbo_date.Text == "Today")
-            {
-                sql = " SELECT * from Supplier where count = '1' and `Entry Date` = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' ";
-            }
-            else
-            {
-                sql = " SELECT * from Supplier where count = '1' and `Entry Date` between '" + datef + "' and '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "'  ";
-            }
+
+            sql = " SELECT * from Supplier where `Entry Date` between '" + dtp_date_from.Text + "' and '" + dtp_date_to.Text + "'  ";
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
             config.Load_Datasource(sql, ds);
-            if (ds != null)
+            if ( what_to_do != "load" ) 
             {
-                list2 = ds.Tables[0].AsEnumerable().Select(
-              dataRow => new Class_Supplier_Var
-              {
-                  Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
-                  Supplier_Id = dataRow.Field<string>("Company ID").ToString(),
-                  Supplier_Name = dataRow.Field<string>("Company Name").ToString(),
-                  Email = dataRow.Field<string>("Email").ToString(),
-                  Phone = dataRow.Field<string>("Phone").ToString(),
-                  Street = dataRow.Field<string>("Street").ToString(),
-                  City = dataRow.Field<string>("City").ToString(),
-                  Province = dataRow.Field<string>("Province").ToString(),
-                  Address = dataRow.Field<string>("Address").ToString(),
-
-              }).ToList();
-                rs.Value = list2;
-            }
-
-            rs.Name = "DataSet1";
-            frm.reportViewer1.LocalReport.DataSources.Clear();
-            frm.reportViewer1.LocalReport.DataSources.Add(rs);
-            frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Supplier_RDLC_DIR);
-
-            //Load Text to RDLC TextBox
-            reportParameters.Add(new ReportParameter("param_report_date", dtp_sup_rep_date.Text));
-
-            if (ds.Tables[0].Rows.Count >= 1)
-            {
-                reportParameters.Add(new ReportParameter("Total_Person", ds.Tables[0].Rows.Count.ToString()));
-            }
-            foreach (CheckBox chk2 in grp_filters.Controls)
-            {
-                if (chk2.Checked == false)
+                list2 = new List<Class_Supplier_Var>();
+                if (ds != null)
                 {
-                    reportParameters.Add(new ReportParameter("Total_Person", 0.ToString()));
+                    list2 = ds.Tables[0].AsEnumerable().Select(
+                  dataRow => new Class_Supplier_Var
+                  {
+                      Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
+                      Supplier_Id = dataRow.Field<string>("Company ID").ToString(),
+                      Supplier_Name = dataRow.Field<string>("Company Name").ToString(),
+                      Email = dataRow.Field<string>("Email").ToString(),
+                      Phone = dataRow.Field<string>("Phone").ToString(),
+                      Street = dataRow.Field<string>("Street").ToString(),
+                      City = dataRow.Field<string>("City").ToString(),
+                      Province = dataRow.Field<string>("Province").ToString(),
+                      Address = dataRow.Field<string>("Address").ToString(),
+
+                  }).ToList();
+                    rs.Value = list2;
                 }
-            }
-            Hiding_Columns();
-            frm.reportViewer1.LocalReport.SetParameters(reportParameters);
-            frm.reportViewer1.RefreshReport();
 
-            if (what_to_do == "preview")
-            {
-                frm.ShowDialog();
+                rs.Name = "DataSet1";
+                frm.reportViewer1.LocalReport.DataSources.Clear();
+                frm.reportViewer1.LocalReport.DataSources.Add(rs);
+                frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
+                frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Supplier_RDLC_DIR);
 
-            }
-            else if (what_to_do == "print")
-            {
-                Print_To_The_Printer prt = new Print_To_The_Printer();
-                prt.PrintToPrinter(frm.reportViewer1.LocalReport);
-            }
+                //Load Text to RDLC TextBox
+                reportParameters.Add(new ReportParameter("From_Date", dtp_date_from.Text));
+                reportParameters.Add(new ReportParameter("To_Date", dtp_date_to.Text));
 
 
-        }
-        private void DateAdjuster_local(ComboBox bx)
-        {
-            DateTime datefrom1 = Convert.ToDateTime(DateTime.Now.ToString(Includes.AppSettings.DateFormat));
-            if (bx.Text == "Today")
-            {
-                datef = datefrom1.ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "1 Week")
-            {
-                datef = datefrom1.AddDays(-7).ToString(Includes.AppSettings.DateFormat);
-            }
-            else if (bx.Text == "2 Weeks")
-            {
-                datef = datefrom1.AddDays(-14).ToString(Includes.AppSettings.DateFormat);
-            }
-            else
-            {
-                datef = "2023-01-01";
-            }
+                if (ds.Tables[0].Rows.Count >= 1)
+                {
+                    reportParameters.Add(new ReportParameter("Total_Person", ds.Tables[0].Rows.Count.ToString()));
+                }
+                foreach (CheckBox chk2 in grp_filters.Controls)
+                {
+                    if (chk2.Checked == false)
+                    {
+                        reportParameters.Add(new ReportParameter("Total_Person", 0.ToString()));
+                    }
+                }
+                //HIDING COLUMNS
+                reportParameters.Add(new ReportParameter("Hide_Date", (!chk_entry_date.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_ID", (!chk_Supplier_ID.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Name", (!chk_Supplier_Name.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Email", (!chk_Email.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Phone", (!chk_Phone.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Street", (!chk_Street.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_City", (!chk_City.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Province", (!chk_Province.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Address", (!chk_Address.Checked).ToString()));
+               
+
+                frm.reportViewer1.LocalReport.SetParameters(reportParameters);
+                frm.reportViewer1.RefreshReport();
 
 
-        }
-        private void Hiding_Columns()
-        {
-            if (chk_entry_date.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Date", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Date", "False"));
-            }
+                if (what_to_do == "preview")
+                {
+                    frm.ShowDialog();
 
-            if (chk_Supplier_ID.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_ID", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_ID", "False"));
-            }
+                }
+                else if (what_to_do == "print")
+                {
+                    Print_To_The_Printer prt = new Print_To_The_Printer();
+                    prt.PrintToPrinter(frm.reportViewer1.LocalReport);
+                }
+                else if (what_to_do == "batch")
+                {
+                    string FileName = "Supplier Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                    string extension;
+                    string encoding;
+                    string mimeType;
+                    string[] streams;
+                    Warning[] warnings;
 
-            if (chk_Supplier_Name.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Name", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Name", "False"));
-            }
-            if (chk_Email.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Email", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Email", "False"));
-            }
+                    Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
+                                    out extension, out encoding,
+                                    out mimeType, out streams, out warnings); //for exporting to PDF  
+                                                                              //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
+                    using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                    {
+                        fs.Write(mybytes, 0, mybytes.Length);
 
-            if (chk_Phone.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Phone", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Phone", "False"));
-            }
+                        MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    return;
+                }
 
-            if (chk_Street.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Street", "True"));
             }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Street", "False"));
-            }
-
-            if (chk_City.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_City", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_City", "False"));
-            }
-
-            if (chk_Province.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Province", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Province", "False"));
-            }
-
-
-            if (chk_Address.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Address", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Address", "False"));
-            }
-
-         
-        }
-        int count = 0;
-
-        private void btn_Batch_Click(object sender, EventArgs e)
-        {
-            Calculate_Filtering("batch");
-
-            string FileName = "Supplier Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-            string extension;
-            string encoding;
-            string mimeType;
-            string[] streams;
-            Warning[] warnings;
-
-            Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
-                            out extension, out encoding,
-                            out mimeType, out streams, out warnings); //for exporting to PDF  
-            //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
-            {
-                fs.Write(mybytes, 0, mybytes.Length);
-
-                MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            return;
-        }
-
-        private void cbo_date_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Calculate_Filtering("load");
         }
 
         private void Group_Filtering_MustNotEmpty()
@@ -331,22 +223,28 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
         }
-        private void Supplier_Report_Load(object sender, EventArgs e)
+        private void dtp_date_from_ValueChanged(object sender, EventArgs e)
         {
-            this.Refresh();
-
-            dtp_sup_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
-
-            chk_Supplier_ID.Checked = true;
-            chk_Supplier_Name.Checked = true;
-            chk_Address.Checked = true;
-
-            sql = " SELECT * from Supplier where count = '1' ";
-            config.Load_DTG(sql, dtg_PreviewPage);
-            DTG_Properties();
-
-            cbo_date.DropDownStyle = ComboBoxStyle.DropDownList;
+            Calculate_Filtering("load");
         }
+        private void dtp_date_to_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate_Filtering("load");
+        }
+        private void btn_Print_Click(object sender, EventArgs e)
+        {
+            Calculate_Filtering("print");
+        }
+
+        private void btn_Print_Preview_Click(object sender, EventArgs e)
+        {
+            Calculate_Filtering("preview");
+        }
+        private void btn_Batch_Click(object sender, EventArgs e)
+        {
+            Calculate_Filtering("batch");
+        }
+
         private void DTG_Properties()
         {
             dtg_PreviewPage.Columns[0].Visible = false;
