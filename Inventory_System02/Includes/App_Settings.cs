@@ -8,6 +8,7 @@ namespace Inventory_System02.Includes
 {
     public static class AppSettings
     {
+        public static string Database { get; set; } = @"Data Source = CommonSql\Database.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;";
         public static string DateFormat { get; set; } = "yyyy-MM-dd";
         public static string Image_DIR { get; set; } = @"CommonSql\Pictures\Item\Image\";
         public static string Customer_DIR { get; set; } = @"CommonSql\Pictures\Customers\";

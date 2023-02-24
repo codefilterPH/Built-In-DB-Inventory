@@ -39,6 +39,7 @@ namespace Inventory_System02
             }
 
             lbl_version.Text = Includes.AppSettings.App_Version;
+            this.Text = "App Version " + Includes.AppSettings.App_Version;
             lbl_cust_id.Text = Includes.AppSettings.Cust_ID;
             lbl_serial.Text = Includes.AppSettings.Serial;
             lbl_dev.Text = Includes.AppSettings.Developer;
