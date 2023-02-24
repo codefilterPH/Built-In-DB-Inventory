@@ -5,9 +5,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using AxAcroPDFLib;
-
-
-
+using System.Collections.Generic;
 
 namespace Inventory_System02
 {
@@ -28,7 +26,7 @@ namespace Inventory_System02
         public void PATH()
         {
 
-            string[] files = Directory.GetFiles(@"CommonSql\Document Center Files");
+            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
             //string[] files = Directory.GetFiles(@"\\" + config.computerName + @"\DB\BATCH FILES");
 
             System.Data.DataTable dt = new System.Data.DataTable();
@@ -74,11 +72,8 @@ namespace Inventory_System02
         {
             what_to_del = "specific";
             chk_Select_all.Checked = false;
-
-            if (dataGridView1.Rows.Count > 0)
-            {
-                Load_to_Adobe();
-            }
+            DTG_Properties();
+          
 
         }
         private void Load_to_Adobe()
@@ -89,17 +84,41 @@ namespace Inventory_System02
         private void btn_Delete_Click_1(object sender, EventArgs e)
         {
 
-            string dir = @"CommonSql\Document Center Files";
+            string dir = Includes.AppSettings.Doc_DIR;
             if (what_to_del == "all")
             {
-                if (MessageBox.Show("Are you sure to delete all files?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
-                      DialogResult.Yes)
+                if (MessageBox.Show("Are you sure to delete all files?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string[] files = Directory.GetFiles(@"CommonSql\Document Center Files");
-                    foreach (string file in files)
+                    if (dataGridView1.Rows.Count == 0)
                     {
-                        File.Delete(file);
-                        PATH();
+                        MessageBox.Show("No files to delete.", "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                    // Get the filenames from the DataGridView control
+                    List<string> filenames = new List<string>();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        string filename = row.Cells[1].Value.ToString(); // Assumes the filename is in the second cell (index 1)
+                        filenames.Add(filename);
+                    }
+
+                    // Loop through each filename and delete the associated file
+                    foreach (string filename in filenames)
+                    {
+                        string filepath = Path.Combine(dir, filename);
+
+                        // Check if file exists with its full path    
+                        if (File.Exists(filepath))
+                        {
+                            // If file found, delete it   
+                            File.Delete(filepath);
+                            PATH();
+                        }
+                        else
+                        {
+                            MessageBox.Show("File not found: " + filename, "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     MessageBox.Show("Files are deleted!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -108,30 +127,40 @@ namespace Inventory_System02
             }
             else if (what_to_del == "specific")
             {
-                // Delete specific files in a directory              
-                try
+
+                if (MessageBox.Show("Are you sure to delete file?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    string filename1 = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                    // Check if file exists with its full path    
-                    if (File.Exists(Path.Combine(dir, filename1)))
+
+                    if (dataGridView1.Rows.Count == 0)
                     {
-                        // If file found, delete it   
-                        if (MessageBox.Show("Delete this " + filename1 + "?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
-                       DialogResult.Yes)
+                        MessageBox.Show("No file to delete.", "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    // Delete specific files in a directory              
+                    try
+                    {
+                        string filename1 = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        // Check if file exists with its full path    
+                        if (File.Exists(Path.Combine(dir, filename1)))
                         {
-                            File.Delete(Path.Combine(dir, filename1));
-                            PATH();
-                            MessageBox.Show(filename1 + " is deleted!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // If file found, delete it   
+                            if (MessageBox.Show("Delete this " + filename1 + "?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                           DialogResult.Yes)
+                            {
+                                File.Delete(Path.Combine(dir, filename1));
+                                PATH();
+                                MessageBox.Show(filename1 + " is deleted!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("File not found!", "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
-                    else
+                    catch (IOException ioExp)
                     {
-                        MessageBox.Show("File not found!", "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(ioExp.Message);
                     }
-                }
-                catch (IOException ioExp)
-                {
-                    MessageBox.Show(ioExp.Message);
                 }
             }
             what_to_del = "";
@@ -183,7 +212,7 @@ namespace Inventory_System02
 
         private void inboundTransToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Inbound TRANS*");
 
             DataTable dt = new DataTable();
@@ -203,11 +232,12 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void outboundTransToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Outbound TRANS*");
 
             DataTable dt = new DataTable();
@@ -227,11 +257,12 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void returnTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Return TRANS*");
 
             DataTable dt = new DataTable();
@@ -251,11 +282,12 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void itemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Item Report*");
 
             DataTable dt = new DataTable();
@@ -275,6 +307,7 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void allItemsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,7 +317,7 @@ namespace Inventory_System02
 
         private void supplierReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Supplier Report*");
 
             DataTable dt = new DataTable();
@@ -304,11 +337,12 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void customerReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Customer Report*");
 
             DataTable dt = new DataTable();
@@ -328,12 +362,38 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void employeeReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = @"CommonSql\Document Center Files"; // Replace with the actual path to your inbound directory
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Employee Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+        }
+
+        private void inboundReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Inbound Report*");
 
             DataTable dt = new DataTable();
             dt.Columns.Add("Date", typeof(DateTime));
@@ -354,23 +414,71 @@ namespace Inventory_System02
             dataGridView1.DataSource = dt;
         }
 
+        private void outboundReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Outbound Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+
+        private void returnReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
+            string[] files = Directory.GetFiles(path, "Return Report*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+        }
+        private void DTG_Properties()
+        {
+            if ( dataGridView1.Rows.Count > 0 )
+            {
+                dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                Load_to_Adobe();
+            }
+        }
         private void Batch_Form_Load(object sender, EventArgs e)
         {
-            string[] files = Directory.GetFiles(@"CommonSql\Document Center Files");
+            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
             int count = files.Length;
 
             if (count > 0)
             {
                 PATH();
-
-                dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-             //  dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-
-                if (dataGridView1.Rows.Count > 0)
-                {
-                    Load_to_Adobe();
-                }
+                DTG_Properties();
             }
         }
 

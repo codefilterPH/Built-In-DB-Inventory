@@ -105,37 +105,43 @@ namespace Inventory_System02.Reports_Dir
             // btn_Print_Preview
             // 
             this.btn_Print_Preview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Print_Preview.ForeColor = System.Drawing.Color.Black;
+            this.btn_Print_Preview.BackColor = System.Drawing.Color.Green;
+            this.btn_Print_Preview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Print_Preview.ForeColor = System.Drawing.Color.White;
             this.btn_Print_Preview.Location = new System.Drawing.Point(591, 534);
             this.btn_Print_Preview.Name = "btn_Print_Preview";
             this.btn_Print_Preview.Size = new System.Drawing.Size(116, 23);
             this.btn_Print_Preview.TabIndex = 38;
             this.btn_Print_Preview.Text = "Print Preview";
-            this.btn_Print_Preview.UseVisualStyleBackColor = true;
+            this.btn_Print_Preview.UseVisualStyleBackColor = false;
             this.btn_Print_Preview.Click += new System.EventHandler(this.btn_Print_Preview_Click_1);
             // 
             // btn_Batch
             // 
             this.btn_Batch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Batch.ForeColor = System.Drawing.Color.Black;
+            this.btn_Batch.BackColor = System.Drawing.Color.Teal;
+            this.btn_Batch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Batch.ForeColor = System.Drawing.Color.White;
             this.btn_Batch.Location = new System.Drawing.Point(713, 534);
             this.btn_Batch.Name = "btn_Batch";
             this.btn_Batch.Size = new System.Drawing.Size(116, 23);
             this.btn_Batch.TabIndex = 37;
             this.btn_Batch.Text = "Batch";
-            this.btn_Batch.UseVisualStyleBackColor = true;
+            this.btn_Batch.UseVisualStyleBackColor = false;
             this.btn_Batch.Click += new System.EventHandler(this.btn_Batch_Click_1);
             // 
             // btn_Print
             // 
             this.btn_Print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Print.ForeColor = System.Drawing.Color.Black;
+            this.btn_Print.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Print.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Print.ForeColor = System.Drawing.Color.White;
             this.btn_Print.Location = new System.Drawing.Point(469, 534);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.Size = new System.Drawing.Size(116, 23);
             this.btn_Print.TabIndex = 42;
             this.btn_Print.Text = "Print";
-            this.btn_Print.UseVisualStyleBackColor = true;
+            this.btn_Print.UseVisualStyleBackColor = false;
             this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click_1);
             // 
             // tabPage1
@@ -198,7 +204,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
             this.lbl_total_value.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(715, 451);
+            this.lbl_total_value.Location = new System.Drawing.Point(715, 443);
             this.lbl_total_value.Name = "lbl_total_value";
             this.lbl_total_value.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_value.TabIndex = 34;
@@ -208,7 +214,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
             this.lbl_total_quantity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(716, 434);
+            this.lbl_total_quantity.Location = new System.Drawing.Point(716, 426);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
             this.lbl_total_quantity.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_quantity.TabIndex = 33;
@@ -218,7 +224,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
             this.lbl_total_items.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(715, 414);
+            this.lbl_total_items.Location = new System.Drawing.Point(715, 406);
             this.lbl_total_items.Name = "lbl_total_items";
             this.lbl_total_items.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_items.TabIndex = 32;
@@ -228,7 +234,7 @@ namespace Inventory_System02.Reports_Dir
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(640, 451);
+            this.label8.Location = new System.Drawing.Point(640, 443);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 15);
             this.label8.TabIndex = 31;
@@ -239,7 +245,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(623, 434);
+            this.label7.Location = new System.Drawing.Point(623, 426);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 15);
             this.label7.TabIndex = 30;
@@ -250,7 +256,7 @@ namespace Inventory_System02.Reports_Dir
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(639, 416);
+            this.label6.Location = new System.Drawing.Point(639, 408);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 29;
@@ -263,6 +269,7 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -284,11 +291,11 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 225);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 217);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -327,7 +334,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 274);
+            this.grp_filters.Location = new System.Drawing.Point(9, 266);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(796, 137);
             this.grp_filters.TabIndex = 20;

@@ -37,6 +37,7 @@ namespace Inventory_System02.Reports_Dir
         string company_address = string.Empty;
         string db_table = string.Empty;
         string datef = string.Empty;
+        string FileName = string.Empty;
         string datenow = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
         double price = 0, quantity = 0, sub_amt = 0, total_val = 0, rows_count = 0;
        
@@ -165,7 +166,7 @@ namespace Inventory_System02.Reports_Dir
 
         }
 
-        public void Calculate_Filtering(string preview_or_print)
+        public void Calculate_Filtering(string preview_or_print, string report_type)
         {
             rs = new ReportDataSource();
             reportParameters = new ReportParameterCollection();
@@ -189,24 +190,15 @@ namespace Inventory_System02.Reports_Dir
 
             if (cbo_Date.Text == "Today")
             {
-                sql = "SELECT * FROM " + db_table + " WHERE  strftime('%d-%m-%Y', `Entry Date`) =  strftime('%d-%m-%Y', '" + datenow + "') ORDER BY  strftime('%d-%m-%Y', `Entry Date`) DESC";
+                sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` =  '" + datenow + "' ORDER BY `Entry Date` DESC";
             }
-            else if (cbo_Date.Text == "1 Week")
+            else if ( cbo_Date.Text == "All Dates")
             {
-                sql = "SELECT * FROM " + db_table + " WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + datenow + "' ORDER BY `Entry Date` DESC";
-            }
-            else if (cbo_Date.Text == "2 Weeks")
-            {
-                sql = "SELECT * FROM " + db_table + " WHERE `Entry Date` >= '" + datef + "' AND `Entry Date` <= '" + datenow + "' ORDER BY `Entry Date` DESC";
-            }
-            else if ( cbo_Date.Text == "1 Month")
-            {
-
-                sql = "SELECT * FROM `Stocks` WHERE `Entry Date` BETWEEN '"+ datef +"' AND '"+datenow+"' ORDER BY `Entry Date` DESC";
+                sql = "SELECT * FROM " + db_table +" ORDER BY `Entry Date` DESC";
             }
             else
             {
-                sql = "SELECT * FROM " + db_table +" ORDER BY `Entry Date` DESC";
+                sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '"+datef+"' AND  '" + datenow + "' ORDER BY `Entry Date` DESC";
             }
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
@@ -357,24 +349,42 @@ namespace Inventory_System02.Reports_Dir
             }
             else if ( preview_or_print == "batch")
             {
-                string FileName = "Item Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-                string extension;
-                string encoding;
-                string mimeType;
-                string[] streams;
-                Warning[] warnings;
-
-                Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
-                                out extension, out encoding,
-                                out mimeType, out streams, out warnings); //for exporting to PDF  
-                                                                          //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                if ( report_type == "Stock In" )
                 {
-                    fs.Write(mybytes, 0, mybytes.Length);
-
-                    MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FileName = "Inbound Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
                 }
-                return;
+                else if (report_type == "Stock Out")
+                {
+                    FileName = "Outbound Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                }
+                else if (report_type == "Stock Return")
+                {
+                    FileName = "Return Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                }
+                else
+                {
+                    FileName = "Item Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                }
+                if (!string.IsNullOrWhiteSpace(FileName))
+                {
+                    string extension;
+                    string encoding;
+                    string mimeType;
+                    string[] streams;
+                    Warning[] warnings;
+
+                    Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
+                                    out extension, out encoding,
+                                    out mimeType, out streams, out warnings); //for exporting to PDF  
+                                                                              //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
+                    using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                    {
+                        fs.Write(mybytes, 0, mybytes.Length);
+
+                        MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    return;
+                }             
             }
         }
 
@@ -425,7 +435,7 @@ namespace Inventory_System02.Reports_Dir
                 chk_Sup_Name.Visible = false;
             }
             calculate_Total();
-            Calculate_Filtering("load_todtg");
+            Calculate_Filtering("load_todtg", cbo_report_type.Text);
 
         }
 
@@ -460,7 +470,7 @@ namespace Inventory_System02.Reports_Dir
 
         private void cbo_Date_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Calculate_Filtering("load_todtg");
+            Calculate_Filtering("load_todtg", cbo_report_type.Text);
         }
 
         private void chk_Select_All_CheckedChanged_1(object sender, EventArgs e)
@@ -497,17 +507,17 @@ namespace Inventory_System02.Reports_Dir
 
         private void btn_Print_Click_1(object sender, EventArgs e)
         {
-            Calculate_Filtering("print");
+            Calculate_Filtering("print", cbo_report_type.Text);
         }
 
         private void btn_Batch_Click_1(object sender, EventArgs e)
         {
-            Calculate_Filtering("batch"); 
+            Calculate_Filtering("batch", cbo_report_type.Text); 
         }
 
         private void btn_Print_Preview_Click_1(object sender, EventArgs e)
         {
-            Calculate_Filtering("preview");
+            Calculate_Filtering("preview", cbo_report_type.Text);
         }
 
         private void ClearVariables()

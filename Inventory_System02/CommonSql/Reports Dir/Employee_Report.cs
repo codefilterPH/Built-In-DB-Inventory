@@ -13,14 +13,14 @@ namespace Inventory_System02.Reports_Dir
 
     public partial class Employee_Report : Form
     {
-        SQLConfig config = new SQLConfig();
+        SQLConfig config;
         string sql;
-        DataSet ds = new DataSet();
+        DataSet ds;
 
-        Report_Viewer frm = new Report_Viewer();
-        ReportDataSource rs = new ReportDataSource();
-        ReportParameterCollection reportParameters = new ReportParameterCollection();
-        usableFunction func = new usableFunction();
+        Report_Viewer frm;
+        ReportDataSource rs;
+        ReportParameterCollection reportParameters;
+        usableFunction func;
 
         string Global_ID, Fullname, JobRole, datef = string.Empty;
         public Employee_Report(string global_id, string fullname, string jobrole)
@@ -34,8 +34,8 @@ namespace Inventory_System02.Reports_Dir
 
         private void Employee_Report_Load(object sender, EventArgs e)
         {
-            this.Refresh();
-
+            config = new SQLConfig();
+            func = new usableFunction();
             txt_rep_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
        
             chk_Emp_ID.Checked = false;
@@ -44,7 +44,12 @@ namespace Inventory_System02.Reports_Dir
 
             sql = " SELECT * from Employee where count = '1' ";
             config.Load_DTG(sql, dtg_PreviewPage);
-            DTG_Properties();
+            //DTG Properties
+            dtg_PreviewPage.Columns[0].Visible = false;
+            dtg_PreviewPage.Columns["Password"].Visible = false;
+            func.Count_person(dtg_PreviewPage, lbl_Personnel);
+            dtg_PreviewPage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             chk_FN.Checked = true;
             chk_LN.Checked = true;
             chk_Emp_ID.Checked = true;
@@ -55,6 +60,7 @@ namespace Inventory_System02.Reports_Dir
         {
             if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage1"])
             {
+                config = new SQLConfig();
                 dtg_PreviewPage.Columns.Clear();
                 Group_Filtering_MustNotEmpty();
 
@@ -121,6 +127,7 @@ namespace Inventory_System02.Reports_Dir
 
         private void Group_Filtering_MustNotEmpty()
         {
+            func = new usableFunction();
             foreach (Control c in grp_filters.Controls)
             {
                 CheckBox chkbox = c as CheckBox;
@@ -142,38 +149,13 @@ namespace Inventory_System02.Reports_Dir
 
         private void cbo_report_type_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            Calculate_Filtering("loadtodtg");
         }
 
         private void btn_Batch_Click(object sender, EventArgs e)
         {
             Calculate_Filtering("batch");
 
-            string FileName = "Employee Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-            string extension;
-            string encoding;
-            string mimeType;
-            string[] streams;
-            Warning[] warnings;
-
-            Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
-                            out extension, out encoding,
-                            out mimeType, out streams, out warnings); //for exporting to PDF  
-            //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
-            {
-                fs.Write(mybytes, 0, mybytes.Length);
-
-                MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            return;
-        }
-        private void DTG_Properties()
-        {
-            dtg_PreviewPage.Columns[0].Visible = false;
-            dtg_PreviewPage.Columns["Password"].Visible = false;
-            func.Count_person(dtg_PreviewPage, lbl_Personnel);
-
-            dtg_PreviewPage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void DateAdjuster_local(ComboBox bx)
         {
@@ -190,6 +172,22 @@ namespace Inventory_System02.Reports_Dir
             {
                 datef = datefrom1.AddDays(-14).ToString(Includes.AppSettings.DateFormat);
             }
+            else if (bx.Text == "1 Month")
+            {
+                datef = datefrom1.AddMonths(-1).ToString(Includes.AppSettings.DateFormat);
+            }
+            else if (bx.Text == "3 Months")
+            {
+                datef = datefrom1.AddMonths(-2).ToString(Includes.AppSettings.DateFormat);
+            }
+            else if (bx.Text == "6 Months")
+            {
+                datef = datefrom1.AddMonths(-6).ToString(Includes.AppSettings.DateFormat);
+            }
+            else if (bx.Text == "1 Year")
+            {
+                datef = datefrom1.AddYears(-1).ToString(Includes.AppSettings.DateFormat);
+            }
             else
             {
                 datef = "2023-01-01";
@@ -204,6 +202,8 @@ namespace Inventory_System02.Reports_Dir
             reportParameters = new ReportParameterCollection();
             frm = new Report_Viewer();
             ds = new DataSet();
+            config = new SQLConfig();
+            func = new usableFunction();
 
             List<Class_Employee_Var> list2 = new List<Class_Employee_Var>();
           
@@ -229,7 +229,6 @@ namespace Inventory_System02.Reports_Dir
 
             }
             config.Load_DTG(sql, dtg_PreviewPage);
-            DTG_Properties();
             config.Load_Datasource(sql, ds);
             if (ds != null)
             {
@@ -253,7 +252,7 @@ namespace Inventory_System02.Reports_Dir
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(rs);
             frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            frm.reportViewer1.LocalReport.ReportPath = (@"CommonSql\Reports Dir\Employee Report.rdlc");
+            frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Employee_RDLC_DIR);
 
             //Load Text to RDLC TextBox
             reportParameters.Add(new ReportParameter("param_report_date", txt_rep_date.Text));
@@ -269,7 +268,16 @@ namespace Inventory_System02.Reports_Dir
                     reportParameters.Add(new ReportParameter("Total_Person", 0.ToString()));
                 }
             }
-            Hiding_Columns();
+            //HIDING COLUMNS
+            reportParameters.Add(new ReportParameter("Hide_HiredDate", (!chk_HiredDate.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_EMP_ID", (!chk_Emp_ID.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_LN", (!chk_LN.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_FN", (!chk_FN.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_Email", (!chk_Email.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_Phone", (!chk_Phone.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_Address", (!chk_Address.Checked).ToString()));
+            reportParameters.Add(new ReportParameter("Hide_JobRole", (!chk_JobRole.Checked).ToString()));
+
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();
 
@@ -283,84 +291,31 @@ namespace Inventory_System02.Reports_Dir
                 Print_To_The_Printer prt = new Print_To_The_Printer();
                 prt.PrintToPrinter(frm.reportViewer1.LocalReport);
             }
+            else if ( what_to_do == "batch")
+            {
 
+                string FileName = "Employee Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                string extension;
+                string encoding;
+                string mimeType;
+                string[] streams;
+                Warning[] warnings;
 
-        }
-        private void Hiding_Columns()
-        {
+                Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
+                                out extension, out encoding,
+                                out mimeType, out streams, out warnings); //for exporting to PDF  
+                                                                          //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
+                using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                {
+                    fs.Write(mybytes, 0, mybytes.Length);
 
-            if (chk_Emp_ID.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_EMP_ID", "True"));
+                    MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                return;
             }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_EMP_ID", "False"));
-            }
-
-            if (chk_FN.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_FN", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_FN", "False"));
-            }
-
-            if (chk_LN.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_LN", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_LN", "False"));
-            }
-
-            if (chk_Email.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Email", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Email", "False"));
-            }
-
-            if (chk_Phone.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("chk_Phone", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("chk_Phone", "False"));
-            }
-
-            if (chk_Address.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_Address", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_Address", "False"));
-            }
-            if (chk_JobRole.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_JobRole", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_JobRole", "False"));
-            }
-            if (chk_HiredDate.Checked == false)
-            {
-                reportParameters.Add(new ReportParameter("Hide_HiredDate", "True"));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Hide_HiredDate", "False"));
-            }
-
 
         }
+    
     }
     public class Class_Employee_Var
     {

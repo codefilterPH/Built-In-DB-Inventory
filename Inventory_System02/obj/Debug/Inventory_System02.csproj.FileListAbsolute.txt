@@ -216,7 +216,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Rep
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_return.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_out.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item ReportStocksOutIn.rdlc
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Employee Report.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Customer_Report.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item Report.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.exe.config
@@ -318,3 +317,4 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Items.Outbound_Preview.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Items.Return_Preview.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Analytics.dashboard.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Employee_Report.rdlc
