@@ -65,8 +65,8 @@ namespace Inventory_System02
         public void MainForm_Load(object sender, EventArgs e)
         {
             btn_Stocks_Click(sender, e);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
-            func.Reload_Images(Company_Logo, "Company_Logo1", @"CommonSql\Pictures\Company\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
+            func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
             Load_Company_name();
       
         }
@@ -90,7 +90,7 @@ namespace Inventory_System02
             Panel_content_remove();
             Batch_Form frm = new Batch_Form(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_nav_Click(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace Inventory_System02
             Panel_content_remove();
             StockOut frm = new StockOut(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_StockOutList_Click_1(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace Inventory_System02
             Panel_content_remove();
             StockOutList frm = new StockOutList(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_stockreturned_Click_1(object sender, EventArgs e)
@@ -142,7 +142,7 @@ namespace Inventory_System02
             Panel_content_remove();
             StockReturned frm = new StockReturned(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_stock_returned_Click_1(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace Inventory_System02
             Panel_content_remove();
             Stock_Returned frm = new Stock_Returned(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_settings_Click_1(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace Inventory_System02
             Panel_content_remove();
             CustSupplier.CustSupp frm = new CustSupplier.CustSupp(Global_ID, Fullname, JobRole, "Cust");
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_employee_Click_1(object sender, EventArgs e)
@@ -172,7 +172,7 @@ namespace Inventory_System02
             Panel_content_remove();
             Profiles.Employees frm = new Profiles.Employees(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_About_Click(object sender, EventArgs e)
@@ -195,7 +195,7 @@ namespace Inventory_System02
             Panel_content_remove();
             Batch_Form frm = new Batch_Form(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
         private void btn_reports_Click_1(object sender, EventArgs e)
@@ -203,7 +203,7 @@ namespace Inventory_System02
             Panel_content_remove();
             Reports_MainForm frm = new Reports_MainForm(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
-            func.Reload_Images(employee_Profile, Global_ID, @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
     
