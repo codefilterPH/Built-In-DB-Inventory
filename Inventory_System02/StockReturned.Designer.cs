@@ -74,7 +74,7 @@ namespace Inventory_System02
             this.chk_all2 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_Reasons = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chk_review = new System.Windows.Forms.CheckBox();
             this.out_amt = new System.Windows.Forms.Label();
             this.out_qty = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -189,9 +189,9 @@ namespace Inventory_System02
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label7.Location = new System.Drawing.Point(624, 7);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 18);
+            this.label7.Size = new System.Drawing.Size(158, 18);
             this.label7.TabIndex = 33;
-            this.label7.Text = "STOCK OUT ITEMS";
+            this.label7.Text = "OUTBOUND ITEMS";
             // 
             // label4
             // 
@@ -350,7 +350,7 @@ namespace Inventory_System02
             // 
             this.chk_all.AutoSize = true;
             this.chk_all.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_all.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chk_all.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chk_all.Location = new System.Drawing.Point(3, 32);
             this.chk_all.Name = "chk_all";
             this.chk_all.Size = new System.Drawing.Size(71, 17);
@@ -442,7 +442,7 @@ namespace Inventory_System02
             // 
             // customerListToolStripMenuItem
             // 
-            this.customerListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.customerListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.customerListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("customerListToolStripMenuItem.Image")));
@@ -474,7 +474,7 @@ namespace Inventory_System02
             this.panel3.Controls.Add(this.chk_all2);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Controls.Add(this.txt_Reasons);
-            this.panel3.Controls.Add(this.checkBox1);
+            this.panel3.Controls.Add(this.chk_review);
             this.panel3.Controls.Add(this.out_amt);
             this.panel3.Controls.Add(this.out_qty);
             this.panel3.Controls.Add(this.label5);
@@ -482,7 +482,7 @@ namespace Inventory_System02
             this.panel3.Controls.Add(this.dtg_Return);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.btn_sup_delete);
-            this.panel3.Location = new System.Drawing.Point(4, 292);
+            this.panel3.Location = new System.Drawing.Point(4, 290);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(786, 190);
             this.panel3.TabIndex = 2;
@@ -517,7 +517,7 @@ namespace Inventory_System02
             // 
             this.chk_all2.AutoSize = true;
             this.chk_all2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_all2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chk_all2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chk_all2.Location = new System.Drawing.Point(5, 24);
             this.chk_all2.Name = "chk_all2";
             this.chk_all2.Size = new System.Drawing.Size(71, 17);
@@ -532,7 +532,7 @@ namespace Inventory_System02
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label10.Location = new System.Drawing.Point(3, 152);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 13);
@@ -549,19 +549,20 @@ namespace Inventory_System02
             this.txt_Reasons.Size = new System.Drawing.Size(506, 32);
             this.txt_Reasons.TabIndex = 88;
             // 
-            // checkBox1
+            // chk_review
             // 
-            this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.Location = new System.Drawing.Point(383, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(123, 17);
-            this.checkBox1.TabIndex = 87;
-            this.checkBox1.Text = "Auto Review/Check";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.chk_review.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chk_review.AutoSize = true;
+            this.chk_review.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_review.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.chk_review.Location = new System.Drawing.Point(347, 21);
+            this.chk_review.Name = "chk_review";
+            this.chk_review.Size = new System.Drawing.Size(159, 17);
+            this.chk_review.TabIndex = 87;
+            this.chk_review.Text = "Enable Return Stock Button";
+            this.chk_review.UseVisualStyleBackColor = true;
+            this.chk_review.CheckedChanged += new System.EventHandler(this.chk_review_CheckedChanged);
+            this.chk_review.MouseHover += new System.EventHandler(this.chk_review_MouseHover);
             // 
             // out_amt
             // 
@@ -723,9 +724,9 @@ namespace Inventory_System02
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label8.Location = new System.Drawing.Point(3, 3);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(173, 18);
+            this.label8.Size = new System.Drawing.Size(178, 18);
             this.label8.TabIndex = 34;
-            this.label8.Text = "STOCKS RETURNED";
+            this.label8.Text = "STOCKS TO RETURN";
             // 
             // btn_sup_delete
             // 
@@ -748,21 +749,22 @@ namespace Inventory_System02
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btn_StockReturn});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 485);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 480);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(794, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(794, 29);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // btn_StockReturn
             // 
             this.btn_StockReturn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_StockReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_StockReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_StockReturn.Enabled = false;
+            this.btn_StockReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StockReturn.ForeColor = System.Drawing.Color.White;
             this.btn_StockReturn.Image = ((System.Drawing.Image)(resources.GetObject("btn_StockReturn.Image")));
             this.btn_StockReturn.Name = "btn_StockReturn";
-            this.btn_StockReturn.Size = new System.Drawing.Size(102, 20);
+            this.btn_StockReturn.Size = new System.Drawing.Size(132, 25);
             this.btn_StockReturn.Text = "Return Stock";
             this.btn_StockReturn.Click += new System.EventHandler(this.btn_StockReturn_Click);
             // 
@@ -826,7 +828,6 @@ namespace Inventory_System02
         private System.Windows.Forms.Button btn_sup_delete;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem btn_StockReturn;
         private System.Windows.Forms.DataGridView dtg_Return;
         private System.Windows.Forms.Button btn_Clear_Text;
@@ -834,7 +835,7 @@ namespace Inventory_System02
         private System.Windows.Forms.Label out_qty;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chk_review;
         private System.Windows.Forms.Label lbl_DueDate;
         private System.Windows.Forms.PictureBox cust_Image;
         private System.Windows.Forms.Label label10;
@@ -855,5 +856,6 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.MenuStrip menuStrip2;
     }
 }

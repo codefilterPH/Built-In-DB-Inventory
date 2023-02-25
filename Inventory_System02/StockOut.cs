@@ -123,51 +123,9 @@ namespace Inventory_System02
 
             }
         }
-
-        private void btn_sup_add_Click(object sender, EventArgs e)
-        {
-            if (dtg_Stocks.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow rw in dtg_Stocks.SelectedRows)
-                {
-                    for (int i = 0; i < dtg_AddedStocks.Rows.Count; i++)
-                    {
-                        if (rw.Cells[2].Value == dtg_AddedStocks.Rows[i].Cells[0].Value)
-                        {
-                            MessageBox.Show("This item is already added to the table \n\nWarning!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
-                         
-                        }
-                    }
-                    if (rw.Cells[6].Value.ToString() != "0")
-                    {
-                        dtg_AddedStocks.Rows.Add(
-                          rw.Cells[2].Value.ToString(),
-                          rw.Cells[3].Value.ToString(),
-                          rw.Cells[4].Value.ToString(),
-                          rw.Cells[5].Value.ToString(),
-                          rw.Cells[6].Value.ToString(),
-                          rw.Cells[7].Value.ToString(),
-                             Convert.ToString(Convert.ToDouble(rw.Cells[6].Value) * Convert.ToDouble(rw.Cells[7].Value))
-                             );
-                        dtg_AddedStocks.Rows[0].Cells[4].Selected = true;
-                        Update_Qty_Stocks();   
-                        chk_all.Checked = false;
-                        return;
-                    }
-
-                }
-            }
-            else
-            {
-                dtg_Stocks.CurrentRow.Selected = true;
-            }
-        }
-        double quan = 0;
-        
         private void TOTALS()
         {
-            if ( dtg_AddedStocks.Rows.Count > 0 )
+            if (dtg_AddedStocks.Rows.Count > 0)
             {
                 HashSet<double> distinctQuantities = new HashSet<double>();
                 double totalQty = 0;
@@ -186,7 +144,7 @@ namespace Inventory_System02
 
                 out_qty.Text = totalQty.ToString();
                 out_amt.Text = totalAmt.ToString();
-                lbl_numb_out_items.Text = "Number of outbound items: " + distinctQuantities.Count.ToString();
+                lbl_numb_out_items.Text = "Number of outbound items: " + dtg_AddedStocks.Rows.Count.ToString();
 
             }
             else
@@ -195,8 +153,8 @@ namespace Inventory_System02
                 out_qty.Text = "";
                 out_amt.Text = "";
             }
-        
-            if ( dtg_Stocks.Rows.Count > 0 )
+
+            if (dtg_Stocks.Rows.Count > 0)
             {
                 quan = 0;
                 for (int i = 0; i < dtg_Stocks.Rows.Count; i++)
@@ -212,6 +170,51 @@ namespace Inventory_System02
             }
         }
 
+        private void btn_sup_add_Click(object sender, EventArgs e)
+        {
+            if (dtg_Stocks.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow rw in dtg_Stocks.SelectedRows)
+                {
+                    bool found = false;
+                    // Check if item is already added to dtg_AddedStocks
+                    foreach (DataGridViewRow addedRow in dtg_AddedStocks.Rows)
+                    {
+                        if (addedRow.Cells[0].Value.ToString() == rw.Cells[2].Value.ToString())
+                        {
+                            MessageBox.Show("This " + rw.Cells[2].Value.ToString() + " is already added to the table \n\nWarning!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            found = true;
+                            continue; // Skip adding the duplicate item and continue with the next item
+                        }
+                    }
+                    if (!found && rw.Cells[6].Value.ToString() != "0")
+                    {
+                        dtg_AddedStocks.Rows.Add(
+                            rw.Cells[2].Value.ToString(),
+                            rw.Cells[3].Value.ToString(),
+                            rw.Cells[4].Value.ToString(),
+                            rw.Cells[5].Value.ToString(),
+                            rw.Cells[6].Value.ToString(),
+                            rw.Cells[7].Value.ToString(),
+                            Convert.ToString(Convert.ToDouble(rw.Cells[6].Value) * Convert.ToDouble(rw.Cells[7].Value))
+                        );
+                        Update_Qty_Stocks();
+                        TOTALS();
+                        chk_all.Checked = false;
+                    }
+                    else if (!found && rw.Cells[6].Value.ToString() == "0")
+                    {
+                        MessageBox.Show("Cannot add " + rw.Cells[3].Value.ToString() + " because \'quantity\' is zero.", "Error Prompt", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+            }
+            else
+            {
+                dtg_Stocks.CurrentRow.Selected = true;
+            }
+
+        }
+        double quan = 0;
         private void btn_sup_delete_Click(object sender, EventArgs e)
         {
 
@@ -221,7 +224,7 @@ namespace Inventory_System02
                 {
                     refreshTableToolStripMenuItem.Enabled = false;
                     dtg_AddedStocks.Rows.RemoveAt(item.Index);
-                    checkBox1.Checked = false;
+                    chk_review.Checked = false;
                 }
             }
             else if ( dtg_AddedStocks.Rows.Count >= 1)
@@ -234,7 +237,7 @@ namespace Inventory_System02
                 refreshTableToolStripMenuItem_Click(sender, e);
             }
             Update_Qty_Stocks();
-            chk_all.Checked = false;
+            chk_all2.Checked = false;
         }
 
 
@@ -286,7 +289,7 @@ namespace Inventory_System02
             {
                 search_for = "`Transaction Reference`";
             }
-            sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%'";
+            sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC";
                 config.Load_DTG(sql, dtg_Stocks);
                 DTG_Property();
             if ( dtg_AddedStocks.Rows.Count > 0)
@@ -317,45 +320,12 @@ namespace Inventory_System02
                 btn_sup_add.Focus();
 
             }
-            checkBox1.Checked = false;
+            chk_review.Checked = false;
         }
 
         private void btn_searchCustomer_Click(object sender, EventArgs e)
         {
             customerListToolStripMenuItem_Click(sender, e);
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (dtg_AddedStocks.Rows.Count > 0)
-            {
-                if (checkBox1.Checked)
-                {
-                    if (cbo_CustID.Text == "")
-                    {
-                        cbo_CustID.Focus();
-                    }
-                    else
-                    {
-                        btn_Saved.Enabled = true;
-                    }
-                    dtg_AddedStocks.Enabled = false;
-                }
-                else
-                {
-                    btn_Saved.Enabled = false;
-                    dtg_AddedStocks.Enabled = true;
-
-                    dtg_AddedStocks.CurrentRow.Selected = true;
-                    menuStrip2.Focus();
-
-                }
-                TOTALS();
-            }
-            else
-            {
-                checkBox1.Checked = false;
-            }
         }
         private void dtg_AddedStocks_KeyDown(object sender, KeyEventArgs e)
         {
@@ -535,8 +505,7 @@ namespace Inventory_System02
                                     //Calculate the total (qty of added stocks * the price )
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) *
-                                        Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);
-                                    btn_Saved.Enabled = true;
+                                        Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);                         
                                     
                                 } 
                             }
@@ -556,11 +525,106 @@ namespace Inventory_System02
         {
             txt_Search_TextChanged(sender, e);
         }
+        private void EnableAll()
+        {
+           
+            chk_all.Enabled= true;
+            chk_all2.Enabled = true;
+            menuStrip1.Enabled = true;
+            cbo_CustID.Enabled = true;
+            txt_Cust_Name.Enabled = true;
+            txt_Type.Enabled = true;
+            txt_Cust_SAddress.Enabled = true;
+            btn_sup_add.Enabled = true;
+            btn_sup_delete.Enabled = true;
+            dtg_AddedStocks.Enabled = true;
+            btn_searchCustomer.Enabled = true;
+            btn_Cust_Gen.Enabled = true;
+            btn_edit.Enabled = true;        
+            cbo_srch_type.Enabled = true;
+            txt_Search.Enabled = true;
+            btn_Saved.Enabled = false;
+            refreshTableToolStripMenuItem.Enabled = true;
 
-        private void checkBox1_MouseHover(object sender, EventArgs e)
+
+
+
+            return;
+        }
+        private void chk_review_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chk_review.Checked)
+            {
+                EnableAll();
+            }
+            else
+            {
+                chk_review.Checked = false;
+                if (dtg_AddedStocks.Rows.Count == 0)
+                {
+                    MessageBox.Show("You need to add items in stock outbound table below inbound table.\nDouble click on the rows or press the \"add selected below\"", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btn_sup_add.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(cbo_CustID.Text))
+                {
+                    MessageBox.Show("Customer or Division \"ID\" should not be emty.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbo_CustID.Focus();
+
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(txt_Cust_Name.Text))
+                {
+                    MessageBox.Show("Customer or Division \"NAME\" should not be emty.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_Cust_Name.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(txt_Cust_SAddress.Text))
+                {
+                    MessageBox.Show("Customer or Division \"ADDRESS\" should not be emty.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_Cust_SAddress.Focus();
+
+                    return;
+                }
+                else
+                {
+                    if (MessageBox.Show("Everything is now ready for stock return. Continue stock out?", "Complete Fields", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        chk_all.Checked = false;
+                        chk_all2.Checked = false;
+                        chk_all.Enabled = false;
+                        chk_all2.Enabled = false;
+                        menuStrip1.Enabled = false;
+                        cbo_CustID.Enabled = false;
+                        txt_Cust_Name.Enabled = false;
+                        txt_Type.Enabled = false;
+                        txt_Cust_SAddress.Enabled = false;
+                        btn_sup_add.Enabled = false;
+                        btn_sup_delete.Enabled = false;
+                        dtg_AddedStocks.Enabled = false;
+                        btn_searchCustomer.Enabled = false;
+                        btn_Cust_Gen.Enabled = false;
+                        btn_edit.Enabled = false;
+                        cbo_srch_type.Enabled = false;
+                        txt_Search.Enabled = false;
+                        btn_Saved.Enabled = true;
+
+                        menuStrip2.Focus();
+                        TOTALS();
+                        btn_Saved_Click(sender, e);
+                    }
+                    else
+                    {
+                        EnableAll();
+                    }
+                }
+            }
+        }
+
+        private void chk_review_MouseHover(object sender, EventArgs e)
         {
             toolTip = new ToolTip();
-            toolTip.SetToolTip(checkBox1, "Click me to verify or confirm that stock out button is enabled.\nIf not, therefore you need to add customer info or  just complete the process.");
+            toolTip.SetToolTip(chk_review, "Click me to verify or confirm stock out \'button\' will be enabled.\nIf not. Therefore, you need to follow instruction and complete the process.");
         }
 
         private void dtg_AddedStocks_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -609,7 +673,7 @@ namespace Inventory_System02
             else
             {
 
-                if ( MessageBox.Show("Warehouse will updated all items will be removed to record. \n\nPlease confirm stock out?", "Important Message", MessageBoxButtons.YesNo,
+                if ( MessageBox.Show("Selected items will be deducted from inbound record. \n\nPlease confirm stock out?", "Important Message", MessageBoxButtons.YesNo,
                  MessageBoxIcon.Question ) == DialogResult.Yes )
                 {
                   
@@ -688,13 +752,14 @@ namespace Inventory_System02
                     config.singleResult(sql);
                     if ( config.dt.Rows.Count > 0 ) 
                     {
-                        MessageBox.Show("Successfully Updated the \"Stock Records\" and Item Move to \"Stock Out\" list! \n\nTransaction Successful!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Successfully updated \"inbound records\" and Item(s) moved to \"outbound stock\" list! \n\nTransaction Successful!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dtg_AddedStocks.Rows.Clear();
 
                         cbo_CustID.Text = "";
                         txt_Cust_Name.Text = "";
                         txt_Cust_SAddress.Text = "";
                         refreshTableToolStripMenuItem_Click(sender, e);
+                        EnableAll();
                         return;
                     }
                     else
@@ -708,13 +773,12 @@ namespace Inventory_System02
                 }
                 else
                 {
-                    checkBox1.Checked = false;
-                    return;
+                    chk_review.Checked = false;
+                    EnableAll();
                 }
 
             }
             TOTALS();
-            checkBox1.Checked = false;
         }
     }
 }

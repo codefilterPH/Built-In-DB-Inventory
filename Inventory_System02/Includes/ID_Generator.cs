@@ -14,7 +14,7 @@ namespace Inventory_System02.Includes
             Random R = new Random();
             string randomString = string.Empty;
 
-            for (int z = 0; z < 6; z++)
+            for (int z = 0; z < 2; z++)
             {
                 randomString += letters[R.Next(0, 9)].ToString();
             }
@@ -85,7 +85,7 @@ namespace Inventory_System02.Includes
                 randomString += letters[R.Next(0, 9)].ToString();
             }
 
-            Id = "CUST" + randomString;
+            Id = "DIV" + randomString;
 
             sql = "Select * from `ID_Generated` where count = '1'";
             config.singleResult(sql);

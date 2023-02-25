@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Inventory_System02.CustSupplier
@@ -90,15 +91,12 @@ namespace Inventory_System02.CustSupplier
             }        
             else
             {
-                sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, Street , City, Province, `Address`) values (" +
+                sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, `Address`) values (" +
                " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
                ", '" + Sup_ID.Text + "' " +
                ", '" + sup_CName.Text + "'" +
                ", '" + sup_Email.Text + "' " +
                ", '" + sup_Phone.Text + "' " +
-               ", '" + sup_Street.Text + "' " +
-               ", '" + sup_City.Text + "' " +
-               ", '" + sup_Province.Text + "' " +
                ", '" + sup_Address.Text + "'  ) ";
                 config.Execute_CUD(sql, "Unsuccessful to Record " + sup_CName.Text, "Successfully recorded " + sup_CName.Text);
                 tabControl1.SelectedTab = tabPage2;
@@ -132,10 +130,7 @@ namespace Inventory_System02.CustSupplier
                 sup_CName.Text = dtg_Supplier.CurrentRow.Cells[3].Value.ToString();
                 sup_Email.Text = dtg_Supplier.CurrentRow.Cells[4].Value.ToString();
                 sup_Phone.Text = dtg_Supplier.CurrentRow.Cells[5].Value.ToString();
-                sup_Street.Text = dtg_Supplier.CurrentRow.Cells[6].Value.ToString();
-                sup_City.Text = dtg_Supplier.CurrentRow.Cells[7].Value.ToString();
-                sup_Province.Text = dtg_Supplier.CurrentRow.Cells[8].Value.ToString();
-                sup_Address.Text = dtg_Supplier.CurrentRow.Cells[9].Value.ToString();
+                sup_Address.Text = dtg_Supplier.CurrentRow.Cells[6].Value.ToString();
                 func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 func.Change_Font_DTG(sender, e, dtg_Supplier);
                 Sup_ID.Focus();
@@ -155,22 +150,32 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_Cust_add_Click(object sender, EventArgs e)
         {
-            if (cust_ID.Text == null || cust_ID.Text == "")
+            if (string.IsNullOrWhiteSpace(cust_ID.Text))
             {
                 func.Error_Message1 = "ID";
                 func.Error_Message();
                 cust_ID.Focus();
 
             }
-            else if (cust_FN.Text == null || cust_FN.Text == "")
+            else if (string.IsNullOrWhiteSpace(cust_FN.Text))
             {
                 func.Error_Message1 = "First Name";
                 func.Error_Message();
                 cust_FN.Focus();
             }
+            else if (string.IsNullOrWhiteSpace(cust_SAddress.Text))
+            {
+                func.Error_Message1 = "Address";
+                func.Error_Message();
+                cust_FN.Focus();
+            }
             else
             {
-                sql = "Insert into Customer ( " +
+                sql = "Select * from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
+                config.singleResult(sql);
+                if ( config.dt.Rows.Count == 0 )
+                {
+                    sql = "Insert into Customer ( " +
                     " `Entry Date` " +
                     ", `Customer ID` " +
                     ",`First Name` " +
@@ -185,15 +190,24 @@ namespace Inventory_System02.CustSupplier
                     ",'" + cust_Phone.Text + "' " +
                     ",'" + cust_SAddress.Text + "'" +
                     ",'" + cbo_type.Text + "')";
-                config.Execute_CUD(sql, "Unable to save customer information", "Customer information successfully saved to record");
-                refreshToolStripMenuItem_Click(sender, e);
+                    config.Execute_CUD(sql, "Unable to save customer information", "Customer information successfully saved to record");
+                    refreshToolStripMenuItem_Click(sender, e);
+
+                }
+                else
+                {
+                    MessageBox.Show(cust_ID.Text + " is already added to the list", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+               
             }
 
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "Select * from Customer";
+            sql = "Select * from Customer ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_Customer);
             DTG_SubProperty_Cust();
         }
@@ -213,7 +227,7 @@ namespace Inventory_System02.CustSupplier
 
         private void supplier_refresh_Click(object sender, EventArgs e)
         {
-            sql = "Select * from Supplier";
+            sql = "Select * from Supplier ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_Supplier);
             DTG_SubProperty_Sup();
         }
@@ -267,12 +281,9 @@ namespace Inventory_System02.CustSupplier
                     "`Company Name` = '" + sup_CName.Text + "'" +
                     ", Email = '" + sup_Email.Text + "' " +
                     ", Phone = '" + sup_Phone.Text + "'" +
-                    ", Street = '" + sup_Street.Text + "' " +
-                    ", City = '" + sup_City.Text + "' " +
-                    ", Province = '" + sup_Province.Text + "' " +
                     ", Address = '" + sup_Address.Text + "'" +
                     "where `Company ID` ='" + Sup_ID.Text + "' ";
-                config.Execute_CUD(sql, "Unable to update profile!", "Profile successfully updated");
+                config.Execute_CUD(sql, "Unable to update supplier\'s profile!", "Supplier\'s Profile successfully updated");
                 supplier_refresh_Click(sender, e);
             }
         }
@@ -379,14 +390,14 @@ namespace Inventory_System02.CustSupplier
 
         private void txt_Search_sup_TextChanged(object sender, EventArgs e)
         {
-            sql = "Select * from Supplier where `Company ID` like '%" + txt_Search_sup.Text + "%' or `Company Name` like '%" + txt_Search_sup.Text + "%'";
+            sql = "Select * from Supplier where `Company ID` like '%" + txt_Search_sup.Text + "%' or `Company Name` like '%" + txt_Search_sup.Text + "%' ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_Supplier);
             DTG_SubProperty_Sup();
         }
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            sql = "Select * from Customer where `Customer ID` like '%" + txt_Search.Text + "%' or `First Name` like '%" + txt_Search.Text + "%' or `Last Name` like '%"+ txt_Search.Text+"%' ";
+            sql = "Select * from Customer where `Customer ID` like '%" + txt_Search.Text + "%' or `First Name` like '%" + txt_Search.Text + "%' or `Last Name` like '%"+ txt_Search.Text+"%' ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_Customer);
             DTG_SubProperty_Cust();
         }
@@ -480,7 +491,7 @@ namespace Inventory_System02.CustSupplier
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     sql = "Delete from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to delete customer information", "Successfully deleted customer information");
+                    config.Execute_CUD(sql, "Unable to delete customer\'s information", "Successfully deleted customer\'s information");
                     refreshToolStripMenuItem_Click(sender, e);
                 }
             }
@@ -505,7 +516,25 @@ namespace Inventory_System02.CustSupplier
 
         public void btn_Cust_edit_Click(object sender, EventArgs e)
         {
-            if (cust_ID.Text != null || cust_ID.Text == "")
+            if (string.IsNullOrWhiteSpace(cust_ID.Text))
+            {
+                MessageBox.Show("Customer \"ID\" should not be empty!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cust_ID.Focus();
+                return;   
+            }
+            else if ( string.IsNullOrWhiteSpace(cust_FN.Text))
+            {
+                MessageBox.Show("Customer \"NAME\" should not be empty!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cust_FN.Focus();
+                return;
+            }
+            else if ( string.IsNullOrWhiteSpace(cust_SAddress.Text))
+            {
+                MessageBox.Show("Customer \"ADDRESS\" should not be empty!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cust_SAddress.Focus();
+                return;
+            }
+            else
             {
                 sql = "Update Customer set " +
                     "`First Name` = '" + cust_FN.Text + "'" +

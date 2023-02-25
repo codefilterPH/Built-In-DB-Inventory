@@ -81,7 +81,7 @@ namespace Inventory_System02
                 txt_Cust_name.Text = dtg_outlist.CurrentRow.Cells[10].Value.ToString();
                 txt_address.Text = dtg_outlist.CurrentRow.Cells[11].Value.ToString();
 
-                func.Reload_Images(cust_Image, txt_Cust_ID.Text, @"CommonSql\Pictures\Customers\");
+                func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
                 txt_Trans_number.Focus();
                 if (dtg_outlist.Rows.Count > 0)
                 {
@@ -289,7 +289,7 @@ namespace Inventory_System02
             {
                 search_for = "`Transaction Reference`";
             }
-            sql = "Select * from `Stock Out` where " + search_for + " like '%" + txt_Search.Text + "%' ";
+            sql = "Select * from `Stock Out` where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_outlist);
             DTG_Property();
 

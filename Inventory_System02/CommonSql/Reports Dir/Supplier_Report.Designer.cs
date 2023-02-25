@@ -46,9 +46,6 @@ namespace Inventory_System02.Reports_Dir
             this.chk_entry_date = new System.Windows.Forms.CheckBox();
             this.chk_Phone = new System.Windows.Forms.CheckBox();
             this.chk_Address = new System.Windows.Forms.CheckBox();
-            this.chk_Province = new System.Windows.Forms.CheckBox();
-            this.chk_City = new System.Windows.Forms.CheckBox();
-            this.chk_Street = new System.Windows.Forms.CheckBox();
             this.chk_Email = new System.Windows.Forms.CheckBox();
             this.chk_Supplier_Name = new System.Windows.Forms.CheckBox();
             this.chk_Supplier_ID = new System.Windows.Forms.CheckBox();
@@ -155,7 +152,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(133, 230);
+            this.lbl_Personnel.Location = new System.Drawing.Point(133, 226);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(0, 21);
             this.lbl_Personnel.TabIndex = 25;
@@ -165,7 +162,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 230);
+            this.label7.Location = new System.Drawing.Point(6, 226);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 21);
             this.label7.TabIndex = 24;
@@ -194,7 +191,7 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.Location = new System.Drawing.Point(10, 37);
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 180);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(733, 176);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // grp_filters
@@ -203,16 +200,13 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_entry_date);
             this.grp_filters.Controls.Add(this.chk_Phone);
             this.grp_filters.Controls.Add(this.chk_Address);
-            this.grp_filters.Controls.Add(this.chk_Province);
-            this.grp_filters.Controls.Add(this.chk_City);
-            this.grp_filters.Controls.Add(this.chk_Street);
             this.grp_filters.Controls.Add(this.chk_Email);
             this.grp_filters.Controls.Add(this.chk_Supplier_Name);
             this.grp_filters.Controls.Add(this.chk_Supplier_ID);
             this.grp_filters.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_filters.Location = new System.Drawing.Point(248, 223);
+            this.grp_filters.Location = new System.Drawing.Point(415, 219);
             this.grp_filters.Name = "grp_filters";
-            this.grp_filters.Size = new System.Drawing.Size(495, 89);
+            this.grp_filters.Size = new System.Drawing.Size(328, 89);
             this.grp_filters.TabIndex = 20;
             this.grp_filters.TabStop = false;
             this.grp_filters.Text = "Data Field";
@@ -240,42 +234,12 @@ namespace Inventory_System02.Reports_Dir
             // chk_Address
             // 
             this.chk_Address.AutoSize = true;
-            this.chk_Address.Location = new System.Drawing.Point(412, 51);
+            this.chk_Address.Location = new System.Drawing.Point(30, 51);
             this.chk_Address.Name = "chk_Address";
             this.chk_Address.Size = new System.Drawing.Size(68, 19);
             this.chk_Address.TabIndex = 20;
             this.chk_Address.Text = "Address";
             this.chk_Address.UseVisualStyleBackColor = true;
-            // 
-            // chk_Province
-            // 
-            this.chk_Province.AutoSize = true;
-            this.chk_Province.Location = new System.Drawing.Point(412, 24);
-            this.chk_Province.Name = "chk_Province";
-            this.chk_Province.Size = new System.Drawing.Size(72, 19);
-            this.chk_Province.TabIndex = 19;
-            this.chk_Province.Text = "Province";
-            this.chk_Province.UseVisualStyleBackColor = true;
-            // 
-            // chk_City
-            // 
-            this.chk_City.AutoSize = true;
-            this.chk_City.Location = new System.Drawing.Point(326, 51);
-            this.chk_City.Name = "chk_City";
-            this.chk_City.Size = new System.Drawing.Size(46, 19);
-            this.chk_City.TabIndex = 18;
-            this.chk_City.Text = "City";
-            this.chk_City.UseVisualStyleBackColor = true;
-            // 
-            // chk_Street
-            // 
-            this.chk_Street.AutoSize = true;
-            this.chk_Street.Location = new System.Drawing.Point(326, 24);
-            this.chk_Street.Name = "chk_Street";
-            this.chk_Street.Size = new System.Drawing.Size(57, 19);
-            this.chk_Street.TabIndex = 17;
-            this.chk_Street.Text = "Street";
-            this.chk_Street.UseVisualStyleBackColor = true;
             // 
             // chk_Email
             // 
@@ -397,8 +361,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox grp_filters;
         private System.Windows.Forms.CheckBox chk_Phone;
-        private System.Windows.Forms.CheckBox chk_City;
-        private System.Windows.Forms.CheckBox chk_Street;
         private System.Windows.Forms.CheckBox chk_Email;
         private System.Windows.Forms.CheckBox chk_Supplier_Name;
         private System.Windows.Forms.CheckBox chk_Supplier_ID;
@@ -409,7 +371,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.Label lbl_Personnel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox chk_Address;
-        private System.Windows.Forms.CheckBox chk_Province;
         private System.Windows.Forms.Button btn_Print;
         private System.Windows.Forms.CheckBox chk_entry_date;
         private System.Windows.Forms.Label label3;

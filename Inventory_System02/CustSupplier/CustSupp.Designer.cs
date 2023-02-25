@@ -30,11 +30,11 @@ namespace Inventory_System02.CustSupplier
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustSupp));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btn_cusid_select = new System.Windows.Forms.Button();
@@ -63,10 +63,10 @@ namespace Inventory_System02.CustSupplier
             this.btn_Cust_edit = new System.Windows.Forms.Button();
             this.btn_Cust_add = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btn_Upload_Cust = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_new_customer = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_Upload_Cust = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btn_supid_select = new System.Windows.Forms.Button();
             this.lbl_total_sup = new System.Windows.Forms.Label();
@@ -80,9 +80,9 @@ namespace Inventory_System02.CustSupplier
             this.Sup_Image = new System.Windows.Forms.PictureBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.btn_Upload_sup = new System.Windows.Forms.ToolStripMenuItem();
             this.supplier_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_new_supplier = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_Upload_sup = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_GenerateID = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.Sup_ID = new System.Windows.Forms.TextBox();
@@ -90,12 +90,6 @@ namespace Inventory_System02.CustSupplier
             this.sup_Phone = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.sup_CName = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.sup_Street = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.sup_City = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.sup_Province = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.sup_Address = new System.Windows.Forms.TextBox();
             this.btn_sup_delete = new System.Windows.Forms.Button();
@@ -209,30 +203,30 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 166);
+            this.panel2.Size = new System.Drawing.Size(839, 158);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
             // 
             this.dtg_Customer.AllowUserToAddRows = false;
             this.dtg_Customer.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_Customer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_Customer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Customer.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Customer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_Customer.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Customer.Location = new System.Drawing.Point(0, 0);
             this.dtg_Customer.Name = "dtg_Customer";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Customer.RowTemplate.Height = 90;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 166);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 158);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -467,6 +461,18 @@ namespace Inventory_System02.CustSupplier
             this.menuStrip1.TabIndex = 67;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // btn_Upload_Cust
+            // 
+            this.btn_Upload_Cust.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btn_Upload_Cust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_Upload_Cust.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Upload_Cust.ForeColor = System.Drawing.Color.White;
+            this.btn_Upload_Cust.Image = ((System.Drawing.Image)(resources.GetObject("btn_Upload_Cust.Image")));
+            this.btn_Upload_Cust.Name = "btn_Upload_Cust";
+            this.btn_Upload_Cust.Size = new System.Drawing.Size(110, 20);
+            this.btn_Upload_Cust.Text = "Upload Image";
+            this.btn_Upload_Cust.Click += new System.EventHandler(this.btn_Upload_Cust_Click);
+            // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -502,18 +508,6 @@ namespace Inventory_System02.CustSupplier
             this.btn_new_customer.Text = "New Division";
             this.btn_new_customer.Click += new System.EventHandler(this.btn_new_customer_Click);
             // 
-            // btn_Upload_Cust
-            // 
-            this.btn_Upload_Cust.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_Upload_Cust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_Upload_Cust.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Upload_Cust.ForeColor = System.Drawing.Color.White;
-            this.btn_Upload_Cust.Image = ((System.Drawing.Image)(resources.GetObject("btn_Upload_Cust.Image")));
-            this.btn_Upload_Cust.Name = "btn_Upload_Cust";
-            this.btn_Upload_Cust.Size = new System.Drawing.Size(110, 20);
-            this.btn_Upload_Cust.Text = "Upload Image";
-            this.btn_Upload_Cust.Click += new System.EventHandler(this.btn_Upload_Cust_Click);
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
@@ -535,12 +529,6 @@ namespace Inventory_System02.CustSupplier
             this.tabPage2.Controls.Add(this.sup_Phone);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.sup_CName);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.sup_Street);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.sup_City);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.sup_Province);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.sup_Address);
             this.tabPage2.Controls.Add(this.btn_sup_delete);
@@ -594,7 +582,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(12, 192);
+            this.label19.Location = new System.Drawing.Point(12, 190);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 13);
             this.label19.TabIndex = 80;
@@ -603,7 +591,7 @@ namespace Inventory_System02.CustSupplier
             // txt_Search_sup
             // 
             this.txt_Search_sup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search_sup.Location = new System.Drawing.Point(59, 189);
+            this.txt_Search_sup.Location = new System.Drawing.Point(59, 187);
             this.txt_Search_sup.Name = "txt_Search_sup";
             this.txt_Search_sup.Size = new System.Drawing.Size(117, 22);
             this.txt_Search_sup.TabIndex = 79;
@@ -618,15 +606,15 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 168);
+            this.panel1.Size = new System.Drawing.Size(837, 160);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
             // 
             this.dtg_Supplier.AllowUserToAddRows = false;
             this.dtg_Supplier.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_Supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_Supplier.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_Supplier.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Supplier.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -634,15 +622,15 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Supplier.Location = new System.Drawing.Point(0, 0);
             this.dtg_Supplier.Name = "dtg_Supplier";
             this.dtg_Supplier.ReadOnly = true;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_Supplier.RowTemplate.Height = 90;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 168);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 160);
             this.dtg_Supplier.TabIndex = 25;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);
@@ -650,7 +638,7 @@ namespace Inventory_System02.CustSupplier
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(369, 65);
+            this.label14.Location = new System.Drawing.Point(369, 68);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 17);
             this.label14.TabIndex = 72;
@@ -658,7 +646,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_Email
             // 
-            this.sup_Email.Location = new System.Drawing.Point(425, 62);
+            this.sup_Email.Location = new System.Drawing.Point(425, 65);
             this.sup_Email.Name = "sup_Email";
             this.sup_Email.Size = new System.Drawing.Size(153, 25);
             this.sup_Email.TabIndex = 4;
@@ -703,6 +691,18 @@ namespace Inventory_System02.CustSupplier
             this.menuStrip2.TabIndex = 68;
             this.menuStrip2.Text = "menuStrip2";
             // 
+            // btn_Upload_sup
+            // 
+            this.btn_Upload_sup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btn_Upload_sup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_Upload_sup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Upload_sup.ForeColor = System.Drawing.Color.White;
+            this.btn_Upload_sup.Image = ((System.Drawing.Image)(resources.GetObject("btn_Upload_sup.Image")));
+            this.btn_Upload_sup.Name = "btn_Upload_sup";
+            this.btn_Upload_sup.Size = new System.Drawing.Size(110, 20);
+            this.btn_Upload_sup.Text = "Upload Image";
+            this.btn_Upload_sup.Click += new System.EventHandler(this.btn_Upload_sup_Click);
+            // 
             // supplier_refresh
             // 
             this.supplier_refresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -727,18 +727,6 @@ namespace Inventory_System02.CustSupplier
             this.btn_new_supplier.Text = "New Customer";
             this.btn_new_supplier.Click += new System.EventHandler(this.btn_new_supplier_Click);
             // 
-            // btn_Upload_sup
-            // 
-            this.btn_Upload_sup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_Upload_sup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_Upload_sup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Upload_sup.ForeColor = System.Drawing.Color.White;
-            this.btn_Upload_sup.Image = ((System.Drawing.Image)(resources.GetObject("btn_Upload_sup.Image")));
-            this.btn_Upload_sup.Name = "btn_Upload_sup";
-            this.btn_Upload_sup.Size = new System.Drawing.Size(110, 20);
-            this.btn_Upload_sup.Text = "Upload Image";
-            this.btn_Upload_sup.Click += new System.EventHandler(this.btn_Upload_sup_Click);
-            // 
             // btn_GenerateID
             // 
             this.btn_GenerateID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -757,7 +745,7 @@ namespace Inventory_System02.CustSupplier
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(388, 36);
+            this.label10.Location = new System.Drawing.Point(388, 39);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 17);
             this.label10.TabIndex = 59;
@@ -765,7 +753,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // Sup_ID
             // 
-            this.Sup_ID.Location = new System.Drawing.Point(425, 33);
+            this.Sup_ID.Location = new System.Drawing.Point(425, 36);
             this.Sup_ID.Name = "Sup_ID";
             this.Sup_ID.Size = new System.Drawing.Size(153, 25);
             this.Sup_ID.TabIndex = 1;
@@ -774,7 +762,7 @@ namespace Inventory_System02.CustSupplier
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 65);
+            this.label5.Location = new System.Drawing.Point(14, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 56;
@@ -782,7 +770,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_Phone
             // 
-            this.sup_Phone.Location = new System.Drawing.Point(116, 62);
+            this.sup_Phone.Location = new System.Drawing.Point(116, 65);
             this.sup_Phone.Name = "sup_Phone";
             this.sup_Phone.Size = new System.Drawing.Size(138, 25);
             this.sup_Phone.TabIndex = 3;
@@ -790,7 +778,7 @@ namespace Inventory_System02.CustSupplier
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 36);
+            this.label4.Location = new System.Drawing.Point(14, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 17);
             this.label4.TabIndex = 54;
@@ -798,63 +786,15 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_CName
             // 
-            this.sup_CName.Location = new System.Drawing.Point(116, 33);
+            this.sup_CName.Location = new System.Drawing.Point(116, 36);
             this.sup_CName.Name = "sup_CName";
             this.sup_CName.Size = new System.Drawing.Size(186, 25);
             this.sup_CName.TabIndex = 2;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 105);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 17);
-            this.label9.TabIndex = 52;
-            this.label9.Text = "Street";
-            // 
-            // sup_Street
-            // 
-            this.sup_Street.Location = new System.Drawing.Point(81, 102);
-            this.sup_Street.Name = "sup_Street";
-            this.sup_Street.Size = new System.Drawing.Size(95, 25);
-            this.sup_Street.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(182, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 17);
-            this.label8.TabIndex = 50;
-            this.label8.Text = "City";
-            // 
-            // sup_City
-            // 
-            this.sup_City.Location = new System.Drawing.Point(221, 102);
-            this.sup_City.Name = "sup_City";
-            this.sup_City.Size = new System.Drawing.Size(128, 25);
-            this.sup_City.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(355, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 17);
-            this.label7.TabIndex = 48;
-            this.label7.Text = "Province";
-            // 
-            // sup_Province
-            // 
-            this.sup_Province.Location = new System.Drawing.Point(425, 102);
-            this.sup_Province.Name = "sup_Province";
-            this.sup_Province.Size = new System.Drawing.Size(153, 25);
-            this.sup_Province.TabIndex = 7;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 134);
+            this.label6.Location = new System.Drawing.Point(15, 111);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 46;
@@ -862,7 +802,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_Address
             // 
-            this.sup_Address.Location = new System.Drawing.Point(81, 134);
+            this.sup_Address.Location = new System.Drawing.Point(82, 111);
             this.sup_Address.Multiline = true;
             this.sup_Address.Name = "sup_Address";
             this.sup_Address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -972,12 +912,6 @@ namespace Inventory_System02.CustSupplier
         private System.Windows.Forms.Button btn_sup_edit;
         private System.Windows.Forms.Button btn_sup_add;
         private System.Windows.Forms.DataGridView dtg_Supplier;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox sup_Street;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox sup_City;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox sup_Province;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox sup_Address;
         private System.Windows.Forms.Label label5;

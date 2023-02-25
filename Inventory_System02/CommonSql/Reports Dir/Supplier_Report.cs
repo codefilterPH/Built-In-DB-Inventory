@@ -34,6 +34,7 @@ namespace Inventory_System02.Reports_Dir
         }
         private void Supplier_Report_Load(object sender, EventArgs e)
         {
+            chk_entry_date.Checked = true;
             chk_Supplier_ID.Checked = true;
             chk_Supplier_Name.Checked = true;
             chk_Phone.Checked = true;
@@ -104,7 +105,7 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
 
-            sql = " SELECT * from Supplier where `Entry Date` between '" + dtp_date_from.Text + "' and '" + dtp_date_to.Text + "'  ";
+            sql = " SELECT * from Supplier where `Entry Date` between '" + dtp_date_from.Text + "' and '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
             config.Load_Datasource(sql, ds);
@@ -121,9 +122,6 @@ namespace Inventory_System02.Reports_Dir
                       Supplier_Name = dataRow.Field<string>("Company Name").ToString(),
                       Email = dataRow.Field<string>("Email").ToString(),
                       Phone = dataRow.Field<string>("Phone").ToString(),
-                      Street = dataRow.Field<string>("Street").ToString(),
-                      City = dataRow.Field<string>("City").ToString(),
-                      Province = dataRow.Field<string>("Province").ToString(),
                       Address = dataRow.Field<string>("Address").ToString(),
 
                   }).ToList();
@@ -158,9 +156,6 @@ namespace Inventory_System02.Reports_Dir
                 reportParameters.Add(new ReportParameter("Hide_Name", (!chk_Supplier_Name.Checked).ToString()));
                 reportParameters.Add(new ReportParameter("Hide_Email", (!chk_Email.Checked).ToString()));
                 reportParameters.Add(new ReportParameter("Hide_Phone", (!chk_Phone.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Street", (!chk_Street.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_City", (!chk_City.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Province", (!chk_Province.Checked).ToString()));
                 reportParameters.Add(new ReportParameter("Hide_Address", (!chk_Address.Checked).ToString()));
                
 
@@ -261,9 +256,6 @@ namespace Inventory_System02.Reports_Dir
         public string Supplier_Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public string Street { get; set; }
-        public string City { get; set; }
-        public string Province { get; set; }
         public string Address { get; set; }
     }
 }

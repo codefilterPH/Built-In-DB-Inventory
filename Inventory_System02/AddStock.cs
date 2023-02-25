@@ -301,7 +301,7 @@ namespace Inventory_System02
             {
                 search_for = "`Transaction Reference`";
             }
-            sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ";
+            sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_Items);
             DTG_Property();
 
@@ -311,10 +311,6 @@ namespace Inventory_System02
             }
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
         public void Calculations()
         {
             sql = "Select * from Calculations";

@@ -94,14 +94,14 @@ namespace Inventory_System02.Profiles
 
         private void Employees_Load(object sender, EventArgs e)
         {
-            func.Reload_Images(pictureBox1, "DONOTDELETE_SUBIMAGE", @"CommonSql\Pictures\Employee\");
+            func.Reload_Images(pictureBox1, "DONOTDELETE_SUBIMAGE", Includes.AppSettings.Employee_DIR);
             reloadTableToolStripMenuItem_Click(sender, e);
             timer1.Start();
         }
         double count1 = 0;
         private void reloadTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "Select * from Employee";
+            sql = "Select * from Employee ORDER BY `Hired Date` DESC";
             config.Load_DTG(sql, dtg_User);
 
             if (dtg_User.Columns.Count > 0)
@@ -320,7 +320,7 @@ namespace Inventory_System02.Profiles
                 txt_Address.Text = dtg_User.CurrentRow.Cells[8].Value.ToString();
                 txt_Job_role.Text = dtg_User.CurrentRow.Cells[9].Value.ToString();
 
-                func.Reload_Images(pictureBox1, txt_ID.Text, @"CommonSql\Pictures\Employee\");
+                func.Reload_Images(pictureBox1, txt_ID.Text, Includes.AppSettings.Employee_DIR);
                 func.Change_Font_DTG(sender, e, dtg_User);
             }
         }
@@ -334,7 +334,7 @@ namespace Inventory_System02.Profiles
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(pictureBox1, txt_ID.Text, @"CommonSql\Pictures\Employee\");
+            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(pictureBox1, txt_ID.Text, Includes.AppSettings.Employee_DIR);
             reloadTableToolStripMenuItem_Click(sender, e);
             reloadTableToolStripMenuItem_Click(sender, e);
             timer1.Start();
