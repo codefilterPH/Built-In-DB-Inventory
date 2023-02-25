@@ -203,7 +203,7 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 158);
+            this.panel2.Size = new System.Drawing.Size(839, 154);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -226,7 +226,7 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_Customer.RowTemplate.Height = 90;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 158);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 154);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -606,7 +606,7 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 160);
+            this.panel1.Size = new System.Drawing.Size(837, 156);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -630,7 +630,7 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_Supplier.RowTemplate.Height = 90;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 160);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 156);
             this.dtg_Supplier.TabIndex = 25;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);

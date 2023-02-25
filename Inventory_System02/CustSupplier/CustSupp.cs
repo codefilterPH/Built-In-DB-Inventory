@@ -1,4 +1,5 @@
 ﻿using Inventory_System02.Includes;
+using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using System;
 using System.Data;
 using System.IO;
@@ -91,30 +92,58 @@ namespace Inventory_System02.CustSupplier
             }        
             else
             {
-                sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, `Address`) values (" +
-               " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
-               ", '" + Sup_ID.Text + "' " +
-               ", '" + sup_CName.Text + "'" +
-               ", '" + sup_Email.Text + "' " +
-               ", '" + sup_Phone.Text + "' " +
-               ", '" + sup_Address.Text + "'  ) ";
-                config.Execute_CUD(sql, "Unsuccessful to Record " + sup_CName.Text, "Successfully recorded " + sup_CName.Text);
-                tabControl1.SelectedTab = tabPage2;
-                supplier_refresh_Click(sender, e);
+                sql = "Select * from Supplier where `Company ID` = '" + Sup_ID.Text + "' ";
+                config.singleResult(sql);
+                if ( config.dt.Rows.Count > 0 )
+                {
+                    MessageBox.Show("There is an existing supplier using this ID. Please replace the ID.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, `Address`) values (" +
+                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
+                    ", '" + Sup_ID.Text + "' " +
+                    ", '" + sup_CName.Text + "'" +
+                    ", '" + sup_Email.Text + "' " +
+                    ", '" + sup_Phone.Text + "' " +
+                    ", '" + sup_Address.Text + "'  ) ";
+                    config.Execute_CUD(sql, "Unsuccessful to Record " + sup_CName.Text, "Successfully recorded " + sup_CName.Text);
+                    tabControl1.SelectedTab = tabPage2;
+                    supplier_refresh_Click(sender, e);
+
+                }
+           
             }
         }
 
         private void btn_sup_delete_Click(object sender, EventArgs e)
         {
-            if (dtg_Supplier.Rows.Count > 0)
+
+            if (dtg_Supplier.Rows.Count >= 1)
             {
-                if (Sup_ID.Text != "" || Sup_ID.Text != null)
+                if (dtg_Supplier.SelectedRows.Count == 1)
                 {
-                    if (MessageBox.Show("Are you sure you want to delete " + sup_CName.Text + "?", "Warning Deletion Prompt",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "?", "Warning Deletion Prompt",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        sql = "Delete from Supplier where `Company ID` = '" + Sup_ID.Text + "'";
-                        config.Execute_CUD(sql, "Unsuccessfully to Delete " + sup_CName.Text, "Successfully Deleted " + sup_CName.Text);
+                        sql = "Delete from Supplier where `Company ID` = '" + dtg_Supplier.CurrentRow.Cells[2].Value.ToString() + "' ";
+                        config.Execute_CUD(sql, "Unable to delete supplier " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "!", "Successfully deleted supplier " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "!");
+                        supplier_refresh_Click(sender, e);
+
+                    }
+                }
+                else if (dtg_Supplier.SelectedRows.Count > 1)
+                {
+
+                    if (MessageBox.Show("Are you sure you want to delete selected?", "Warning Deletion Prompt",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow rw in dtg_Supplier.SelectedRows)
+                        {
+                            sql = "Delete from Supplier where `Company ID` = '" + rw.Cells[2].Value.ToString() + "' ";
+                            config.Execute_CUD(sql, "Unable to delete " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "!", "Successfully deleted selected " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "!");
+                        }
                         supplier_refresh_Click(sender, e);
                     }
                 }
@@ -485,14 +514,32 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_Cust_Delete_Click(object sender, EventArgs e)
         {
-            if (cust_ID.Text != "" || cust_ID.Text != null)
+            if (dtg_Customer.Rows.Count >= 1)
             {
-                if (MessageBox.Show("Are you sure you want to delete " + cust_FN.Text + "?", "Warning Deletion Prompt",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dtg_Customer.SelectedRows.Count == 1)
                 {
-                    sql = "Delete from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to delete customer\'s information", "Successfully deleted customer\'s information");
-                    refreshToolStripMenuItem_Click(sender, e);
+                    if (MessageBox.Show("Are you sure you want to delete " + cust_FN.Text + "?", "Warning Deletion Prompt",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        sql = "Delete from Customer where `Customer ID` = '" + dtg_Customer.CurrentRow.Cells[2].Value.ToString() + "' ";
+                        config.Execute_CUD(sql, "Unable to delete customer!", "Successfully deleted customer!");
+                        refreshToolStripMenuItem_Click(sender, e);
+
+                    }
+                }
+                else if (dtg_Customer.SelectedRows.Count > 1)
+                {
+ 
+                    if (MessageBox.Show("Are you sure you want to delete selected?", "Warning Deletion Prompt",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow rw in dtg_Customer.SelectedRows)
+                        {
+                            sql = "Delete from Customer where `Customer ID` = '" + rw.Cells[2].Value.ToString() + "' ";
+                            config.Execute_CUD(sql, "Unable to delete some of selected customer(s)!", "Successfully deleted selected customer(s)!");
+                        }
+                        refreshToolStripMenuItem_Click(sender, e);
+                    }
                 }
             }
         }

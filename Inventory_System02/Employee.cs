@@ -187,33 +187,56 @@ namespace Inventory_System02.Profiles
         }
         private void Error_DeletingSuper_User()
         {
-            MessageBox.Show("You cannot change the Creator of this Application!", "Warning Message",
+            MessageBox.Show("You cannot change or delete the Creator of this Application!", "Warning Message",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
         private void btn_Del_Click(object sender, EventArgs e)
         {
-            if (txt_ID.Text == "" || txt_ID.Text == null)
+            if (dtg_User.Rows.Count >= 1)
             {
-                usableFunction func = new usableFunction();
-                func.Error_Message1 = "ID";
-                func.Error_Message();
-                txt_ID.Focus();
-            }
-            else if (txt_ID.Text == "admin")
-            {
-                Error_DeletingSuper_User();
-            }
-            else
-            {
-                if ( MessageBox.Show("Are you sure you want to delete "+ txt_FN.Text +"?", "Warning Deletion Prompt",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dtg_User.SelectedRows.Count == 1)
                 {
-                    sql = "Delete from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unsuccessful deletion of profile!", "Profile successfully deleted!");
-                }     
+                    if (dtg_User.CurrentRow.Cells[2].Value.ToString() == "admin")
+                    {
+                        Error_DeletingSuper_User();
+                        return;
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Are you sure you want to delete " + txt_FN.Text + "?", "Warning Deletion Prompt",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            sql = "Delete from Employee where `Employee ID` = '" + dtg_User.CurrentRow.Cells[2].Value.ToString() + "' ";
+                            config.Execute_CUD(sql, "Unable to delete employee " + dtg_User.CurrentRow.Cells[4].Value.ToString()+"!", "Successfully deleted employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!");
+                            reloadTableToolStripMenuItem_Click(sender, e);
+
+                        }
+                    } 
+                }
+                else if (dtg_User.SelectedRows.Count > 1)
+                {
+
+                    if (MessageBox.Show("Are you sure you want to delete selected?", "Warning Deletion Prompt",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow rw in dtg_User.SelectedRows)
+                        {
+                            if (rw.Cells[2].Value.ToString() != "admin")
+                            {
+                                sql = "Delete from Employee where `Employee ID` = '" + rw.Cells[2].Value.ToString() + "' ";
+                                config.Execute_CUD(sql, "Unable to delete "+ rw.Cells[4].Value.ToString(), "Successfully deleted "+ rw.Cells[4].Value.ToString() + "!");
+                            }
+                            else
+                            {
+                                Error_DeletingSuper_User();
+                            }
+
+                        }
+                        reloadTableToolStripMenuItem_Click(sender, e);
+                    }
+                }
             }
-            reloadTableToolStripMenuItem_Click(sender, e);
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
@@ -328,6 +351,7 @@ namespace Inventory_System02.Profiles
         private void timer1_Tick(object sender, EventArgs e)
         {
             sql = "Select Type from `Employee Role`";
+            dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
             config.fiil_CBO(sql, txt_Job_role);
             timer1.Stop();
         }

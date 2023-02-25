@@ -156,7 +156,7 @@ namespace Inventory_System02.Reports_Dir
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
-
+            calculate_Total();
             if (preview_or_print != "load")
             {
                 if (cbo_report_type.Text == "Stock In")
