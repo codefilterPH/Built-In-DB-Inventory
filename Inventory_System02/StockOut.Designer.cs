@@ -29,19 +29,19 @@ namespace Inventory_System02
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle109 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle110 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle111 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle112 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOut));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle113 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle114 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle118 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle119 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle120 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle115 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle116 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle117 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle130 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle127 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle128 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle129 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtg_Stocks = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_Type = new System.Windows.Forms.TextBox();
@@ -101,41 +101,41 @@ namespace Inventory_System02
             // 
             this.dtg_Stocks.AllowUserToAddRows = false;
             this.dtg_Stocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle109.BackColor = System.Drawing.Color.White;
-            this.dtg_Stocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle109;
+            dataGridViewCellStyle121.BackColor = System.Drawing.Color.White;
+            this.dtg_Stocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle121;
             this.dtg_Stocks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_Stocks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle110.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle110.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle110.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle110.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle110.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle110.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle110.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Stocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle110;
+            dataGridViewCellStyle122.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle122.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle122.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle122.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle122.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle122.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle122.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Stocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle122;
             this.dtg_Stocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Stocks.EnableHeadersVisualStyles = false;
             this.dtg_Stocks.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_Stocks.Location = new System.Drawing.Point(11, 197);
             this.dtg_Stocks.Name = "dtg_Stocks";
             this.dtg_Stocks.ReadOnly = true;
-            dataGridViewCellStyle111.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle111.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle111.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle111.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle111.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle111.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle111.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Stocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle111;
-            dataGridViewCellStyle112.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle112.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle112.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle112.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle112.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle112.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Stocks.RowsDefaultCellStyle = dataGridViewCellStyle112;
+            dataGridViewCellStyle123.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle123.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle123.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle123.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle123.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle123.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle123.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Stocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle123;
+            dataGridViewCellStyle124.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle124.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle124.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle124.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle124.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle124.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Stocks.RowsDefaultCellStyle = dataGridViewCellStyle124;
             this.dtg_Stocks.RowTemplate.Height = 70;
             this.dtg_Stocks.Size = new System.Drawing.Size(842, 143);
             this.dtg_Stocks.TabIndex = 8;
@@ -303,22 +303,22 @@ namespace Inventory_System02
             // 
             this.dtg_AddedStocks.AllowUserToAddRows = false;
             this.dtg_AddedStocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle113.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle113.SelectionBackColor = System.Drawing.Color.SpringGreen;
-            dataGridViewCellStyle113.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dtg_AddedStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle113;
+            dataGridViewCellStyle125.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle125.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle125.SelectionBackColor = System.Drawing.Color.SpringGreen;
+            dataGridViewCellStyle125.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtg_AddedStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle125;
             this.dtg_AddedStocks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_AddedStocks.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle114.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle114.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle114.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle114.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle114.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle114.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle114.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_AddedStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle114;
+            dataGridViewCellStyle126.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle126.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle126.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle126.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle126.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle126.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle126.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_AddedStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle126;
             this.dtg_AddedStocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_AddedStocks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StockID,
@@ -328,30 +328,30 @@ namespace Inventory_System02
             this.Quantity,
             this.pprice,
             this.Total});
-            dataGridViewCellStyle118.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle118.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle118.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle118.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle118.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle118.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle118.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_AddedStocks.DefaultCellStyle = dataGridViewCellStyle118;
+            dataGridViewCellStyle130.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle130.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle130.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle130.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle130.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle130.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle130.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_AddedStocks.DefaultCellStyle = dataGridViewCellStyle130;
             this.dtg_AddedStocks.EnableHeadersVisualStyles = false;
             this.dtg_AddedStocks.Location = new System.Drawing.Point(11, 409);
             this.dtg_AddedStocks.Name = "dtg_AddedStocks";
-            dataGridViewCellStyle119.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle119.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle119.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle119.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle119.SelectionBackColor = System.Drawing.Color.SpringGreen;
-            dataGridViewCellStyle119.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle119.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_AddedStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle119;
-            dataGridViewCellStyle120.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle120.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle120.SelectionBackColor = System.Drawing.Color.SpringGreen;
-            dataGridViewCellStyle120.SelectionForeColor = System.Drawing.Color.Black;
-            this.dtg_AddedStocks.RowsDefaultCellStyle = dataGridViewCellStyle120;
+            dataGridViewCellStyle131.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle131.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle131.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle131.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle131.SelectionBackColor = System.Drawing.Color.SpringGreen;
+            dataGridViewCellStyle131.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle131.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_AddedStocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle131;
+            dataGridViewCellStyle132.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle132.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle132.SelectionBackColor = System.Drawing.Color.SpringGreen;
+            dataGridViewCellStyle132.SelectionForeColor = System.Drawing.Color.Black;
+            this.dtg_AddedStocks.RowsDefaultCellStyle = dataGridViewCellStyle132;
             this.dtg_AddedStocks.Size = new System.Drawing.Size(843, 107);
             this.dtg_AddedStocks.TabIndex = 10;
             this.dtg_AddedStocks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_AddedStocks_CellClick);
@@ -393,8 +393,8 @@ namespace Inventory_System02
             // Quantity
             // 
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle115.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle115;
+            dataGridViewCellStyle127.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle127;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.Width = 81;
@@ -402,8 +402,8 @@ namespace Inventory_System02
             // pprice
             // 
             this.pprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle116.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pprice.DefaultCellStyle = dataGridViewCellStyle116;
+            dataGridViewCellStyle128.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pprice.DefaultCellStyle = dataGridViewCellStyle128;
             this.pprice.HeaderText = "Price";
             this.pprice.Name = "pprice";
             this.pprice.ReadOnly = true;
@@ -412,10 +412,10 @@ namespace Inventory_System02
             // Total
             // 
             this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle117.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle117.Format = "N2";
-            dataGridViewCellStyle117.NullValue = null;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle117;
+            dataGridViewCellStyle129.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle129.Format = "N2";
+            dataGridViewCellStyle129.NullValue = null;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle129;
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;

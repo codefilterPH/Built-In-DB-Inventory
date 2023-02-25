@@ -77,16 +77,16 @@
                   <Width>2.21872cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.4549cm</Width>
+                  <Width>2.06344cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.87823cm</Width>
+                  <Width>2.53969cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.61906cm</Width>
+                  <Width>3.91552cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.4549cm</Width>
+                  <Width>2.11604cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -694,7 +694,11 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_HiredDate.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
                 <TablixMember>
                   <Visibility>
                     <Hidden>=Parameters!Hide_EMP_ID.Value = True</Hidden>
@@ -746,7 +750,7 @@
             <Top>0.65828cm</Top>
             <Left>0.3175cm</Left>
             <Height>1.2cm</Height>
-            <Width>15.80444cm</Width>
+            <Width>19.03204cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -757,7 +761,7 @@
         <Height>1.55208in</Height>
         <Style />
       </Body>
-      <Width>7.49293in</Width>
+      <Width>7.75335in</Width>
       <Page>
         <PageHeader>
           <Height>3.59833cm</Height>

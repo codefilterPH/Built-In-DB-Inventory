@@ -528,7 +528,7 @@ namespace Inventory_System02
                 quan += 1;
                 out_qty.Text = totalQty.ToString();
                 out_amt.Text = totalAmt.ToString();
-                lbl_numb_items_return.Text = "Number of return items: " + distinctQuantities.Count.ToString();
+                lbl_numb_items_return.Text = "Number of return items: " + dtg_Return.Rows.Count.ToString();
             }
             else
             {

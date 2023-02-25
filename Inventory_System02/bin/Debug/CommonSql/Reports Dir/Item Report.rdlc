@@ -1432,7 +1432,11 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Entry_Date.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
                 <TablixMember>
                   <Visibility>
                     <Hidden>=Parameters!Hide_Item_ID.Value = True</Hidden>
@@ -1463,16 +1467,56 @@
                     <Hidden>=Parameters!Hide_Price.Value = True</Hidden>
                   </Visibility>
                 </TablixMember>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Amount.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Supplier_ID.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Supplier_Name.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Customer_ID.Value = true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Customer_Name.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Customer_Address.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_User_ID.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Staff_Name.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Job_Role.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Parameters!Hide_Trans_Ref.Value=true</Hidden>
+                  </Visibility>
+                </TablixMember>
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -1500,7 +1544,7 @@
         <Height>3.09956in</Height>
         <Style />
       </Body>
-      <Width>17.33681in</Width>
+      <Width>16.53473in</Width>
       <Page>
         <PageHeader>
           <Height>5.47688cm</Height>

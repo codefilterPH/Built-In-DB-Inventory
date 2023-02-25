@@ -438,7 +438,7 @@ namespace Inventory_System02
             this.btn_stocks_out.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_stocks_out.Size = new System.Drawing.Size(225, 35);
             this.btn_stocks_out.TabIndex = 0;
-            this.btn_stocks_out.Text = "               Stock Outbound";
+            this.btn_stocks_out.Text = "               Outbound Stock";
             this.btn_stocks_out.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_stocks_out.UseVisualStyleBackColor = true;
             this.btn_stocks_out.Click += new System.EventHandler(this.btn_stocks_out_Click_1);
@@ -468,7 +468,7 @@ namespace Inventory_System02
             this.btn_Stocks.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_Stocks.Size = new System.Drawing.Size(225, 35);
             this.btn_Stocks.TabIndex = 0;
-            this.btn_Stocks.Text = "               Stock Inbound";
+            this.btn_Stocks.Text = "               Inbound Stock";
             this.btn_Stocks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Stocks.UseVisualStyleBackColor = true;
             this.btn_Stocks.Click += new System.EventHandler(this.btn_Stocks_Click);
