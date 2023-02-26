@@ -15,19 +15,19 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_00FBE80924114A7EB4A9929B36F897EE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_026C3FB82A3F4B83BFB15B6C3565D822"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0B3E2FEA0D4240E29456AA22C57052A3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0F80D115D899462599383B492765566D"
+        "MsmKey" = "8:_0E6BB3D15C5D4B82AFD37A6DA56F3105"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -41,6 +41,12 @@
         {
         "MsmKey" = "8:_0F92712F0B39B9BE3E2629AF3DB09E8E"
         "OwnerKey" = "8:_C17C11BA2AE613C0D2DAC8051D18D1BB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1133050D46B04CF0B0F139C699201C1A"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,19 +69,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_26478D0DE0234A938D203934160C1BAA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_289E01FE91653CD50D7D1DE77F90C330"
         "OwnerKey" = "8:_C9CC7D2376DF4B8EA18344646B3EAF54"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2F60F338FD164C87ADEF7F2F29A858A4"
+        "MsmKey" = "8:_333558C51E9145FA8F80B4336F2B38F1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -135,6 +135,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_46A29796057F48609E3A2401695591E7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_495D2F491E6658D9769D5B534F1BE425"
         "OwnerKey" = "8:_437094AA0F1786824012C207F815DD15"
         "MsmSig" = "8:_UNDEFINED"
@@ -147,7 +153,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6AB5CFB093804F7180AF98B8D7849CC6"
+        "MsmKey" = "8:_68F8789070CD4DAEB922B12D7CB7B1DD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -171,7 +177,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6EC6E292BD2E40E3B10261698B9DA16F"
+        "MsmKey" = "8:_7470857395284028830DE088DC652111"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -189,13 +195,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_77910E9042B64509B94E04CCB64A14D5"
+        "MsmKey" = "8:_7A9F8898819348F3A5E5B32FBC6E5CAF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7A9F8898819348F3A5E5B32FBC6E5CAF"
+        "MsmKey" = "8:_87132AEDD9B9443FA5633C29786F7916"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -309,6 +315,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BACD97CF4F154FC58AF15F246940B784"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BF58CB2217FF8FC6168593321257E74B"
         "OwnerKey" = "8:_C9CC7D2376DF4B8EA18344646B3EAF54"
         "MsmSig" = "8:_UNDEFINED"
@@ -322,12 +334,6 @@
         "Entry"
         {
         "MsmKey" = "8:_C9CC7D2376DF4B8EA18344646B3EAF54"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CB33787A621C4A5192D5E5E7E8FA1B7F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -357,6 +363,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D77D509CAF8340D687852CA98A3578FF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E1E95CBBAD0AF1240B2779601E6380CF"
         "OwnerKey" = "8:_41ED297C61842E0C2805924381E0B4A0"
         "MsmSig" = "8:_UNDEFINED"
@@ -370,12 +382,6 @@
         "Entry"
         {
         "MsmKey" = "8:_E6ACFB38BC054430AFF50135FDC76BC6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EA1BFF54186447198BACDC964249E67D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -406,12 +412,6 @@
         "Entry"
         {
         "MsmKey" = "8:_EF704299843E45539CB32AFF7BAA331F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F4DC2F2059F64B239E228511F6A47839"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -666,6 +666,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_00FBE80924114A7EB4A9929B36F897EE"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_In_Item.rdlc"
+            "TargetName" = "8:Invoice_In_Item.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_4ECDC002843145479DE6522774425902"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_026C3FB82A3F4B83BFB15B6C3565D822"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\x86\\SQLite.Interop.dll"
@@ -686,30 +706,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B3E2FEA0D4240E29456AA22C57052A3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E6BB3D15C5D4B82AFD37A6DA56F3105"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
-            "TargetName" = "8:Database.db"
-            "Tag" = "8:"
-            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F80D115D899462599383B492765566D"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Employee_Report.rdlc"
-            "TargetName" = "8:Employee_Report.rdlc"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Customer_Report.rdlc"
+            "TargetName" = "8:Customer_Report.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
             "Condition" = "8:"
@@ -755,6 +755,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1133050D46B04CF0B0F139C699201C1A"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_In.rdlc"
+            "TargetName" = "8:Invoice_In.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_4ECDC002843145479DE6522774425902"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14DB8037A8764D5F88787E90B3A8BCB0"
@@ -819,26 +839,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_26478D0DE0234A938D203934160C1BAA"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_out.rdlc"
-            "TargetName" = "8:Invoice_out.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_4ECDC002843145479DE6522774425902"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_289E01FE91653CD50D7D1DE77F90C330"
             {
             "AssemblyRegister" = "3:1"
@@ -870,10 +870,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F60F338FD164C87ADEF7F2F29A858A4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_333558C51E9145FA8F80B4336F2B38F1"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Item ReportStocksOutIn.rdlc"
-            "TargetName" = "8:Item ReportStocksOutIn.rdlc"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Employee_Report.rdlc"
+            "TargetName" = "8:Employee_Report.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
             "Condition" = "8:"
@@ -1034,6 +1034,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_46A29796057F48609E3A2401695591E7"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Supplier_Report.rdlc"
+            "TargetName" = "8:Supplier_Report.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_495D2F491E6658D9769D5B534F1BE425"
             {
             "SourcePath" = "8:AcroPDF.dll"
@@ -1085,12 +1105,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6AB5CFB093804F7180AF98B8D7849CC6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_68F8789070CD4DAEB922B12D7CB7B1DD"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_return.rdlc"
-            "TargetName" = "8:Invoice_return.rdlc"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Item Report.rdlc"
+            "TargetName" = "8:Item Report.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_4ECDC002843145479DE6522774425902"
+            "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1165,10 +1185,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EC6E292BD2E40E3B10261698B9DA16F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7470857395284028830DE088DC652111"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Customer_Report.rdlc"
-            "TargetName" = "8:Customer_Report.rdlc"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Item ReportStocksOutIn.rdlc"
+            "TargetName" = "8:Item ReportStocksOutIn.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
             "Condition" = "8:"
@@ -1216,12 +1236,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_77910E9042B64509B94E04CCB64A14D5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A9F8898819348F3A5E5B32FBC6E5CAF"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Item Report.rdlc"
-            "TargetName" = "8:Item Report.rdlc"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Company\\DONOTDELETE_SUBIMAGE.PNG"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.PNG"
             "Tag" = "8:"
-            "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
+            "Folder" = "8:_477BC43DFFA9463A98E0CE36CD8A7726"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1236,12 +1256,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A9F8898819348F3A5E5B32FBC6E5CAF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_87132AEDD9B9443FA5633C29786F7916"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Company\\DONOTDELETE_SUBIMAGE.PNG"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.PNG"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_out.rdlc"
+            "TargetName" = "8:Invoice_out.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_477BC43DFFA9463A98E0CE36CD8A7726"
+            "Folder" = "8:_4ECDC002843145479DE6522774425902"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1504,6 +1524,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BACD97CF4F154FC58AF15F246940B784"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
+            "TargetName" = "8:Database.db"
+            "Tag" = "8:"
+            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BF58CB2217FF8FC6168593321257E74B"
             {
             "AssemblyRegister" = "3:1"
@@ -1564,26 +1604,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CB33787A621C4A5192D5E5E7E8FA1B7F"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_In_Item.rdlc"
-            "TargetName" = "8:Invoice_In_Item.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_4ECDC002843145479DE6522774425902"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D71BF398D485856028413A9CFAB1BC36"
@@ -1648,6 +1668,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D77D509CAF8340D687852CA98A3578FF"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_return.rdlc"
+            "TargetName" = "8:Invoice_return.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_4ECDC002843145479DE6522774425902"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E1E95CBBAD0AF1240B2779601E6380CF"
             {
             "AssemblyRegister" = "3:1"
@@ -1685,26 +1725,6 @@
             "TargetName" = "8:admin.JPG"
             "Tag" = "8:"
             "Folder" = "8:_34865E4229FA45069E80CA0D137845CA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EA1BFF54186447198BACDC964249E67D"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Reports Dir\\Supplier_Report.rdlc"
-            "TargetName" = "8:Supplier_Report.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_CC3140582A9A400481535B9D137741C2"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1776,26 +1796,6 @@
             "TargetName" = "8:box.ico"
             "Tag" = "8:"
             "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4DC2F2059F64B239E228511F6A47839"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Invoice\\Invoice_In.rdlc"
-            "TargetName" = "8:Invoice_In.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_4ECDC002843145479DE6522774425902"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2030,7 +2030,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inventory_Setup"
         "ProductCode" = "8:{74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319}"
-        "PackageCode" = "8:{794B0E1E-F0CD-4890-A32A-DFE4CDB826AE}"
+        "PackageCode" = "8:{95AE6160-9947-4BD6-A76E-6C1AB1C86F27}"
         "UpgradeCode" = "8:{CB3894DF-9F2C-4F1C-8087-BD875F362B65}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
