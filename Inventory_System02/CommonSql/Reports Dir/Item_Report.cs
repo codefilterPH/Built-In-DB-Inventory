@@ -19,7 +19,7 @@ using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace Inventory_System02.Reports_Dir
 {
-    
+
     public partial class Item_Report : Form
     {
 
@@ -39,7 +39,7 @@ namespace Inventory_System02.Reports_Dir
         string datef = string.Empty;
         string FileName = string.Empty;
         double price = 0, quantity = 0, sub_amt = 0, total_val = 0, rows_count = 0;
-       
+
 
         public Item_Report(string userid, string name, string jobrole)
         {
@@ -49,7 +49,7 @@ namespace Inventory_System02.Reports_Dir
             JobRole = jobrole;
 
         }
-      
+
         private void Item_Report_Load_1(object sender, EventArgs e)
         {
             chk_Cust_ID.Visible = false;
@@ -61,7 +61,7 @@ namespace Inventory_System02.Reports_Dir
             chk_Quantity.Checked = true;
             chk_Price.Checked = true;
             chk_total.Checked = true;
-          
+
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
@@ -108,7 +108,7 @@ namespace Inventory_System02.Reports_Dir
         private void calculate_Total()
         {
             ClearVariables();
-            foreach ( DataGridViewRow rw in dtg_PreviewPage.Rows )
+            foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
             {
                 quantity = Convert.ToDouble(rw.Cells[6].Value);
                 price = Convert.ToDouble(rw.Cells[7].Value);
@@ -151,8 +151,9 @@ namespace Inventory_System02.Reports_Dir
             Group_Filtering_MustNotEmpty();
             WhatTable_To_Select();
 
-             sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '"+ dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
-       
+
+            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
+
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
@@ -342,7 +343,7 @@ namespace Inventory_System02.Reports_Dir
                 }
 
             }
-           
+
         }
 
         private void chk_Unselect_CheckedChanged(object sender, EventArgs e)
@@ -363,14 +364,14 @@ namespace Inventory_System02.Reports_Dir
 
         private void cbo_report_type_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if ( cbo_report_type.Text == "Stock In")
+            if (cbo_report_type.Text == "Stock In")
             {
                 chk_Cust_ID.Visible = false;
                 chk_Cust_Name.Visible = false;
                 chk_Cust_Address.Visible = false;
 
                 chk_Sup_ID.Visible = true;
-                chk_Sup_Name.Visible = true;         
+                chk_Sup_Name.Visible = true;
             }
             else
             {
@@ -396,7 +397,7 @@ namespace Inventory_System02.Reports_Dir
             dtg_PreviewPage.Columns["Quantity"].DisplayIndex = 5;
             dtg_PreviewPage.Columns["Price"].DisplayIndex = 6;
 
-            if ( cbo_report_type.Text == "Stock In")
+            if (cbo_report_type.Text == "Stock In")
             {
                 dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 7;
                 dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 8;
@@ -410,14 +411,6 @@ namespace Inventory_System02.Reports_Dir
             dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 11;
             dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 12;
 
-            
-
-
-        }
-
-        private void cbo_Date_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Calculate_Filtering("load", cbo_report_type.Text);
         }
 
         private void chk_Select_All_CheckedChanged_1(object sender, EventArgs e)
@@ -469,7 +462,7 @@ namespace Inventory_System02.Reports_Dir
 
         private void btn_Batch_Click_1(object sender, EventArgs e)
         {
-            Calculate_Filtering("batch", cbo_report_type.Text); 
+            Calculate_Filtering("batch", cbo_report_type.Text);
         }
 
         private void btn_Print_Preview_Click_1(object sender, EventArgs e)
@@ -486,49 +479,6 @@ namespace Inventory_System02.Reports_Dir
             sub_amt = 0;
         }
         double quantity1 = 0;
-
-        private void cbo_report_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Enabled or Hide
-            if (cbo_report_type.Text == "Stock In")
-            {
-                chk_Cust_ID.Visible = false;
-                chk_Cust_Name.Visible = false;
-                chk_Cust_Address.Visible = false;
-                chk_Sup_ID.Visible = true;
-                chk_Sup_Name.Visible = true;
-            }
-            else
-            {
-                chk_Sup_ID.Visible = false;
-                chk_Sup_Name.Visible = false;
-                chk_Cust_ID.Visible = true;
-                chk_Cust_Name.Visible = true;
-                chk_Cust_Address.Visible = true;
-            }
-            //Check if selected
-            if (cbo_report_type.Text == "Stock In")
-            {
-                chk_Cust_ID.Checked = false;
-                chk_Cust_Name.Checked = false;
-                chk_Cust_Address.Checked = false;
-                chk_Sup_ID.Checked = true;
-                chk_Sup_Name.Checked = true;
-                chk_Item_Name.Checked = true;
-            }
-            else
-            {
-                chk_Sup_ID.Checked = false;
-                chk_Sup_Name.Checked = false;
-                chk_Cust_ID.Checked = true;
-                chk_Cust_Name.Checked = true;
-                chk_Cust_Address.Checked = true;
-
-            }
-            chk_Item_Name.Checked = true;
-            chk_Quantity.Checked = true;
-            chk_Price.Checked = true;
-        }
     }
     public class Class_Item_Var
     {

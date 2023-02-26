@@ -114,7 +114,6 @@ namespace Inventory_System02.Profiles
             reloadTableToolStripMenuItem_Click(sender, e);
             timer1.Start();
         }
-        double count1 = 0;
         private void reloadTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sql = "Select * from Employee ORDER BY `Hired Date` DESC";

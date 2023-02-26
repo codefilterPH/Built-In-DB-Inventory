@@ -317,3 +317,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Items.Return_Preview.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Analytics.dashboard.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Employee_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.CommonSql.Reports_Dir.Item_Qty.Item_by_Quantity.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.CommonSql.Reports_Dir.Item_Qty.Edit_QTY.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc

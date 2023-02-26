@@ -14,39 +14,15 @@ using System.Text;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
 using Inventory_System02.Reports_Dir;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Inventory_System02.Includes
 {
     class usableFunction
     {
 
-        public void clearTxt(Control container)
-        {
-            try
-            {
-                //'for each txt as control in this(object).control
-                foreach (Control txt in container.Controls)
-                {
-                    //conditioning the txt as control by getting it's type.
-                    //the type of txt as control must be textbox.
-                    if (txt is TextBox)
-                    {
-                        //if the object(textbox) is present. The result is, the textbox will be cleared.
-                        txt.Text = "";
-                    }
-                    if (txt is RichTextBox)
-                    {
-                        txt.Text = "";
-                    }
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
 
         //initialize the validating method
         static Regex Valid_Name = StringOnly();
@@ -86,9 +62,43 @@ namespace Inventory_System02.Includes
 
             return new Regex(Password_Pattern, RegexOptions.IgnoreCase);
         }
+
+        //my func
+        public void clearTxt(Control container)
+        {
+            try
+            {
+                //'for each txt as control in this(object).control
+                foreach (Control txt in container.Controls)
+                {
+                    //conditioning the txt as control by getting it's type.
+                    //the type of txt as control must be textbox.
+                    if (txt is TextBox)
+                    {
+                        //if the object(textbox) is present. The result is, the textbox will be cleared.
+                        txt.Text = "";
+                    }
+                    if (txt is RichTextBox)
+                    {
+                        txt.Text = "";
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void ResponsiveDtg(DataGridView dtg)
         {
             dtg.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+        }
+        //textboxes
+        public void TextBox_Readonly(object sender, EventArgs e, TextBox txt)
+        {
+            txt.ReadOnly = true;
         }
         public void KeyPress_Textbox_Numberonly(object sender, KeyPressEventArgs e)
         {
@@ -104,14 +114,6 @@ namespace Inventory_System02.Includes
                 e.Handled = true;
             }
         }
-
-        public void Make_Alphanumeric_TextBox(object sender, KeyPressEventArgs e)
-        {
-            var textboxSender = (TextBox)sender;
-            var cursorPosition = textboxSender.SelectionStart;
-            textboxSender.Text = Regex.Replace(textboxSender.Text, "[^0-9a-zA-Z ]", "");
-            textboxSender.SelectionStart = cursorPosition;
-        }
         public void Make_Numeric_Only(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -125,6 +127,13 @@ namespace Inventory_System02.Includes
             {
                 e.Handled = true;
             }
+        }
+        public void Make_Alphanumeric_TextBox(object sender, KeyPressEventArgs e)
+        {
+            var textboxSender = (TextBox)sender;
+            var cursorPosition = textboxSender.SelectionStart;
+            textboxSender.Text = Regex.Replace(textboxSender.Text, "[^0-9a-zA-Z ]", "");
+            textboxSender.SelectionStart = cursorPosition;
         }
         public void Numbers_and_Hyphen_Only(object sender, KeyPressEventArgs e)
         {
@@ -157,6 +166,17 @@ namespace Inventory_System02.Includes
             }
 
         }
+        public void Philippine_Mobile(object sender, EventArgs e)
+        {
+            /*
+            var textboxSender = (TextBox)sender;
+            var cursorPosition = textboxSender.SelectionStart;
+            textboxSender.Text = Regex.Replace(textboxSender.Text, @"^(09 |\+639)\d{ 9}$", "");
+            textboxSender.SelectionStart = cursorPosition;
+            */
+
+
+        }
         public void Two_Decimal_Places(object sender, EventArgs e, TextBox txt)
         {
             if (txt.Text == "" || txt.Text == null)
@@ -169,6 +189,7 @@ namespace Inventory_System02.Includes
             }
 
         }
+        //dtg
         public void Datagrid_Setup(DataGridView dtg)
         {
             if (dtg.Rows.Count > 0)
@@ -196,17 +217,7 @@ namespace Inventory_System02.Includes
             }
 
         }
-        public void Philippine_Mobile(object sender, EventArgs e)
-        {
-            /*
-            var textboxSender = (TextBox)sender;
-            var cursorPosition = textboxSender.SelectionStart;
-            textboxSender.Text = Regex.Replace(textboxSender.Text, @"^(09 |\+639)\d{ 9}$", "");
-            textboxSender.SelectionStart = cursorPosition;
-            */
-        
-
-        }
+       
         public string Error_Message1;
         public void Error_Message()
         {

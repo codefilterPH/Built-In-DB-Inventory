@@ -36,6 +36,7 @@ namespace Inventory_System02
             this.customerReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report_panel = new System.Windows.Forms.Panel();
+            this.itemByQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,8 @@ namespace Inventory_System02
             // itemListToolStripMenuItem
             // 
             this.itemListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.itemListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemByQuantityToolStripMenuItem});
             this.itemListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.itemListToolStripMenuItem.Name = "itemListToolStripMenuItem";
@@ -104,6 +107,15 @@ namespace Inventory_System02
             this.report_panel.Size = new System.Drawing.Size(776, 411);
             this.report_panel.TabIndex = 1;
             // 
+            // itemByQuantityToolStripMenuItem
+            // 
+            this.itemByQuantityToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.itemByQuantityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.itemByQuantityToolStripMenuItem.Name = "itemByQuantityToolStripMenuItem";
+            this.itemByQuantityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itemByQuantityToolStripMenuItem.Text = "Item By Quantity";
+            this.itemByQuantityToolStripMenuItem.Click += new System.EventHandler(this.itemByQuantityToolStripMenuItem_Click);
+            // 
             // Reports_MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -132,5 +144,6 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem customerReportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierReportsToolStripMenuItem;
         private System.Windows.Forms.Panel report_panel;
+        private System.Windows.Forms.ToolStripMenuItem itemByQuantityToolStripMenuItem;
     }
 }

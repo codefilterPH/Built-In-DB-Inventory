@@ -135,6 +135,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_69AD3D4ED1A14A889EC599125E073E93"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6B82CAC46EFF4295903FC2799773B48F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -364,12 +370,6 @@
         "Entry"
         {
         "MsmKey" = "8:_E6CD8A1CD5C944C092F35E6F51F5A6B0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EB30A4C9B15644A68EC64FA343CBDB7D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1045,6 +1045,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69AD3D4ED1A14A889EC599125E073E93"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
+            "TargetName" = "8:Database.db"
+            "Tag" = "8:"
+            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B82CAC46EFF4295903FC2799773B48F"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\DONOTDELETE_SUBIMAGE.JPG"
@@ -1679,26 +1699,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB30A4C9B15644A68EC64FA343CBDB7D"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
-            "TargetName" = "8:Database.db"
-            "Tag" = "8:"
-            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EC56E620795B46D2BB7FF13DBE3AEDF5"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Item\\Image\\DONOTDELETE_SUBIMAGE.PNG"
@@ -2030,7 +2030,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inventory_Setup"
         "ProductCode" = "8:{74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319}"
-        "PackageCode" = "8:{95AE6160-9947-4BD6-A76E-6C1AB1C86F27}"
+        "PackageCode" = "8:{5968AA7F-78A7-427E-A809-F64F3FF15BDD}"
         "UpgradeCode" = "8:{CB3894DF-9F2C-4F1C-8087-BD875F362B65}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

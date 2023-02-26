@@ -142,6 +142,18 @@
     <Compile Include="Batch_Form.designer.cs">
       <DependentUpon>Batch_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.Designer.cs">
+      <DependentUpon>Edit_QTY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonSql\Reports Dir\Item_Qty\Item_by_Quantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonSql\Reports Dir\Item_Qty\Item_by_Quantity.Designer.cs">
+      <DependentUpon>Item_by_Quantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustSupplier\CustSupp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +307,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Invoice\Invoice_In.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.resx">
+      <DependentUpon>Edit_QTY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Item_by_Quantity.resx">
+      <DependentUpon>Item_by_Quantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Supplier_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

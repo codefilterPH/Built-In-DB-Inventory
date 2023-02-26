@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_System02.CommonSql.Reports_Dir.Item_Qty;
 
 namespace Inventory_System02
 {
@@ -56,6 +57,26 @@ namespace Inventory_System02
             Panel_content_remove();
             Reports_Dir.Supplier_Report frm = new Reports_Dir.Supplier_Report(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(report_panel, frm);
+        }
+
+        private void itemByQuantityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            Edit_QTY frm = new Edit_QTY();
+            DialogResult result = frm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                int from_Qty = 0;
+                int to_Qty = 0;
+                // Get the data entered by the user from the MyData property of the form
+                from_Qty = frm.from_qty;
+                to_Qty = frm.to_qty;
+               
+                Panel_content_remove();
+                Item_by_Quantity new_frm = new Item_by_Quantity(from_Qty, to_Qty);
+                ShowFormInContainerControl(report_panel, new_frm);
+            }
+
         }
 
         public void Panel_content_remove()
