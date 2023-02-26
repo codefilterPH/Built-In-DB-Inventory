@@ -107,13 +107,19 @@ namespace Inventory_System02.Profiles
             if (dtg_User.Columns.Count > 0)
             {
                 dtg_User.Columns[0].Visible = false;
-                if (Global_ID != "admin")
-                {
-                    dtg_User.Rows.RemoveAt(0);
-                }
-
                 config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
+                foreach (DataGridViewRow row in dtg_User.Rows)
+                {
+                    if (row.Cells[2].Value != null && row.Cells[2].Value.ToString().Equals("admin"))
+                    {
+                        if ( Global_ID != "admin")
+                        {
+                            row.Visible = false;
+                        }
+                     
+                    }
+                }
 
                 foreach (DataRow rw in config.dt.Rows)
                 {
