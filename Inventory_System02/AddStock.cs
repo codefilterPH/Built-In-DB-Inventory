@@ -463,15 +463,19 @@ namespace Inventory_System02
 
         private void newItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btn_Gen_Click(sender, e);
+         
             gen.Item_ID();
             sql = "Select `Item ID` from ID_Generated where count = '1'";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-                txt_Barcode.Text = config.dt.Rows[0].Field<string>("Item ID");
-                cbo_brand.Text = "Replace me with existing brand or enter new one.";
+                txt_Barcode.Text = config.dt.Rows[0].Field<string>("Item ID"); 
+                cbo_brand.Text = "Replace me with existing brand or new one.";
                 txt_ItemName.Text = "Replace me with new name.";
+                txt_Price.Text = "0.00";
+                txt_Qty.Text = "0";
+                cbo_desc.Text = "None";
+
             }
         }
 
@@ -619,8 +623,7 @@ namespace Inventory_System02
                     ",'" + txt_TransRef.Text + "'  )";
                 config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to database!");
                 save_Ref = txt_TransRef.Text;
-                txt_Price.Text = "0.00";
-                txt_Qty.Text = "1";
+                newItemToolStripMenuItem_Click(sender, e);
                 txt_ItemName.Focus();
                 txt_Search_TextChanged(sender, e);
                 Calculator_Timer.Start();

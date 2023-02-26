@@ -63,32 +63,54 @@ namespace Inventory_System02
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (dtg_return_list.SelectedRows.Count > 0)
                 {
                     foreach (DataGridViewRow rw in dtg_return_list.SelectedRows)
                     {
-                        sql = "Delete from `Stock Returned` where `Transaction Reference` = '" + rw.Cells[15].Value.ToString() + "' ";
-                        config.Execute_Query(sql);
-
-                        sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + rw.Cells[15].Value.ToString() + "' ";
-                        config.singleResult(sql);
-                        if (config.dt.Rows.Count == 0)
+                        // Check if the config object is initialized properly
+                        if (config == null)
                         {
-                            MessageBox.Show("Returned Stocks successfully deleted");
+                            MessageBox.Show("Config object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+
+                        string transactionRef = rw.Cells[15].Value?.ToString();
+
+                        // Check if the transaction reference is null or empty
+                        if (string.IsNullOrEmpty(transactionRef))
+                        {
+                            MessageBox.Show("Transaction reference is null or empty. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
+                        }
+
+                        string sql = "SELECT * FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
+                        config.singleResult(sql);
+
+                        // Check if the dt object is properly initialized
+                        if (config.dt == null)
+                        {
+                            MessageBox.Show("DT object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+
+                        if (config.dt.Rows.Count > 0)
+                        {
+                            sql = "DELETE FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
+                            config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
+                            refreshTableToolStripMenuItem_Click(sender, e);
                         }
                         else
                         {
-                            MessageBox.Show("Unsucessful deletion of returned stocks please review and try again.", "Warning Message",
+                            MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return;
                         }
-                        refreshTableToolStripMenuItem_Click(sender, e);
+
                         chk_all.Checked = false;
                     }
-
                 }
             }
 
