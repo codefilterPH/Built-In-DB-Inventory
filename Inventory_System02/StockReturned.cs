@@ -492,7 +492,7 @@ namespace Inventory_System02
 
                         menuStrip2.Focus();
                         TOTALS();
-                        btn_StockReturn_Click(sender, e);
+                       
                                           
                     }
                     else

@@ -41,16 +41,12 @@ namespace Inventory_System02
                 sql = "Select * from `Product Name`";
                 config.Load_DTG(sql, dtg_settings);
             }
-            else if (cbo_type.Text == "Brand")
+            else
             {
                 sql = "Select * from Brand";
                 config.Load_DTG(sql, dtg_settings);
             }
-            else
-            {
-                sql = "Select * from Description";
-                config.Load_DTG(sql, dtg_settings);
-            }
+
             txt_Def_text.Text = "";
 
             dtg_settings.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -148,7 +144,7 @@ namespace Inventory_System02
                 setting_name = "`Employee Role`";
             }
 
-            if (setting_name == "`Product Name`" || setting_name == "`Brand`" || setting_name == "`Description`")
+            if (setting_name == "`Product Name`" || setting_name == "`Brand`")
             {
                 col = "Name";
             }
@@ -171,7 +167,7 @@ namespace Inventory_System02
                 
                 sql = "Update "+setting_name+" set "+ col +" =  '" + txt_Def_text.Text + "'  where Count = '" + txt_ID.Text + "' ";
                 config.Execute_CUD(sql, "Unsuccessful to update settings \n\n Either an error occured or Needs to Highlight from the table!",
-                    "Settings for description successfully updated");
+                    "Settings successfully updated");
             }
             else
             {

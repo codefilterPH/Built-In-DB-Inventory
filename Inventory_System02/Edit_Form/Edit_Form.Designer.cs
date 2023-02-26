@@ -79,7 +79,9 @@
             this.txt_qty.TabIndex = 2;
             this.txt_qty.Text = "0";
             this.txt_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_qty.TextChanged += new System.EventHandler(this.txt_qty_TextChanged);
             this.txt_qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_qty_KeyDown);
+            this.txt_qty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_qty_KeyPress);
             // 
             // btn_ok
             // 

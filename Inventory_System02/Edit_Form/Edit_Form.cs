@@ -44,5 +44,16 @@ namespace Inventory_System02.Edit_Form
                 btn_ok_Click(sender, e);
             }
         }
+
+        private void txt_qty_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_qty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            usableFunction func = new usableFunction();
+            func.Make_Numeric_Only(sender,e);
+        }
     }
 }

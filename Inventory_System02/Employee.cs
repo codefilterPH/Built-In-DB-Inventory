@@ -108,18 +108,22 @@ namespace Inventory_System02.Profiles
             {
                 dtg_User.Columns[0].Visible = false;
                 config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-
+                int visibleRowCount = 0;
                 foreach (DataGridViewRow row in dtg_User.Rows)
                 {
                     if (row.Cells[2].Value != null && row.Cells[2].Value.ToString().Equals("admin"))
                     {
-                        if ( Global_ID != "admin")
+                        if (Global_ID != "admin")
                         {
                             row.Visible = false;
                         }
-                     
+                    }
+                    if (row.Visible)
+                    {
+                        visibleRowCount++;
                     }
                 }
+                lbl_total_emp.Text = visibleRowCount.ToString();
 
                 foreach (DataRow rw in config.dt.Rows)
                 {
@@ -164,13 +168,7 @@ namespace Inventory_System02.Profiles
 
                         break;
                     }
-                }
-                for (int i = 0; i < dtg_User.Rows.Count; i++)
-                {
-                    count1 = i;
-                }
-                count1 += 1;
-                lbl_total_emp.Text = count1.ToString();
+                }  
             }
             dtg_User.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);

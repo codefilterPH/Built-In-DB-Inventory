@@ -611,7 +611,7 @@ namespace Inventory_System02
 
                         menuStrip2.Focus();
                         TOTALS();
-                        btn_Saved_Click(sender, e);
+                       
                     }
                     else
                     {
