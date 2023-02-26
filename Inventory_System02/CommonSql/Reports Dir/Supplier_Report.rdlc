@@ -107,7 +107,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Entry Date</Value>
+                                  <Value>DATE</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -145,7 +145,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Supplier Id</Value>
+                                  <Value>ID</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -183,7 +183,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Supplier Name</Value>
+                                  <Value>NAME</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -221,7 +221,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Email</Value>
+                                  <Value>EMAIL</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -259,7 +259,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Phone</Value>
+                                  <Value>PHONE</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -297,7 +297,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Address</Value>
+                                  <Value>ADDRESS</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -600,7 +600,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Supplier Information</Value>
+                      <Value>SUPPLIER'S REPORT INFORMATION</Value>
                       <Style>
                         <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -614,7 +614,7 @@
               <Top>0.52021cm</Top>
               <Left>0.3175cm</Left>
               <Height>1.42021cm</Height>
-              <Width>5.56382cm</Width>
+              <Width>10.16757cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -642,7 +642,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>3.066cm</Top>
-              <Left>6.05834cm</Left>
+              <Left>6.37584cm</Left>
               <Height>0.61171cm</Height>
               <Width>5.11938cm</Width>
               <ZIndex>1</ZIndex>
@@ -675,7 +675,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>3.07771cm</Top>
-              <Left>1.98847cm</Left>
+              <Left>2.30597cm</Left>
               <Height>0.6cm</Height>
               <Width>3.34667cm</Width>
               <ZIndex>2</ZIndex>
@@ -709,7 +709,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>3.066cm</Top>
-              <Left>5.29987cm</Left>
+              <Left>5.61737cm</Left>
               <Height>0.61171cm</Height>
               <Width>0.68792cm</Width>
               <ZIndex>3</ZIndex>
@@ -730,7 +730,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Report Date</Value>
+                      <Value>REPORT DATE</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -743,7 +743,7 @@
               <Top>3.07771cm</Top>
               <Left>0.3175cm</Left>
               <Height>0.6cm</Height>
-              <Width>2.12958cm</Width>
+              <Width>2.60583cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>

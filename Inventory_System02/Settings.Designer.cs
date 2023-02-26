@@ -31,6 +31,8 @@ namespace Inventory_System02
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_ID = new System.Windows.Forms.TextBox();
@@ -136,16 +138,24 @@ namespace Inventory_System02
             this.dtg_settings.AllowUserToAddRows = false;
             this.dtg_settings.AllowUserToDeleteRows = false;
             this.dtg_settings.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
+            this.dtg_settings.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_settings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_settings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_settings.Location = new System.Drawing.Point(54, 142);
             this.dtg_settings.Name = "dtg_settings";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtg_settings.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_settings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_settings.Size = new System.Drawing.Size(314, 124);
             this.dtg_settings.TabIndex = 6;
-            this.dtg_settings.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtg_settings_CellBeginEdit);
             this.dtg_settings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dtg_settings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_settings_CellEndEdit);
             // 
             // btn_edit
             // 

@@ -163,7 +163,7 @@ namespace Inventory_System02
             this.txt_CustAddress.Name = "txt_CustAddress";
             this.txt_CustAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_CustAddress.Size = new System.Drawing.Size(331, 54);
-            this.txt_CustAddress.TabIndex = 10;
+            this.txt_CustAddress.TabIndex = 4;
             // 
             // label6
             // 
@@ -179,7 +179,7 @@ namespace Inventory_System02
             this.txt_CustName.Location = new System.Drawing.Point(119, 67);
             this.txt_CustName.Name = "txt_CustName";
             this.txt_CustName.Size = new System.Drawing.Size(167, 25);
-            this.txt_CustName.TabIndex = 8;
+            this.txt_CustName.TabIndex = 3;
             // 
             // label7
             // 
@@ -216,7 +216,7 @@ namespace Inventory_System02
             this.txt_CustID.Location = new System.Drawing.Point(119, 38);
             this.txt_CustID.Name = "txt_CustID";
             this.txt_CustID.Size = new System.Drawing.Size(167, 25);
-            this.txt_CustID.TabIndex = 5;
+            this.txt_CustID.TabIndex = 2;
             // 
             // btn_searchStocks
             // 
@@ -225,7 +225,7 @@ namespace Inventory_System02
             this.btn_searchStocks.Location = new System.Drawing.Point(364, 7);
             this.btn_searchStocks.Name = "btn_searchStocks";
             this.btn_searchStocks.Size = new System.Drawing.Size(32, 23);
-            this.btn_searchStocks.TabIndex = 4;
+            this.btn_searchStocks.TabIndex = 0;
             this.btn_searchStocks.UseVisualStyleBackColor = true;
             this.btn_searchStocks.Click += new System.EventHandler(this.btn_searchStocks_Click);
             this.btn_searchStocks.MouseHover += new System.EventHandler(this.btn_searchStocks_MouseHover);
@@ -245,7 +245,7 @@ namespace Inventory_System02
             this.txt_TransRefOut.Location = new System.Drawing.Point(191, 7);
             this.txt_TransRefOut.Name = "txt_TransRefOut";
             this.txt_TransRefOut.Size = new System.Drawing.Size(167, 25);
-            this.txt_TransRefOut.TabIndex = 2;
+            this.txt_TransRefOut.TabIndex = 1;
             this.txt_TransRefOut.TextChanged += new System.EventHandler(this.txt_TransRefOut_TextChanged);
             // 
             // label1
@@ -262,7 +262,7 @@ namespace Inventory_System02
             this.txt_Search.Location = new System.Drawing.Point(55, 4);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(110, 25);
-            this.txt_Search.TabIndex = 0;
+            this.txt_Search.TabIndex = 14;
             this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
             // 
             // panel2
@@ -297,7 +297,7 @@ namespace Inventory_System02
             this.btn_view.Location = new System.Drawing.Point(510, 25);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(133, 23);
-            this.btn_view.TabIndex = 98;
+            this.btn_view.TabIndex = 7;
             this.btn_view.Text = "View item";
             this.btn_view.UseVisualStyleBackColor = false;
             this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
@@ -332,7 +332,7 @@ namespace Inventory_System02
             this.cbo_srch_type.Location = new System.Drawing.Point(231, 6);
             this.cbo_srch_type.Name = "cbo_srch_type";
             this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
-            this.cbo_srch_type.TabIndex = 96;
+            this.cbo_srch_type.TabIndex = 15;
             this.cbo_srch_type.Text = "Name";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
@@ -354,7 +354,7 @@ namespace Inventory_System02
             this.chk_all.Location = new System.Drawing.Point(3, 32);
             this.chk_all.Name = "chk_all";
             this.chk_all.Size = new System.Drawing.Size(71, 17);
-            this.chk_all.TabIndex = 82;
+            this.chk_all.TabIndex = 6;
             this.chk_all.Text = "Select all";
             this.chk_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk_all.UseVisualStyleBackColor = true;
@@ -371,7 +371,7 @@ namespace Inventory_System02
             this.btn_sup_add.Location = new System.Drawing.Point(649, 25);
             this.btn_sup_add.Name = "btn_sup_add";
             this.btn_sup_add.Size = new System.Drawing.Size(133, 23);
-            this.btn_sup_add.TabIndex = 32;
+            this.btn_sup_add.TabIndex = 8;
             this.btn_sup_add.Text = "Add selected below";
             this.btn_sup_add.UseVisualStyleBackColor = false;
             this.btn_sup_add.Click += new System.EventHandler(this.btn_sup_add_Click);
@@ -381,9 +381,9 @@ namespace Inventory_System02
             this.dtg_Items.AllowUserToAddRows = false;
             this.dtg_Items.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
             this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -405,14 +405,14 @@ namespace Inventory_System02
             this.dtg_Items.ReadOnly = true;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_Items.RowTemplate.Height = 70;
             this.dtg_Items.Size = new System.Drawing.Size(776, 104);
-            this.dtg_Items.TabIndex = 0;
+            this.dtg_Items.TabIndex = 5;
             this.dtg_Items.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Items_CellClick);
             this.dtg_Items.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Items_CellDoubleClick);
             // 
@@ -426,7 +426,7 @@ namespace Inventory_System02
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(794, 24);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // stockOutListToolStripMenuItem
@@ -498,7 +498,7 @@ namespace Inventory_System02
             this.btn_edit.Location = new System.Drawing.Point(512, 17);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(133, 23);
-            this.btn_edit.TabIndex = 98;
+            this.btn_edit.TabIndex = 10;
             this.btn_edit.Text = "Edit selection";
             this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
@@ -521,7 +521,7 @@ namespace Inventory_System02
             this.chk_all2.Location = new System.Drawing.Point(5, 24);
             this.chk_all2.Name = "chk_all2";
             this.chk_all2.Size = new System.Drawing.Size(71, 17);
-            this.chk_all2.TabIndex = 90;
+            this.chk_all2.TabIndex = 13;
             this.chk_all2.Text = "Select all";
             this.chk_all2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk_all2.UseVisualStyleBackColor = true;
@@ -547,7 +547,7 @@ namespace Inventory_System02
             this.txt_Reasons.Multiline = true;
             this.txt_Reasons.Name = "txt_Reasons";
             this.txt_Reasons.Size = new System.Drawing.Size(506, 32);
-            this.txt_Reasons.TabIndex = 88;
+            this.txt_Reasons.TabIndex = 12;
             // 
             // chk_review
             // 
@@ -558,7 +558,7 @@ namespace Inventory_System02
             this.chk_review.Location = new System.Drawing.Point(347, 21);
             this.chk_review.Name = "chk_review";
             this.chk_review.Size = new System.Drawing.Size(159, 17);
-            this.chk_review.TabIndex = 87;
+            this.chk_review.TabIndex = 16;
             this.chk_review.Text = "Enable Return Stock Button";
             this.chk_review.UseVisualStyleBackColor = true;
             this.chk_review.CheckedChanged += new System.EventHandler(this.chk_review_CheckedChanged);
@@ -651,7 +651,7 @@ namespace Inventory_System02
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtg_Return.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dtg_Return.Size = new System.Drawing.Size(778, 103);
-            this.dtg_Return.TabIndex = 35;
+            this.dtg_Return.TabIndex = 9;
             this.dtg_Return.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Return_CellClick);
             this.dtg_Return.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Return_CellEndEdit);
             this.dtg_Return.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Return_CellEndEdit);
@@ -731,7 +731,7 @@ namespace Inventory_System02
             // btn_sup_delete
             // 
             this.btn_sup_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_delete.BackColor = System.Drawing.Color.Maroon;
+            this.btn_sup_delete.BackColor = System.Drawing.Color.Firebrick;
             this.btn_sup_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
@@ -739,7 +739,7 @@ namespace Inventory_System02
             this.btn_sup_delete.Location = new System.Drawing.Point(651, 17);
             this.btn_sup_delete.Name = "btn_sup_delete";
             this.btn_sup_delete.Size = new System.Drawing.Size(130, 23);
-            this.btn_sup_delete.TabIndex = 33;
+            this.btn_sup_delete.TabIndex = 11;
             this.btn_sup_delete.Text = "Remove selected";
             this.btn_sup_delete.UseVisualStyleBackColor = false;
             this.btn_sup_delete.Click += new System.EventHandler(this.btn_sup_delete_Click);
@@ -752,7 +752,7 @@ namespace Inventory_System02
             this.menuStrip2.Location = new System.Drawing.Point(0, 480);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(794, 29);
-            this.menuStrip2.TabIndex = 3;
+            this.menuStrip2.TabIndex = 17;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // btn_StockReturn

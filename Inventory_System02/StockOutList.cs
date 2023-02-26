@@ -94,6 +94,7 @@ namespace Inventory_System02
                         lbl_DueDate.Text = "";
                     }
                 }
+                chk_all.Checked = false;
             }
         }
 
@@ -136,16 +137,17 @@ namespace Inventory_System02
                         {
                             sql = "DELETE FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
                             config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
-                            refreshTableToolStripMenuItem_Click(sender, e);
+                           
                         }
                         else
                         {
                             MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-
                         chk_all.Checked = false;
+
                     }
+                    refreshTableToolStripMenuItem_Click(sender, e);
                 }
             }
 
@@ -234,6 +236,11 @@ namespace Inventory_System02
                     );
 
                     frm.ShowDialog();
+                }
+                else
+                {
+                    txt_Trans_number.Text = "Empty Field!";
+                    txt_Trans_number.Focus();
                 }
 
             }

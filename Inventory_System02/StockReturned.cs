@@ -307,12 +307,10 @@ namespace Inventory_System02
         private void dtg_Items_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_sup_add.Focus();
-            chk_all.Checked = false;
             if (dtg_Items.Rows.Count > 0)
             {
                 func.Change_Font_DTG(sender, e, dtg_Items);
                 chk_all.Checked = false;
-                chk_all2.Checked = false;
             }
         }
 
@@ -390,7 +388,6 @@ namespace Inventory_System02
 
         private void dtg_Return_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            chk_all.Checked = false;
             chk_all2.Checked = false;
         }
         private void EnableAll()

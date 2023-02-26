@@ -338,9 +338,6 @@
     <EmbeddedResource Include="CommonSql\Reports Dir\Employee_Report.resx">
       <DependentUpon>Employee_Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Item ReportStocksOutIn.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Report.resx">
       <DependentUpon>Item_Report.cs</DependentUpon>
     </EmbeddedResource>

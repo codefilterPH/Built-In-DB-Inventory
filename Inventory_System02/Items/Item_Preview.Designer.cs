@@ -229,16 +229,17 @@
             // 
             // txt_price
             // 
-            this.txt_price.Location = new System.Drawing.Point(458, 310);
+            this.txt_price.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_price.Location = new System.Drawing.Point(458, 309);
             this.txt_price.Name = "txt_price";
-            this.txt_price.Size = new System.Drawing.Size(220, 23);
+            this.txt_price.Size = new System.Drawing.Size(220, 26);
             this.txt_price.TabIndex = 6;
             this.txt_price.Text = "0";
             this.txt_price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_amt
             // 
-            this.txt_amt.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_amt.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_amt.ForeColor = System.Drawing.Color.Blue;
             this.txt_amt.Location = new System.Drawing.Point(458, 344);
             this.txt_amt.Multiline = true;
@@ -296,6 +297,7 @@
             // btn_print
             // 
             this.btn_print.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_print.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print.ForeColor = System.Drawing.Color.White;
             this.btn_print.Location = new System.Drawing.Point(582, 449);
@@ -309,6 +311,7 @@
             // btn_print_preview
             // 
             this.btn_print_preview.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_print_preview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_print_preview.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print_preview.ForeColor = System.Drawing.Color.White;
             this.btn_print_preview.Location = new System.Drawing.Point(480, 449);
@@ -321,9 +324,10 @@
             // 
             // txt_qty
             // 
-            this.txt_qty.Location = new System.Drawing.Point(458, 276);
+            this.txt_qty.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_qty.Location = new System.Drawing.Point(458, 274);
             this.txt_qty.Name = "txt_qty";
-            this.txt_qty.Size = new System.Drawing.Size(220, 23);
+            this.txt_qty.Size = new System.Drawing.Size(220, 26);
             this.txt_qty.TabIndex = 36;
             this.txt_qty.Text = "0";
             this.txt_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

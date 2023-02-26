@@ -101,55 +101,55 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.11572cm</Width>
+                  <Width>2.90822cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.29211cm</Width>
+                  <Width>3.05407cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.29211cm</Width>
+                  <Width>3.44211cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.02753cm</Width>
+                  <Width>3.04617cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.151cm</Width>
+                  <Width>3.26225cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.72767cm</Width>
+                  <Width>2.25684cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.29211cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.63607cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.65875cm</Width>
+                  <Width>3.21437cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.76458cm</Width>
+                  <Width>3.77cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>3.135cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.66416cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.59021cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.74354cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.21438cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>5.59563cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -165,9 +165,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Entry Date</Value>
+                                  <Value>ENTRY DATE</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -204,9 +205,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Item ID</Value>
+                                  <Value>BARCODE/ID</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -243,9 +245,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Item Name</Value>
+                                  <Value>NAME</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -282,9 +285,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Brand</Value>
+                                  <Value>BRAND</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -321,9 +325,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Description</Value>
+                                  <Value>DESCRIPTION</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -360,9 +365,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Quantity</Value>
+                                  <Value>QUANTIY</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -399,9 +405,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Price</Value>
+                                  <Value>PRICE</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -438,9 +445,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Amount</Value>
+                                  <Value>AMOUNT</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -477,9 +485,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Supplier ID</Value>
+                                  <Value>SUPPLIER ID</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -517,9 +526,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Supplier Name</Value>
+                                  <Value>SUPPLIER NAME</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -557,9 +567,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Customer ID</Value>
+                                  <Value>DIVISION ID</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -597,9 +608,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Customer Name</Value>
+                                  <Value>DIVISION NAME</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -637,9 +649,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Customer Address</Value>
+                                  <Value>DIVISION ADDRESS</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -677,9 +690,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Staff ID</Value>
+                                  <Value>STAFF ID</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -716,9 +730,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Staff Name</Value>
+                                  <Value>STAFF NAME</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -755,9 +770,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Job Role</Value>
+                                  <Value>JOB ROLE</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -794,9 +810,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Trans Ref</Value>
+                                  <Value>TRANSACTION REFERENCE</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>courier New</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -840,7 +857,7 @@
                                 <TextRun>
                                   <Value>=Fields!Entry_Date.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -875,7 +892,7 @@
                                 <TextRun>
                                   <Value>=Fields!Item_ID.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -910,7 +927,7 @@
                                 <TextRun>
                                   <Value>=Fields!Item_Name.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -945,7 +962,7 @@
                                 <TextRun>
                                   <Value>=Fields!Brand.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -980,7 +997,7 @@
                                 <TextRun>
                                   <Value>=Fields!Description.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1015,11 +1032,13 @@
                                 <TextRun>
                                   <Value>=Fields!Quantity.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Quantity</rd:DefaultName>
@@ -1050,11 +1069,13 @@
                                 <TextRun>
                                   <Value>=Fields!Price.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Price</rd:DefaultName>
@@ -1085,11 +1106,13 @@
                                 <TextRun>
                                   <Value>=Fields!Amount.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Amount1</rd:DefaultName>
@@ -1120,7 +1143,7 @@
                                 <TextRun>
                                   <Value>=Fields!Supplier_ID.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1155,7 +1178,7 @@
                                 <TextRun>
                                   <Value>=Fields!Supplier_Name.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1190,7 +1213,7 @@
                                 <TextRun>
                                   <Value>=Fields!Customer_ID.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1225,7 +1248,7 @@
                                 <TextRun>
                                   <Value>=Fields!Customer_Name.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1260,7 +1283,7 @@
                                 <TextRun>
                                   <Value>=Fields!Customer_Address.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                     <FontWeight>Normal</FontWeight>
                                     <TextDecoration>None</TextDecoration>
                                   </Style>
@@ -1297,7 +1320,7 @@
                                 <TextRun>
                                   <Value>=Fields!Use_ID.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1332,7 +1355,7 @@
                                 <TextRun>
                                   <Value>=Fields!Staff_Name.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1367,7 +1390,7 @@
                                 <TextRun>
                                   <Value>=Fields!Job_Role.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1402,11 +1425,13 @@
                                 <TextRun>
                                   <Value>=Fields!Trans_Ref.Value</Value>
                                   <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontFamily>Courier New</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox38</rd:DefaultName>
@@ -1530,21 +1555,54 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>0.633cm</Top>
-            <Left>0.57891cm</Left>
+            <Top>1.47967cm</Top>
+            <Left>0.50835cm</Left>
             <Height>1.96728cm</Height>
-            <Width>40.95658cm</Width>
+            <Width>56.53302cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox14">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>INVENTORY'S REPORT INFORMATION</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Top>0.17639cm</Top>
+            <Left>0.50835cm</Left>
+            <Height>0.74923cm</Height>
+            <Width>8.84878cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>3.09956in</Height>
         <Style />
       </Body>
-      <Width>16.40973in</Width>
+      <Width>22.45723in</Width>
       <Page>
         <PageHeader>
           <Height>5.47688cm</Height>
@@ -1558,7 +1616,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Report Date</Value>
+                      <Value>REPORT DATE</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontWeight>Bold</FontWeight>
@@ -1639,7 +1697,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>1.50289cm</Top>
-              <Left>4.57758cm</Left>
+              <Left>4.89508cm</Left>
               <Height>0.6cm</Height>
               <Width>7.47827cm</Width>
               <ZIndex>2</ZIndex>
@@ -1674,45 +1732,10 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.47074cm</Top>
-              <Left>5.71876cm</Left>
+              <Left>6.03626cm</Left>
               <Height>0.89104cm</Height>
               <Width>5.11938cm</Width>
               <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox15">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Date Range</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.10289cm</Top>
-              <Left>7.09525cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.5cm</Width>
-              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1744,10 +1767,10 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.70289cm</Top>
-              <Left>4.57758cm</Left>
+              <Left>4.89508cm</Left>
               <Height>0.76757cm</Height>
               <Width>3.41313cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1779,10 +1802,10 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.70289cm</Top>
-              <Left>8.54855cm</Left>
+              <Left>8.86605cm</Left>
               <Height>0.76757cm</Height>
               <Width>3.48966cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1814,9 +1837,44 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>2.59706cm</Top>
-              <Left>8.07891cm</Left>
+              <Left>8.39641cm</Left>
               <Height>0.74111cm</Height>
               <Width>0.34617cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox15">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>DATE RANGE</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox7</rd:DefaultName>
+              <Top>2.10289cm</Top>
+              <Left>7.41275cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.5cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>

@@ -586,7 +586,7 @@ namespace Inventory_System02.Includes
             {
                 if (c.Selected)
                 {
-                    c.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    c.DefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Regular);
                 }
                 else 
                 {

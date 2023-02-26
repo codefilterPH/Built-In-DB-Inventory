@@ -29,8 +29,8 @@ namespace Inventory_System02
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOutList));
             this.dtg_outlist = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,7 +54,6 @@ namespace Inventory_System02
             this.txt_Cust_ID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cust_Image = new System.Windows.Forms.PictureBox();
-            this.chk_all = new System.Windows.Forms.CheckBox();
             this.lbl_items_count = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lbl_DueDate = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@ namespace Inventory_System02
             this.cbo_srch_type = new System.Windows.Forms.ComboBox();
             this.btn_view = new System.Windows.Forms.Button();
             this.btn_select = new System.Windows.Forms.Button();
+            this.chk_all = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
@@ -71,8 +71,10 @@ namespace Inventory_System02
             // 
             this.dtg_outlist.AllowUserToAddRows = false;
             this.dtg_outlist.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DimGray;
+            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_outlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -81,13 +83,13 @@ namespace Inventory_System02
             this.dtg_outlist.GridColor = System.Drawing.Color.White;
             this.dtg_outlist.Location = new System.Drawing.Point(12, 192);
             this.dtg_outlist.Name = "dtg_outlist";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_outlist.RowTemplate.Height = 60;
             this.dtg_outlist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_outlist.Size = new System.Drawing.Size(783, 214);
@@ -111,13 +113,13 @@ namespace Inventory_System02
             this.txt_Search.Location = new System.Drawing.Point(57, 137);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(121, 22);
-            this.txt_Search.TabIndex = 2;
+            this.txt_Search.TabIndex = 5;
             this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
             // 
             // btn_Delete
             // 
             this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Delete.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Delete.BackColor = System.Drawing.Color.Firebrick;
             this.btn_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,8 +127,8 @@ namespace Inventory_System02
             this.btn_Delete.Location = new System.Drawing.Point(645, 165);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(150, 23);
-            this.btn_Delete.TabIndex = 21;
-            this.btn_Delete.Text = "By transaction deletion";
+            this.btn_Delete.TabIndex = 3;
+            this.btn_Delete.Text = "By Transaction Deletion";
             this.btn_Delete.UseVisualStyleBackColor = false;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
@@ -141,7 +143,7 @@ namespace Inventory_System02
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(807, 24);
-            this.menuStrip1.TabIndex = 82;
+            this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // refreshTableToolStripMenuItem
@@ -192,7 +194,7 @@ namespace Inventory_System02
             this.txt_Trans_number.Location = new System.Drawing.Point(155, 34);
             this.txt_Trans_number.Name = "txt_Trans_number";
             this.txt_Trans_number.Size = new System.Drawing.Size(121, 25);
-            this.txt_Trans_number.TabIndex = 84;
+            this.txt_Trans_number.TabIndex = 7;
             this.txt_Trans_number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_Trans_number_KeyDown);
             // 
             // label2
@@ -256,7 +258,7 @@ namespace Inventory_System02
             this.txt_address.Name = "txt_address";
             this.txt_address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_address.Size = new System.Drawing.Size(271, 53);
-            this.txt_address.TabIndex = 113;
+            this.txt_address.TabIndex = 10;
             // 
             // label6
             // 
@@ -272,7 +274,7 @@ namespace Inventory_System02
             this.txt_Cust_name.Location = new System.Drawing.Point(399, 34);
             this.txt_Cust_name.Name = "txt_Cust_name";
             this.txt_Cust_name.Size = new System.Drawing.Size(271, 25);
-            this.txt_Cust_name.TabIndex = 111;
+            this.txt_Cust_name.TabIndex = 9;
             // 
             // label3
             // 
@@ -288,7 +290,7 @@ namespace Inventory_System02
             this.txt_Cust_ID.Location = new System.Drawing.Point(155, 65);
             this.txt_Cust_ID.Name = "txt_Cust_ID";
             this.txt_Cust_ID.Size = new System.Drawing.Size(121, 25);
-            this.txt_Cust_ID.TabIndex = 109;
+            this.txt_Cust_ID.TabIndex = 8;
             // 
             // label4
             // 
@@ -310,19 +312,6 @@ namespace Inventory_System02
             this.cust_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cust_Image.TabIndex = 114;
             this.cust_Image.TabStop = false;
-            // 
-            // chk_all
-            // 
-            this.chk_all.AutoSize = true;
-            this.chk_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_all.Location = new System.Drawing.Point(11, 165);
-            this.chk_all.Name = "chk_all";
-            this.chk_all.Size = new System.Drawing.Size(76, 19);
-            this.chk_all.TabIndex = 115;
-            this.chk_all.Text = "Select All";
-            this.chk_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chk_all.UseVisualStyleBackColor = true;
-            this.chk_all.CheckedChanged += new System.EventHandler(this.chk_all_CheckedChanged);
             // 
             // lbl_items_count
             // 
@@ -385,7 +374,7 @@ namespace Inventory_System02
             this.cbo_srch_type.Location = new System.Drawing.Point(248, 139);
             this.cbo_srch_type.Name = "cbo_srch_type";
             this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
-            this.cbo_srch_type.TabIndex = 119;
+            this.cbo_srch_type.TabIndex = 6;
             this.cbo_srch_type.Text = "Trans Ref";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
@@ -400,8 +389,8 @@ namespace Inventory_System02
             this.btn_view.Location = new System.Drawing.Point(514, 165);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(125, 23);
-            this.btn_view.TabIndex = 121;
-            this.btn_view.Text = "View details";
+            this.btn_view.TabIndex = 2;
+            this.btn_view.Text = "View Details";
             this.btn_view.UseVisualStyleBackColor = false;
             this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
             // 
@@ -416,10 +405,23 @@ namespace Inventory_System02
             this.btn_select.Location = new System.Drawing.Point(383, 165);
             this.btn_select.Name = "btn_select";
             this.btn_select.Size = new System.Drawing.Size(125, 23);
-            this.btn_select.TabIndex = 122;
+            this.btn_select.TabIndex = 1;
             this.btn_select.Text = "Select";
             this.btn_select.UseVisualStyleBackColor = false;
             this.btn_select.Click += new System.EventHandler(this.btn_select_Click);
+            // 
+            // chk_all
+            // 
+            this.chk_all.AutoSize = true;
+            this.chk_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_all.Location = new System.Drawing.Point(11, 165);
+            this.chk_all.Name = "chk_all";
+            this.chk_all.Size = new System.Drawing.Size(76, 19);
+            this.chk_all.TabIndex = 4;
+            this.chk_all.Text = "Select All";
+            this.chk_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chk_all.UseVisualStyleBackColor = true;
+            this.chk_all.CheckedChanged += new System.EventHandler(this.chk_all_CheckedChanged);
             // 
             // StockOutList
             // 
@@ -489,7 +491,6 @@ namespace Inventory_System02
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox cust_Image;
         private System.Windows.Forms.ToolStripMenuItem btn_print_invoice;
-        private System.Windows.Forms.CheckBox chk_all;
         private System.Windows.Forms.ToolStripMenuItem batchTransactionToolStripMenuItem;
         private System.Windows.Forms.Label lbl_items_count;
         private System.Windows.Forms.Label label16;
@@ -499,5 +500,6 @@ namespace Inventory_System02
         private System.Windows.Forms.ComboBox cbo_srch_type;
         private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.Button btn_select;
+        private System.Windows.Forms.CheckBox chk_all;
     }
 }

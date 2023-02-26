@@ -341,8 +341,7 @@ namespace Inventory_System02
             if (dtg_Stocks.Rows.Count > 0)
             {
                 func.Change_Font_DTG(sender, e, dtg_Stocks);
-                chk_all.Checked = false;
-                chk_all2.Checked = false;   
+                chk_all.Checked = false; 
             }
         }
 
@@ -353,7 +352,6 @@ namespace Inventory_System02
 
         private void dtg_AddedStocks_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            chk_all.Checked = false;
             chk_all2.Checked = false;
         }
 

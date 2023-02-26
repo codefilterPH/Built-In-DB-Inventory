@@ -120,7 +120,7 @@ namespace Inventory_System02.Profiles
             this.btn_Change_pass.Location = new System.Drawing.Point(237, 46);
             this.btn_Change_pass.Name = "btn_Change_pass";
             this.btn_Change_pass.Size = new System.Drawing.Size(113, 23);
-            this.btn_Change_pass.TabIndex = 12;
+            this.btn_Change_pass.TabIndex = 5;
             this.btn_Change_pass.Text = "Change Password";
             this.btn_Change_pass.UseVisualStyleBackColor = false;
             this.btn_Change_pass.Click += new System.EventHandler(this.btn_Change_pass_Click);
@@ -160,7 +160,7 @@ namespace Inventory_System02.Profiles
             this.btn_upload.Location = new System.Drawing.Point(523, 171);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(133, 23);
-            this.btn_upload.TabIndex = 10;
+            this.btn_upload.TabIndex = 17;
             this.btn_upload.Text = "Upload Image";
             this.btn_upload.UseVisualStyleBackColor = false;
             this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
@@ -179,7 +179,7 @@ namespace Inventory_System02.Profiles
             this.btn_Clear_Text.Location = new System.Drawing.Point(523, 145);
             this.btn_Clear_Text.Name = "btn_Clear_Text";
             this.btn_Clear_Text.Size = new System.Drawing.Size(133, 23);
-            this.btn_Clear_Text.TabIndex = 15;
+            this.btn_Clear_Text.TabIndex = 16;
             this.btn_Clear_Text.Text = "Clear Text";
             this.btn_Clear_Text.UseVisualStyleBackColor = false;
             this.btn_Clear_Text.Click += new System.EventHandler(this.btn_Clear_Text_Click);
@@ -198,7 +198,7 @@ namespace Inventory_System02.Profiles
             this.txt_Pass.Location = new System.Drawing.Point(85, 46);
             this.txt_Pass.Name = "txt_Pass";
             this.txt_Pass.Size = new System.Drawing.Size(146, 25);
-            this.txt_Pass.TabIndex = 2;
+            this.txt_Pass.TabIndex = 4;
             this.txt_Pass.UseSystemPasswordChar = true;
             // 
             // pictureBox1
@@ -231,7 +231,7 @@ namespace Inventory_System02.Profiles
             this.txt_Address.Name = "txt_Address";
             this.txt_Address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_Address.Size = new System.Drawing.Size(409, 56);
-            this.txt_Address.TabIndex = 9;
+            this.txt_Address.TabIndex = 11;
             // 
             // txt_Job_role
             // 
@@ -240,7 +240,7 @@ namespace Inventory_System02.Profiles
             this.txt_Job_role.Location = new System.Drawing.Point(363, 55);
             this.txt_Job_role.Name = "txt_Job_role";
             this.txt_Job_role.Size = new System.Drawing.Size(131, 25);
-            this.txt_Job_role.TabIndex = 4;
+            this.txt_Job_role.TabIndex = 6;
             // 
             // dtp_Hired_date
             // 
@@ -250,7 +250,7 @@ namespace Inventory_System02.Profiles
             this.dtp_Hired_date.Location = new System.Drawing.Point(709, 17);
             this.dtp_Hired_date.Name = "dtp_Hired_date";
             this.dtp_Hired_date.Size = new System.Drawing.Size(110, 25);
-            this.dtp_Hired_date.TabIndex = 3;
+            this.dtp_Hired_date.TabIndex = 12;
             // 
             // label6
             // 
@@ -271,7 +271,7 @@ namespace Inventory_System02.Profiles
             this.btn_GenID.Location = new System.Drawing.Point(237, 17);
             this.btn_GenID.Name = "btn_GenID";
             this.btn_GenID.Size = new System.Drawing.Size(113, 23);
-            this.btn_GenID.TabIndex = 0;
+            this.btn_GenID.TabIndex = 3;
             this.btn_GenID.Text = "Generate ID";
             this.btn_GenID.UseVisualStyleBackColor = false;
             this.btn_GenID.Click += new System.EventHandler(this.btn_GenID_Click);
@@ -290,7 +290,7 @@ namespace Inventory_System02.Profiles
             this.txt_ID.Location = new System.Drawing.Point(85, 17);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Size = new System.Drawing.Size(146, 25);
-            this.txt_ID.TabIndex = 1;
+            this.txt_ID.TabIndex = 2;
             // 
             // label4
             // 
@@ -309,7 +309,7 @@ namespace Inventory_System02.Profiles
             this.txt_Phone.MaxLength = 11;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(131, 25);
-            this.txt_Phone.TabIndex = 8;
+            this.txt_Phone.TabIndex = 10;
             this.txt_Phone.MouseLeave += new System.EventHandler(this.txt_Phone_MouseLeave);
             // 
             // txt_Email
@@ -318,7 +318,7 @@ namespace Inventory_System02.Profiles
             this.txt_Email.Location = new System.Drawing.Point(289, 88);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(205, 25);
-            this.txt_Email.TabIndex = 7;
+            this.txt_Email.TabIndex = 8;
             this.txt_Email.Leave += new System.EventHandler(this.txt_Email_Leave);
             // 
             // label3
@@ -345,7 +345,7 @@ namespace Inventory_System02.Profiles
             this.txt_LN.Location = new System.Drawing.Point(85, 119);
             this.txt_LN.Name = "txt_LN";
             this.txt_LN.Size = new System.Drawing.Size(146, 25);
-            this.txt_LN.TabIndex = 6;
+            this.txt_LN.TabIndex = 9;
             // 
             // label1
             // 
@@ -361,7 +361,7 @@ namespace Inventory_System02.Profiles
             this.txt_FN.Location = new System.Drawing.Point(85, 90);
             this.txt_FN.Name = "txt_FN";
             this.txt_FN.Size = new System.Drawing.Size(146, 25);
-            this.txt_FN.TabIndex = 5;
+            this.txt_FN.TabIndex = 7;
             // 
             // btn_Del
             // 
@@ -377,7 +377,7 @@ namespace Inventory_System02.Profiles
             this.btn_Del.Location = new System.Drawing.Point(523, 119);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(133, 23);
-            this.btn_Del.TabIndex = 14;
+            this.btn_Del.TabIndex = 15;
             this.btn_Del.Text = "Delete Selected";
             this.btn_Del.UseVisualStyleBackColor = false;
             this.btn_Del.Click += new System.EventHandler(this.btn_Del_Click);
@@ -396,7 +396,7 @@ namespace Inventory_System02.Profiles
             this.btn_Edit.Location = new System.Drawing.Point(523, 93);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(133, 23);
-            this.btn_Edit.TabIndex = 13;
+            this.btn_Edit.TabIndex = 14;
             this.btn_Edit.Text = "Save Text";
             this.btn_Edit.UseVisualStyleBackColor = false;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
@@ -415,7 +415,7 @@ namespace Inventory_System02.Profiles
             this.btn_Add.Location = new System.Drawing.Point(523, 67);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(133, 23);
-            this.btn_Add.TabIndex = 11;
+            this.btn_Add.TabIndex = 13;
             this.btn_Add.Text = "Add to Record";
             this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
@@ -425,6 +425,9 @@ namespace Inventory_System02.Profiles
             this.dtg_User.AllowUserToAddRows = false;
             this.dtg_User.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
             this.dtg_User.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_User.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -436,14 +439,14 @@ namespace Inventory_System02.Profiles
             this.dtg_User.Name = "dtg_User";
             this.dtg_User.ReadOnly = true;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_User.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_User.RowTemplate.Height = 90;
             this.dtg_User.Size = new System.Drawing.Size(811, 184);
-            this.dtg_User.TabIndex = 12;
+            this.dtg_User.TabIndex = 0;
             this.dtg_User.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_User_CellClick);
             // 
             // timer1
@@ -459,7 +462,7 @@ namespace Inventory_System02.Profiles
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(846, 24);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // reloadTableToolStripMenuItem

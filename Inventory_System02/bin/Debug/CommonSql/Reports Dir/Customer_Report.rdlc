@@ -85,7 +85,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.83324cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.7416cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.70188cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -94,13 +100,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>4.03458cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -116,8 +116,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Hired Date</Value>
+                                  <Value>HIRED DATE</Value>
                                   <Style>
+                                    <FontFamily>courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -154,8 +155,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cust ID</Value>
+                                  <Value>ID</Value>
                                   <Style>
+                                    <FontFamily>courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -189,8 +191,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>First</Value>
+                                  <Value>FIRST</Value>
                                   <Style>
+                                    <FontFamily>courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -227,8 +230,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Last</Value>
+                                  <Value>LAST</Value>
                                   <Style>
+                                    <FontFamily>courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -265,8 +269,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Phone</Value>
+                                  <Value>PHONE</Value>
                                   <Style>
+                                    <FontFamily>courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -303,8 +308,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Address</Value>
+                                  <Value>ADDRESS</Value>
                                   <Style>
+                                    <FontFamily>courier New</FontFamily>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -347,7 +353,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Entry_Date.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>courier New</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -380,7 +388,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Cust_ID.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>courier New</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -410,7 +420,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!FN.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>courier New</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -443,7 +455,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!LN.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>courier New</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -476,7 +490,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Phone.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>courier New</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -509,7 +525,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Address.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>courier New</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -584,7 +602,7 @@
             <Top>1.16099cm</Top>
             <Left>0.44128cm</Left>
             <Height>1.2cm</Height>
-            <Width>15cm</Width>
+            <Width>17.3113cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -595,7 +613,7 @@
         <Height>1.55208in</Height>
         <Style />
       </Body>
-      <Width>6.28992in</Width>
+      <Width>7.09337in</Width>
       <Page>
         <PageHeader>
           <Height>3.31901cm</Height>
@@ -619,7 +637,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.55447cm</Top>
-              <Left>6.10432cm</Left>
+              <Left>6.73932cm</Left>
               <Height>0.61171cm</Height>
               <Width>5.11938cm</Width>
               <Style>
@@ -639,7 +657,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Customer Report</Value>
+                      <Value>CUSTOMER'S REPORT INFORMATION</Value>
                       <Style>
                         <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -653,7 +671,7 @@
               <Top>0.61281cm</Top>
               <Left>0.36348cm</Left>
               <Height>1.31438cm</Height>
-              <Width>7.23604cm</Width>
+              <Width>10.41104cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -684,7 +702,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.56618cm</Top>
-              <Left>2.03445cm</Left>
+              <Left>2.66945cm</Left>
               <Height>0.6cm</Height>
               <Width>3.34667cm</Width>
               <ZIndex>2</ZIndex>
@@ -718,7 +736,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>2.55447cm</Top>
-              <Left>5.34585cm</Left>
+              <Left>5.98085cm</Left>
               <Height>0.61171cm</Height>
               <Width>0.68792cm</Width>
               <ZIndex>3</ZIndex>
@@ -739,7 +757,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Report Date</Value>
+                      <Value>REPORT DATE</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -752,7 +770,7 @@
               <Top>2.56618cm</Top>
               <Left>0.36348cm</Left>
               <Height>0.6cm</Height>
-              <Width>2.12958cm</Width>
+              <Width>2.76458cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -817,6 +835,8 @@
                     <TextRun>
                       <Value>=Parameters!Total_Person.Value</Value>
                       <Style>
+                        <FontFamily>courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>

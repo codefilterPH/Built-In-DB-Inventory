@@ -164,8 +164,21 @@ namespace Inventory_System02
             if (txt_Def_text.Text != null || txt_Def_text.Text != string.Empty)
             {
                 Check_What_Table();
-                
-                sql = "Update "+setting_name+" set "+ col +" =  '" + txt_Def_text.Text + "'  where Count = '" + txt_ID.Text + "' ";
+
+                string selectedType = string.Empty;
+                foreach (DataGridViewRow rw in dtg_settings.SelectedRows)
+                {
+                    selectedType = rw.Cells["Type"].Value.ToString();
+                    break;
+                }
+
+                if (selectedType == "Office Manager" || selectedType == "Programmer/Developer")
+                {
+                    MessageBox.Show("You cannot edit this employee role.");
+                    return;
+                }
+
+                sql = "Update " + setting_name + " set " + col + " =  '" + txt_Def_text.Text + "'  where Count = '" + txt_ID.Text + "' ";
                 config.Execute_CUD(sql, "Unsuccessful to update settings \n\n Either an error occured or Needs to Highlight from the table!",
                     "Settings successfully updated");
             }
@@ -174,10 +187,12 @@ namespace Inventory_System02
                 MessageBox.Show("The table is empty! \n\nAdd then highlight or click the arrow from the left to edit unwanted entries!");
                 txt_Def_text.Focus();
             }
+
             sql = "Select * from `" + cbo_type.Text + "` ";
             config.Load_DTG(sql, dtg_settings);
             timer1.Start();
             btn_Clear_Text_Click(sender, e);
+
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -188,8 +203,16 @@ namespace Inventory_System02
                 foreach (DataGridViewRow rw in dtg_settings.SelectedRows)
                 {
                     Check_What_Table();
-
-                    sql = "Delete from " + setting_name + " where Count = '" + rw.Cells[0].Value + "' ";
+                    if (setting_name == "`Employee Role`")
+                    {
+                        string type = rw.Cells["Type"].Value.ToString();
+                        if (type == "Office Manager" || type == "Programmer/Developer")
+                        {
+                            MessageBox.Show("This employee role cannot be deleted!");
+                            continue; // skip to next row
+                        }
+                    }
+                    sql = "DELETE FROM " + setting_name + " WHERE Count = '" + rw.Cells[0].Value + "' ";
                     config.Execute_Query(sql);
                 }
             }
@@ -212,36 +235,6 @@ namespace Inventory_System02
             {
                 txt_ID.Text = Convert.ToString(dtg_settings.Rows.Count + 1);
             }
-
-        }
-
-        private void dtg_settings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-
-            setting_name = string.Empty;
-            col = string.Empty;
-
-            Check_What_Table();
-
-            if ( dtg_settings.CurrentRow.Cells[0].Selected == true )
-            {
-                sql = "Update  " + setting_name + " set Count ='" + dtg_settings.CurrentRow.Cells[0].Value.ToString() + "'" +
-               " where Name = '" + dtg_settings.CurrentRow.Cells[1].Value.ToString() + "' ";
-                config.Execute_Query(sql);
-            }
-            else
-            {
-                sql = "Update  " + setting_name + " set "+col+" ='" + dtg_settings.CurrentRow.Cells[1].Value.ToString() + "'" +
-             " where Count = '" + dtg_settings.CurrentRow.Cells[0].Value.ToString() + "' ";
-                config.Execute_Query(sql);
-            }
-
-            txt_Def_text.Enabled = true;
-            txt_ID.Enabled = true;
-
-            sql = "Select * from "+ setting_name + " ";
-            config.Load_DTG(sql, dtg_settings);
-            txt_Def_text.Focus();
 
         }
 

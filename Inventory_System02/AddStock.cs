@@ -475,6 +475,7 @@ namespace Inventory_System02
                 txt_Price.Text = "0.00";
                 txt_Qty.Text = "0";
                 cbo_desc.Text = "None";
+                txt_Barcode.Focus();
 
             }
         }

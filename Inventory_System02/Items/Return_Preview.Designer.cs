@@ -116,10 +116,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_name.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.ForeColor = System.Drawing.Color.Blue;
-            this.txt_name.Location = new System.Drawing.Point(0, 0);
+            this.txt_name.Location = new System.Drawing.Point(-74, 0);
             this.txt_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(627, 40);
+            this.txt_name.Size = new System.Drawing.Size(701, 40);
             this.txt_name.TabIndex = 32;
             this.txt_name.Text = "None";
             this.txt_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -331,7 +331,7 @@
             // Item_Image
             // 
             this.Item_Image.BackColor = System.Drawing.Color.White;
-            this.Item_Image.Location = new System.Drawing.Point(108, 173);
+            this.Item_Image.Location = new System.Drawing.Point(34, 171);
             this.Item_Image.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Item_Image.Name = "Item_Image";
             this.Item_Image.Size = new System.Drawing.Size(257, 226);

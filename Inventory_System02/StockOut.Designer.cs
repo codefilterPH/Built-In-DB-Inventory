@@ -102,6 +102,9 @@ namespace Inventory_System02
             this.dtg_Stocks.AllowUserToAddRows = false;
             this.dtg_Stocks.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtg_Stocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_Stocks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -131,14 +134,14 @@ namespace Inventory_System02
             this.dtg_Stocks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Stocks.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_Stocks.RowTemplate.Height = 70;
             this.dtg_Stocks.Size = new System.Drawing.Size(842, 143);
-            this.dtg_Stocks.TabIndex = 8;
+            this.dtg_Stocks.TabIndex = 1;
             this.dtg_Stocks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Stocks_CellClick);
             this.dtg_Stocks.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Stocks_CellDoubleClick);
             // 
@@ -270,7 +273,7 @@ namespace Inventory_System02
             // btn_sup_delete
             // 
             this.btn_sup_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_delete.BackColor = System.Drawing.Color.Maroon;
+            this.btn_sup_delete.BackColor = System.Drawing.Color.Firebrick;
             this.btn_sup_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,7 +281,7 @@ namespace Inventory_System02
             this.btn_sup_delete.Location = new System.Drawing.Point(721, 382);
             this.btn_sup_delete.Name = "btn_sup_delete";
             this.btn_sup_delete.Size = new System.Drawing.Size(133, 23);
-            this.btn_sup_delete.TabIndex = 13;
+            this.btn_sup_delete.TabIndex = 6;
             this.btn_sup_delete.Text = "Remove selected";
             this.btn_sup_delete.UseVisualStyleBackColor = false;
             this.btn_sup_delete.Click += new System.EventHandler(this.btn_sup_delete_Click);
@@ -294,7 +297,7 @@ namespace Inventory_System02
             this.btn_sup_add.Location = new System.Drawing.Point(719, 168);
             this.btn_sup_add.Name = "btn_sup_add";
             this.btn_sup_add.Size = new System.Drawing.Size(132, 22);
-            this.btn_sup_add.TabIndex = 9;
+            this.btn_sup_add.TabIndex = 3;
             this.btn_sup_add.Text = "Add selected below";
             this.btn_sup_add.UseVisualStyleBackColor = false;
             this.btn_sup_add.Click += new System.EventHandler(this.btn_sup_add_Click);
@@ -353,7 +356,7 @@ namespace Inventory_System02
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_AddedStocks.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dtg_AddedStocks.Size = new System.Drawing.Size(843, 107);
-            this.dtg_AddedStocks.TabIndex = 10;
+            this.dtg_AddedStocks.TabIndex = 4;
             this.dtg_AddedStocks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_AddedStocks_CellClick);
             this.dtg_AddedStocks.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_AddedStocks_CellEndEdit);
             this.dtg_AddedStocks.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtg_AddedStocks_EditingControlShowing);
@@ -426,7 +429,7 @@ namespace Inventory_System02
             this.txt_Search.Location = new System.Drawing.Point(60, 139);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(136, 25);
-            this.txt_Search.TabIndex = 7;
+            this.txt_Search.TabIndex = 9;
             this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
             // 
             // label4
@@ -448,7 +451,7 @@ namespace Inventory_System02
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(863, 24);
-            this.menuStrip1.TabIndex = 70;
+            this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // refreshTableToolStripMenuItem
@@ -484,7 +487,7 @@ namespace Inventory_System02
             this.menuStrip2.Location = new System.Drawing.Point(0, 549);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(863, 29);
-            this.menuStrip2.TabIndex = 71;
+            this.menuStrip2.TabIndex = 13;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // btn_Saved
@@ -571,7 +574,7 @@ namespace Inventory_System02
             this.chk_review.Location = new System.Drawing.Point(426, 386);
             this.chk_review.Name = "chk_review";
             this.chk_review.Size = new System.Drawing.Size(149, 17);
-            this.chk_review.TabIndex = 12;
+            this.chk_review.TabIndex = 7;
             this.chk_review.Text = "Enable Stock Out Button";
             this.chk_review.UseVisualStyleBackColor = true;
             this.chk_review.CheckedChanged += new System.EventHandler(this.chk_review_CheckedChanged);
@@ -596,7 +599,7 @@ namespace Inventory_System02
             this.chk_all.Location = new System.Drawing.Point(13, 177);
             this.chk_all.Name = "chk_all";
             this.chk_all.Size = new System.Drawing.Size(72, 17);
-            this.chk_all.TabIndex = 85;
+            this.chk_all.TabIndex = 12;
             this.chk_all.Text = "Select All";
             this.chk_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk_all.UseVisualStyleBackColor = true;
@@ -610,7 +613,7 @@ namespace Inventory_System02
             this.chk_all2.Location = new System.Drawing.Point(11, 388);
             this.chk_all2.Name = "chk_all2";
             this.chk_all2.Size = new System.Drawing.Size(71, 17);
-            this.chk_all2.TabIndex = 11;
+            this.chk_all2.TabIndex = 8;
             this.chk_all2.Text = "Select all";
             this.chk_all2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chk_all2.UseVisualStyleBackColor = true;
@@ -668,7 +671,7 @@ namespace Inventory_System02
             this.cbo_srch_type.Location = new System.Drawing.Point(263, 142);
             this.cbo_srch_type.Name = "cbo_srch_type";
             this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
-            this.cbo_srch_type.TabIndex = 94;
+            this.cbo_srch_type.TabIndex = 10;
             this.cbo_srch_type.Text = "Name";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
@@ -683,7 +686,7 @@ namespace Inventory_System02
             this.btn_view.Location = new System.Drawing.Point(581, 168);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(133, 23);
-            this.btn_view.TabIndex = 96;
+            this.btn_view.TabIndex = 2;
             this.btn_view.Text = "View item";
             this.btn_view.UseVisualStyleBackColor = false;
             this.btn_view.Click += new System.EventHandler(this.btn_view_Click);
@@ -699,7 +702,7 @@ namespace Inventory_System02
             this.btn_edit.Location = new System.Drawing.Point(583, 382);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(133, 23);
-            this.btn_edit.TabIndex = 97;
+            this.btn_edit.TabIndex = 5;
             this.btn_edit.Text = "Edit selection";
             this.btn_edit.UseVisualStyleBackColor = false;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);

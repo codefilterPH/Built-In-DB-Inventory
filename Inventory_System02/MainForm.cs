@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_System02.Includes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Inventory_System02
 {
@@ -25,13 +26,36 @@ namespace Inventory_System02
             InitializeComponent();
             this.Text = "Inventory System - Welcome "+ name;
             Global_ID = userid;
-            lbl_Fullname.Text = userid + " " + name;
-            lbl_Acc.Text = "Job Role " + acctype;
-            lbl_Phone.Text = "Phone Number " + phone;
-            lbl_Email.Text = "Email " + email;
+            lbl_Fullname.Text = userid.ToUpper() + " - " + name.ToUpper();
+           
             Fullname = name;
             JobRole = acctype;
 
+            if (!string.IsNullOrWhiteSpace(acctype))
+            {
+                lbl_Acc.Text = "Role " + acctype;
+            }
+            else
+            {
+                lbl_Acc.Text = "";
+            }
+            if (!string.IsNullOrWhiteSpace(phone))
+            {
+                lbl_Phone.Text = "Phone Number " + phone;
+            }
+            else
+            {
+                lbl_Phone.Text = "";
+            }
+
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                lbl_Email.Text = "Email " + email;
+            }
+            else
+            {
+                lbl_Email.Text = "";
+            }
 
         }
        
@@ -68,7 +92,7 @@ namespace Inventory_System02
             func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
             func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
             Load_Company_name();
-      
+
         }
         SQLConfig config = new SQLConfig();
         public void  Load_Company_name()
@@ -155,8 +179,15 @@ namespace Inventory_System02
 
         private void btn_settings_Click_1(object sender, EventArgs e)
         {
-            Settings frm = new Settings(Global_ID, Fullname, JobRole);
-            frm.ShowDialog();
+            if ( Global_ID == "admin" || Global_ID == "manager")
+            {
+                Settings frm = new Settings(Global_ID, Fullname, JobRole);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No Permission to access this panel. Thank you!", "No Rights", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
         }
 
         private void btn_custsupp_Click_1(object sender, EventArgs e)

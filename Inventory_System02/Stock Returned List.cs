@@ -100,8 +100,7 @@ namespace Inventory_System02
                         if (config.dt.Rows.Count > 0)
                         {
                             sql = "DELETE FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
-                            config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
-                            refreshTableToolStripMenuItem_Click(sender, e);
+                            config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");                    
                         }
                         else
                         {
@@ -111,6 +110,7 @@ namespace Inventory_System02
 
                         chk_all.Checked = false;
                     }
+                    refreshTableToolStripMenuItem_Click(sender, e);
                 }
             }
 
@@ -251,6 +251,11 @@ namespace Inventory_System02
 
                     frm.ShowDialog();
                 }
+                else
+                {
+                    txt_Trans_number.Text = "Empty Field!";
+                    txt_Trans_number.Focus();
+                }
 
             }
         }
@@ -332,6 +337,7 @@ namespace Inventory_System02
 
                     }
                 }
+                chk_all.Checked = false;
 
             }
         }

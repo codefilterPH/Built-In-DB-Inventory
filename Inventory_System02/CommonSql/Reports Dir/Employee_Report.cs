@@ -136,7 +136,14 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
             Group_Filtering_MustNotEmpty();
-            sql = " SELECT * from Employee WHERE `HIRED DATE` BETWEEN '"+ dtp_date_from.Text + "' AND '"+ dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
+            if (Global_ID == "admin")
+            {
+                sql = "SELECT * FROM Employee WHERE `Hired Date` BETWEEN '" + dtp_date_from.Text + "' AND '" + dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
+            }
+            else
+            {
+                sql = "SELECT * FROM Employee WHERE `Hired Date` BETWEEN '" + dtp_date_from.Text + "' AND '" + dtp_date_to.Text + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+            }
             config.Load_DTG(sql, dtg_PreviewPage);
             config.Load_Datasource(sql, ds);
             DTG_Properties();
