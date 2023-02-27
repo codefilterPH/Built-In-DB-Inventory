@@ -415,17 +415,17 @@ namespace Inventory_System02
             {
                 if (txt_Barcode.Text != "" || txt_Barcode.Text != null)
                 {
-                       Items.Item_Preview frm = new Items.Item_Preview(
-                       dtg_Items.CurrentRow.Cells[1].Value.ToString(),
-                       txt_Barcode.Text,
-                       txt_TransRef.Text,
-                       txt_ItemName.Text,
-                       cbo_brand.Text,
-                       cbo_desc.Text,
-                       txt_Qty.Text,
-                       txt_Price.Text,
-                       lbl_ProductValue.Text,
-                       txt_Sup_Name.Text);
+                    Items.Item_Preview frm = new Items.Item_Preview(
+                    dtg_Items.CurrentRow.Cells[1].Value.ToString(),
+                    txt_Barcode.Text,
+                    txt_TransRef.Text,
+                    txt_ItemName.Text,
+                    cbo_brand.Text,
+                    cbo_desc.Text,
+                    txt_Qty.Text,
+                    txt_Price.Text,
+                    lbl_ProductValue.Text,
+                    dtg_Items.CurrentRow.Cells[12].Value.ToString());
 
                         frm.ShowDialog();
                 }
@@ -554,21 +554,21 @@ namespace Inventory_System02
                 Item_ID1 = "ERROR_ID";
 
             }
-            else if (txt_ItemName.Text == "" || txt_ItemName.Text == null)
+            else if (string.IsNullOrWhiteSpace(txt_ItemName.Text))
             {
                 func.Error_Message1 = "Item Name";
                 txt_ItemName.Focus();
                 func.Error_Message();
 
             }
-            else if (cbo_brand.Text == "" || cbo_brand.Text == null)
+            else if (string.IsNullOrWhiteSpace(cbo_brand.Text))
             {
                 func.Error_Message1 = "Item Brand";
                 cbo_brand.Focus();
                 func.Error_Message();
 
             }
-            else if (cbo_desc.Text == "" || cbo_desc.Text == null)
+            else if (string.IsNullOrWhiteSpace(cbo_desc.Text))
             {
                 cbo_desc.Text = "None";
 
@@ -580,8 +580,13 @@ namespace Inventory_System02
                 func.Error_Message();
 
             }
-
-            else if (txt_TransRef.Text == "" || txt_TransRef.Text == null)
+            else if (string.IsNullOrWhiteSpace(txt_SupID.Text))
+            {
+                func.Error_Message1 = "Supplier";
+                txt_SupID.Focus();
+                func.Error_Message();
+            }
+            else if (string.IsNullOrWhiteSpace(txt_TransRef.Text))
             {
                 func.Error_Message1 = "Transaction Reference";
                 txt_TransRef.Focus();

@@ -1,6 +1,8 @@
 ﻿using Inventory_System02.Includes;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 
@@ -47,45 +49,51 @@ namespace Inventory_System02.Profiles
                 func.Error_Message();
                 txt_FN.Focus();
             }
-            else if (Global_ID == "admin" || Global_ID == "manager")
+            else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
             {
-                if (txt_Job_role.Text == "Programmer/Developer" || (txt_Job_role.Text == "Office Manager" && Global_ID == "manager"))
+                if ( JobRole == "Programmer/Developer" && txt_Job_role.Text == "Programmer/Developer")
                 {
                     Error_PermissionDenied();
+                    return;
+                }
+                else if ( JobRole == "Office Manager" && txt_Job_role.Text == "Programmer/Developer")
+                {
+                    Error_PermissionDenied();
+                    return;
+                }
+              
+                sql = "Select * from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count < 1)
+                {
+
+                    sql = "Insert into Employee (" +
+                    " `Hired Date` " +
+                    ",  `Employee ID`" +
+                    ", `Password`" +
+                    ", `First Name` " +
+                    ", `Last Name` " +
+                    ", `Email` " +
+                    ", `Phone Number` " +
+                    ", `Address` " +
+                    ", `Job Role` ) values  ( " +
+                    " '" + dtp_Hired_date.Text + "' " +
+                    ", '" + txt_ID.Text + "' " +
+                    ", sha1('" + txt_Pass.Text + "') " +
+                    ", '" + txt_FN.Text + "' " +
+                    ", '" + txt_LN.Text + "' " +
+                    ", '" + txt_Email.Text + "' " +
+                    ", '" + txt_Phone.Text + "' " +
+                    ", '" + txt_Address.Text + "' " +
+                    ", '" + txt_Job_role.Text + "' ) ";
+                    config.Execute_CUD(sql, "Unsuccessful to Record " + txt_Job_role.Text, "Successfully recorded " + txt_Job_role.Text);
                 }
                 else
                 {
-                    sql = "Select * from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.singleResult(sql);
-                    if (config.dt.Rows.Count < 1)
-                    {
-                        sql = "Insert into Employee (" +
-                        " `Hired Date` " +
-                        ",  `Employee ID`" +
-                        ", `Password`" +
-                        ", `First Name` " +
-                        ", `Last Name` " +
-                        ", `Email` " +
-                        ", `Phone Number` " +
-                        ", `Address` " +
-                        ", `Job Role` ) values  ( " +
-                        " '" + dtp_Hired_date.Text + "' " +
-                        ", '" + txt_ID.Text + "' " +
-                        ", sha1('" + txt_Pass.Text + "') " +
-                        ", '" + txt_FN.Text + "' " +
-                        ", '" + txt_LN.Text + "' " +
-                        ", '" + txt_Email.Text + "' " +
-                        ", '" + txt_Phone.Text + "' " +
-                        ", '" + txt_Address.Text + "' " +
-                        ", '" + txt_Job_role.Text + "' ) ";
-                        config.Execute_CUD(sql, "Unsuccessful to Record " + txt_Job_role.Text, "Successfully recorded " + txt_Job_role.Text);
-                    }
-                    else
-                    {
-                        MessageBox.Show("This user is already added to the Database!", "Unable to add duplicate user", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-                    }
+                    MessageBox.Show("This user is already added to the Database!", "Unable to add duplicate user", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
                 }
+                
             }
             else
             {
@@ -112,6 +120,7 @@ namespace Inventory_System02.Profiles
         {
             func.Reload_Images(pictureBox1, "DONOTDELETE_SUBIMAGE", Includes.AppSettings.Employee_DIR);
             reloadTableToolStripMenuItem_Click(sender, e);
+            txt_Job_role.DropDownStyle = ComboBoxStyle.DropDownList;
             timer1.Start();
         }
         private void reloadTableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -216,66 +225,76 @@ namespace Inventory_System02.Profiles
             {
                 if (dtg_User.SelectedRows.Count == 1)
                 {
-                    if (dtg_User.CurrentRow.Cells[2].Value.ToString() == "admin")
+                    string userRole = dtg_User.CurrentRow.Cells[9].Value.ToString();
+                    string userId = dtg_User.CurrentRow.Cells[2].Value.ToString();
+
+                    if (JobRole == "Programmer/Developer")
                     {
-                        Error_DeletingSuper_User();
-                        return;
-                    }
-                    else if (Global_ID == "admin")
-                    {
-                        if (MessageBox.Show("Are you sure you want to delete " + txt_FN.Text + "?", "Warning Deletion Prompt",
-                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (userId == Global_ID || userRole == JobRole)
                         {
-                            sql = "Delete from Employee where `Employee ID` = '" + dtg_User.CurrentRow.Cells[2].Value.ToString() + "' ";
-                            config.Execute_CUD(sql, "Unable to delete employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!", "Successfully deleted employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!");
-                            reloadTableToolStripMenuItem_Click(sender, e);
+                            MessageBox.Show("You cannot delete your own account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        else if (JobRole != userRole && userId != Global_ID)
+                        {
+                            if (MessageBox.Show("Are you sure you want to delete " + txt_FN.Text + "?", "Warning Deletion Prompt",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                sql = "Delete from Employee where `Employee ID` = '" + userId + "' ";
+                                config.Execute_CUD(sql, "Unable to delete employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!", "Successfully deleted employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!");
+                                reloadTableToolStripMenuItem_Click(sender, e);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
                         }
                     }
-                    else if (Global_ID == "manager" && dtg_User.CurrentRow.Cells[2].Value.ToString() != Global_ID)
+                    else if (JobRole == "Office Manager")
                     {
-                        if (MessageBox.Show("Are you sure you want to delete " + txt_FN.Text + "?", "Warning Deletion Prompt",
-                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (userId == Global_ID && userRole == JobRole)
                         {
-                            sql = "Delete from Employee where `Employee ID` = '" + dtg_User.CurrentRow.Cells[2].Value.ToString() + "' ";
-                            config.Execute_CUD(sql, "Unable to delete employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!", "Successfully deleted employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!");
-                            reloadTableToolStripMenuItem_Click(sender, e);
+                            MessageBox.Show("You cannot delete your own account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                        else if (userId != Global_ID && userRole != "Programmer/Developer")
+                        {
+                            if (MessageBox.Show("Are you sure you want to delete " + txt_FN.Text + "?", "Warning Deletion Prompt",
+                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                sql = "Delete from Employee where `Employee ID` = '" + userId + "' ";
+                                config.Execute_CUD(sql, "Unable to delete employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!", "Successfully deleted employee " + dtg_User.CurrentRow.Cells[4].Value.ToString() + "!");
+                                reloadTableToolStripMenuItem_Click(sender, e);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
                         }
                     }
-                    else
+                    else // job role is not admin or manager
                     {
-                        MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
+                        if (JobRole != "Office Manager" || JobRole != "Programmer/Developer")
+                        {
+                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                     }
                 }
                 else if (dtg_User.SelectedRows.Count > 1)
                 {
-                    if (Global_ID == "admin")
-                    {
-                        if (MessageBox.Show("Are you sure you want to delete selected?", "Warning Deletion Prompt",
-                           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            foreach (DataGridViewRow rw in dtg_User.SelectedRows)
-                            {
-                                if (rw.Cells[2].Value.ToString() != "admin")
-                                {
-                                    sql = "Delete from Employee where `Employee ID` = '" + rw.Cells[2].Value.ToString() + "' ";
-                                    config.Execute_CUD(sql, "Unable to delete " + rw.Cells[4].Value.ToString(), "Successfully deleted " + rw.Cells[4].Value.ToString() + "!");
-                                }
-                                else
-                                {
-                                    Error_DeletingSuper_User();
-                                }
-                            }
-                            reloadTableToolStripMenuItem_Click(sender, e);
-                        }
-                    }
-                    else if (Global_ID == "manager")
-                    {
-                        MessageBox.Show("You don't have permission to delete multiple accounts. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    MessageBox.Show("You cannot delete multiple accounts. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else if ( dtg_User.SelectedRows.Count <= 0)
+                {
+                    MessageBox.Show("Please highlight 1 row from the table!", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
+
         }
 
         private void btn_Edit_Click(object sender, EventArgs e)
@@ -287,7 +306,7 @@ namespace Inventory_System02.Profiles
                     Error_DeletingSuper_User();
                 }
             }
-            else if (txt_ID.Text == Global_ID)
+            else if (txt_Job_role.Text == JobRole && txt_ID.Text == Global_ID)
             {
                 // Allow the user to update their own account
                 if (MessageBox.Show("Are you sure to update your profile? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -306,7 +325,7 @@ namespace Inventory_System02.Profiles
                     config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
                 }
             }
-            else if (Global_ID == "admin" || Global_ID == "manager")
+            else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
             {
                 // Allow managers and admin to update other employees' accounts
                 if (MessageBox.Show("Are you sure to update this user? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -344,70 +363,76 @@ namespace Inventory_System02.Profiles
 
         private void btn_upload_Click(object sender, EventArgs e)
         {
-            if (Global_ID == "admin")
+            if (!string.IsNullOrWhiteSpace(txt_ID.Text))
             {
-                // Allow admin to change the picture of anyone, including themselves
-                pictureBox1_DoubleClick(sender, e);
-            }
-            else if (Global_ID == "manager")
-            {
-                // Allow manager to change the picture of anyone except admin
-                if (txt_Job_role.Text != "Programmer/Developer")
+                if (JobRole == "Programmer/Developer")
                 {
+                    // Allow admin to change the picture of anyone, including themselves
                     pictureBox1_DoubleClick(sender, e);
+                }
+                else if (JobRole == "Office Manager")
+                {
+                    // Allow manager to change the picture of anyone except admin
+                    if (txt_Job_role.Text != "Programmer/Developer")
+                    {
+                        pictureBox1_DoubleClick(sender, e);
+                    }
+                    else
+                    {
+                        Error_PermissionDenied();
+                    }
                 }
                 else
                 {
-                    Error_PermissionDenied();
+                    // Others can only change their own picture
+                    if (txt_ID.Text == Global_ID && txt_Job_role.Text == JobRole )
+                    {
+                        pictureBox1_DoubleClick(sender, e);
+                    }
+                    else
+                    {
+                        Error_PermissionDenied();
+                    }
                 }
             }
-            else
-            {
-                // Others can only change their own picture
-                if (txt_ID.Text == Global_ID)
-                {
-                    pictureBox1_DoubleClick(sender, e);
-                }
-                else
-                {
-                    Error_PermissionDenied();
-                }
-            }
+          
         }
 
         private void btn_Change_pass_Click(object sender, EventArgs e)
         {
-
             if (Global_ID == "admin")
             {
                 // Admin can change password for any employee
-                if (MessageBox.Show("Are you sure to update your password? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
+                if (txt_ID.Text == Global_ID || JobRole == "Programmer/Developer")
                 {
-                    if (string.IsNullOrWhiteSpace(txt_Pass.Text))
+                    if (MessageBox.Show("Are you sure you want to update your password? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        func.Error_Message1 = "Password";
-                        func.Error_Message();
-                        txt_Pass.Focus();
-                        return;
+                        if (string.IsNullOrWhiteSpace(txt_Pass.Text))
+                        {
+                            func.Error_Message1 = "Password";
+                            func.Error_Message();
+                            txt_Pass.Focus();
+                            return;
+                        }
+                        string sql = "UPDATE Employee SET Password = sha1('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
+                        config.Execute_CUD(sql, "Unable to update password! Please contact your administrator.", "Password successfully updated!");
                     }
-                    sql = "Update Employee set " +
-                          " `Password` = sha1('" + txt_Pass.Text + "') " +
-                          " where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to update password! Please Contact your Administrator.", "Password successfully updated!");
+                    reloadTableToolStripMenuItem_Click(sender, e);
                 }
-                reloadTableToolStripMenuItem_Click(sender, e);
+                else
+                {
+                    MessageBox.Show("Only administrators and programmers/developers can update passwords for their own accounts. Thank you!", "No permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else if (Global_ID == "manager")
+            else if (JobRole == "Office Manager")
             {
-                // Office Manager and Administrator can change password for all employees except admin
+                // Office Manager can change password for all employees except admin
                 if (txt_ID.Text == "admin")
                 {
-                    MessageBox.Show("You don't have permission to change the password of admin account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("You don't have permission to change the password of the admin account. Thank you!", "No permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (MessageBox.Show("Are you sure to update your password? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to update your password? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     if (string.IsNullOrWhiteSpace(txt_Pass.Text))
                     {
@@ -416,18 +441,35 @@ namespace Inventory_System02.Profiles
                         txt_Pass.Focus();
                         return;
                     }
-                    sql = "Update Employee set " +
-                          " `Password` = sha1('" + txt_Pass.Text + "') " +
-                          " where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to update password! Please Contact your Administrator.", "Password successfully updated!");
+                    string sql = "UPDATE Employee SET Password = sha1('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
+                    config.Execute_CUD(sql, "Unable to update password! Please contact your administrator.", "Password successfully updated!");
                 }
                 reloadTableToolStripMenuItem_Click(sender, e);
             }
-            else
+            else if (JobRole == "Programmer/Developer")
             {
-                MessageBox.Show("Only \"Office Manager\" can change current password. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Programmer/Developer can change their own password
+                if (txt_ID.Text == Global_ID)
+                {
+                    if (MessageBox.Show("Are you sure you want to update your password? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (string.IsNullOrWhiteSpace(txt_Pass.Text))
+                        {
+                            func.Error_Message1 = "Password";
+                            func.Error_Message();
+                            txt_Pass.Focus();
+                            return;
+                        }
+                        string sql = "UPDATE Employee SET Password = sha1('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
+                        config.Execute_CUD(sql, "Unable to update password! Please Contact your Administrator.", "Password successfully updated!");
+                    }
+                    reloadTableToolStripMenuItem_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to change password of other employees. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-
         }
 
         private void dtg_User_CellClick(object sender, DataGridViewCellEventArgs e)

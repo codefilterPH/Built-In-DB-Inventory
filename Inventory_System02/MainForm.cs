@@ -179,7 +179,7 @@ namespace Inventory_System02
 
         private void btn_settings_Click_1(object sender, EventArgs e)
         {
-            if ( Global_ID == "admin" || Global_ID == "manager")
+            if ( JobRole == "Programmer/Developer" || JobRole == "Office Manager")
             {
                 Settings frm = new Settings(Global_ID, Fullname, JobRole);
                 frm.ShowDialog();

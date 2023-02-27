@@ -135,12 +135,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_69AD3D4ED1A14A889EC599125E073E93"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6B82CAC46EFF4295903FC2799773B48F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -375,6 +369,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E9FCE8BB947242DBB940AC3209F9680C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EC56E620795B46D2BB7FF13DBE3AEDF5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -412,6 +412,12 @@
         "Entry"
         {
         "MsmKey" = "8:_F7370C4761E941329BFBC6EA4C5C6513"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F811E9D1CDDD4255B79182833AFC308B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1043,26 +1049,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_69AD3D4ED1A14A889EC599125E073E93"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
-            "TargetName" = "8:Database.db"
-            "Tag" = "8:"
-            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B82CAC46EFF4295903FC2799773B48F"
@@ -1699,6 +1685,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E9FCE8BB947242DBB940AC3209F9680C"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item_Qty\\ItemQTY_Report.rdlc"
+            "TargetName" = "8:ItemQTY_Report.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_D20EE4C143AF4E5891C4CD77FAE8CD0A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EC56E620795B46D2BB7FF13DBE3AEDF5"
             {
             "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Pictures\\Item\\Image\\DONOTDELETE_SUBIMAGE.PNG"
@@ -1796,6 +1802,26 @@
             "TargetName" = "8:INVENTORY.pdf"
             "Tag" = "8:"
             "Folder" = "8:_F31A6C9886554D6F8F1C3D0269A1A531"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F811E9D1CDDD4255B79182833AFC308B"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\backup\\CommonSql\\Database.db"
+            "TargetName" = "8:Database.db"
+            "Tag" = "8:"
+            "Folder" = "8:_0425FCEC9ABE4A9696850A790ABE8AE4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1963,6 +1989,17 @@
                             "Property" = "8:_79E3F29B39A747388ECA138C053D136A"
                                 "Folders"
                                 {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D20EE4C143AF4E5891C4CD77FAE8CD0A"
+                                    {
+                                    "Name" = "8:Item_Qty"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_054F8BD3EF164D3894DA5D6B746FEAE5"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
                                 }
                             }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_F31A6C9886554D6F8F1C3D0269A1A531"
@@ -2030,7 +2067,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inventory_Setup"
         "ProductCode" = "8:{74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319}"
-        "PackageCode" = "8:{5968AA7F-78A7-427E-A809-F64F3FF15BDD}"
+        "PackageCode" = "8:{2D285FA3-2D82-46D0-A8B6-8FD167238D7C}"
         "UpgradeCode" = "8:{CB3894DF-9F2C-4F1C-8087-BD875F362B65}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
