@@ -84,7 +84,7 @@ namespace Inventory_System02
             // 
             // refreshTableToolStripMenuItem
             // 
-            this.refreshTableToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.refreshTableToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.refreshTableToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.refreshTableToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshTableToolStripMenuItem.Image")));
             this.refreshTableToolStripMenuItem.Name = "refreshTableToolStripMenuItem";
@@ -94,7 +94,7 @@ namespace Inventory_System02
             // 
             // btn_print_invoice
             // 
-            this.btn_print_invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_print_invoice.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_print_invoice.ForeColor = System.Drawing.Color.White;
             this.btn_print_invoice.Image = ((System.Drawing.Image)(resources.GetObject("btn_print_invoice.Image")));
             this.btn_print_invoice.Name = "btn_print_invoice";
@@ -104,7 +104,7 @@ namespace Inventory_System02
             // 
             // batchTransactionToolStripMenuItem
             // 
-            this.batchTransactionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.batchTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.batchTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.batchTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchTransactionToolStripMenuItem.Image")));
             this.batchTransactionToolStripMenuItem.Name = "batchTransactionToolStripMenuItem";
@@ -114,7 +114,7 @@ namespace Inventory_System02
             // 
             // printInvoiceToolStripMenuItem
             // 
-            this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.printInvoiceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));

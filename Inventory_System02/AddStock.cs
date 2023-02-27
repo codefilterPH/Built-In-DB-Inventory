@@ -212,6 +212,10 @@ namespace Inventory_System02
                         MessageBox.Show("Deleted from inbound stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Full row select needed. Thanks!", "Message Box", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 AddStock_Load(sender, e);
             }
            

@@ -256,7 +256,7 @@ namespace Inventory_System02
             // 
             // definitionsToolStripMenuItem
             // 
-            this.definitionsToolStripMenuItem.BackColor = System.Drawing.Color.DarkCyan;
+            this.definitionsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.definitionsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.definitionsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.definitionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -271,7 +271,7 @@ namespace Inventory_System02
             // 
             // supplierListToolStripMenuItem
             // 
-            this.supplierListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.supplierListToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.supplierListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.supplierListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("supplierListToolStripMenuItem.Image")));
@@ -284,7 +284,7 @@ namespace Inventory_System02
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.SlateGray;
             this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.refreshToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripMenuItem.Image")));
@@ -296,7 +296,7 @@ namespace Inventory_System02
             // 
             // batchToolStripMenuItem
             // 
-            this.batchToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.batchToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.batchToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.batchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.batchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchToolStripMenuItem.Image")));
@@ -307,7 +307,7 @@ namespace Inventory_System02
             // 
             // viewToolStripMenuItem
             // 
-            this.viewToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.viewToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.viewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.viewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewToolStripMenuItem.Image")));
@@ -318,7 +318,7 @@ namespace Inventory_System02
             // 
             // printTransactionToolStripMenuItem
             // 
-            this.printTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SlateGray;
+            this.printTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.printTransactionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printTransactionToolStripMenuItem.Image")));
@@ -330,7 +330,7 @@ namespace Inventory_System02
             // newItemToolStripMenuItem
             // 
             this.newItemToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.newItemToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.newItemToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
             this.newItemToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newItemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.newItemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newItemToolStripMenuItem.Image")));
@@ -352,7 +352,7 @@ namespace Inventory_System02
             // btb_delete
             // 
             this.btb_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btb_delete.BackColor = System.Drawing.Color.Firebrick;
+            this.btb_delete.BackColor = System.Drawing.Color.LightSlateGray;
             this.btb_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btb_delete.FlatAppearance.BorderSize = 0;
             this.btb_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -369,7 +369,7 @@ namespace Inventory_System02
             // btn_edit
             // 
             this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_edit.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_edit.FlatAppearance.BorderSize = 0;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -386,7 +386,7 @@ namespace Inventory_System02
             // btn_AddStock
             // 
             this.btn_AddStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_AddStock.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_AddStock.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_AddStock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_AddStock.FlatAppearance.BorderColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_AddStock.FlatAppearance.BorderSize = 0;
@@ -463,7 +463,7 @@ namespace Inventory_System02
             // btn_preview
             // 
             this.btn_preview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_preview.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_preview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_preview.FlatAppearance.BorderSize = 0;
             this.btn_preview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -549,7 +549,7 @@ namespace Inventory_System02
             // btn_upload
             // 
             this.btn_upload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_upload.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_upload.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_upload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_upload.FlatAppearance.BorderSize = 0;
             this.btn_upload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -623,7 +623,7 @@ namespace Inventory_System02
             // btn_Clear_Text
             // 
             this.btn_Clear_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear_Text.BackColor = System.Drawing.Color.Peru;
+            this.btn_Clear_Text.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Clear_Text.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear_Text.FlatAppearance.BorderSize = 0;
             this.btn_Clear_Text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -639,7 +639,7 @@ namespace Inventory_System02
             // 
             // btn_Gen
             // 
-            this.btn_Gen.BackColor = System.Drawing.Color.Silver;
+            this.btn_Gen.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btn_Gen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Gen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Gen.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

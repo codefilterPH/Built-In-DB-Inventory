@@ -131,10 +131,6 @@ namespace Inventory_System02
             {
                 setting_name = "`Customer Type`";
             }
-            else if (cbo_type.Text == "Supplier Type")
-            {
-                setting_name = "`Supplier Type`";
-            }
             else if (cbo_type.Text == "Customer Models")
             {
                 setting_name = "`Customer Models`";
@@ -260,16 +256,10 @@ namespace Inventory_System02
 
         private void btn_company_name_Click(object sender, EventArgs e)
         {
-            if (txt_company_name.Enabled == false )
+            if (txt_company_name.Enabled == false)
             {
                 txt_company_name.Enabled = true;
                 txt_company_name.Focus();
-            }
-            else
-            {
-                btn_company_name.Focus();
-                txt_company_name.Enabled = false;
-                MessageBox.Show("Saved! Try to restart the app to apply changes!", "Prompt Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -282,14 +272,14 @@ namespace Inventory_System02
             {
              
                 sql = "Update Settings set Company_Name = '" + txt_company_name.Text + "' ";
-                config.singleResult(sql);
+                config.Execute_CUD(sql, "No way to change company name. Failed!", "Name of business successfully modified! Thank you.");
                 Settings_Load(sender, e);
 
             }
             else
             {
                 sql = "Insert into Settings ( `Company_Name` ) values ( '" + txt_company_name.Text + "' ) ";
-                config.singleResult(sql);
+                config.Execute_CUD(sql, "No way to change company name. Failed!", "Name of business successfully saved! Thank you.");
                 Settings_Load(sender, e);
             }
 
@@ -449,12 +439,6 @@ namespace Inventory_System02
             else if (cbo_type.Text == "Customer Type")
             {
                 sql = "Select * from `Customer Type`";
-                config.Load_DTG(sql, dtg_settings);
-
-            }
-            else if (cbo_type.Text == "Supplier Type")
-            {
-                sql = "Select * from `Supplier Type`";
                 config.Load_DTG(sql, dtg_settings);
 
             }

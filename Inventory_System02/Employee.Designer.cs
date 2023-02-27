@@ -113,7 +113,7 @@ namespace Inventory_System02.Profiles
             // 
             // btn_Change_pass
             // 
-            this.btn_Change_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Change_pass.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Change_pass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Change_pass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Change_pass.ForeColor = System.Drawing.Color.White;
@@ -149,7 +149,7 @@ namespace Inventory_System02.Profiles
             // btn_upload
             // 
             this.btn_upload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_upload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_upload.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_upload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_upload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_upload.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -168,7 +168,7 @@ namespace Inventory_System02.Profiles
             // btn_Clear_Text
             // 
             this.btn_Clear_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear_Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_Clear_Text.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Clear_Text.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear_Text.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Clear_Text.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -264,7 +264,7 @@ namespace Inventory_System02.Profiles
             // 
             // btn_GenID
             // 
-            this.btn_GenID.BackColor = System.Drawing.Color.DimGray;
+            this.btn_GenID.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_GenID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_GenID.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GenID.ForeColor = System.Drawing.Color.White;
@@ -366,7 +366,7 @@ namespace Inventory_System02.Profiles
             // btn_Del
             // 
             this.btn_Del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Del.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Del.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Del.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Del.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Del.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -385,7 +385,7 @@ namespace Inventory_System02.Profiles
             // btn_Edit
             // 
             this.btn_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_Edit.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Edit.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -404,7 +404,7 @@ namespace Inventory_System02.Profiles
             // btn_Add
             // 
             this.btn_Add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Add.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_Add.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_Add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Add.FlatAppearance.BorderColor = System.Drawing.Color.White;
@@ -468,7 +468,7 @@ namespace Inventory_System02.Profiles
             // reloadTableToolStripMenuItem
             // 
             this.reloadTableToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.reloadTableToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.reloadTableToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
             this.reloadTableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reloadTableToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.reloadTableToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reloadTableToolStripMenuItem.Image")));
@@ -480,7 +480,7 @@ namespace Inventory_System02.Profiles
             // newEmployeeToolStripMenuItem
             // 
             this.newEmployeeToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.newEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
+            this.newEmployeeToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.newEmployeeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newEmployeeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.newEmployeeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newEmployeeToolStripMenuItem.Image")));

@@ -32,11 +32,11 @@ namespace Inventory_System02
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reports_MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.itemListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemByQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report_panel = new System.Windows.Forms.Panel();
-            this.itemByQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@ namespace Inventory_System02
             // 
             // itemListToolStripMenuItem
             // 
-            this.itemListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.itemListToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.itemListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemByQuantityToolStripMenuItem});
             this.itemListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,9 +67,18 @@ namespace Inventory_System02
             this.itemListToolStripMenuItem.Text = "Item Reports";
             this.itemListToolStripMenuItem.Click += new System.EventHandler(this.itemListToolStripMenuItem_Click);
             // 
+            // itemByQuantityToolStripMenuItem
+            // 
+            this.itemByQuantityToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.itemByQuantityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.itemByQuantityToolStripMenuItem.Name = "itemByQuantityToolStripMenuItem";
+            this.itemByQuantityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itemByQuantityToolStripMenuItem.Text = "Item By Quantity";
+            this.itemByQuantityToolStripMenuItem.Click += new System.EventHandler(this.itemByQuantityToolStripMenuItem_Click);
+            // 
             // employeeListToolStripMenuItem
             // 
-            this.employeeListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.employeeListToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.employeeListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.employeeListToolStripMenuItem.Name = "employeeListToolStripMenuItem";
@@ -79,7 +88,7 @@ namespace Inventory_System02
             // 
             // customerReportsToolStripMenuItem
             // 
-            this.customerReportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.customerReportsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.customerReportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerReportsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerReportsToolStripMenuItem.Name = "customerReportsToolStripMenuItem";
@@ -89,7 +98,7 @@ namespace Inventory_System02
             // 
             // supplierReportsToolStripMenuItem
             // 
-            this.supplierReportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.supplierReportsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.supplierReportsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierReportsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.supplierReportsToolStripMenuItem.Name = "supplierReportsToolStripMenuItem";
@@ -106,15 +115,6 @@ namespace Inventory_System02
             this.report_panel.Name = "report_panel";
             this.report_panel.Size = new System.Drawing.Size(776, 411);
             this.report_panel.TabIndex = 1;
-            // 
-            // itemByQuantityToolStripMenuItem
-            // 
-            this.itemByQuantityToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.itemByQuantityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.itemByQuantityToolStripMenuItem.Name = "itemByQuantityToolStripMenuItem";
-            this.itemByQuantityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.itemByQuantityToolStripMenuItem.Text = "Item By Quantity";
-            this.itemByQuantityToolStripMenuItem.Click += new System.EventHandler(this.itemByQuantityToolStripMenuItem_Click);
             // 
             // Reports_MainForm
             // 

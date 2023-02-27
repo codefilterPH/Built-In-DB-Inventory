@@ -164,7 +164,7 @@ namespace Inventory_System02
             // 
             // allItemsToolStripMenuItem
             // 
-            this.allItemsToolStripMenuItem.BackColor = System.Drawing.Color.DodgerBlue;
+            this.allItemsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.allItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.allItemsToolStripMenuItem.Name = "allItemsToolStripMenuItem";
             this.allItemsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
@@ -184,7 +184,7 @@ namespace Inventory_System02
             // 
             // inboundFilesToolStripMenuItem
             // 
-            this.inboundFilesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.inboundFilesToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.inboundFilesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inboundTransToolStripMenuItem1,
             this.outboundTransToolStripMenuItem,
@@ -223,7 +223,7 @@ namespace Inventory_System02
             // 
             // reportsToolStripMenuItem
             // 
-            this.reportsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.reportsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemToolStripMenuItem,
             this.supplierReportToolStripMenuItem,

@@ -65,9 +65,9 @@ namespace Inventory_System02
             this.btn_sup_add = new System.Windows.Forms.Button();
             this.dtg_Items = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockOutListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_edit = new System.Windows.Forms.Button();
             this.lbl_numb_items_return = new System.Windows.Forms.Label();
@@ -289,7 +289,7 @@ namespace Inventory_System02
             // btn_view
             // 
             this.btn_view.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_view.BackColor = System.Drawing.Color.DarkCyan;
+            this.btn_view.BackColor = System.Drawing.Color.Peru;
             this.btn_view.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_view.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -363,7 +363,7 @@ namespace Inventory_System02
             // btn_sup_add
             // 
             this.btn_sup_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_add.BackColor = System.Drawing.Color.Green;
+            this.btn_sup_add.BackColor = System.Drawing.Color.SlateGray;
             this.btn_sup_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_add.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
@@ -420,18 +420,30 @@ namespace Inventory_System02
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem,
             this.stockOutListToolStripMenuItem,
-            this.customerListToolStripMenuItem,
-            this.refreshToolStripMenuItem});
+            this.customerListToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(794, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.refreshToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripMenuItem.Image")));
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.ToolTipText = "Reload table";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
             // stockOutListToolStripMenuItem
             // 
-            this.stockOutListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.stockOutListToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.stockOutListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockOutListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.stockOutListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("stockOutListToolStripMenuItem.Image")));
@@ -442,7 +454,7 @@ namespace Inventory_System02
             // 
             // customerListToolStripMenuItem
             // 
-            this.customerListToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.customerListToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.customerListToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerListToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("customerListToolStripMenuItem.Image")));
@@ -450,19 +462,6 @@ namespace Inventory_System02
             this.customerListToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.customerListToolStripMenuItem.Text = "Customer List";
             this.customerListToolStripMenuItem.Click += new System.EventHandler(this.customerListToolStripMenuItem_Click);
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.refreshToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripMenuItem.Image")));
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.ToolTipText = "Reload table";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // panel3
             // 
@@ -490,7 +489,7 @@ namespace Inventory_System02
             // btn_edit
             // 
             this.btn_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_edit.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_edit.BackColor = System.Drawing.Color.Teal;
             this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_edit.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -645,6 +644,7 @@ namespace Inventory_System02
             this.dtg_Return.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtg_Return.Location = new System.Drawing.Point(5, 46);
             this.dtg_Return.Name = "dtg_Return";
+            this.dtg_Return.ReadOnly = true;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SpringGreen;
@@ -695,6 +695,7 @@ namespace Inventory_System02
             this.Quantity.DefaultCellStyle = dataGridViewCellStyle6;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             this.Quantity.Width = 81;
             // 
             // price111
@@ -758,7 +759,7 @@ namespace Inventory_System02
             // btn_StockReturn
             // 
             this.btn_StockReturn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_StockReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_StockReturn.BackColor = System.Drawing.Color.Green;
             this.btn_StockReturn.Enabled = false;
             this.btn_StockReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_StockReturn.ForeColor = System.Drawing.Color.White;

@@ -123,7 +123,6 @@ namespace Inventory_System02
             "Product Name",
             "Brand",
             "Customer Type",
-            "Supplier Type",
             "Employee Role",
             "Customer Models"});
             this.cbo_type.Location = new System.Drawing.Point(54, 55);
@@ -235,7 +234,7 @@ namespace Inventory_System02
             // 
             // btn_Upload
             // 
-            this.btn_Upload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_Upload.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_Upload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Upload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Upload.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

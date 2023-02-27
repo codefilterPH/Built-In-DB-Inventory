@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Windows.Input;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ToolTip = System.Windows.Forms.ToolTip;
@@ -24,7 +26,7 @@ namespace Inventory_System02
             InitializeComponent();
             Global_ID = global_id;
             Fullname = fullname;
-            JobRole = jobrole;
+            JobRole = jobrole;  
         }
 
         private void StockOut_Load(object sender, EventArgs e)
@@ -243,8 +245,7 @@ namespace Inventory_System02
 
         private void viewListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StockOutList frm = new StockOutList(Global_ID, Fullname, JobRole);
-            frm.ShowDialog();
+           
         }
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
@@ -360,16 +361,29 @@ namespace Inventory_System02
             func.Select_All_Dtg(dtg_AddedStocks, chk_all2);
 
         }
-
+   
         private void dtg_AddedStocks_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
+        { //Copy and pasting dot not included as well as typing it.
             e.Control.KeyPress -= new KeyPressEventHandler(func.NumbersOnlyDTG_Keypress);
-            if (dtg_AddedStocks.CurrentCell.ColumnIndex == 4) //Desired Column
+
+            if (dtg_AddedStocks.CurrentCell.ColumnIndex == 4) // Desired Column
             {
                 System.Windows.Forms.TextBox tb = e.Control as System.Windows.Forms.TextBox;
                 if (tb != null)
                 {
                     tb.KeyPress += new KeyPressEventHandler(func.NumbersOnlyDTG_Keypress);
+                    tb.KeyDown += (s, ev) =>
+                    {
+                        // Check for the dot character in the clipboard data
+                        if (ev.Control && ev.KeyCode == Keys.V)
+                        {
+                            string clipboardText = Clipboard.GetText();
+                            if (clipboardText.Contains("."))
+                            {
+                                ev.Handled = true;
+                            }
+                        }
+                    };
                 }
             }
         }
@@ -623,6 +637,13 @@ namespace Inventory_System02
         {
             toolTip = new ToolTip();
             toolTip.SetToolTip(chk_review, "Click me to verify or confirm stock out \'button\' will be enabled.\nIf not. Therefore, you need to follow instruction and complete the process.");
+        }
+
+        private void outboundListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //outbound
+            StockOutList frm = new StockOutList(Global_ID, Fullname, JobRole);
+            frm.ShowDialog();
         }
 
         private void dtg_AddedStocks_CellEndEdit(object sender, DataGridViewCellEventArgs e)

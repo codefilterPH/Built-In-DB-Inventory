@@ -303,7 +303,7 @@ namespace Inventory_System02
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(409, 399);
+            this.ClientSize = new System.Drawing.Size(418, 494);
             this.Controls.Add(this.lbl_exp);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.lbl_email);

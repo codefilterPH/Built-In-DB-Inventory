@@ -29,8 +29,8 @@ namespace Inventory_System02
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOutList));
             this.dtg_outlist = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,10 +71,10 @@ namespace Inventory_System02
             // 
             this.dtg_outlist.AllowUserToAddRows = false;
             this.dtg_outlist.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DimGray;
-            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
+            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_outlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -83,13 +83,13 @@ namespace Inventory_System02
             this.dtg_outlist.GridColor = System.Drawing.Color.White;
             this.dtg_outlist.Location = new System.Drawing.Point(12, 192);
             this.dtg_outlist.Name = "dtg_outlist";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_outlist.RowTemplate.Height = 60;
             this.dtg_outlist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_outlist.Size = new System.Drawing.Size(783, 214);
@@ -148,7 +148,7 @@ namespace Inventory_System02
             // 
             // refreshTableToolStripMenuItem
             // 
-            this.refreshTableToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.refreshTableToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.refreshTableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.refreshTableToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshTableToolStripMenuItem.Image")));
             this.refreshTableToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,7 +159,7 @@ namespace Inventory_System02
             // 
             // btn_print_invoice
             // 
-            this.btn_print_invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_print_invoice.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_print_invoice.ForeColor = System.Drawing.Color.White;
             this.btn_print_invoice.Image = ((System.Drawing.Image)(resources.GetObject("btn_print_invoice.Image")));
             this.btn_print_invoice.Name = "btn_print_invoice";
@@ -169,7 +169,7 @@ namespace Inventory_System02
             // 
             // batchTransactionToolStripMenuItem
             // 
-            this.batchTransactionToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.batchTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.batchTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.batchTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchTransactionToolStripMenuItem.Image")));
             this.batchTransactionToolStripMenuItem.Name = "batchTransactionToolStripMenuItem";
@@ -179,7 +179,7 @@ namespace Inventory_System02
             // 
             // printInvoiceToolStripMenuItem
             // 
-            this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.printInvoiceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
