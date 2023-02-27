@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
 {
@@ -28,13 +29,16 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace( txt_qty_from.Text ) || txt_qty_from.Text != "0" && !string.IsNullOrWhiteSpace(txt_qty_to.Text) || txt_qty_to.Text != "0" )
+            if (txt_qty_from.Text != "" || txt_qty_to.Text != "")
             {
-                from_qty = Convert.ToInt32(txt_qty_from.Text);
-                to_qty = Convert.ToInt32(txt_qty_to.Text);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                if (!string.IsNullOrWhiteSpace(txt_qty_from.Text) || txt_qty_from.Text != "0" && !string.IsNullOrWhiteSpace(txt_qty_to.Text) || txt_qty_to.Text != "0")
+                {
+                    from_qty = Convert.ToInt32(txt_qty_from.Text);
+                    to_qty = Convert.ToInt32(txt_qty_to.Text);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
 
+                }
             }
         }
 
@@ -49,7 +53,17 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
         private void txt_qty_from_KeyPress(object sender, KeyPressEventArgs e)
         {
             usableFunction func = new usableFunction();
-            func.Make_Numeric_Only(sender, e);
+            func.KeyPress_Textbox_NumbersOnlyNoDot(sender, e);
+        }
+
+        private void txt_qty_from_TextChanged(object sender, EventArgs e)
+        {
+            txt_qty_from.Text = txt_qty_from.Text.Replace(".", "");
+        }
+
+        private void txt_qty_to_TextChanged(object sender, EventArgs e)
+        {
+            txt_qty_to.Text = txt_qty_to.Text.Replace(".", "");
         }
     }
 }

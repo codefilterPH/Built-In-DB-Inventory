@@ -114,6 +114,18 @@ namespace Inventory_System02.Includes
                 e.Handled = true;
             }
         }
+        public void KeyPress_Textbox_NumbersOnlyNoDot(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' || e.KeyChar == ' ')
+            {
+                e.Handled = true; // prevent the dot or space from being entered
+            }
+        }
         public void Make_Numeric_Only(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&

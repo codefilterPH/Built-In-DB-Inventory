@@ -25,10 +25,12 @@ namespace Inventory_System02.Edit_Form
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            MyData_qty = txt_qty.Text;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-            
+            if ( txt_qty.Text != "" )
+            {
+                MyData_qty = txt_qty.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void Edit_Form_Load(object sender, EventArgs e)
@@ -47,13 +49,13 @@ namespace Inventory_System02.Edit_Form
 
         private void txt_qty_TextChanged(object sender, EventArgs e)
         {
-
+            txt_qty.Text = txt_qty.Text.Replace(".", "");
         }
 
         private void txt_qty_KeyPress(object sender, KeyPressEventArgs e)
         {
             usableFunction func = new usableFunction();
-            func.Make_Numeric_Only(sender,e);
+            func.KeyPress_Textbox_NumbersOnlyNoDot(sender,e);
         }
     }
 }

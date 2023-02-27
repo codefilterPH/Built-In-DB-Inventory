@@ -198,19 +198,23 @@ namespace Inventory_System02
 
         private void btb_delete_Click(object sender, EventArgs e)
         {
-            if (dtg_Items.SelectedRows.Count > 0)
+            if ( dtg_Items.Rows.Count > 0 )
             {
-                if ( MessageBox.Show("You are about to deleted selected item(s), Please confirm deletion.", "Warning Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (dtg_Items.SelectedRows.Count > 0)
                 {
-                    foreach (DataGridViewRow rw in dtg_Items.SelectedRows)
+                    if (MessageBox.Show("You are about to deleted selected item(s), Please confirm deletion.", "Warning Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        sql = "Delete from Stocks where `Stock ID`  = '" + rw.Cells[2].Value.ToString() + "' ";
-                        config.Execute_Query(sql);
+                        foreach (DataGridViewRow rw in dtg_Items.SelectedRows)
+                        {
+                            sql = "Delete from Stocks where `Stock ID`  = '" + rw.Cells[2].Value.ToString() + "' ";
+                            config.Execute_Query(sql);
+                        }
+                        MessageBox.Show("Deleted from inbound stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    MessageBox.Show("Deleted from inbound stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                AddStock_Load(sender, e);
             }
-            AddStock_Load(sender, e);
+           
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)

@@ -58,6 +58,7 @@
             this.txt_qty_from.TabIndex = 0;
             this.txt_qty_from.Text = "0";
             this.txt_qty_from.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_qty_from.TextChanged += new System.EventHandler(this.txt_qty_from_TextChanged);
             this.txt_qty_from.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_qty_from_KeyPress);
             // 
             // label2
@@ -90,6 +91,7 @@
             this.txt_qty_to.TabIndex = 1;
             this.txt_qty_to.Text = "0";
             this.txt_qty_to.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_qty_to.TextChanged += new System.EventHandler(this.txt_qty_to_TextChanged);
             this.txt_qty_to.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_qty_to_KeyDown);
             this.txt_qty_to.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_qty_from_KeyPress);
             // 

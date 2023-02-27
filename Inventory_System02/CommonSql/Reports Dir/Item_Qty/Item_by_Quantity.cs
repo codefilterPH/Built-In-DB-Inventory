@@ -147,7 +147,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             WhatTable_To_Select();
 
 
-            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' AND Quantity BETWEEN '"+ filter_qty_from.ToString() +"' AND '"+filter_qty_to.ToString()+"' ORDER BY `Entry Date` DESC";
+            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' AND CAST(Quantity AS INT) BETWEEN '" + filter_qty_from.ToString() +"' AND '"+filter_qty_to.ToString()+"' ORDER BY `Entry Date` DESC";
 
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
