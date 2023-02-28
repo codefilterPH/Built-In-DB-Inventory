@@ -25,28 +25,22 @@ namespace Inventory_System02
             refreshTableToolStripMenuItem_Click(sender, e);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-        double val = 0, qty = 0;
+       
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sql = "Select * from `Stock Out` order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_outlist);
             if (config.dt.Rows.Count > 0)
             {
-                for (int i = 0; i < dtg_outlist.Rows.Count; i++)
-                {
-                    qty += Convert.ToDouble(dtg_outlist.Rows[i].Cells[6].Value);
-                    val += Convert.ToDouble(dtg_outlist.Rows[i].Cells[8].Value);
-                }
-                dtg_outlist.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_outlist.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_outlist.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_outlist.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                out_qty.Text = qty.ToString();
-                out_amt.Text = val.ToString();
+                CalculateValue();
+            }
+            else
+            {
+                lbl_items_count.Text = "0";
+                out_amt.Text = "0";
+                out_qty.Text = "0";
             }
             DTG_Property();
-
         }
         private void DTG_Property()
         {
@@ -54,47 +48,74 @@ namespace Inventory_System02
             {
                 dtg_outlist.Columns[0].Visible = false;
                 dtg_outlist.Columns[2].Visible = false;
-                dtg_outlist.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_outlist.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_outlist.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_outlist.Columns[5].Visible = false;
+                dtg_outlist.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_outlist.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_outlist.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtg_outlist.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_outlist.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
                 // dtg_outlist.Rows[0].Selected = true;
                 func.Count_person(dtg_outlist, lbl_items_count);
 
                 foreach (DataGridViewRow rw in dtg_outlist.Rows)
                 {
-                    if (Convert.ToDateTime(rw.Cells[1].Value) >= Convert.ToDateTime(rw.Cells[15].Value))
+                    if (!string.IsNullOrEmpty(rw.Cells[12].Value.ToString()))
                     {
-                        rw.DefaultCellStyle.ForeColor = Color.Red;
+                        if (Convert.ToDateTime(rw.Cells[1].Value) >= Convert.ToDateTime(rw.Cells[12].Value))
+                        {
+                            rw.DefaultCellStyle.ForeColor = Color.Red;
+                        }
                     }
                 }
             }
+        }
 
+
+        private void CalculateValue()
+        {
+
+            decimal total_val = 0;
+            int total_qty = 0;
+            for (int i = 0; i < dtg_outlist.Rows.Count; i++)
+            {
+                int qty = 0;
+                decimal amount = 0;
+                int.TryParse(dtg_outlist.Rows[i].Cells[9].Value.ToString(), out qty);
+                decimal.TryParse(dtg_outlist.Rows[i].Cells[11].Value.ToString(), out amount);
+
+                total_qty += qty;
+                total_val += amount;
+                
+            }
+            out_qty.Text = total_qty.ToString();
+            out_amt.Text = total_val.ToString();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtg_outlist.Columns.Count > 0)
             {
-                txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[16].Value.ToString();
-                txt_Cust_ID.Text = dtg_outlist.CurrentRow.Cells[9].Value.ToString();
-                txt_Cust_name.Text = dtg_outlist.CurrentRow.Cells[10].Value.ToString();
-                txt_address.Text = dtg_outlist.CurrentRow.Cells[11].Value.ToString();
+                txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[13].Value.ToString();
+                txt_Cust_ID.Text = dtg_outlist.CurrentRow.Cells[2].Value.ToString();
+                txt_Cust_name.Text = dtg_outlist.CurrentRow.Cells[3].Value.ToString();
+                txt_address.Text = dtg_outlist.CurrentRow.Cells[4].Value.ToString();
 
                 func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
                 txt_Trans_number.Focus();
                 if (dtg_outlist.Rows.Count > 0)
                 {
-                    if (Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[1].Value) >= Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[15].Value))
+                    if (Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[1].Value) >= Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[12].Value))
                     {
-                        lbl_DueDate.Text = "Warning this Transaction is due " + dtg_outlist.CurrentRow.Cells[15].Value.ToString();
+                        lbl_DueDate.Text = "Warning this Transaction is due " + dtg_outlist.CurrentRow.Cells[12].Value.ToString();
                     }
                     else
                     {
                         lbl_DueDate.Text = "";
                     }
+
+                    func.Change_Font_DTG(sender, e, dtg_outlist);
                 }
-                chk_all.Checked = false;
             }
         }
 
@@ -114,7 +135,7 @@ namespace Inventory_System02
                             break;
                         }
 
-                        string transactionRef = rw.Cells[16].Value?.ToString();
+                        string transactionRef = rw.Cells[13].Value?.ToString();
 
                         // Check if the transaction reference is null or empty
                         if (string.IsNullOrEmpty(transactionRef))
@@ -144,7 +165,6 @@ namespace Inventory_System02
                             MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        chk_all.Checked = false;
 
                     }
                     refreshTableToolStripMenuItem_Click(sender, e);
@@ -165,38 +185,6 @@ namespace Inventory_System02
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
-            }
-        }
-
-        private void chk_all_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_all.Checked)
-            {
-                foreach (DataGridViewRow rw in dtg_outlist.Rows)
-                {
-                    rw.Selected = true;
-                    btn_Delete.Focus();
-                }
-            }
-            else
-            {
-                foreach (DataGridViewRow rw in dtg_outlist.Rows)
-                {
-                    rw.Selected = false;
-                }
-            }
-        }
-
-        private void batchTransactionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
-            {
-                voice.Invoice("out", txt_Trans_number.Text, "batch");
-            }
-            else
-            {
-                txt_Trans_number.Text = "Empty Field!";
-                txt_Trans_number.Focus();
             }
         }
 
@@ -221,18 +209,18 @@ namespace Inventory_System02
                 {
                     Items.Outbound_Preview frm = new Items.Outbound_Preview(
                     dtg_outlist.CurrentRow.Cells[1].Value.ToString(),
-                    dtg_outlist.CurrentRow.Cells[2].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[5].Value.ToString(),
                     txt_Trans_number.Text,
-                    dtg_outlist.CurrentRow.Cells[10].Value.ToString(),
-                    dtg_outlist.CurrentRow.Cells[11].Value.ToString(),
                     dtg_outlist.CurrentRow.Cells[3].Value.ToString(),
                     dtg_outlist.CurrentRow.Cells[4].Value.ToString(),
-                    dtg_outlist.CurrentRow.Cells[5].Value.ToString(),
                     dtg_outlist.CurrentRow.Cells[6].Value.ToString(),
                     dtg_outlist.CurrentRow.Cells[7].Value.ToString(),
                     dtg_outlist.CurrentRow.Cells[8].Value.ToString(),
-                    dtg_outlist.CurrentRow.Cells[13].Value.ToString(),
-                    dtg_outlist.CurrentRow.Cells[15].Value.ToString()
+                    dtg_outlist.CurrentRow.Cells[9].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[10].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[11].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[15].Value.ToString(),
+                    dtg_outlist.CurrentRow.Cells[12].Value.ToString()
                     );
 
                     frm.ShowDialog();
@@ -246,24 +234,20 @@ namespace Inventory_System02
             }
         }
 
-        private void btn_select_Click(object sender, EventArgs e)
+        private void curTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dtg_outlist.Rows.Count >= 1)
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
-                if (dtg_outlist.SelectedRows.Count > 0 )
-                {
-                    if ( txt_Trans_number.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
-                    {
-                        txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[16].Value.ToString();
-                    }
-                    passed_trans_ref = txt_Trans_number.Text;
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
+                voice.Invoice("out", txt_Trans_number.Text, "preview");
+            }
+            else
+            {
+                txt_Trans_number.Text = "Empty Field!";
+                txt_Trans_number.Focus();
             }
         }
 
-        private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void currentTransactionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
@@ -273,6 +257,36 @@ namespace Inventory_System02
             {
                 txt_Trans_number.Text = "Empty Field!";
                 txt_Trans_number.Focus();
+            }
+        }
+
+        private void curTransToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
+            {
+                voice.Invoice("out", txt_Trans_number.Text, "batch");
+            }
+            else
+            {
+                txt_Trans_number.Text = "Empty Field!";
+                txt_Trans_number.Focus();
+            }
+        }
+
+        private void btn_select_Click(object sender, EventArgs e)
+        {
+            if (dtg_outlist.Rows.Count >= 1)
+            {
+                if (dtg_outlist.SelectedRows.Count > 0 )
+                {
+                    if ( txt_Trans_number.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                    {
+                        txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[13].Value.ToString();
+                    }
+                    passed_trans_ref = txt_Trans_number.Text;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
         }
         string search_for = string.Empty;
@@ -306,39 +320,49 @@ namespace Inventory_System02
             {
                 search_for = "`Price`";
             }
-            else if (cbo_srch_type.Text == "Supplier")
+            else if (cbo_srch_type.Text == "Total")
             {
-                search_for = "`Supplier Name`";
+                search_for = "`Total`";
+            }
+            else if (cbo_srch_type.Text == "Division")
+            {
+                search_for = "`Customer Name`";
+            }
+            else if (cbo_srch_type.Text == "Address")
+            {
+                search_for = "`Customer Address`";
+            }
+            else if (cbo_srch_type.Text == "Staff Name")
+            {
+                search_for = "`Warehouse Staff Name`";
             }
             else if (cbo_srch_type.Text == "Job")
             {
                 search_for = "`Job Role`";
             }
-            else
+            else if ( cbo_srch_type.Text == "Warranty Due Date")
+            {
+                search_for = "`Warranty Due Date`";
+            }
+            else if ( cbo_srch_type.Text == "Trans Ref")
             {
                 search_for = "`Transaction Reference`";
             }
+            else
+            {
+                search_for = "`Customer Name`";
+            }
             sql = "Select * from `Stock Out` where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_outlist);
+            if (config.dt.Rows.Count > 0 )
+            {
+                CalculateValue();
+            }
             DTG_Property();
 
             if (txt_Search.Text == "")
             {
                 refreshTableToolStripMenuItem_Click(sender, e);
-            }
-
-        }
-
-        private void btn_print_invoice_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!" )
-            {
-                voice.Invoice("out", txt_Trans_number.Text, "preview");
-            }
-            else
-            {
-                txt_Trans_number.Text = "Empty Field!";
-                txt_Trans_number.Focus();
             }
 
         }

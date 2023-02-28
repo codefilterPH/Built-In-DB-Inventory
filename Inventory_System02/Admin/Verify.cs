@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_System02.Includes;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 
 namespace Inventory_System02.Admin
@@ -27,9 +29,8 @@ namespace Inventory_System02.Admin
         {
             if ( cbo_extend_type.Text == "Trial" )
             {
-                sql = "Update `Administration` set Date = '" + dtp_date_extend.Text + "', Status = 'Trial' where Count = '0' ";
+                sql = "Update `Administration` set Date = @dtp_date_extend, Status = 'Trial' where Count = '0' ";
                 config.Execute_CUD(sql, "Unable to extend trial! Please try again.", "Successfully extended trial!");
-                
                 Application.Exit();
             }
             else
@@ -49,7 +50,7 @@ namespace Inventory_System02.Admin
                     double value_code = Convert.ToDouble(config.dt.Rows[0].Field<string>("Value"));
                     if (sum == value_code)
                     {
-                       
+
                         sql = "Update Administration set Status = 'Full' where Count = '0' ";
                         config.Execute_CUD(sql,"Unable to register! Please contact administrator.", "Software successfully registered! Welcome Full Pack Version.");
                         Application.Exit();

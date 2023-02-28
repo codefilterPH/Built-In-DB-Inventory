@@ -245,7 +245,6 @@ namespace Inventory_System02
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
             this.itemToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.itemToolStripMenuItem.Text = "Item Report";
-            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
             // inboundReportToolStripMenuItem
             // 

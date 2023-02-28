@@ -39,8 +39,14 @@ namespace Inventory_System02
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.refreshTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_print_invoice = new System.Windows.Forms.ToolStripMenuItem();
+            this.curTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.batchTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.curTransToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableResultToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.printInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currentTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableResultToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.txt_Trans_number = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.out_amt = new System.Windows.Forms.Label();
@@ -61,7 +67,7 @@ namespace Inventory_System02
             this.cbo_srch_type = new System.Windows.Forms.ComboBox();
             this.btn_view = new System.Windows.Forms.Button();
             this.btn_select = new System.Windows.Forms.Button();
-            this.chk_all = new System.Windows.Forms.CheckBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
@@ -81,7 +87,7 @@ namespace Inventory_System02
             this.dtg_outlist.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_outlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_outlist.GridColor = System.Drawing.Color.White;
-            this.dtg_outlist.Location = new System.Drawing.Point(12, 192);
+            this.dtg_outlist.Location = new System.Drawing.Point(12, 151);
             this.dtg_outlist.Name = "dtg_outlist";
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,7 +98,7 @@ namespace Inventory_System02
             this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_outlist.RowTemplate.Height = 60;
             this.dtg_outlist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_outlist.Size = new System.Drawing.Size(783, 214);
+            this.dtg_outlist.Size = new System.Drawing.Size(783, 236);
             this.dtg_outlist.TabIndex = 0;
             this.dtg_outlist.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dtg_outlist.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_outlist_CellContentDoubleClick);
@@ -101,7 +107,7 @@ namespace Inventory_System02
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 140);
+            this.label1.Location = new System.Drawing.Point(13, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 1;
@@ -110,7 +116,7 @@ namespace Inventory_System02
             // txt_Search
             // 
             this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(57, 137);
+            this.txt_Search.Location = new System.Drawing.Point(59, 118);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(121, 22);
             this.txt_Search.TabIndex = 5;
@@ -124,7 +130,7 @@ namespace Inventory_System02
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Delete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Delete.Location = new System.Drawing.Point(645, 165);
+            this.btn_Delete.Location = new System.Drawing.Point(645, 116);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(150, 23);
             this.btn_Delete.TabIndex = 3;
@@ -160,33 +166,90 @@ namespace Inventory_System02
             // btn_print_invoice
             // 
             this.btn_print_invoice.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_print_invoice.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.curTransactionToolStripMenuItem,
+            this.tableResultToolStripMenuItem});
             this.btn_print_invoice.ForeColor = System.Drawing.Color.White;
             this.btn_print_invoice.Image = ((System.Drawing.Image)(resources.GetObject("btn_print_invoice.Image")));
             this.btn_print_invoice.Name = "btn_print_invoice";
-            this.btn_print_invoice.Size = new System.Drawing.Size(123, 20);
-            this.btn_print_invoice.Text = "View Transaction";
-            this.btn_print_invoice.Click += new System.EventHandler(this.btn_print_invoice_Click);
+            this.btn_print_invoice.Size = new System.Drawing.Size(60, 20);
+            this.btn_print_invoice.Text = "View";
+            // 
+            // curTransactionToolStripMenuItem
+            // 
+            this.curTransactionToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.curTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.curTransactionToolStripMenuItem.Name = "curTransactionToolStripMenuItem";
+            this.curTransactionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.curTransactionToolStripMenuItem.Text = "Current Transaction";
+            this.curTransactionToolStripMenuItem.Click += new System.EventHandler(this.curTransactionToolStripMenuItem_Click);
+            // 
+            // tableResultToolStripMenuItem
+            // 
+            this.tableResultToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.tableResultToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.tableResultToolStripMenuItem.Name = "tableResultToolStripMenuItem";
+            this.tableResultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tableResultToolStripMenuItem.Text = "Table Result";
             // 
             // batchTransactionToolStripMenuItem
             // 
             this.batchTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.batchTransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.curTransToolStripMenuItem,
+            this.tableResultToolStripMenuItem1});
             this.batchTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.batchTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchTransactionToolStripMenuItem.Image")));
             this.batchTransactionToolStripMenuItem.Name = "batchTransactionToolStripMenuItem";
-            this.batchTransactionToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.batchTransactionToolStripMenuItem.Text = "Batch Transaction";
-            this.batchTransactionToolStripMenuItem.Click += new System.EventHandler(this.batchTransactionToolStripMenuItem_Click);
+            this.batchTransactionToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.batchTransactionToolStripMenuItem.Text = "Batch";
+            // 
+            // curTransToolStripMenuItem
+            // 
+            this.curTransToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.curTransToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.curTransToolStripMenuItem.Name = "curTransToolStripMenuItem";
+            this.curTransToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.curTransToolStripMenuItem.Text = "Current Transaction";
+            this.curTransToolStripMenuItem.Click += new System.EventHandler(this.curTransToolStripMenuItem_Click);
+            // 
+            // tableResultToolStripMenuItem1
+            // 
+            this.tableResultToolStripMenuItem1.BackColor = System.Drawing.Color.SteelBlue;
+            this.tableResultToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.tableResultToolStripMenuItem1.Name = "tableResultToolStripMenuItem1";
+            this.tableResultToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.tableResultToolStripMenuItem1.Text = "Table Result";
             // 
             // printInvoiceToolStripMenuItem
             // 
             this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.printInvoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentTransactionToolStripMenuItem,
+            this.tableResultToolStripMenuItem2});
             this.printInvoiceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
             this.printInvoiceToolStripMenuItem.Name = "printInvoiceToolStripMenuItem";
-            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
-            this.printInvoiceToolStripMenuItem.Text = "Print Transaction";
-            this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
+            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.printInvoiceToolStripMenuItem.Text = "Print";
+            // 
+            // currentTransactionToolStripMenuItem
+            // 
+            this.currentTransactionToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.currentTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.currentTransactionToolStripMenuItem.Name = "currentTransactionToolStripMenuItem";
+            this.currentTransactionToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.currentTransactionToolStripMenuItem.Text = "Current Transaction";
+            this.currentTransactionToolStripMenuItem.Click += new System.EventHandler(this.currentTransactionToolStripMenuItem_Click);
+            // 
+            // tableResultToolStripMenuItem2
+            // 
+            this.tableResultToolStripMenuItem2.BackColor = System.Drawing.Color.SteelBlue;
+            this.tableResultToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.tableResultToolStripMenuItem2.Name = "tableResultToolStripMenuItem2";
+            this.tableResultToolStripMenuItem2.Size = new System.Drawing.Size(177, 22);
+            this.tableResultToolStripMenuItem2.Text = "Table Result";
             // 
             // txt_Trans_number
             // 
@@ -211,30 +274,32 @@ namespace Inventory_System02
             // 
             this.out_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.out_amt.AutoSize = true;
-            this.out_amt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_amt.Location = new System.Drawing.Point(656, 435);
+            this.out_amt.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_amt.Location = new System.Drawing.Point(612, 429);
             this.out_amt.Name = "out_amt";
-            this.out_amt.Size = new System.Drawing.Size(0, 13);
+            this.out_amt.Size = new System.Drawing.Size(18, 18);
             this.out_amt.TabIndex = 90;
+            this.out_amt.Text = "0";
             // 
             // out_qty
             // 
             this.out_qty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.out_qty.AutoSize = true;
-            this.out_qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_qty.Location = new System.Drawing.Point(656, 420);
+            this.out_qty.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_qty.Location = new System.Drawing.Point(612, 401);
             this.out_qty.Name = "out_qty";
-            this.out_qty.Size = new System.Drawing.Size(0, 13);
+            this.out_qty.Size = new System.Drawing.Size(18, 18);
             this.out_qty.TabIndex = 89;
+            this.out_qty.Text = "0";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(571, 435);
+            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(468, 429);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.Size = new System.Drawing.Size(138, 18);
             this.label5.TabIndex = 88;
             this.label5.Text = "Total Amount:";
             // 
@@ -242,22 +307,20 @@ namespace Inventory_System02
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(549, 420);
+            this.label9.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(448, 401);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(107, 13);
+            this.label9.Size = new System.Drawing.Size(158, 18);
             this.label9.TabIndex = 87;
-            this.label9.Text = "Over All Quantity:";
+            this.label9.Text = "Total Quantity:";
             // 
             // txt_address
             // 
-            this.txt_address.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_address.Location = new System.Drawing.Point(399, 65);
             this.txt_address.Multiline = true;
             this.txt_address.Name = "txt_address";
             this.txt_address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_address.Size = new System.Drawing.Size(271, 53);
+            this.txt_address.Size = new System.Drawing.Size(271, 38);
             this.txt_address.TabIndex = 10;
             // 
             // label6
@@ -306,9 +369,9 @@ namespace Inventory_System02
             this.cust_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cust_Image.BackColor = System.Drawing.Color.Transparent;
             this.cust_Image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cust_Image.Location = new System.Drawing.Point(676, 34);
+            this.cust_Image.Location = new System.Drawing.Point(710, 34);
             this.cust_Image.Name = "cust_Image";
-            this.cust_Image.Size = new System.Drawing.Size(119, 97);
+            this.cust_Image.Size = new System.Drawing.Size(85, 69);
             this.cust_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.cust_Image.TabIndex = 114;
             this.cust_Image.TabStop = false;
@@ -317,22 +380,23 @@ namespace Inventory_System02
             // 
             this.lbl_items_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_items_count.AutoSize = true;
-            this.lbl_items_count.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_items_count.Location = new System.Drawing.Point(75, 420);
+            this.lbl_items_count.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_items_count.Location = new System.Drawing.Point(109, 395);
             this.lbl_items_count.Name = "lbl_items_count";
-            this.lbl_items_count.Size = new System.Drawing.Size(0, 13);
+            this.lbl_items_count.Size = new System.Drawing.Size(15, 16);
             this.lbl_items_count.TabIndex = 117;
+            this.lbl_items_count.Text = "0";
             // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(12, 420);
+            this.label16.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(8, 395);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 13);
+            this.label16.Size = new System.Drawing.Size(95, 16);
             this.label16.TabIndex = 116;
-            this.label16.Text = "Total Item:";
+            this.label16.Text = "Rows count:";
             // 
             // lbl_DueDate
             // 
@@ -349,11 +413,11 @@ namespace Inventory_System02
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(186, 142);
+            this.label7.Location = new System.Drawing.Point(186, 121);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.Size = new System.Drawing.Size(18, 13);
             this.label7.TabIndex = 120;
-            this.label7.Text = "Search by";
+            this.label7.Text = "By";
             // 
             // cbo_srch_type
             // 
@@ -368,14 +432,18 @@ namespace Inventory_System02
             "Description",
             "Quantity",
             "Price",
-            "Supplier",
+            "Total",
+            "Division",
+            "Address",
+            "Staff Name",
             "Job",
+            "Warranty Due Date",
             "Trans Ref"});
-            this.cbo_srch_type.Location = new System.Drawing.Point(248, 139);
+            this.cbo_srch_type.Location = new System.Drawing.Point(207, 118);
             this.cbo_srch_type.Name = "cbo_srch_type";
-            this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
+            this.cbo_srch_type.Size = new System.Drawing.Size(90, 21);
             this.cbo_srch_type.TabIndex = 6;
-            this.cbo_srch_type.Text = "Trans Ref";
+            this.cbo_srch_type.Text = "Division";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
             // btn_view
@@ -386,7 +454,7 @@ namespace Inventory_System02
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_view.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_view.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_view.Location = new System.Drawing.Point(514, 165);
+            this.btn_view.Location = new System.Drawing.Point(514, 116);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(125, 23);
             this.btn_view.TabIndex = 2;
@@ -402,26 +470,13 @@ namespace Inventory_System02
             this.btn_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_select.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_select.Location = new System.Drawing.Point(383, 165);
+            this.btn_select.Location = new System.Drawing.Point(383, 116);
             this.btn_select.Name = "btn_select";
             this.btn_select.Size = new System.Drawing.Size(125, 23);
             this.btn_select.TabIndex = 1;
             this.btn_select.Text = "Select";
             this.btn_select.UseVisualStyleBackColor = false;
             this.btn_select.Click += new System.EventHandler(this.btn_select_Click);
-            // 
-            // chk_all
-            // 
-            this.chk_all.AutoSize = true;
-            this.chk_all.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_all.Location = new System.Drawing.Point(11, 165);
-            this.chk_all.Name = "chk_all";
-            this.chk_all.Size = new System.Drawing.Size(76, 19);
-            this.chk_all.TabIndex = 4;
-            this.chk_all.Text = "Select All";
-            this.chk_all.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chk_all.UseVisualStyleBackColor = true;
-            this.chk_all.CheckedChanged += new System.EventHandler(this.chk_all_CheckedChanged);
             // 
             // StockOutList
             // 
@@ -435,7 +490,6 @@ namespace Inventory_System02
             this.Controls.Add(this.lbl_DueDate);
             this.Controls.Add(this.lbl_items_count);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.chk_all);
             this.Controls.Add(this.cust_Image);
             this.Controls.Add(this.txt_address);
             this.Controls.Add(this.label6);
@@ -458,7 +512,7 @@ namespace Inventory_System02
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StockOutList";
-            this.Text = "StockOutList";
+            this.Text = "Outbound Summary";
             this.Load += new System.EventHandler(this.StockOutList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -500,6 +554,12 @@ namespace Inventory_System02
         private System.Windows.Forms.ComboBox cbo_srch_type;
         private System.Windows.Forms.Button btn_view;
         private System.Windows.Forms.Button btn_select;
-        private System.Windows.Forms.CheckBox chk_all;
+        private System.Windows.Forms.ToolStripMenuItem curTransactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableResultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem curTransToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableResultToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem currentTransactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableResultToolStripMenuItem2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

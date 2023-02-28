@@ -20,6 +20,7 @@ namespace Inventory_System02
         Calculations cal = new Calculations();
         ID_Generator gen = new ID_Generator();
         string sql, Item_ID1, Global_ID, Fullname, JobRole, item_image_location = string.Empty, img_loc = string.Empty;
+        int quantity;
         public AddStock(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
@@ -61,7 +62,8 @@ namespace Inventory_System02
         double totalrows = 0;
         private void DTG_Property()
         {
-            this.dtg_Items.Columns[6].DefaultCellStyle.Format = "0.00";
+            this.dtg_Items.Columns[7].DefaultCellStyle.Format = "0.00";
+            this.dtg_Items.Columns[8].DefaultCellStyle.Format = "0.00";
 
             //Format to date dtg cell
             dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormat;
@@ -70,15 +72,15 @@ namespace Inventory_System02
 
 
             dtg_Items.Columns[0].Visible = false;
-            dtg_Items.Columns[8].Visible = false;
+            dtg_Items.Columns[9].Visible = false;
 
             config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
             foreach (DataRow rw in config.dt.Rows)
             {
-                if (File.Exists(rw[8].ToString()))
+                if (File.Exists(rw[9].ToString()))
                 {
-                    rw["Image"] = File.ReadAllBytes(rw[8].ToString());
+                    rw["Image"] = File.ReadAllBytes(rw[9].ToString());
                 }
                 else
                 {
@@ -110,15 +112,81 @@ namespace Inventory_System02
             dtg_Items.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg_Items.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             Calculator_Timer.Start();
         }
+        private void Calculator_Timer_Tick(object sender, EventArgs e)
+        {
+            Calculations();
+          
+            //STOCK LOW DETECTION
+            sql = "Select Low_Detection from Settings";
+            config.singleResult(sql);
+            if (config.dt.Rows.Count > 0)
+            {
+                
+                foreach (DataGridViewRow rw in dtg_Items.Rows)
+                {
+                    int.TryParse ( Convert.ToString( config.dt.Rows[0]["Low_Detection"] ), out quantity);
+                    if (Convert.ToInt32(rw.Cells[6].Value) <= quantity)
+                    {
+                        //STOCK LOW DETECT CHANGE FONT COLOR
+                        rw.DefaultCellStyle.ForeColor = Color.Red;
+                    }
+                }
+            }
+            Calculator_Timer.Stop();
+        }
+        public void Calculations()
+        {
 
+            int my_qty = 0;
+            decimal my_total = 0;
+
+            sql = "Select Quantity, Total FROM Stocks WHERE `ENTRY DATE` = '"+ DateTime.Now.ToString(Includes.AppSettings.DateFormat)+"'";
+            config.singleResult(sql);
+
+            if (config.dt.Rows.Count > 0)
+            {
+                for ( int i = 0; i < config.dt.Rows.Count; i++)
+                {
+                    int qty = 0;
+                    decimal total = 0;
+                    int.TryParse(config.dt.Rows[i]["Quantity"].ToString(), out qty);
+                    decimal.TryParse(config.dt.Rows[i]["Total"].ToString(), out total);
+                    my_qty += qty;
+                    my_total += total;
+                }    
+            }
+            lbl_Today_Qty.Text = "Qty " + my_qty.ToString();
+            lbl_Today_Amt.Text = "Php " + my_total.ToString();
+
+            if ( dtg_Items.Rows.Count > 0)
+            {
+
+                my_qty = 0;
+                my_total = 0;
+                foreach ( DataGridViewRow rw in dtg_Items.Rows )
+                {
+                    int qty = 0;
+                    decimal total = 0;
+                    int.TryParse(rw.Cells[6].Value.ToString(), out qty);
+                    decimal.TryParse(rw.Cells[8].Value.ToString(), out total);
+                    my_qty += qty;
+                    my_total += total;
+                }
+                lbl_TotalQty.Text = "Qty " + my_qty.ToString();
+                lbl_TotalAmt.Text = "Php " + my_total.ToString();
+            }
+        }
 
         private void txt_Price_Leave(object sender, EventArgs e)
         {
             func.Two_Decimal_Places(sender, e, txt_Price);
+            txt_Qty_ValueChanged(sender, e);
+
         }
 
         private void btn_Gen_Click(object sender, EventArgs e)
@@ -128,8 +196,9 @@ namespace Inventory_System02
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-                txt_TransRef.Text = config.dt.Rows[0].Field<string>("Transaction Reference");
+                txt_TransRef.Text = Convert.ToString(config.dt.Rows[0]["Transaction Reference"]);
             }
+            SupplierChangeDisabler();
         }
 
 
@@ -143,18 +212,17 @@ namespace Inventory_System02
                 cbo_desc.Text = dtg_Items.CurrentRow.Cells[5].Value.ToString();
                 txt_Qty.Text = dtg_Items.CurrentRow.Cells[6].Value.ToString();
                 txt_Price.Text = dtg_Items.CurrentRow.Cells[7].Value.ToString();
+                lbl_ProductValue.Text = dtg_Items.CurrentRow.Cells[8].Value.ToString();
                 func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
-                txt_SupID.Text = dtg_Items.CurrentRow.Cells[9].Value.ToString();
-                txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
-                txt_TransRef.Text = dtg_Items.CurrentRow.Cells[14].Value.ToString();
-
-                double val = Convert.ToDouble(txt_Qty.Text) * Convert.ToDouble(txt_Price.Text);
-                lbl_ProductValue.Text = val.ToString();
+                txt_SupID.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
+                txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[11].Value.ToString();
+                txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
 
                 func.Change_Font_DTG(sender, e, dtg_Items);
             }
 
-            if (txt_Qty.Value <= Convert.ToDecimal(quantty))
+
+            if (txt_Qty.Value <= Convert.ToDecimal(quantity))
             {
                 lbl_stock_low.Text = "Stock Low Detected!";
             }
@@ -163,6 +231,37 @@ namespace Inventory_System02
                 lbl_stock_low.Text = "";
             }
 
+            SupplierChangeDisabler();
+        }
+        private void SupplierChangeDisabler()
+        {
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text))
+            {
+                sql = "Select `Transaction Reference` from Stocks WHERE `Transaction Reference` = '" + txt_TransRef.Text + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    supplierListToolStripMenuItem.Enabled = false;
+                    btn_searchSup.Enabled = false;
+                    txt_SupID.Enabled = false;
+                    txt_Sup_Name.Enabled = false;
+                }
+                else
+                {
+                    supplierListToolStripMenuItem.Enabled = true;
+                    btn_searchSup.Enabled = true;
+                    txt_SupID.Enabled = true;
+                    txt_Sup_Name.Enabled = true;
+                }
+            }
+            else
+            {
+                supplierListToolStripMenuItem.Enabled = true;
+                btn_searchSup.Enabled = true;
+                txt_SupID.Enabled = true;
+                txt_Sup_Name.Enabled = true;
+
+            }
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
@@ -181,6 +280,7 @@ namespace Inventory_System02
                         ", `Description` = '" + cbo_desc.Text + "' " +
                         ", `Quantity` = '" + txt_Qty.Text + "' " +
                         ", `Price` = '" + txt_Price.Text + "' " +
+                        ", `Total` = '"+ lbl_ProductValue.Text +"' "+    
                         ", `Image Path` = '" + img_loc + "' " +
                         ", `Supplier ID` = '" + txt_SupID.Text + "' " +
                         ", `Supplier Name` = '" + txt_Sup_Name.Text + "' " +
@@ -224,13 +324,23 @@ namespace Inventory_System02
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddStock_Load(sender, e);
+            SupplierChangeDisabler();
         }
 
         private void btn_Clear_Text_Click(object sender, EventArgs e)
         {
-            func.clearTxt(panel1);
-            txt_Barcode.Focus();
+            txt_TransRef.Text = "";
+            txt_ItemName.Text = "";
+            txt_Barcode.Text = "";
+            cbo_desc.Text = "";
+            cbo_brand.Text = "";
+            txt_Qty.Text = "0";
+            txt_SupID.Text = "";
+            txt_Sup_Name.Text = "";
             txt_Price.Text = "0.00";
+            txt_Barcode.Focus();
+            SupplierChangeDisabler();
+
         }
 
         private void txt_Barcode_TextChanged(object sender, EventArgs e)
@@ -311,50 +421,13 @@ namespace Inventory_System02
             }
             sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_Items);
+            Calculator_Timer.Start();
             DTG_Property();
 
             if (txt_Search.Text == "")
             {
                 refreshToolStripMenuItem_Click(sender, e);
             }
-        }
-
-        public void Calculations()
-        {
-            sql = "Select * from Calculations";
-            config.singleResult(sql);
-
-            if (config.dt.Rows.Count > 0)
-            {
-                lbl_Today_Qty.Text = "Qty " + config.dt.Rows[0].Field<string>("Total Quantity");
-                lbl_Today_Amt.Text = "Php " + config.dt.Rows[0].Field<string>("Total Value");
-                lbl_TotalQty.Text = "Qty " + config.dt.Rows[0].Field<string>("Overall_Qty");
-                lbl_TotalAmt.Text = "Php " + config.dt.Rows[0].Field<string>("Overall_Total");
-            }
-        }
-        double quantty = 0;
-        private void Calculator_Timer_Tick(object sender, EventArgs e)
-        {
-
-            cal.Calculate_Todays_Entry_StockIn("Stocks");
-            cal.Over_All();
-            Calculations();
-            Calculator_Timer.Stop();
-
-            sql = "Select Low_Detection from Settings";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow rw in dtg_Items.Rows)
-                {
-                    quantty = Convert.ToDouble(config.dt.Rows[0].Field<string>("Low_Detection"));
-                    if (Convert.ToDouble(rw.Cells[6].Value) <= quantty)
-                    {
-                        rw.DefaultCellStyle.ForeColor = Color.Red;
-                    }
-                }
-            }
-
         }
 
         private void btn_searchSup_Click(object sender, EventArgs e)
@@ -433,9 +506,9 @@ namespace Inventory_System02
                     txt_Qty.Text,
                     txt_Price.Text,
                     lbl_ProductValue.Text,
-                    dtg_Items.CurrentRow.Cells[12].Value.ToString());
+                    dtg_Items.CurrentRow.Cells[13].Value.ToString());
 
-                        frm.ShowDialog();
+                    frm.ShowDialog();
                 }
             }
         }
@@ -482,10 +555,31 @@ namespace Inventory_System02
                 txt_ItemName.Text = "Replace me with new name.";
                 txt_Price.Text = "0.00";
                 txt_Qty.Text = "0";
+                lbl_ProductValue.Text = "0.00";
                 cbo_desc.Text = "None";
                 txt_Barcode.Focus();
 
             }
+        }
+
+        private void txt_Qty_ValueChanged(object sender, EventArgs e)
+        {
+            decimal total_product = 0;   
+            decimal value1 = txt_Qty.Value;
+            decimal value2 = Convert.ToDecimal(txt_Price.Text);
+
+            total_product = value1 * value2;
+            lbl_ProductValue.Text = total_product.ToString();
+        }
+
+        private void txt_Price_TextChanged(object sender, EventArgs e)
+        {
+            txt_Qty_ValueChanged(sender, e);
+        }
+
+        private void txt_Qty_Leave(object sender, EventArgs e)
+        {
+            txt_Qty_ValueChanged(sender, e);
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
@@ -517,7 +611,7 @@ namespace Inventory_System02
             if (config.dt.Rows.Count > 0)
             {
                 txt_Sup_Name.Text = config.dt.Rows[0].Field<string>("Company Name");
-                func.Reload_Images(Sup_Image, txt_SupID.Text, @"CommonSql\Pictures\Suppliers\");
+                func.Reload_Images(Sup_Image, txt_SupID.Text, Includes.AppSettings.Supplier_DIR);
             }
             if (txt_SupID.Text == "")
             {
@@ -614,6 +708,7 @@ namespace Inventory_System02
                     ",`Description` " +
                     ",`Quantity` " +
                     ",`Price` " +
+                    ",`Total` " +
                     ",`Image Path` " +
                     ",`Supplier ID` " +
                     ",`Supplier Name` " +
@@ -628,6 +723,7 @@ namespace Inventory_System02
                     ",'" + cbo_desc.Text + "' " +
                     ",'" + txt_Qty.Text + "' " +
                     ",'" + txt_Price.Text + "' " +
+                    ",'" + lbl_ProductValue.Text +"' " +
                     ",'" + img_loc + "' " +
                     ",'" + txt_SupID.Text + "' " +
                     ",'" + txt_Sup_Name.Text + "' " +

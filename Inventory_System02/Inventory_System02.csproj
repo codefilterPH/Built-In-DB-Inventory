@@ -37,7 +37,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>box.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -142,6 +143,7 @@
     <Compile Include="Batch_Form.designer.cs">
       <DependentUpon>Batch_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonSql\Invoice\Invoice_Silent.cs" />
     <Compile Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.cs">
       <SubType>Form</SubType>
     </Compile>

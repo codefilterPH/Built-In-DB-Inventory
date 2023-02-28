@@ -24,7 +24,6 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
         usableFunction func;
         List<Class_Item_Var> list2;
 
-        string Global_ID, Fullname, JobRole;
         string sql;
         string company_name = string.Empty;
         string company_address = string.Empty;
@@ -167,15 +166,15 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                              Item_Name = dataRow.Field<string>("Item Name").ToString(),
                              Brand = dataRow.Field<string>("Brand").ToString(),
                              Description = dataRow.Field<string>("Description").ToString(),
-                             Quantity = dataRow.Field<string>("Quantity").ToString(),
-                             Price = dataRow.Field<string>("Price").ToString(),
+                             Quantity = dataRow["Quantity"].ToString(),
+                             Price = dataRow["Price"].ToString(),
                              Supplier_ID = dataRow.Field<string>("Supplier ID").ToString(),
                              Supplier_Name = dataRow.Field<string>("Supplier Name").ToString(),
                              Use_ID = dataRow.Field<string>("User ID").ToString(),
                              Staff_Name = dataRow.Field<string>("Warehouse Staff Name").ToString(),
                              Job_Role = dataRow.Field<string>("Job Role").ToString(),
                              Trans_Ref = dataRow.Field<string>("Transaction Reference").ToString(),
-                             Amount = (Convert.ToDouble(dataRow.Field<string>("Quantity")) * Convert.ToDouble(dataRow.Field<string>("Price"))).ToString()
+                             Amount = (Convert.ToDecimal(dataRow["Quantity"]) * Convert.ToDecimal(dataRow["Price"])).ToString("#0.00"),
 
                          }).ToList();
                         rs.Value = list2;

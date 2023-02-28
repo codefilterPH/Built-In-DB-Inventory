@@ -147,7 +147,7 @@ namespace Inventory_System02
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtg_Items.RowTemplate.Height = 70;
+            this.dtg_Items.RowTemplate.Height = 60;
             this.dtg_Items.Size = new System.Drawing.Size(850, 191);
             this.dtg_Items.TabIndex = 20;
             this.dtg_Items.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -228,11 +228,11 @@ namespace Inventory_System02
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(701, 0);
+            this.label6.Location = new System.Drawing.Point(730, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(153, 25);
+            this.label6.Size = new System.Drawing.Size(124, 21);
             this.label6.TabIndex = 11;
             this.label6.Text = "Inbound Stocks";
             // 
@@ -411,6 +411,7 @@ namespace Inventory_System02
             this.txt_Price.Text = "0.00";
             this.txt_Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Price.Click += new System.EventHandler(this.txt_Price_Click);
+            this.txt_Price.TextChanged += new System.EventHandler(this.txt_Price_TextChanged);
             this.txt_Price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Price_KeyPress);
             this.txt_Price.Leave += new System.EventHandler(this.txt_Price_Leave);
             // 
@@ -495,9 +496,9 @@ namespace Inventory_System02
             this.label16.ForeColor = System.Drawing.Color.DimGray;
             this.label16.Location = new System.Drawing.Point(176, 185);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 13);
+            this.label16.Size = new System.Drawing.Size(18, 13);
             this.label16.TabIndex = 73;
-            this.label16.Text = "Search by";
+            this.label16.Text = "By";
             // 
             // cbo_srch_type
             // 
@@ -516,9 +517,9 @@ namespace Inventory_System02
             "Supplier",
             "Job",
             "Trans Ref"});
-            this.cbo_srch_type.Location = new System.Drawing.Point(233, 182);
+            this.cbo_srch_type.Location = new System.Drawing.Point(200, 182);
             this.cbo_srch_type.Name = "cbo_srch_type";
-            this.cbo_srch_type.Size = new System.Drawing.Size(89, 21);
+            this.cbo_srch_type.Size = new System.Drawing.Size(88, 21);
             this.cbo_srch_type.TabIndex = 18;
             this.cbo_srch_type.Text = "Name";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
@@ -734,6 +735,8 @@ namespace Inventory_System02
             this.txt_Qty.Size = new System.Drawing.Size(127, 25);
             this.txt_Qty.TabIndex = 6;
             this.txt_Qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Qty.ValueChanged += new System.EventHandler(this.txt_Qty_ValueChanged);
+            this.txt_Qty.Leave += new System.EventHandler(this.txt_Qty_Leave);
             // 
             // panel2
             // 
@@ -792,11 +795,11 @@ namespace Inventory_System02
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(590, 467);
+            this.label12.Location = new System.Drawing.Point(535, 468);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 15);
+            this.label12.Size = new System.Drawing.Size(64, 15);
             this.label12.TabIndex = 29;
-            this.label12.Text = "Total Products";
+            this.label12.Text = "Table Total";
             // 
             // label13
             // 
@@ -804,11 +807,11 @@ namespace Inventory_System02
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(590, 485);
+            this.label13.Location = new System.Drawing.Point(532, 485);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 15);
+            this.label13.Size = new System.Drawing.Size(67, 15);
             this.label13.TabIndex = 30;
-            this.label13.Text = "Over All Value";
+            this.label13.Text = "Table Value";
             // 
             // label14
             // 
@@ -816,7 +819,7 @@ namespace Inventory_System02
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(115, 485);
+            this.label14.Location = new System.Drawing.Point(183, 485);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(94, 15);
             this.label14.TabIndex = 32;
@@ -828,7 +831,7 @@ namespace Inventory_System02
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(125, 467);
+            this.label15.Location = new System.Drawing.Point(193, 467);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(85, 15);
             this.label15.TabIndex = 31;
@@ -840,7 +843,7 @@ namespace Inventory_System02
             this.lbl_Today_Amt.AutoSize = true;
             this.lbl_Today_Amt.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Today_Amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Today_Amt.Location = new System.Drawing.Point(228, 485);
+            this.lbl_Today_Amt.Location = new System.Drawing.Point(296, 485);
             this.lbl_Today_Amt.Name = "lbl_Today_Amt";
             this.lbl_Today_Amt.Size = new System.Drawing.Size(39, 16);
             this.lbl_Today_Amt.TabIndex = 34;
@@ -852,7 +855,7 @@ namespace Inventory_System02
             this.lbl_Today_Qty.AutoSize = true;
             this.lbl_Today_Qty.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Today_Qty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Today_Qty.Location = new System.Drawing.Point(228, 467);
+            this.lbl_Today_Qty.Location = new System.Drawing.Point(296, 467);
             this.lbl_Today_Qty.Name = "lbl_Today_Qty";
             this.lbl_Today_Qty.Size = new System.Drawing.Size(39, 16);
             this.lbl_Today_Qty.TabIndex = 33;
@@ -864,7 +867,7 @@ namespace Inventory_System02
             this.lbl_TotalAmt.AutoSize = true;
             this.lbl_TotalAmt.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TotalAmt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_TotalAmt.Location = new System.Drawing.Point(695, 485);
+            this.lbl_TotalAmt.Location = new System.Drawing.Point(623, 485);
             this.lbl_TotalAmt.Name = "lbl_TotalAmt";
             this.lbl_TotalAmt.Size = new System.Drawing.Size(39, 16);
             this.lbl_TotalAmt.TabIndex = 36;
@@ -876,7 +879,7 @@ namespace Inventory_System02
             this.lbl_TotalQty.AutoSize = true;
             this.lbl_TotalQty.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TotalQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_TotalQty.Location = new System.Drawing.Point(695, 467);
+            this.lbl_TotalQty.Location = new System.Drawing.Point(623, 467);
             this.lbl_TotalQty.Name = "lbl_TotalQty";
             this.lbl_TotalQty.Size = new System.Drawing.Size(39, 16);
             this.lbl_TotalQty.TabIndex = 35;

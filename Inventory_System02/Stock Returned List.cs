@@ -25,7 +25,7 @@ namespace Inventory_System02
             Fullname = fullname;
             JobRole = jobrole;
         }
-        double val = 0, qty = 0;
+        
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sql = "Select * from `Stock Returned` order by `Entry Date` desc";
@@ -34,25 +34,40 @@ namespace Inventory_System02
             {
                 dtg_return_list.Columns[0].Visible = false;
                 dtg_return_list.Columns[2].Visible = false;
-
+             
                 if (config.dt.Rows.Count > 0)
                 {
-                    for (int i = 0; i < dtg_return_list.Rows.Count; i++)
-                    {
-                        qty += Convert.ToDouble(dtg_return_list.Rows[i].Cells[6].Value);
-                        val += Convert.ToDouble(dtg_return_list.Rows[i].Cells[7].Value);
-                    }
-                    out_qty.Text = qty.ToString();
-                    out_amt.Text = val.ToString();
-
-                    dtg_return_list.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    dtg_return_list.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dtg_return_list.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    dtg_return_list.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                    func.Count_person(dtg_return_list, lbl_items_count);
+                    CalculateValue();
+                    DTG_Property();
+                }
+                else
+                {
+                    lbl_items_count.Text = "0";
+                    out_amt.Text = "0";
+                    out_qty.Text = "0";
                 }
             }
+        }
+        decimal total_val;
+        int total_qty;
+        private void CalculateValue()
+        {
+            total_qty = 0;
+            total_val = 0;
+            for (int i = 0; i < dtg_return_list.Rows.Count; i++)
+            {
+                int qty = 0;
+                decimal amount = 0;
+             
+                int.TryParse(dtg_return_list.Rows[i].Cells[9].Value.ToString(), out qty);
+                decimal.TryParse(dtg_return_list.Rows[i].Cells[11].Value.ToString(), out amount);
+
+                total_qty += qty;
+                total_val += amount;
+
+            }
+            out_qty.Text = total_qty.ToString();
+            out_amt.Text = total_val.ToString();
         }
 
         private void Stock_Returned_Load(object sender, EventArgs e)
@@ -78,7 +93,7 @@ namespace Inventory_System02
                             break;
                         }
 
-                        string transactionRef = rw.Cells[15].Value?.ToString();
+                        string transactionRef = rw.Cells[12].Value?.ToString();
 
                         // Check if the transaction reference is null or empty
                         if (string.IsNullOrEmpty(transactionRef))
@@ -108,26 +123,26 @@ namespace Inventory_System02
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
-                        chk_all.Checked = false;
                     }
                     refreshTableToolStripMenuItem_Click(sender, e);
                 }
             }
 
         }
-       
         private void DTG_Property()
         {
+
             if (dtg_return_list.Columns.Count > 0)
             {
                 dtg_return_list.Columns[0].Visible = false;
                 dtg_return_list.Columns[2].Visible = false;
-                dtg_return_list.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_return_list.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_return_list.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_return_list.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtg_return_list.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_return_list.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-              //  dtg_return_list.Rows[0].Selected = true;
+                func.Count_person(dtg_return_list, lbl_items_count);
             }
-
         }
 
         private void txt_Trans_number_KeyDown(object sender, KeyEventArgs e)
@@ -169,25 +184,7 @@ namespace Inventory_System02
                 MessageBox.Show("Reason Updated!", "Update Successful Prompt", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void chk_all_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chk_all.Checked)
-            {
-                foreach (DataGridViewRow rw in dtg_return_list.Rows)
-                {
-                    rw.Selected = true;
-                    btn_Delete.Focus();
-                }
-            }
-            else
-            {
-                foreach (DataGridViewRow rw in dtg_return_list.Rows)
-                {
-                    rw.Selected = false;
-                }
-            }
-        }
+    
         Inventory_System02.Invoice_Code.Invoice_Code voice = new Invoice_Code.Invoice_Code();
         private void btn_print_invoice_Click(object sender, EventArgs e)
         {
@@ -237,17 +234,17 @@ namespace Inventory_System02
                 {
                     Items.Return_Preview frm = new Items.Return_Preview(
                     dtg_return_list.CurrentRow.Cells[1].Value.ToString(),
-                    dtg_return_list.CurrentRow.Cells[2].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[5].Value.ToString(),
                     txt_Trans_number.Text,
-                    dtg_return_list.CurrentRow.Cells[10].Value.ToString(),
-                    dtg_return_list.CurrentRow.Cells[11].Value.ToString(),
                     dtg_return_list.CurrentRow.Cells[3].Value.ToString(),
                     dtg_return_list.CurrentRow.Cells[4].Value.ToString(),
-                    dtg_return_list.CurrentRow.Cells[5].Value.ToString(),
                     dtg_return_list.CurrentRow.Cells[6].Value.ToString(),
                     dtg_return_list.CurrentRow.Cells[7].Value.ToString(),
                     dtg_return_list.CurrentRow.Cells[8].Value.ToString(),
-                    dtg_return_list.CurrentRow.Cells[13].Value.ToString());
+                    dtg_return_list.CurrentRow.Cells[9].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[10].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[11].Value.ToString(),
+                    dtg_return_list.CurrentRow.Cells[14].Value.ToString());
 
                     frm.ShowDialog();
                 }
@@ -295,20 +292,37 @@ namespace Inventory_System02
             {
                 search_for = "`Price`";
             }
-            else if (cbo_srch_type.Text == "Supplier")
+            else if (cbo_srch_type.Text == "Total")
             {
-                search_for = "`Supplier Name`";
+                search_for = "`Total`";
+            }
+            else if (cbo_srch_type.Text == "Division")
+            {
+                search_for = "`Customer Name`";
+            }
+            else if (cbo_srch_type.Text == "Address")
+            {
+                search_for = "`Customer Address`";
+            }
+            else if (cbo_srch_type.Text == "Staff Name")
+            {
+                search_for = "`Warehouse Staff Name`";
             }
             else if (cbo_srch_type.Text == "Job")
             {
                 search_for = "`Job Role`";
             }
-            else
+            else if (cbo_srch_type.Text == "Trans Ref")
             {
                 search_for = "`Transaction Reference`";
             }
+            else
+            {
+                search_for = "`Customer Name`";
+            }
             sql = "Select * from `Stock Returned` where " + search_for + " like '%" + txt_Search.Text + "%'";
             config.Load_DTG(sql, dtg_return_list);
+            CalculateValue();
             DTG_Property();
             if (txt_Search.Text == "")
             {
@@ -321,12 +335,12 @@ namespace Inventory_System02
             if (dtg_return_list.Rows.Count > 0)
             {
                 txt_Reasons.Text = "";
-                txt_Trans_number.Text = dtg_return_list.CurrentRow.Cells[15].Value.ToString();
+                txt_Trans_number.Text = dtg_return_list.CurrentRow.Cells[12].Value.ToString();
                 txt_Trans_number.Focus();
-                txt_Cust_ID.Text = dtg_return_list.CurrentRow.Cells[9].Value.ToString();
-                txt_Cust_name.Text = dtg_return_list.CurrentRow.Cells[10].Value.ToString();
-                txt_address.Text = dtg_return_list.CurrentRow.Cells[11].Value.ToString();
-                func.Reload_Images(cust_Image, txt_Cust_ID.Text, @"CommonSql\Pictures\Customers\");
+                txt_Cust_ID.Text = dtg_return_list.CurrentRow.Cells[2].Value.ToString();
+                txt_Cust_name.Text = dtg_return_list.CurrentRow.Cells[3].Value.ToString();
+                txt_address.Text = dtg_return_list.CurrentRow.Cells[4].Value.ToString();
+                func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
                 if (txt_Trans_number.Text != "" || txt_Trans_number.Text != null)
                 {
                     sql = "Select * from `Return Reasons` where `Transaction Ref` = '" + txt_Trans_number.Text + "' and `Customer ID` = '" + txt_Cust_ID.Text + "' ";
@@ -337,8 +351,7 @@ namespace Inventory_System02
 
                     }
                 }
-                chk_all.Checked = false;
-
+                func.Change_Font_DTG(sender, e, dtg_return_list);
             }
         }
     }

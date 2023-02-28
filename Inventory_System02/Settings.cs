@@ -29,8 +29,8 @@ namespace Inventory_System02
             if( config.dt.Rows.Count > 0 )
             {
                 txt_company_name.Text = config.dt.Rows[0].Field<string>("Company_Name");
-                num_SL_Detection.Text = config.dt.Rows[0].Field<string>("Low_Detection");
-                num_Warranty.Text = config.dt.Rows[0].Field<string>("Warranty");
+                num_SL_Detection.Text = config.dt.Rows[0]["Low_Detection"].ToString();
+                num_Warranty.Text = config.dt.Rows[0]["Warranty"].ToString();
                 txt_Com_Address.Text = config.dt.Rows[0].Field<string>("Company Address");
             }
         

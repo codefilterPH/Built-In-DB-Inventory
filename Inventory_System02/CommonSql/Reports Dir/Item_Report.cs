@@ -38,8 +38,6 @@ namespace Inventory_System02.Reports_Dir
         string db_table = string.Empty;
         string datef = string.Empty;
         string FileName = string.Empty;
-        double price = 0, quantity = 0, sub_amt = 0, total_val = 0, rows_count = 0;
-
 
         public Item_Report(string userid, string name, string jobrole)
         {
@@ -105,22 +103,55 @@ namespace Inventory_System02.Reports_Dir
                 db_table = "`Stock Returned`";
             }
         }
+        decimal total_val;
+        int total_qty;
         private void calculate_Total()
         {
-            ClearVariables();
-            foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
+            if ( dtg_PreviewPage.Rows.Count > 0 )
             {
-                quantity = Convert.ToDouble(rw.Cells[6].Value);
-                price = Convert.ToDouble(rw.Cells[7].Value);
-                sub_amt = quantity * price;
-                quantity1 += quantity;
-                total_val += sub_amt;
-                rows_count = dtg_PreviewPage.Rows.Count;
+                decimal amount = 0;
+                int quantity = 0;
+                total_val = 0;
+                total_qty = 0;
+                if (cbo_report_type.Text == "Stock In")
+                {
+                    foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
+                    {
+                        quantity = 0;
+                        amount = 0;
+                        int.TryParse(rw.Cells[6].Value.ToString(), out quantity);
+                        decimal.TryParse(rw.Cells[8].Value.ToString(), out amount);
+
+                        total_qty += quantity;
+                        total_val += amount;
+                    }
+                }
+                else
+                {
+                    foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
+                    {
+                        quantity = 0;
+                        amount = 0;
+                        int.TryParse(rw.Cells[9].Value.ToString(), out quantity);
+                        decimal.TryParse(rw.Cells[11].Value.ToString(), out amount);
+
+                        total_qty += quantity;
+                        total_val += amount;
+                    }
+                }
+
+                lbl_total_items.Text = dtg_PreviewPage.Rows.Count.ToString();
+                lbl_total_quantity.Text = total_qty.ToString();
+                lbl_total_value.Text = total_val.ToString();
+            }
+            else
+            {
+                lbl_total_items.Text = "0";
+                lbl_total_quantity.Text = "0";
+                lbl_total_value.Text = "0";
 
             }
-            lbl_total_items.Text = rows_count.ToString();
-            lbl_total_quantity.Text = quantity1.ToString();
-            lbl_total_value.Text = total_val.ToString();
+            
         }
 
         public void Calculate_Filtering(string preview_or_print, string report_type)
@@ -172,15 +203,16 @@ namespace Inventory_System02.Reports_Dir
                              Item_Name = dataRow.Field<string>("Item Name").ToString(),
                              Brand = dataRow.Field<string>("Brand").ToString(),
                              Description = dataRow.Field<string>("Description").ToString(),
-                             Quantity = dataRow.Field<string>("Quantity").ToString(),
-                             Price = dataRow.Field<string>("Price").ToString(),
+                             Quantity = dataRow["Quantity"].ToString(),
+                             Price = dataRow["Price"].ToString(),
+                             Amount = dataRow["Total"].ToString(),
                              Supplier_ID = dataRow.Field<string>("Supplier ID").ToString(),
                              Supplier_Name = dataRow.Field<string>("Supplier Name").ToString(),
                              Use_ID = dataRow.Field<string>("User ID").ToString(),
                              Staff_Name = dataRow.Field<string>("Warehouse Staff Name").ToString(),
                              Job_Role = dataRow.Field<string>("Job Role").ToString(),
                              Trans_Ref = dataRow.Field<string>("Transaction Reference").ToString(),
-                             Amount = (Convert.ToDouble(dataRow.Field<string>("Quantity")) * Convert.ToDouble(dataRow.Field<string>("Price"))).ToString()
+                            
 
                          }).ToList();
                         rs.Value = list2;
@@ -198,9 +230,9 @@ namespace Inventory_System02.Reports_Dir
                           Item_Name = dataRow.Field<string>("Item Name"),
                           Brand = dataRow.Field<string>("Brand"),
                           Description = dataRow.Field<string>("Description"),
-                          Quantity = dataRow.Field<string>("Quantity"),
-                          Price = dataRow.Field<string>("Price"),
-                          Amount = dataRow.Field<string>("Total"),
+                          Quantity = dataRow["Quantity"].ToString(),
+                          Price = dataRow["Price"].ToString(),
+                          Amount = dataRow["Total"].ToString(),
                           Customer_ID = dataRow.Field<string>("Customer ID"),
                           Customer_Name = dataRow.Field<string>("Customer Name"),
                           Customer_Address = dataRow.Field<string>("Customer Address"),
@@ -253,7 +285,7 @@ namespace Inventory_System02.Reports_Dir
                 {
                     reportParameters.Add(new ReportParameter("Total_Items", ds.Tables[0].Rows.Count.ToString()));
                     calculate_Total();
-                    reportParameters.Add(new ReportParameter("Total_Quantity", quantity1.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Quantity", total_qty.ToString()));  
                     reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString()));
 
                 }
@@ -396,20 +428,21 @@ namespace Inventory_System02.Reports_Dir
             dtg_PreviewPage.Columns["Description"].DisplayIndex = 4;
             dtg_PreviewPage.Columns["Quantity"].DisplayIndex = 5;
             dtg_PreviewPage.Columns["Price"].DisplayIndex = 6;
+            dtg_PreviewPage.Columns["Total"].DisplayIndex = 7;
 
             if (cbo_report_type.Text == "Stock In")
             {
-                dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 7;
-                dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 8;
+                dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 8;
+                dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 9;
                 dtg_PreviewPage.Columns["Image Path"].Visible = false;
             }
 
             dtg_PreviewPage.Columns["count"].Visible = false;
 
-            dtg_PreviewPage.Columns["User ID"].DisplayIndex = 9;
-            dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 10;
-            dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 11;
-            dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 12;
+            dtg_PreviewPage.Columns["User ID"].DisplayIndex = 10;
+            dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 11;
+            dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 12;
+            dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 13;
 
         }
 
@@ -469,16 +502,6 @@ namespace Inventory_System02.Reports_Dir
         {
             Calculate_Filtering("preview", cbo_report_type.Text);
         }
-
-        private void ClearVariables()
-        {
-            quantity = 0;
-            quantity1 = 0;
-            price = 0;
-            total_val = 0;
-            sub_amt = 0;
-        }
-        double quantity1 = 0;
     }
     public class Class_Item_Var
     {

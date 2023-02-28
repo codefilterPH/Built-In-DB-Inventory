@@ -10,18 +10,22 @@ namespace Inventory_System02.Includes
     {
         public static string Database { get; set; } = @"Data Source = CommonSql\Database.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;";
         public static string DateFormat { get; set; } = "yyyy-MM-dd";
+        //Images
         public static string Image_DIR { get; set; } = @"CommonSql\Pictures\Item\Image\";
         public static string Customer_DIR { get; set; } = @"CommonSql\Pictures\Customers\";
         public static string Supplier_DIR { get; set; } = @"CommonSql\Pictures\Suppliers\";
         public static string Employee_DIR { get; set; } = @"CommonSql\Pictures\Employee\";
         public static string Company_DIR { get; set; } = @"CommonSql\Pictures\Company\";
-        public static string Item_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\";
-        public static string Item_qty_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Item_Qty\";
-
+       
+        //doc files
         public static string Doc_DIR { get; set; } = @"CommonSql\Document Center Files\";
+        //rdlc
+        public static string Invoice_RDLC_Path { get; set; } = @"CommonSql\Invoice\";
         public static string Supplier_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Supplier_Report.rdlc";
         public static string Employee_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Employee_Report.rdlc";
         public static string Customer_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Customer_Report.rdlc";
+        public static string Item_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\";
+        public static string Item_qty_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Item_Qty\";
         //about
         public static string App_Version { get; set; } = "2.0.0";
         public static string Cust_ID { get; set; } = "1";

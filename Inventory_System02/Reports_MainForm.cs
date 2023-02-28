@@ -59,6 +59,13 @@ namespace Inventory_System02
             ShowFormInContainerControl(report_panel, frm);
         }
 
+        private void itemListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Panel_content_remove();
+            Reports_Dir.Item_Report frm = new Reports_Dir.Item_Report(Global_ID, Fullname, JobRole);
+            ShowFormInContainerControl(report_panel, frm);
+        }
+
         private void itemByQuantityToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
@@ -86,13 +93,6 @@ namespace Inventory_System02
                 item.Dispose();
                 report_panel.Controls.Remove(item);
             }
-        }
-
-        private void itemListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Panel_content_remove();
-            Reports_Dir.Item_Report frm = new Reports_Dir.Item_Report(Global_ID, Fullname, JobRole);
-            ShowFormInContainerControl(report_panel, frm);
         }
     }
 }

@@ -161,7 +161,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(95, 445);
+            this.label10.Location = new System.Drawing.Point(95, 443);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 13);
@@ -197,6 +197,7 @@
             this.txt_desc.Location = new System.Drawing.Point(458, 209);
             this.txt_desc.Multiline = true;
             this.txt_desc.Name = "txt_desc";
+            this.txt_desc.ReadOnly = true;
             this.txt_desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_desc.Size = new System.Drawing.Size(220, 55);
             this.txt_desc.TabIndex = 4;
@@ -204,34 +205,42 @@
             // 
             // txt_trans_ref
             // 
+            this.txt_trans_ref.BackColor = System.Drawing.Color.White;
             this.txt_trans_ref.Location = new System.Drawing.Point(243, 36);
             this.txt_trans_ref.Name = "txt_trans_ref";
+            this.txt_trans_ref.ReadOnly = true;
             this.txt_trans_ref.Size = new System.Drawing.Size(153, 23);
             this.txt_trans_ref.TabIndex = 1;
             this.txt_trans_ref.Text = "None";
             // 
             // txt_id
             // 
+            this.txt_id.BackColor = System.Drawing.Color.White;
             this.txt_id.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Location = new System.Drawing.Point(458, 137);
             this.txt_id.Name = "txt_id";
+            this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(220, 25);
             this.txt_id.TabIndex = 0;
             this.txt_id.Text = "None";
             // 
             // txt_brand
             // 
+            this.txt_brand.BackColor = System.Drawing.Color.White;
             this.txt_brand.Location = new System.Drawing.Point(458, 174);
             this.txt_brand.Name = "txt_brand";
+            this.txt_brand.ReadOnly = true;
             this.txt_brand.Size = new System.Drawing.Size(220, 23);
             this.txt_brand.TabIndex = 3;
             this.txt_brand.Text = "None";
             // 
             // txt_price
             // 
+            this.txt_price.BackColor = System.Drawing.Color.White;
             this.txt_price.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_price.Location = new System.Drawing.Point(458, 309);
             this.txt_price.Name = "txt_price";
+            this.txt_price.ReadOnly = true;
             this.txt_price.Size = new System.Drawing.Size(220, 26);
             this.txt_price.TabIndex = 6;
             this.txt_price.Text = "0";
@@ -239,11 +248,13 @@
             // 
             // txt_amt
             // 
+            this.txt_amt.BackColor = System.Drawing.Color.White;
             this.txt_amt.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_amt.ForeColor = System.Drawing.Color.Blue;
             this.txt_amt.Location = new System.Drawing.Point(458, 344);
             this.txt_amt.Multiline = true;
             this.txt_amt.Name = "txt_amt";
+            this.txt_amt.ReadOnly = true;
             this.txt_amt.Size = new System.Drawing.Size(220, 46);
             this.txt_amt.TabIndex = 7;
             this.txt_amt.Text = "0";
@@ -253,7 +264,7 @@
             // 
             this.txt_person_name.AutoSize = true;
             this.txt_person_name.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_person_name.Location = new System.Drawing.Point(155, 445);
+            this.txt_person_name.Location = new System.Drawing.Point(155, 443);
             this.txt_person_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_person_name.Name = "txt_person_name";
             this.txt_person_name.Size = new System.Drawing.Size(34, 13);
@@ -296,7 +307,7 @@
             // 
             // btn_print
             // 
-            this.btn_print.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_print.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_print.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print.ForeColor = System.Drawing.Color.White;
@@ -310,7 +321,7 @@
             // 
             // btn_print_preview
             // 
-            this.btn_print_preview.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_print_preview.BackColor = System.Drawing.Color.Peru;
             this.btn_print_preview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_print_preview.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_print_preview.ForeColor = System.Drawing.Color.White;
@@ -324,9 +335,11 @@
             // 
             // txt_qty
             // 
+            this.txt_qty.BackColor = System.Drawing.Color.White;
             this.txt_qty.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_qty.Location = new System.Drawing.Point(458, 274);
             this.txt_qty.Name = "txt_qty";
+            this.txt_qty.ReadOnly = true;
             this.txt_qty.Size = new System.Drawing.Size(220, 26);
             this.txt_qty.TabIndex = 36;
             this.txt_qty.Text = "0";
@@ -335,6 +348,7 @@
             // Item_Preview
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(740, 536);
             this.Controls.Add(this.txt_qty);
             this.Controls.Add(this.btn_print_preview);

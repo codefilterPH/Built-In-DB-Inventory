@@ -110,10 +110,10 @@
                   <Width>3.44211cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.04617cm</Width>
+                  <Width>2.72867cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.26225cm</Width>
+                  <Width>3.05058cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.25684cm</Width>
@@ -1558,7 +1558,7 @@
             <Top>1.47967cm</Top>
             <Left>0.50835cm</Left>
             <Height>1.96728cm</Height>
-            <Width>56.53302cm</Width>
+            <Width>56.00385cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1686,6 +1686,8 @@
                     <TextRun>
                       <Value>=Parameters!CompanyAddress.Value</Value>
                       <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1698,7 +1700,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>1.50289cm</Top>
               <Left>4.89508cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.81167cm</Height>
               <Width>7.47827cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -1720,8 +1722,8 @@
                     <TextRun>
                       <Value>=Parameters!CompanyName.Value</Value>
                       <Style>
-                        <FontFamily>Arial Black</FontFamily>
-                        <FontSize>14pt</FontSize>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1732,9 +1734,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.47074cm</Top>
-              <Left>6.03626cm</Left>
+              <Left>3.18474cm</Left>
               <Height>0.89104cm</Height>
-              <Width>5.11938cm</Width>
+              <Width>10.88132cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -1756,7 +1758,6 @@
                       <Value>=Parameters!DateStart.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1766,7 +1767,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.70289cm</Top>
+              <Top>3.02039cm</Top>
               <Left>4.89508cm</Left>
               <Height>0.76757cm</Height>
               <Width>3.41313cm</Width>
@@ -1791,7 +1792,6 @@
                       <Value>=Parameters!DateEnd.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1801,7 +1801,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.70289cm</Top>
+              <Top>3.02039cm</Top>
               <Left>8.86605cm</Left>
               <Height>0.76757cm</Height>
               <Width>3.48966cm</Width>
@@ -1836,7 +1836,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.59706cm</Top>
+              <Top>2.91456cm</Top>
               <Left>8.39641cm</Left>
               <Height>0.74111cm</Height>
               <Width>0.34617cm</Width>
@@ -1871,7 +1871,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.10289cm</Top>
+              <Top>2.42039cm</Top>
               <Left>7.41275cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>

@@ -45,6 +45,7 @@ namespace Inventory_System02.CustSupplier
         private void CustSupp_Load(object sender, EventArgs e)
         {
             supplier_refresh_Click(sender, e);
+            supplier_refresh_Click(sender, e);
             refreshToolStripMenuItem_Click(sender, e);
             if (CustSup == "Sup")
             {
@@ -248,8 +249,13 @@ namespace Inventory_System02.CustSupplier
                 main_path = Includes.AppSettings.Customer_DIR;
                 Load_Images(dtg_Customer);
             }
-
-            dtg_Customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if ( dtg_Customer.Columns.Count > 0 )
+            {
+                dtg_Customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dtg_Customer.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Customer.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+           
             func.Count_person(dtg_Customer, lbl_total_cust);
         }
 
@@ -269,7 +275,13 @@ namespace Inventory_System02.CustSupplier
                 Load_Images(dtg_Supplier);
 
             }
-            dtg_Supplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (dtg_Customer.Columns.Count > 0)
+            {
+                dtg_Supplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dtg_Supplier.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Supplier.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+           
             func.Count_person(dtg_Supplier, lbl_total_sup);
         }
         private void Load_Images(DataGridView dtg)

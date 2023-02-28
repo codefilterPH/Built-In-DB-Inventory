@@ -378,7 +378,7 @@ namespace Inventory_System02
             this.btn_StockOutList.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_StockOutList.Size = new System.Drawing.Size(225, 35);
             this.btn_StockOutList.TabIndex = 0;
-            this.btn_StockOutList.Text = "               Out List";
+            this.btn_StockOutList.Text = "               Out Summary";
             this.btn_StockOutList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_StockOutList.UseVisualStyleBackColor = true;
             this.btn_StockOutList.Click += new System.EventHandler(this.btn_StockOutList_Click_1);
@@ -406,9 +406,9 @@ namespace Inventory_System02
             this.btn_stock_returned.Location = new System.Drawing.Point(-23, 0);
             this.btn_stock_returned.Name = "btn_stock_returned";
             this.btn_stock_returned.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
-            this.btn_stock_returned.Size = new System.Drawing.Size(225, 35);
+            this.btn_stock_returned.Size = new System.Drawing.Size(231, 35);
             this.btn_stock_returned.TabIndex = 0;
-            this.btn_stock_returned.Text = "               Returned List";
+            this.btn_stock_returned.Text = "               Return Summary";
             this.btn_stock_returned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_stock_returned.UseVisualStyleBackColor = true;
             this.btn_stock_returned.Click += new System.EventHandler(this.btn_stock_returned_Click_1);
@@ -489,7 +489,7 @@ namespace Inventory_System02
             this.show_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.show_panel.Location = new System.Drawing.Point(213, 72);
             this.show_panel.Name = "show_panel";
-            this.show_panel.Size = new System.Drawing.Size(899, 528);
+            this.show_panel.Size = new System.Drawing.Size(899, 566);
             this.show_panel.TabIndex = 1;
             // 
             // panel2
@@ -617,7 +617,7 @@ namespace Inventory_System02
             this.sideBar.MaximumSize = new System.Drawing.Size(213, 2000);
             this.sideBar.MinimumSize = new System.Drawing.Size(59, 600);
             this.sideBar.Name = "sideBar";
-            this.sideBar.Size = new System.Drawing.Size(213, 600);
+            this.sideBar.Size = new System.Drawing.Size(213, 638);
             this.sideBar.TabIndex = 1;
             // 
             // panel17
@@ -626,7 +626,7 @@ namespace Inventory_System02
             this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel17.Controls.Add(this.btn_Logout);
             this.panel17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel17.Location = new System.Drawing.Point(7, 553);
+            this.panel17.Location = new System.Drawing.Point(7, 591);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(205, 38);
             this.panel17.TabIndex = 6;
@@ -654,7 +654,7 @@ namespace Inventory_System02
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1112, 600);
+            this.ClientSize = new System.Drawing.Size(1112, 638);
             this.Controls.Add(this.show_panel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sideBar);

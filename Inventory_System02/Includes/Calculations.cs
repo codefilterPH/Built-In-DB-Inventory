@@ -10,84 +10,94 @@ using System.Windows.Forms;
 using Inventory_System02.Includes;
 using ZXing;
 using System.IO;
+using System.Diagnostics;
+using System.Data.SQLite;
+using System.Security.Cryptography;
+
 namespace Inventory_System02.Includes
 {
+
+
     class Calculations
     {
         SQLConfig config = new SQLConfig();
         string sql = string.Empty;
-
-        double qty = 0, t_qty = 0, price = 0, sub_amt = 0, amt = 0;
-
+        decimal total_amt;
+        int total_qty;
         public void Calculate_Todays_Entry_StockIn(string Type_Of_Process )
         {
 
             sql = "Select * from "+ Type_Of_Process + " where `Entry Date` = '"+DateTime.Now.ToString(Includes.AppSettings.DateFormat) +"' ";
             config.singleResult(sql);
 
-            if (config.dt.Rows.Count == 1)
+            if (config.dt.Rows.Count >= 1)
             {
-                double.TryParse(config.dt.Rows[0].Field<string>("Quantity"), out qty);
-                double.TryParse(config.dt.Rows[0].Field<string>("Price"), out price);
-                sub_amt = qty * price;
-                amt += sub_amt;
-                t_qty = qty;
-            }
-            else if ( config.dt.Rows.Count > 1)
-            {
-
-                for ( int i = 0; i < config.dt.Rows.Count; i++)
+                total_amt = 0;
+                total_qty = 0;
+                for (int i = 0; i < config.dt.Rows.Count; i++)
                 {
-                    double.TryParse(config.dt.Rows[i].Field<string>("Quantity"), out qty);
-                    double.TryParse(config.dt.Rows[i].Field<string>("Price"), out price);
-                    t_qty += qty;
-                    sub_amt = qty * price;
-                    amt += sub_amt;
+                    int qty;
+                    decimal price;
+                    int.TryParse(Convert.ToString(config.dt.Rows[i]["Quantity"]), out qty);
+                    decimal.TryParse(Convert.ToString(config.dt.Rows[i]["Price"]), out price);
+
+                    decimal amount = qty * price;
+      
+                    total_qty += qty;
+                    total_amt += amount;
                 }
-             
-            }
 
-
-            Save_To_DB(qty.ToString(), t_qty.ToString(), amt.ToString(), "`Total Quantity`" , "`Total Value`" );
-           
+                sql = "Select * from Calculations";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    sql = "Update Calculations set `Total Quantity` = '" + total_qty + "', `Total Value` = '" + total_amt + "' ";
+                    config.singleResult(sql);
+                }
+                else
+                {
+                    sql = "Insert into Calculations ( `Total Quantity`,  `Total Value` ) values ( '" + total_qty + "', '" + total_amt + "') ";
+                    config.singleResult(sql);
+                }
+            }   
         }
         public void Over_All()
         {
-            sql = "Select * from Stocks";
+            sql = "SELECT Quantity, Price FROM Stocks";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-                for ( int i = 0; i < config.dt.Rows.Count; i ++ )
+               
+                total_amt = 0;
+                total_qty = 0;
+                for (int i = 0; i < config.dt.Rows.Count; i++ )
                 {
-                    qty = Convert.ToDouble( config.dt.Rows[i].Field<string>("Quantity") );
-                    price = Convert.ToDouble( config.dt.Rows[i].Field<string>("Price") );
-
-                    t_qty += qty;
-                    sub_amt = qty * price;
-                    amt += sub_amt;
+                    int qty = 0;
+                    decimal price = 0;
+                    int.TryParse(config.dt.Rows[i]["Quantity"].ToString(), out qty);
+                    decimal.TryParse(config.dt.Rows[i]["Price"].ToString(), out price);
+                    decimal amount = qty * price;
+                    total_qty += qty;
+                    total_amt += amount;
                 }
 
-                Save_To_DB(qty.ToString(), t_qty.ToString(), amt.ToString(), "`Overall_Qty`", "`Overall_Total`");
+                sql = "SELECT * FROM Calculations";
+                config.singleResult(sql);
 
+                if (config.dt.Rows.Count > 0)
+                {
+                    sql = "UPDATE Calculations SET Overall_Qty = '"+ total_qty+"', Overall_Total = '"+total_amt+"'";
+                    config.Execute_Query(sql);
 
+                }
+                else
+                {
+                    sql = "INSERT INTO Calculations (Overall_Qty, Overall_Total) VALUES ('"+ total_qty+ "', '"+total_amt+"')";
+                    config.Execute_Query(sql);
+                }
             }
         }
-        private void Save_To_DB( string single_qty, string all_qty, string amount, string col1, string col2 )
-        {
-            sql = "Select * from Calculations";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
-            {
-                sql = "Update Calculations set "+ col1+ " = '" + all_qty + "', " + col2 + " = '" + amount + "' ";
-                config.singleResult(sql);
-            }
-            else
-            {
-                sql = "Insert into Calculations ( "+ col1 +", " +col2 +" ) values ( '" + single_qty + "', '" + amount + "') ";
-                config.singleResult(sql);
-            }
-            qty = 0; t_qty = 0; price = 0; sub_amt = 0; amt = 0;
-        }
+
         public void ReturnReason(string trans_ref, string cust_id, string reason)
         {
             sql = "Select * from `Return Reasons` where `Transaction Ref` = '" + trans_ref + "' and `Customer ID` = '" + cust_id + "' ";

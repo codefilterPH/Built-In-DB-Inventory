@@ -24,8 +24,8 @@ namespace Inventory_System02.Invoice_Code
             ReportParameterCollection reportParameters = new ReportParameterCollection();
             usableFunction func = new usableFunction();
             string report_date = string.Empty, cust_name = string.Empty, address = string.Empty, FileName = string.Empty;
-            double total = 0;
-            string rdlc_path = @"CommonSql\Invoice\";
+            decimal total = 0;
+            string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path;
             string sql = string.Empty;
             if (out_return == "out")
             {
@@ -110,10 +110,9 @@ namespace Inventory_System02.Invoice_Code
                      Item_Name = dataRow.Field<string>("Item Name").ToString(),
                      Brand = dataRow.Field<string>("Brand").ToString(),
                      Description = dataRow.Field<string>("Description").ToString(),
-                     Quantity = dataRow.Field<string>("Quantity").ToString(),
-                     Price = dataRow.Field<string>("Price").ToString(),
-                     Amount = Convert.ToString(Convert.ToDouble(dataRow.Field<string>("Price"))
-                     * Convert.ToDouble(dataRow.Field<string>("Quantity"))),
+                     Quantity = dataRow["Quantity"].ToString(),
+                     Price = dataRow["Price"].ToString(),
+                     Amount = ( Convert.ToDecimal(dataRow["Price"]) * Convert.ToDecimal( dataRow["Quantity"]) ).ToString("#0.00"),
 
                  }).ToList();
                 rs.Value = list2;
@@ -121,9 +120,10 @@ namespace Inventory_System02.Invoice_Code
             }
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                total += Convert.ToDouble(ds.Tables[0].Rows[i].Field<string>("Quantity")) *
-                    Convert.ToDouble(ds.Tables[0].Rows[i].Field<string>("Price"));
+                total += Convert.ToDecimal(ds.Tables[0].Rows[i]["Quantity"]) * Convert.ToDecimal(ds.Tables[0].Rows[i]["Price"]);
             }
+
+            string formattedTotal = total.ToString("#0.00");
 
             rs.Name = "Out_DataSet";
             frm.reportViewer1.LocalReport.DataSources.Clear();
@@ -152,7 +152,7 @@ namespace Inventory_System02.Invoice_Code
             reportParameters.Add(new ReportParameter("TransRef", Trans_ref));
             reportParameters.Add(new ReportParameter("Customer_Name", cust_name));
             reportParameters.Add(new ReportParameter("Address", address));
-            reportParameters.Add(new ReportParameter("Total", total.ToString()));
+            reportParameters.Add(new ReportParameter("Total", formattedTotal.ToString()));
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();

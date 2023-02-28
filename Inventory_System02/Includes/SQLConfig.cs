@@ -5,7 +5,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Security.Cryptography;
-
+using System.Collections.Generic;
 
 namespace Inventory_System02.Includes
 {
@@ -21,27 +21,27 @@ namespace Inventory_System02.Includes
         public DataTable dt;
         int result;
         usableFunction funct = new usableFunction();
-  
+
 
         public void ConnectionString()
         {
-          
+
             string a = String.Format(Includes.AppSettings.Database);
-         
+
 
             //string a = String.Format(@"Data Source = DB\DB_QUERIES\bhms.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;");
-            con = new SQLiteConnection(a,true);
+            con = new SQLiteConnection(a, true);
         }
         public void Allow_Rights()
         {
-           // usr.Main("\\" + computerName + @"\DB\DB_QUERIES\bhms.db");
+            // usr.Main("\\" + computerName + @"\DB\DB_QUERIES\bhms.db");
         }
 
 
         [SQLiteFunction(Name = "Sha1", Arguments = 1, FuncType = FunctionType.Scalar)]
         public class Sha1 : SQLiteFunction
         {
-      
+
             public override object Invoke(object[] args)
             {
                 var buffer = args[0] as byte[];
@@ -122,7 +122,7 @@ namespace Inventory_System02.Includes
             //to datagrid
             try
             {
-                
+
                 con.Open();
                 cmd = new SQLiteCommand();
                 da = new SQLiteDataAdapter();
@@ -260,7 +260,7 @@ namespace Inventory_System02.Includes
                         da.SelectCommand = cmd;
                         da.Fill(ds);
                     }
-         
+
 
                 }
 
@@ -312,7 +312,7 @@ namespace Inventory_System02.Includes
             }
         }
 
-      
+
         public void autonumber(string sql, TextBox txt)
         {
             ConnectionString();
@@ -359,14 +359,14 @@ namespace Inventory_System02.Includes
                 cmd = new SQLiteCommand(sql, con);
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
-             
+
                 while (reader.Read())
                 {
                     MyCollection.Add(reader.GetString(0));
-                  
+
                 }
                 txt.AutoCompleteCustomSource = MyCollection;
-            
+
 
             }
             catch (Exception ex)

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ToolTip = System.Windows.Forms.ToolTip;
+using System.Threading;
 
 namespace Inventory_System02
 {
@@ -61,8 +62,9 @@ namespace Inventory_System02
             {
                 foreach (DataGridViewRow rw in dtg_Stocks.Rows)
                 {
-                    double quantty = Convert.ToDouble(config.dt.Rows[0].Field<string>("Low_Detection"));
-                    if (Convert.ToDouble(rw.Cells[6].Value) <= quantty)
+                    int qty;
+                    int.TryParse(Convert.ToString(config.dt.Rows[0]["Low_Detection"]), out qty);
+                    if (Convert.ToInt32(rw.Cells[6].Value) <= qty)
                     {
                         rw.DefaultCellStyle.ForeColor = Color.Red;
                     }
@@ -77,24 +79,22 @@ namespace Inventory_System02
             {
                 dtg_Stocks.Columns[0].Visible = false;
                 dtg_Stocks.Columns[1].Visible = false;
-                //dtg_Stocks.Columns[2].Visible = false;
-
-                dtg_Stocks.Columns[8].Visible = false;
+                dtg_Stocks.Columns[2].Visible = false;
                 dtg_Stocks.Columns[9].Visible = false;
                 dtg_Stocks.Columns[10].Visible = false;
                 dtg_Stocks.Columns[11].Visible = false;
                 dtg_Stocks.Columns[12].Visible = false;
                 dtg_Stocks.Columns[13].Visible = false;
                 dtg_Stocks.Columns[14].Visible = false;
+                dtg_Stocks.Columns[15].Visible = false;
 
                 config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
-
                 foreach (DataRow rw in config.dt.Rows)
                 {
-                    if (File.Exists(rw[8].ToString()))
+                    if (File.Exists(rw[9].ToString()))
                     {
-                        rw["Image"] = File.ReadAllBytes(rw[8].ToString());
+                        rw["Image"] = File.ReadAllBytes(rw[9].ToString());
                     }
                     else
                     {
@@ -115,11 +115,13 @@ namespace Inventory_System02
 
                 dtg_Stocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                dtg_Stocks.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Stocks.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Stocks.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Stocks.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-                dtg_Stocks.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_Stocks.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_Stocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtg_Stocks.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_Stocks.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;   
+                //STOCK OUTBOUND
                 dtg_AddedStocks.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_AddedStocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
@@ -130,13 +132,15 @@ namespace Inventory_System02
             if (dtg_AddedStocks.Rows.Count > 0)
             {
                 HashSet<double> distinctQuantities = new HashSet<double>();
-                double totalQty = 0;
-                double totalAmt = 0;
+                int totalQty = 0;
+                decimal totalAmt = 0;
+                int qty = 0;
+                decimal price = 0;
 
                 for (int i = 0; i < dtg_AddedStocks.Rows.Count; i++)
                 {
-                    double.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out double qty);
-                    double.TryParse(dtg_AddedStocks.Rows[i].Cells[5].Value.ToString(), out double price);
+                    int.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out qty);
+                    decimal.TryParse(dtg_AddedStocks.Rows[i].Cells[5].Value.ToString(), out price);
 
                     totalQty += qty;
                     totalAmt += qty * price;
@@ -146,7 +150,7 @@ namespace Inventory_System02
 
                 out_qty.Text = totalQty.ToString();
                 out_amt.Text = totalAmt.ToString();
-                lbl_numb_out_items.Text = "Number of outbound items: " + dtg_AddedStocks.Rows.Count.ToString();
+                lbl_numb_out_items.Text = "Rows count: " + dtg_AddedStocks.Rows.Count.ToString();
 
             }
             else
@@ -184,7 +188,7 @@ namespace Inventory_System02
                     {
                         if (addedRow.Cells[0].Value.ToString() == rw.Cells[2].Value.ToString())
                         {
-                            MessageBox.Show("This " + rw.Cells[2].Value.ToString() + " is already added to the table \n\nWarning!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("This " + rw.Cells[3].Value.ToString() + " is already added to the table \n\nWarning!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             found = true;
                             continue; // Skip adding the duplicate item and continue with the next item
                         }
@@ -258,7 +262,7 @@ namespace Inventory_System02
             {
                 search_for = "`Stock ID`";
             }
-            else if (cbo_srch_type.Text == "Name")
+            else if (cbo_srch_type.Text == "Item Name")
             {
                 search_for = "`Item Name`";
             }
@@ -405,14 +409,14 @@ namespace Inventory_System02
                     Items.Item_Preview frm = new Items.Item_Preview(
                     dtg_Stocks.CurrentRow.Cells[1].Value.ToString(),
                     dtg_Stocks.CurrentRow.Cells[2].Value.ToString(),
-                    dtg_Stocks.CurrentRow.Cells[14].Value.ToString(),
+                    dtg_Stocks.CurrentRow.Cells[15].Value.ToString(),
                     dtg_Stocks.CurrentRow.Cells[3].Value.ToString(),
                     dtg_Stocks.CurrentRow.Cells[4].Value.ToString(),
                     dtg_Stocks.CurrentRow.Cells[5].Value.ToString(),
                     dtg_Stocks.CurrentRow.Cells[6].Value.ToString(),
                     dtg_Stocks.CurrentRow.Cells[7].Value.ToString(),
                     total_amount.ToString(),
-                    dtg_Stocks.CurrentRow.Cells[12].Value.ToString());
+                    dtg_Stocks.CurrentRow.Cells[13].Value.ToString());
 
                     frm.ShowDialog();
                 }
@@ -476,30 +480,30 @@ namespace Inventory_System02
                             if (config.dt.Rows.Count > 0)
                             {
                                 //assign the result from the stock table
-                                rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
+                                rw.Cells[6].Value = ds.Tables[0].Rows[0]["Quantity"];
                                 //check the quantity if its greater or equal to added stocks
-                                if (Convert.ToDouble(rw.Cells[6].Value) >= Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value))
+                                if (Convert.ToInt32(rw.Cells[6].Value) >= Convert.ToInt32(dtg_AddedStocks.Rows[i].Cells[4].Value))
                                 {
                                     //Change the value of the stocks minus the added stocks
-                                    rw.Cells[6].Value = Convert.ToDouble(rw.Cells[6].Value) - Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value);
+                                    rw.Cells[6].Value = Convert.ToInt32(rw.Cells[6].Value) - Convert.ToInt32(dtg_AddedStocks.Rows[i].Cells[4].Value);
                                     //Calculate the total (qty of added stocks * the price )
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
-                                    dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) *
-                                        Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);
+                                    dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[4].Value) *
+                                        Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[5].Value);
                                 
                                 }
                                 else
                                 {
                                     MessageBox.Show("Quantity is more than Stocks, Invalid Quantity!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    if (Convert.ToDouble(rw.Cells[6].Value) == 0)
+                                    if (Convert.ToInt32(rw.Cells[6].Value) == 0)
                                     {
                                         dtg_AddedStocks.Rows[i].Cells[4].Value = 0;
-                                        rw.Cells[6].Value = ds.Tables[0].Rows[0].Field<string>("Quantity");
+                                        rw.Cells[6].Value = ds.Tables[0].Rows[0]["Quantity"];
                                     }
-                                    else if (Convert.ToDouble(rw.Cells[6].Value) > 0)
+                                    else if (Convert.ToInt32(rw.Cells[6].Value) > 0)
                                     {
                                         dtg_AddedStocks.Rows[i].Cells[4].Value = 1;
-                                        rw.Cells[6].Value = Convert.ToDouble(ds.Tables[0].Rows[0].Field<string>("Quantity")) - 1;
+                                        rw.Cells[6].Value = Convert.ToInt32(ds.Tables[0].Rows[0]["Quantity"]) - 1;
                                     }
                                     return;
                                 }
@@ -516,8 +520,8 @@ namespace Inventory_System02
                                 {
                                     //Calculate the total (qty of added stocks * the price )
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
-                                    dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[4].Value) *
-                                        Convert.ToDouble(dtg_AddedStocks.Rows[i].Cells[5].Value);                         
+                                    dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[4].Value) *
+                                        Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[5].Value);                         
                                     
                                 } 
                             }
@@ -646,6 +650,40 @@ namespace Inventory_System02
             frm.ShowDialog();
         }
 
+        private void backgroundStockOut_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            
+            if (Gen_Trans != "")
+            {
+                Invoice_Silent.Invoice_Silent silent_batch = new Invoice_Silent.Invoice_Silent();
+                silent_batch.Invoice("out", Gen_Trans, "batch");
+
+                e.Result = "Transaction Sent To \"My Documents\"!";
+            }
+            else
+            {
+                e.Result = "No Transaction Reference Number Generated, Batching Failed";
+            }
+           
+        }
+
+        private void backgroundStockOut_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                // Handle any errors that occurred during the background task
+                notifyIcon1.ShowBalloonTip(10000, "Batching Failed", e.Error.Message, ToolTipIcon.Warning);
+            }
+            else
+            {
+                // Handle completion of the background task
+                if (e.Result != null)
+                {
+                    notifyIcon1.ShowBalloonTip(10000, "Batching Successful", e.Result.ToString(), ToolTipIcon.Info);
+                }
+            }
+        }
+
         private void dtg_AddedStocks_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             Update_Qty_Stocks();
@@ -700,7 +738,7 @@ namespace Inventory_System02
                     {
                         sql = "Select Quantity from Stocks where `Stock ID` = '" + rw.Cells[2].Value + "' ";
                         config.singleResult(sql);
-                        if (config.dt.Rows.Count >= 0)
+                        if (config.dt.Rows.Count == 1)
                         {
                             sql = "Update Stocks set Quantity = '" + rw.Cells[6].Value.ToString() + "' where `Stock ID` = '" + rw.Cells[2].Value + "' ";
                             config.Execute_Query(sql);
@@ -719,35 +757,35 @@ namespace Inventory_System02
                     {
                         sql = "Insert into `Stock Out` ( " +
                          " `Entry Date` " +
-                         ", `Stock ID` " +
+                         ",`Customer ID` " +
+                         ",`Customer Name` " +
+                         ",`Customer Address` " +
+                         ",`Stock ID` " +
                          ",`Item Name` " +
                          ",`Brand` " +
                          ",`Description` " +
                          ",`Quantity` " +
                          ",`Price` " +
                          ",`Total` " +
-                         ",`Customer ID` " +
-                         ",`Customer Name` " +
-                         ",`Customer Address` " +
+                         ",`Transaction Reference` "+
                          ",`User ID` " +
                          ",`Warehouse Staff Name` " +
-                         ",`Job Role` " +
-                         ",`Transaction Reference` ) values ( " +
+                         ",`Job Role`) values ( " +
                          " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
-                         ", '" + stock_out_row.Cells[0].Value.ToString() + "' " +
+                         ",'" + cbo_CustID.Text + "' " +
+                         ",'" + txt_Cust_Name.Text + "' " +
+                         ",'" + txt_Cust_SAddress.Text + "' " +
+                         ",'" + stock_out_row.Cells[0].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[1].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[2].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[3].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[4].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[5].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[6].Value.ToString() + "' " +
-                         ",'" + cbo_CustID.Text + "' " +
-                         ",'" + txt_Cust_Name.Text + "' " +
-                         ",'" + txt_Cust_SAddress.Text + "' " +
+                         ",'" + Gen_Trans + "' " +
                          ",'" + Global_ID + "' " +
                          ",'" + Fullname + "' " +
-                         ",'" + JobRole + "' " +
-                         ",'" + Gen_Trans + "' )";
+                         ",'" + JobRole + "' )";
                         config.Execute_Query(sql);
 
                         func.Due_Date_Warranty(Gen_Trans);
@@ -762,10 +800,12 @@ namespace Inventory_System02
                         }
                         else
                         {
-                            MessageBox.Show("Print unsuccussfel due to no Transaction Reference Number Generated! Contact developers for hotfix.",
+                            MessageBox.Show("Print unsuccessful due to no Transaction Reference Number Generated! Contact developers for hotfix.",
                                 "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
+
+                    backgroundStockOut.RunWorkerAsync();
 
                     sql = "Select * from `Stock Out` where `Transaction Reference` =   '" + Gen_Trans + "' ";
                     config.singleResult(sql);

@@ -285,31 +285,6 @@ namespace Inventory_System02
             DTG_Properties();
         }
 
-        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
-            string[] files = Directory.GetFiles(path, "Item Report*");
-
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Date", typeof(DateTime));
-            dt.Columns.Add("Name", typeof(string));
-
-            foreach (string file in files)
-            {
-                DataRow row = dt.NewRow();
-                row["Date"] = File.GetCreationTime(file);
-                row["Name"] = Path.GetFileName(file);
-                dt.Rows.Add(row);
-            }
-            // Sort the DataTable by the "Date" column in descending order
-            dt.DefaultView.Sort = "Date DESC";
-            dt = dt.DefaultView.ToTable();
-
-            // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
-            DTG_Properties();
-        }
-
         private void allItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Batch_Form_Load(sender, e);

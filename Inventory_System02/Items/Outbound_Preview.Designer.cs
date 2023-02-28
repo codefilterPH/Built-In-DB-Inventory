@@ -65,7 +65,7 @@
             // 
             this.txt_date.AutoSize = true;
             this.txt_date.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_date.Location = new System.Drawing.Point(206, 456);
+            this.txt_date.Location = new System.Drawing.Point(132, 452);
             this.txt_date.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_date.Name = "txt_date";
             this.txt_date.Size = new System.Drawing.Size(34, 13);
@@ -76,7 +76,7 @@
             // 
             this.txt_person_name.AutoSize = true;
             this.txt_person_name.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_person_name.Location = new System.Drawing.Point(206, 479);
+            this.txt_person_name.Location = new System.Drawing.Point(132, 473);
             this.txt_person_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_person_name.Name = "txt_person_name";
             this.txt_person_name.Size = new System.Drawing.Size(34, 13);
@@ -85,11 +85,13 @@
             // 
             // txt_amt
             // 
+            this.txt_amt.BackColor = System.Drawing.Color.White;
             this.txt_amt.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_amt.ForeColor = System.Drawing.Color.Blue;
             this.txt_amt.Location = new System.Drawing.Point(509, 378);
             this.txt_amt.Multiline = true;
             this.txt_amt.Name = "txt_amt";
+            this.txt_amt.ReadOnly = true;
             this.txt_amt.Size = new System.Drawing.Size(220, 46);
             this.txt_amt.TabIndex = 49;
             this.txt_amt.Text = "0";
@@ -97,35 +99,43 @@
             // 
             // txt_price
             // 
+            this.txt_price.BackColor = System.Drawing.Color.White;
             this.txt_price.Location = new System.Drawing.Point(509, 344);
             this.txt_price.Name = "txt_price";
+            this.txt_price.ReadOnly = true;
             this.txt_price.Size = new System.Drawing.Size(220, 25);
             this.txt_price.TabIndex = 47;
             this.txt_price.Text = "0";
             // 
             // txt_brand
             // 
+            this.txt_brand.BackColor = System.Drawing.Color.White;
             this.txt_brand.Location = new System.Drawing.Point(509, 208);
             this.txt_brand.Name = "txt_brand";
+            this.txt_brand.ReadOnly = true;
             this.txt_brand.Size = new System.Drawing.Size(220, 25);
             this.txt_brand.TabIndex = 42;
             this.txt_brand.Text = "None";
             // 
             // txt_id
             // 
+            this.txt_id.BackColor = System.Drawing.Color.White;
             this.txt_id.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Location = new System.Drawing.Point(509, 171);
             this.txt_id.Name = "txt_id";
+            this.txt_id.ReadOnly = true;
             this.txt_id.Size = new System.Drawing.Size(220, 29);
             this.txt_id.TabIndex = 37;
             this.txt_id.Text = "None";
             // 
             // txt_trans_ref
             // 
+            this.txt_trans_ref.BackColor = System.Drawing.Color.White;
             this.txt_trans_ref.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_trans_ref.ForeColor = System.Drawing.Color.Blue;
+            this.txt_trans_ref.ForeColor = System.Drawing.Color.SteelBlue;
             this.txt_trans_ref.Location = new System.Drawing.Point(209, 12);
             this.txt_trans_ref.Name = "txt_trans_ref";
+            this.txt_trans_ref.ReadOnly = true;
             this.txt_trans_ref.Size = new System.Drawing.Size(220, 25);
             this.txt_trans_ref.TabIndex = 39;
             this.txt_trans_ref.Text = "None";
@@ -136,6 +146,7 @@
             this.txt_desc.Location = new System.Drawing.Point(509, 243);
             this.txt_desc.Multiline = true;
             this.txt_desc.Name = "txt_desc";
+            this.txt_desc.ReadOnly = true;
             this.txt_desc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_desc.Size = new System.Drawing.Size(220, 55);
             this.txt_desc.TabIndex = 44;
@@ -145,7 +156,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Blue;
+            this.label21.ForeColor = System.Drawing.Color.SteelBlue;
             this.label21.Location = new System.Drawing.Point(426, 406);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
@@ -157,7 +168,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Blue;
+            this.label11.ForeColor = System.Drawing.Color.SteelBlue;
             this.label11.Location = new System.Drawing.Point(25, 15);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
@@ -169,7 +180,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(146, 479);
+            this.label10.Location = new System.Drawing.Point(72, 473);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 13);
@@ -180,7 +191,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(135, 456);
+            this.label9.Location = new System.Drawing.Point(61, 452);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
@@ -191,7 +202,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(99, 432);
+            this.label8.Location = new System.Drawing.Point(25, 428);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 13);
@@ -202,7 +213,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.ForeColor = System.Drawing.Color.SteelBlue;
             this.label7.Location = new System.Drawing.Point(395, 378);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -271,7 +282,7 @@
             this.Item_Image.Location = new System.Drawing.Point(28, 175);
             this.Item_Image.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Item_Image.Name = "Item_Image";
-            this.Item_Image.Size = new System.Drawing.Size(257, 226);
+            this.Item_Image.Size = new System.Drawing.Size(304, 226);
             this.Item_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Item_Image.TabIndex = 36;
             this.Item_Image.TabStop = false;
@@ -281,30 +292,31 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.txt_name);
-            this.panel1.Location = new System.Drawing.Point(102, 125);
+            this.panel1.Location = new System.Drawing.Point(28, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 40);
+            this.panel1.Size = new System.Drawing.Size(661, 40);
             this.panel1.TabIndex = 57;
             // 
             // txt_name
             // 
-            this.txt_name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_name.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_name.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.ForeColor = System.Drawing.Color.Blue;
-            this.txt_name.Location = new System.Drawing.Point(-74, 0);
+            this.txt_name.Location = new System.Drawing.Point(0, 0);
             this.txt_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(701, 40);
+            this.txt_name.Size = new System.Drawing.Size(661, 40);
             this.txt_name.TabIndex = 32;
             this.txt_name.Text = "None";
             this.txt_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txt_divi_name
             // 
+            this.txt_divi_name.BackColor = System.Drawing.Color.White;
             this.txt_divi_name.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_divi_name.Location = new System.Drawing.Point(209, 44);
             this.txt_divi_name.Name = "txt_divi_name";
+            this.txt_divi_name.ReadOnly = true;
             this.txt_divi_name.Size = new System.Drawing.Size(220, 25);
             this.txt_divi_name.TabIndex = 60;
             this.txt_divi_name.Text = "None";
@@ -322,8 +334,10 @@
             // 
             // txt_qty
             // 
+            this.txt_qty.BackColor = System.Drawing.Color.White;
             this.txt_qty.Location = new System.Drawing.Point(509, 311);
             this.txt_qty.Name = "txt_qty";
+            this.txt_qty.ReadOnly = true;
             this.txt_qty.Size = new System.Drawing.Size(220, 25);
             this.txt_qty.TabIndex = 62;
             this.txt_qty.Text = "0";
@@ -332,10 +346,12 @@
             // 
             this.txt_divi_address.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_divi_address.BackColor = System.Drawing.Color.White;
             this.txt_divi_address.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_divi_address.Location = new System.Drawing.Point(209, 75);
             this.txt_divi_address.Multiline = true;
             this.txt_divi_address.Name = "txt_divi_address";
+            this.txt_divi_address.ReadOnly = true;
             this.txt_divi_address.Size = new System.Drawing.Size(520, 44);
             this.txt_divi_address.TabIndex = 63;
             this.txt_divi_address.Text = "None";
@@ -365,10 +381,12 @@
             // 
             // txt_warranty
             // 
+            this.txt_warranty.BackColor = System.Drawing.Color.White;
             this.txt_warranty.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_warranty.ForeColor = System.Drawing.Color.Red;
             this.txt_warranty.Location = new System.Drawing.Point(509, 44);
             this.txt_warranty.Name = "txt_warranty";
+            this.txt_warranty.ReadOnly = true;
             this.txt_warranty.Size = new System.Drawing.Size(220, 25);
             this.txt_warranty.TabIndex = 66;
             this.txt_warranty.Text = "None";
@@ -377,7 +395,8 @@
             // Outbound_Preview
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(800, 534);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(760, 534);
             this.Controls.Add(this.txt_warranty);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txt_divi_address);
@@ -407,6 +426,7 @@
             this.Controls.Add(this.Item_Image);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Outbound_Preview";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

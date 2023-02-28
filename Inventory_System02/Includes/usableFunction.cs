@@ -581,7 +581,7 @@ namespace Inventory_System02.Includes
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-                Due1 = Convert.ToInt32(config.dt.Rows[0].Field<string>("Warranty"));
+                Due1 = Convert.ToInt32(config.dt.Rows[0]["Warranty"]);
 
             }         
             Due = DateTime.Now.AddDays(Due1).ToString(Includes.AppSettings.DateFormat);     

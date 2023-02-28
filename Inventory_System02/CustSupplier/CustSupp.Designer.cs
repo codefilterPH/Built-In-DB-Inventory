@@ -161,14 +161,14 @@ namespace Inventory_System02.CustSupplier
             // btn_cusid_select
             // 
             this.btn_cusid_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cusid_select.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_cusid_select.BackColor = System.Drawing.Color.SlateGray;
             this.btn_cusid_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_cusid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_cusid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cusid_select.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_cusid_select.Location = new System.Drawing.Point(576, 170);
+            this.btn_cusid_select.Location = new System.Drawing.Point(604, 170);
             this.btn_cusid_select.Name = "btn_cusid_select";
-            this.btn_cusid_select.Size = new System.Drawing.Size(139, 23);
+            this.btn_cusid_select.Size = new System.Drawing.Size(111, 23);
             this.btn_cusid_select.TabIndex = 1;
             this.btn_cusid_select.Text = "Select";
             this.btn_cusid_select.UseVisualStyleBackColor = false;
@@ -203,7 +203,7 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 217);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 162);
+            this.panel2.Size = new System.Drawing.Size(839, 150);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -227,9 +227,9 @@ namespace Inventory_System02.CustSupplier
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dtg_Customer.RowTemplate.Height = 90;
+            this.dtg_Customer.RowTemplate.Height = 60;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 162);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 150);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -249,7 +249,7 @@ namespace Inventory_System02.CustSupplier
             this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Search.Location = new System.Drawing.Point(63, 189);
             this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(94, 25);
+            this.txt_Search.Size = new System.Drawing.Size(122, 25);
             this.txt_Search.TabIndex = 14;
             this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
             // 
@@ -286,14 +286,14 @@ namespace Inventory_System02.CustSupplier
             // btn_Clear_Text
             // 
             this.btn_Clear_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear_Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_Clear_Text.BackColor = System.Drawing.Color.SlateGray;
             this.btn_Clear_Text.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear_Text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Clear_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Clear_Text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Clear_Text.Location = new System.Drawing.Point(576, 144);
+            this.btn_Clear_Text.Location = new System.Drawing.Point(604, 144);
             this.btn_Clear_Text.Name = "btn_Clear_Text";
-            this.btn_Clear_Text.Size = new System.Drawing.Size(139, 23);
+            this.btn_Clear_Text.Size = new System.Drawing.Size(111, 23);
             this.btn_Clear_Text.TabIndex = 13;
             this.btn_Clear_Text.Text = "Clear Text";
             this.btn_Clear_Text.UseVisualStyleBackColor = false;
@@ -322,13 +322,13 @@ namespace Inventory_System02.CustSupplier
             // btn_Gen_ID
             // 
             this.btn_Gen_ID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Gen_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_Gen_ID.BackColor = System.Drawing.Color.SlateGray;
             this.btn_Gen_ID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Gen_ID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Gen_ID.ForeColor = System.Drawing.Color.White;
-            this.btn_Gen_ID.Location = new System.Drawing.Point(576, 40);
+            this.btn_Gen_ID.Location = new System.Drawing.Point(604, 40);
             this.btn_Gen_ID.Name = "btn_Gen_ID";
-            this.btn_Gen_ID.Size = new System.Drawing.Size(139, 23);
+            this.btn_Gen_ID.Size = new System.Drawing.Size(111, 23);
             this.btn_Gen_ID.TabIndex = 9;
             this.btn_Gen_ID.Text = "Generate ID";
             this.btn_Gen_ID.UseVisualStyleBackColor = false;
@@ -367,7 +367,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.cust_Phone.Location = new System.Drawing.Point(138, 99);
             this.cust_Phone.Name = "cust_Phone";
-            this.cust_Phone.Size = new System.Drawing.Size(131, 25);
+            this.cust_Phone.Size = new System.Drawing.Size(171, 25);
             this.cust_Phone.TabIndex = 7;
             // 
             // label2
@@ -383,7 +383,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.cust_LN.Location = new System.Drawing.Point(138, 70);
             this.cust_LN.Name = "cust_LN";
-            this.cust_LN.Size = new System.Drawing.Size(131, 25);
+            this.cust_LN.Size = new System.Drawing.Size(171, 25);
             this.cust_LN.TabIndex = 5;
             // 
             // label1
@@ -399,20 +399,20 @@ namespace Inventory_System02.CustSupplier
             // 
             this.cust_FN.Location = new System.Drawing.Point(138, 41);
             this.cust_FN.Name = "cust_FN";
-            this.cust_FN.Size = new System.Drawing.Size(131, 25);
+            this.cust_FN.Size = new System.Drawing.Size(171, 25);
             this.cust_FN.TabIndex = 4;
             // 
             // btn_Cust_Delete
             // 
             this.btn_Cust_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cust_Delete.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Cust_Delete.BackColor = System.Drawing.Color.SlateGray;
             this.btn_Cust_Delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Cust_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cust_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cust_Delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Cust_Delete.Location = new System.Drawing.Point(576, 118);
+            this.btn_Cust_Delete.Location = new System.Drawing.Point(604, 118);
             this.btn_Cust_Delete.Name = "btn_Cust_Delete";
-            this.btn_Cust_Delete.Size = new System.Drawing.Size(139, 23);
+            this.btn_Cust_Delete.Size = new System.Drawing.Size(111, 23);
             this.btn_Cust_Delete.TabIndex = 12;
             this.btn_Cust_Delete.Text = "Delete Selected";
             this.btn_Cust_Delete.UseVisualStyleBackColor = false;
@@ -421,14 +421,14 @@ namespace Inventory_System02.CustSupplier
             // btn_Cust_edit
             // 
             this.btn_Cust_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cust_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_Cust_edit.BackColor = System.Drawing.Color.SlateGray;
             this.btn_Cust_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Cust_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cust_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cust_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Cust_edit.Location = new System.Drawing.Point(576, 92);
+            this.btn_Cust_edit.Location = new System.Drawing.Point(604, 92);
             this.btn_Cust_edit.Name = "btn_Cust_edit";
-            this.btn_Cust_edit.Size = new System.Drawing.Size(139, 23);
+            this.btn_Cust_edit.Size = new System.Drawing.Size(111, 23);
             this.btn_Cust_edit.TabIndex = 11;
             this.btn_Cust_edit.Text = "Save Current";
             this.btn_Cust_edit.UseVisualStyleBackColor = false;
@@ -437,14 +437,14 @@ namespace Inventory_System02.CustSupplier
             // btn_Cust_add
             // 
             this.btn_Cust_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cust_add.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_Cust_add.BackColor = System.Drawing.Color.SlateGray;
             this.btn_Cust_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Cust_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cust_add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cust_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Cust_add.Location = new System.Drawing.Point(576, 66);
+            this.btn_Cust_add.Location = new System.Drawing.Point(604, 66);
             this.btn_Cust_add.Name = "btn_Cust_add";
-            this.btn_Cust_add.Size = new System.Drawing.Size(139, 23);
+            this.btn_Cust_add.Size = new System.Drawing.Size(111, 23);
             this.btn_Cust_add.TabIndex = 10;
             this.btn_Cust_add.Text = "Add to Record";
             this.btn_Cust_add.UseVisualStyleBackColor = false;
@@ -467,7 +467,7 @@ namespace Inventory_System02.CustSupplier
             // btn_Upload_Cust
             // 
             this.btn_Upload_Cust.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_Upload_Cust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_Upload_Cust.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_Upload_Cust.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Upload_Cust.ForeColor = System.Drawing.Color.White;
             this.btn_Upload_Cust.Image = ((System.Drawing.Image)(resources.GetObject("btn_Upload_Cust.Image")));
@@ -479,7 +479,7 @@ namespace Inventory_System02.CustSupplier
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.refreshToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripMenuItem.Image")));
@@ -490,7 +490,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // customerModelsToolStripMenuItem
             // 
-            this.customerModelsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.customerModelsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.customerModelsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerModelsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerModelsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("customerModelsToolStripMenuItem.Image")));
@@ -502,7 +502,7 @@ namespace Inventory_System02.CustSupplier
             // btn_new_customer
             // 
             this.btn_new_customer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_new_customer.BackColor = System.Drawing.Color.Teal;
+            this.btn_new_customer.BackColor = System.Drawing.Color.Peru;
             this.btn_new_customer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_new_customer.ForeColor = System.Drawing.Color.White;
             this.btn_new_customer.Image = ((System.Drawing.Image)(resources.GetObject("btn_new_customer.Image")));
@@ -547,7 +547,7 @@ namespace Inventory_System02.CustSupplier
             // btn_supid_select
             // 
             this.btn_supid_select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_supid_select.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btn_supid_select.BackColor = System.Drawing.Color.SlateGray;
             this.btn_supid_select.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_supid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_supid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -609,7 +609,7 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 164);
+            this.panel1.Size = new System.Drawing.Size(837, 152);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -634,9 +634,9 @@ namespace Inventory_System02.CustSupplier
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtg_Supplier.RowTemplate.Height = 90;
+            this.dtg_Supplier.RowTemplate.Height = 60;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 164);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 152);
             this.dtg_Supplier.TabIndex = 0;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);
@@ -671,7 +671,7 @@ namespace Inventory_System02.CustSupplier
             // btn_Clear
             // 
             this.btn_Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_Clear.BackColor = System.Drawing.Color.SlateGray;
             this.btn_Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -700,7 +700,7 @@ namespace Inventory_System02.CustSupplier
             // btn_Upload_sup
             // 
             this.btn_Upload_sup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_Upload_sup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_Upload_sup.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_Upload_sup.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Upload_sup.ForeColor = System.Drawing.Color.White;
             this.btn_Upload_sup.Image = ((System.Drawing.Image)(resources.GetObject("btn_Upload_sup.Image")));
@@ -712,7 +712,7 @@ namespace Inventory_System02.CustSupplier
             // supplier_refresh
             // 
             this.supplier_refresh.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.supplier_refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.supplier_refresh.BackColor = System.Drawing.Color.SteelBlue;
             this.supplier_refresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplier_refresh.ForeColor = System.Drawing.Color.White;
             this.supplier_refresh.Image = ((System.Drawing.Image)(resources.GetObject("supplier_refresh.Image")));
@@ -724,7 +724,7 @@ namespace Inventory_System02.CustSupplier
             // btn_new_supplier
             // 
             this.btn_new_supplier.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_new_supplier.BackColor = System.Drawing.Color.Teal;
+            this.btn_new_supplier.BackColor = System.Drawing.Color.Peru;
             this.btn_new_supplier.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_new_supplier.ForeColor = System.Drawing.Color.White;
             this.btn_new_supplier.Image = ((System.Drawing.Image)(resources.GetObject("btn_new_supplier.Image")));
@@ -736,7 +736,7 @@ namespace Inventory_System02.CustSupplier
             // btn_GenerateID
             // 
             this.btn_GenerateID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_GenerateID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_GenerateID.BackColor = System.Drawing.Color.SlateGray;
             this.btn_GenerateID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_GenerateID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GenerateID.ForeColor = System.Drawing.Color.White;
@@ -818,7 +818,7 @@ namespace Inventory_System02.CustSupplier
             // btn_sup_delete
             // 
             this.btn_sup_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_delete.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_sup_delete.BackColor = System.Drawing.Color.SlateGray;
             this.btn_sup_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -834,7 +834,7 @@ namespace Inventory_System02.CustSupplier
             // btn_sup_edit
             // 
             this.btn_sup_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_edit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_sup_edit.BackColor = System.Drawing.Color.SlateGray;
             this.btn_sup_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -850,7 +850,7 @@ namespace Inventory_System02.CustSupplier
             // btn_sup_add
             // 
             this.btn_sup_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_add.BackColor = System.Drawing.Color.Green;
+            this.btn_sup_add.BackColor = System.Drawing.Color.SlateGray;
             this.btn_sup_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sup_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -127,7 +127,10 @@ namespace Inventory_System02.Profiles
         {
             sql = "Select * from Employee ORDER BY `Hired Date` DESC";
             config.Load_DTG(sql, dtg_User);
-
+            Hideadmin_and_LoadImage();
+        }
+        private void Hideadmin_and_LoadImage()
+        {
             if (dtg_User.Columns.Count > 0)
             {
                 dtg_User.Columns[0].Visible = false;
@@ -192,7 +195,7 @@ namespace Inventory_System02.Profiles
 
                         break;
                     }
-                }  
+                }
             }
             dtg_User.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
@@ -400,6 +403,11 @@ namespace Inventory_System02.Profiles
 
         private void btn_Change_pass_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_Pass.Text))
+            {
+                MessageBox.Show("Password is empty", "Nothing to Change", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (Global_ID == "admin")
             {
                 // Admin can change password for any employee
@@ -470,6 +478,13 @@ namespace Inventory_System02.Profiles
                     MessageBox.Show("You don't have permission to change password of other employees. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private void txt_Search_TextChanged(object sender, EventArgs e)
+        {
+            sql = "Select * from Employee WHERE ( `Employee ID` LIKE '%" + txt_Search.Text + "%' OR `First Name` LIKE '%"+ txt_Search.Text +"%' OR `Last Name` LIKE '%"+ txt_Search.Text +"%' OR `Job Role` LIKE '%"+ txt_Search.Text + "%' ) AND `Employee ID` != 'admin' AND `Job Role` != 'Programmer/Developer' ORDER BY `Hired Date` DESC";
+            config.Load_DTG(sql, dtg_User);
+            Hideadmin_and_LoadImage();
         }
 
         private void dtg_User_CellClick(object sender, DataGridViewCellEventArgs e)
