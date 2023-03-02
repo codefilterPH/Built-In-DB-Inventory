@@ -191,14 +191,14 @@ namespace Inventory_System02.Profiles
                 {
                     if (dtg_User.Columns[i] is DataGridViewImageColumn)
                     {
-                        ((DataGridViewImageColumn)dtg_User.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+                        ((DataGridViewImageColumn)dtg_User.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
                         break;
                     }
                 }
             }
             dtg_User.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             timer1.Start();
         }
 
@@ -326,6 +326,7 @@ namespace Inventory_System02.Profiles
                         ", `Job Role` = '" + txt_Job_role.Text + "' " +
                         " where `Employee ID` = '" + txt_ID.Text + "' ";
                     config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
+                    reloadTableToolStripMenuItem_Click(sender, e);
                 }
             }
             else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
@@ -345,6 +346,7 @@ namespace Inventory_System02.Profiles
                         ", `Job Role` = '" + txt_Job_role.Text + "' " +
                         " where `Employee ID` = '" + txt_ID.Text + "' ";
                     config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
+                    reloadTableToolStripMenuItem_Click(sender, e);
                 }
             }
             else
@@ -509,7 +511,7 @@ namespace Inventory_System02.Profiles
         private void timer1_Tick(object sender, EventArgs e)
         {
             sql = "Select Type from `Employee Role`";
-            dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             config.fiil_CBO(sql, txt_Job_role);
             timer1.Stop();
         }

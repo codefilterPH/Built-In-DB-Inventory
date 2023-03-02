@@ -54,13 +54,15 @@ namespace Inventory_System02
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_exp = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // Logo
             // 
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(13, 63);
+            this.Logo.Location = new System.Drawing.Point(23, 63);
             this.Logo.Margin = new System.Windows.Forms.Padding(4);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(161, 155);
@@ -299,11 +301,33 @@ namespace Inventory_System02
             this.label21.TabIndex = 23;
             this.label21.Text = "Expiration Date:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(108, 418);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(227, 34);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Good Ware Flaticon \r\nhttps://www.flaticon.com/free-icons/";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 418);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 17);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Attribution:";
+            // 
             // About
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(418, 494);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lbl_exp);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.lbl_email);
@@ -329,6 +353,7 @@ namespace Inventory_System02
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Logo);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "About";
@@ -367,5 +392,7 @@ namespace Inventory_System02
         private System.Windows.Forms.Label lbl_email;
         private System.Windows.Forms.Label lbl_exp;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

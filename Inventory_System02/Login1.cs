@@ -109,7 +109,7 @@ namespace Inventory_System02
             if (isPdfInstalled)
             {
                 // Get the current date in the format Includes.AppSettings.DateFormat
-                string formattedDate = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+                string formattedDate = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
 
                 // Check if the current date is not in the desired format
                 if (!Regex.IsMatch(formattedDate, @"^\d{4}-\d{2}-\d{2}$"))
@@ -138,13 +138,13 @@ namespace Inventory_System02
                         {
                             if (date == "")
                             {
-                                sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormat) + "' where Count = '0'";
+                                sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormatSave) + "' where Count = '0'";
                                 config.Execute_Query(sql);
                                 txt_Username.Focus();
                             }
                             else
                             {
-                                string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+                                string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
                                 if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
                                 {
                                     Admin.Verify frm = new Admin.Verify();
@@ -159,7 +159,7 @@ namespace Inventory_System02
                     }
                     else
                     {
-                        sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormat) + "' , '100' ) ";
+                        sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormatSave) + "' , '100' ) ";
                         config.Execute_Query(sql);
                         txt_Username.Focus();
                     }

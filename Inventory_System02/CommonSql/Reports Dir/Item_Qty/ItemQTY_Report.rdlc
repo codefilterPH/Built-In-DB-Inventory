@@ -1907,8 +1907,10 @@
                     <TextRun>
                       <Value>Total Items</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1919,9 +1921,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>0.56678cm</Top>
-              <Left>0.57891cm</Left>
+              <Left>0.50835cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.135cm</Width>
+              <Width>3.55833cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1941,7 +1943,8 @@
                     <TextRun>
                       <Value>=Parameters!Total_Items.Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1950,9 +1953,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.56678cm</Top>
-              <Left>3.8903cm</Left>
+              <Left>4.23775cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
+              <Width>8.11796cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1973,8 +1976,10 @@
                     <TextRun>
                       <Value>Total Quantity</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1985,9 +1990,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.34317cm</Top>
-              <Left>0.57891cm</Left>
+              <Left>0.50835cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.135cm</Width>
+              <Width>3.55833cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -2008,7 +2013,8 @@
                     <TextRun>
                       <Value>=Parameters!Total_Quantity.Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2017,9 +2023,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>1.34317cm</Top>
-              <Left>3.8903cm</Left>
+              <Left>4.23775cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
+              <Width>8.11796cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -2040,7 +2046,8 @@
                     <TextRun>
                       <Value>=Parameters!Total_Value.Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Format>#,0.00;(#,0.00)</Format>
                       </Style>
@@ -2050,9 +2057,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.11956cm</Top>
-              <Left>3.8903cm</Left>
-              <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
+              <Left>4.23775cm</Left>
+              <Height>0.89104cm</Height>
+              <Width>8.11796cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -2073,8 +2080,10 @@
                     <TextRun>
                       <Value>Total Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2085,9 +2094,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>2.11956cm</Top>
-              <Left>0.57891cm</Left>
+              <Left>0.50835cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.135cm</Width>
+              <Width>3.55833cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>

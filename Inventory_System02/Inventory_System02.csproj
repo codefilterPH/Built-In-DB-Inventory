@@ -144,6 +144,12 @@
       <DependentUpon>Batch_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonSql\Invoice\Invoice_Silent.cs" />
+    <Compile Include="CommonSql\Reports Dir\Item_Division\ItemByDivision_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonSql\Reports Dir\Item_Division\ItemByDivision_Form.Designer.cs">
+      <DependentUpon>ItemByDivision_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,7 @@
     </Compile>
     <Compile Include="Includes\App_Settings.cs" />
     <Compile Include="Includes\Calculations.cs" />
+    <Compile Include="Includes\Load_DTG_VBPrint.cs" />
     <Compile Include="Includes\Print_To_The_Printer.cs" />
     <Compile Include="Includes\ID_Generator.cs" />
     <Compile Include="Includes\StringBuilder12.cs" />
@@ -310,6 +317,12 @@
     <EmbeddedResource Include="CommonSql\Invoice\Invoice_In.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Division\ItemByDivision_Form.resx">
+      <DependentUpon>ItemByDivision_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.resx">
       <DependentUpon>Edit_QTY.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Item_by_Quantity.resx">
       <DependentUpon>Item_by_Quantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Supplier_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -410,6 +426,8 @@
       <DependentUpon>StockReturned.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
+    <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint.datasource" />
     <None Include="Properties\DataSources\Inventory_System02.Invoice.Invoice_Code.datasource" />
     <None Include="Properties\DataSources\Inventory_System02.Invoice.Items_DataSet.datasource" />
     <None Include="Properties\DataSources\Inventory_System02.Reports_Dir.Class_Customer_Var.datasource" />

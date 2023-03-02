@@ -2,9 +2,12 @@
 using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using System;
 using System.Data;
+using System.Drawing.Imaging;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace Inventory_System02.CustSupplier
 {
@@ -45,13 +48,13 @@ namespace Inventory_System02.CustSupplier
         private void CustSupp_Load(object sender, EventArgs e)
         {
             supplier_refresh_Click(sender, e);
-            supplier_refresh_Click(sender, e);
             refreshToolStripMenuItem_Click(sender, e);
             if (CustSup == "Sup")
             {
                 tabControl1.SelectedTab = tabPage2;
                 func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 Sup_ID.Focus();
+                
             }
             else
             {
@@ -61,7 +64,8 @@ namespace Inventory_System02.CustSupplier
             }
             timer1.Start();
             UnlockModels();
-
+     
+        
 
         }
         private void UnlockModels()
@@ -90,7 +94,13 @@ namespace Inventory_System02.CustSupplier
                 func.Error_Message1 = "First Name";
                 func.Error_Message();
                 sup_CName.Focus();
-            }        
+            }
+            else if (sup_Address.Text == "" || sup_Address.Text == null)
+            {
+                func.Error_Message1 = "Address";
+                func.Error_Message();
+                sup_Address.Focus();
+            }
             else
             {
                 sql = "Select * from Supplier where `Company ID` = '" + Sup_ID.Text + "' ";
@@ -103,7 +113,7 @@ namespace Inventory_System02.CustSupplier
                 else
                 {
                     sql = "Insert into Supplier (`Entry Date`, `Company ID`, `Company Name`, Email ,`Phone`, `Address`) values (" +
-                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
+                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                     ", '" + Sup_ID.Text + "' " +
                     ", '" + sup_CName.Text + "'" +
                     ", '" + sup_Email.Text + "' " +
@@ -208,15 +218,13 @@ namespace Inventory_System02.CustSupplier
                     sql = "Insert into Customer ( " +
                     " `Entry Date` " +
                     ", `Customer ID` " +
-                    ",`First Name` " +
-                    ",`Last Name` " +
+                    ",`Name` " +
                     ",`Phone Number` " +
                     ",`Address`" +
                     ",`Type`) values ( " +
-                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
+                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                     ",'" + cust_ID.Text + "' " +
                     ",'" + cust_FN.Text + "' " +
-                    ",'" + cust_LN.Text + "' " +
                     ",'" + cust_Phone.Text + "' " +
                     ",'" + cust_SAddress.Text + "'" +
                     ",'" + cbo_type.Text + "')";
@@ -229,7 +237,6 @@ namespace Inventory_System02.CustSupplier
                     MessageBox.Show(cust_ID.Text + " is already added to the list", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                
             }
 
@@ -254,6 +261,8 @@ namespace Inventory_System02.CustSupplier
                 dtg_Customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dtg_Customer.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_Customer.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_Customer.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
             }
            
             func.Count_person(dtg_Customer, lbl_total_cust);
@@ -280,14 +289,16 @@ namespace Inventory_System02.CustSupplier
                 dtg_Supplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dtg_Supplier.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_Supplier.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_Supplier.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
             }
            
             func.Count_person(dtg_Supplier, lbl_total_sup);
         }
         private void Load_Images(DataGridView dtg)
         {
-            config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
+            config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
             foreach (DataRow rw in config.dt.Rows)
             {
@@ -300,16 +311,17 @@ namespace Inventory_System02.CustSupplier
                     rw["Image"] = File.ReadAllBytes(main_path + "DONOTDELETE_SUBIMAGE.JPG");
                 }
             }
-            dtg.Columns["Image"].DisplayIndex = 0;
 
             for (int i = 0; i < dtg.Columns.Count; i++)
             {
                 if (dtg.Columns[i] is DataGridViewImageColumn)
                 {
-                    ((DataGridViewImageColumn)dtg.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    ((DataGridViewImageColumn)dtg.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
                     break;
                 }
             }
+            dtg.Columns["Image"].DisplayIndex = 0;
+            dtg.Columns["Image"].Width = 100;
         }
 
         private void btn_sup_edit_Click(object sender, EventArgs e)
@@ -341,7 +353,6 @@ namespace Inventory_System02.CustSupplier
                 timer1.Start();
                 func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 supplier_refresh_Click(sender, e);
-
 
             }
             else
@@ -402,7 +413,7 @@ namespace Inventory_System02.CustSupplier
 
         private void customerModelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustModels frm = new CustModels(cust_ID.Text, cust_FN.Text + " " + cust_LN.Text);
+            CustModels frm = new CustModels(cust_ID.Text, cust_FN.Text);
             frm.ShowDialog();
         }
 
@@ -519,6 +530,29 @@ namespace Inventory_System02.CustSupplier
             }
         }
 
+        private void sup_Phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            func.KeyPress_Textbox_NumbersOnlyNoDot(sender, e);
+        }
+
+        private void cust_Phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            func.KeyPress_Textbox_NumbersOnlyNoDot(sender, e);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Execute the UI code on the UI thread
+            //dtg_Customer.Invoke((MethodInvoker)delegate {
+                //dtg_Customer.Columns["Image"].Width = 100;
+           // });
+
+            //dtg_Supplier.Invoke((MethodInvoker)delegate {
+           //     dtg_Supplier.Columns["Image"].Width = 100;
+           //});
+
+        }
+
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             func.clearTxt(tabPage2);
@@ -562,10 +596,9 @@ namespace Inventory_System02.CustSupplier
             {
                 cust_ID.Text = dtg_Customer.CurrentRow.Cells[2].Value.ToString();
                 cust_FN.Text = dtg_Customer.CurrentRow.Cells[3].Value.ToString();
-                cust_LN.Text = dtg_Customer.CurrentRow.Cells[4].Value.ToString();
-                cust_Phone.Text = dtg_Customer.CurrentRow.Cells[5].Value.ToString();
-                cust_SAddress.Text = dtg_Customer.CurrentRow.Cells[6].Value.ToString();
-                cbo_type.Text = dtg_Customer.CurrentRow.Cells[7].Value.ToString();
+                cust_Phone.Text = dtg_Customer.CurrentRow.Cells[4].Value.ToString();
+                cust_SAddress.Text = dtg_Customer.CurrentRow.Cells[5].Value.ToString();
+                cbo_type.Text = dtg_Customer.CurrentRow.Cells[6].Value.ToString();
 
                 func.Reload_Images(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
                 func.Change_Font_DTG(sender, e, dtg_Customer );
@@ -596,10 +629,9 @@ namespace Inventory_System02.CustSupplier
             else
             {
                 sql = "Update Customer set " +
-                    "`First Name` = '" + cust_FN.Text + "'" +
-                    ", `Last Name` = '" + cust_LN.Text + "' " +
-                    ", `Phone Number` = '" + cust_Phone.Text + "'" +
-                    ", `Address` = '" + cust_SAddress.Text + "' " +
+                    "`Name` = '" + cust_FN.Text + "'" +
+                    ",`Phone Number` = '" + cust_Phone.Text + "'" +
+                    ",`Address` = '" + cust_SAddress.Text + "' " +
                     ", Type = '" + cbo_type.Text + "' " +
                     "where `Customer ID` = '" + cust_ID.Text + "' ";
                 config.Execute_CUD(sql, "Unable to update " + cust_FN.Text, "Successfully updated " + cust_FN.Text);

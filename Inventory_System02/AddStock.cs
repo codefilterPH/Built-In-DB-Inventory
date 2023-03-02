@@ -66,7 +66,7 @@ namespace Inventory_System02
             this.dtg_Items.Columns[8].DefaultCellStyle.Format = "0.00";
 
             //Format to date dtg cell
-            dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormat;
+            dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
             //sorting
             dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
 
@@ -104,7 +104,7 @@ namespace Inventory_System02
                 totalrows = i;
             }
             totalrows += 1;
-            lbl_numb_items.Text = "Rows Count: " + totalrows.ToString();
+            lbl_items_count.Text = totalrows.ToString();
 
 
             dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -145,7 +145,7 @@ namespace Inventory_System02
             int my_qty = 0;
             decimal my_total = 0;
 
-            sql = "Select Quantity, Total FROM Stocks WHERE `ENTRY DATE` = '"+ DateTime.Now.ToString(Includes.AppSettings.DateFormat)+"'";
+            sql = "Select Quantity, Total FROM Stocks WHERE `ENTRY DATE` = '"+ DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)+"'";
             config.singleResult(sql);
 
             if (config.dt.Rows.Count > 0)
@@ -160,8 +160,8 @@ namespace Inventory_System02
                     my_total += total;
                 }    
             }
-            lbl_Today_Qty.Text = "Qty " + my_qty.ToString();
-            lbl_Today_Amt.Text = "Php " + my_total.ToString();
+            lbl_Today_Qty.Text = my_qty.ToString();
+            lbl_Today_Amt.Text = my_total.ToString();
 
             if ( dtg_Items.Rows.Count > 0)
             {
@@ -177,16 +177,15 @@ namespace Inventory_System02
                     my_qty += qty;
                     my_total += total;
                 }
-                lbl_TotalQty.Text = "Qty " + my_qty.ToString();
-                lbl_TotalAmt.Text = "Php " + my_total.ToString();
+                lbl_TotalQty.Text = my_qty.ToString();
+                lbl_TotalAmt.Text = my_total.ToString();
             }
         }
 
         private void txt_Price_Leave(object sender, EventArgs e)
         {
+            txt_Qty_ValueChanged(sender,e);
             func.Two_Decimal_Places(sender, e, txt_Price);
-            txt_Qty_ValueChanged(sender, e);
-
         }
 
         private void btn_Gen_Click(object sender, EventArgs e)
@@ -266,27 +265,28 @@ namespace Inventory_System02
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
+         
             if (txt_Barcode.Text != "")
             {
                 if (MessageBox.Show("Are you sure you want to update current item? \n\nContinue?", "Warning Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
                 {
+                    txt_Qty_ValueChanged(sender, e);
                     img_loc = item_image_location + txt_Barcode.Text + ".PNG";
-
 
                     sql = "Update Stocks set " +
                         " `Item Name` = '" + txt_ItemName.Text + "' " +
                         ", `Brand` = '" + cbo_brand.Text + "' " +
                         ", `Description` = '" + cbo_desc.Text + "' " +
-                        ", `Quantity` = '" + txt_Qty.Text + "' " +
-                        ", `Price` = '" + txt_Price.Text + "' " +
-                        ", `Total` = '"+ lbl_ProductValue.Text +"' "+    
+                        ", `Quantity` = '" + Convert.ToInt32(txt_Qty.Text) + "' " +
+                        ", `Price` = '" + Convert.ToDecimal(txt_Price.Text) + "' " +
+                        ", `Total` = '" + Convert.ToDecimal(lbl_ProductValue.Text) +"' "+    
                         ", `Image Path` = '" + img_loc + "' " +
                         ", `Supplier ID` = '" + txt_SupID.Text + "' " +
                         ", `Supplier Name` = '" + txt_Sup_Name.Text + "' " +
                         " where `Stock ID` = '" + txt_Barcode.Text + "' ";
                     config.Execute_CUD(sql, "Unsuccessful to update item information", "Item information successfully updated!");
-                    AddStock_Load(sender, e);
+                    refreshToolStripMenuItem_Click(sender, e);  
 
                 }
             }
@@ -375,43 +375,43 @@ namespace Inventory_System02
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_srch_type.Text == "Date")
+            if (cbo_srch_type.Text == "DATE")
             {
                 search_for = "`Entry Date`";
             }
-            else if (cbo_srch_type.Text == "Id")
+            else if (cbo_srch_type.Text == "ID")
             {
                 search_for = "`Stock ID`";
             }
-            else if (cbo_srch_type.Text == "Name")
+            else if (cbo_srch_type.Text == "NAME")
             {
                 search_for = "`Item Name`";
             }
-            else if (cbo_srch_type.Text == "Brand")
+            else if (cbo_srch_type.Text == "BRAND")
             {
                 search_for = "`Brand`";
             }
-            else if (cbo_srch_type.Text == "Description")
+            else if (cbo_srch_type.Text == "DESCRIPTION")
             {
                 search_for = "`Description`";
             }
-            else if (cbo_srch_type.Text == "Quantity")
+            else if (cbo_srch_type.Text == "QUANTITY")
             {
-                search_for = "`Quantity`";
+                search_for = "`QUANTITY`";
             }
-            else if (cbo_srch_type.Text == "Price")
+            else if (cbo_srch_type.Text == "PRICE")
             {
                 search_for = "`Price`";
             }
-            else if (cbo_srch_type.Text == "Supplier")
+            else if (cbo_srch_type.Text == "SUPPLIER")
             {
                 search_for = "`Supplier Name`";
             }
-            else if (cbo_srch_type.Text == "Job")
+            else if (cbo_srch_type.Text == "JOB")
             {
                 search_for = "`Job Role`";
             }
-            else if (cbo_srch_type.Text == "Trans Ref")
+            else if (cbo_srch_type.Text == "TRANS REF")
             {
                 search_for = "`Transaction Reference`";
             }
@@ -439,45 +439,6 @@ namespace Inventory_System02
         {
             Item_Image_DoubleClick(sender, e);
             refreshToolStripMenuItem_Click(sender, e);
-        }
-
-        private void batchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
-            {
-                rdlc.Invoice("in", txt_TransRef.Text, "batch");
-            }
-            else
-            {
-                txt_TransRef.Text = "Empty Field!";
-                txt_TransRef.Focus();
-            }
-        }
-
-        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
-            {
-                rdlc.Invoice("in", txt_TransRef.Text, "preview");
-            }
-            else
-            {
-                txt_TransRef.Text = "Empty Field!";
-                txt_TransRef.Focus();
-            }
-        }
-
-        private void printTransactionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
-            {
-                rdlc.Invoice("in", txt_TransRef.Text, "print");
-            }
-            else
-            {
-                txt_TransRef.Text = "Empty Field!";
-                txt_TransRef.Focus();
-            }
         }
 
         private void dtg_Items_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -564,7 +525,7 @@ namespace Inventory_System02
 
         private void txt_Qty_ValueChanged(object sender, EventArgs e)
         {
-            decimal total_product = 0;   
+            decimal total_product = 0;
             decimal value1 = txt_Qty.Value;
             decimal value2 = Convert.ToDecimal(txt_Price.Text);
 
@@ -575,11 +536,86 @@ namespace Inventory_System02
         private void txt_Price_TextChanged(object sender, EventArgs e)
         {
             txt_Qty_ValueChanged(sender, e);
+            func.Two_Decimal_Places(sender, e, txt_Price);
         }
 
         private void txt_Qty_Leave(object sender, EventArgs e)
         {
             txt_Qty_ValueChanged(sender, e);
+        }
+
+        private void view_trans_in_Click(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
+            {
+                rdlc.Invoice("in", txt_TransRef.Text, "preview");
+            }
+            else
+            {
+                txt_TransRef.Text = "Empty Field!";
+                txt_TransRef.Focus();
+            }
+        }
+
+        private void batch_trans_in_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
+            {
+                rdlc.Invoice("in", txt_TransRef.Text, "batch");
+            }
+            else
+            {
+                txt_TransRef.Text = "Empty Field!";
+                txt_TransRef.Focus();
+            }
+        }
+
+        private void print_trans_in_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
+            {
+                rdlc.Invoice("in", txt_TransRef.Text, "print");
+            }
+            else
+            {
+                txt_TransRef.Text = "Empty Field!";
+                txt_TransRef.Focus();
+            }
+        }
+
+        private void view_tbl_in_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("INBOUND SUMMARY", "preview", dtg_Items, lbl_items_count.Text, lbl_TotalQty.Text, lbl_TotalAmt.Text, cbo_srch_type.Text, txt_Search.Text);
+        }
+
+        private void batch_tbl_in_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("INBOUND SUMMARY", "batch", dtg_Items, lbl_items_count.Text, lbl_TotalQty.Text, lbl_TotalAmt.Text, cbo_srch_type.Text, txt_Search.Text);
+            MessageBox.Show("Sent to My Documents!");
+        }
+
+        private void print_tbl_in_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("INBOUND SUMMARY", "print", dtg_Items, lbl_items_count.Text, lbl_TotalQty.Text, lbl_TotalAmt.Text, cbo_srch_type.Text, txt_Search.Text);
+        }
+
+        private void lbl_ProductValue_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, lbl_ProductValue);
+        }
+
+        private void lbl_Today_Amt_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, lbl_Today_Amt);
+        }
+
+        private void lbl_TotalAmt_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, lbl_TotalAmt);
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
@@ -716,14 +752,14 @@ namespace Inventory_System02
                     ",`Warehouse Staff Name`    " +
                     ",`Job Role` " +
                     ",`Transaction Reference` ) values (" +
-                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
+                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                     ",'" + Item_ID1 + "' " +
                     ",'" + txt_ItemName.Text + "' " +
                     ",'" + cbo_brand.Text + "' " +
                     ",'" + cbo_desc.Text + "' " +
-                    ",'" + txt_Qty.Text + "' " +
-                    ",'" + txt_Price.Text + "' " +
-                    ",'" + lbl_ProductValue.Text +"' " +
+                    ",'" + Convert.ToInt32(txt_Qty.Text) + "' " +
+                    ",'" + Convert.ToDecimal(txt_Price.Text) + "' " +
+                    ",'" + Convert.ToDecimal(lbl_ProductValue.Text) +"' " +
                     ",'" + img_loc + "' " +
                     ",'" + txt_SupID.Text + "' " +
                     ",'" + txt_Sup_Name.Text + "' " +

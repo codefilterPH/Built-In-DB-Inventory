@@ -29,10 +29,8 @@ namespace Inventory_System02.Invoice_Code
             string sql = string.Empty;
             if (out_return == "out")
             {
-                sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ";
+                sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
                 config.Load_Datasource(sql, ds);
-
-                sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {
@@ -44,10 +42,8 @@ namespace Inventory_System02.Invoice_Code
             }
             else if ( out_return == "return" )
             {
-                sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + Trans_ref + "' ";
+                sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
                 config.Load_Datasource(sql, ds);
-
-                sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + Trans_ref + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {
@@ -58,10 +54,8 @@ namespace Inventory_System02.Invoice_Code
             }
             else if ( out_return == "in-single-print" && what_to_do == "single-item-print" )
             {
-                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
+                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
                 config.Load_Datasource(sql, ds);
-
-                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {
@@ -72,10 +66,8 @@ namespace Inventory_System02.Invoice_Code
             }
             else if (out_return == "in-single-view" && what_to_do == "single-item-view")
             {
-                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
+                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
                 config.Load_Datasource(sql, ds);
-
-                sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {
@@ -86,10 +78,8 @@ namespace Inventory_System02.Invoice_Code
             }
             else
             {
-                sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ";
+                sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC ";
                 config.Load_Datasource(sql, ds);
-
-                sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {

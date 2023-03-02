@@ -18,6 +18,10 @@ namespace Inventory_System02
         Calculations cal = new Calculations();
         usableFunction func = new usableFunction();
         string sql, Global_ID, Fullname, JobRole;
+
+        Inventory_System02.Invoice_Code.Invoice_Code voice = new Invoice_Code.Invoice_Code();
+    
+
         public Stock_Returned(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
@@ -136,6 +140,8 @@ namespace Inventory_System02
             {
                 dtg_return_list.Columns[0].Visible = false;
                 dtg_return_list.Columns[2].Visible = false;
+                dtg_return_list.Columns[5].Visible = false;
+                dtg_return_list.Columns[8].Visible = false;
                 dtg_return_list.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dtg_return_list.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_return_list.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -184,46 +190,6 @@ namespace Inventory_System02
                 MessageBox.Show("Reason Updated!", "Update Successful Prompt", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-    
-        Inventory_System02.Invoice_Code.Invoice_Code voice = new Invoice_Code.Invoice_Code();
-        private void btn_print_invoice_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
-            {
-                voice.Invoice("return", txt_Trans_number.Text, "preview");
-            }
-            else
-            {
-                txt_Trans_number.Text = "Empty Field!";
-                txt_Trans_number.Focus();
-            }
-        }
-
-        private void batchTransactionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
-            {
-                voice.Invoice("return",txt_Trans_number.Text, "batch");
-            }
-            else
-            {
-                txt_Trans_number.Text = "Empty Field!";
-                txt_Trans_number.Focus();
-            }
-        }
-
-        private void printInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
-            {
-                voice.Invoice("return", txt_Trans_number.Text, "print");
-            }
-            else
-            {
-                txt_Trans_number.Text = "Empty Field!";
-                txt_Trans_number.Focus();
-            }
-        }
 
         private void btn_view_Click(object sender, EventArgs e)
         {
@@ -261,58 +227,122 @@ namespace Inventory_System02
         {
             txt_Search_TextChanged(sender, e);
         }
+
+        private void selectedTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
+            {
+                voice.Invoice("return", txt_Trans_number.Text, "preview");
+            }
+            else
+            {
+                txt_Trans_number.Text = "Empty Field!";
+                txt_Trans_number.Focus();
+            }
+        }
+
+        private void batch_trans_return_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
+            {
+                voice.Invoice("return", txt_Trans_number.Text, "batch");
+            }
+            else
+            {
+                txt_Trans_number.Text = "Empty Field!";
+                txt_Trans_number.Focus();
+            }
+        }
+
+        private void print_trans_return_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
+            {
+                voice.Invoice("return", txt_Trans_number.Text, "print");
+            }
+            else
+            {
+                txt_Trans_number.Text = "Empty Field!";
+                txt_Trans_number.Focus();
+            }
+        }
+
+        private void view_tbl_return_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("RETURN SUMMARY", "preview", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+        }
+
+        private void batch_tbl_return_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("RETURN SUMMARY", "batch", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+            MessageBox.Show("Sent to \"My Documents\"!");
+        }
+
+        private void print_tbl_return_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("RETURN SUMMARY", "print", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+        }
+
+        private void out_amt_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, out_amt);
+        }
+
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_srch_type.Text == "Date")
+            if (cbo_srch_type.Text == "DATE")
             {
                 search_for = "`Entry Date`";
             }
-            else if (cbo_srch_type.Text == "Id")
+            else if (cbo_srch_type.Text == "ID")
             {
                 search_for = "`Stock ID`";
             }
-            else if (cbo_srch_type.Text == "Name")
+            else if (cbo_srch_type.Text == "NAME")
             {
                 search_for = "`Item Name`";
             }
-            else if (cbo_srch_type.Text == "Brand")
+            else if (cbo_srch_type.Text == "BRAND")
             {
                 search_for = "`Brand`";
             }
-            else if (cbo_srch_type.Text == "Description")
+            else if (cbo_srch_type.Text == "DESCRIPTION")
             {
                 search_for = "`Description`";
             }
-            else if (cbo_srch_type.Text == "Quantity")
+            else if (cbo_srch_type.Text == "QUANTITY")
             {
                 search_for = "`Quantity`";
             }
-            else if (cbo_srch_type.Text == "Price")
+            else if (cbo_srch_type.Text == "PRICE")
             {
                 search_for = "`Price`";
             }
-            else if (cbo_srch_type.Text == "Total")
+            else if (cbo_srch_type.Text == "TOTAL")
             {
                 search_for = "`Total`";
             }
-            else if (cbo_srch_type.Text == "Division")
+            else if (cbo_srch_type.Text == "DIVISION")
             {
                 search_for = "`Customer Name`";
             }
-            else if (cbo_srch_type.Text == "Address")
+            else if (cbo_srch_type.Text == "ADDRESS")
             {
                 search_for = "`Customer Address`";
             }
-            else if (cbo_srch_type.Text == "Staff Name")
+            else if (cbo_srch_type.Text == "STAFF NAME")
             {
                 search_for = "`Warehouse Staff Name`";
             }
-            else if (cbo_srch_type.Text == "Job")
+            else if (cbo_srch_type.Text == "JOB")
             {
                 search_for = "`Job Role`";
             }
-            else if (cbo_srch_type.Text == "Trans Ref")
+            else if (cbo_srch_type.Text == "TRANS REF")
             {
                 search_for = "`Transaction Reference`";
             }

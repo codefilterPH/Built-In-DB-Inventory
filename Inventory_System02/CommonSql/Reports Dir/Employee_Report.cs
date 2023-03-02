@@ -43,8 +43,8 @@ namespace Inventory_System02.Reports_Dir
             chk_LN.Checked = true;
             chk_Emp_ID.Checked = true;
 
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
         }
 
         private void btn_Print_Preview_Click(object sender, EventArgs e)

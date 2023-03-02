@@ -40,8 +40,8 @@ namespace Inventory_System02.Reports_Dir
             chk_Phone.Checked = true;
             chk_Address.Checked = true;
 
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
         }
     
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)

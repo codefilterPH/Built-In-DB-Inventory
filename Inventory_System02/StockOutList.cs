@@ -1,5 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 namespace Inventory_System02
@@ -49,6 +50,7 @@ namespace Inventory_System02
                 dtg_outlist.Columns[0].Visible = false;
                 dtg_outlist.Columns[2].Visible = false;
                 dtg_outlist.Columns[5].Visible = false;
+                dtg_outlist.Columns[8].Visible = false;
                 dtg_outlist.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dtg_outlist.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dtg_outlist.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -273,6 +275,30 @@ namespace Inventory_System02
             }
         }
 
+        private void view_table_result_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("OUTBOUND SUMMARY", "preview", dtg_outlist, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+        }
+
+        private void batch_table_result_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("OUTBOUND SUMMARY", "batch", dtg_outlist, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+            MessageBox.Show("Sent to My Documents!");
+        }
+
+        private void print_table_result_Click(object sender, EventArgs e)
+        {
+            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+            frm.Search_Result("OUTBOUND SUMMARY", "print", dtg_outlist, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+        }
+
+        private void out_amt_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, out_amt);
+        }
+
         private void btn_select_Click(object sender, EventArgs e)
         {
             if (dtg_outlist.Rows.Count >= 1)
@@ -292,59 +318,59 @@ namespace Inventory_System02
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_srch_type.Text == "Date")
+            if (cbo_srch_type.Text == "DATE")
             {
                 search_for = "`Entry Date`";
             }
-            else if (cbo_srch_type.Text == "Id")
+            else if (cbo_srch_type.Text == "ID")
             {
                 search_for = "`Stock ID`";
             }
-            else if (cbo_srch_type.Text == "Name")
+            else if (cbo_srch_type.Text == "NAME")
             {
                 search_for = "`Item Name`";
             }
-            else if (cbo_srch_type.Text == "Brand")
+            else if (cbo_srch_type.Text == "BRAND")
             {
                 search_for = "`Brand`";
             }
-            else if (cbo_srch_type.Text == "Description")
+            else if (cbo_srch_type.Text == "DESCRIPTION")
             {
                 search_for = "`Description`";
             }
-            else if (cbo_srch_type.Text == "Quantity")
+            else if (cbo_srch_type.Text == "QUANTITY")
             {
                 search_for = "`Quantity`";
             }
-            else if (cbo_srch_type.Text == "Price")
+            else if (cbo_srch_type.Text == "PRICE")
             {
                 search_for = "`Price`";
             }
-            else if (cbo_srch_type.Text == "Total")
+            else if (cbo_srch_type.Text == "TOTAL")
             {
                 search_for = "`Total`";
             }
-            else if (cbo_srch_type.Text == "Division")
+            else if (cbo_srch_type.Text == "DIVISION")
             {
                 search_for = "`Customer Name`";
             }
-            else if (cbo_srch_type.Text == "Address")
+            else if (cbo_srch_type.Text == "ADDRESS")
             {
                 search_for = "`Customer Address`";
             }
-            else if (cbo_srch_type.Text == "Staff Name")
+            else if (cbo_srch_type.Text == "STAFF NAME")
             {
                 search_for = "`Warehouse Staff Name`";
             }
-            else if (cbo_srch_type.Text == "Job")
+            else if (cbo_srch_type.Text == "JOB")
             {
                 search_for = "`Job Role`";
             }
-            else if ( cbo_srch_type.Text == "Warranty Due Date")
+            else if ( cbo_srch_type.Text == "WARRANTY DUE DATE")
             {
                 search_for = "`Warranty Due Date`";
             }
-            else if ( cbo_srch_type.Text == "Trans Ref")
+            else if ( cbo_srch_type.Text == "TRANS REF")
             {
                 search_for = "`Transaction Reference`";
             }

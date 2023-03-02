@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_System02.CommonSql.Reports_Dir.Item_Qty;
+using Inventory_System02.Includes;
 
 namespace Inventory_System02
 {
@@ -63,6 +64,13 @@ namespace Inventory_System02
         {
             Panel_content_remove();
             Reports_Dir.Item_Report frm = new Reports_Dir.Item_Report(Global_ID, Fullname, JobRole);
+            ShowFormInContainerControl(report_panel, frm);
+        }
+
+        private void itemBySupplierDivisionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Panel_content_remove();
+            CommonSql.Reports_Dir.Item_Division.ItemByDivision_Form frm = new CommonSql.Reports_Dir.Item_Division.ItemByDivision_Form();
             ShowFormInContainerControl(report_panel, frm);
         }
 

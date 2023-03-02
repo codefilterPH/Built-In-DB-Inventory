@@ -56,8 +56,8 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             chk_total.Checked = true;
 
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
         }
 
         private void Group_Filtering_MustNotEmpty()

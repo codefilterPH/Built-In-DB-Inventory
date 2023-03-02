@@ -176,16 +176,6 @@
         3jn3/W+4oXQ6fwCm4YJtklYIDQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="batchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAAP5JREFUWEftkkEOAUEURK3YuoSzsBcHcAVrJ7KzcQQbiUvgALYiWtUwUjqT9O/0
-        HzHJVPKiv+kuL6YHIYSYGTiCG8jNFgxBU28j8RdL8AAlyZLQYQyugLmDHdgYOQGNWUKHKaizBvosBSXi
-        mCR0WIA6XOuzFCpweX8ySQkdvAQm4PxaVuGrHIGmc60IcDZL6OApQEwSOngLkKSEbvYS4Fo5AM3XxdQS
-        LwFL5qA6qyW/FPj0a0mJgIXG/uQGR3qBIoHcS8bwjHZ0W2AFWJgDz2hHkYAH3RawvIL4L48pEuAPpMI9
-        eiam2wIe9AK9QJbAHvBWe8LOOkmBtvMvAmHwBJtwYZqbjBrCAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="viewToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -201,6 +191,16 @@
         XYoFZvll9BXdcTkBv/2XkaDQ9utYY5u9jiMENKneKl3gIxpmQ6JseUOinqdvSCIEB23JnqLylkyeasoU
         GW5LVoRB2pRqYl3uprQMTYbZliuj7KyHtwuN9cfkLrq8PyZXXBydzh87UVxPT+D5GQAAAABJRU5ErkJg
         gg==
+</value>
+  </data>
+  <data name="batchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAAP5JREFUWEftkkEOAUEURK3YuoSzsBcHcAVrJ7KzcQQbiUvgALYiWtUwUjqT9O/0
+        HzHJVPKiv+kuL6YHIYSYGTiCG8jNFgxBU28j8RdL8AAlyZLQYQyugLmDHdgYOQGNWUKHKaizBvosBSXi
+        mCR0WIA6XOuzFCpweX8ySQkdvAQm4PxaVuGrHIGmc60IcDZL6OApQEwSOngLkKSEbvYS4Fo5AM3XxdQS
+        LwFL5qA6qyW/FPj0a0mJgIXG/uQGR3qBIoHcS8bwjHZ0W2AFWJgDz2hHkYAH3RawvIL4L48pEuAPpMI9
+        eiam2wIe9AK9QJbAHvBWe8LOOkmBtvMvAmHwBJtwYZqbjBrCAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="printTransactionToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

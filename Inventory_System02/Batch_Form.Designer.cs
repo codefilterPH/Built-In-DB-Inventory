@@ -31,9 +31,9 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Batch_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,11 +44,17 @@ namespace Inventory_System02
             this.chk_Select_all = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.allItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.inboundFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inboundTransToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.outboundTransToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnTransactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inboundSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outboundSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inboundReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +64,7 @@ namespace Inventory_System02
             this.customerReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.adobe_show.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
@@ -75,7 +82,7 @@ namespace Inventory_System02
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 49);
+            this.panel1.Size = new System.Drawing.Size(878, 49);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -84,7 +91,7 @@ namespace Inventory_System02
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(156, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(486, 47);
+            this.label1.Size = new System.Drawing.Size(564, 47);
             this.label1.TabIndex = 2;
             this.label1.Text = "MY BATCHED DOCUMENTS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -100,7 +107,7 @@ namespace Inventory_System02
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(642, 0);
+            this.panel2.Location = new System.Drawing.Point(720, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(156, 47);
             this.panel2.TabIndex = 0;
@@ -112,7 +119,7 @@ namespace Inventory_System02
             this.adobe_show.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adobe_show.Location = new System.Drawing.Point(361, 49);
             this.adobe_show.Name = "adobe_show";
-            this.adobe_show.Size = new System.Drawing.Size(439, 401);
+            this.adobe_show.Size = new System.Drawing.Size(517, 401);
             this.adobe_show.TabIndex = 2;
             // 
             // axAcroPDF1
@@ -122,7 +129,7 @@ namespace Inventory_System02
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(437, 399);
+            this.axAcroPDF1.Size = new System.Drawing.Size(515, 399);
             this.axAcroPDF1.TabIndex = 0;
             // 
             // panel5
@@ -165,11 +172,41 @@ namespace Inventory_System02
             // allItemsToolStripMenuItem
             // 
             this.allItemsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.allItemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.todayToolStripMenuItem,
+            this.monthToolStripMenuItem,
+            this.yearToolStripMenuItem});
             this.allItemsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.allItemsToolStripMenuItem.Name = "allItemsToolStripMenuItem";
-            this.allItemsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.allItemsToolStripMenuItem.Text = "All Items";
-            this.allItemsToolStripMenuItem.Click += new System.EventHandler(this.allItemsToolStripMenuItem_Click);
+            this.allItemsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.allItemsToolStripMenuItem.Text = "Filters";
+            // 
+            // todayToolStripMenuItem
+            // 
+            this.todayToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.todayToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.todayToolStripMenuItem.Name = "todayToolStripMenuItem";
+            this.todayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todayToolStripMenuItem.Text = "Today";
+            this.todayToolStripMenuItem.Click += new System.EventHandler(this.todayToolStripMenuItem_Click);
+            // 
+            // monthToolStripMenuItem
+            // 
+            this.monthToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.monthToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.monthToolStripMenuItem.Name = "monthToolStripMenuItem";
+            this.monthToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monthToolStripMenuItem.Text = "Month";
+            this.monthToolStripMenuItem.Click += new System.EventHandler(this.monthToolStripMenuItem_Click);
+            // 
+            // yearToolStripMenuItem
+            // 
+            this.yearToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.yearToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.yearToolStripMenuItem.Name = "yearToolStripMenuItem";
+            this.yearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yearToolStripMenuItem.Text = "Year";
+            this.yearToolStripMenuItem.Click += new System.EventHandler(this.yearToolStripMenuItem_Click);
             // 
             // btn_Delete
             // 
@@ -188,7 +225,10 @@ namespace Inventory_System02
             this.inboundFilesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inboundTransToolStripMenuItem1,
             this.outboundTransToolStripMenuItem,
-            this.returnTransactionsToolStripMenuItem});
+            this.returnTransactionsToolStripMenuItem,
+            this.inboundSummaryToolStripMenuItem,
+            this.outboundSummaryToolStripMenuItem,
+            this.returnSummaryToolStripMenuItem});
             this.inboundFilesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.inboundFilesToolStripMenuItem.Name = "inboundFilesToolStripMenuItem";
             this.inboundFilesToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
@@ -196,7 +236,7 @@ namespace Inventory_System02
             // 
             // inboundTransToolStripMenuItem1
             // 
-            this.inboundTransToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.inboundTransToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.inboundTransToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.inboundTransToolStripMenuItem1.Name = "inboundTransToolStripMenuItem1";
             this.inboundTransToolStripMenuItem1.Size = new System.Drawing.Size(197, 22);
@@ -205,7 +245,7 @@ namespace Inventory_System02
             // 
             // outboundTransToolStripMenuItem
             // 
-            this.outboundTransToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.outboundTransToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
             this.outboundTransToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.outboundTransToolStripMenuItem.Name = "outboundTransToolStripMenuItem";
             this.outboundTransToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
@@ -214,12 +254,39 @@ namespace Inventory_System02
             // 
             // returnTransactionsToolStripMenuItem
             // 
-            this.returnTransactionsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.returnTransactionsToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.returnTransactionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.returnTransactionsToolStripMenuItem.Name = "returnTransactionsToolStripMenuItem";
             this.returnTransactionsToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.returnTransactionsToolStripMenuItem.Text = "Return Transactions";
             this.returnTransactionsToolStripMenuItem.Click += new System.EventHandler(this.returnTransactionsToolStripMenuItem_Click);
+            // 
+            // inboundSummaryToolStripMenuItem
+            // 
+            this.inboundSummaryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.inboundSummaryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.inboundSummaryToolStripMenuItem.Name = "inboundSummaryToolStripMenuItem";
+            this.inboundSummaryToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.inboundSummaryToolStripMenuItem.Text = "Inbound Summary";
+            this.inboundSummaryToolStripMenuItem.Click += new System.EventHandler(this.inboundSummaryToolStripMenuItem_Click);
+            // 
+            // outboundSummaryToolStripMenuItem
+            // 
+            this.outboundSummaryToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.outboundSummaryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.outboundSummaryToolStripMenuItem.Name = "outboundSummaryToolStripMenuItem";
+            this.outboundSummaryToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.outboundSummaryToolStripMenuItem.Text = "Outbound Summary";
+            this.outboundSummaryToolStripMenuItem.Click += new System.EventHandler(this.outboundSummaryToolStripMenuItem_Click);
+            // 
+            // returnSummaryToolStripMenuItem
+            // 
+            this.returnSummaryToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.returnSummaryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.returnSummaryToolStripMenuItem.Name = "returnSummaryToolStripMenuItem";
+            this.returnSummaryToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.returnSummaryToolStripMenuItem.Text = "Return Summary";
+            this.returnSummaryToolStripMenuItem.Click += new System.EventHandler(this.returnSummaryToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -231,19 +298,19 @@ namespace Inventory_System02
             this.employeeReportToolStripMenuItem});
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.reportsToolStripMenuItem.Text = "Date Range Reports";
             // 
             // itemToolStripMenuItem
             // 
-            this.itemToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.itemToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.itemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inboundReportToolStripMenuItem,
             this.outboundReportToolStripMenuItem,
             this.returnReportToolStripMenuItem});
             this.itemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.itemToolStripMenuItem.Text = "Item Report";
             // 
             // inboundReportToolStripMenuItem
@@ -275,28 +342,28 @@ namespace Inventory_System02
             // 
             // supplierReportToolStripMenuItem
             // 
-            this.supplierReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.supplierReportToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
             this.supplierReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.supplierReportToolStripMenuItem.Name = "supplierReportToolStripMenuItem";
-            this.supplierReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.supplierReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supplierReportToolStripMenuItem.Text = "Supplier Report";
             this.supplierReportToolStripMenuItem.Click += new System.EventHandler(this.supplierReportToolStripMenuItem_Click);
             // 
             // customerReportToolStripMenuItem
             // 
-            this.customerReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.customerReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.customerReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerReportToolStripMenuItem.Name = "customerReportToolStripMenuItem";
-            this.customerReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.customerReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customerReportToolStripMenuItem.Text = "Customer Report";
             this.customerReportToolStripMenuItem.Click += new System.EventHandler(this.customerReportToolStripMenuItem_Click);
             // 
             // employeeReportToolStripMenuItem
             // 
-            this.employeeReportToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.employeeReportToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.employeeReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.employeeReportToolStripMenuItem.Name = "employeeReportToolStripMenuItem";
-            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.employeeReportToolStripMenuItem.Text = "Employee Report";
             this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
             // 
@@ -304,35 +371,35 @@ namespace Inventory_System02
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.Location = new System.Drawing.Point(3, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(353, 344);
             this.dataGridView1.TabIndex = 0;
@@ -341,11 +408,15 @@ namespace Inventory_System02
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // Batch_Form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(878, 450);
             this.Controls.Add(this.adobe_show);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
@@ -392,5 +463,12 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem inboundReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem outboundReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem todayToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripMenuItem monthToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem yearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inboundSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outboundSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnSummaryToolStripMenuItem;
     }
 }

@@ -209,8 +209,6 @@ namespace Inventory_System02.Includes
                 da.Dispose();
                 con.Close();
             }
-
-
         }
         public void singleResult(string sql)
         {

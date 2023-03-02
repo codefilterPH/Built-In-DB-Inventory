@@ -9,7 +9,8 @@ namespace Inventory_System02.Includes
     public static class AppSettings
     {
         public static string Database { get; set; } = @"Data Source = CommonSql\Database.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;";
-        public static string DateFormat { get; set; } = "yyyy-MM-dd";
+        public static string DateFormatRetrieve { get; set; } = "yyyy-MM-dd";
+        public static string DateFormatSave { get; set; } = "yyyy-MM-dd HH:mm:ss";
         //Images
         public static string Image_DIR { get; set; } = @"CommonSql\Pictures\Item\Image\";
         public static string Customer_DIR { get; set; } = @"CommonSql\Pictures\Customers\";
@@ -20,7 +21,9 @@ namespace Inventory_System02.Includes
         //doc files
         public static string Doc_DIR { get; set; } = @"CommonSql\Document Center Files\";
         //rdlc
+        public static string Search_DTG { get; set; } = @"CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc";
         public static string Invoice_RDLC_Path { get; set; } = @"CommonSql\Invoice\";
+        public static string Invoice_BY_SupDivi { get; set; } = @"CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc";
         public static string Supplier_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Supplier_Report.rdlc";
         public static string Employee_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Employee_Report.rdlc";
         public static string Customer_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Customer_Report.rdlc";

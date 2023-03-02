@@ -165,7 +165,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ENTRY DATE</Value>
+                                  <Value>DATE</Value>
                                   <Style>
                                     <FontFamily>courier New</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -365,7 +365,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>QUANTIY</Value>
+                                  <Value>QUANTITY</Value>
                                   <Style>
                                     <FontFamily>courier New</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -1070,6 +1070,7 @@
                                   <Value>=Fields!Price.Value</Value>
                                   <Style>
                                     <FontFamily>Courier New</FontFamily>
+                                    <Format>'₱'#,0.00;('₱'#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1091,6 +1092,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-PH</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1107,6 +1109,7 @@
                                   <Value>=Fields!Amount.Value</Value>
                                   <Style>
                                     <FontFamily>Courier New</FontFamily>
+                                    <Format>'₱'#,0.00;('₱'#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1128,6 +1131,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-PH</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1907,8 +1911,10 @@
                     <TextRun>
                       <Value>Total Items</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1918,10 +1924,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.56678cm</Top>
-              <Left>0.57891cm</Left>
+              <Top>0.46095cm</Top>
+              <Left>0.50835cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.135cm</Width>
+              <Width>4.00812cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1941,7 +1947,8 @@
                     <TextRun>
                       <Value>=Parameters!Total_Items.Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1949,10 +1956,10 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.56678cm</Top>
-              <Left>3.8903cm</Left>
+              <Top>0.46095cm</Top>
+              <Left>4.79337cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
+              <Width>7.69936cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1973,8 +1980,10 @@
                     <TextRun>
                       <Value>Total Quantity</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1984,10 +1993,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>1.34317cm</Top>
-              <Left>0.57891cm</Left>
+              <Top>1.23734cm</Top>
+              <Left>0.50835cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.135cm</Width>
+              <Width>4.00812cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -2008,7 +2017,8 @@
                     <TextRun>
                       <Value>=Parameters!Total_Quantity.Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2016,44 +2026,11 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>1.34317cm</Top>
-              <Left>3.8903cm</Left>
+              <Top>1.23734cm</Top>
+              <Left>4.79337cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
+              <Width>7.69936cm</Width>
               <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="lbl_report_date4">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Parameters!Total_Value.Value</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                        <Format>#,0.00;(#,0.00)</Format>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>2.11956cm</Top>
-              <Left>3.8903cm</Left>
-              <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
-              <ZIndex>4</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2073,8 +2050,10 @@
                     <TextRun>
                       <Value>Total Value</Value>
                       <Style>
-                        <FontFamily>Segoe UI</FontFamily>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2084,10 +2063,47 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>2.11956cm</Top>
-              <Left>0.57891cm</Left>
-              <Height>0.6cm</Height>
-              <Width>3.135cm</Width>
+              <Top>2.01373cm</Top>
+              <Left>0.50835cm</Left>
+              <Height>0.9175cm</Height>
+              <Width>4.00812cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox16">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!Total_Value.Value</Value>
+                      <Style>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>18pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>'₱'#,0.00;('₱'#,0.00)</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox13</rd:DefaultName>
+              <Top>2.01373cm</Top>
+              <Left>4.79337cm</Left>
+              <Height>0.9175cm</Height>
+              <Width>7.57998cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -2097,6 +2113,7 @@
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
+                <rd:FormatSymbolCulture>en-PH</rd:FormatSymbolCulture>
               </Style>
             </Textbox>
           </ReportItems>
@@ -2212,6 +2229,8 @@
     </ReportParameter>
     <ReportParameter Name="Total_Value">
       <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="DateStart">

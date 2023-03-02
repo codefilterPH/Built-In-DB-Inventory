@@ -48,9 +48,15 @@ namespace Inventory_System02
             this.definitionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.view_trans_in = new System.Windows.Forms.ToolStripMenuItem();
+            this.view_tbl_in = new System.Windows.Forms.ToolStripMenuItem();
+            this.batchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batch_trans_in = new System.Windows.Forms.ToolStripMenuItem();
+            this.batch_tbl_in = new System.Windows.Forms.ToolStripMenuItem();
             this.printTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.print_trans_in = new System.Windows.Forms.ToolStripMenuItem();
+            this.print_tbl_in = new System.Windows.Forms.ToolStripMenuItem();
             this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
             this.btb_delete = new System.Windows.Forms.Button();
@@ -81,9 +87,10 @@ namespace Inventory_System02
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Qty = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_ProductValue = new System.Windows.Forms.Label();
-            this.lbl_numb_items = new System.Windows.Forms.Label();
+            this.lbl_items_count = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -243,8 +250,8 @@ namespace Inventory_System02
             this.definitionsToolStripMenuItem,
             this.supplierListToolStripMenuItem,
             this.refreshToolStripMenuItem,
-            this.batchToolStripMenuItem,
             this.viewToolStripMenuItem,
+            this.batchToolStripMenuItem,
             this.printTransactionToolStripMenuItem,
             this.newItemToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -294,38 +301,98 @@ namespace Inventory_System02
             this.refreshToolStripMenuItem.ToolTipText = "Reload table";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
-            // batchToolStripMenuItem
-            // 
-            this.batchToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
-            this.batchToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.batchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.batchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchToolStripMenuItem.Image")));
-            this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
-            this.batchToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
-            this.batchToolStripMenuItem.Text = "Batch Transaction";
-            this.batchToolStripMenuItem.Click += new System.EventHandler(this.batchToolStripMenuItem_Click);
-            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.view_trans_in,
+            this.view_tbl_in});
             this.viewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.viewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("viewToolStripMenuItem.Image")));
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(140, 20);
-            this.viewToolStripMenuItem.Text = "Preview Transaction";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.viewToolStripMenuItem.Text = "Preview";
+            // 
+            // view_trans_in
+            // 
+            this.view_trans_in.BackColor = System.Drawing.Color.Peru;
+            this.view_trans_in.ForeColor = System.Drawing.Color.White;
+            this.view_trans_in.Name = "view_trans_in";
+            this.view_trans_in.Size = new System.Drawing.Size(183, 22);
+            this.view_trans_in.Text = "Selected Transaction";
+            this.view_trans_in.Click += new System.EventHandler(this.view_trans_in_Click);
+            // 
+            // view_tbl_in
+            // 
+            this.view_tbl_in.BackColor = System.Drawing.Color.SteelBlue;
+            this.view_tbl_in.ForeColor = System.Drawing.Color.White;
+            this.view_tbl_in.Name = "view_tbl_in";
+            this.view_tbl_in.Size = new System.Drawing.Size(183, 22);
+            this.view_tbl_in.Text = "Table Result";
+            this.view_tbl_in.Click += new System.EventHandler(this.view_tbl_in_Click);
+            // 
+            // batchToolStripMenuItem
+            // 
+            this.batchToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.batchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.batch_trans_in,
+            this.batch_tbl_in});
+            this.batchToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.batchToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.batchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchToolStripMenuItem.Image")));
+            this.batchToolStripMenuItem.Name = "batchToolStripMenuItem";
+            this.batchToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.batchToolStripMenuItem.Text = "Batch";
+            // 
+            // batch_trans_in
+            // 
+            this.batch_trans_in.BackColor = System.Drawing.Color.Peru;
+            this.batch_trans_in.ForeColor = System.Drawing.Color.White;
+            this.batch_trans_in.Name = "batch_trans_in";
+            this.batch_trans_in.Size = new System.Drawing.Size(183, 22);
+            this.batch_trans_in.Text = "Selected Transaction";
+            this.batch_trans_in.Click += new System.EventHandler(this.batch_trans_in_Click);
+            // 
+            // batch_tbl_in
+            // 
+            this.batch_tbl_in.BackColor = System.Drawing.Color.SteelBlue;
+            this.batch_tbl_in.ForeColor = System.Drawing.Color.White;
+            this.batch_tbl_in.Name = "batch_tbl_in";
+            this.batch_tbl_in.Size = new System.Drawing.Size(183, 22);
+            this.batch_tbl_in.Text = "Table Result";
+            this.batch_tbl_in.Click += new System.EventHandler(this.batch_tbl_in_Click);
             // 
             // printTransactionToolStripMenuItem
             // 
             this.printTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.printTransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.print_trans_in,
+            this.print_tbl_in});
             this.printTransactionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printTransactionToolStripMenuItem.Image")));
             this.printTransactionToolStripMenuItem.Name = "printTransactionToolStripMenuItem";
-            this.printTransactionToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
-            this.printTransactionToolStripMenuItem.Text = "Print Transaction";
-            this.printTransactionToolStripMenuItem.Click += new System.EventHandler(this.printTransactionToolStripMenuItem_Click);
+            this.printTransactionToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.printTransactionToolStripMenuItem.Text = "Print";
+            // 
+            // print_trans_in
+            // 
+            this.print_trans_in.BackColor = System.Drawing.Color.Peru;
+            this.print_trans_in.ForeColor = System.Drawing.Color.White;
+            this.print_trans_in.Name = "print_trans_in";
+            this.print_trans_in.Size = new System.Drawing.Size(183, 22);
+            this.print_trans_in.Text = "Selected Transaction";
+            this.print_trans_in.Click += new System.EventHandler(this.print_trans_in_Click);
+            // 
+            // print_tbl_in
+            // 
+            this.print_tbl_in.BackColor = System.Drawing.Color.SteelBlue;
+            this.print_tbl_in.ForeColor = System.Drawing.Color.White;
+            this.print_tbl_in.Name = "print_tbl_in";
+            this.print_tbl_in.Size = new System.Drawing.Size(183, 22);
+            this.print_tbl_in.Text = "Table Result";
+            this.print_tbl_in.Click += new System.EventHandler(this.print_tbl_in_Click);
             // 
             // newItemToolStripMenuItem
             // 
@@ -507,21 +574,21 @@ namespace Inventory_System02
             this.cbo_srch_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbo_srch_type.FormattingEnabled = true;
             this.cbo_srch_type.Items.AddRange(new object[] {
-            "Date",
-            "Id",
-            "Name",
-            "Brand",
-            "Description",
-            "Quantity",
-            "Price",
-            "Supplier",
-            "Job",
-            "Trans Ref"});
+            "DATE",
+            "ID",
+            "NAME",
+            "BRAND",
+            "DESCRIPTION",
+            "QUANTITY",
+            "PRICE",
+            "SUPPLIER",
+            "JOB",
+            "TRANS REF"});
             this.cbo_srch_type.Location = new System.Drawing.Point(200, 182);
             this.cbo_srch_type.Name = "cbo_srch_type";
-            this.cbo_srch_type.Size = new System.Drawing.Size(88, 21);
+            this.cbo_srch_type.Size = new System.Drawing.Size(79, 21);
             this.cbo_srch_type.TabIndex = 18;
-            this.cbo_srch_type.Text = "Name";
+            this.cbo_srch_type.Text = "NAME";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
             // lbl_stock_low
@@ -744,14 +811,26 @@ namespace Inventory_System02
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.lbl_ProductValue);
-            this.panel2.Controls.Add(this.lbl_numb_items);
+            this.panel2.Controls.Add(this.lbl_items_count);
             this.panel2.Controls.Add(this.dtg_Items);
             this.panel2.Location = new System.Drawing.Point(6, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(856, 222);
             this.panel2.TabIndex = 21;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label18.Location = new System.Drawing.Point(6, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 14);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Rows Count";
             // 
             // label17
             // 
@@ -777,17 +856,18 @@ namespace Inventory_System02
             this.lbl_ProductValue.TabIndex = 96;
             this.lbl_ProductValue.Text = "0.00";
             this.lbl_ProductValue.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lbl_ProductValue.TextChanged += new System.EventHandler(this.lbl_ProductValue_TextChanged);
             // 
-            // lbl_numb_items
+            // lbl_items_count
             // 
-            this.lbl_numb_items.AutoSize = true;
-            this.lbl_numb_items.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_numb_items.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_numb_items.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_numb_items.Location = new System.Drawing.Point(0, 0);
-            this.lbl_numb_items.Name = "lbl_numb_items";
-            this.lbl_numb_items.Size = new System.Drawing.Size(0, 13);
-            this.lbl_numb_items.TabIndex = 94;
+            this.lbl_items_count.AutoSize = true;
+            this.lbl_items_count.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_items_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_items_count.Location = new System.Drawing.Point(84, 7);
+            this.lbl_items_count.Name = "lbl_items_count";
+            this.lbl_items_count.Size = new System.Drawing.Size(14, 14);
+            this.lbl_items_count.TabIndex = 94;
+            this.lbl_items_count.Text = "0";
             // 
             // label12
             // 
@@ -795,11 +875,11 @@ namespace Inventory_System02
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(535, 468);
+            this.label12.Location = new System.Drawing.Point(531, 468);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 15);
+            this.label12.Size = new System.Drawing.Size(82, 15);
             this.label12.TabIndex = 29;
-            this.label12.Text = "Table Total";
+            this.label12.Text = "Total Quantity";
             // 
             // label13
             // 
@@ -807,7 +887,7 @@ namespace Inventory_System02
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(532, 485);
+            this.label13.Location = new System.Drawing.Point(546, 486);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 15);
             this.label13.TabIndex = 30;
@@ -819,7 +899,7 @@ namespace Inventory_System02
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(183, 485);
+            this.label14.Location = new System.Drawing.Point(191, 485);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(94, 15);
             this.label14.TabIndex = 32;
@@ -831,7 +911,7 @@ namespace Inventory_System02
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(193, 467);
+            this.label15.Location = new System.Drawing.Point(201, 467);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(85, 15);
             this.label15.TabIndex = 31;
@@ -848,6 +928,7 @@ namespace Inventory_System02
             this.lbl_Today_Amt.Size = new System.Drawing.Size(39, 16);
             this.lbl_Today_Amt.TabIndex = 34;
             this.lbl_Today_Amt.Text = "0.00";
+            this.lbl_Today_Amt.TextChanged += new System.EventHandler(this.lbl_Today_Amt_TextChanged);
             // 
             // lbl_Today_Qty
             // 
@@ -867,11 +948,12 @@ namespace Inventory_System02
             this.lbl_TotalAmt.AutoSize = true;
             this.lbl_TotalAmt.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_TotalAmt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_TotalAmt.Location = new System.Drawing.Point(623, 485);
+            this.lbl_TotalAmt.Location = new System.Drawing.Point(623, 486);
             this.lbl_TotalAmt.Name = "lbl_TotalAmt";
             this.lbl_TotalAmt.Size = new System.Drawing.Size(39, 16);
             this.lbl_TotalAmt.TabIndex = 36;
             this.lbl_TotalAmt.Text = "0.00";
+            this.lbl_TotalAmt.TextChanged += new System.EventHandler(this.lbl_TotalAmt_TextChanged);
             // 
             // lbl_TotalQty
             // 
@@ -978,7 +1060,7 @@ namespace Inventory_System02
         private System.Windows.Forms.Button btn_upload;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lbl_ProductValue;
-        private System.Windows.Forms.Label lbl_numb_items;
+        private System.Windows.Forms.Label lbl_items_count;
         private System.Windows.Forms.Label lbl_stock_low;
         private System.Windows.Forms.ToolStripMenuItem batchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
@@ -988,6 +1070,13 @@ namespace Inventory_System02
         private System.Windows.Forms.TextBox cbo_desc;
         private System.Windows.Forms.Button btn_preview;
         private System.Windows.Forms.ToolStripMenuItem newItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem view_trans_in;
+        private System.Windows.Forms.ToolStripMenuItem view_tbl_in;
+        private System.Windows.Forms.ToolStripMenuItem batch_trans_in;
+        private System.Windows.Forms.ToolStripMenuItem batch_tbl_in;
+        private System.Windows.Forms.ToolStripMenuItem print_trans_in;
+        private System.Windows.Forms.ToolStripMenuItem print_tbl_in;
+        private System.Windows.Forms.Label label18;
     }
 }
 

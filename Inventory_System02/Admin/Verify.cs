@@ -77,7 +77,7 @@ namespace Inventory_System02.Admin
             {
                 DisableActivaitonKey();
                 EnableTrialDate();
-                dtp_date_extend.Text = DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormat);
+                dtp_date_extend.Text = DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormatRetrieve);
                 dtp_date_extend.Focus();
               
             }
@@ -163,7 +163,7 @@ namespace Inventory_System02.Admin
             DisableActivaitonKey();
             EnableTrialDate();
             dtp_date_extend.Focus();
-            dtp_date_extend.Text = DateTime.Now.AddDays(180).ToString(Includes.AppSettings.DateFormat);
+            dtp_date_extend.Text = DateTime.Now.AddDays(14).ToString(Includes.AppSettings.DateFormatSave);
 
         }
 

@@ -80,12 +80,12 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.chk_Select_All.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chk_Select_All.AutoSize = true;
-            this.chk_Select_All.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chk_Select_All.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chk_Select_All.Location = new System.Drawing.Point(15, 536);
             this.chk_Select_All.Name = "chk_Select_All";
-            this.chk_Select_All.Size = new System.Drawing.Size(81, 21);
+            this.chk_Select_All.Size = new System.Drawing.Size(79, 21);
             this.chk_Select_All.TabIndex = 39;
-            this.chk_Select_All.Text = "Select All";
+            this.chk_Select_All.Text = "Select all";
             this.chk_Select_All.UseVisualStyleBackColor = true;
             this.chk_Select_All.CheckedChanged += new System.EventHandler(this.chk_Select_All_CheckedChanged_1);
             // 
@@ -93,12 +93,12 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.chk_Unselect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chk_Unselect.AutoSize = true;
-            this.chk_Unselect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chk_Unselect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chk_Unselect.Location = new System.Drawing.Point(105, 536);
             this.chk_Unselect.Name = "chk_Unselect";
-            this.chk_Unselect.Size = new System.Drawing.Size(97, 21);
+            this.chk_Unselect.Size = new System.Drawing.Size(95, 21);
             this.chk_Unselect.TabIndex = 41;
-            this.chk_Unselect.Text = "Unselect All";
+            this.chk_Unselect.Text = "Unselect all";
             this.chk_Unselect.UseVisualStyleBackColor = true;
             this.chk_Unselect.CheckedChanged += new System.EventHandler(this.chk_Unselect_CheckedChanged);
             // 
@@ -208,64 +208,68 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
-            this.lbl_total_value.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(685, 405);
+            this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_value.Location = new System.Drawing.Point(670, 402);
             this.lbl_total_value.Name = "lbl_total_value";
-            this.lbl_total_value.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total_value.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_value.TabIndex = 34;
+            this.lbl_total_value.Text = "0";
+            this.lbl_total_value.TextChanged += new System.EventHandler(this.lbl_total_value_TextChanged);
             // 
             // lbl_total_quantity
             // 
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
-            this.lbl_total_quantity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(686, 388);
+            this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_quantity.Location = new System.Drawing.Point(670, 376);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
-            this.lbl_total_quantity.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total_quantity.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_quantity.TabIndex = 33;
+            this.lbl_total_quantity.Text = "0";
             // 
             // lbl_total_items
             // 
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
-            this.lbl_total_items.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(685, 368);
+            this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_items.Location = new System.Drawing.Point(669, 349);
             this.lbl_total_items.Name = "lbl_total_items";
-            this.lbl_total_items.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total_items.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_items.TabIndex = 32;
+            this.lbl_total_items.Text = "0";
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(610, 405);
+            this.label8.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(593, 402);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 15);
+            this.label8.Size = new System.Drawing.Size(71, 17);
             this.label8.TabIndex = 31;
-            this.label8.Text = "Total Value:";
+            this.label8.Text = "Amount:";
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(593, 388);
+            this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(575, 376);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 15);
+            this.label7.Size = new System.Drawing.Size(89, 17);
             this.label7.TabIndex = 30;
-            this.label7.Text = "Total Quantity:";
+            this.label7.Text = "Quantity:";
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(609, 370);
+            this.label6.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(601, 349);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 15);
+            this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Total Items:";
+            this.label6.Text = "Items:";
             // 
             // dtg_PreviewPage
             // 
@@ -300,7 +304,7 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 278);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 262);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -340,7 +344,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 327);
+            this.grp_filters.Location = new System.Drawing.Point(9, 332);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(560, 137);
             this.grp_filters.TabIndex = 20;

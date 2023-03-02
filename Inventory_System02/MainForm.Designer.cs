@@ -148,7 +148,7 @@ namespace Inventory_System02
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel15.Controls.Add(this.btn_About);
             this.panel15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel15.Location = new System.Drawing.Point(5, 502);
+            this.panel15.Location = new System.Drawing.Point(6, 499);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(205, 38);
             this.panel15.TabIndex = 5;
@@ -178,7 +178,7 @@ namespace Inventory_System02
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel13.Controls.Add(this.btn_reports);
             this.panel13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel13.Location = new System.Drawing.Point(5, 459);
+            this.panel13.Location = new System.Drawing.Point(6, 413);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(205, 38);
             this.panel13.TabIndex = 4;
@@ -193,7 +193,7 @@ namespace Inventory_System02
             this.btn_reports.ForeColor = System.Drawing.Color.White;
             this.btn_reports.Image = ((System.Drawing.Image)(resources.GetObject("btn_reports.Image")));
             this.btn_reports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_reports.Location = new System.Drawing.Point(-23, 0);
+            this.btn_reports.Location = new System.Drawing.Point(-24, 0);
             this.btn_reports.Name = "btn_reports";
             this.btn_reports.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_reports.Size = new System.Drawing.Size(225, 35);
@@ -208,7 +208,7 @@ namespace Inventory_System02
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel14.Controls.Add(this.btn_DCenter);
             this.panel14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel14.Location = new System.Drawing.Point(5, 416);
+            this.panel14.Location = new System.Drawing.Point(5, 287);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(205, 38);
             this.panel14.TabIndex = 5;
@@ -238,7 +238,7 @@ namespace Inventory_System02
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel9.Controls.Add(this.btn_employee);
             this.panel9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.Location = new System.Drawing.Point(5, 373);
+            this.panel9.Location = new System.Drawing.Point(6, 373);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(205, 38);
             this.panel9.TabIndex = 1;
@@ -253,7 +253,7 @@ namespace Inventory_System02
             this.btn_employee.ForeColor = System.Drawing.Color.White;
             this.btn_employee.Image = ((System.Drawing.Image)(resources.GetObject("btn_employee.Image")));
             this.btn_employee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_employee.Location = new System.Drawing.Point(-23, 0);
+            this.btn_employee.Location = new System.Drawing.Point(-24, -3);
             this.btn_employee.Name = "btn_employee";
             this.btn_employee.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_employee.Size = new System.Drawing.Size(225, 35);
@@ -298,7 +298,7 @@ namespace Inventory_System02
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel8.Controls.Add(this.btn_custsupp);
             this.panel8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel8.Location = new System.Drawing.Point(5, 330);
+            this.panel8.Location = new System.Drawing.Point(6, 330);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(205, 38);
             this.panel8.TabIndex = 1;
@@ -313,7 +313,7 @@ namespace Inventory_System02
             this.btn_custsupp.ForeColor = System.Drawing.Color.White;
             this.btn_custsupp.Image = ((System.Drawing.Image)(resources.GetObject("btn_custsupp.Image")));
             this.btn_custsupp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_custsupp.Location = new System.Drawing.Point(-23, 0);
+            this.btn_custsupp.Location = new System.Drawing.Point(-24, -2);
             this.btn_custsupp.Name = "btn_custsupp";
             this.btn_custsupp.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_custsupp.Size = new System.Drawing.Size(225, 35);
@@ -328,7 +328,7 @@ namespace Inventory_System02
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel7.Controls.Add(this.btn_settings);
             this.panel7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(5, 287);
+            this.panel7.Location = new System.Drawing.Point(6, 455);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(205, 38);
             this.panel7.TabIndex = 1;
@@ -599,11 +599,11 @@ namespace Inventory_System02
             // sideBar
             // 
             this.sideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
+            this.sideBar.Controls.Add(this.panel7);
+            this.sideBar.Controls.Add(this.panel14);
             this.sideBar.Controls.Add(this.panel17);
             this.sideBar.Controls.Add(this.panel16);
-            this.sideBar.Controls.Add(this.panel7);
             this.sideBar.Controls.Add(this.panel8);
-            this.sideBar.Controls.Add(this.panel14);
             this.sideBar.Controls.Add(this.panel15);
             this.sideBar.Controls.Add(this.panel10);
             this.sideBar.Controls.Add(this.panel13);

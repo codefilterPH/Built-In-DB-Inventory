@@ -59,10 +59,11 @@ namespace Inventory_System02.Reports_Dir
             chk_Quantity.Checked = true;
             chk_Price.Checked = true;
             chk_total.Checked = true;
+            chk_Sup_Name.Checked = true;
 
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
 
         }
         private void Group_Filtering_MustNotEmpty()
@@ -182,8 +183,7 @@ namespace Inventory_System02.Reports_Dir
             Group_Filtering_MustNotEmpty();
             WhatTable_To_Select();
 
-
-            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
+            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "'  ORDER BY `Entry Date` DESC";
 
             config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
@@ -283,10 +283,10 @@ namespace Inventory_System02.Reports_Dir
 
                 if (ds.Tables[0].Rows.Count >= 1)
                 {
-                    reportParameters.Add(new ReportParameter("Total_Items", ds.Tables[0].Rows.Count.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Items", lbl_total_items.Text));
                     calculate_Total();
-                    reportParameters.Add(new ReportParameter("Total_Quantity", total_qty.ToString()));  
-                    reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Quantity", lbl_total_quantity.Text));  
+                    reportParameters.Add(new ReportParameter("Total_Value", lbl_total_value.Text));
 
                 }
                 else if (ds.Tables[0].Rows.Count <= 0)
@@ -491,6 +491,11 @@ namespace Inventory_System02.Reports_Dir
         private void txt_rep_date_ValueChanged(object sender, EventArgs e)
         {
             Calculate_Filtering("load", cbo_report_type.Text);
+        }
+
+        private void lbl_total_value_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, lbl_total_value);
         }
 
         private void btn_Batch_Click_1(object sender, EventArgs e)

@@ -803,7 +803,10 @@
                     <TextRun>
                       <Value>Total Customer/s</Value>
                       <Style>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Color>DimGray</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -813,9 +816,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.17639cm</Top>
+              <Top>0.41451cm</Top>
+              <Left>0.36348cm</Left>
               <Height>0.6cm</Height>
-              <Width>3.25878cm</Width>
+              <Width>4.8992cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -844,10 +848,10 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.17639cm</Top>
-              <Left>3.39989cm</Left>
+              <Top>0.41451cm</Top>
+              <Left>5.43907cm</Left>
               <Height>0.6cm</Height>
-              <Width>5.11938cm</Width>
+              <Width>5.77893cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>

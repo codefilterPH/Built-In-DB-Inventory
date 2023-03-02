@@ -71,12 +71,12 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.chk_Select_All.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chk_Select_All.AutoSize = true;
-            this.chk_Select_All.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chk_Select_All.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chk_Select_All.Location = new System.Drawing.Point(14, 349);
             this.chk_Select_All.Name = "chk_Select_All";
-            this.chk_Select_All.Size = new System.Drawing.Size(81, 21);
+            this.chk_Select_All.Size = new System.Drawing.Size(79, 21);
             this.chk_Select_All.TabIndex = 51;
-            this.chk_Select_All.Text = "Select All";
+            this.chk_Select_All.Text = "Select all";
             this.chk_Select_All.UseVisualStyleBackColor = true;
             this.chk_Select_All.CheckedChanged += new System.EventHandler(this.chk_Select_All_CheckedChanged);
             // 
@@ -84,12 +84,12 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.chk_Unselect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chk_Unselect.AutoSize = true;
-            this.chk_Unselect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chk_Unselect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chk_Unselect.Location = new System.Drawing.Point(104, 349);
             this.chk_Unselect.Name = "chk_Unselect";
-            this.chk_Unselect.Size = new System.Drawing.Size(97, 21);
+            this.chk_Unselect.Size = new System.Drawing.Size(95, 21);
             this.chk_Unselect.TabIndex = 52;
-            this.chk_Unselect.Text = "Unselect All";
+            this.chk_Unselect.Text = "Unselect all";
             this.chk_Unselect.UseVisualStyleBackColor = true;
             this.chk_Unselect.CheckedChanged += new System.EventHandler(this.chk_Unselect_CheckedChanged);
             // 
@@ -199,13 +199,14 @@ namespace Inventory_System02.Reports_Dir
             // 
             // lbl_Personnel
             // 
-            this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
-            this.lbl_Personnel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(705, 207);
+            this.lbl_Personnel.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Personnel.Location = new System.Drawing.Point(164, 218);
             this.lbl_Personnel.Name = "lbl_Personnel";
-            this.lbl_Personnel.Size = new System.Drawing.Size(0, 15);
+            this.lbl_Personnel.Size = new System.Drawing.Size(17, 17);
             this.lbl_Personnel.TabIndex = 24;
+            this.lbl_Personnel.Text = "0";
             // 
             // dtg_PreviewPage
             // 
@@ -225,7 +226,7 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -239,17 +240,17 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 159);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 166);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(609, 207);
+            this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 218);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 15);
+            this.label7.Size = new System.Drawing.Size(152, 17);
             this.label7.TabIndex = 23;
             this.label7.Text = "Total Personnel:";
             // 
@@ -264,9 +265,9 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_LN);
             this.grp_filters.Controls.Add(this.chk_FN);
             this.grp_filters.Controls.Add(this.chk_Emp_ID);
-            this.grp_filters.Location = new System.Drawing.Point(6, 202);
+            this.grp_filters.Location = new System.Drawing.Point(271, 218);
             this.grp_filters.Name = "grp_filters";
-            this.grp_filters.Size = new System.Drawing.Size(596, 82);
+            this.grp_filters.Size = new System.Drawing.Size(475, 82);
             this.grp_filters.TabIndex = 20;
             this.grp_filters.TabStop = false;
             this.grp_filters.Text = "Data Fields";

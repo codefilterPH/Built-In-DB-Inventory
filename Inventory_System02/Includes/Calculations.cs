@@ -27,7 +27,7 @@ namespace Inventory_System02.Includes
         public void Calculate_Todays_Entry_StockIn(string Type_Of_Process )
         {
 
-            sql = "Select * from "+ Type_Of_Process + " where `Entry Date` = '"+DateTime.Now.ToString(Includes.AppSettings.DateFormat) +"' ";
+            sql = "Select * from "+ Type_Of_Process + " where `Entry Date` = '"+DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) +"' ";
             config.singleResult(sql);
 
             if (config.dt.Rows.Count >= 1)

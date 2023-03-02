@@ -12,23 +12,27 @@ namespace Inventory_System02
     public partial class Batch_Form : Form
     {
         SQLConfig config = new SQLConfig();
+        string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
+        string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
+        //string[] files = Directory.GetFiles(@"\\" + config.computerName + @"\DB\BATCH FILES");
+
         string Global_ID, Fullname, JobRole;
         public Batch_Form(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
+            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
             Global_ID = global_id;
             Fullname = fullname;
-            JobRole = jobrole;
-
-         
+            JobRole = jobrole;      
         }
 
         public void PATH()
         {
-
-            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
-            //string[] files = Directory.GetFiles(@"\\" + config.computerName + @"\DB\BATCH FILES");
-
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(PATH));
+                return;
+            }
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Date");
             dt.Columns.Add("File Name");
@@ -83,6 +87,15 @@ namespace Inventory_System02
         }
         private void btn_Delete_Click_1(object sender, EventArgs e)
         {
+            if (dataGridView1.Rows.Count > 0 )
+            {
+                if ( dataGridView1.SelectedRows.Count == 0 || dataGridView1.CurrentRow.Cells[0].Selected == true)
+                {
+                    dataGridView1.CurrentRow.Cells[1].Selected = true;
+                    dataGridView1.CurrentRow.Cells[0].Selected = false;
+                    what_to_del = "specific";
+                }
+            }
 
             string dir = Includes.AppSettings.Doc_DIR;
             if (what_to_del == "all")
@@ -212,7 +225,6 @@ namespace Inventory_System02
 
         private void inboundTransToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Inbound TRANS*");
 
             DataTable dt = new DataTable();
@@ -262,7 +274,7 @@ namespace Inventory_System02
 
         private void returnTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
+           
             string[] files = Directory.GetFiles(path, "Return TRANS*");
 
             DataTable dt = new DataTable();
@@ -284,12 +296,6 @@ namespace Inventory_System02
             dataGridView1.DataSource = dt;
             DTG_Properties();
         }
-
-        private void allItemsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Batch_Form_Load(sender, e);
-        }
-
         private void supplierReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
@@ -387,6 +393,7 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void outboundReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -411,6 +418,7 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
 
         private void returnReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -435,9 +443,15 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dataGridView1.DataSource = dt;
+            DTG_Properties();
         }
         private void DTG_Properties()
         {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(DTG_Properties));
+                return;
+            }
             if ( dataGridView1.Rows.Count > 0 )
             {
                 dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -445,7 +459,159 @@ namespace Inventory_System02
                 Load_to_Adobe();
             }
         }
-        private void Batch_Form_Load(object sender, EventArgs e)
+
+        private void todayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Columns.Add("Date");
+            dt.Columns.Add("File Name");
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                FileInfo file = new FileInfo(files[i]);
+
+                if (file.CreationTime.Date == DateTime.Today)
+                {
+                    dt.Rows.Add(file.CreationTime, file.Name);
+                }
+            }
+
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+
+        }
+
+        private void monthToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Columns.Add("Date");
+            dt.Columns.Add("File Name");
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                FileInfo file = new FileInfo(files[i]);
+
+                if (file.CreationTime.Date >= DateTime.Today.AddMonths(-1))
+                {
+                    dt.Rows.Add(file.CreationTime, file.Name);
+                }
+            }
+
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+        }
+
+        private void yearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt.Columns.Add("Date");
+            dt.Columns.Add("File Name");
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                FileInfo file = new FileInfo(files[i]);
+
+                if (file.CreationTime.Date >= DateTime.Today.AddYears(-1))
+                {
+                    dt.Rows.Add(file.CreationTime, file.Name);
+                }
+            }
+
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+        }
+
+        private void inboundSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(path, "Inbound Summary*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+        }
+
+        private void outboundSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(path, "Outbound Summary*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+        }
+
+        private void returnSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(path, "Return Summary*");
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Date", typeof(DateTime));
+            dt.Columns.Add("Name", typeof(string));
+
+            foreach (string file in files)
+            {
+                DataRow row = dt.NewRow();
+                row["Date"] = File.GetCreationTime(file);
+                row["Name"] = Path.GetFileName(file);
+                dt.Rows.Add(row);
+            }
+            // Sort the DataTable by the "Date" column in descending order
+            dt.DefaultView.Sort = "Date DESC";
+            dt = dt.DefaultView.ToTable();
+
+            // Bind the sorted DataTable to the DataGridView
+            dataGridView1.DataSource = dt;
+            DTG_Properties();
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
             int count = files.Length;
@@ -455,6 +621,11 @@ namespace Inventory_System02
                 PATH();
                 DTG_Properties();
             }
+        }
+
+        private void Batch_Form_Load(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

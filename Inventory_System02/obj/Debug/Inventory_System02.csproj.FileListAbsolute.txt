@@ -320,3 +320,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Rep
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.CommonSql.Reports_Dir.Item_Qty.Item_by_Quantity.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.CommonSql.Reports_Dir.Item_Qty.Edit_QTY.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.CommonSql.Reports_Dir.Item_Division.ItemByDivision_Form.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc

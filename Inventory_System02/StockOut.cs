@@ -34,7 +34,6 @@ namespace Inventory_System02
         {   
             refreshTableToolStripMenuItem_Click(sender, e);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
-            btn_Saved.Enabled = false;
         }
 
         private void btn_Cust_Gen_Click(object sender, EventArgs e)
@@ -207,6 +206,7 @@ namespace Inventory_System02
                         Update_Qty_Stocks();
                         TOTALS();
                         chk_all.Checked = false;
+                        btn_edit.Focus();
                     }
                     else if (!found && rw.Cells[6].Value.ToString() == "0")
                     {
@@ -218,6 +218,7 @@ namespace Inventory_System02
             {
                 dtg_Stocks.CurrentRow.Selected = true;
             }
+            TOTALS();
 
         }
         double quan = 0;
@@ -229,8 +230,7 @@ namespace Inventory_System02
                 foreach (DataGridViewRow item in this.dtg_AddedStocks.SelectedRows)
                 {
                     refreshTableToolStripMenuItem.Enabled = false;
-                    dtg_AddedStocks.Rows.RemoveAt(item.Index);
-                    chk_review.Checked = false;
+                    dtg_AddedStocks.Rows.RemoveAt(item.Index);    
                 }
             }
             else if ( dtg_AddedStocks.Rows.Count >= 1)
@@ -314,18 +314,16 @@ namespace Inventory_System02
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-                txt_Cust_Name.Text = config.dt.Rows[0].Field<string>("First Name").ToString() + " " + config.dt.Rows[0].Field<string>("Last Name").ToString();
+                txt_Cust_Name.Text = config.dt.Rows[0].Field<string>("Name").ToString();
                 txt_Cust_SAddress.Text = config.dt.Rows[0].Field<string>("Address").ToString();
                 txt_Type.Text = config.dt.Rows[0].Field<string>("Type").ToString();
 
                 func.Reload_Images(cust_Image, cbo_CustID.Text, Includes.AppSettings.Customer_DIR);
 
-
                 //dtg_Stocks.Rows[0].Selected = true;
                 btn_sup_add.Focus();
 
             }
-            chk_review.Checked = false;
         }
 
         private void btn_searchCustomer_Click(object sender, EventArgs e)
@@ -500,7 +498,7 @@ namespace Inventory_System02
                                         dtg_AddedStocks.Rows[i].Cells[4].Value = 0;
                                         rw.Cells[6].Value = ds.Tables[0].Rows[0]["Quantity"];
                                     }
-                                    else if (Convert.ToInt32(rw.Cells[6].Value) > 0)
+                                    else if (Convert.ToInt32(rw.Cells[6].Value) >= 1)
                                     {
                                         dtg_AddedStocks.Rows[i].Cells[4].Value = 1;
                                         rw.Cells[6].Value = Convert.ToInt32(ds.Tables[0].Rows[0]["Quantity"]) - 1;
@@ -521,8 +519,9 @@ namespace Inventory_System02
                                     //Calculate the total (qty of added stocks * the price )
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[4].Value) *
-                                        Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[5].Value);                         
-                                    
+                                        Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[5].Value);
+                                    btn_Saved.Enabled = true;
+
                                 } 
                             }
                         }
@@ -559,88 +558,9 @@ namespace Inventory_System02
             btn_edit.Enabled = true;        
             cbo_srch_type.Enabled = true;
             txt_Search.Enabled = true;
-            btn_Saved.Enabled = false;
             refreshTableToolStripMenuItem.Enabled = true;
 
-
-
-
             return;
-        }
-        private void chk_review_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!chk_review.Checked)
-            {
-                EnableAll();
-            }
-            else
-            {
-                chk_review.Checked = false;
-                if (dtg_AddedStocks.Rows.Count == 0)
-                {
-                    MessageBox.Show("You need to add items in stock outbound table below inbound table.\nDouble click on the rows or press the \"add selected below\"", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btn_sup_add.Focus();
-                    return;
-                }
-                else if (string.IsNullOrWhiteSpace(cbo_CustID.Text))
-                {
-                    MessageBox.Show("Customer or Division \"ID\" should not be emty.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    cbo_CustID.Focus();
-
-                    return;
-                }
-                else if (string.IsNullOrWhiteSpace(txt_Cust_Name.Text))
-                {
-                    MessageBox.Show("Customer or Division \"NAME\" should not be emty.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_Cust_Name.Focus();
-                    return;
-                }
-                else if (string.IsNullOrWhiteSpace(txt_Cust_SAddress.Text))
-                {
-                    MessageBox.Show("Customer or Division \"ADDRESS\" should not be emty.", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt_Cust_SAddress.Focus();
-
-                    return;
-                }
-                else
-                {
-                    if (MessageBox.Show("Everything is now ready for stock return. Continue stock out?", "Complete Fields", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        chk_all.Checked = false;
-                        chk_all2.Checked = false;
-                        chk_all.Enabled = false;
-                        chk_all2.Enabled = false;
-                        menuStrip1.Enabled = false;
-                        cbo_CustID.Enabled = false;
-                        txt_Cust_Name.Enabled = false;
-                        txt_Type.Enabled = false;
-                        txt_Cust_SAddress.Enabled = false;
-                        btn_sup_add.Enabled = false;
-                        btn_sup_delete.Enabled = false;
-                        dtg_AddedStocks.Enabled = false;
-                        btn_searchCustomer.Enabled = false;
-                        btn_Cust_Gen.Enabled = false;
-                        btn_edit.Enabled = false;
-                        cbo_srch_type.Enabled = false;
-                        txt_Search.Enabled = false;
-                        btn_Saved.Enabled = true;
-
-                        menuStrip2.Focus();
-                        TOTALS();
-                       
-                    }
-                    else
-                    {
-                        EnableAll();
-                    }
-                }
-            }
-        }
-
-        private void chk_review_MouseHover(object sender, EventArgs e)
-        {
-            toolTip = new ToolTip();
-            toolTip.SetToolTip(chk_review, "Click me to verify or confirm stock out \'button\' will be enabled.\nIf not. Therefore, you need to follow instruction and complete the process.");
         }
 
         private void outboundListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -689,6 +609,11 @@ namespace Inventory_System02
             Update_Qty_Stocks();
         }
 
+        private void out_amt_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, out_amt);
+        }
+
         private void customerListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustSupplier.CustSupp frm = new CustSupplier.CustSupp(Global_ID, Fullname, JobRole, "Cust");
@@ -698,9 +623,72 @@ namespace Inventory_System02
                 cbo_CustID.Text = frm.cusID;
             }
         }
+        private void verify()
+        {
+            if (dtg_AddedStocks.Rows.Count == 0)
+            {
+                MessageBox.Show("You need to add items in stock outbound table below inbound table.\nDouble click on the rows or press the \"add selected below\"", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btn_sup_add.Focus();
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(cbo_CustID.Text))
+            {
+                MessageBox.Show("Customer or Division \"ID\" should not be emty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbo_CustID.Focus();
+
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txt_Cust_Name.Text))
+            {
+                MessageBox.Show("Customer or Division \"NAME\" should not be emty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Cust_Name.Focus();
+                return;
+            }
+            else if (string.IsNullOrWhiteSpace(txt_Cust_SAddress.Text))
+            {
+                MessageBox.Show("Customer or Division \"ADDRESS\" should not be emty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Cust_SAddress.Focus();
+
+                return;
+            }
+            else
+            {
+                if (MessageBox.Show("Everything is now ready for stock return. Continue stock out?", "Complete Fields", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    chk_all.Checked = false;
+                    chk_all2.Checked = false;
+                    chk_all.Enabled = false;
+                    chk_all2.Enabled = false;
+                    menuStrip1.Enabled = false;
+                    cbo_CustID.Enabled = false;
+                    txt_Cust_Name.Enabled = false;
+                    txt_Type.Enabled = false;
+                    txt_Cust_SAddress.Enabled = false;
+                    btn_sup_add.Enabled = false;
+                    btn_sup_delete.Enabled = false;
+                    dtg_AddedStocks.Enabled = false;
+                    btn_searchCustomer.Enabled = false;
+                    btn_Cust_Gen.Enabled = false;
+                    btn_edit.Enabled = false;
+                    cbo_srch_type.Enabled = false;
+                    txt_Search.Enabled = false;
+                    btn_Saved.Enabled = true;
+
+                    menuStrip2.Focus();
+                    TOTALS();
+
+                }
+                else
+                {
+                    EnableAll();
+                    return;
+                }
+            }
+        }
         Inventory_System02.Invoice_Code.Invoice_Code out_trans_rec = new Invoice_Code.Invoice_Code();
         private void btn_Saved_Click(object sender, EventArgs e)
         {
+            verify();
 
             if (cbo_CustID.Text == "" || cbo_CustID.Text == null)
             {
@@ -771,7 +759,7 @@ namespace Inventory_System02
                          ",`User ID` " +
                          ",`Warehouse Staff Name` " +
                          ",`Job Role`) values ( " +
-                         " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormat) + "' " +
+                         " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                          ",'" + cbo_CustID.Text + "' " +
                          ",'" + txt_Cust_Name.Text + "' " +
                          ",'" + txt_Cust_SAddress.Text + "' " +
@@ -779,9 +767,9 @@ namespace Inventory_System02
                          ",'" + stock_out_row.Cells[1].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[2].Value.ToString() + "' " +
                          ",'" + stock_out_row.Cells[3].Value.ToString() + "' " +
-                         ",'" + stock_out_row.Cells[4].Value.ToString() + "' " +
-                         ",'" + stock_out_row.Cells[5].Value.ToString() + "' " +
-                         ",'" + stock_out_row.Cells[6].Value.ToString() + "' " +
+                         ",'" + Convert.ToInt32(stock_out_row.Cells[4].Value) + "' " +
+                         ",'" + Convert.ToDecimal(stock_out_row.Cells[5].Value) + "' " +
+                         ",'" + Convert.ToDecimal(stock_out_row.Cells[6].Value) + "' " +
                          ",'" + Gen_Trans + "' " +
                          ",'" + Global_ID + "' " +
                          ",'" + Fullname + "' " +
@@ -812,6 +800,9 @@ namespace Inventory_System02
                     if ( config.dt.Rows.Count > 0 ) 
                     {
                         MessageBox.Show("Successfully updated \"inbound records\" and Item(s) moved to \"outbound stock\" list! \n\nTransaction Successful!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Invoice_Silent.Invoice_Silent silent_batch = new Invoice_Silent.Invoice_Silent();
+                        silent_batch.Invoice("out", Gen_Trans, "preview");
                         dtg_AddedStocks.Rows.Clear();
 
                         cbo_CustID.Text = "";
@@ -819,6 +810,7 @@ namespace Inventory_System02
                         txt_Cust_SAddress.Text = "";
                         refreshTableToolStripMenuItem_Click(sender, e);
                         EnableAll();
+
                         return;
                     }
                     else
@@ -832,7 +824,6 @@ namespace Inventory_System02
                 }
                 else
                 {
-                    chk_review.Checked = false;
                     EnableAll();
                 }
 

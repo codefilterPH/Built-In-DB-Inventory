@@ -108,7 +108,7 @@ namespace Inventory_System02.CustSupplier
 
         private void CustModels_Load(object sender, EventArgs e)
         {
-            func.Reload_Images(Sup_Image, cust_id, @"CommonSql\Pictures\Customers\");
+            func.Reload_Images(Sup_Image, cust_id, Includes.AppSettings.Customer_DIR);
             lbl_ID.Text = name1;
 
             sql = "Select Type from `Customer Models`";

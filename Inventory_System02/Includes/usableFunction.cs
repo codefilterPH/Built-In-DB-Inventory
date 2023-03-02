@@ -55,6 +55,17 @@ namespace Inventory_System02.Includes
 
             return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
         }
+        private void FormatPhoneNumber(MaskedTextBox maskedTextBox)
+        {
+            string phoneNumber = maskedTextBox.Text.Replace(" ", "").Replace("-", "");
+
+            if (phoneNumber.Length == 11 && phoneNumber.StartsWith("63"))
+            {
+                phoneNumber = phoneNumber.Substring(1);
+                maskedTextBox.Text = string.Format("{0:0000-###-####}", Convert.ToInt64(phoneNumber));
+            }
+        }
+
         //Method for password validation only
         private static Regex ValidPassword()
         {
@@ -201,6 +212,18 @@ namespace Inventory_System02.Includes
             }
 
         }
+        public void Label_Two_Decimal_Places(object sender, EventArgs e, Label lbl)
+        {
+            if (lbl.Text == "" || lbl.Text == null)
+            {
+                lbl.Text = "0.00";
+            }
+            else
+            {
+                lbl.Text = String.Format("{0:N2}", double.Parse(lbl.Text));
+            }
+
+        }
         //dtg
         public void Datagrid_Setup(DataGridView dtg)
         {
@@ -334,9 +357,9 @@ namespace Inventory_System02.Includes
 
 
                 DateTime dtTarget = default(DateTime); // (or) DateTime.MinValue , use this for comparision
-                if (DateTime.TryParseExact(txt, Includes.AppSettings.DateFormat, CultureInfo.CurrentCulture, DateTimeStyles.None, out dtTarget))
+                if (DateTime.TryParseExact(txt, Includes.AppSettings.DateFormatRetrieve, CultureInfo.CurrentCulture, DateTimeStyles.None, out dtTarget))
                 {
-                    if (DateTime.ParseExact(txt, Includes.AppSettings.DateFormat, null) < DateTime.ParseExact(dateText, Includes.AppSettings.DateFormat, null))
+                    if (DateTime.ParseExact(txt, Includes.AppSettings.DateFormatRetrieve, null) < DateTime.ParseExact(dateText, Includes.AppSettings.DateFormatRetrieve, null))
                     {
                         MessageBox.Show("Time must be exact or greater than " + dateText, "First Item Date is " + dateText, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
@@ -351,7 +374,7 @@ namespace Inventory_System02.Includes
             }
             else
             {
-                txt = DateTime.Now.ToString(Includes.AppSettings.DateFormat);
+                txt = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             }
         }
         string appPath, filepath;
@@ -584,7 +607,7 @@ namespace Inventory_System02.Includes
                 Due1 = Convert.ToInt32(config.dt.Rows[0]["Warranty"]);
 
             }         
-            Due = DateTime.Now.AddDays(Due1).ToString(Includes.AppSettings.DateFormat);     
+            Due = DateTime.Now.AddDays(Due1).ToString(Includes.AppSettings.DateFormatRetrieve);     
             
             sql = "Select * from `Stock Out` where `Transaction Reference` = '" + TransRef + "' ";
             config.singleResult(sql);

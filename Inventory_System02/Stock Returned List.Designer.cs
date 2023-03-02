@@ -35,8 +35,14 @@ namespace Inventory_System02
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.refreshTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_print_invoice = new System.Windows.Forms.ToolStripMenuItem();
+            this.view_trans_return = new System.Windows.Forms.ToolStripMenuItem();
+            this.view_tbl_return = new System.Windows.Forms.ToolStripMenuItem();
             this.batchTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.batch_trans_return = new System.Windows.Forms.ToolStripMenuItem();
+            this.batch_tbl_return = new System.Windows.Forms.ToolStripMenuItem();
             this.printInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.print_trans_return = new System.Windows.Forms.ToolStripMenuItem();
+            this.print_tbl_return = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -94,33 +100,93 @@ namespace Inventory_System02
             // btn_print_invoice
             // 
             this.btn_print_invoice.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_print_invoice.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.view_trans_return,
+            this.view_tbl_return});
             this.btn_print_invoice.ForeColor = System.Drawing.Color.White;
             this.btn_print_invoice.Image = ((System.Drawing.Image)(resources.GetObject("btn_print_invoice.Image")));
             this.btn_print_invoice.Name = "btn_print_invoice";
-            this.btn_print_invoice.Size = new System.Drawing.Size(123, 20);
-            this.btn_print_invoice.Text = "View Transaction";
-            this.btn_print_invoice.Click += new System.EventHandler(this.btn_print_invoice_Click);
+            this.btn_print_invoice.Size = new System.Drawing.Size(60, 20);
+            this.btn_print_invoice.Text = "View";
+            // 
+            // view_trans_return
+            // 
+            this.view_trans_return.BackColor = System.Drawing.Color.Peru;
+            this.view_trans_return.ForeColor = System.Drawing.Color.White;
+            this.view_trans_return.Name = "view_trans_return";
+            this.view_trans_return.Size = new System.Drawing.Size(181, 22);
+            this.view_trans_return.Text = "Selected Transaction";
+            this.view_trans_return.Click += new System.EventHandler(this.selectedTransactionToolStripMenuItem_Click);
+            // 
+            // view_tbl_return
+            // 
+            this.view_tbl_return.BackColor = System.Drawing.Color.SteelBlue;
+            this.view_tbl_return.ForeColor = System.Drawing.Color.White;
+            this.view_tbl_return.Name = "view_tbl_return";
+            this.view_tbl_return.Size = new System.Drawing.Size(181, 22);
+            this.view_tbl_return.Text = "Table Result";
+            this.view_tbl_return.Click += new System.EventHandler(this.view_tbl_return_Click);
             // 
             // batchTransactionToolStripMenuItem
             // 
             this.batchTransactionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.batchTransactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.batch_trans_return,
+            this.batch_tbl_return});
             this.batchTransactionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.batchTransactionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("batchTransactionToolStripMenuItem.Image")));
             this.batchTransactionToolStripMenuItem.Name = "batchTransactionToolStripMenuItem";
-            this.batchTransactionToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.batchTransactionToolStripMenuItem.Text = "Batch Transaction";
-            this.batchTransactionToolStripMenuItem.Click += new System.EventHandler(this.batchTransactionToolStripMenuItem_Click);
+            this.batchTransactionToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.batchTransactionToolStripMenuItem.Text = "Batch";
+            // 
+            // batch_trans_return
+            // 
+            this.batch_trans_return.BackColor = System.Drawing.Color.Peru;
+            this.batch_trans_return.ForeColor = System.Drawing.Color.White;
+            this.batch_trans_return.Name = "batch_trans_return";
+            this.batch_trans_return.Size = new System.Drawing.Size(181, 22);
+            this.batch_trans_return.Text = "Selected Transaction";
+            this.batch_trans_return.Click += new System.EventHandler(this.batch_trans_return_Click);
+            // 
+            // batch_tbl_return
+            // 
+            this.batch_tbl_return.BackColor = System.Drawing.Color.SteelBlue;
+            this.batch_tbl_return.ForeColor = System.Drawing.Color.White;
+            this.batch_tbl_return.Name = "batch_tbl_return";
+            this.batch_tbl_return.Size = new System.Drawing.Size(181, 22);
+            this.batch_tbl_return.Text = "Table Result";
+            this.batch_tbl_return.Click += new System.EventHandler(this.batch_tbl_return_Click);
             // 
             // printInvoiceToolStripMenuItem
             // 
             this.printInvoiceToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.printInvoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.print_trans_return,
+            this.print_tbl_return});
             this.printInvoiceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printInvoiceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.printInvoiceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printInvoiceToolStripMenuItem.Image")));
             this.printInvoiceToolStripMenuItem.Name = "printInvoiceToolStripMenuItem";
-            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
-            this.printInvoiceToolStripMenuItem.Text = "Print Transaction";
-            this.printInvoiceToolStripMenuItem.Click += new System.EventHandler(this.printInvoiceToolStripMenuItem_Click);
+            this.printInvoiceToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.printInvoiceToolStripMenuItem.Text = "Print";
+            // 
+            // print_trans_return
+            // 
+            this.print_trans_return.BackColor = System.Drawing.Color.Peru;
+            this.print_trans_return.ForeColor = System.Drawing.Color.White;
+            this.print_trans_return.Name = "print_trans_return";
+            this.print_trans_return.Size = new System.Drawing.Size(183, 22);
+            this.print_trans_return.Text = "Selected Transaction";
+            this.print_trans_return.Click += new System.EventHandler(this.print_trans_return_Click);
+            // 
+            // print_tbl_return
+            // 
+            this.print_tbl_return.BackColor = System.Drawing.Color.SteelBlue;
+            this.print_tbl_return.ForeColor = System.Drawing.Color.White;
+            this.print_tbl_return.Name = "print_tbl_return";
+            this.print_tbl_return.Size = new System.Drawing.Size(183, 22);
+            this.print_tbl_return.Text = "Table Result";
+            this.print_tbl_return.Click += new System.EventHandler(this.print_tbl_return_Click);
             // 
             // btn_Delete
             // 
@@ -143,7 +209,7 @@ namespace Inventory_System02
             this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Search.Location = new System.Drawing.Point(54, 163);
             this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(108, 23);
+            this.txt_Search.Size = new System.Drawing.Size(122, 23);
             this.txt_Search.TabIndex = 4;
             this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
             // 
@@ -209,7 +275,7 @@ namespace Inventory_System02
             // txt_Reasons
             // 
             this.txt_Reasons.BackColor = System.Drawing.Color.White;
-            this.txt_Reasons.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Reasons.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Reasons.ForeColor = System.Drawing.Color.Red;
             this.txt_Reasons.Location = new System.Drawing.Point(9, 118);
             this.txt_Reasons.Multiline = true;
@@ -316,6 +382,7 @@ namespace Inventory_System02
             this.out_amt.Size = new System.Drawing.Size(18, 18);
             this.out_amt.TabIndex = 112;
             this.out_amt.Text = "0";
+            this.out_amt.TextChanged += new System.EventHandler(this.out_amt_TextChanged);
             // 
             // out_qty
             // 
@@ -377,7 +444,7 @@ namespace Inventory_System02
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(171, 167);
+            this.label8.Location = new System.Drawing.Point(182, 166);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(18, 13);
             this.label8.TabIndex = 122;
@@ -389,30 +456,30 @@ namespace Inventory_System02
             this.cbo_srch_type.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbo_srch_type.FormattingEnabled = true;
             this.cbo_srch_type.Items.AddRange(new object[] {
-            "Date",
-            "Id",
-            "Name",
-            "Brand",
-            "Description",
-            "Quantity",
-            "Price",
-            "Total",
-            "Division",
-            "Address",
-            "Staff Name",
-            "Job",
-            "Trans Ref"});
-            this.cbo_srch_type.Location = new System.Drawing.Point(195, 164);
+            "DATE",
+            "ID",
+            "NAME",
+            "BRAND",
+            "DESCRIPTION",
+            "QUANTITY",
+            "PRICE",
+            "TOTAL",
+            "DIVISION",
+            "ADDRESS",
+            "STAFF NAME",
+            "JOB",
+            "TRANS REF"});
+            this.cbo_srch_type.Location = new System.Drawing.Point(206, 163);
             this.cbo_srch_type.Name = "cbo_srch_type";
             this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
             this.cbo_srch_type.TabIndex = 5;
-            this.cbo_srch_type.Text = "Division";
+            this.cbo_srch_type.Text = "DIVISION";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
             // 
             // btn_view
             // 
             this.btn_view.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_view.BackColor = System.Drawing.Color.Teal;
+            this.btn_view.BackColor = System.Drawing.Color.Peru;
             this.btn_view.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_view.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -503,5 +570,11 @@ namespace Inventory_System02
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbo_srch_type;
         private System.Windows.Forms.Button btn_view;
+        private System.Windows.Forms.ToolStripMenuItem view_trans_return;
+        private System.Windows.Forms.ToolStripMenuItem view_tbl_return;
+        private System.Windows.Forms.ToolStripMenuItem batch_trans_return;
+        private System.Windows.Forms.ToolStripMenuItem print_trans_return;
+        private System.Windows.Forms.ToolStripMenuItem batch_tbl_return;
+        private System.Windows.Forms.ToolStripMenuItem print_tbl_return;
     }
 }
