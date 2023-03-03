@@ -449,7 +449,7 @@ namespace Inventory_System02.CustSupplier
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            sql = "Select * from Customer where `Customer ID` like '%" + txt_Search.Text + "%' or `First Name` like '%" + txt_Search.Text + "%' or `Last Name` like '%"+ txt_Search.Text+"%' ORDER BY `Entry Date` DESC";
+            sql = "Select * from Customer where `Customer ID` like '%" + txt_Search.Text + "%' or `Name` like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_Customer);
             DTG_SubProperty_Cust();
         }

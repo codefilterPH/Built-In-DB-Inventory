@@ -112,6 +112,8 @@ namespace Inventory_System02
                     }
                 }
 
+                dtg_Stocks.Columns[7].DefaultCellStyle.Format = "#,##0.00";
+                dtg_Stocks.Columns[8].DefaultCellStyle.Format = "#,##0.00";
                 dtg_Stocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 dtg_Stocks.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -121,8 +123,9 @@ namespace Inventory_System02
                 dtg_Stocks.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_Stocks.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;   
                 //STOCK OUTBOUND
-                dtg_AddedStocks.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtg_AddedStocks.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_AddedStocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+               // dtg_AddedStocks.Columns[5].DefaultCellStyle.Format = "#,##0.00";
 
             }
         }

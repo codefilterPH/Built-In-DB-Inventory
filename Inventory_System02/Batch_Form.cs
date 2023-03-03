@@ -49,14 +49,14 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
         }
         string what_to_del = string.Empty;
         private void chk_Select_all_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_Select_all.Checked)
             {
-                foreach (DataGridViewRow rw in dataGridView1.Rows)
+                foreach (DataGridViewRow rw in dtg_batch_form.Rows)
                 {
                     rw.Selected = true;
                     what_to_del = "all";
@@ -64,7 +64,7 @@ namespace Inventory_System02
             }
             else
             {
-                foreach (DataGridViewRow rw in dataGridView1.Rows)
+                foreach (DataGridViewRow rw in dtg_batch_form.Rows)
                 {
                     rw.Selected = false;
                     what_to_del = "specific";
@@ -82,19 +82,22 @@ namespace Inventory_System02
         }
         private void Load_to_Adobe()
         {
-            string file = Includes.AppSettings.Doc_DIR + dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            string file = Includes.AppSettings.Doc_DIR + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
             axAcroPDF1.LoadFile(file);
         }
         private void btn_Delete_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count > 0 )
+            if (dtg_batch_form.Rows.Count > 0 )
             {
-                if ( dataGridView1.SelectedRows.Count == 0 || dataGridView1.CurrentRow.Cells[0].Selected == true)
+                if ( what_to_del != "all" )
                 {
-                    dataGridView1.CurrentRow.Cells[1].Selected = true;
-                    dataGridView1.CurrentRow.Cells[0].Selected = false;
-                    what_to_del = "specific";
-                }
+                    if (dtg_batch_form.SelectedRows.Count == 0 || dtg_batch_form.CurrentRow.Cells[0].Selected == true)
+                    {
+                        dtg_batch_form.CurrentRow.Cells[1].Selected = true;
+                        dtg_batch_form.CurrentRow.Cells[0].Selected = false;
+                        what_to_del = "specific";
+                    }
+                }        
             }
 
             string dir = Includes.AppSettings.Doc_DIR;
@@ -102,7 +105,7 @@ namespace Inventory_System02
             {
                 if (MessageBox.Show("Are you sure to delete all files?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (dataGridView1.Rows.Count == 0)
+                    if (dtg_batch_form.Rows.Count == 0)
                     {
                         MessageBox.Show("No files to delete.", "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
@@ -110,7 +113,7 @@ namespace Inventory_System02
 
                     // Get the filenames from the DataGridView control
                     List<string> filenames = new List<string>();
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    foreach (DataGridViewRow row in dtg_batch_form.Rows)
                     {
                         string filename = row.Cells[1].Value.ToString(); // Assumes the filename is in the second cell (index 1)
                         filenames.Add(filename);
@@ -134,17 +137,18 @@ namespace Inventory_System02
                         }
                     }
                     MessageBox.Show("Files are deleted!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Reset any other properties as needed
+                    dtg_batch_form.Columns.Clear();
                 }
-
-
+           
             }
             else if (what_to_del == "specific")
             {
 
-                if (MessageBox.Show("Are you sure to delete file?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure to delete file "+ dtg_batch_form.CurrentRow.Cells[1].Value.ToString()+ "?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    if (dataGridView1.Rows.Count == 0)
+                    if (dtg_batch_form.Rows.Count == 0)
                     {
                         MessageBox.Show("No file to delete.", "Delete unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
@@ -152,7 +156,7 @@ namespace Inventory_System02
                     // Delete specific files in a directory              
                     try
                     {
-                        string filename1 = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                        string filename1 = dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
                         // Check if file exists with its full path    
                         if (File.Exists(Path.Combine(dir, filename1)))
                         {
@@ -176,14 +180,16 @@ namespace Inventory_System02
                     }
                 }
             }
+            chk_Select_all.Checked = false;
             what_to_del = "";
+            this.Refresh();
         }
      
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            DataGridViewColumn newColumn = dataGridView1.Columns[e.ColumnIndex];
-            DataGridViewColumn oldColumn = dataGridView1.SortedColumn;
+            DataGridViewColumn newColumn = dtg_batch_form.Columns[e.ColumnIndex];
+            DataGridViewColumn oldColumn = dtg_batch_form.SortedColumn;
             ListSortDirection direction;
 
             // If oldColumn is null, then the DataGridView is not sorted.
@@ -191,7 +197,7 @@ namespace Inventory_System02
             {
                 // Sort the same column again, reversing the SortOrder.
                 if (oldColumn == newColumn &&
-                    dataGridView1.SortOrder == SortOrder.Ascending)
+                    dtg_batch_form.SortOrder == SortOrder.Ascending)
                 {
                     direction = ListSortDirection.Descending;
                 }
@@ -208,7 +214,7 @@ namespace Inventory_System02
             }
 
             // Sort the selected column.
-            dataGridView1.Sort(newColumn, direction);
+            dtg_batch_form.Sort(newColumn, direction);
             newColumn.HeaderCell.SortGlyphDirection =
                 direction == ListSortDirection.Ascending ?
                 SortOrder.Ascending : SortOrder.Descending;
@@ -217,7 +223,7 @@ namespace Inventory_System02
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             // Put each of the columns into programmatic sort mode.
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            foreach (DataGridViewColumn column in dtg_batch_form.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
@@ -243,7 +249,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -268,7 +274,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -293,7 +299,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
         private void supplierReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -317,7 +323,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -342,7 +348,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -367,7 +373,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -392,7 +398,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -417,7 +423,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -442,7 +448,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
         private void DTG_Properties()
@@ -452,10 +458,10 @@ namespace Inventory_System02
                 this.Invoke(new MethodInvoker(DTG_Properties));
                 return;
             }
-            if ( dataGridView1.Rows.Count > 0 )
+            if ( dtg_batch_form.Rows.Count > 0 )
             {
-                dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_batch_form.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dtg_batch_form.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 Load_to_Adobe();
             }
         }
@@ -482,7 +488,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
 
         }
@@ -509,7 +515,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -535,7 +541,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -559,7 +565,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -583,7 +589,7 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
@@ -607,13 +613,13 @@ namespace Inventory_System02
             dt = dt.DefaultView.ToTable();
 
             // Bind the sorted DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            dtg_batch_form.DataSource = dt;
             DTG_Properties();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
+            files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
             int count = files.Length;
 
             if (count > 0)
@@ -623,20 +629,19 @@ namespace Inventory_System02
             }
         }
 
+        private void dtg_batch_form_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            chk_Select_all.Checked = false;
+            if (dtg_batch_form.Rows.Count > 0)
+            {
+                string file = Includes.AppSettings.Doc_DIR + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
+                System.Diagnostics.Process.Start(file);
+            }
+        }
+
         private void Batch_Form_Load(object sender, EventArgs e)
         {
             backgroundWorker1.RunWorkerAsync();
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            chk_Select_all.Checked = false;
-            if (dataGridView1.Rows.Count > 0)
-            {
-                string file = Includes.AppSettings.Doc_DIR + dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                System.Diagnostics.Process.Start(file);
-            }
-
         }
     }
 }

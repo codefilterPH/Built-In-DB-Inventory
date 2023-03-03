@@ -314,7 +314,7 @@ namespace Inventory_System02
                 dtg_return_list.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
 
-                lbl_items_count.Text = "1";
+                lbl_items_count.Text = dtg_return_list.Rows.Count.ToString();
                 out_amt.Text = "0";
                 out_qty.Text = "0";
             }

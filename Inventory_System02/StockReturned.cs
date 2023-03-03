@@ -150,7 +150,8 @@ namespace Inventory_System02
                 //Stock Outbound
                 //dtg_Items.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dtg_Items.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-               
+                dtg_Items.Columns[10].DefaultCellStyle.Format = "#,##0.00";
+                dtg_Items.Columns[11].DefaultCellStyle.Format = "#,##0.00";
                 dtg_Items.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_Items.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_Items.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

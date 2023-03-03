@@ -113,7 +113,7 @@ namespace Inventory_System02.Invoice_Code
                 total += Convert.ToDecimal(ds.Tables[0].Rows[i]["Quantity"]) * Convert.ToDecimal(ds.Tables[0].Rows[i]["Price"]);
             }
 
-            string formattedTotal = total.ToString("#0.00");
+            string formattedTotal = total.ToString("#,##0.00");
 
             rs.Name = "Out_DataSet";
             frm.reportViewer1.LocalReport.DataSources.Clear();
@@ -143,6 +143,16 @@ namespace Inventory_System02.Invoice_Code
             reportParameters.Add(new ReportParameter("Customer_Name", cust_name));
             reportParameters.Add(new ReportParameter("Address", address));
             reportParameters.Add(new ReportParameter("Total", formattedTotal.ToString()));
+            if (ds != null)
+            {
+                reportParameters.Add(new ReportParameter("Total_QTY", ds.Tables[0].Rows.Count.ToString()));
+            }
+            else
+            {
+                reportParameters.Add(new ReportParameter("Total_QTY", 0.ToString()));
+            }
+
+
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();

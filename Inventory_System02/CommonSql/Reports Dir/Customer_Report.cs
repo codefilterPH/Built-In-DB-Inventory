@@ -125,7 +125,7 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
 
-            sql = " SELECT * from Customer WHERE DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entr Date` DESC"; 
+            sql = " SELECT * from Customer WHERE DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC"; 
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
   
