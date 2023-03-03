@@ -101,25 +101,25 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.90822cm</Width>
+                  <Width>2.56615cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.05407cm</Width>
+                  <Width>1.8839cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.44211cm</Width>
+                  <Width>3.01878cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.04617cm</Width>
+                  <Width>2.30534cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.26225cm</Width>
+                  <Width>2.62725cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.25684cm</Width>
+                  <Width>1.6483cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.63607cm</Width>
+                  <Width>2.34503cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -205,7 +205,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>BARCODE/ID</Value>
+                                  <Value>ID</Value>
                                   <Style>
                                     <FontFamily>courier New</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -325,7 +325,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>DESCRIPTION</Value>
+                                  <Value>DESC</Value>
                                   <Style>
                                     <FontFamily>courier New</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -365,7 +365,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>QUANTIY</Value>
+                                  <Value>QTY</Value>
                                   <Style>
                                     <FontFamily>courier New</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -1558,7 +1558,7 @@
             <Top>1.47967cm</Top>
             <Left>0.50835cm</Left>
             <Height>1.96728cm</Height>
-            <Width>56.53302cm</Width>
+            <Width>52.32204cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

@@ -834,7 +834,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.81023cm</Top>
-              <Left>7.69876cm</Left>
+              <Left>7.06376cm</Left>
               <Height>0.61171cm</Height>
               <Width>5.70146cm</Width>
               <ZIndex>1</ZIndex>
@@ -867,9 +867,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.82194cm</Top>
-              <Left>3.06444cm</Left>
+              <Left>2.86793cm</Left>
               <Height>0.6cm</Height>
-              <Width>4.1757cm</Width>
+              <Width>3.73721cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -901,7 +901,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>2.81023cm</Top>
-              <Left>6.94029cm</Left>
+              <Left>6.30529cm</Left>
               <Height>0.61171cm</Height>
               <Width>1.27cm</Width>
               <ZIndex>3</ZIndex>
@@ -922,7 +922,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REPORT DATE</Value>
+                      <Value>DATE RANGE</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -937,6 +937,71 @@
               <Height>0.6cm</Height>
               <Width>2.60583cm</Width>
               <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="lbl_report_date5">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!Report_Date.Value</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>2.04625cm</Top>
+              <Left>2.62347cm</Left>
+              <Height>0.6cm</Height>
+              <Width>3.34667cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox11">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>REPORT DATE</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox7</rd:DefaultName>
+              <Top>2.04625cm</Top>
+              <Left>0.3175cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.76458cm</Width>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1090,6 +1155,12 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Report_Date">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1150,6 +1221,11 @@
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>3</RowIndex>
           <ParameterName>To_Date</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>Report_Date</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

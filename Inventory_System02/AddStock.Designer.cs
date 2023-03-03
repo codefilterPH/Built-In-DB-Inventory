@@ -30,10 +30,10 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStock));
             this.dtg_Items = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
@@ -59,7 +59,7 @@ namespace Inventory_System02
             this.print_tbl_in = new System.Windows.Forms.ToolStripMenuItem();
             this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
-            this.btb_delete = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_AddStock = new System.Windows.Forms.Button();
             this.txt_Price = new System.Windows.Forms.TextBox();
@@ -100,6 +100,13 @@ namespace Inventory_System02
             this.lbl_TotalAmt = new System.Windows.Forms.Label();
             this.lbl_TotalQty = new System.Windows.Forms.Label();
             this.Calculator_Timer = new System.Windows.Forms.Timer(this.components);
+            this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostProductPurchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leastProductPurchasedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostItemPurchasedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mostItemPurchasedToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.divisionWithTheLeastPurchasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Items)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -114,24 +121,24 @@ namespace Inventory_System02
             // 
             this.dtg_Items.AllowUserToAddRows = false;
             this.dtg_Items.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
-            this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.DimGray;
+            this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dtg_Items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_Items.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dtg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Items.EnableHeadersVisualStyles = false;
             this.dtg_Items.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -139,21 +146,21 @@ namespace Inventory_System02
             this.dtg_Items.Name = "dtg_Items";
             this.dtg_Items.ReadOnly = true;
             this.dtg_Items.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dtg_Items.RowTemplate.Height = 60;
             this.dtg_Items.Size = new System.Drawing.Size(850, 191);
             this.dtg_Items.TabIndex = 20;
@@ -253,7 +260,8 @@ namespace Inventory_System02
             this.viewToolStripMenuItem,
             this.batchToolStripMenuItem,
             this.printTransactionToolStripMenuItem,
-            this.newItemToolStripMenuItem});
+            this.newItemToolStripMenuItem,
+            this.filtersToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -416,22 +424,22 @@ namespace Inventory_System02
             this.label7.TabIndex = 15;
             this.label7.Text = "Descriptions";
             // 
-            // btb_delete
+            // btn_delete
             // 
-            this.btb_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btb_delete.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btb_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btb_delete.FlatAppearance.BorderSize = 0;
-            this.btb_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btb_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btb_delete.ForeColor = System.Drawing.Color.White;
-            this.btb_delete.Location = new System.Drawing.Point(565, 52);
-            this.btb_delete.Name = "btb_delete";
-            this.btb_delete.Size = new System.Drawing.Size(107, 20);
-            this.btb_delete.TabIndex = 13;
-            this.btb_delete.Text = "Delete Item";
-            this.btb_delete.UseVisualStyleBackColor = false;
-            this.btb_delete.Click += new System.EventHandler(this.btb_delete_Click);
+            this.btn_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_delete.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_delete.FlatAppearance.BorderSize = 0;
+            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.ForeColor = System.Drawing.Color.White;
+            this.btn_delete.Location = new System.Drawing.Point(565, 52);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(107, 20);
+            this.btn_delete.TabIndex = 13;
+            this.btn_delete.Text = "Delete Item";
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btb_delete_Click);
             // 
             // btn_edit
             // 
@@ -513,7 +521,7 @@ namespace Inventory_System02
             this.panel1.Controls.Add(this.txt_Qty);
             this.panel1.Controls.Add(this.txt_Price);
             this.panel1.Controls.Add(this.txt_Search);
-            this.panel1.Controls.Add(this.btb_delete);
+            this.panel1.Controls.Add(this.btn_delete);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_edit);
             this.panel1.Controls.Add(this.cbo_brand);
@@ -971,6 +979,76 @@ namespace Inventory_System02
             // 
             this.Calculator_Timer.Tick += new System.EventHandler(this.Calculator_Timer_Tick);
             // 
+            // filtersToolStripMenuItem
+            // 
+            this.filtersToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.filtersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mostProductPurchaseToolStripMenuItem,
+            this.leastProductPurchasedToolStripMenuItem,
+            this.mostItemPurchasedToolStripMenuItem,
+            this.mostItemPurchasedToolStripMenuItem1,
+            this.mosToolStripMenuItem,
+            this.divisionWithTheLeastPurchasesToolStripMenuItem});
+            this.filtersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.filtersToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("filtersToolStripMenuItem.Image")));
+            this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
+            this.filtersToolStripMenuItem.Size = new System.Drawing.Size(138, 20);
+            this.filtersToolStripMenuItem.Text = "Special Information";
+            // 
+            // mostProductPurchaseToolStripMenuItem
+            // 
+            this.mostProductPurchaseToolStripMenuItem.BackColor = System.Drawing.Color.Peru;
+            this.mostProductPurchaseToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.mostProductPurchaseToolStripMenuItem.Name = "mostProductPurchaseToolStripMenuItem";
+            this.mostProductPurchaseToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.mostProductPurchaseToolStripMenuItem.Text = "Most Brand Inbound";
+            this.mostProductPurchaseToolStripMenuItem.Click += new System.EventHandler(this.mostProductPurchaseToolStripMenuItem_Click);
+            // 
+            // leastProductPurchasedToolStripMenuItem
+            // 
+            this.leastProductPurchasedToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.leastProductPurchasedToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.leastProductPurchasedToolStripMenuItem.Name = "leastProductPurchasedToolStripMenuItem";
+            this.leastProductPurchasedToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.leastProductPurchasedToolStripMenuItem.Text = "Least Brand Inbound";
+            this.leastProductPurchasedToolStripMenuItem.Click += new System.EventHandler(this.leastProductPurchasedToolStripMenuItem_Click);
+            // 
+            // mostItemPurchasedToolStripMenuItem
+            // 
+            this.mostItemPurchasedToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
+            this.mostItemPurchasedToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.mostItemPurchasedToolStripMenuItem.Name = "mostItemPurchasedToolStripMenuItem";
+            this.mostItemPurchasedToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.mostItemPurchasedToolStripMenuItem.Text = "Most Item Inbound";
+            this.mostItemPurchasedToolStripMenuItem.Click += new System.EventHandler(this.mostItemPurchasedToolStripMenuItem_Click);
+            // 
+            // mostItemPurchasedToolStripMenuItem1
+            // 
+            this.mostItemPurchasedToolStripMenuItem1.BackColor = System.Drawing.Color.Peru;
+            this.mostItemPurchasedToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.mostItemPurchasedToolStripMenuItem1.Name = "mostItemPurchasedToolStripMenuItem1";
+            this.mostItemPurchasedToolStripMenuItem1.Size = new System.Drawing.Size(241, 22);
+            this.mostItemPurchasedToolStripMenuItem1.Text = "Least Item Inbound";
+            this.mostItemPurchasedToolStripMenuItem1.Click += new System.EventHandler(this.mostItemPurchasedToolStripMenuItem1_Click);
+            // 
+            // mosToolStripMenuItem
+            // 
+            this.mosToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.mosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.mosToolStripMenuItem.Name = "mosToolStripMenuItem";
+            this.mosToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.mosToolStripMenuItem.Text = "Supplier with the Most Inbound";
+            this.mosToolStripMenuItem.Click += new System.EventHandler(this.mosToolStripMenuItem_Click);
+            // 
+            // divisionWithTheLeastPurchasesToolStripMenuItem
+            // 
+            this.divisionWithTheLeastPurchasesToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
+            this.divisionWithTheLeastPurchasesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.divisionWithTheLeastPurchasesToolStripMenuItem.Name = "divisionWithTheLeastPurchasesToolStripMenuItem";
+            this.divisionWithTheLeastPurchasesToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.divisionWithTheLeastPurchasesToolStripMenuItem.Text = "Supplier with the Least Inbound";
+            this.divisionWithTheLeastPurchasesToolStripMenuItem.Click += new System.EventHandler(this.divisionWithTheLeastPurchasesToolStripMenuItem_Click);
+            // 
             // AddStock
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1024,7 +1102,7 @@ namespace Inventory_System02
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem definitionsToolStripMenuItem;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btb_delete;
+        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_AddStock;
         private System.Windows.Forms.TextBox txt_Price;
@@ -1077,6 +1155,13 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem print_trans_in;
         private System.Windows.Forms.ToolStripMenuItem print_tbl_in;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ToolStripMenuItem filtersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mostProductPurchaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leastProductPurchasedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mostItemPurchasedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mostItemPurchasedToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem divisionWithTheLeastPurchasesToolStripMenuItem;
     }
 }
 

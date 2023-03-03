@@ -146,9 +146,8 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             WhatTable_To_Select();
 
 
-            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' AND CAST(Quantity AS INT) BETWEEN '" + filter_qty_from.ToString() +"' AND '"+filter_qty_to.ToString()+"' ORDER BY `Entry Date` DESC";
+            sql = "SELECT * FROM " + db_table + " WHERE  DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' AND CAST(Quantity AS INT) >= '" + filter_qty_from.ToString() +"' AND CAST(Quantity as INT) <= '" + filter_qty_to.ToString() + "' ORDER BY `Entry Date` DESC";
 
-            config.Load_Datasource(sql, ds);
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
             calculate_Total();
@@ -156,11 +155,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             {
                 if (cbo_report_type.Text == "Stock In")
                 {
-                    if (ds != null)
+                    if (dtg_PreviewPage.DataSource != null)
                     {
-                        list2 = ds.Tables[0].AsEnumerable().Select(
-                         dataRow => new Class_Item_Var
-                         {
+                       list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                        dataRow => new Class_Item_Var
+                        {
                              Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
                              Item_ID = dataRow.Field<string>("Stock ID").ToString(),
                              Item_Name = dataRow.Field<string>("Item Name").ToString(),
@@ -176,17 +175,17 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                              Trans_Ref = dataRow.Field<string>("Transaction Reference").ToString(),
                              Amount = (Convert.ToDecimal(dataRow["Quantity"]) * Convert.ToDecimal(dataRow["Price"])).ToString("#0.00"),
 
-                         }).ToList();
+                        }).ToList();
                         rs.Value = list2;
                     }
                 }
                 else
                 {
-                    if (ds != null)
+                    if (dtg_PreviewPage.DataSource != null)
                     {
-                        list2 = ds.Tables[0].AsEnumerable().Select(
-                      dataRow => new Class_Item_Var
-                      {
+                         list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                       dataRow => new Class_Item_Var
+                       {
                           Entry_Date = dataRow.Field<string>("Entry Date"),
                           Item_ID = dataRow.Field<string>("Stock ID"),
                           Item_Name = dataRow.Field<string>("Item Name"),
@@ -203,7 +202,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                           Job_Role = dataRow.Field<string>("Job Role"),
                           Trans_Ref = dataRow.Field<string>("Transaction Reference"),
 
-                      }).ToList();
+                       }).ToList();
                         rs.Value = list2;
                     }
                 }
@@ -217,7 +216,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                 frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Item_qty_RDLC_DIR + @"ItemQTY_Report.rdlc");
 
                 //Load Text to RDLC TextBox
-                reportParameters.Add(new ReportParameter("param_report_date", dtp_date_to.Text));
+                reportParameters.Add(new ReportParameter("param_report_date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
                 reportParameters.Add(new ReportParameter("DateStart", dtp_date_from.Text));
                 reportParameters.Add(new ReportParameter("DateEnd", dtp_date_to.Text));
 
@@ -243,15 +242,15 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                 reportParameters.Add(new ReportParameter("CompanyName", company_name));
                 reportParameters.Add(new ReportParameter("CompanyAddress", company_address));
 
-                if (ds.Tables[0].Rows.Count >= 1)
+                if (dtg_PreviewPage.Rows.Count >= 1)
                 {
-                    reportParameters.Add(new ReportParameter("Total_Items", ds.Tables[0].Rows.Count.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Items", lbl_total_items.Text));
                     calculate_Total();
                     reportParameters.Add(new ReportParameter("Total_Quantity", quantity1.ToString()));
                     reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString()));
 
                 }
-                else if (ds.Tables[0].Rows.Count <= 0)
+                else if (dtg_PreviewPage.Rows.Count <= 0)
                 {
                     reportParameters.Add(new ReportParameter("Total_Items", 0.ToString()));
                     reportParameters.Add(new ReportParameter("Total_Quantity", 0.ToString()));

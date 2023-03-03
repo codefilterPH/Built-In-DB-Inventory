@@ -138,23 +138,22 @@ namespace Inventory_System02.Reports_Dir
             Group_Filtering_MustNotEmpty();
             if (Global_ID == "admin")
             {
-                sql = "SELECT * FROM Employee WHERE `Hired Date` BETWEEN '" + dtp_date_from.Text + "' AND '" + dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
+                sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
             }
             else
             {
-                sql = "SELECT * FROM Employee WHERE `Hired Date` BETWEEN '" + dtp_date_from.Text + "' AND '" + dtp_date_to.Text + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+                sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
             }
             config.Load_DTG(sql, dtg_PreviewPage);
-            config.Load_Datasource(sql, ds);
             DTG_Properties();
             if (what_to_do != "load")
             {
                 list2 = new List<Class_Employee_Var>();
-                if (ds != null)
+                if (dtg_PreviewPage.DataSource != null)
                 {
-                    list2 = ds.Tables[0].AsEnumerable().Select(
-                  dataRow => new Class_Employee_Var
-                  {
+                     list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                   dataRow => new Class_Employee_Var
+                   {
                       Emp_ID = dataRow.Field<string>("Employee ID").ToString(),
                       FN = dataRow.Field<string>("First Name").ToString(),
                       LN = dataRow.Field<string>("Last Name").ToString(),
@@ -163,7 +162,7 @@ namespace Inventory_System02.Reports_Dir
                       Address = dataRow.Field<string>("Address").ToString(),
                       JobRole = dataRow.Field<string>("Job Role").ToString(),
                       HiredDate = dataRow.Field<string>("Hired Date").ToString()
-                  }).ToList();
+                   }).ToList();
                     rs.Value = list2;
                 }
 
@@ -175,18 +174,23 @@ namespace Inventory_System02.Reports_Dir
                 frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Employee_RDLC_DIR);
 
                 //Load Text to RDLC TextBox
+                reportParameters.Add(new ReportParameter("Report_Date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
                 reportParameters.Add(new ReportParameter("From_Date", dtp_date_from.Text));
                 reportParameters.Add(new ReportParameter("To_Date", dtp_date_to.Text));
 
-                if (ds.Tables[0].Rows.Count >= 1)
+                if (dtg_PreviewPage.Rows.Count >= 1)
                 {
-                    reportParameters.Add(new ReportParameter("Total_Person", ds.Tables[0].Rows.Count.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Person", dtg_PreviewPage.Rows.Count.ToString()));
+                }
+                else 
+                {
+                    reportParameters.Add(new ReportParameter("Total_Person", "0"));
                 }
                 foreach (CheckBox chk2 in grp_filters.Controls)
                 {
                     if (chk2.Checked == false)
                     {
-                        reportParameters.Add(new ReportParameter("Total_Person", 0.ToString()));
+                        reportParameters.Add(new ReportParameter("Total_Person", "0"));
                     }
                 }
                 //HIDING COLUMNS

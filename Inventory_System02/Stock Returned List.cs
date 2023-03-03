@@ -51,6 +51,8 @@ namespace Inventory_System02
                     out_qty.Text = "0";
                 }
             }
+            enable_them = true;
+            SpecialFilterDisabler();
         }
         decimal total_val;
         int total_qty;
@@ -289,6 +291,98 @@ namespace Inventory_System02
         private void out_amt_TextChanged(object sender, EventArgs e)
         {
             func.Label_Two_Decimal_Places(sender, e, out_amt);
+        }
+        bool enable_them = false;
+        private void SpecialFilterDisabler()
+        {
+            if (enable_them == false)
+            {
+                printInvoiceToolStripMenuItem.Enabled = false;
+                batchTransactionToolStripMenuItem.Enabled = false;
+                view_main_btn.Enabled = false;
+                btn_view.Enabled = false;
+                btn_edit.Enabled = false;
+                btn_Delete.Enabled = false;
+                dtg_return_list.Enabled = false;
+                txt_Search.Enabled = false;
+
+
+                dtg_return_list.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_return_list.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dtg_return_list.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtg_return_list.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
+                lbl_items_count.Text = "1";
+                out_amt.Text = "0";
+                out_qty.Text = "0";
+            }
+            else
+            {
+                printInvoiceToolStripMenuItem.Enabled = true;
+                batchTransactionToolStripMenuItem.Enabled = true;
+                view_main_btn.Enabled = true;
+                btn_view.Enabled = true;
+                btn_edit.Enabled = true;
+                btn_Delete.Enabled = true;
+                dtg_return_list.Enabled = true;
+                txt_Search.Enabled = true;
+
+                dtg_return_list.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dtg_return_list.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_return_list.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtg_return_list.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            }
+        }
+
+        private void most_brand_return_tool_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY Brand ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_return_list);
+            enable_them = false;
+            SpecialFilterDisabler();
+     
+        }
+
+        private void least_brand_return_tool_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY Brand ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_return_list);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void most_product_return_tool_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Item Name`, COUNT(*) AS `Total Occurences`, Brand FROM `Stock Returned` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_return_list);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void least_product_return_tool_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Item Name`, COUNT(*) AS `Total Occurences`, Brand FROM `Stock Returned` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_return_list);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void most_division_return_tool_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY `Customer Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_return_list);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void least_division_return_tool_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY `Customer Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_return_list);
+            enable_them = false;
+            SpecialFilterDisabler();
         }
 
         string search_for = string.Empty;

@@ -105,17 +105,17 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
 
-            sql = " SELECT * from Supplier where `Entry Date` between '" + dtp_date_from.Text + "' and '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC ";
+            sql = " SELECT * from Supplier where DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' and DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_PreviewPage);
             DTG_Properties();
-            config.Load_Datasource(sql, ds);
+
             if ( what_to_do != "load" ) 
             {
                 list2 = new List<Class_Supplier_Var>();
-                if (ds != null)
+                if (dtg_PreviewPage.DataSource != null)
                 {
-                    list2 = ds.Tables[0].AsEnumerable().Select(
-                  dataRow => new Class_Supplier_Var
+                   list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                 dataRow => new Class_Supplier_Var
                   {
                       Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
                       Supplier_Id = dataRow.Field<string>("Company ID").ToString(),
@@ -135,14 +135,19 @@ namespace Inventory_System02.Reports_Dir
                 frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Supplier_RDLC_DIR);
 
                 //Load Text to RDLC TextBox
+                reportParameters.Add(new ReportParameter("Report_Date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
                 reportParameters.Add(new ReportParameter("From_Date", dtp_date_from.Text));
                 reportParameters.Add(new ReportParameter("To_Date", dtp_date_to.Text));
 
-
-                if (ds.Tables[0].Rows.Count >= 1)
+                if ( dtg_PreviewPage.Rows.Count >= 1 )
                 {
-                    reportParameters.Add(new ReportParameter("Total_Person", ds.Tables[0].Rows.Count.ToString()));
+                    reportParameters.Add(new ReportParameter("Total_Person", lbl_Personnel.Text));
                 }
+                else
+                {
+                    reportParameters.Add(new ReportParameter("Total_Person", "0"));
+                }
+              
                 foreach (CheckBox chk2 in grp_filters.Controls)
                 {
                     if (chk2.Checked == false)

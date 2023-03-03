@@ -42,6 +42,9 @@ namespace Inventory_System02
                 out_qty.Text = "0";
             }
             DTG_Property();
+            //Enable everyone because they are not using specialfilters
+            enable_them = true;
+            SpecialFilterDisabler();
         }
         private void DTG_Property()
         {
@@ -297,6 +300,94 @@ namespace Inventory_System02
         private void out_amt_TextChanged(object sender, EventArgs e)
         {
             func.Label_Two_Decimal_Places(sender, e, out_amt);
+        }
+        bool enable_them = false;
+        private void SpecialFilterDisabler()
+        {
+            if (enable_them == false)
+            {
+                printInvoiceToolStripMenuItem.Enabled = false;
+                batchTransactionToolStripMenuItem.Enabled = false;
+                view_main_btn.Enabled = false;
+                btn_view.Enabled = false;
+                btn_select.Enabled = false;
+                btn_Delete.Enabled = false;
+                dtg_outlist.Enabled = false;
+                txt_Search.Enabled = false;
+                
+            
+                dtg_outlist.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_outlist.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_outlist.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtg_outlist.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                lbl_items_count.Text = "1";
+                out_amt.Text = "0";
+                out_qty.Text = "0";
+            }
+            else
+            {
+                printInvoiceToolStripMenuItem.Enabled = true;
+                batchTransactionToolStripMenuItem.Enabled = true;
+                view_main_btn.Enabled = true;
+                btn_view.Enabled = true;
+                btn_select.Enabled = true;
+                btn_Delete.Enabled = true;
+                dtg_outlist.Enabled = true;
+                txt_Search.Enabled = true;
+
+                dtg_outlist.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dtg_outlist.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_outlist.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtg_outlist.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            }
+        }
+        private void mostProductPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY Brand ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_outlist);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void leastProductPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY Brand ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_outlist);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void mostItemPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Item Name`, Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_outlist);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void mostItemPurchasedToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Item Name`, Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_outlist);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void mosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Customer Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_outlist);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void divisionWithTheLeastPurchasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Customer Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_outlist);
+            enable_them = false;
+            SpecialFilterDisabler();
         }
 
         private void btn_select_Click(object sender, EventArgs e)

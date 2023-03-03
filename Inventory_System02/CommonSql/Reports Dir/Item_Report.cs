@@ -183,9 +183,8 @@ namespace Inventory_System02.Reports_Dir
             Group_Filtering_MustNotEmpty();
             WhatTable_To_Select();
 
-            sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "'  ORDER BY `Entry Date` DESC";
-
-            config.Load_Datasource(sql, ds);
+            sql = "SELECT * FROM " + db_table + " WHERE  DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND  DATE(`Entry Date`) <= '" + dtp_date_to.Text + "'  ORDER BY `Entry Date` DESC";
+         
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
             calculate_Total();
@@ -193,10 +192,10 @@ namespace Inventory_System02.Reports_Dir
             {
                 if (cbo_report_type.Text == "Stock In")
                 {
-                    if (ds != null)
+                    if (dtg_PreviewPage.DataSource != null)
                     {
-                        list2 = ds.Tables[0].AsEnumerable().Select(
-                         dataRow => new Class_Item_Var
+                       list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                        dataRow => new Class_Item_Var
                          {
                              Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
                              Item_ID = dataRow.Field<string>("Stock ID").ToString(),
@@ -220,10 +219,10 @@ namespace Inventory_System02.Reports_Dir
                 }
                 else
                 {
-                    if (ds != null)
+                    if (dtg_PreviewPage.DataSource != null)
                     {
-                        list2 = ds.Tables[0].AsEnumerable().Select(
-                      dataRow => new Class_Item_Var
+                         list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                       dataRow => new Class_Item_Var
                       {
                           Entry_Date = dataRow.Field<string>("Entry Date"),
                           Item_ID = dataRow.Field<string>("Stock ID"),
@@ -255,7 +254,7 @@ namespace Inventory_System02.Reports_Dir
                 frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Item_RDLC_DIR + @"Item Report.rdlc");
 
                 //Load Text to RDLC TextBox
-                reportParameters.Add(new ReportParameter("param_report_date", dtp_date_to.Text));
+                reportParameters.Add(new ReportParameter("param_report_date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
                 reportParameters.Add(new ReportParameter("DateStart", dtp_date_from.Text));
                 reportParameters.Add(new ReportParameter("DateEnd", dtp_date_to.Text));
 
@@ -281,7 +280,7 @@ namespace Inventory_System02.Reports_Dir
                 reportParameters.Add(new ReportParameter("CompanyName", company_name));
                 reportParameters.Add(new ReportParameter("CompanyAddress", company_address));
 
-                if (ds.Tables[0].Rows.Count >= 1)
+                if (dtg_PreviewPage.Rows.Count >= 1)
                 {
                     reportParameters.Add(new ReportParameter("Total_Items", lbl_total_items.Text));
                     calculate_Total();
@@ -289,7 +288,7 @@ namespace Inventory_System02.Reports_Dir
                     reportParameters.Add(new ReportParameter("Total_Value", lbl_total_value.Text));
 
                 }
-                else if (ds.Tables[0].Rows.Count <= 0)
+                else if (dtg_PreviewPage.Rows.Count <= 0)
                 {
                     reportParameters.Add(new ReportParameter("Total_Items", 0.ToString()));
                     reportParameters.Add(new ReportParameter("Total_Quantity", 0.ToString()));
@@ -398,21 +397,30 @@ namespace Inventory_System02.Reports_Dir
         {
             if (cbo_report_type.Text == "Stock In")
             {
+                chk_Sup_ID.Visible = true;
+                chk_Sup_Name.Visible = true;
+                chk_Sup_Name.Checked = true;
+
                 chk_Cust_ID.Visible = false;
                 chk_Cust_Name.Visible = false;
                 chk_Cust_Address.Visible = false;
 
-                chk_Sup_ID.Visible = true;
-                chk_Sup_Name.Visible = true;
+                chk_Cust_ID.Checked = false;
+                chk_Cust_Name.Checked = false;
+                chk_Cust_Address.Checked = false;
             }
             else
             {
                 chk_Cust_ID.Visible = true;
                 chk_Cust_Name.Visible = true;
                 chk_Cust_Address.Visible = true;
+                chk_Cust_Name.Checked = true;
+
 
                 chk_Sup_ID.Visible = false;
                 chk_Sup_Name.Visible = false;
+                chk_Sup_Name.Checked = false;
+                chk_Sup_ID.Checked = false;
             }
             calculate_Total();
             Calculate_Filtering("load_todtg", cbo_report_type.Text);

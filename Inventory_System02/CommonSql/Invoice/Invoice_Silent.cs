@@ -110,7 +110,7 @@ namespace Inventory_System02.Invoice_Silent
             }
 
             //Load Text to RDLC TextBox
-            reportParameters.Add(new ReportParameter("ReportDate", report_date));
+            reportParameters.Add(new ReportParameter("ReportDate", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
             reportParameters.Add(new ReportParameter("TransRef", Trans_ref));
             reportParameters.Add(new ReportParameter("Customer_Name", cust_name));
             reportParameters.Add(new ReportParameter("Address", address));

@@ -294,11 +294,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             if ( cbo_report_type.Text == "Stock In")
             {
 
-                sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' AND `Supplier Name` = '"+ cbo_sup_divi.Text+"' ORDER BY `Entry Date` DESC";
+                sql = "SELECT * FROM " + db_table + " WHERE  DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' AND `Supplier Name` = '"+ cbo_sup_divi.Text+"' ORDER BY `Entry Date` DESC";
             }
             else
             {
-                sql = "SELECT * FROM " + db_table + " WHERE  `Entry Date` between '" + dtp_date_from.Text + "' AND  '" + dtp_date_to.Text + "' AND `Customer Name` = '"+ cbo_sup_divi.Text+"' ORDER BY `Entry Date` DESC";
+                sql = "SELECT * FROM " + db_table + " WHERE  DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' AND `Customer Name` = '" + cbo_sup_divi.Text+"' ORDER BY `Entry Date` DESC";
             }
             config.Load_DTG(sql, dtg_PreviewPage);
             Dtg_Properties();
@@ -369,7 +369,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Invoice_BY_SupDivi);
 
                 //Load Text to RDLC TextBox
-                reportParameters.Add(new ReportParameter("param_report_date", dtp_date_to.Text));
+                reportParameters.Add(new ReportParameter("param_report_date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
                 reportParameters.Add(new ReportParameter("DateStart", dtp_date_from.Text));
                 reportParameters.Add(new ReportParameter("DateEnd", dtp_date_to.Text));
 

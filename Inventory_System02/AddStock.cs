@@ -3,6 +3,7 @@ using Inventory_System02.Items;
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.SqlServer;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -55,8 +56,6 @@ namespace Inventory_System02
             Calculator_Timer.Start();
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
-
-
 
         }
         double totalrows = 0;
@@ -139,32 +138,30 @@ namespace Inventory_System02
             }
             Calculator_Timer.Stop();
         }
+        int my_qty;
+        decimal my_total;
         public void Calculations()
         {
-
-            int my_qty = 0;
-            decimal my_total = 0;
-
-            sql = "Select Quantity, Total FROM Stocks WHERE `ENTRY DATE` = '"+ DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)+"'";
-            config.singleResult(sql);
-
-            if (config.dt.Rows.Count > 0)
-            {
-                for ( int i = 0; i < config.dt.Rows.Count; i++)
-                {
-                    int qty = 0;
-                    decimal total = 0;
-                    int.TryParse(config.dt.Rows[i]["Quantity"].ToString(), out qty);
-                    decimal.TryParse(config.dt.Rows[i]["Total"].ToString(), out total);
-                    my_qty += qty;
-                    my_total += total;
-                }    
-            }
-            lbl_Today_Qty.Text = my_qty.ToString();
-            lbl_Today_Amt.Text = my_total.ToString();
-
             if ( dtg_Items.Rows.Count > 0)
             {
+                my_qty = 0;
+                my_total = 0;
+
+                foreach (DataGridViewRow rw in dtg_Items.Rows)
+                {
+                    if (Convert.ToDateTime(rw.Cells[1].Value.ToString()).ToString(Includes.AppSettings.DateFormatRetrieve) == DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve))
+                    {
+                    
+                        int qty = 0;
+                        decimal total = 0;
+                        int.TryParse(rw.Cells[6].Value.ToString(), out qty);
+                        decimal.TryParse(rw.Cells[8].Value.ToString(), out total);
+                        my_qty += qty;
+                        my_total += total;
+                    }
+                    lbl_Today_Qty.Text = my_qty.ToString();
+                    lbl_Today_Amt.Text = my_total.ToString();
+                }
 
                 my_qty = 0;
                 my_total = 0;
@@ -325,6 +322,8 @@ namespace Inventory_System02
         {
             AddStock_Load(sender, e);
             SupplierChangeDisabler();
+            enable_them = true;
+            SpecialFilterDisabler();
         }
 
         private void btn_Clear_Text_Click(object sender, EventArgs e)
@@ -536,7 +535,6 @@ namespace Inventory_System02
         private void txt_Price_TextChanged(object sender, EventArgs e)
         {
             txt_Qty_ValueChanged(sender, e);
-            func.Two_Decimal_Places(sender, e, txt_Price);
         }
 
         private void txt_Qty_Leave(object sender, EventArgs e)
@@ -616,6 +614,110 @@ namespace Inventory_System02
         private void lbl_TotalAmt_TextChanged(object sender, EventArgs e)
         {
             func.Label_Two_Decimal_Places(sender, e, lbl_TotalAmt);
+        }
+        bool enable_them = false;
+        private void SpecialFilterDisabler()
+        {
+            if (enable_them == false)
+            {
+                printTransactionToolStripMenuItem.Enabled = false;
+                batchToolStripMenuItem.Enabled = false;
+                viewToolStripMenuItem.Enabled = false;
+                btn_AddStock.Enabled = false;
+                btn_edit.Enabled = false;
+                btn_delete.Enabled = false;
+                btn_upload.Enabled = false;
+                btn_preview.Enabled = false;
+                dtg_Items.Enabled = false;
+                txt_Search.Enabled = false;
+                btn_Clear_Text.Enabled = false;
+
+                dtg_Items.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_Items.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtg_Items.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                lbl_items_count.Text = "1";
+                lbl_Today_Amt.Text = "0";
+                lbl_Today_Qty.Text = "0";
+                lbl_TotalAmt.Text = "0";
+                lbl_TotalQty.Text = "0";
+                txt_TransRef.Text = "";
+                txt_ItemName.Text = "";
+                txt_Barcode.Text = "";
+                cbo_desc.Text = "";
+                cbo_brand.Text = "";
+                txt_Qty.Text = "0";
+                txt_SupID.Text = "";
+                txt_Sup_Name.Text = "";
+                txt_Price.Text = "0.00";
+            }
+            else
+            {
+                printTransactionToolStripMenuItem.Enabled = true;
+                batchToolStripMenuItem.Enabled = true;
+                viewToolStripMenuItem.Enabled = true;
+                btn_AddStock.Enabled = true;
+                btn_edit.Enabled = true;
+                btn_delete.Enabled = true;
+                btn_upload.Enabled = true;
+                btn_preview.Enabled = true;
+                dtg_Items.Enabled = true;
+                txt_Search.Enabled = true;
+                btn_Clear_Text.Enabled = true;
+
+                dtg_Items.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Items.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtg_Items.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            }
+        }
+        private void mostProductPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY Brand ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_Items);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void leastProductPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY Brand ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_Items);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void mostItemPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Item Name`, `Brand`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_Items);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void mostItemPurchasedToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Item Name`, `Brand`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_Items);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void mosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Supplier Name`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Supplier Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            config.Load_DTG(sql, dtg_Items);
+            enable_them = false;
+            SpecialFilterDisabler();
+        }
+
+        private void divisionWithTheLeastPurchasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "SELECT `Supplier Name`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Supplier Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            config.Load_DTG(sql, dtg_Items);
+            enable_them = false;
+            SpecialFilterDisabler();
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
@@ -774,8 +876,11 @@ namespace Inventory_System02
                 txt_Search_TextChanged(sender, e);
                 Calculator_Timer.Start();
                 txt_TransRef.Text = save_Ref;
+                if ( dtg_Items.Rows.Count > 0)
+                {
+                    dtg_Items.Rows[0].Selected = true;
+                }
             }
-
         }
         string save_Ref = string.Empty;
     }

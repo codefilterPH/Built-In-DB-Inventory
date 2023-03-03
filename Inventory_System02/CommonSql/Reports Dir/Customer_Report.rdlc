@@ -599,8 +599,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.16099cm</Top>
-            <Left>0.44128cm</Left>
+            <Top>0.52599cm</Top>
+            <Left>0.40601cm</Left>
             <Height>1.2cm</Height>
             <Width>17.3113cm</Width>
             <Style>
@@ -616,7 +616,7 @@
       <Width>7.09337in</Width>
       <Page>
         <PageHeader>
-          <Height>3.31901cm</Height>
+          <Height>4.35088cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -636,7 +636,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>2.55447cm</Top>
+              <Top>3.56279cm</Top>
               <Left>6.73932cm</Left>
               <Height>0.61171cm</Height>
               <Width>5.11938cm</Width>
@@ -701,7 +701,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.56618cm</Top>
+              <Top>3.5745cm</Top>
               <Left>2.66945cm</Left>
               <Height>0.6cm</Height>
               <Width>3.34667cm</Width>
@@ -735,7 +735,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>2.55447cm</Top>
+              <Top>3.56279cm</Top>
               <Left>5.98085cm</Left>
               <Height>0.61171cm</Height>
               <Width>0.68792cm</Width>
@@ -757,6 +757,71 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
+                      <Value>DATE RANGE</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox7</rd:DefaultName>
+              <Top>3.5745cm</Top>
+              <Left>0.36348cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.76458cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="lbl_report_date4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!Report_Date.Value</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>2.7864cm</Top>
+              <Left>2.66945cm</Left>
+              <Height>0.6cm</Height>
+              <Width>3.34667cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox9">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
                       <Value>REPORT DATE</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
@@ -767,11 +832,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>2.56618cm</Top>
+              <Top>2.7864cm</Top>
               <Left>0.36348cm</Left>
               <Height>0.6cm</Height>
               <Width>2.76458cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -928,6 +993,12 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Report_Date">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -978,6 +1049,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>From_Date</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Report_Date</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
