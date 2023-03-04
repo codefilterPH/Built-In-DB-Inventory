@@ -6,9 +6,28 @@ April 03/2024 expiration date
 
 
 /Inventory/
-https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish
+http://eugenereybulahan.pythonanywhere.com/Inventory/publish/Inventory_System02.application
 
 How to get only 1 folder in github
-git clone --depth 1 --filter=blob:none --sparse https://github.com/codefilterPH/Inventory.git
+Create a new directory for the repository and navigate into it:
+mkdir Inventory
 cd Inventory
-git sparse-checkout set publish
+
+Initialize a new Git repository and add the remote origin:
+csharp
+
+git init
+git remote add origin https://github.com/codefilterPH/Inventory.git
+
+Enable sparse checkout and add the publish directory to the list of sparse-checkout patterns:
+git config core.sparseCheckout true
+echo "publish/*" >> .git/info/sparse-checkout
+
+Fetch the contents of the publish directory:
+git pull origin main
+This should fetch only the publish directory and its contents from the repository.
+
+
+if there are any error unstaged something
+used ---
+`git reset --hard`

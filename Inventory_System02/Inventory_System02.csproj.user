@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PublishUrlHistory>C:\Users\eugen\source\repos\Inventory\publish\|https://www.pythonanywhere.com/user/codefilter/files/home/codefilter/digiresume/Inventory/|/Inventory/|https://www.pythonanywhere.com/user/codefilter/digiresume/Inventory/|htthttps://www.pythonanywhere.com/user/codefilter/digiresume/Inventory/</PublishUrlHistory>
-    <InstallUrlHistory>https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish/Inventory_System02.application/|https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish/Inventory.application/|https://www.pythonanywhere.com/user/codefilter/digiresume/Inventory/Inventory.application/|https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish/|https://www.pythonanywhere.com/user/codefilter/files/home/codefilter/Inventory/Inventory.application/</InstallUrlHistory>
+    <InstallUrlHistory>http://eugenereybulahan.pythonanywhere.com/Inventory/publish/Inventory_System02.application/|https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish/Inventory_System02.application/|https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish/Inventory.application/|https://www.pythonanywhere.com/user/codefilter/digiresume/Inventory/Inventory.application/|https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
