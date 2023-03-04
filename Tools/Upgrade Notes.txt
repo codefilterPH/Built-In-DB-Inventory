@@ -1,0 +1,14 @@
+
+https://www.pythonanywhere.com/user/codefilter/files/home/codefilter/Inventory
+
+
+April 03/2024 expiration date
+
+
+/Inventory/
+https://www.pythonanywhere.com/user/eugenereybulahan/files/home/eugenereybulahan/Inventory/publish
+
+How to get only 1 folder in github
+git clone --depth 1 --filter=blob:none --sparse https://github.com/codefilterPH/Inventory.git
+cd Inventory
+git sparse-checkout set publish

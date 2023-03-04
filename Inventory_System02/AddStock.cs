@@ -79,7 +79,16 @@ namespace Inventory_System02
                 }
                 else
                 {
-                    rw["Image"] = File.ReadAllBytes(item_image_location + "DONOTDELETE_SUBIMAGE.PNG");
+                    try
+                    {
+                        rw["Image"] = File.ReadAllBytes(item_image_location + "DONOTDELETE_SUBIMAGE.JPG");
+                    }
+                    catch
+                    {
+                        rw["Image"] = File.ReadAllBytes(item_image_location + "DONOTDELETE_SUBIMAGE.PNG");
+
+                    }
+                   
                 }
             }
 
