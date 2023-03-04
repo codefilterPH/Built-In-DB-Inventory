@@ -49,6 +49,7 @@ namespace Inventory_System02
 
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Refresh();
             sql = "Select * from Stocks order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_Stocks);
          
@@ -397,6 +398,7 @@ namespace Inventory_System02
         {
             dtg_Stocks.CurrentRow.Selected = dtg_Stocks.CurrentCell.Selected;
             btn_sup_add_Click(sender, e);
+            btn_edit.Focus();
         }
 
         private void btn_view_Click(object sender, EventArgs e)
@@ -485,8 +487,10 @@ namespace Inventory_System02
                                 //check the quantity if its greater or equal to added stocks
                                 if (Convert.ToInt32(rw.Cells[6].Value) >= Convert.ToInt32(dtg_AddedStocks.Rows[i].Cells[4].Value))
                                 {
-                                    //Change the value of the stocks minus the added stocks
+                                    //Change the value of the current inbound stocks minus the added stocks
                                     rw.Cells[6].Value = Convert.ToInt32(rw.Cells[6].Value) - Convert.ToInt32(dtg_AddedStocks.Rows[i].Cells[4].Value);
+                                    //Calculate the current total inbound value times the new qty
+                                    rw.Cells[8].Value = Convert.ToDecimal(rw.Cells[6].Value) * Convert.ToDecimal(rw.Cells[7].Value);
                                     //Calculate the total (qty of added stocks * the price )
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = 0;
                                     dtg_AddedStocks.Rows[i].Cells[6].Value = Convert.ToDecimal(dtg_AddedStocks.Rows[i].Cells[4].Value) *
@@ -727,11 +731,12 @@ namespace Inventory_System02
                   
                     foreach (DataGridViewRow rw in dtg_Stocks.Rows)
                     {
-                        sql = "Select Quantity from Stocks where `Stock ID` = '" + rw.Cells[2].Value + "' ";
+                        sql = "Select Quantity, Total from Stocks where `Stock ID` = '" + rw.Cells[2].Value + "' ";
                         config.singleResult(sql);
                         if (config.dt.Rows.Count == 1)
                         {
-                            sql = "Update Stocks set Quantity = '" + rw.Cells[6].Value.ToString() + "' where `Stock ID` = '" + rw.Cells[2].Value + "' ";
+                            
+                            sql = "Update Stocks set Quantity = '" + Convert.ToInt32(rw.Cells[6].Value) + "', Total ='"+ Convert.ToDecimal(rw.Cells[8].Value)+"' where `Stock ID` = '" + rw.Cells[2].Value + "' ";
                             config.Execute_Query(sql);
                         }
                     }

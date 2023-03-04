@@ -104,6 +104,79 @@
     <ReportSection>
       <Body>
         <ReportItems>
+          <Textbox Name="Textbox20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!Total_QTY.Value</Value>
+                    <Style>
+                      <FontFamily>Courier New</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox13</rd:DefaultName>
+            <Top>9.42516cm</Top>
+            <Left>10.30737cm</Left>
+            <Height>0.82021cm</Height>
+            <Width>6.06243cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!Total.Value</Value>
+                    <Style>
+                      <FontFamily>Courier New</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'₱'#,0.00;('₱'#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox13</rd:DefaultName>
+            <Top>10.24537cm</Top>
+            <Left>10.2721cm</Left>
+            <Height>0.82021cm</Height>
+            <Width>6.06243cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>en-PH</rd:FormatSymbolCulture>
+            </Style>
+          </Textbox>
           <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
@@ -572,6 +645,7 @@
             <Left>0.55245cm</Left>
             <Height>1.905cm</Height>
             <Width>16.13486cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -600,7 +674,7 @@
             <Left>0.55245cm</Left>
             <Height>0.66146cm</Height>
             <Width>3.26319cm</Width>
-            <ZIndex>1</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -648,7 +722,7 @@
             <Left>2.58974cm</Left>
             <Height>1.45521cm</Height>
             <Width>5.95312cm</Width>
-            <ZIndex>2</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Color>DimGray</Color>
@@ -690,7 +764,7 @@
             <Left>8.86037cm</Left>
             <Height>1.45521cm</Height>
             <Width>6.5875cm</Width>
-            <ZIndex>3</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Color>DimGray</Color>
@@ -733,7 +807,7 @@
             <Left>9.52245cm</Left>
             <Height>1.98438cm</Height>
             <Width>6.97083cm</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -770,7 +844,7 @@
             <Left>6.93835cm</Left>
             <Height>0.82021cm</Height>
             <Width>3.26319cm</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -786,7 +860,7 @@
             <Left>6.79724cm</Left>
             <Height>0cm</Height>
             <Width>9.69604cm</Width>
-            <ZIndex>6</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -798,51 +872,13 @@
             <Left>6.79724cm</Left>
             <Height>0cm</Height>
             <Width>9.69604cm</Width>
-            <ZIndex>7</ZIndex>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
               </Border>
             </Style>
           </Line>
-          <Textbox Name="Textbox15">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!Total.Value</Value>
-                    <Style>
-                      <FontFamily>Courier New</FontFamily>
-                      <FontSize>20pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>'₱'#,0.00;('₱'#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>10.21009cm</Top>
-            <Left>10.04279cm</Left>
-            <Height>0.82021cm</Height>
-            <Width>6.25646cm</Width>
-            <ZIndex>8</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-              <rd:FormatSymbolCulture>en-PH</rd:FormatSymbolCulture>
-            </Style>
-          </Textbox>
           <Textbox Name="Textbox19">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -869,42 +905,6 @@
             <Left>6.93835cm</Left>
             <Height>0.82021cm</Height>
             <Width>3.26319cm</Width>
-            <ZIndex>9</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox20">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!Total_QTY.Value</Value>
-                    <Style>
-                      <FontFamily>Courier New</FontFamily>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>9.2784cm</Top>
-            <Left>10.04279cm</Left>
-            <Height>0.82021cm</Height>
-            <Width>6.25646cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>

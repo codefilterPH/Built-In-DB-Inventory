@@ -323,3 +323,7 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Rep
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.CommonSql.Reports_Dir.Item_Division.ItemByDivision_Form.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.exe.manifest
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.application
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.exe.manifest
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.application

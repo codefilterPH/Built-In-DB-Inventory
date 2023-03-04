@@ -50,6 +50,7 @@ namespace Inventory_System02
 
             // Bind the sorted DataTable to the DataGridView
             dtg_batch_form.DataSource = dt;
+            lbl_current.Text = "All Documents";
         }
         string what_to_del = string.Empty;
         private void chk_Select_all_CheckedChanged(object sender, EventArgs e)
@@ -138,7 +139,9 @@ namespace Inventory_System02
                     }
                     MessageBox.Show("Files are deleted!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // Reset any other properties as needed
+
                     dtg_batch_form.Columns.Clear();
+                    todayToolStripMenuItem_Click(sender, e);
                 }
            
             }
@@ -165,8 +168,8 @@ namespace Inventory_System02
                            DialogResult.Yes)
                             {
                                 File.Delete(Path.Combine(dir, filename1));
-                                PATH();
                                 MessageBox.Show(filename1 + " is deleted!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                todayToolStripMenuItem_Click(sender, e);
                             }
                         }
                         else
@@ -231,6 +234,7 @@ namespace Inventory_System02
 
         private void inboundTransToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Inbound Transaction/s";
             string[] files = Directory.GetFiles(path, "Inbound TRANS*");
 
             DataTable dt = new DataTable();
@@ -255,6 +259,7 @@ namespace Inventory_System02
 
         private void outboundTransToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Outbound Transaction/s";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Outbound TRANS*");
 
@@ -280,7 +285,7 @@ namespace Inventory_System02
 
         private void returnTransactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            lbl_current.Text = "Returned Transaction/s";
             string[] files = Directory.GetFiles(path, "Return TRANS*");
 
             DataTable dt = new DataTable();
@@ -304,6 +309,7 @@ namespace Inventory_System02
         }
         private void supplierReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Supplier\'s Reports";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Supplier Report*");
 
@@ -329,6 +335,7 @@ namespace Inventory_System02
 
         private void customerReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Customer\'s Reports";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Customer Report*");
 
@@ -354,6 +361,7 @@ namespace Inventory_System02
 
         private void employeeReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Employee\'s Reports";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Employee Report*");
 
@@ -379,6 +387,7 @@ namespace Inventory_System02
 
         private void inboundReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Inbound Date Range Reports";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Inbound Report*");
 
@@ -404,6 +413,7 @@ namespace Inventory_System02
 
         private void outboundReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Outbound Date Range Reports";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Outbound Report*");
 
@@ -429,6 +439,7 @@ namespace Inventory_System02
 
         private void returnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Returned Date Range Reports";
             string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
             string[] files = Directory.GetFiles(path, "Return Report*");
 
@@ -490,11 +501,13 @@ namespace Inventory_System02
             // Bind the sorted DataTable to the DataGridView
             dtg_batch_form.DataSource = dt;
             DTG_Properties();
+            lbl_current.Text = "Today\'s Filter";
 
         }
 
         private void monthToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Monthly Filter";
             string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Date");
@@ -521,6 +534,7 @@ namespace Inventory_System02
 
         private void yearToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Yearly Filter";
             string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
             System.Data.DataTable dt = new System.Data.DataTable();
             dt.Columns.Add("Date");
@@ -547,6 +561,7 @@ namespace Inventory_System02
 
         private void inboundSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Inbound Summary";
             string[] files = Directory.GetFiles(path, "Inbound Summary*");
 
             DataTable dt = new DataTable();
@@ -571,6 +586,7 @@ namespace Inventory_System02
 
         private void outboundSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Outbound Summary";
             string[] files = Directory.GetFiles(path, "Outbound Summary*");
 
             DataTable dt = new DataTable();
@@ -595,6 +611,7 @@ namespace Inventory_System02
 
         private void returnSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lbl_current.Text = "Returned Summary";
             string[] files = Directory.GetFiles(path, "Return Summary*");
 
             DataTable dt = new DataTable();
@@ -623,11 +640,12 @@ namespace Inventory_System02
             int count = files.Length;
 
             if (count > 0)
-            {
+            {     
                 PATH();
                 DTG_Properties();
             }
         }
+
 
         private void dtg_batch_form_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

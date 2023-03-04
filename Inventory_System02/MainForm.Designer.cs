@@ -135,8 +135,9 @@ namespace Inventory_System02
             // 
             // Company_Logo
             // 
-            this.Company_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Company_Logo.Location = new System.Drawing.Point(86, 3);
+            this.Company_Logo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Company_Logo.Location = new System.Drawing.Point(82, 3);
             this.Company_Logo.Name = "Company_Logo";
             this.Company_Logo.Size = new System.Drawing.Size(62, 45);
             this.Company_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -563,7 +564,7 @@ namespace Inventory_System02
             this.lbl_Phone.AutoSize = true;
             this.lbl_Phone.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Phone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_Phone.Location = new System.Drawing.Point(15, 9);
+            this.lbl_Phone.Location = new System.Drawing.Point(15, 12);
             this.lbl_Phone.Name = "lbl_Phone";
             this.lbl_Phone.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lbl_Phone.Size = new System.Drawing.Size(0, 15);

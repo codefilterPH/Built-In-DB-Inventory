@@ -78,6 +78,13 @@ namespace Inventory_System02
             this.chk_all2 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dtg_Return = new System.Windows.Forms.DataGridView();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amoun11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_sup_delete = new System.Windows.Forms.Button();
             this.out_amt = new System.Windows.Forms.Label();
@@ -86,13 +93,6 @@ namespace Inventory_System02
             this.btn_StockReturn = new System.Windows.Forms.ToolStripMenuItem();
             this.bworker_return = new System.ComponentModel.BackgroundWorker();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amoun11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
             this.panel2.SuspendLayout();
@@ -628,6 +628,71 @@ namespace Inventory_System02
             this.dtg_Return.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Return_CellEndEdit);
             this.dtg_Return.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtg_Return_EditingControlShowing);
             // 
+            // StockID
+            // 
+            this.StockID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StockID.HeaderText = "Stock ID";
+            this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
+            this.StockID.Width = 80;
+            // 
+            // ItemName
+            // 
+            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemName.HeaderText = "Item Name";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // Brand
+            // 
+            this.Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Brand.HeaderText = "Brand";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            this.Brand.Width = 67;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 99;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Width = 81;
+            // 
+            // price111
+            // 
+            this.price111.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.price111.DefaultCellStyle = dataGridViewCellStyle7;
+            this.price111.HeaderText = "Price";
+            this.price111.Name = "price111";
+            this.price111.ReadOnly = true;
+            this.price111.Width = 61;
+            // 
+            // amoun11
+            // 
+            this.amoun11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.amoun11.DefaultCellStyle = dataGridViewCellStyle8;
+            this.amoun11.HeaderText = "Amount";
+            this.amoun11.Name = "amoun11";
+            this.amoun11.ReadOnly = true;
+            this.amoun11.Width = 78;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -712,71 +777,6 @@ namespace Inventory_System02
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // StockID
-            // 
-            this.StockID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.StockID.HeaderText = "Stock ID";
-            this.StockID.Name = "StockID";
-            this.StockID.ReadOnly = true;
-            this.StockID.Width = 80;
-            // 
-            // ItemName
-            // 
-            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemName.HeaderText = "Item Name";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            // 
-            // Brand
-            // 
-            this.Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
-            this.Brand.Width = 67;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 99;
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
-            this.Quantity.Width = 81;
-            // 
-            // price111
-            // 
-            this.price111.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.price111.DefaultCellStyle = dataGridViewCellStyle7;
-            this.price111.HeaderText = "Price";
-            this.price111.Name = "price111";
-            this.price111.ReadOnly = true;
-            this.price111.Width = 61;
-            // 
-            // amoun11
-            // 
-            this.amoun11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.amoun11.DefaultCellStyle = dataGridViewCellStyle8;
-            this.amoun11.HeaderText = "Amount";
-            this.amoun11.Name = "amoun11";
-            this.amoun11.ReadOnly = true;
-            this.amoun11.Width = 78;
             // 
             // StockReturned
             // 

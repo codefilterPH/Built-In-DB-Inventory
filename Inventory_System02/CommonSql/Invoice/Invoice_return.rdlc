@@ -822,15 +822,15 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>10.05133cm</Top>
-            <Left>10.23682cm</Left>
+            <Top>10.09226cm</Top>
+            <Left>10.39557cm</Left>
             <Height>0.82021cm</Height>
-            <Width>6.25646cm</Width>
+            <Width>6.09771cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -896,15 +896,15 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Center</TextAlign>
+                  <TextAlign>Left</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>9.11964cm</Top>
-            <Left>10.23682cm</Left>
+            <Top>9.20149cm</Top>
+            <Left>10.39557cm</Left>
             <Height>0.82021cm</Height>
-            <Width>6.25646cm</Width>
+            <Width>6.09771cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>

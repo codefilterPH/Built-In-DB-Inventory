@@ -32,6 +32,12 @@ namespace Inventory_System02
         
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dtg_return_list.Columns.Count >= 1)
+            {
+                dtg_return_list.Columns.Clear();
+            }
+            this.Refresh();
+
             sql = "Select * from `Stock Returned` order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_return_list);
             if ( dtg_return_list.Columns.Count > 0 )
@@ -306,13 +312,13 @@ namespace Inventory_System02
                 dtg_return_list.Enabled = false;
                 txt_Search.Enabled = false;
 
+                if (dtg_return_list.Columns.Count > 0)
+                {
+                    dtg_return_list.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_return_list.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-                dtg_return_list.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_return_list.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                dtg_return_list.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dtg_return_list.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+                    dtg_return_list.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
 
                 lbl_items_count.Text = dtg_return_list.Rows.Count.ToString();
                 out_amt.Text = "0";
@@ -328,17 +334,20 @@ namespace Inventory_System02
                 btn_Delete.Enabled = true;
                 dtg_return_list.Enabled = true;
                 txt_Search.Enabled = true;
-
-                dtg_return_list.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dtg_return_list.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_return_list.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dtg_return_list.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             }
         }
-
+        private void TableRefresher()
+        {
+            //Refresh and clear the columns this is important to remain the sorting
+            if (dtg_return_list.Columns.Count > 0)
+            {
+                dtg_return_list.Columns.Clear();
+            }
+        }
         private void most_brand_return_tool_Click(object sender, EventArgs e)
         {
-            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY Brand ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY Brand ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
@@ -347,7 +356,8 @@ namespace Inventory_System02
 
         private void least_brand_return_tool_Click(object sender, EventArgs e)
         {
-            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY Brand ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY Brand ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
@@ -355,7 +365,8 @@ namespace Inventory_System02
 
         private void most_product_return_tool_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Item Name`, COUNT(*) AS `Total Occurences`, Brand FROM `Stock Returned` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Item Name`, COUNT(*) AS `Total Occurences`, Brand FROM `Stock Returned` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
@@ -363,7 +374,8 @@ namespace Inventory_System02
 
         private void least_product_return_tool_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Item Name`, COUNT(*) AS `Total Occurences`, Brand FROM `Stock Returned` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Item Name`, COUNT(*) AS `Total Occurences`, Brand FROM `Stock Returned` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
@@ -371,7 +383,8 @@ namespace Inventory_System02
 
         private void most_division_return_tool_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY `Customer Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY `Customer Name` ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
@@ -379,7 +392,8 @@ namespace Inventory_System02
 
         private void least_division_return_tool_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY `Customer Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Returned` GROUP BY `Customer Name` ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();

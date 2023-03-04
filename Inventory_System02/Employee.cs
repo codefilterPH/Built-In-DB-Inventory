@@ -125,7 +125,7 @@ namespace Inventory_System02.Profiles
         }
         private void reloadTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "Select * from Employee ORDER BY `Hired Date` DESC";
+            sql = "Select * from Employee WHERE `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
             config.Load_DTG(sql, dtg_User);
             Hideadmin_and_LoadImage();
         }
@@ -293,8 +293,7 @@ namespace Inventory_System02.Profiles
                 }
                 else if ( dtg_User.SelectedRows.Count <= 0)
                 {
-                    MessageBox.Show("Please highlight 1 row from the table!", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    dtg_User.CurrentRow.Selected = true;
                 }
             }
 
@@ -510,7 +509,7 @@ namespace Inventory_System02.Profiles
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            sql = "Select Type from `Employee Role`";
+            sql = "Select Type from `Employee Role` WHERE Type <> 'Programmer/Developer'";
             dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             config.fiil_CBO(sql, txt_Job_role);
             timer1.Stop();

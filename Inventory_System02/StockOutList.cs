@@ -23,13 +23,18 @@ namespace Inventory_System02
 
         private void StockOutList_Load(object sender, EventArgs e)
         {
+
             refreshTableToolStripMenuItem_Click(sender, e);
-            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-       
+
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "Select * from `Stock Out` order by `Entry Date` desc";
+            if (dtg_outlist.Columns.Count >= 1)
+            {
+                dtg_outlist.Columns.Clear();
+            }
+            this.Refresh();
+            sql = "Select * from `Stock Out` ORDER BY `Entry Date` DESC";
             config.Load_DTG(sql, dtg_outlist);
             if (config.dt.Rows.Count > 0)
             {
@@ -41,14 +46,17 @@ namespace Inventory_System02
                 out_amt.Text = "0";
                 out_qty.Text = "0";
             }
+
             DTG_Property();
             //Enable everyone because they are not using specialfilters
             enable_them = true;
             SpecialFilterDisabler();
+
+            cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void DTG_Property()
         {
-            if (config.dt.Rows.Count > 0)
+            if (config.dt.Columns.Count > 0)
             {
                 dtg_outlist.Columns[0].Visible = false;
                 dtg_outlist.Columns[2].Visible = false;
@@ -62,14 +70,16 @@ namespace Inventory_System02
 
                 // dtg_outlist.Rows[0].Selected = true;
                 func.Count_person(dtg_outlist, lbl_items_count);
-
-                foreach (DataGridViewRow rw in dtg_outlist.Rows)
+                if (dtg_outlist.Rows.Count > 0)
                 {
-                    if (!string.IsNullOrEmpty(rw.Cells[12].Value.ToString()))
+                    foreach (DataGridViewRow rw in dtg_outlist.Rows)
                     {
-                        if (Convert.ToDateTime(rw.Cells[1].Value) >= Convert.ToDateTime(rw.Cells[12].Value))
+                        if (!string.IsNullOrEmpty(rw.Cells[12].Value.ToString()))
                         {
-                            rw.DefaultCellStyle.ForeColor = Color.Red;
+                            if (Convert.ToDateTime(rw.Cells[1].Value) >= Convert.ToDateTime(rw.Cells[12].Value))
+                            {
+                                rw.DefaultCellStyle.ForeColor = Color.Red;
+                            }
                         }
                     }
                 }
@@ -91,37 +101,10 @@ namespace Inventory_System02
 
                 total_qty += qty;
                 total_val += amount;
-                
+
             }
             out_qty.Text = total_qty.ToString();
             out_amt.Text = total_val.ToString();
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dtg_outlist.Columns.Count > 0)
-            {
-                txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[13].Value.ToString();
-                txt_Cust_ID.Text = dtg_outlist.CurrentRow.Cells[2].Value.ToString();
-                txt_Cust_name.Text = dtg_outlist.CurrentRow.Cells[3].Value.ToString();
-                txt_address.Text = dtg_outlist.CurrentRow.Cells[4].Value.ToString();
-
-                func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
-                txt_Trans_number.Focus();
-                if (dtg_outlist.Rows.Count > 0)
-                {
-                    if (Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[1].Value) >= Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[12].Value))
-                    {
-                        lbl_DueDate.Text = "Warning this Transaction is due " + dtg_outlist.CurrentRow.Cells[12].Value.ToString();
-                    }
-                    else
-                    {
-                        lbl_DueDate.Text = "";
-                    }
-
-                    func.Change_Font_DTG(sender, e, dtg_outlist);
-                }
-            }
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -163,7 +146,7 @@ namespace Inventory_System02
                         {
                             sql = "DELETE FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
                             config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
-                           
+
                         }
                         else
                         {
@@ -193,7 +176,7 @@ namespace Inventory_System02
             }
         }
 
-        private void dtg_outlist_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dtg_outlist_CellContentDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
             passed_trans_ref = txt_Trans_number.Text;
             this.DialogResult = DialogResult.OK;
@@ -209,7 +192,7 @@ namespace Inventory_System02
         {
             if (dtg_outlist.Rows.Count >= 1)
             {
-                if ( dtg_outlist.SelectedRows.Count > 0  && txt_Trans_number.Text != "Empty Field!" &&
+                if (dtg_outlist.SelectedRows.Count > 0 && txt_Trans_number.Text != "Empty Field!" &&
                     !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
                 {
                     Items.Outbound_Preview frm = new Items.Outbound_Preview(
@@ -303,9 +286,9 @@ namespace Inventory_System02
         }
         bool enable_them = false;
         private void SpecialFilterDisabler()
-        {
+        { 
             if (enable_them == false)
-            {
+            { 
                 printInvoiceToolStripMenuItem.Enabled = false;
                 batchTransactionToolStripMenuItem.Enabled = false;
                 view_main_btn.Enabled = false;
@@ -315,12 +298,13 @@ namespace Inventory_System02
                 dtg_outlist.Enabled = false;
                 txt_Search.Enabled = false;
                 
-            
-                dtg_outlist.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_outlist.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_outlist.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dtg_outlist.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+                if ( dtg_outlist.Columns.Count > 0 )
+                {
+                    dtg_outlist.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_outlist.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_outlist.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
+  
                 lbl_items_count.Text = dtg_outlist.Rows.Count.ToString();
                 out_amt.Text = "0";
                 out_qty.Text = "0";
@@ -335,16 +319,20 @@ namespace Inventory_System02
                 btn_Delete.Enabled = true;
                 dtg_outlist.Enabled = true;
                 txt_Search.Enabled = true;
-
-                dtg_outlist.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dtg_outlist.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_outlist.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dtg_outlist.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            }
+        }
+        private void TableRefresher()
+        {
+            //Refresh and clear the columns this is important to remain the sorting
+            if (dtg_outlist.Columns.Count > 0)
+            {
+                dtg_outlist.Columns.Clear();
             }
         }
         private void mostProductPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY Brand ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY Brand ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_outlist);
             enable_them = false;
             SpecialFilterDisabler();
@@ -352,7 +340,8 @@ namespace Inventory_System02
 
         private void leastProductPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY Brand ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY Brand ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_outlist);
             enable_them = false;
             SpecialFilterDisabler();
@@ -360,7 +349,8 @@ namespace Inventory_System02
 
         private void mostItemPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Item Name`, Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Item Name`, Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_outlist);
             enable_them = false;
             SpecialFilterDisabler();
@@ -368,7 +358,8 @@ namespace Inventory_System02
 
         private void mostItemPurchasedToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Item Name`, Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Item Name`, Brand, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_outlist);
             enable_them = false;
             SpecialFilterDisabler();
@@ -376,7 +367,8 @@ namespace Inventory_System02
 
         private void mosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Customer Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Customer Name` ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_outlist);
             enable_them = false;
             SpecialFilterDisabler();
@@ -384,10 +376,38 @@ namespace Inventory_System02
 
         private void divisionWithTheLeastPurchasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Customer Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Customer Name`, COUNT(*) AS `Total Occurences` FROM `Stock Out` GROUP BY `Customer Name` ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_outlist);
             enable_them = false;
             SpecialFilterDisabler();
+        }
+
+        private void dtg_outlist_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtg_outlist.Columns.Count > 0)
+            {
+                txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[13].Value.ToString();
+                txt_Cust_ID.Text = dtg_outlist.CurrentRow.Cells[2].Value.ToString();
+                txt_Cust_name.Text = dtg_outlist.CurrentRow.Cells[3].Value.ToString();
+                txt_address.Text = dtg_outlist.CurrentRow.Cells[4].Value.ToString();
+
+                func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
+                txt_Trans_number.Focus();
+                if (dtg_outlist.Rows.Count > 0)
+                {
+                    if (Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[1].Value) >= Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[12].Value))
+                    {
+                        lbl_DueDate.Text = "Warning this Transaction is due " + dtg_outlist.CurrentRow.Cells[12].Value.ToString();
+                    }
+                    else
+                    {
+                        lbl_DueDate.Text = "";
+                    }
+
+                    func.Change_Font_DTG(sender, e, dtg_outlist);
+                }
+            }
         }
 
         private void btn_select_Click(object sender, EventArgs e)

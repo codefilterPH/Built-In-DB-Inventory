@@ -61,18 +61,13 @@ namespace Inventory_System02
         double totalrows = 0;
         private void DTG_Property()
         {
-            dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
-            dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
+         
 
             //Format to date dtg cell
             dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
             //sorting
             dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
-
-
-            dtg_Items.Columns[0].Visible = false;
-            dtg_Items.Columns[2].Visible = false;
-            dtg_Items.Columns[9].Visible = false;
+       
 
             config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
@@ -106,6 +101,13 @@ namespace Inventory_System02
             totalrows += 1;
             lbl_items_count.Text = totalrows.ToString();
 
+            //Format to add comma separator and two decimal places in dtg
+            dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
+            dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
+            //Hide some columns
+            dtg_Items.Columns[0].Visible = false;
+            dtg_Items.Columns[2].Visible = false;
+            dtg_Items.Columns[9].Visible = false;
 
             dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg_Items.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -115,6 +117,7 @@ namespace Inventory_System02
             dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             Calculator_Timer.Start();
         }
         private void Calculator_Timer_Tick(object sender, EventArgs e)
@@ -216,6 +219,7 @@ namespace Inventory_System02
                 txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
 
                 func.Change_Font_DTG(sender, e, dtg_Items);
+                txt_Qty_ValueChanged(sender, e);
             }
 
 
@@ -321,6 +325,10 @@ namespace Inventory_System02
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if ( dtg_Items.Columns.Count >=1 )
+            {
+                dtg_Items.Columns.Clear();
+            }
             this.Refresh();
             AddStock_Load(sender, e);
             SupplierChangeDisabler();
@@ -619,7 +627,7 @@ namespace Inventory_System02
         }
         bool enable_them = false;
         private void SpecialFilterDisabler()
-        {
+        {      
             if (enable_them == false)
             {
                 printTransactionToolStripMenuItem.Enabled = false;
@@ -634,10 +642,13 @@ namespace Inventory_System02
                 txt_Search.Enabled = false;
                 btn_Clear_Text.Enabled = false;
 
-                dtg_Items.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_Items.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dtg_Items.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                if (dtg_Items.Columns.Count > 0)
+                {
+                    dtg_Items.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_Items.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
                 
                 lbl_items_count.Text = dtg_Items.Rows.Count.ToString();
                 lbl_Today_Amt.Text = "0";
@@ -667,16 +678,21 @@ namespace Inventory_System02
                 dtg_Items.Enabled = true;
                 txt_Search.Enabled = true;
                 btn_Clear_Text.Enabled = true;
-
-                dtg_Items.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                dtg_Items.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            }
+           
+        }
+        private void TableRefresher()
+        {
+            //Refresh and clear the columns this is important to remain the sorting
+            if (dtg_Items.Columns.Count > 0)
+            {
+                dtg_Items.Columns.Clear();
             }
         }
         private void mostProductPurchaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY Brand ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY Brand ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_Items);
             enable_them = false;
             SpecialFilterDisabler();
@@ -684,7 +700,8 @@ namespace Inventory_System02
 
         private void leastProductPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY Brand ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT Brand, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY Brand ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_Items);
             enable_them = false;
             SpecialFilterDisabler();
@@ -692,6 +709,7 @@ namespace Inventory_System02
 
         private void mostItemPurchasedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TableRefresher();
             sql = "SELECT `Item Name`, `Brand`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Item Name` ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_Items);
             enable_them = false;
@@ -700,6 +718,7 @@ namespace Inventory_System02
 
         private void mostItemPurchasedToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            TableRefresher();
             sql = "SELECT `Item Name`, `Brand`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Item Name` ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_Items);
             enable_them = false;
@@ -708,7 +727,8 @@ namespace Inventory_System02
 
         private void mosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Supplier Name`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Supplier Name` ORDER BY `Total Occurences` DESC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Supplier Name`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Supplier Name` ORDER BY `Total Occurences` DESC";
             config.Load_DTG(sql, dtg_Items);
             enable_them = false;
             SpecialFilterDisabler();
@@ -716,7 +736,8 @@ namespace Inventory_System02
 
         private void divisionWithTheLeastPurchasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "SELECT `Supplier Name`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Supplier Name` ORDER BY `Total Occurences` ASC LIMIT 1";
+            TableRefresher();
+            sql = "SELECT `Supplier Name`, COUNT(*) AS `Total Occurences` FROM `Stocks` GROUP BY `Supplier Name` ORDER BY `Total Occurences` ASC";
             config.Load_DTG(sql, dtg_Items);
             enable_them = false;
             SpecialFilterDisabler();

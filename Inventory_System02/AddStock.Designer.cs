@@ -299,7 +299,7 @@ namespace Inventory_System02
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.SlateGray;
+            this.refreshToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.refreshToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.refreshToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripMenuItem.Image")));

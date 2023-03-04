@@ -170,7 +170,7 @@
             <Top>0.7112cm</Top>
             <Left>5.60537cm</Left>
             <Height>1.98438cm</Height>
-            <Width>10.88791cm</Width>
+            <Width>10.86145cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -189,7 +189,7 @@
                   <Width>2.07667cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.71167cm</Width>
+                  <Width>2.37243cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -204,7 +204,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>2.81278cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -731,7 +731,7 @@
             <Top>4.36245cm</Top>
             <Left>0.55245cm</Left>
             <Height>1.2cm</Height>
-            <Width>15.94083cm</Width>
+            <Width>15.91437cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -743,7 +743,7 @@
         <Height>2.90625in</Height>
         <Style />
       </Body>
-      <Width>6.84152in</Width>
+      <Width>6.62277in</Width>
       <Page>
         <PageFooter>
           <Height>4.07458cm</Height>
@@ -827,13 +827,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>2.05493cm</Top>
-              <Left>11.49328cm</Left>
+              <Top>2.12549cm</Top>
+              <Left>11.46682cm</Left>
               <Height>0.82021cm</Height>
               <Width>5cm</Width>
               <ZIndex>3</ZIndex>
@@ -901,13 +901,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.50271cm</Top>
-              <Left>11.49328cm</Left>
+              <Top>0.59091cm</Top>
+              <Left>11.46682cm</Left>
               <Height>0.60854cm</Height>
               <Width>5cm</Width>
               <ZIndex>5</ZIndex>
@@ -974,13 +974,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>1.28764cm</Top>
-              <Left>11.49328cm</Left>
+              <Top>1.30528cm</Top>
+              <Left>11.46682cm</Left>
               <Height>0.60854cm</Height>
               <Width>5cm</Width>
               <ZIndex>7</ZIndex>

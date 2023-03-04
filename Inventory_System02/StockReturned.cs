@@ -281,6 +281,7 @@ namespace Inventory_System02
         {
             dtg_Items.CurrentRow.Selected = dtg_Items.CurrentCell.Selected;
             btn_sup_add_Click(sender, e);
+            btn_edit.Focus();
         }
 
         private void chk_all2_CheckedChanged(object sender, EventArgs e)
@@ -339,6 +340,7 @@ namespace Inventory_System02
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Refresh();
             func.clearTxt(panel1);
         }
 
@@ -563,8 +565,10 @@ namespace Inventory_System02
                                 //check the quantity if its greater or equal to added stocks
                                 if (Convert.ToInt32(rw.Cells[9].Value) >= Convert.ToInt32(dtg_Return.Rows[i].Cells[4].Value))
                                 {
-                                    //Change the value of the stocks minus the added stocks
+                                    //Change the value of the current outbound stock minus the added for return stocks
                                     rw.Cells[9].Value = Convert.ToInt32(rw.Cells[9].Value) - Convert.ToInt32(dtg_Return.Rows[i].Cells[4].Value);
+                                    //Calculate the current total inbound value times the new qty
+                                    rw.Cells[11].Value = Convert.ToDecimal(rw.Cells[9].Value) * Convert.ToDecimal(rw.Cells[10].Value);
                                     dtg_Return.Rows[i].Cells[6].Value = 0;
                                     dtg_Return.Rows[i].Cells[6].Value = Convert.ToDecimal(dtg_Return.Rows[i].Cells[4].Value) *
                                        Convert.ToDecimal(dtg_Return.Rows[i].Cells[5].Value);
@@ -775,12 +779,13 @@ namespace Inventory_System02
                         foreach (DataGridViewRow rw in dtg_Return.Rows)
                         {
 
-                            sql = "Select Quantity from `Stocks` where `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
+                            sql = "Select Quantity, Price, Total from `Stocks` where `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
                             config.singleResult(sql);
                             if (config.dt.Rows.Count > 0)
                             {
                                 int quant = Convert.ToInt32(rw.Cells[4].Value.ToString()) + Convert.ToInt32(config.dt.Rows[0]["Quantity"].ToString());
-                                sql = "Update `Stocks` set Quantity = '" + quant.ToString() + "' where  `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
+                                decimal new_total = Convert.ToDecimal(quant) * Convert.ToDecimal(config.dt.Rows[0]["Price"].ToString());
+                                sql = "Update `Stocks` set Quantity = '" + quant + "', Total = '"+ new_total +"' where `Stock ID` = '" + rw.Cells[0].Value.ToString() +"' ";
                                 config.Execute_Query(sql);
 
                             }

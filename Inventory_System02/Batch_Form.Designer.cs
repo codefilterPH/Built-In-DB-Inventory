@@ -31,9 +31,9 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Batch_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -41,6 +41,7 @@ namespace Inventory_System02
             this.adobe_show = new System.Windows.Forms.Panel();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl_current = new System.Windows.Forms.Label();
             this.chk_Select_all = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.allItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,6 +136,7 @@ namespace Inventory_System02
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.lbl_current);
             this.panel5.Controls.Add(this.chk_Select_all);
             this.panel5.Controls.Add(this.menuStrip1);
             this.panel5.Controls.Add(this.dtg_batch_form);
@@ -143,6 +145,17 @@ namespace Inventory_System02
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(361, 401);
             this.panel5.TabIndex = 3;
+            // 
+            // lbl_current
+            // 
+            this.lbl_current.AutoSize = true;
+            this.lbl_current.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_current.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_current.Location = new System.Drawing.Point(359, 24);
+            this.lbl_current.Name = "lbl_current";
+            this.lbl_current.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lbl_current.Size = new System.Drawing.Size(0, 17);
+            this.lbl_current.TabIndex = 6;
             // 
             // chk_Select_all
             // 
@@ -371,35 +384,35 @@ namespace Inventory_System02
             // 
             this.dtg_batch_form.AllowUserToAddRows = false;
             this.dtg_batch_form.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg_batch_form.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtg_batch_form.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_batch_form.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_batch_form.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dtg_batch_form.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_batch_form.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_batch_form.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_batch_form.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtg_batch_form.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_batch_form.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_batch_form.Location = new System.Drawing.Point(3, 52);
             this.dtg_batch_form.Name = "dtg_batch_form";
             this.dtg_batch_form.ReadOnly = true;
             this.dtg_batch_form.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dtg_batch_form.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dtg_batch_form.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_batch_form.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtg_batch_form.Size = new System.Drawing.Size(353, 344);
             this.dtg_batch_form.TabIndex = 0;
@@ -470,5 +483,6 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem inboundSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem outboundSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnSummaryToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_current;
     }
 }

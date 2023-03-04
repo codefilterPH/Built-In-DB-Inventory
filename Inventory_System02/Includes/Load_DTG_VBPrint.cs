@@ -113,7 +113,7 @@ namespace Inventory_System02.Includes
                 {
                     if (string.IsNullOrWhiteSpace(search_by))
                     {
-                        FileName = "Outbound Summary.pdf";
+                        FileName = "Outbound Summary "+ DateTime.Now.ToString("hhmmss") + ".pdf";
                     }
                     else
                     {
@@ -125,7 +125,7 @@ namespace Inventory_System02.Includes
                 {
                     if (string.IsNullOrWhiteSpace(search_by))
                     {
-                        FileName = "Return Summary.pdf";
+                        FileName = "Return Summary.pdf " + DateTime.Now.ToString("hhmmss") + ".pdf";
                     }
                     else
                     {
@@ -138,7 +138,7 @@ namespace Inventory_System02.Includes
 
                     if (string.IsNullOrWhiteSpace(search_by))
                     {
-                        FileName = "Inbound Summary.pdf";
+                        FileName = "Inbound Summary " + DateTime.Now.ToString("hhmmss") + ".pdf";
                     }
                     else
                     {
