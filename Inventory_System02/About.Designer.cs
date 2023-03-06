@@ -307,9 +307,10 @@ namespace Inventory_System02
             this.label6.Location = new System.Drawing.Point(108, 418);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(227, 34);
+            this.label6.Size = new System.Drawing.Size(266, 68);
             this.label6.TabIndex = 26;
-            this.label6.Text = "Good Ware Flaticon \r\nhttps://www.flaticon.com/free-icons/";
+            this.label6.Text = "Good Ware Flaticon \r\nhttps://www.flaticon.com/free-icons/\r\nIcon Designers- Hopsta" +
+    "rter, DesignContest\r\nLokas Software, Double-J Design\t";
             // 
             // label7
             // 

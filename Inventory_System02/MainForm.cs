@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_System02.Includes;
@@ -14,7 +15,7 @@ namespace Inventory_System02
 {
     public partial class MainForm : Form
     {
-
+        private Login1 _loginForm;
         bool sidebarExpand;
         string Global_ID, Fullname, JobRole;
         usableFunction func = new usableFunction();
@@ -24,6 +25,8 @@ namespace Inventory_System02
         public MainForm(string userid,string name,string acctype, string phone, string email )
         {
             InitializeComponent();
+            _loginForm = new Login1();
+
             this.Text = "Inventory System - Welcome "+ name;
             Global_ID = userid;
             lbl_Fullname.Text = userid.ToUpper() + " - " + name.ToUpper();
@@ -220,6 +223,10 @@ namespace Inventory_System02
             frm.ShowDialog();
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
 
         private void btn_DCenter_Click_1(object sender, EventArgs e)
         {

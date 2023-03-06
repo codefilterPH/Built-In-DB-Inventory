@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_System02.Includes;
 using Inventory_System02.Invoice_Code;
+using Inventory_System02.Return;
 
 namespace Inventory_System02
 {
@@ -90,53 +92,80 @@ namespace Inventory_System02
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-
-            if (MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (dtg_return_list.Rows.Count >= 1)
             {
-                if (dtg_return_list.SelectedRows.Count > 0)
+                if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
                 {
-                    foreach (DataGridViewRow rw in dtg_return_list.SelectedRows)
+                    MessageBox.Show("No permission to delete all transactions!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    chk_select_all.Checked = false;
+                    return;
+                }
+
+                if (MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (chk_select_all.Checked)
                     {
-                        // Check if the config object is initialized properly
-                        if (config == null)
+                        string sql = "DELETE FROM `Stock Returned` WHERE count = '1' ";
+                        config.Execute_CUD(sql, "Unable to delete all items. Please try again!", "Successfully deleted all stock returned!");
+                        chk_select_all.Checked = false;
+                        refreshTableToolStripMenuItem_Click(sender, e);
+                        return;
+                    }
+                    else
+                    {
+                        if (dtg_return_list.SelectedRows.Count > 0)
                         {
-                            MessageBox.Show("Config object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
+                            foreach (DataGridViewRow rw in dtg_return_list.SelectedRows)
+                            {
+                                // Check if the config object is initialized properly
+                                if (config == null)
+                                {
+                                    MessageBox.Show("Config object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    break;
+                                }
 
-                        string transactionRef = rw.Cells[12].Value?.ToString();
+                                string transactionRef = rw.Cells[12].Value?.ToString();
 
-                        // Check if the transaction reference is null or empty
-                        if (string.IsNullOrEmpty(transactionRef))
-                        {
-                            MessageBox.Show("Transaction reference is null or empty. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            continue;
-                        }
+                                // Check if the transaction reference is null or empty
+                                if (string.IsNullOrEmpty(transactionRef))
+                                {
+                                    MessageBox.Show("Transaction reference is null or empty. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    continue;
+                                }
 
-                        string sql = "SELECT * FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
-                        config.singleResult(sql);
+                                string sql = "SELECT * FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
+                                config.singleResult(sql);
 
-                        // Check if the dt object is properly initialized
-                        if (config.dt == null)
-                        {
-                            MessageBox.Show("DT object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
+                                // Check if the dt object is properly initialized
+                                if (config.dt == null)
+                                {
+                                    MessageBox.Show("DT object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    break;
+                                }
 
-                        if (config.dt.Rows.Count > 0)
-                        {
-                            sql = "DELETE FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
-                            config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");                    
+                                if (config.dt.Rows.Count > 0)
+                                {
+                                    sql = "DELETE FROM `Stock Returned` WHERE `Transaction Reference` = '" + transactionRef + "'";
+                                    config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+
+                            }
+                            chk_select_all.Checked = false;
+                            refreshTableToolStripMenuItem_Click(sender, e);
                         }
                         else
                         {
-                            MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("No selection from the table", "Nothing to Delete", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            chk_select_all.Checked = false;
+                            return;
                         }
-
                     }
-                    refreshTableToolStripMenuItem_Click(sender, e);
                 }
             }
 
@@ -184,17 +213,17 @@ namespace Inventory_System02
                 txt_Cust_ID.Focus();
                 return;
             }
-            else if ( txt_Reasons.Text == "" || txt_Reasons.Text == null )
+            else if ( txt_Remarks.Text == "" || txt_Remarks.Text == null )
             {
                 func.Error_Message1 = "Return Reason";
                 func.Error_Message();
-                txt_Reasons.Focus();
+                txt_Remarks.Focus();
                 return;
             }
             else
             {
 
-                cal.ReturnReason(txt_Trans_number.Text, txt_Cust_ID.Text, txt_Reasons.Text);
+                cal.ReturnReason(txt_Trans_number.Text, txt_Cust_ID.Text, lbl_return_type.Text, txt_Remarks.Text );
                 MessageBox.Show("Reason Updated!", "Update Successful Prompt", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -203,7 +232,11 @@ namespace Inventory_System02
         {
             if (dtg_return_list.Rows.Count >= 1)
             {
-                if (dtg_return_list.SelectedRows.Count > 0 && txt_Trans_number.Text != "Empty Field!"
+                if ( dtg_return_list.SelectedRows.Count <= 0 )
+                {
+                    dtg_return_list.CurrentRow.Selected = true;
+                }
+                else if (dtg_return_list.SelectedRows.Count == 1 && txt_Trans_number.Text != "Empty Field!"
                     && !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
                 {
                     Items.Return_Preview frm = new Items.Return_Preview(
@@ -277,21 +310,42 @@ namespace Inventory_System02
 
         private void view_tbl_return_Click(object sender, EventArgs e)
         {
-            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
-            frm.Search_Result("RETURN SUMMARY", "preview", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+            if (dtg_return_list.Rows.Count >= 1)
+            {
+                Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+                frm.Search_Result("RETURN SUMMARY", "preview", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+            }
+            else
+            {
+                MessageBox.Show("Table is empty", "Missing Rows", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void batch_tbl_return_Click(object sender, EventArgs e)
         {
-            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
-            frm.Search_Result("RETURN SUMMARY", "batch", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
-            MessageBox.Show("Sent to \"My Documents\"!");
+            if (dtg_return_list.Rows.Count >= 1)
+            {
+                Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+                frm.Search_Result("RETURN SUMMARY", "batch", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+                MessageBox.Show("Sent to \"My Documents\"!");
+            }
+            else
+            {
+                MessageBox.Show("Table is empty", "Missing Rows", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void print_tbl_return_Click(object sender, EventArgs e)
         {
-            Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
-            frm.Search_Result("RETURN SUMMARY", "print", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+            if (dtg_return_list.Rows.Count >= 1)
+            {
+                Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
+                frm.Search_Result("RETURN SUMMARY", "print", dtg_return_list, lbl_items_count.Text, out_qty.Text, out_amt.Text, cbo_srch_type.Text, txt_Search.Text);
+            }
+            else
+            {
+                MessageBox.Show("Table is empty", "Missing Rows", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void out_amt_TextChanged(object sender, EventArgs e)
@@ -309,7 +363,6 @@ namespace Inventory_System02
                 btn_view.Enabled = false;
                 btn_edit.Enabled = false;
                 btn_Delete.Enabled = false;
-                dtg_return_list.Enabled = false;
                 txt_Search.Enabled = false;
 
                 if (dtg_return_list.Columns.Count > 0)
@@ -332,7 +385,6 @@ namespace Inventory_System02
                 btn_view.Enabled = true;
                 btn_edit.Enabled = true;
                 btn_Delete.Enabled = true;
-                dtg_return_list.Enabled = true;
                 txt_Search.Enabled = true;
             }
         }
@@ -397,6 +449,28 @@ namespace Inventory_System02
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
+        }
+        bool dtg_clicked = false;
+        private void btn_return_to_stocks_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(lbl_return_type.Text))
+            {
+                if (dtg_return_list.Rows.Count >= 1)
+                {
+                    if (dtg_clicked == true)
+                    {
+                        if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                        {
+                            if ( dtg_return_list.SelectedRows.Count == 1 )
+                            {
+                                ReturnToStocks frm = new ReturnToStocks(Global_ID, Fullname, JobRole, txt_Trans_number.Text, dtg_return_list.CurrentRow.Cells[5].Value.ToString());
+                                frm.ShowDialog();
+                                dtg_clicked = false;
+                            }
+                        }             
+                    }
+                }
+            }
         }
 
         string search_for = string.Empty;
@@ -470,26 +544,39 @@ namespace Inventory_System02
 
         private void dtg_return_list_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtg_return_list.Rows.Count > 0)
+            chk_select_all.Checked = false;
+            if ( enable_them == true )
             {
-                txt_Reasons.Text = "";
-                txt_Trans_number.Text = dtg_return_list.CurrentRow.Cells[12].Value.ToString();
-                txt_Trans_number.Focus();
-                txt_Cust_ID.Text = dtg_return_list.CurrentRow.Cells[2].Value.ToString();
-                txt_Cust_name.Text = dtg_return_list.CurrentRow.Cells[3].Value.ToString();
-                txt_address.Text = dtg_return_list.CurrentRow.Cells[4].Value.ToString();
-                func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
-                if (txt_Trans_number.Text != "" || txt_Trans_number.Text != null)
+                if (dtg_return_list.Rows.Count > 0)
                 {
-                    sql = "Select * from `Return Reasons` where `Transaction Ref` = '" + txt_Trans_number.Text + "' and `Customer ID` = '" + txt_Cust_ID.Text + "' ";
-                    config.singleResult(sql);
-                    if (config.dt.Rows.Count > 0)
+                    txt_Remarks.Text = "";
+                    txt_Trans_number.Text = dtg_return_list.CurrentRow.Cells[12].Value.ToString();
+                    txt_Trans_number.Focus();
+                    txt_Cust_ID.Text = dtg_return_list.CurrentRow.Cells[2].Value.ToString();
+                    txt_Cust_name.Text = dtg_return_list.CurrentRow.Cells[3].Value.ToString();
+                    txt_address.Text = dtg_return_list.CurrentRow.Cells[4].Value.ToString();
+                    func.Reload_Images(cust_Image, txt_Cust_ID.Text, Includes.AppSettings.Customer_DIR);
+                    if (txt_Trans_number.Text != "" || txt_Trans_number.Text != null)
                     {
-                        txt_Reasons.Text = config.dt.Rows[0].Field<string>("Reason");
-
+                        sql = "Select Reason, Remarks from `Return Reasons` where `Transaction Ref` = '" + txt_Trans_number.Text + "' and `Customer ID` = '" + txt_Cust_ID.Text + "' ";
+                        config.singleResult(sql);
+                        if (config.dt.Rows.Count > 0)
+                        {
+                            lbl_return_type.Text = config.dt.Rows[0]["Reason"].ToString();
+                            txt_Remarks.Text = config.dt.Rows[0]["Remarks"].ToString();
+                            if ( lbl_return_type.Text == "Damage ( Investigated or Repair )")
+                            {
+                                btn_return_to_stocks.Visible = true;
+                            }
+                            else
+                            {
+                                btn_return_to_stocks.Visible = false;
+                            }
+                        }
                     }
+                    func.Change_Font_DTG(sender, e, dtg_return_list);
                 }
-                func.Change_Font_DTG(sender, e, dtg_return_list);
+                dtg_clicked = true;
             }
         }
     }

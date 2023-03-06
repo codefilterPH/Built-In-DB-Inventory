@@ -6,6 +6,9 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Threading;
+using Microsoft.Office.Interop.Word;
+using System.Security.AccessControl;
 
 namespace Inventory_System02
 {
@@ -14,10 +17,12 @@ namespace Inventory_System02
         usableFunction func = new usableFunction();
         string sql;
         SQLConfig config = new SQLConfig();
-
+        private Mutex _mutex;
         public Login1()
         {
             InitializeComponent();
+            _mutex = new Mutex(true, "Inventory_System02");
+
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -37,7 +42,7 @@ namespace Inventory_System02
                 return;
             }
 
-            sql = "Select * from Employee where `Employee ID` = '" + txt_Username.Text + "' and `Password` = sha1('" + txt_Password.Text + "') ";
+            sql = "Select * from Employee where `Employee ID` = '" + txt_Username.Text + "' and `Password` = SHA512('" + txt_Password.Text + "') ";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
@@ -51,7 +56,6 @@ namespace Inventory_System02
                 MainForm frm = new MainForm(id, name, acctype, phone, email);
                 this.Hide();
                 frm.ShowDialog();
-
             }
             else
             {
@@ -79,7 +83,7 @@ namespace Inventory_System02
 
         private void Login1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+           System.Windows.Forms.Application.Exit();
         }
         string date = string.Empty;
         string status = string.Empty;
@@ -116,7 +120,7 @@ namespace Inventory_System02
                 {
                     // Display an error message and exit the application
                     MessageBox.Show("The date format on this computer is not supported by this application. Please set the date format to 'Includes.AppSettings.DateFormat' and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Application.Exit();
+                    System.Windows.Forms.Application.Exit();
                 }
                 else
                 {
@@ -125,10 +129,10 @@ namespace Inventory_System02
 
                     sql = "Select * from Administration";
                     config.singleResult(sql);
-                    if (config.dt.Rows.Count > 0)
+                    if (config.dt.Rows.Count == 1)
                     {
-                        status = config.dt.Rows[0].Field<string>("Status");
-                        date = config.dt.Rows[0].Field<string>("Date");
+                        status = config.dt.Rows[0]["Status"].ToString();
+                        date = config.dt.Rows[0]["Date"].ToString();
 
                         if (status == "Full")
                         {
@@ -144,7 +148,7 @@ namespace Inventory_System02
                             }
                             else
                             {
-                                string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+                                string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormatSave);
                                 if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
                                 {
                                     Admin.Verify frm = new Admin.Verify();
@@ -154,6 +158,7 @@ namespace Inventory_System02
                                 {
                                     txt_Username.Focus();
                                 }
+                               
                             }
                         }
                     }
@@ -168,7 +173,7 @@ namespace Inventory_System02
             else
             {
                 MessageBox.Show("Adobe Reader is not installed. Please install Adobe Reader before running this application.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
+                System.Windows.Forms.Application.Exit();
             }
         }
 
@@ -178,6 +183,23 @@ namespace Inventory_System02
             {
                 btn_Login_Click(sender, e);
             }
+        }
+        private Mutex mutex = new Mutex(false, "Inventory_System02");
+        private void Login1_FormClosing(object sender, FormClosingEventArgs e)
+        { 
+            try
+            {
+                // Acquire the mutex before releasing it
+                lock (mutex)
+                {
+                    mutex.ReleaseMutex();
+                }
+            }
+            catch
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+         
         }
     }
 }

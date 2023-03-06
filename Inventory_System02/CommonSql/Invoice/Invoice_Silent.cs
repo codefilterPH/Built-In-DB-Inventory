@@ -24,9 +24,13 @@ namespace Inventory_System02.Invoice_Silent
             ReportParameterCollection reportParameters = new ReportParameterCollection();
             usableFunction func = new usableFunction();
             string report_date = string.Empty, cust_name = string.Empty, address = string.Empty, FileName = string.Empty;
-            decimal total = 0;
             string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path;
             string sql = string.Empty;
+
+            decimal total = 0, all_total = 0;
+            int qty = 0, all_qty = 0;
+            string new_qty = string.Empty, formattedtotal = string.Empty;
+
             if (out_return == "out")
             {
                 sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
@@ -54,7 +58,6 @@ namespace Inventory_System02.Invoice_Silent
             }
             else
             {
-                sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC ";
                 sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC ";
                 config.Load_Datasource(sql, ds);
                 config.singleResult(sql);
@@ -85,12 +88,25 @@ namespace Inventory_System02.Invoice_Silent
                 rs.Value = list2;
 
             }
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+
+
+            if (ds != null )
             {
-                total += Convert.ToDecimal(ds.Tables[0].Rows[i]["Quantity"]) * Convert.ToDecimal(ds.Tables[0].Rows[i]["Price"]);
+                all_total = 0;
+                all_qty = 0;
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    qty = 0;
+                    total = 0;
+                    int.TryParse(ds.Tables[0].Rows[i]["Quantity"].ToString(), out qty);
+                    decimal.TryParse(ds.Tables[0].Rows[i]["Total"].ToString(), out total);
+                    all_qty += qty;
+                    all_total += total;
+                }
+                new_qty = all_qty.ToString();
+                formattedtotal = all_total.ToString("#,##0.00");
             }
 
-            string formattedTotal = total.ToString("#,##0.00");
             rs.Name = "Out_DataSet";
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(rs);
@@ -114,15 +130,10 @@ namespace Inventory_System02.Invoice_Silent
             reportParameters.Add(new ReportParameter("TransRef", Trans_ref));
             reportParameters.Add(new ReportParameter("Customer_Name", cust_name));
             reportParameters.Add(new ReportParameter("Address", address));
-            reportParameters.Add(new ReportParameter("Total", formattedTotal.ToString()));
-            if ( ds != null )
-            {
-                reportParameters.Add(new ReportParameter("Total_QTY", ds.Tables[0].Rows.Count.ToString()));
-            }
-            else
-            {
-                reportParameters.Add(new ReportParameter("Total_QTY", 0.ToString()));
-            }
+            reportParameters.Add(new ReportParameter("Total_Items", config.dt.Rows.Count.ToString()));
+            reportParameters.Add(new ReportParameter("Total_QTY", new_qty));
+            reportParameters.Add(new ReportParameter("Total", formattedtotal));
+      
          
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);

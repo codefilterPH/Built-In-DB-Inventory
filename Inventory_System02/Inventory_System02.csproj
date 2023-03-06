@@ -28,7 +28,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://eugenereybulahan.pythonanywhere.com/Inventory/publish/Inventory_System02.application/</InstallUrl>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -54,8 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>mybox.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -114,7 +113,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\lib\net46\System.Data.SQLite.dll</HintPath>
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetStandard.1.0.117.0\lib\netstandard2.0\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -288,6 +287,12 @@
     <Compile Include="Reports_MainForm.Designer.cs">
       <DependentUpon>Reports_MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Return\ReturnToStocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return\ReturnToStocks.Designer.cs">
+      <DependentUpon>ReturnToStocks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock Returned List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +432,9 @@
     <EmbeddedResource Include="Reports_MainForm.resx">
       <DependentUpon>Reports_MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Return\ReturnToStocks.resx">
+      <DependentUpon>ReturnToStocks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stock Returned List.resx">
       <DependentUpon>Stock Returned List.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +462,8 @@
     <EmbeddedResource Include="StockReturned.resx">
       <DependentUpon>StockReturned.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CommonSql\Database.db" />
+    <None Include="CommonSql\Document Center Files\Inbound Report 101714.pdf" />
     <None Include="Inventory_System02_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
@@ -484,7 +494,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="freenoattrib.ico" />
     <Content Include="box.ico" />
+    <Content Include="CommonSql\Pictures\Company\Company_Logo1.PNG" />
+    <Content Include="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" />
+    <Content Include="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" />
+    <Content Include="CommonSql\Pictures\Employee\admin.JPG" />
+    <Content Include="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" />
+    <Content Include="CommonSql\Pictures\Item\091D0001.PNG" />
+    <Content Include="CommonSql\Pictures\Item\091LL1D0.PNG" />
+    <Content Include="CommonSql\Pictures\Item\B1109L01.PNG" />
+    <Content Include="CommonSql\Pictures\Item\DONOTDELETE_SUBIMAGE.jpg" />
+    <Content Include="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" />
+    <Content Include="CommonSql\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="NewIcon.ico" />
+    <Content Include="mybox.ico" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AcroPDFLib">
@@ -517,6 +543,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -525,8 +552,6 @@
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

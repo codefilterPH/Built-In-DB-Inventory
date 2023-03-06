@@ -94,9 +94,10 @@ namespace Inventory_System02
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Qty = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
+            this.chk_select_all = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.lbl_ProductValue = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.lbl_items_count = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -162,6 +163,7 @@ namespace Inventory_System02
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_Items.RowTemplate.Height = 60;
+            this.dtg_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_Items.Size = new System.Drawing.Size(850, 191);
             this.dtg_Items.TabIndex = 20;
             this.dtg_Items.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -509,7 +511,7 @@ namespace Inventory_System02
             this.btn_delete.TabIndex = 13;
             this.btn_delete.Text = "Delete Item";
             this.btn_delete.UseVisualStyleBackColor = false;
-            this.btn_delete.Click += new System.EventHandler(this.btb_delete_Click);
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_edit
             // 
@@ -889,26 +891,26 @@ namespace Inventory_System02
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.chk_select_all);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.lbl_ProductValue);
-            this.panel2.Controls.Add(this.lbl_items_count);
             this.panel2.Controls.Add(this.dtg_Items);
             this.panel2.Location = new System.Drawing.Point(6, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(856, 222);
             this.panel2.TabIndex = 21;
             // 
-            // label18
+            // chk_select_all
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label18.Location = new System.Drawing.Point(6, 7);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(77, 14);
-            this.label18.TabIndex = 37;
-            this.label18.Text = "Rows Count";
+            this.chk_select_all.AutoSize = true;
+            this.chk_select_all.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.chk_select_all.Location = new System.Drawing.Point(3, 5);
+            this.chk_select_all.Name = "chk_select_all";
+            this.chk_select_all.Size = new System.Drawing.Size(71, 17);
+            this.chk_select_all.TabIndex = 123;
+            this.chk_select_all.Text = "Select all";
+            this.chk_select_all.UseVisualStyleBackColor = true;
+            this.chk_select_all.CheckedChanged += new System.EventHandler(this.chk_select_all_CheckedChanged);
             // 
             // label17
             // 
@@ -936,12 +938,25 @@ namespace Inventory_System02
             this.lbl_ProductValue.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lbl_ProductValue.TextChanged += new System.EventHandler(this.lbl_ProductValue_TextChanged);
             // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label18.Location = new System.Drawing.Point(6, 467);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 14);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Rows Count";
+            // 
             // lbl_items_count
             // 
+            this.lbl_items_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_items_count.AutoSize = true;
             this.lbl_items_count.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_items_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl_items_count.Location = new System.Drawing.Point(84, 7);
+            this.lbl_items_count.Location = new System.Drawing.Point(84, 467);
             this.lbl_items_count.Name = "lbl_items_count";
             this.lbl_items_count.Size = new System.Drawing.Size(14, 14);
             this.lbl_items_count.TabIndex = 94;
@@ -1055,8 +1070,10 @@ namespace Inventory_System02
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(868, 507);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.lbl_TotalAmt);
             this.Controls.Add(this.lbl_TotalQty);
+            this.Controls.Add(this.lbl_items_count);
             this.Controls.Add(this.lbl_Today_Amt);
             this.Controls.Add(this.lbl_Today_Qty);
             this.Controls.Add(this.label14);
@@ -1162,6 +1179,7 @@ namespace Inventory_System02
         private System.Windows.Forms.ToolStripMenuItem mostItemPurchasedToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem divisionWithTheLeastPurchasesToolStripMenuItem;
+        private System.Windows.Forms.CheckBox chk_select_all;
     }
 }
 

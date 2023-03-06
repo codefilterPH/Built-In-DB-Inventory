@@ -83,8 +83,14 @@ namespace Inventory_System02
         }
         private void Load_to_Adobe()
         {
-            string file = Includes.AppSettings.Doc_DIR + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
-            axAcroPDF1.LoadFile(file);
+            if ( dtg_batch_form.Rows.Count >=1 )
+            {
+                if (dtg_batch_form.CurrentRow != null )
+                {
+                    string file = Includes.AppSettings.Doc_DIR + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
+                    axAcroPDF1.LoadFile(file);
+                }
+            }
         }
         private void btn_Delete_Click_1(object sender, EventArgs e)
         {
@@ -464,12 +470,16 @@ namespace Inventory_System02
         }
         private void DTG_Properties()
         {
+            if (this.IsDisposed) // Check if form has been disposed of
+            {
+                return;
+            }
             if (this.InvokeRequired)
             {
                 this.Invoke(new MethodInvoker(DTG_Properties));
                 return;
             }
-            if ( dtg_batch_form.Rows.Count > 0 )
+            if ( dtg_batch_form.Rows.Count >= 1 )
             {
                 dtg_batch_form.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 dtg_batch_form.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

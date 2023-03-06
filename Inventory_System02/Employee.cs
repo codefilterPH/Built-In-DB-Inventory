@@ -79,7 +79,7 @@ namespace Inventory_System02.Profiles
                     ", `Job Role` ) values  ( " +
                     " '" + dtp_Hired_date.Text + "' " +
                     ", '" + txt_ID.Text + "' " +
-                    ", sha1('" + txt_Pass.Text + "') " +
+                    ", SHA512('" + txt_Pass.Text + "') " +
                     ", '" + txt_FN.Text + "' " +
                     ", '" + txt_LN.Text + "' " +
                     ", '" + txt_Email.Text + "' " +
@@ -301,59 +301,61 @@ namespace Inventory_System02.Profiles
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            if (txt_ID.Text == "admin")
+            if (!string.IsNullOrWhiteSpace ( txt_ID.Text ) )
             {
-                if (Global_ID != "admin")
+                if (txt_ID.Text == "admin")
                 {
-                    Error_DeletingSuper_User();
+                    if (Global_ID != "admin")
+                    {
+                        Error_DeletingSuper_User();
+                    }
+                }
+                else if (txt_Job_role.Text == JobRole && txt_ID.Text == Global_ID)
+                {
+                    // Allow the user to update their own account
+                    if (MessageBox.Show("Are you sure to update your profile? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                    {
+                        // Perform the update
+                        sql = "Update Employee set " +
+                            " `Hired Date` = '" + dtp_Hired_date.Text + "' " +
+                            ", `First Name` = '" + txt_FN.Text + "'" +
+                            ", `Last Name` = '" + txt_LN.Text + "' " +
+                            ", `Email` = '" + txt_Email.Text + "' " +
+                            ", `Phone Number` = '" + txt_Phone.Text + "' " +
+                            ", `Address` = '" + txt_Address.Text + "' " +
+                            ", `Job Role` = '" + txt_Job_role.Text + "' " +
+                            " where `Employee ID` = '" + txt_ID.Text + "' ";
+                        config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
+                        reloadTableToolStripMenuItem_Click(sender, e);
+                    }
+                }
+                else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
+                {
+                    // Allow managers and admin to update other employees' accounts
+                    if (MessageBox.Show("Are you sure to update this user? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                        == DialogResult.Yes)
+                    {
+                        // Perform the update
+                        sql = "Update Employee set " +
+                            " `Hired Date` = '" + dtp_Hired_date.Text + "' " +
+                            ", `First Name` = '" + txt_FN.Text + "'" +
+                            ", `Last Name` = '" + txt_LN.Text + "' " +
+                            ", `Email` = '" + txt_Email.Text + "' " +
+                            ", `Phone Number` = '" + txt_Phone.Text + "' " +
+                            ", `Address` = '" + txt_Address.Text + "' " +
+                            ", `Job Role` = '" + txt_Job_role.Text + "' " +
+                            " where `Employee ID` = '" + txt_ID.Text + "' ";
+                        config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
+                        reloadTableToolStripMenuItem_Click(sender, e);
+                    }
+                }
+                else
+                {
+                    // Don't allow other employees to update accounts
+                    MessageBox.Show("You do not have permission to update this account.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
             }
-            else if (txt_Job_role.Text == JobRole && txt_ID.Text == Global_ID)
-            {
-                // Allow the user to update their own account
-                if (MessageBox.Show("Are you sure to update your profile? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
-                {
-                    // Perform the update
-                    sql = "Update Employee set " +
-                        " `Hired Date` = '" + dtp_Hired_date.Text + "' " +
-                        ", `First Name` = '" + txt_FN.Text + "'" +
-                        ", `Last Name` = '" + txt_LN.Text + "' " +
-                        ", `Email` = '" + txt_Email.Text + "' " +
-                        ", `Phone Number` = '" + txt_Phone.Text + "' " +
-                        ", `Address` = '" + txt_Address.Text + "' " +
-                        ", `Job Role` = '" + txt_Job_role.Text + "' " +
-                        " where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
-                    reloadTableToolStripMenuItem_Click(sender, e);
-                }
-            }
-            else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
-            {
-                // Allow managers and admin to update other employees' accounts
-                if (MessageBox.Show("Are you sure to update this user? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                    == DialogResult.Yes)
-                {
-                    // Perform the update
-                    sql = "Update Employee set " +
-                        " `Hired Date` = '" + dtp_Hired_date.Text + "' " +
-                        ", `First Name` = '" + txt_FN.Text + "'" +
-                        ", `Last Name` = '" + txt_LN.Text + "' " +
-                        ", `Email` = '" + txt_Email.Text + "' " +
-                        ", `Phone Number` = '" + txt_Phone.Text + "' " +
-                        ", `Address` = '" + txt_Address.Text + "' " +
-                        ", `Job Role` = '" + txt_Job_role.Text + "' " +
-                        " where `Employee ID` = '" + txt_ID.Text + "' ";
-                    config.Execute_CUD(sql, "Unable to update profile", "Profile successfully updated!");
-                    reloadTableToolStripMenuItem_Click(sender, e);
-                }
-            }
-            else
-            {
-                // Don't allow other employees to update accounts
-                MessageBox.Show("You do not have permission to update this account.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
-
         }
 
         private void newEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -423,7 +425,7 @@ namespace Inventory_System02.Profiles
                             txt_Pass.Focus();
                             return;
                         }
-                        string sql = "UPDATE Employee SET Password = sha1('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
+                        string sql = "UPDATE Employee SET Password = SHA512('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
                         config.Execute_CUD(sql, "Unable to update password! Please contact your administrator.", "Password successfully updated!");
                     }
                     reloadTableToolStripMenuItem_Click(sender, e);
@@ -450,7 +452,7 @@ namespace Inventory_System02.Profiles
                         txt_Pass.Focus();
                         return;
                     }
-                    string sql = "UPDATE Employee SET Password = sha1('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
+                    string sql = "UPDATE Employee SET Password = SHA512('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
                     config.Execute_CUD(sql, "Unable to update password! Please contact your administrator.", "Password successfully updated!");
                 }
                 reloadTableToolStripMenuItem_Click(sender, e);
@@ -469,7 +471,7 @@ namespace Inventory_System02.Profiles
                             txt_Pass.Focus();
                             return;
                         }
-                        string sql = "UPDATE Employee SET Password = sha1('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
+                        string sql = "UPDATE Employee SET Password = SHA512('" + txt_Pass.Text + "') WHERE `Employee ID` = '" + txt_ID.Text + "' ";
                         config.Execute_CUD(sql, "Unable to update password! Please Contact your Administrator.", "Password successfully updated!");
                     }
                     reloadTableToolStripMenuItem_Click(sender, e);

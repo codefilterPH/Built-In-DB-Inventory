@@ -29,7 +29,7 @@ namespace Inventory_System02.Admin
         {
             if ( cbo_extend_type.Text == "Trial" )
             {
-                sql = "Update `Administration` set Date = @dtp_date_extend, Status = 'Trial' where Count = '0' ";
+                sql = "Update `Administration` set Date = '"+dtp_date_extend.Value.ToString(Includes.AppSettings.DateFormatRetrieve)+"' , Status = 'Trial' where Count = '0' ";
                 config.Execute_CUD(sql, "Unable to extend trial! Please try again.", "Successfully extended trial!");
                 Application.Exit();
             }
@@ -169,7 +169,7 @@ namespace Inventory_System02.Admin
 
         private void btn_Unlock_Click(object sender, EventArgs e)
         {        
-            sql = "Select * from Employee where `Employee ID` = '" + txt_Username.Text + "' and `Password` = sha1('" + txt_Password.Text + "') ";
+            sql = "Select * from Employee where `Employee ID` = '" + txt_Username.Text + "' and `Password` = SHA512('" + txt_Password.Text + "') ";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0 )
             {

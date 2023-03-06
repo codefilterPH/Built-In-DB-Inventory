@@ -100,6 +100,7 @@ namespace Inventory_System02
             this.Controls.Add(this.Company_Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Login1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login1_FormClosed);
             this.Load += new System.EventHandler(this.Login1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Company_Logo)).EndInit();

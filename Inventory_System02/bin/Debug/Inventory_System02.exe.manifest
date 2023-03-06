@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Inventory_System02.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Inventory_System02.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="mybox.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Inventory_System02" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -49,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zJLW/BtfAb+ntujxdtSqh4+2n2O9ySIq1cuiIHlxWKo=</dsig:DigestValue>
+        <dsig:DigestValue>LAnIMvTJ5Z5fE4+QldAQtomR9XPf1/TVW3fgiuZy1k8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,19 +98,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>c/Cutf7oYFuFGtiha7Zm3K1ufsaLHZ31Xo1AiAgRBo8=</dsig:DigestValue>
+        <dsig:DigestValue>k7qu318/Zq9Kjr2tB4icf+JNhNmccdUI9FIJlaHm+QQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory_System02.exe" size="2304480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory_System02.exe" size="2532320">
       <assemblyIdentity name="Inventory_System02" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UAVJqkr+BX5c8hFzxFc2xLmsy3sxSO09vzY884ugYkU=</dsig:DigestValue>
+        <dsig:DigestValue>XTjUgxlqRKnQ4w7jb5U0KZaOqsv0NRJAcfuPQKYqDH4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -834,14 +835,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.dll" size="411832">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.dll" size="406192">
       <assemblyIdentity name="System.Data.SQLite" version="1.0.117.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JAQ+9EctnQNc0agpT2jSu/33b1RVr4DAnInmT27RWRc=</dsig:DigestValue>
+        <dsig:DigestValue>B4sx5iO/INPNPF/5AS2i76HQUZ8g7pNZ0L6pV8xYbBg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -926,6 +927,114 @@
       <dsig:DigestValue>8lk34F5qbGWsTHpdjcMRApaOmXNaJu1OrWy/1WwsLYc=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9nl005Qk6eH3sRcJ1YZE6CBJP9jTnkXvWukOPzY/bOk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="71468">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/729PrNk31VLOldQ86QP2AktdR4tkwY6lyOBH5UU10U=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Employee\admin.JPG" size="223880">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GiRwJhMeTv166Yo9+V20CTcMb5iflk6Ne3i7zPtuyCw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Item\091D0001.PNG" size="20052">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Y27ZIZ8lrOMz1pxPLsGlIiD3At/vTYBTvQEb0vMuATg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Item\091LL1D0.PNG" size="4736">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>QKurcFywiNRfdMW3+zVQO41wyiC8CMwo8+9H3Ft9J5s=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Item\B1109L01.PNG" size="23126">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6vj1qN+L27cZtduCT4M+Uh1ZrgaNbqrGUdOpAWpLd8I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Item\DONOTDELETE_SUBIMAGE.jpg" size="20162">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UeQODHhzR5irMXaDFiWqVpFvGDsYyxmGjXA7t4FralY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\SQLite.Interop.dll" size="1421496">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mLDg583jKNIShGh901njakLTmjKdQ1PTw53vmQtGoYs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="freenoattrib.ico" size="132845">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pjakweNASFxdJndz1Z6Z1+1g9jKJEl94mew4EIseAsY=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Inventory_System02.exe.config" size="1548">
     <hash>
       <dsig:Transforms>
@@ -933,6 +1042,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>PgHQcqCT5POPpk1xvQKCSWHmj9YtFDTyu6N/7yw+qF0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="mybox.ico" size="188221">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oIpXTVpTEa/+K50G17UfDl1yuJvIWuEim+ihVpybBgE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="NewIcon.ico" size="14482">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Ek1u5lzgcO1F0zh5IMotE9TP2CZAoXKxFPkRH3DFnBo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="x64\SqlServerSpatial160.dll" size="681904">

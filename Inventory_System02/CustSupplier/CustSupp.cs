@@ -456,7 +456,7 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_Upload_Cust_Click(object sender, EventArgs e)
         {
-            if (cust_ID.Text != "")
+            if (cust_ID.Text != "" && cust_ID.Text != "Empty Field!")
             {
                 Cust_Image_DoubleClick(sender, e);
             }
@@ -470,7 +470,7 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_Upload_sup_Click(object sender, EventArgs e)
         {
-            if (Sup_ID.Text != "")
+            if (Sup_ID.Text != "" && Sup_ID.Text != "Empty Field!")
             {
                 Sup_Image_DoubleClick(sender, e);
             }

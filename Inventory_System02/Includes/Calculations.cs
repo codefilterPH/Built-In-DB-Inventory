@@ -98,20 +98,20 @@ namespace Inventory_System02.Includes
             }
         }
 
-        public void ReturnReason(string trans_ref, string cust_id, string reason)
+        public void ReturnReason(string trans_ref, string cust_id, string type, string remarks)
         {
             sql = "Select * from `Return Reasons` where `Transaction Ref` = '" + trans_ref + "' and `Customer ID` = '" + cust_id + "' ";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
                
-                sql = " Update `Return Reasons` set Reason = '" + reason + "' where `Transaction Ref` = '" + trans_ref + "' and `Customer ID` = '" + cust_id + "' ";
+                sql = " Update `Return Reasons` set Reason = '" + type + "', Remarks = '"+ remarks +"' where `Transaction Ref` = '" + trans_ref + "' and `Customer ID` = '" + cust_id + "' ";
                 config.Execute_Query(sql);
             }
             else
             {
                
-                sql = " Insert into `Return Reasons` ( `Transaction Ref`, `Customer ID`, `Reason` ) values ( '"+trans_ref+"', '"+cust_id+"', '" + reason + "' )  ";
+                sql = " Insert into `Return Reasons` ( `Transaction Ref`, `Customer ID`, `Reason`, Remarks ) values ( '"+trans_ref+"', '"+cust_id+"', '" + type + "', '"+ remarks +"' )  ";
                 config.Execute_Query(sql); 
             }
         }

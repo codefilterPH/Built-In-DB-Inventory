@@ -476,6 +476,7 @@ namespace Inventory_System02.Includes
             else
             {
                 opFile.Dispose();
+                return;
             }
 
         }

@@ -327,3 +327,5 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.csproj.CopyComplete
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.pdb
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\SQLite.Interop.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Return.ReturnToStocks.resources
