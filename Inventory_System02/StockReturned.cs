@@ -16,7 +16,7 @@ namespace Inventory_System02
         SQLConfig config = new SQLConfig();
         usableFunction func = new usableFunction(); Calculations cal = new Calculations();
         ID_Generator gen = new ID_Generator();
-        string sql, Global_ID, JobRole, Fullname, Gen_Trans, due, date;
+        string sql, Global_ID, JobRole, Fullname, due, date;
         double price = 0, qty = 0, quan = 0;
         string sup_image_location = Includes.AppSettings.Customer_DIR;
         string item_image_location = Includes.AppSettings.Image_DIR;
@@ -878,14 +878,34 @@ namespace Inventory_System02
             }
          
         }
+        string Gen_Trans;
         private void Generate_Trans()
         {
-            gen.Generate_Transaction();
-            sql = "Select `Transaction Reference` from `ID_Generated` where count = '1' ";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
+            ID_Generator gen = new ID_Generator();
+            string id = string.Empty;
+            bool hasDuplicate = true;
+            while (hasDuplicate)
             {
-                Gen_Trans = config.dt.Rows[0].Field<string>("Transaction Reference");
+                gen.Generate_Transaction();
+                sql = "Select `Transaction Reference` from `ID_Generated` ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    id = Convert.ToString(config.dt.Rows[0]["Transaction Reference"]);
+
+                    sql = "SELECT COUNT(*) FROM `Stock Returned` WHERE `Transaction Reference` = '" + id + "'";
+                    config.singleResult(sql);
+                    if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                    {
+                        gen.Generate_Transaction();
+                    }
+                    else
+                    {
+                        Gen_Trans = id;
+                        hasDuplicate = false;
+
+                    }
+                }
             }
         }
 

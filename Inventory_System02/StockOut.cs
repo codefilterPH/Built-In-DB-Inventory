@@ -20,7 +20,7 @@ namespace Inventory_System02
         ID_Generator gen = new ID_Generator();
         usableFunction func = new usableFunction();
 
-        string sql, Global_ID, Fullname, JobRole, Gen_Trans;
+        string sql, Global_ID, Fullname, JobRole;
 
         public StockOut(string global_id, string fullname, string jobrole)
         {
@@ -647,6 +647,37 @@ namespace Inventory_System02
                 cbo_CustID.Text = frm.cusID;
             }
         }
+        string Gen_Trans;
+        private void Generate_Trans()
+        {
+            ID_Generator gen = new ID_Generator();
+            string id = string.Empty;
+            bool hasDuplicate = true;
+            while (hasDuplicate)
+            {
+                gen.Generate_Transaction();
+                sql = "Select `Transaction Reference` from `ID_Generated` ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    id = Convert.ToString(config.dt.Rows[0]["Transaction Reference"]);
+
+                    sql = "SELECT COUNT(*) FROM `Stock Out` WHERE `Transaction Reference` = '" + id + "'";
+                    config.singleResult(sql);
+                    if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                    {
+                        gen.Generate_Transaction();
+                    }
+                    else
+                    {
+                        Gen_Trans = id;
+                        hasDuplicate = false;
+
+                    }
+                }
+
+            }
+        }
 
         Inventory_System02.Invoice_Code.Invoice_Code out_trans_rec = new Invoice_Code.Invoice_Code();
         private void btn_Saved_Click(object sender, EventArgs e)
@@ -693,14 +724,7 @@ namespace Inventory_System02
                         config.Execute_Query(sql);
                     }
                 }
-                gen.Generate_Transaction();
-
-                sql = "Select `Transaction Reference` from `ID_Generated` where count = '1' ";
-                config.singleResult(sql);
-                if (config.dt.Rows.Count > 0)
-                {
-                    Gen_Trans = config.dt.Rows[0].Field<string>("Transaction Reference");
-                } 
+                Generate_Trans();
 
                 foreach (DataGridViewRow stock_out_row in dtg_AddedStocks.Rows)
                 {

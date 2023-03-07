@@ -201,14 +201,32 @@ namespace Inventory_System02
 
         private void btn_Gen_Click(object sender, EventArgs e)
         {
-            gen.Generate_Transaction();
-            sql = "Select `Transaction Reference` from `ID_Generated` where count = '1' ";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
+            string id = string.Empty;
+            bool hasDuplicate = true;
+            while (hasDuplicate)
             {
-                txt_TransRef.Text = Convert.ToString(config.dt.Rows[0]["Transaction Reference"]);
+                gen.Generate_Transaction();
+                sql = "Select `Transaction Reference` from `ID_Generated` ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    id = Convert.ToString(config.dt.Rows[0]["Transaction Reference"]);
+
+                    sql = "SELECT COUNT(*) FROM `Stocks` WHERE `Transaction Reference` = '" + id + "'";
+                    config.singleResult(sql);
+                    if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                    {
+                        gen.Generate_Transaction();
+                    }
+                    else
+                    {
+                       txt_TransRef.Text = id;
+                       hasDuplicate = false;
+                       SupplierChangeDisabler();
+                    }
+                }
+
             }
-            SupplierChangeDisabler();
         }
 
         bool dtg_was_clicked = false;
@@ -529,22 +547,37 @@ namespace Inventory_System02
 
         private void newItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            chk_select_all.Checked = false;
-            gen.Item_ID();
-            sql = "Select `Item ID` from ID_Generated where count = '1'";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
+            string id = string.Empty;
+            bool hasDuplicate = true;
+            ID_Generator gen = new ID_Generator();
+            while (hasDuplicate)
             {
-                txt_Barcode.Text = config.dt.Rows[0].Field<string>("Item ID"); 
-                cbo_brand.Text = "Replace me with existing brand or new one.";
-                txt_ItemName.Text = "Replace me with new name.";
-                txt_Price.Text = "0.00";
-                txt_Qty.Text = "0";
-                lbl_ProductValue.Text = "0.00";
-                cbo_desc.Text = "None";
-                txt_Barcode.Focus();
+                chk_select_all.Checked = false;
+                gen.Item_ID();
+                sql = "Select `Item ID` from ID_Generated";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count > 0)
+                {
+                    id = Convert.ToString(config.dt.Rows[0]["Item ID"]);
 
+                    sql = "SELECT COUNT(*) FROM `Stock ID` WHERE `Item ID` = '" + id + "'";
+                    config.singleResult(sql);
+                    if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                    {
+                        gen.Item_ID();
+                    }
+                    else
+                    {
+                        txt_Barcode.Text = id;
+                        cbo_brand.Text = "Replace me with existing brand or new one.";
+                        txt_ItemName.Text = "Replace me with new name.";
+                        txt_Price.Text = "0.00";
+                        txt_Qty.Text = "0";
+                        lbl_ProductValue.Text = "0.00";
+                        cbo_desc.Text = "None";
+                        txt_Barcode.Focus();
+                    }
+                }
             }
         }
 
