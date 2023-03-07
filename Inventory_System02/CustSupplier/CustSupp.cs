@@ -130,7 +130,11 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_sup_delete_Click(object sender, EventArgs e)
         {
-
+            if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
+            {
+                MessageBox.Show("No permission to delete supplier! Thank you.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             if (dtg_Supplier.Rows.Count >= 1)
             {
                 if (dtg_Supplier.SelectedRows.Count == 1)
@@ -153,8 +157,9 @@ namespace Inventory_System02.CustSupplier
                         foreach (DataGridViewRow rw in dtg_Supplier.SelectedRows)
                         {
                             sql = "Delete from Supplier where `Company ID` = '" + rw.Cells[2].Value.ToString() + "' ";
-                            config.Execute_CUD(sql, "Unable to delete " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "!", "Successfully deleted selected " + dtg_Supplier.CurrentRow.Cells[3].Value.ToString() + "!");
+                            config.Execute_Query(sql);
                         }
+                        MessageBox.Show("Successfully deleted supplier\'s profile!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         supplier_refresh_Click(sender, e);
                     }
                 }
@@ -560,6 +565,12 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_Cust_Delete_Click(object sender, EventArgs e)
         {
+            if ( JobRole != "Programmer/Developer" && JobRole != "Office Manager" )
+            {
+                MessageBox.Show("No permission to delete customer! Thank you.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
             if (dtg_Customer.Rows.Count >= 1)
             {
                 if (dtg_Customer.SelectedRows.Count == 1)
@@ -582,8 +593,9 @@ namespace Inventory_System02.CustSupplier
                         foreach (DataGridViewRow rw in dtg_Customer.SelectedRows)
                         {
                             sql = "Delete from Customer where `Customer ID` = '" + rw.Cells[2].Value.ToString() + "' ";
-                            config.Execute_CUD(sql, "Unable to delete some of selected customer(s)!", "Successfully deleted selected customer(s)!");
+                            config.Execute_Query(sql);
                         }
+                        MessageBox.Show("Successfully deleted customer\'s profile!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         refreshToolStripMenuItem_Click(sender, e);
                     }
                 }

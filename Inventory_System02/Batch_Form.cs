@@ -94,6 +94,14 @@ namespace Inventory_System02
         }
         private void btn_Delete_Click_1(object sender, EventArgs e)
         {
+
+            if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
+            {
+                MessageBox.Show("No permission to delete a document!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                chk_Select_all.Checked = false;
+                return;
+            }
+
             if (dtg_batch_form.Rows.Count > 0 )
             {
                 if ( what_to_del != "all" )
@@ -650,9 +658,12 @@ namespace Inventory_System02
             int count = files.Length;
 
             if (count > 0)
-            {     
-                PATH();
-                DTG_Properties();
+            {
+                if (!IsDisposed && IsHandleCreated && dtg_batch_form != null)
+                {
+                    PATH();
+                    DTG_Properties();
+                }
             }
         }
 

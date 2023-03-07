@@ -712,19 +712,20 @@ namespace Inventory_System02
             if ( MessageBox.Show("Selected items will be deducted from inbound record. \n\nPlease confirm stock out?", "Important Message", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question ) == DialogResult.Yes )
             {
-                  
+                Gen_Trans = string.Empty;
+                Generate_Trans();
                 foreach (DataGridViewRow rw in dtg_Stocks.Rows)
                 {
-                    sql = "Select Quantity, Total from Stocks where `Stock ID` = '" + rw.Cells[2].Value + "' ";
+                    sql = "Select Quantity, Total, Status from Stocks where `Stock ID` = '" + rw.Cells[2].Value + "' ";
                     config.singleResult(sql);
                     if (config.dt.Rows.Count == 1)
                     {
-                            
-                        sql = "Update Stocks set Quantity = '" + Convert.ToInt32(rw.Cells[6].Value) + "', Total ='"+ Convert.ToDecimal(rw.Cells[8].Value)+"' where `Stock ID` = '" + rw.Cells[2].Value + "' ";
+                        string info = "Item was altered an outbound was made! ref " + Gen_Trans;
+                        sql = "Update Stocks set Quantity = '" + Convert.ToInt32(rw.Cells[6].Value) + "', Total ='"+ Convert.ToDecimal(rw.Cells[8].Value)+"', Status = '"+ info + "' where `Stock ID` = '" + rw.Cells[2].Value + "' ";
                         config.Execute_Query(sql);
                     }
                 }
-                Generate_Trans();
+             
 
                 foreach (DataGridViewRow stock_out_row in dtg_AddedStocks.Rows)
                 {
@@ -743,7 +744,8 @@ namespace Inventory_System02
                         ",`Transaction Reference` "+
                         ",`User ID` " +
                         ",`Warehouse Staff Name` " +
-                        ",`Job Role`) values ( " +
+                        ",`Job Role`" +
+                        ",`Status` ) values ( " +
                         " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                         ",'" + cbo_CustID.Text + "' " +
                         ",'" + txt_Cust_Name.Text + "' " +
@@ -758,7 +760,8 @@ namespace Inventory_System02
                         ",'" + Gen_Trans + "' " +
                         ",'" + Global_ID + "' " +
                         ",'" + Fullname + "' " +
-                        ",'" + JobRole + "' )";
+                        ",'" + JobRole + "'" +
+                        ",'New outbound transaction' )";
                     config.Execute_Query(sql);
 
                     func.Due_Date_Warranty(Gen_Trans);

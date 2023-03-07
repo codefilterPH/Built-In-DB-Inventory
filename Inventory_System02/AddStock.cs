@@ -560,7 +560,7 @@ namespace Inventory_System02
                 {
                     id = Convert.ToString(config.dt.Rows[0]["Item ID"]);
 
-                    sql = "SELECT COUNT(*) FROM `Stock ID` WHERE `Item ID` = '" + id + "'";
+                    sql = "SELECT COUNT(*) FROM `Stocks` WHERE `Stock ID` = '" + id + "'";
                     config.singleResult(sql);
                     if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
                     {
@@ -576,6 +576,7 @@ namespace Inventory_System02
                         lbl_ProductValue.Text = "0.00";
                         cbo_desc.Text = "None";
                         txt_Barcode.Focus();
+                        hasDuplicate = false;
                     }
                 }
             }
@@ -827,7 +828,7 @@ namespace Inventory_System02
             {
                 if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
                 {
-                    MessageBox.Show("No permission to delete all transactions!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    MessageBox.Show("No permission to delete item!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     chk_select_all.Checked = false;
                     return;
                 }
@@ -1026,7 +1027,8 @@ namespace Inventory_System02
                     ",`User ID` " +
                     ",`Warehouse Staff Name`    " +
                     ",`Job Role` " +
-                    ",`Transaction Reference` ) values (" +
+                    ",`Transaction Reference`," +
+                    ",`Status` ) values (" +
                     " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                     ",'" + Item_ID1 + "' " +
                     ",'" + txt_ItemName.Text + "' " +
@@ -1041,7 +1043,8 @@ namespace Inventory_System02
                     ",'" + Global_ID + "' " +
                     ",'" + Fullname + "' " +
                     ",'" + JobRole + "' " +
-                    ",'" + txt_TransRef.Text + "'  )";
+                    ",'" + txt_TransRef.Text + "'" +
+                    ",'Inbound from Supplier'  )";
                 config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to database!");
                 save_Ref = txt_TransRef.Text;
                 newItemToolStripMenuItem_Click(sender, e);

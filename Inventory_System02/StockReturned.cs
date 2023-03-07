@@ -708,11 +708,26 @@ namespace Inventory_System02
                 }
             }
 
-   
+            string status_words = string.Empty;
             if (MessageBox.Show("All items will be recorded. Please confirm stock return?", "Important Message", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 gen.Generate_Transaction();
+
+                if (txt_Reasons.Text == "Manufacturing Defect ( Sent back to suppliers )")
+                {
+                    status_words = "No return to inbound tag as \'Manufacturing Defect\'. Item sent back to supplier.";
+                }
+                else if ( txt_Reasons.Text == "Damage ( Investigated or Repair )")
+                {
+                    status_words = "Pending return to inbound tag as \'Damaged\'. It will be investigated or sent back to supplier.";
+                }
+                else
+                {
+                    status_words = "A return transaction was made with the recent reference number " + Gen_Trans + ".";
+                }
+                
+               
                 if ( txt_Reasons.Text == "Manufacturing Defect ( Sent back to suppliers )" || txt_Reasons.Text == "Damage ( Investigated or Repair )")
                 {
                     if (MessageBox.Show("Manufacturing Defect or Damage Items will not be returned to inventory. Proceed?", "Return Type Choice", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
@@ -727,13 +742,14 @@ namespace Inventory_System02
                     foreach (DataGridViewRow rw in dtg_Return.Rows)
                     {
 
-                        sql = "Select Quantity, Price, Total from `Stocks` where `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
+                        sql = "Select Quantity, Price, Total, Status from `Stocks` where `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
                         config.singleResult(sql);
                         if (config.dt.Rows.Count > 0)
                         {
+                            string status_info = "Item was altered, a return transaction was made! ref " + Gen_Trans;
                             int quant = Convert.ToInt32(rw.Cells[4].Value.ToString()) + Convert.ToInt32(config.dt.Rows[0]["Quantity"].ToString());
                             decimal new_total = Convert.ToDecimal(quant) * Convert.ToDecimal(config.dt.Rows[0]["Price"].ToString());
-                            sql = "Update `Stocks` set Quantity = '" + quant + "', Total = '"+ new_total +"' where `Stock ID` = '" + rw.Cells[0].Value.ToString() +"' ";
+                            sql = "Update `Stocks` set Quantity = '" + quant + "', Total = '"+ new_total +"', Status = '"+ status_info + "' where `Stock ID` = '" + rw.Cells[0].Value.ToString() +"' ";
                             config.Execute_Query(sql);
 
                         }
@@ -753,7 +769,8 @@ namespace Inventory_System02
                                 ",`User ID` " +
                                 ",`Warehouse Staff Name`    " +
                                 ",`Job Role` " +
-                                ",`Transaction Reference` ) values (" +
+                                ",`Transaction Reference`," +
+                                ",`Status` ) values (" +
                                 " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                                 ",'" + rw.Cells[0].Value.ToString() + "' " +
                                 ",'" + rw.Cells[1].Value.ToString() + "' " +
@@ -765,7 +782,8 @@ namespace Inventory_System02
                                 ",'" + Global_ID + "' " +
                                 ",'" + Fullname + "' " +
                                 ",'" + JobRole + "' " +
-                                ",'" + Gen_Trans + "'  )";
+                                ",'" + Gen_Trans + "'  " +
+                                ",'" + status_words +"' )";
                             config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to database!");
                         }
                     }
@@ -802,7 +820,8 @@ namespace Inventory_System02
                         ",`Transaction Reference` " +
                         ",`User ID` " +
                         ",`Warehouse Staff Name` " +
-                        ",`Job Role`) values ( " +
+                        ",`Job Role`" +
+                        ",`Status` ) values ( " +
                         " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
                         ",'" + txt_CustID.Text + "' " +
                         ",'" + txt_CustName.Text + "' " +
@@ -817,7 +836,8 @@ namespace Inventory_System02
                         ",'" + Gen_Trans + "' " +
                         ",'" + Global_ID + "' " +
                         ",'" + Fullname + "' " +
-                        ",'" + JobRole + "' )";
+                        ",'" + JobRole + "'" +
+                        ",'" + status_words + "' )";
                         
                     config.Execute_Query(sql);
                 }

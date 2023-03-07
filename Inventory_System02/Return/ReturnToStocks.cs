@@ -17,7 +17,16 @@ namespace Inventory_System02.Return
         string Global_ID, Fullname, JobRole, item_id, trans_ref, sql = string.Empty;
         SQLConfig config;
         usableFunction func = new usableFunction();
+        public ReturnToStocks(string id, string name, string role, string transref, string itemid)
+        {
+            InitializeComponent();
+            Global_ID = id;
+            Fullname = name;
+            JobRole = role;
+            item_id = itemid;
+            trans_ref = transref;
 
+        }
         private void btn_change_Click(object sender, EventArgs e)
         {
             if (dtg_tobe_returned.Columns.Count > 1)
@@ -132,9 +141,29 @@ namespace Inventory_System02.Return
                     }
                     MessageBox.Show("Successfully deleted transactions","Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information); 
                     chk_select_all.Checked = false;
+                    refreshTableToolStripMenuItem_Click(sender, e);
                     return;
                 }
             }
+        }
+
+        private void chk_select_all_CheckedChanged(object sender, EventArgs e)
+        {
+            if ( dtg_return_list.Rows.Count >= 1 )
+            {
+                foreach(DataGridViewRow rw in dtg_return_list.Rows )
+                {
+                    if (chk_select_all.Checked)
+                    {
+                        rw.Selected = true;
+                    }
+                    else
+                    {
+                        rw.Selected = false;
+                    }
+                }
+            }
+       
         }
 
         private void dtg_return_list_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -144,82 +173,116 @@ namespace Inventory_System02.Return
 
         private void btn_return_Click(object sender, EventArgs e)
         {
-            Generate_Trans_To_Inbound();
-            config = new SQLConfig();
-            sql = "SELECT * FROM Stocks WHERE `Stock ID` = '" + dtg_tobe_returned.Rows[0].Cells[0].Value.ToString() + "' ";
-            config.singleResult(sql);
-            if (config.dt.Rows.Count >= 1 )
+            if (dtg_tobe_returned.Rows.Count == 1)
             {
-                int received_qty = Convert.ToInt32(config.dt.Rows[0]["Quantity"]);
-                int new_qty = received_qty + Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[0].Value);
-                decimal new_total = new_qty * Convert.ToDecimal(config.dt.Rows[0]["Price"]);
-                sql = "UPDATE Stocks set Quantity = '" + new_qty + "', Total = '"+ new_total+"', Status = 'Returned from Outbound (Damage Repaired)' where `Stock ID` = '" + dtg_tobe_returned.Rows[0].Cells[0].Value.ToString() + "' ";
-                config.Execute_CUD(sql, "Unable to return to stocks! Please try again thank you.", "Successfully added back to stocks!");
-            }
-            else
-            { 
-                sql = "Insert into Stocks ( " +
-                    " `Entry Date` " +
-                    ",`Stock ID` " +
-                    ",`Item Name` " +
-                    ",`Brand` " +
-                    ",`Description` " +
-                    ",`Quantity` " +
-                    ",`Price` " +
-                    ",`Total` " +
-                    ",`User ID` " +
-                    ",`Warehouse Staff Name` " +
-                    ",`Job Role` " +
-                    ",`Transaction Reference` "+
-                    ",`Status` ) values (" +
-                    " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
-                    ",'" + dtg_tobe_returned.Rows[0].Cells[0].Value.ToString() + "' " +
-                    ",'" + dtg_tobe_returned.Rows[0].Cells[1].Value.ToString() + "' " +
-                    ",'" + dtg_tobe_returned.Rows[0].Cells[2].Value.ToString() + "' " +
-                    ",'" + dtg_tobe_returned.Rows[0].Cells[3].Value.ToString() + "' " +
-                    ",'" + Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value) + "' " +
-                    ",'" + Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[5].Value) + "' " +
-                    ",'" + Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[6].Value) + "' " +
-                    ",'" + Global_ID + "' " +
-                    ",'" + Fullname + "' " +
-                    ",'" + JobRole + "' " +
-                    ",'" + Gen_Trans_To_Stocks + "' " +
-                    ",'Returned from Outbound (Damage Repaired)' )";
-                config.Execute_CUD(sql, "Unable to insert to stocks!", "Item successfully added back to stocks!");
-            }
-            Generate_Trans_Record();
+                if (dtg_tobe_returned.DataSource != null)
+                {
+                    if (Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value) == 0 )
+                    {
+                        MessageBox.Show("Quantity is zero!", "Nothing to Return", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        return;
+                    }
+                    Generate_Trans_To_Inbound();
+                    string mydate = DateTime.Now.ToString(Includes.AppSettings.DateFormatSave);
+                    string item = dtg_tobe_returned.Rows[0].Cells[1].Value.ToString();
+                    string brand = dtg_tobe_returned.Rows[0].Cells[2].Value.ToString();
+                    string desc = dtg_tobe_returned.Rows[0].Cells[3].Value.ToString();
+                    int qty = Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells["Quantity"].Value);
+                    decimal price = Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[5].Value);
+                    decimal total = Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[6].Value);
 
-            sql = "Insert into `Returned to Stocks` ( " +
-                 " `Entry Date` " +
-                 ",`Stock ID` " +
-                 ",`Item Name` " +
-                 ",`Brand` " +
-                 ",`Description` " +
-                 ",`Quantity` " +
-                 ",`Price` " +
-                 ",`Total` " +
-                 ",`User ID` " +
-                 ",`Warehouse Staff Name` " +
-                 ",`Job Role` " +
-                 ",`Transaction Reference` " +
-                 ",`Status` ) values (" +
-                 " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
-                 ",'" + dtg_tobe_returned.Rows[0].Cells[0].Value.ToString() + "' " +
-                 ",'" + dtg_tobe_returned.Rows[0].Cells[1].Value.ToString() + "' " +
-                 ",'" + dtg_tobe_returned.Rows[0].Cells[2].Value.ToString() + "' " +
-                 ",'" + dtg_tobe_returned.Rows[0].Cells[3].Value.ToString() + "' " +
-                 ",'" + Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value) + "' " +
-                 ",'" + Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[5].Value) + "' " +
-                 ",'" + Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[6].Value) + "' " +
-                 ",'" + Global_ID + "' " +
-                 ",'" + Fullname + "' " +
-                 ",'" + JobRole + "' " +
-                 ",'" + Gen_Trans_Record + "' " +
-                 ",'Sent to Stocks' )";
-            config.Execute_CUD(sql, "Unable to insert to stocks!", "Item successfully added back to stocks!");
-            refreshTableToolStripMenuItem_Click(sender, e);
-            chk_select_all.Checked = false;
+                    //Add back to stock in
+                    config = new SQLConfig();
+                    sql = "SELECT * FROM Stocks WHERE `Stock ID` = '" + item_id+ "' ";
+                    config.singleResult(sql);
+                    if (config.dt.Rows.Count >= 1)
+                    {   
+                        int received_qty = Convert.ToInt32(config.dt.Rows[0]["Quantity"]);
+                        int new_qty = received_qty + qty;
+                        decimal new_total = new_qty * Convert.ToDecimal(config.dt.Rows[0]["Price"]);
+                        sql = "UPDATE Stocks set Quantity = '" + new_qty + "', Total = '" + new_total + "', Status = 'Returned from Outbound (Damage Repaired)' where `Stock ID` = '" + item_id + "' ";
+                        config.Execute_Query(sql);
+                    }
+                    else
+                    {
+                        sql = "Insert into Stocks ( " +
+                            " `Entry Date` " +
+                            ",`Stock ID` " +
+                            ",`Item Name` " +
+                            ",`Brand` " +
+                            ",`Description` " +
+                            ",`Quantity` " +
+                            ",`Price` " +
+                            ",`Total` " +
+                            ",`User ID` " +
+                            ",`Warehouse Staff Name` " +
+                            ",`Job Role` " +
+                            ",`Transaction Reference` " +
+                            ",`Status` ) values (" +
+                            " '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatSave) + "' " +
+                            ",'" + item_id + "' " +
+                            ",'" + item + "' " +
+                            ",'" + brand + "' " +
+                            ",'" + desc + "' " +
+                            ",'" + qty + "' " +
+                            ",'" + price + "' " +
+                            ",'" + total + "' " +
+                            ",'" + Global_ID + "' " +
+                            ",'" + Fullname + "' " +
+                            ",'" + JobRole + "' " +
+                            ",'" + Gen_Trans_To_Stocks + "' " +
+                            ",'Returned from outbound with tag \'Damaged\'.' )";
+                        config.Execute_Query(sql);
+                    }
+                    //Update stock out
+                    sql = "SELECT `Stock ID`, `Quantity`, `Price`, `Transaction Reference` FROM `Stock Returned` WHERE `Stock ID` = '" + item_id + "' and `Transaction Reference` = '" + trans_ref + "' ";
+                    config.singleResult(sql);
+                    if ( config.dt.Rows.Count == 1)
+                    {
+                        int received_qty = Convert.ToInt32(config.dt.Rows[0]["Quantity"]);
+                        int new_qty = received_qty - qty;
+                        decimal new_total = new_qty * Convert.ToDecimal(config.dt.Rows[0]["Price"]);
+                        sql = "UPDATE `Stock Returned` set Quantity = '" + new_qty + "', Total = '" + new_total + "', Status = 'Returned from Outbound (Damage Repaired)' where `Stock ID` = '" + item_id + "' ";
+                        config.Execute_Query(sql);
+                    }
 
+                    //Record the transactions
+                    Generate_Trans_Record();
+
+                    sql = "INSERT INTO `Returned to Stocks` ( " +
+                         " `Entry Date` " +
+                         ",`Stock ID` " +
+                         ",`Item Name` " +
+                         ",`Brand` " +
+                         ",`Description` " +
+                         ",`Quantity` " +
+                         ",`Price` " +
+                         ",`Total` " +
+                         ",`Remarks` " +
+                         ",`Transaction Reference` " +
+                         ",`User ID` " +
+                         ",`Staff Name` " +
+                         ",`Job Role` " +
+                         ",`Status` ) values (" +
+                         " '" + mydate + "' " +
+                         ",'" + item_id + "' " +
+                         ",'" + item + "' " +
+                         ",'" + brand + "' " +
+                         ",'" + desc + "' " +
+                         ",'" + qty + "' " +
+                         ",'" + price + "' " +
+                         ",'" + total + "' " +
+                         ",'" + txt_remarks.Text + "' " +
+                         ",'" + Gen_Trans_Record + "' " +
+                         ",'" + Global_ID + "' " +
+                         ",'" + Fullname + "' " +
+                         ",'" + JobRole + "' " +
+                         ", 'Sent to Stocks' )";
+                    config.Execute_CUD(sql, "Unable to insert to stocks!", "Item successfully added back to stocks!");
+                    refreshTableToolStripMenuItem_Click(sender, e);
+                    chk_select_all.Checked = false;
+                }
+            }
         }
 
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
@@ -234,17 +297,35 @@ namespace Inventory_System02.Return
 
             func.Reload_Images(Item_Image, item_id, Includes.AppSettings.Image_DIR);
             DTG_Properties();
+            Calculate();
         }
-
-        public ReturnToStocks(string id, string name, string role, string transref, string itemid)
+        int total_qty;
+        decimal total_amount;
+        private void Calculate()
         {
-            InitializeComponent();
-            Global_ID = id;
-            Fullname = name;
-            JobRole = role;
-            item_id = itemid;
-            trans_ref = transref;
 
+            if (dtg_return_list.Columns.Count >= 1 )
+            {
+                if (dtg_return_list.Rows.Count >= 1 )
+                {
+                    total_qty = 0;
+                    total_amount = 0;
+                    int qty;
+                    decimal total;
+                    for(int i = 0; i < dtg_return_list.Rows.Count; i++ )
+                    {
+                        int.TryParse(dtg_return_list.Rows[i].Cells["Quantity"].Value.ToString(), out qty);
+                        total_qty += qty;
+
+                        decimal.TryParse(dtg_return_list.Rows[i].Cells["Total"].Value.ToString(), out total);
+                        total_amount += total;
+                    }
+                    return_items_count.Text = dtg_return_list.Rows.Count.ToString();
+                    return_qty.Text = total_qty.ToString();
+                    return_amt.Text = total_amount.ToString();
+
+                }
+            }
         }
 
         private void ReturnToStocks_Load(object sender, EventArgs e)

@@ -235,7 +235,7 @@ namespace Inventory_System02.Profiles
                     {
                         if (userId == Global_ID || userRole == JobRole)
                         {
-                            MessageBox.Show("You cannot delete your own account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("You cannot delete your own account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                             return;
                         }
                         else if (JobRole != userRole && userId != Global_ID)
@@ -250,7 +250,7 @@ namespace Inventory_System02.Profiles
                         }
                         else
                         {
-                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                             return;
                         }
                     }
@@ -258,7 +258,7 @@ namespace Inventory_System02.Profiles
                     {
                         if (userId == Global_ID && userRole == JobRole)
                         {
-                            MessageBox.Show("You cannot delete your own account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("You cannot delete your own account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                             return;
                         }
                         else if (userId != Global_ID && userRole != "Programmer/Developer")
@@ -273,7 +273,7 @@ namespace Inventory_System02.Profiles
                         }
                         else
                         {
-                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                             return;
                         }
                     }
@@ -281,14 +281,14 @@ namespace Inventory_System02.Profiles
                     {
                         if (JobRole != "Office Manager" || JobRole != "Programmer/Developer")
                         {
-                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("You don't have permission to delete this account. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                             return;
                         }
                     }
                 }
                 else if (dtg_User.SelectedRows.Count > 1)
                 {
-                    MessageBox.Show("You cannot delete multiple accounts. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("You cannot delete multiple accounts. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
                 else if ( dtg_User.SelectedRows.Count <= 0)

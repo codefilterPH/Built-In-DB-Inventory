@@ -580,7 +580,7 @@ namespace Inventory_System02
             // btn_return_to_stocks
             // 
             this.btn_return_to_stocks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_return_to_stocks.BackColor = System.Drawing.Color.SteelBlue;
+            this.btn_return_to_stocks.BackColor = System.Drawing.Color.SlateGray;
             this.btn_return_to_stocks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_return_to_stocks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_return_to_stocks.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

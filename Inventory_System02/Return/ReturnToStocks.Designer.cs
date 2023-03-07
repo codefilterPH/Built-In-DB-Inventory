@@ -46,10 +46,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.chk_select_all = new System.Windows.Forms.CheckBox();
             this.Item_Image = new System.Windows.Forms.PictureBox();
-            this.lbl_items_count = new System.Windows.Forms.Label();
+            this.return_items_count = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.out_amt = new System.Windows.Forms.Label();
-            this.out_qty = new System.Windows.Forms.Label();
+            this.return_amt = new System.Windows.Forms.Label();
+            this.return_qty = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -257,6 +257,7 @@
             this.chk_select_all.TabIndex = 21;
             this.chk_select_all.Text = "Select all";
             this.chk_select_all.UseVisualStyleBackColor = true;
+            this.chk_select_all.CheckedChanged += new System.EventHandler(this.chk_select_all_CheckedChanged);
             // 
             // Item_Image
             // 
@@ -267,16 +268,16 @@
             this.Item_Image.TabIndex = 22;
             this.Item_Image.TabStop = false;
             // 
-            // lbl_items_count
+            // return_items_count
             // 
-            this.lbl_items_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_items_count.AutoSize = true;
-            this.lbl_items_count.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_items_count.Location = new System.Drawing.Point(113, 434);
-            this.lbl_items_count.Name = "lbl_items_count";
-            this.lbl_items_count.Size = new System.Drawing.Size(15, 16);
-            this.lbl_items_count.TabIndex = 125;
-            this.lbl_items_count.Text = "0";
+            this.return_items_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.return_items_count.AutoSize = true;
+            this.return_items_count.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return_items_count.Location = new System.Drawing.Point(113, 434);
+            this.return_items_count.Name = "return_items_count";
+            this.return_items_count.Size = new System.Drawing.Size(15, 16);
+            this.return_items_count.TabIndex = 125;
+            this.return_items_count.Text = "0";
             // 
             // label16
             // 
@@ -289,27 +290,27 @@
             this.label16.TabIndex = 124;
             this.label16.Text = "Rows count:";
             // 
-            // out_amt
+            // return_amt
             // 
-            this.out_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.out_amt.AutoSize = true;
-            this.out_amt.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_amt.Location = new System.Drawing.Point(619, 463);
-            this.out_amt.Name = "out_amt";
-            this.out_amt.Size = new System.Drawing.Size(18, 18);
-            this.out_amt.TabIndex = 123;
-            this.out_amt.Text = "0";
+            this.return_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.return_amt.AutoSize = true;
+            this.return_amt.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return_amt.Location = new System.Drawing.Point(619, 463);
+            this.return_amt.Name = "return_amt";
+            this.return_amt.Size = new System.Drawing.Size(18, 18);
+            this.return_amt.TabIndex = 123;
+            this.return_amt.Text = "0";
             // 
-            // out_qty
+            // return_qty
             // 
-            this.out_qty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.out_qty.AutoSize = true;
-            this.out_qty.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_qty.Location = new System.Drawing.Point(619, 438);
-            this.out_qty.Name = "out_qty";
-            this.out_qty.Size = new System.Drawing.Size(18, 18);
-            this.out_qty.TabIndex = 122;
-            this.out_qty.Text = "0";
+            this.return_qty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.return_qty.AutoSize = true;
+            this.return_qty.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.return_qty.Location = new System.Drawing.Point(619, 438);
+            this.return_qty.Name = "return_qty";
+            this.return_qty.Size = new System.Drawing.Size(18, 18);
+            this.return_qty.TabIndex = 122;
+            this.return_qty.Text = "0";
             // 
             // label7
             // 
@@ -536,10 +537,10 @@
             this.Controls.Add(this.txt_remarks);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.lbl_items_count);
+            this.Controls.Add(this.return_items_count);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.out_amt);
-            this.Controls.Add(this.out_qty);
+            this.Controls.Add(this.return_amt);
+            this.Controls.Add(this.return_qty);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Item_Image);
@@ -583,10 +584,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chk_select_all;
         private System.Windows.Forms.PictureBox Item_Image;
-        private System.Windows.Forms.Label lbl_items_count;
+        private System.Windows.Forms.Label return_items_count;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label out_amt;
-        private System.Windows.Forms.Label out_qty;
+        private System.Windows.Forms.Label return_amt;
+        private System.Windows.Forms.Label return_qty;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MenuStrip menuStrip1;

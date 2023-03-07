@@ -463,9 +463,17 @@ namespace Inventory_System02
                         {
                             if ( dtg_return_list.SelectedRows.Count == 1 )
                             {
-                                ReturnToStocks frm = new ReturnToStocks(Global_ID, Fullname, JobRole, txt_Trans_number.Text, dtg_return_list.CurrentRow.Cells[5].Value.ToString());
-                                frm.ShowDialog();
-                                dtg_clicked = false;
+                                if (Convert.ToInt32(dtg_return_list.CurrentRow.Cells["Quantity"].Value) != 0)
+                                {
+                                    ReturnToStocks frm = new ReturnToStocks(Global_ID, Fullname, JobRole, txt_Trans_number.Text, dtg_return_list.CurrentRow.Cells[5].Value.ToString());
+                                    frm.ShowDialog();
+                                    dtg_clicked = false;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Quantity is zero nothing to return!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                }
+                              
                             }
                         }             
                     }
