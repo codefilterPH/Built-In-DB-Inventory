@@ -54,7 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>mybox.ico</ApplicationIcon>
+    <ApplicationIcon>Double-J-Design-Ravenna-3d-Box.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -113,7 +113,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetStandard.1.0.117.0\lib\netstandard2.0\System.Data.SQLite.dll</HintPath>
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -147,10 +147,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddStock.cs">
+    <Compile Include="Inbound\AddStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStock.Designer.cs">
+    <Compile Include="Inbound\AddStock.Designer.cs">
       <DependentUpon>AddStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\Verify.cs">
@@ -165,10 +165,10 @@
     <Compile Include="Analytics\dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Batch_Form.cs">
+    <Compile Include="MyDocuments\Batch_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Batch_Form.designer.cs">
+    <Compile Include="MyDocuments\Batch_Form.designer.cs">
       <DependentUpon>Batch_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonSql\Invoice\Invoice_Silent.cs" />
@@ -196,10 +196,10 @@
     <Compile Include="CustSupplier\CustSupp.Designer.cs">
       <DependentUpon>CustSupp.cs</DependentUpon>
     </Compile>
-    <Compile Include="About.cs">
+    <Compile Include="Admin\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About.Designer.cs">
+    <Compile Include="Admin\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="CustSupplier\CustModels.cs">
@@ -221,28 +221,28 @@
     <Compile Include="Includes\ID_Generator.cs" />
     <Compile Include="Includes\StringBuilder12.cs" />
     <Compile Include="CommonSql\Invoice\Invoice_Code.cs" />
-    <Compile Include="Items\Outbound_Preview.cs">
+    <Compile Include="Previewing_Forms\Outbound_Preview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Items\Outbound_Preview.Designer.cs">
+    <Compile Include="Previewing_Forms\Outbound_Preview.Designer.cs">
       <DependentUpon>Outbound_Preview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items\Item_Preview.cs">
+    <Compile Include="Previewing_Forms\Item_Preview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Items\Item_Preview.Designer.cs">
+    <Compile Include="Previewing_Forms\Item_Preview.Designer.cs">
       <DependentUpon>Item_Preview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items\Return_Preview.cs">
+    <Compile Include="Previewing_Forms\Return_Preview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Items\Return_Preview.Designer.cs">
+    <Compile Include="Previewing_Forms\Return_Preview.Designer.cs">
       <DependentUpon>Return_Preview.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login1.cs">
+    <Compile Include="Admin\Login1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login1.Designer.cs">
+    <Compile Include="Admin\Login1.Designer.cs">
       <DependentUpon>Login1.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -287,53 +287,59 @@
     <Compile Include="Reports_MainForm.Designer.cs">
       <DependentUpon>Reports_MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Return\Investigated_Return_Records.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return\Investigated_Return_Records.Designer.cs">
+      <DependentUpon>Investigated_Return_Records.cs</DependentUpon>
+    </Compile>
     <Compile Include="Return\ReturnToStocks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Return\ReturnToStocks.Designer.cs">
       <DependentUpon>ReturnToStocks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Returned List.cs">
+    <Compile Include="Return\Stock Returned List.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock Returned List.Designer.cs">
+    <Compile Include="Return\Stock Returned List.Designer.cs">
       <DependentUpon>Stock Returned List.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockOutList.cs">
+    <Compile Include="Outbound\StockOutList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockOutList.Designer.cs">
+    <Compile Include="Outbound\StockOutList.Designer.cs">
       <DependentUpon>StockOutList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="Employees\Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee.Designer.cs">
+    <Compile Include="Employees\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs">
+    <Compile Include="Admin\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
+    <Compile Include="Admin\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Includes\SQLConfig.cs" />
-    <Compile Include="StockOut.cs">
+    <Compile Include="Outbound\StockOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockOut.Designer.cs">
+    <Compile Include="Outbound\StockOut.Designer.cs">
       <DependentUpon>StockOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockReturned.cs">
+    <Compile Include="Return\StockReturned.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockReturned.Designer.cs">
+    <Compile Include="Return\StockReturned.Designer.cs">
       <DependentUpon>StockReturned.cs</DependentUpon>
     </Compile>
     <Compile Include="Includes\usableFunction.cs" />
-    <EmbeddedResource Include="AddStock.resx">
+    <EmbeddedResource Include="Inbound\AddStock.resx">
       <DependentUpon>AddStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Verify.resx">
@@ -342,7 +348,7 @@
     <EmbeddedResource Include="Analytics\dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Batch_Form.resx">
+    <EmbeddedResource Include="MyDocuments\Batch_Form.resx">
       <DependentUpon>Batch_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Invoice\Invoice_In_Item.rdlc">
@@ -375,7 +381,7 @@
     <EmbeddedResource Include="CustSupplier\CustSupp.resx">
       <DependentUpon>CustSupp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="About.resx">
+    <EmbeddedResource Include="Admin\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustSupplier\CustModels.resx">
@@ -390,16 +396,16 @@
     <EmbeddedResource Include="Edit_Form\Edit_Form.resx">
       <DependentUpon>Edit_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items\Item_Preview.resx">
+    <EmbeddedResource Include="Previewing_Forms\Item_Preview.resx">
       <DependentUpon>Item_Preview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items\Outbound_Preview.resx">
+    <EmbeddedResource Include="Previewing_Forms\Outbound_Preview.resx">
       <DependentUpon>Outbound_Preview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items\Return_Preview.resx">
+    <EmbeddedResource Include="Previewing_Forms\Return_Preview.resx">
       <DependentUpon>Return_Preview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login1.resx">
+    <EmbeddedResource Include="Admin\Login1.resx">
       <DependentUpon>Login1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -432,16 +438,19 @@
     <EmbeddedResource Include="Reports_MainForm.resx">
       <DependentUpon>Reports_MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Return\Investigated_Return_Records.resx">
+      <DependentUpon>Investigated_Return_Records.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Return\ReturnToStocks.resx">
       <DependentUpon>ReturnToStocks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock Returned List.resx">
+    <EmbeddedResource Include="Return\Stock Returned List.resx">
       <DependentUpon>Stock Returned List.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockOutList.resx">
+    <EmbeddedResource Include="Outbound\StockOutList.resx">
       <DependentUpon>StockOutList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
+    <EmbeddedResource Include="Employees\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -453,17 +462,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Settings.resx">
+    <EmbeddedResource Include="Admin\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockOut.resx">
+    <EmbeddedResource Include="Outbound\StockOut.resx">
       <DependentUpon>StockOut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockReturned.resx">
+    <EmbeddedResource Include="Return\StockReturned.resx">
       <DependentUpon>StockReturned.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CommonSql\Database.db" />
-    <None Include="CommonSql\Document Center Files\Inbound Report 101714.pdf" />
     <None Include="Inventory_System02_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
@@ -494,7 +501,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="freenoattrib.ico" />
     <Content Include="box.ico" />
     <Content Include="CommonSql\Pictures\Company\Company_Logo1.PNG" />
     <Content Include="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" />
@@ -509,7 +515,7 @@
     <Content Include="CommonSql\SQLite.Interop.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="NewIcon.ico" />
+    <Content Include="Double-J-Design-Ravenna-3d-Box.ico" />
     <Content Include="mybox.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -543,7 +549,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CommonSql\Document Center Files\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -552,6 +560,8 @@
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

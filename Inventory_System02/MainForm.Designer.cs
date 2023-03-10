@@ -149,7 +149,7 @@ namespace Inventory_System02
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel15.Controls.Add(this.btn_About);
             this.panel15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel15.Location = new System.Drawing.Point(6, 499);
+            this.panel15.Location = new System.Drawing.Point(6, 501);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(205, 38);
             this.panel15.TabIndex = 5;
@@ -164,10 +164,10 @@ namespace Inventory_System02
             this.btn_About.ForeColor = System.Drawing.Color.White;
             this.btn_About.Image = ((System.Drawing.Image)(resources.GetObject("btn_About.Image")));
             this.btn_About.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_About.Location = new System.Drawing.Point(-23, 0);
+            this.btn_About.Location = new System.Drawing.Point(-24, -1);
             this.btn_About.Name = "btn_About";
             this.btn_About.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
-            this.btn_About.Size = new System.Drawing.Size(225, 35);
+            this.btn_About.Size = new System.Drawing.Size(229, 35);
             this.btn_About.TabIndex = 0;
             this.btn_About.Text = "               About";
             this.btn_About.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -179,7 +179,7 @@ namespace Inventory_System02
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel13.Controls.Add(this.btn_reports);
             this.panel13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel13.Location = new System.Drawing.Point(6, 413);
+            this.panel13.Location = new System.Drawing.Point(6, 415);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(205, 38);
             this.panel13.TabIndex = 4;
@@ -197,7 +197,7 @@ namespace Inventory_System02
             this.btn_reports.Location = new System.Drawing.Point(-24, 0);
             this.btn_reports.Name = "btn_reports";
             this.btn_reports.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
-            this.btn_reports.Size = new System.Drawing.Size(225, 35);
+            this.btn_reports.Size = new System.Drawing.Size(228, 35);
             this.btn_reports.TabIndex = 0;
             this.btn_reports.Text = "               Reports";
             this.btn_reports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,7 +254,7 @@ namespace Inventory_System02
             this.btn_employee.ForeColor = System.Drawing.Color.White;
             this.btn_employee.Image = ((System.Drawing.Image)(resources.GetObject("btn_employee.Image")));
             this.btn_employee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_employee.Location = new System.Drawing.Point(-24, -3);
+            this.btn_employee.Location = new System.Drawing.Point(-24, -1);
             this.btn_employee.Name = "btn_employee";
             this.btn_employee.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_employee.Size = new System.Drawing.Size(225, 35);
@@ -314,7 +314,7 @@ namespace Inventory_System02
             this.btn_custsupp.ForeColor = System.Drawing.Color.White;
             this.btn_custsupp.Image = ((System.Drawing.Image)(resources.GetObject("btn_custsupp.Image")));
             this.btn_custsupp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_custsupp.Location = new System.Drawing.Point(-24, -2);
+            this.btn_custsupp.Location = new System.Drawing.Point(-24, 0);
             this.btn_custsupp.Name = "btn_custsupp";
             this.btn_custsupp.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_custsupp.Size = new System.Drawing.Size(225, 35);
@@ -329,7 +329,7 @@ namespace Inventory_System02
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(33)))));
             this.panel7.Controls.Add(this.btn_settings);
             this.panel7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(6, 455);
+            this.panel7.Location = new System.Drawing.Point(6, 457);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(205, 38);
             this.panel7.TabIndex = 1;
@@ -347,7 +347,7 @@ namespace Inventory_System02
             this.btn_settings.Location = new System.Drawing.Point(-23, 0);
             this.btn_settings.Name = "btn_settings";
             this.btn_settings.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
-            this.btn_settings.Size = new System.Drawing.Size(225, 35);
+            this.btn_settings.Size = new System.Drawing.Size(227, 35);
             this.btn_settings.TabIndex = 0;
             this.btn_settings.Text = "               Settings";
             this.btn_settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -407,7 +407,7 @@ namespace Inventory_System02
             this.btn_stock_returned.Location = new System.Drawing.Point(-23, 0);
             this.btn_stock_returned.Name = "btn_stock_returned";
             this.btn_stock_returned.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
-            this.btn_stock_returned.Size = new System.Drawing.Size(231, 35);
+            this.btn_stock_returned.Size = new System.Drawing.Size(228, 35);
             this.btn_stock_returned.TabIndex = 0;
             this.btn_stock_returned.Text = "               Return Summary";
             this.btn_stock_returned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -642,7 +642,7 @@ namespace Inventory_System02
             this.btn_Logout.ForeColor = System.Drawing.Color.White;
             this.btn_Logout.Image = ((System.Drawing.Image)(resources.GetObject("btn_Logout.Image")));
             this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout.Location = new System.Drawing.Point(-21, 0);
+            this.btn_Logout.Location = new System.Drawing.Point(-25, 0);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Padding = new System.Windows.Forms.Padding(30, 0, 5, 0);
             this.btn_Logout.Size = new System.Drawing.Size(225, 35);

@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Inventory_System02.exe.manifest" size="62737">
+    <dependentAssembly dependencyType="install" codebase="Inventory_System02.exe.manifest" size="62390">
       <assemblyIdentity name="Inventory_System02.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>W0N4Kx1gR9Dm2CsWmLS6a/jls050/NCg9efAhoVyYHo=</dsig:DigestValue>
+        <dsig:DigestValue>hmzk0hhHSM/MixS83NCxQ4Y2cHG/z+j/9JSqIDwFRjg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

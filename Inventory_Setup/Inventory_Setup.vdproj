@@ -15,38 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0161BFC4DDB24D73BD99D049DC2907FB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_03978F5AF5D44E27F79D8B277DCEA754"
-        "OwnerKey" = "8:_429998149F466FD3128E737586404218"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_03978F5AF5D44E27F79D8B277DCEA754"
-        "OwnerKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_0570E6A5A9604647BA9F7A5751AF1160"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_096F891BED71415FA73F4B7563A4DE7F"
+        "MsmKey" = "8:_075FAF16F7824790983847C7893AD9BD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_0F92712F0B39B9BE3E2629AF3DB09E8E"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -57,8 +33,14 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_14A176EE67DF45F78DF8974B8E19D892"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_14DB8037A8764D5F88787E90B3A8BCB0"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -69,80 +51,38 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_17413FD704E345EAB2FF7F1F98CFBD4D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1B54F3F3F00349B88F896F581018618E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1D89B52109794524A620D8CEA702D644"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
-        "OwnerKey" = "8:_3AB53D9A7ADC71472D6CFAE34296C530"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_234D1FE842E94E6D9C27C891E12E3B81"
+        "MsmKey" = "8:_19EECDB957794D48B9D31F7E40BC8432"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_235EEF6BAD11AB4148A9494D41FA1045"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_23774600A49343A8BDF3F4FFA230B30B"
+        "MsmKey" = "8:_289E01FE91653CD50D7D1DE77F90C330"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E7A6E9DEF794428ACAF88AE734D3826"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_35B2D07B83D24A02ABB1E3DF63CBC6FD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_384839B021FE4C54BFEE248C5E15D76A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3AB53D9A7ADC71472D6CFAE34296C530"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3AD4DE1914E64206A049D8BC8AF25E49"
+        "MsmKey" = "8:_312F80123F9441619C1E94C3309A7266"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3B0822E0D02A9F668D380CF5CBFF13E3"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -160,7 +100,7 @@
         "Entry"
         {
         "MsmKey" = "8:_3B7AE944D829BCFB017203E955A8BD08"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,13 +112,7 @@
         "Entry"
         {
         "MsmKey" = "8:_41ED297C61842E0C2805924381E0B4A0"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_429998149F466FD3128E737586404218"
-        "OwnerKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +124,19 @@
         "Entry"
         {
         "MsmKey" = "8:_437094AA0F1786824012C207F815DD15"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_45DBDE8CBAB447769A9E36BB196D6E7C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4654D1E8AE4A4222BE96905339E05C65"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -201,14 +147,62 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4BB462CA4E04467695AD5954C9D5E8A2"
+        "MsmKey" = "8:_4FB56303471343D4AFF0092E75320B7D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5013281210A749A19826ADDC280B862D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_53E18BEBE4E446EAA4E45A21182B6A29"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_557C07A9D281418DA1DD651833C1F7FF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5BDC66DBAC1E49509B1C1A45C1B93386"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5C48B1F217AD4063A9B3D88600B3270B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5DF0F735CE1F4E0CB397AAE231EF59A6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_644985B75DB36D1042AECC98042FE8CF"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_67226306C2934B48A79388DF2942571B"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -219,7 +213,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_71EEE606866C4CA58D8E756BB357AC8C"
+        "MsmKey" = "8:_76FC07EBDF8A4537BDAC90342C7A8900"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -232,37 +226,31 @@
         "Entry"
         {
         "MsmKey" = "8:_775321FA367D42ECC6DF3B38E8546279"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_792F6D28665E4747B0A6CD047D6D534D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7AC373C03C0D48D9A9379D92E011C000"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_804C75DD5D6DEA28A02C9AEFD0A4F927"
-        "OwnerKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8A0C491B4087477F872EB347CA789211"
+        "MsmKey" = "8:_8B02876C5B5E42C2BFCAE806D6584E79"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_8BE96D8FC8F0B6554287EAEE6D7E40B0"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9118A66BBCB34BB2B3B25787E61E2DF5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_914C6FE4CBAB46B082CEF68626C80910"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -274,7 +262,7 @@
         "Entry"
         {
         "MsmKey" = "8:_92C2E076C56E6DFDBE4807A464DDB976"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -285,31 +273,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_92E80B3EFE784014A9516DE90BE78B2A"
+        "MsmKey" = "8:_9A6934EE67AD49ECBA170C436B19FAB3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_931BFEA27D3B4F0ABD746EA80488DD61"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_936E4796F969435F8D1ECF705195223D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_98E30C2FD1054456B73836F92898FE65"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BD2575E26784DFD89DD6D354BE5BD08"
+        "MsmKey" = "8:_A03D73EF7947425B97F8ACD991BE505F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -321,6 +291,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A49F728854DE46838CB165E5DDECB94F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A50C099DFC84939C4EA099876B6E499C"
         "OwnerKey" = "8:_A54819F8922DBCDE5152E6E7F622429B"
         "MsmSig" = "8:_UNDEFINED"
@@ -328,7 +304,7 @@
         "Entry"
         {
         "MsmKey" = "8:_A50C099DFC84939C4EA099876B6E499C"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -340,13 +316,13 @@
         "Entry"
         {
         "MsmKey" = "8:_A50D3ED82A75F0F24186D578498EDF3F"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A54819F8922DBCDE5152E6E7F622429B"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -357,12 +333,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A86AB5FF86A9486EB1F746D15D2E2755"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B114457D5EC07D8427D22B9E624FC523"
         "OwnerKey" = "8:_B987C1DCC45FB8418225E816110BB650"
         "MsmSig" = "8:_UNDEFINED"
@@ -370,7 +340,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B114457D5EC07D8427D22B9E624FC523"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -381,6 +351,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B16B37645F2E49CD88A950F90F662BF5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B6F7EC0FF252066DED152DD343A6097A"
         "OwnerKey" = "8:_8BE96D8FC8F0B6554287EAEE6D7E40B0"
         "MsmSig" = "8:_UNDEFINED"
@@ -388,7 +364,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B6F7EC0FF252066DED152DD343A6097A"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -400,66 +376,72 @@
         "Entry"
         {
         "MsmKey" = "8:_B987C1DCC45FB8418225E816110BB650"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B987C1DCC45FB8418225E816110BB650"
         "OwnerKey" = "8:_8BE96D8FC8F0B6554287EAEE6D7E40B0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BA8563C2C53E4DE3A9D579962EAAD8E8"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_BF58CB2217FF8FC6168593321257E74B"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BFC1B24AFE8C40CB87E0B22324835DC8"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C17C11BA2AE613C0D2DAC8051D18D1BB"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C6226722C9C043548C0C22FF1158F824"
+        "MsmKey" = "8:_C351BF0785194D1A9799A576C86BDD06"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C818BD9CF47140A78B30ACEE1AB6BBD0"
+        "MsmKey" = "8:_C4F65346176D47C48E783C4C9FB174DE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "MsmKey" = "8:_C6F1657769DF4AA79AEB87A5145D80FC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CA5448781AE042038898DFD0D467F517"
+        "MsmKey" = "8:_CC5EDC987C8142C99A0E1AA8932B948C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CABB961E14557CC5E430ECD5BD8EEC2E"
-        "OwnerKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D2F51770166E49C583658BC76D12E88B"
+        "MsmKey" = "8:_CD3C7259B85C406684594A6486B2FE4E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D6BD4541F1BE450BB253E939A74F58DE"
+        "MsmKey" = "8:_D228FFF9AABA417C893AEDD28B28885B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -472,13 +454,13 @@
         "Entry"
         {
         "MsmKey" = "8:_D71BF398D485856028413A9CFAB1BC36"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D77786CF8311B0D8FDF3221AAA8F0715"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -495,13 +477,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DD139983FFAE475B9F81E84E93E91534"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E03F58DCF2974980AFA94BF6C3F39646"
+        "MsmKey" = "8:_DEF53A1192C84146BF54B36CF2985A3D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -514,12 +490,12 @@
         "Entry"
         {
         "MsmKey" = "8:_E1E95CBBAD0AF1240B2779601E6380CF"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E58F2A686555480B9AE1AD2C35F3A230"
+        "MsmKey" = "8:_EBAC7BDAF935442CA6D5BDB557D44F21"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -532,7 +508,7 @@
         "Entry"
         {
         "MsmKey" = "8:_EE85312FCD89676E7CB61AF87F8908A2"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -543,19 +519,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F4A33BE30B4144278EA9314833D9B1E6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F700B34E3A0745A8B99353E2877AC36D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F78152DDA34E4674BEDBC69238F1FC59"
+        "MsmKey" = "8:_F93F822266B246ACBA0940126850F8CB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -568,7 +532,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+        "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -581,6 +545,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0F92712F0B39B9BE3E2629AF3DB09E8E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_289E01FE91653CD50D7D1DE77F90C330"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -700,36 +670,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2117D6F9B92471311149A802C0D61EF6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_804C75DD5D6DEA28A02C9AEFD0A4F927"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_429998149F466FD3128E737586404218"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_03978F5AF5D44E27F79D8B277DCEA754"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CABB961E14557CC5E430ECD5BD8EEC2E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D77786CF8311B0D8FDF3221AAA8F0715"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -828,83 +768,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0161BFC4DDB24D73BD99D049DC2907FB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_075FAF16F7824790983847C7893AD9BD"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Company\\Company_Logo1.PNG"
-            "TargetName" = "8:Company_Logo1.PNG"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item Report.rdlc"
+            "TargetName" = "8:Item Report.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_A904E6EAD9434D008EE60ECE306CB78F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_03978F5AF5D44E27F79D8B277DCEA754"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_03978F5AF5D44E27F79D8B277DCEA754"
-                    {
-                    "Name" = "8:System.IO.Compression.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.IO.Compression.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0570E6A5A9604647BA9F7A5751AF1160"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\B1109L01.PNG"
-            "TargetName" = "8:B1109L01.PNG"
-            "Tag" = "8:"
-            "Folder" = "8:_200FD0B05315436580D9CF901BA82707"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_096F891BED71415FA73F4B7563A4DE7F"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Supplier_Report.rdlc"
-            "TargetName" = "8:Supplier_Report.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_61C6EA333A0B4CAA95EE59889682A72C"
+            "Folder" = "8:_553A02ACE0034E629D5321C394308730"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -950,6 +819,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_14A176EE67DF45F78DF8974B8E19D892"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Employee_Report.rdlc"
+            "TargetName" = "8:Employee_Report.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_553A02ACE0034E629D5321C394308730"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14DB8037A8764D5F88787E90B3A8BCB0"
             {
             "AssemblyRegister" = "3:1"
@@ -981,103 +870,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_17413FD704E345EAB2FF7F1F98CFBD4D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_19EECDB957794D48B9D31F7E40BC8432"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Search DTG\\Search_DTG.rdlc"
-            "TargetName" = "8:Search_DTG.rdlc"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\9LL000BD.PNG"
+            "TargetName" = "8:9LL000BD.PNG"
             "Tag" = "8:"
-            "Folder" = "8:_BCFFF5F692C34120BFB127872E1F2C7F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B54F3F3F00349B88F896F581018618E"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Customers\\DONOTDELETE_SUBIMAGE.jpg"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_F03E05EF5C0D4DBDB0D7C1D55263EFAF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1D89B52109794524A620D8CEA702D644"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\091LL1D0.PNG"
-            "TargetName" = "8:091LL1D0.PNG"
-            "Tag" = "8:"
-            "Folder" = "8:_200FD0B05315436580D9CF901BA82707"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2117D6F9B92471311149A802C0D61EF6"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51"
-                "ScatterAssemblies"
-                {
-                    "_2117D6F9B92471311149A802C0D61EF6"
-                    {
-                    "Name" = "8:netstandard.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:netstandard.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_234D1FE842E94E6D9C27C891E12E3B81"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Customers\\CUST07987.JPG"
-            "TargetName" = "8:CUST07987.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_F03E05EF5C0D4DBDB0D7C1D55263EFAF"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1123,74 +921,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23774600A49343A8BDF3F4FFA230B30B"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Database.db"
-            "TargetName" = "8:Database.db"
-            "Tag" = "8:"
-            "Folder" = "8:_BB3C8EE79BDD4EC6B9D0F521E22FB096"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35B2D07B83D24A02ABB1E3DF63CBC6FD"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Inbound Report 101714.pdf"
-            "TargetName" = "8:Inbound Report 101714.pdf"
-            "Tag" = "8:"
-            "Folder" = "8:_59D70EC470E44D31BCB36AB46EE8D67D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_384839B021FE4C54BFEE248C5E15D76A"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\091D0001.PNG"
-            "TargetName" = "8:091D0001.PNG"
-            "Tag" = "8:"
-            "Folder" = "8:_200FD0B05315436580D9CF901BA82707"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3AB53D9A7ADC71472D6CFAE34296C530"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_289E01FE91653CD50D7D1DE77F90C330"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3AB53D9A7ADC71472D6CFAE34296C530"
+                    "_289E01FE91653CD50D7D1DE77F90C330"
                     {
                     "Name" = "8:System.Data.SQLite.dll"
                     "Attributes" = "3:512"
@@ -1214,12 +952,32 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3AD4DE1914E64206A049D8BC8AF25E49"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2E7A6E9DEF794428ACAF88AE734D3826"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\DONOTDELETE_SUBIMAGE.jpg"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\D9BCDB10.PNG"
+            "TargetName" = "8:D9BCDB10.PNG"
             "Tag" = "8:"
-            "Folder" = "8:_200FD0B05315436580D9CF901BA82707"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_312F80123F9441619C1E94C3309A7266"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Customer_Report.rdlc"
+            "TargetName" = "8:Customer_Report.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_553A02ACE0034E629D5321C394308730"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1327,37 +1085,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_429998149F466FD3128E737586404218"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_429998149F466FD3128E737586404218"
-                    {
-                    "Name" = "8:System.IO.Compression.FileSystem.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_437094AA0F1786824012C207F815DD15"
             {
             "AssemblyRegister" = "3:1"
@@ -1389,6 +1116,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45DBDE8CBAB447769A9E36BB196D6E7C"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\Double-J-Design-Ravenna-3d-Box.ico"
+            "TargetName" = "8:Double-J-Design-Ravenna-3d-Box.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4654D1E8AE4A4222BE96905339E05C65"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Search DTG\\Search_DTG.rdlc"
+            "TargetName" = "8:Search_DTG.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_8B45077A2E41476CBEB35133CA807271"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_495D2F491E6658D9769D5B534F1BE425"
             {
             "SourcePath" = "8:AcroPDF.dll"
@@ -1409,12 +1176,132 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4BB462CA4E04467695AD5954C9D5E8A2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4FB56303471343D4AFF0092E75320B7D"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item_Division\\Item_Divisup_Report.rdlc"
-            "TargetName" = "8:Item_Divisup_Report.rdlc"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Return TRANS9LCB1L1 022416.pdf"
+            "TargetName" = "8:Return TRANS9LCB1L1 022416.pdf"
             "Tag" = "8:"
-            "Folder" = "8:_188D16604EB7407298DE63E5CE506AD0"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5013281210A749A19826ADDC280B862D"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\9CC0B991.PNG"
+            "TargetName" = "8:9CC0B991.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_53E18BEBE4E446EAA4E45A21182B6A29"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_In_Item.rdlc"
+            "TargetName" = "8:Invoice_In_Item.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_897867E29B104DA084C8C3B5A1E9A9CB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_557C07A9D281418DA1DD651833C1F7FF"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\0LB00011.PNG"
+            "TargetName" = "8:0LB00011.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5BDC66DBAC1E49509B1C1A45C1B93386"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\DONOTDELETE_SUBIMAGE.jpg"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C48B1F217AD4063A9B3D88600B3270B"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Supplier_Report.rdlc"
+            "TargetName" = "8:Supplier_Report.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_553A02ACE0034E629D5321C394308730"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5DF0F735CE1F4E0CB397AAE231EF59A6"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_In.rdlc"
+            "TargetName" = "8:Invoice_In.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_897867E29B104DA084C8C3B5A1E9A9CB"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1460,6 +1347,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_67226306C2934B48A79388DF2942571B"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\10009D9D.PNG"
+            "TargetName" = "8:10009D9D.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EB56F1171EE348AB958BADC70AD2124"
             {
             "SourcePath" = "8:dte80a.olb"
@@ -1480,12 +1387,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71EEE606866C4CA58D8E756BB357AC8C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_76FC07EBDF8A4537BDAC90342C7A8900"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_In_Item.rdlc"
-            "TargetName" = "8:Invoice_In_Item.rdlc"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\DONOTDELETE_SUBIMAGE.jpg"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_58803C4CF63C488DB3E874CC535C823A"
+            "Folder" = "8:_3D2AF95A7E9446C7B74F3627F6B84B9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1531,83 +1438,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_792F6D28665E4747B0A6CD047D6D534D"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item_Qty\\ItemQTY_Report.rdlc"
-            "TargetName" = "8:ItemQTY_Report.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_FB2346F55448466DABAA3CA1BE209CE0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7AC373C03C0D48D9A9379D92E011C000"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8B02876C5B5E42C2BFCAE806D6584E79"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Employee\\DONOTDELETE_SUBIMAGE.jpg"
             "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_D60D43B32C04492CB44BAD76C708331C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_804C75DD5D6DEA28A02C9AEFD0A4F927"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_804C75DD5D6DEA28A02C9AEFD0A4F927"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8A0C491B4087477F872EB347CA789211"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\SUP021200.JPG"
-            "TargetName" = "8:SUP021200.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_5F1C103525E74783B4E01B6752E3A031"
+            "Folder" = "8:_0F019C91845E4FFBBB6FAFFA23315885"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1653,6 +1489,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9118A66BBCB34BB2B3B25787E61E2DF5"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\BCD1C9DD.PNG"
+            "TargetName" = "8:BCD1C9DD.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_914C6FE4CBAB46B082CEF68626C80910"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Company\\Company_Logo1.PNG"
+            "TargetName" = "8:Company_Logo1.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_AF0BACC764F84B0A86D7C30EB269AD87"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_92C2E076C56E6DFDBE4807A464DDB976"
             {
             "AssemblyRegister" = "3:1"
@@ -1684,12 +1560,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92E80B3EFE784014A9516DE90BE78B2A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9A6934EE67AD49ECBA170C436B19FAB3"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Company\\Company_Logo1.PNGukdsm"
-            "TargetName" = "8:Company_Logo1.PNGukdsm"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\01BL9C00.PNG"
+            "TargetName" = "8:01BL9C00.PNG"
             "Tag" = "8:"
-            "Folder" = "8:_A904E6EAD9434D008EE60ECE306CB78F"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1704,72 +1580,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_931BFEA27D3B4F0ABD746EA80488DD61"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A03D73EF7947425B97F8ACD991BE505F"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Customer_Report.rdlc"
-            "TargetName" = "8:Customer_Report.rdlc"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Customers\\DONOTDELETE_SUBIMAGE.jpg"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_61C6EA333A0B4CAA95EE59889682A72C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_936E4796F969435F8D1ECF705195223D"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\SQLite.Interop.dll"
-            "TargetName" = "8:SQLite.Interop.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_BB3C8EE79BDD4EC6B9D0F521E22FB096"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_98E30C2FD1054456B73836F92898FE65"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item Report.rdlc"
-            "TargetName" = "8:Item Report.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_61C6EA333A0B4CAA95EE59889682A72C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9BD2575E26784DFD89DD6D354BE5BD08"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\SUP198800.JPG"
-            "TargetName" = "8:SUP198800.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_5F1C103525E74783B4E01B6752E3A031"
+            "Folder" = "8:_42CFD0CA35E5416984F7410A954241AD"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1790,6 +1606,26 @@
             "TargetName" = "8:mybox.ico"
             "Tag" = "8:"
             "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A49F728854DE46838CB165E5DDECB94F"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\D0B010CB.PNG"
+            "TargetName" = "8:D0B010CB.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1897,26 +1733,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A86AB5FF86A9486EB1F746D15D2E2755"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_return.rdlc"
-            "TargetName" = "8:Invoice_return.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_58803C4CF63C488DB3E874CC535C823A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B114457D5EC07D8427D22B9E624FC523"
             {
             "AssemblyRegister" = "3:1"
@@ -1946,6 +1762,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B16B37645F2E49CD88A950F90F662BF5"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Company\\DONOTDELETE_SUBIMAGE.PNG"
+            "TargetName" = "8:DONOTDELETE_SUBIMAGE.PNG"
+            "Tag" = "8:"
+            "Folder" = "8:_AF0BACC764F84B0A86D7C30EB269AD87"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B6F7EC0FF252066DED152DD343A6097A"
@@ -2010,6 +1846,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA8563C2C53E4DE3A9D579962EAAD8E8"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_5E902937CA744976B01958EE8997FC81"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BF58CB2217FF8FC6168593321257E74B"
             {
             "AssemblyRegister" = "3:1"
@@ -2039,6 +1895,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BFC1B24AFE8C40CB87E0B22324835DC8"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Employee\\admin.JPG"
+            "TargetName" = "8:admin.JPG"
+            "Tag" = "8:"
+            "Folder" = "8:_0F019C91845E4FFBBB6FAFFA23315885"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C17C11BA2AE613C0D2DAC8051D18D1BB"
@@ -2072,12 +1948,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6226722C9C043548C0C22FF1158F824"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C351BF0785194D1A9799A576C86BDD06"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Outbound Summary 105843.pdf"
-            "TargetName" = "8:Outbound Summary 105843.pdf"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Customers\\DIV07070.JPG"
+            "TargetName" = "8:DIV07070.JPG"
             "Tag" = "8:"
-            "Folder" = "8:_59D70EC470E44D31BCB36AB46EE8D67D"
+            "Folder" = "8:_3D2AF95A7E9446C7B74F3627F6B84B9F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2092,12 +1968,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C818BD9CF47140A78B30ACEE1AB6BBD0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4F65346176D47C48E783C4C9FB174DE"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\SUP010000.JPG"
-            "TargetName" = "8:SUP010000.JPG"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Database.db"
+            "TargetName" = "8:Database.db"
             "Tag" = "8:"
-            "Folder" = "8:_5F1C103525E74783B4E01B6752E3A031"
+            "Folder" = "8:_5E902937CA744976B01958EE8997FC81"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2112,12 +1988,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA5448781AE042038898DFD0D467F517"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6F1657769DF4AA79AEB87A5145D80FC"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Employee\\EMP780080.JPG"
-            "TargetName" = "8:EMP780080.JPG"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\9B009D00.PNG"
+            "TargetName" = "8:9B009D00.PNG"
             "Tag" = "8:"
-            "Folder" = "8:_D60D43B32C04492CB44BAD76C708331C"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2132,43 +2008,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CABB961E14557CC5E430ECD5BD8EEC2E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC5EDC987C8142C99A0E1AA8932B948C"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:System.Diagnostics.Tracing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_CABB961E14557CC5E430ECD5BD8EEC2E"
-                    {
-                    "Name" = "8:System.Diagnostics.Tracing.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Diagnostics.Tracing.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item_Qty\\ItemQTY_Report.rdlc"
+            "TargetName" = "8:ItemQTY_Report.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D2F51770166E49C583658BC76D12E88B"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Employee\\admin.JPG"
-            "TargetName" = "8:admin.JPG"
-            "Tag" = "8:"
-            "Folder" = "8:_D60D43B32C04492CB44BAD76C708331C"
+            "Folder" = "8:_2BADBD0410F54B8189C1730E800F0E6A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2183,12 +2028,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6BD4541F1BE450BB253E939A74F58DE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CD3C7259B85C406684594A6486B2FE4E"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Company\\DONOTDELETE_SUBIMAGE.PNG"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.PNG"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Customers\\DIV07070.JPG"
+            "TargetName" = "8:DIV07070.JPG"
             "Tag" = "8:"
-            "Folder" = "8:_A904E6EAD9434D008EE60ECE306CB78F"
+            "Folder" = "8:_42CFD0CA35E5416984F7410A954241AD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D228FFF9AABA417C893AEDD28B28885B"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Item_Division\\Item_Divisup_Report.rdlc"
+            "TargetName" = "8:Item_Divisup_Report.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_BCF6A101F654491BB0CB7D09162B5BF5"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2285,32 +2150,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DD139983FFAE475B9F81E84E93E91534"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DEF53A1192C84146BF54B36CF2985A3D"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Suppliers\\DONOTDELETE_SUBIMAGE.jpg"
-            "TargetName" = "8:DONOTDELETE_SUBIMAGE.jpg"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\BCC1C9C0.PNG"
+            "TargetName" = "8:BCC1C9C0.PNG"
             "Tag" = "8:"
-            "Folder" = "8:_5F1C103525E74783B4E01B6752E3A031"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E03F58DCF2974980AFA94BF6C3F39646"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Reports Dir\\Employee_Report.rdlc"
-            "TargetName" = "8:Employee_Report.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_61C6EA333A0B4CAA95EE59889682A72C"
+            "Folder" = "8:_C9EAA850B82E41E8B74A1B2294C76D0D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2356,12 +2201,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E58F2A686555480B9AE1AD2C35F3A230"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EBAC7BDAF935442CA6D5BDB557D44F21"
             {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Outbound TRANS0100L00 105808.pdf"
-            "TargetName" = "8:Outbound TRANS0100L00 105808.pdf"
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_return.rdlc"
+            "TargetName" = "8:Invoice_return.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_59D70EC470E44D31BCB36AB46EE8D67D"
+            "Folder" = "8:_897867E29B104DA084C8C3B5A1E9A9CB"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2407,52 +2252,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4A33BE30B4144278EA9314833D9B1E6"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Database.dboldsa"
-            "TargetName" = "8:Database.dboldsa"
-            "Tag" = "8:"
-            "Folder" = "8:_BB3C8EE79BDD4EC6B9D0F521E22FB096"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F700B34E3A0745A8B99353E2877AC36D"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_In.rdlc"
-            "TargetName" = "8:Invoice_In.rdlc"
-            "Tag" = "8:"
-            "Folder" = "8:_58803C4CF63C488DB3E874CC535C823A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F78152DDA34E4674BEDBC69238F1FC59"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F93F822266B246ACBA0940126850F8CB"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Invoice\\Invoice_out.rdlc"
             "TargetName" = "8:Invoice_out.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_58803C4CF63C488DB3E874CC535C823A"
+            "Folder" = "8:_897867E29B104DA084C8C3B5A1E9A9CB"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2483,167 +2288,156 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BB3C8EE79BDD4EC6B9D0F521E22FB096"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5E902937CA744976B01958EE8997FC81"
                     {
                     "Name" = "8:CommonSql"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_3EE143A4084144F98941DBF0598C600A"
+                    "Property" = "8:_68E6BC6E04A74310AEA06C08F4C56AC1"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_1190785237E347C686C2D8C7E7EB6C9C"
-                            {
-                            "Name" = "8:Pictures"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_0D5CBBF951134299B0F291DD24E1FF24"
-                                "Folders"
-                                {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_5F1C103525E74783B4E01B6752E3A031"
-                                    {
-                                    "Name" = "8:Suppliers"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_43724F7FD99848F7903F222C9D1A6DD0"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_988EAF4997A24C118B2B27201044E194"
-                                    {
-                                    "Name" = "8:Item"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_2A0774A73C484B4DB5D7E741589CB1AB"
-                                        "Folders"
-                                        {
-                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_200FD0B05315436580D9CF901BA82707"
-                                            {
-                                            "Name" = "8:Image"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "Condition" = "8:"
-                                            "Transitive" = "11:FALSE"
-                                            "Property" = "8:_07D3FCF1FF514E57973BDACDD8066D67"
-                                                "Folders"
-                                                {
-                                                }
-                                            }
-                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_870D91875DC146F8961FEC3FF71DE8A6"
-                                            {
-                                            "Name" = "8:Barcode"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "Condition" = "8:"
-                                            "Transitive" = "11:FALSE"
-                                            "Property" = "8:_84ED59B53AEA4CC7817B4CED8588376E"
-                                                "Folders"
-                                                {
-                                                }
-                                            }
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_A904E6EAD9434D008EE60ECE306CB78F"
-                                    {
-                                    "Name" = "8:Company"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_82421B8219324BC9AD10B4DB846E0192"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D60D43B32C04492CB44BAD76C708331C"
-                                    {
-                                    "Name" = "8:Employee"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_36E037A79B344A4286BE85C59A00319D"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F03E05EF5C0D4DBDB0D7C1D55263EFAF"
-                                    {
-                                    "Name" = "8:Customers"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_81DB6531D98E4DAF857818FFE2677355"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                }
-                            }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_58803C4CF63C488DB3E874CC535C823A"
-                            {
-                            "Name" = "8:Invoice"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_D4C1258A7E874084A1C892F27205888E"
-                                "Folders"
-                                {
-                                }
-                            }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_59D70EC470E44D31BCB36AB46EE8D67D"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_18C460987FCD4CF692EACC61A5FB6300"
                             {
                             "Name" = "8:Document Center Files"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_798A962596714E129349028C5E31B864"
+                            "Property" = "8:_1159E2B21AF04A29AA7C7C1E69A2C5C5"
                                 "Folders"
                                 {
                                 }
                             }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_61C6EA333A0B4CAA95EE59889682A72C"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_553A02ACE0034E629D5321C394308730"
                             {
                             "Name" = "8:Reports Dir"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_D3B5697AEE1A409E9DB9BEF43692BFD2"
+                            "Property" = "8:_7AC4F496885642DE9A051DFE8859BAED"
                                 "Folders"
                                 {
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_188D16604EB7407298DE63E5CE506AD0"
-                                    {
-                                    "Name" = "8:Item_Division"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_CDA8C517AFA240AE96F89FFAF36058CB"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BCFFF5F692C34120BFB127872E1F2C7F"
-                                    {
-                                    "Name" = "8:Search DTG"
-                                    "AlwaysCreate" = "11:FALSE"
-                                    "Condition" = "8:"
-                                    "Transitive" = "11:FALSE"
-                                    "Property" = "8:_E037C461665C411F95E7CE62E37059BD"
-                                        "Folders"
-                                        {
-                                        }
-                                    }
-                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_FB2346F55448466DABAA3CA1BE209CE0"
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2BADBD0410F54B8189C1730E800F0E6A"
                                     {
                                     "Name" = "8:Item_Qty"
                                     "AlwaysCreate" = "11:FALSE"
                                     "Condition" = "8:"
                                     "Transitive" = "11:FALSE"
-                                    "Property" = "8:_0F1B03BA066D4F20B82C3B9AEEB1FFB3"
+                                    "Property" = "8:_CB69E2298E354EC0A5ED497856889DC2"
                                         "Folders"
                                         {
                                         }
                                     }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_8B45077A2E41476CBEB35133CA807271"
+                                    {
+                                    "Name" = "8:Search DTG"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_223BA9CB1588444DBF49987CAB85FAA9"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BCF6A101F654491BB0CB7D09162B5BF5"
+                                    {
+                                    "Name" = "8:Item_Division"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_D267F2A5ACD54F0CBAEABA6D88CC20FC"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_6FB9370EC48A4B78B5C46551E6C274E5"
+                            {
+                            "Name" = "8:Pictures"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_432B1421E9E842B188683E5E7440EE78"
+                                "Folders"
+                                {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_0F019C91845E4FFBBB6FAFFA23315885"
+                                    {
+                                    "Name" = "8:Employee"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_963D2EF48D6641D08DD58FAEFEF0C1E6"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_354DFD1475B644F39FFE4A6E09E10307"
+                                    {
+                                    "Name" = "8:Item"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_28DB55F3CA5C45FC8F0E92196F735825"
+                                        "Folders"
+                                        {
+                                            "{9EF0B969-E518-4E46-987F-47570745A589}:_C9EAA850B82E41E8B74A1B2294C76D0D"
+                                            {
+                                            "Name" = "8:Image"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "Property" = "8:_E2ED6763385142998B43759F1A247939"
+                                                "Folders"
+                                                {
+                                                }
+                                            }
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_3D2AF95A7E9446C7B74F3627F6B84B9F"
+                                    {
+                                    "Name" = "8:Suppliers"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_663CD28300E94418903A3051FEFF0735"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_42CFD0CA35E5416984F7410A954241AD"
+                                    {
+                                    "Name" = "8:Customers"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_5433BEB1AFD24F3A8020AD36BC2CD2B5"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_AF0BACC764F84B0A86D7C30EB269AD87"
+                                    {
+                                    "Name" = "8:Company"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_2C2A28B6D97C4AC782544FDDB12DD733"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_897867E29B104DA084C8C3B5A1E9A9CB"
+                            {
+                            "Name" = "8:Invoice"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_7D927D5A80BF4D4ABFAEECB496791252"
+                                "Folders"
+                                {
                                 }
                             }
                         }
@@ -2700,7 +2494,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inventory Setup"
         "ProductCode" = "8:{74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319}"
-        "PackageCode" = "8:{EFDBFC0B-7AE2-4989-9371-CB0D37ADBCF2}"
+        "PackageCode" = "8:{32C0ACE4-67B8-4DE2-9C6D-059841D8E45E}"
         "UpgradeCode" = "8:{CB3894DF-9F2C-4F1C-8087-BD875F362B65}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -2715,7 +2509,7 @@
         "Subject" = "8:"
         "ARPCONTACT" = "8:CodefilterPH"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:Created by Eugene Bulahan"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
@@ -2820,7 +2614,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_741702C860174CE0BCBD1234B052CB8E"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_535DB5E9AB3F43D09EB933A5AD11A9AB"
             {
             "Name" = "8:Inventory"
             "Arguments" = "8:"
@@ -2828,27 +2622,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_CA2D2E2E356E4564A12C333EACD40877"
-            "Folder" = "8:_93FE494B7A7944E0B2B0599BADF68B85"
-            "WorkingFolder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Icon" = "8:_A38281685E5A444D8F428FC376031FAA"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_74B30339A1094E019E1206692113FB92"
-            {
-            "Name" = "8:Inventory"
-            "Arguments" = "8:"
-            "Description" = "8:Created by Eugene Rey Bulahan"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+            "Target" = "8:_65451DE8F5424400AA183F15CC3444F3"
             "Folder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
             "WorkingFolder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Icon" = "8:_A38281685E5A444D8F428FC376031FAA"
+            "Icon" = "8:_45DBDE8CBAB447769A9E36BB196D6E7C"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ADA5686349F04FB2ACE2E6D8C648E00A"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B7085DC865104D53953B5BBE7222901E"
             {
             "Name" = "8:Inventory"
             "Arguments" = "8:"
@@ -2856,10 +2636,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_CA2D2E2E356E4564A12C333EACD40877"
+            "Target" = "8:_65451DE8F5424400AA183F15CC3444F3"
             "Folder" = "8:_62DE75313A684C91AEB3C82A61833E83"
             "WorkingFolder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
-            "Icon" = "8:_A38281685E5A444D8F428FC376031FAA"
+            "Icon" = "8:_45DBDE8CBAB447769A9E36BB196D6E7C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F444B094EB2746F8965BB4DA76546D28"
+            {
+            "Name" = "8:Inventory"
+            "Arguments" = "8:"
+            "Description" = "8:Created by Eugene Rey Bulahan"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_65451DE8F5424400AA183F15CC3444F3"
+            "Folder" = "8:_93FE494B7A7944E0B2B0599BADF68B85"
+            "WorkingFolder" = "8:_24C016B8C55140D2BF3BD483C93123D0"
+            "Icon" = "8:_45DBDE8CBAB447769A9E36BB196D6E7C"
             "Feature" = "8:"
             }
         }
@@ -3261,7 +3055,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_CA2D2E2E356E4564A12C333EACD40877"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_65451DE8F5424400AA183F15CC3444F3"
             {
             "SourcePath" = "8:..\\Inventory_System02\\obj\\Debug\\Inventory_System02.exe"
             "TargetName" = "8:"

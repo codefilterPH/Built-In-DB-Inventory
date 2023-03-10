@@ -637,7 +637,7 @@ namespace Inventory_System02.Includes
                 }
                 else 
                 {
-                    c.DefaultCellStyle.Font = new Font("Segoe UI", (float)9.75, FontStyle.Regular);
+                    c.DefaultCellStyle.Font = new Font("Segoe UI", (float)7.75, FontStyle.Regular);
                 }
 
             }

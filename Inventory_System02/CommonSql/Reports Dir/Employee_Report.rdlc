@@ -1034,7 +1034,7 @@
                       <Value>=Parameters!Total_Person.Value</Value>
                       <Style>
                         <FontFamily>Courier New</FontFamily>
-                        <FontSize>11pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1043,7 +1043,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.46743cm</Top>
-              <Left>3.67932cm</Left>
+              <Left>4.83467cm</Left>
               <Height>0.89104cm</Height>
               <Width>5.47842cm</Width>
               <Style>
@@ -1066,6 +1066,7 @@
                       <Value>Total Employee</Value>
                       <Style>
                         <FontFamily>courier New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <Color>DimGray</Color>
                       </Style>
@@ -1079,8 +1080,8 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>0.46743cm</Top>
               <Left>0.3175cm</Left>
-              <Height>0.6cm</Height>
-              <Width>3.18543cm</Width>
+              <Height>0.89104cm</Height>
+              <Width>4.37606cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>

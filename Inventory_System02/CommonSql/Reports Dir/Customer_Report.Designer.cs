@@ -47,8 +47,7 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Hire_Date = new System.Windows.Forms.CheckBox();
             this.chk_Address = new System.Windows.Forms.CheckBox();
             this.chk_Phone = new System.Windows.Forms.CheckBox();
-            this.chk_LN = new System.Windows.Forms.CheckBox();
-            this.chk_FN = new System.Windows.Forms.CheckBox();
+            this.chk_Name = new System.Windows.Forms.CheckBox();
             this.chk_Cust_ID = new System.Windows.Forms.CheckBox();
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.chk_Unselect = new System.Windows.Forms.CheckBox();
@@ -141,7 +140,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(173, 246);
+            this.lbl_Personnel.Location = new System.Drawing.Point(173, 242);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(17, 17);
             this.lbl_Personnel.TabIndex = 23;
@@ -152,7 +151,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 246);
+            this.label7.Location = new System.Drawing.Point(6, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 17);
             this.label7.TabIndex = 22;
@@ -174,7 +173,7 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -189,7 +188,7 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(725, 195);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(725, 191);
             this.dtg_PreviewPage.TabIndex = 21;
             // 
             // grp_filters
@@ -199,12 +198,11 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Hire_Date);
             this.grp_filters.Controls.Add(this.chk_Address);
             this.grp_filters.Controls.Add(this.chk_Phone);
-            this.grp_filters.Controls.Add(this.chk_LN);
-            this.grp_filters.Controls.Add(this.chk_FN);
+            this.grp_filters.Controls.Add(this.chk_Name);
             this.grp_filters.Controls.Add(this.chk_Cust_ID);
-            this.grp_filters.Location = new System.Drawing.Point(270, 238);
+            this.grp_filters.Location = new System.Drawing.Point(369, 234);
             this.grp_filters.Name = "grp_filters";
-            this.grp_filters.Size = new System.Drawing.Size(457, 85);
+            this.grp_filters.Size = new System.Drawing.Size(358, 85);
             this.grp_filters.TabIndex = 20;
             this.grp_filters.TabStop = false;
             this.grp_filters.Text = "Data Fields";
@@ -213,7 +211,7 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.chk_Type.AutoSize = true;
             this.chk_Type.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Type.Location = new System.Drawing.Point(387, 22);
+            this.chk_Type.Location = new System.Drawing.Point(147, 49);
             this.chk_Type.Name = "chk_Type";
             this.chk_Type.Size = new System.Drawing.Size(51, 19);
             this.chk_Type.TabIndex = 29;
@@ -253,27 +251,16 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Phone.Text = "Phone";
             this.chk_Phone.UseVisualStyleBackColor = true;
             // 
-            // chk_LN
+            // chk_Name
             // 
-            this.chk_LN.AutoSize = true;
-            this.chk_LN.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_LN.Location = new System.Drawing.Point(146, 22);
-            this.chk_LN.Name = "chk_LN";
-            this.chk_LN.Size = new System.Drawing.Size(82, 19);
-            this.chk_LN.TabIndex = 14;
-            this.chk_LN.Text = "Last Name";
-            this.chk_LN.UseVisualStyleBackColor = true;
-            // 
-            // chk_FN
-            // 
-            this.chk_FN.AutoSize = true;
-            this.chk_FN.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_FN.Location = new System.Drawing.Point(146, 49);
-            this.chk_FN.Name = "chk_FN";
-            this.chk_FN.Size = new System.Drawing.Size(83, 19);
-            this.chk_FN.TabIndex = 13;
-            this.chk_FN.Text = "First Name";
-            this.chk_FN.UseVisualStyleBackColor = true;
+            this.chk_Name.AutoSize = true;
+            this.chk_Name.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_Name.Location = new System.Drawing.Point(147, 22);
+            this.chk_Name.Name = "chk_Name";
+            this.chk_Name.Size = new System.Drawing.Size(58, 19);
+            this.chk_Name.TabIndex = 13;
+            this.chk_Name.Text = "Name";
+            this.chk_Name.UseVisualStyleBackColor = true;
             // 
             // chk_Cust_ID
             // 
@@ -391,8 +378,7 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.GroupBox grp_filters;
         private System.Windows.Forms.CheckBox chk_Address;
         private System.Windows.Forms.CheckBox chk_Phone;
-        private System.Windows.Forms.CheckBox chk_LN;
-        private System.Windows.Forms.CheckBox chk_FN;
+        private System.Windows.Forms.CheckBox chk_Name;
         private System.Windows.Forms.CheckBox chk_Cust_ID;
         private System.Windows.Forms.CheckBox chk_Select_All;
         private System.Windows.Forms.CheckBox chk_Unselect;

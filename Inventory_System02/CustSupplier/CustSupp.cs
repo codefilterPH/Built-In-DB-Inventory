@@ -265,8 +265,12 @@ namespace Inventory_System02.CustSupplier
             {
                 dtg_Customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dtg_Customer.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Customer.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_Customer.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_Customer.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Customer.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_Customer.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_Customer.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_Customer.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             }
            
@@ -293,8 +297,12 @@ namespace Inventory_System02.CustSupplier
             {
                 dtg_Supplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dtg_Supplier.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Supplier.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_Supplier.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_Supplier.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Supplier.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dtg_Supplier.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dtg_Supplier.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Supplier.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             }
            

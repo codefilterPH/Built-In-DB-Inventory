@@ -386,11 +386,11 @@ namespace Inventory_System02.Includes
                 while (reader.Read())
                 {
                     MyCollection.Add(reader.GetString(0));
-
                 }
+
+                txt.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 txt.AutoCompleteCustomSource = MyCollection;
-
-
             }
             catch (Exception ex)
             {
@@ -400,8 +400,8 @@ namespace Inventory_System02.Includes
             {
                 con.Close();
             }
-
-
         }
+
+
     }
 }

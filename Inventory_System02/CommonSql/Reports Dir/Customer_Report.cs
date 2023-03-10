@@ -34,8 +34,7 @@ namespace Inventory_System02.Reports_Dir
         private void Customer_Report_Load(object sender, EventArgs e)
         {     
             chk_Cust_ID.Checked = true;
-            chk_FN.Checked = true;
-            chk_LN.Checked = true;
+            chk_Name.Checked = true;
             chk_Address.Checked = true;
             chk_Hire_Date.Checked = true;
        
@@ -93,7 +92,7 @@ namespace Inventory_System02.Reports_Dir
                 func.Error_Message1 = "Have atleast one column selected, Filters";
                 chk_Cust_ID.Checked = true;
                 chk_Hire_Date.Checked = true;
-                chk_FN.Checked = true;
+                chk_Name.Checked = true;
                 chk_Address.Checked = true;
                 func.Error_Message();
                 return;
@@ -138,8 +137,7 @@ namespace Inventory_System02.Reports_Dir
                    dataRow => new Class_Customer_Var
                    {
                       Cust_ID = dataRow.Field<string>("Customer ID").ToString(),
-                      FN = dataRow.Field<string>("First Name").ToString(),
-                      LN = dataRow.Field<string>("Last Name").ToString(),
+                      Name = dataRow.Field<string>("Name").ToString(),
                       Type = dataRow.Field<string>("Type").ToString(),
                       Phone = dataRow.Field<string>("Phone Number").ToString(),
                       Address = dataRow.Field<string>("Address").ToString(),
@@ -176,9 +174,9 @@ namespace Inventory_System02.Reports_Dir
                 }
                 //HIDING COLUMNS
                 reportParameters.Add(new ReportParameter("Hide_Hired_Date", (!chk_Hire_Date.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_FN", (!chk_FN.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_LN", (!chk_LN.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Name", (!chk_Name.Checked).ToString()));
                 reportParameters.Add(new ReportParameter("Hide_Phone", (!chk_Phone.Checked).ToString()));
+                reportParameters.Add(new ReportParameter("Hide_Type", (!chk_Type.Checked).ToString()));
                 reportParameters.Add(new ReportParameter("Hide_Address", (!chk_Address.Checked).ToString()));
                 reportParameters.Add(new ReportParameter("Hide_Cust_ID", (!chk_Cust_ID.Checked).ToString()));
 
@@ -255,8 +253,7 @@ namespace Inventory_System02.Reports_Dir
     {
 
         public string Cust_ID { get; set; }
-        public string FN { get; set; }
-        public string LN { get; set; }
+        public string Name { get; set; }
         public string Type { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }

@@ -183,9 +183,9 @@ C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.csproj.CoreCompileInputs.cache
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.exe
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.pdb
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\x86\SqlServerSpatial160.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\x64\SqlServerSpatial160.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\SQLite.Interop.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In_Item.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
@@ -200,6 +200,7 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Rep
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.exe.config
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.exe.manifest
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.application
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory_System02.pdb
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\EntityFramework.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\EntityFramework.SqlServer.dll
@@ -313,6 +314,8 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Reports_Dir.Report_Viewer.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Reports_Dir.Supplier_Report.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Reports_MainForm.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Return.Investigated_Return_Records.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Return.ReturnToStocks.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Stock_Returned.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.StockOutList.resources
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Profiles.Employees.resources
@@ -327,5 +330,3 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.csproj.CopyComplete
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.pdb
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\SQLite.Interop.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Return.ReturnToStocks.resources

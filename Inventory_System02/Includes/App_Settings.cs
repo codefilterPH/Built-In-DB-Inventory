@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Inventory_System02.Includes
 {
     public static class AppSettings
     {
-        public static string Database { get; set; } = @"Data Source = CommonSql\Database.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;";
+        //public static string Database { get; set; } = @"Data Source = CommonSql\Database.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;";
+        public static string Database { get; set; } = $"Data Source={Path.Combine(Application.StartupPath, "CommonSql", "Database.db")};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
+
         public static string DateFormatRetrieve { get; set; } = "yyyy-MM-dd";
         public static string DateFormatSave { get; set; } = "yyyy-MM-dd HH:mm:ss";
         //Images
@@ -39,6 +43,10 @@ namespace Inventory_System02.Includes
         public static string Website { get; set; } = "https://codefilter.pythonanywhere.com";
         public static string Contact { get; set; } = "(0945) 832-2316";
         public static string Email { get; set; } = "eugenereybulahan@gmail.com";
+
+
+
+
 
     }
 }
