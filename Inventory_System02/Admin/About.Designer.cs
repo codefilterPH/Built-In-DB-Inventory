@@ -62,11 +62,11 @@ namespace Inventory_System02
             // Logo
             // 
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(23, 63);
+            this.Logo.Location = new System.Drawing.Point(13, 43);
             this.Logo.Margin = new System.Windows.Forms.Padding(4);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(161, 155);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
             // 

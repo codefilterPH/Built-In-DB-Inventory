@@ -143,7 +143,7 @@ namespace Inventory_System02.Reports_Dir
 
                 lbl_total_items.Text = dtg_PreviewPage.Rows.Count.ToString();
                 lbl_total_quantity.Text = total_qty.ToString();
-                lbl_total_value.Text = total_val.ToString();
+                lbl_total_value.Text = total_val.ToString("#,##0.00");
             }
             else
             {
@@ -451,6 +451,11 @@ namespace Inventory_System02.Reports_Dir
             dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 11;
             dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 12;
             dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 13;
+
+            dtg_PreviewPage.Columns["Price"].DefaultCellStyle.Format = "#,##0.00";
+            dtg_PreviewPage.Columns["Total"].DefaultCellStyle.Format = "#,##0.00";
+
+
 
         }
 

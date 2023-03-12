@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit_Form));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_name = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,18 +65,19 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 114);
+            this.label2.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(147, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 21);
+            this.label2.Size = new System.Drawing.Size(153, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "EDIT QUANTITY";
             // 
             // txt_qty
             // 
-            this.txt_qty.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_qty.Font = new System.Drawing.Font("Courier New", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_qty.Location = new System.Drawing.Point(173, 146);
             this.txt_qty.Name = "txt_qty";
-            this.txt_qty.Size = new System.Drawing.Size(100, 39);
+            this.txt_qty.Size = new System.Drawing.Size(100, 35);
             this.txt_qty.TabIndex = 2;
             this.txt_qty.Text = "0";
             this.txt_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -106,8 +108,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(464, 302);
             this.Name = "Edit_Form";
             this.Text = "Edit Form";
             this.Load += new System.EventHandler(this.Edit_Form_Load);

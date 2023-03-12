@@ -29,14 +29,11 @@ namespace Inventory_System02.Admin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Verify));
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_activation_key = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_2 = new System.Windows.Forms.TextBox();
             this.btn_validate = new System.Windows.Forms.Button();
-            this.txt_4 = new System.Windows.Forms.TextBox();
-            this.txt_3 = new System.Windows.Forms.TextBox();
-            this.txt_5 = new System.Windows.Forms.TextBox();
             this.txt_1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Username = new System.Windows.Forms.TextBox();
@@ -83,20 +80,10 @@ namespace Inventory_System02.Admin
             this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
             // 
-            // txt_2
-            // 
-            this.txt_2.Location = new System.Drawing.Point(102, 160);
-            this.txt_2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_2.Name = "txt_2";
-            this.txt_2.Size = new System.Drawing.Size(46, 29);
-            this.txt_2.TabIndex = 1;
-            this.txt_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_2.UseSystemPasswordChar = true;
-            this.txt_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_DoNotAcceptLetters);
-            // 
             // btn_validate
             // 
             this.btn_validate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_validate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_validate.Enabled = false;
             this.btn_validate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_validate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,49 +96,15 @@ namespace Inventory_System02.Admin
             this.btn_validate.UseVisualStyleBackColor = false;
             this.btn_validate.Click += new System.EventHandler(this.btn_validate_Click);
             // 
-            // txt_4
-            // 
-            this.txt_4.Location = new System.Drawing.Point(210, 160);
-            this.txt_4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_4.Name = "txt_4";
-            this.txt_4.Size = new System.Drawing.Size(46, 29);
-            this.txt_4.TabIndex = 3;
-            this.txt_4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_4.UseSystemPasswordChar = true;
-            this.txt_4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_DoNotAcceptLetters);
-            // 
-            // txt_3
-            // 
-            this.txt_3.Location = new System.Drawing.Point(156, 160);
-            this.txt_3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_3.Name = "txt_3";
-            this.txt_3.Size = new System.Drawing.Size(46, 29);
-            this.txt_3.TabIndex = 2;
-            this.txt_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_3.UseSystemPasswordChar = true;
-            this.txt_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_DoNotAcceptLetters);
-            // 
-            // txt_5
-            // 
-            this.txt_5.Location = new System.Drawing.Point(264, 160);
-            this.txt_5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_5.Name = "txt_5";
-            this.txt_5.Size = new System.Drawing.Size(46, 29);
-            this.txt_5.TabIndex = 4;
-            this.txt_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txt_5.UseSystemPasswordChar = true;
-            this.txt_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_DoNotAcceptLetters);
-            // 
             // txt_1
             // 
             this.txt_1.Location = new System.Drawing.Point(48, 160);
             this.txt_1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_1.Name = "txt_1";
-            this.txt_1.Size = new System.Drawing.Size(46, 29);
+            this.txt_1.Size = new System.Drawing.Size(262, 29);
             this.txt_1.TabIndex = 0;
             this.txt_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_1.UseSystemPasswordChar = true;
-            this.txt_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_DoNotAcceptLetters);
             // 
             // label4
             // 
@@ -189,6 +142,7 @@ namespace Inventory_System02.Admin
             // btn_Unlock
             // 
             this.btn_Unlock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_Unlock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Unlock.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Unlock.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Unlock.ForeColor = System.Drawing.Color.White;
@@ -260,17 +214,15 @@ namespace Inventory_System02.Admin
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_1);
-            this.Controls.Add(this.txt_5);
-            this.Controls.Add(this.txt_3);
-            this.Controls.Add(this.txt_4);
             this.Controls.Add(this.btn_validate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_activation_key);
-            this.Controls.Add(this.txt_2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(367, 473);
+            this.MinimumSize = new System.Drawing.Size(367, 473);
             this.Name = "Verify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verification Form";
@@ -286,11 +238,7 @@ namespace Inventory_System02.Admin
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_activation_key;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_2;
         private System.Windows.Forms.Button btn_validate;
-        private System.Windows.Forms.TextBox txt_4;
-        private System.Windows.Forms.TextBox txt_3;
-        private System.Windows.Forms.TextBox txt_5;
         private System.Windows.Forms.TextBox txt_1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Username;

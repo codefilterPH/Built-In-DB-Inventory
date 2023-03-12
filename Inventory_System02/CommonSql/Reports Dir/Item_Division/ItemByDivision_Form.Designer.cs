@@ -63,8 +63,9 @@
             this.chk_Item_ID = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbo_sup_divi = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_sup_div = new System.Windows.Forms.Label();
             this.btn_Print = new System.Windows.Forms.Button();
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.chk_Unselect = new System.Windows.Forms.CheckBox();
@@ -75,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_PreviewPage)).BeginInit();
             this.grp_filters.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,7 +174,7 @@
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
             this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(673, 394);
+            this.lbl_total_value.Location = new System.Drawing.Point(673, 378);
             this.lbl_total_value.Name = "lbl_total_value";
             this.lbl_total_value.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_value.TabIndex = 34;
@@ -184,7 +186,7 @@
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
             this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(673, 368);
+            this.lbl_total_quantity.Location = new System.Drawing.Point(673, 352);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
             this.lbl_total_quantity.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_quantity.TabIndex = 33;
@@ -217,7 +219,7 @@
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
             this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(672, 341);
+            this.lbl_total_items.Location = new System.Drawing.Point(672, 325);
             this.lbl_total_items.Name = "lbl_total_items";
             this.lbl_total_items.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_items.TabIndex = 32;
@@ -228,7 +230,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(596, 394);
+            this.label8.Location = new System.Drawing.Point(596, 378);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 17);
             this.label8.TabIndex = 31;
@@ -239,7 +241,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(578, 368);
+            this.label7.Location = new System.Drawing.Point(578, 352);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 17);
             this.label7.TabIndex = 30;
@@ -250,7 +252,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(604, 341);
+            this.label6.Location = new System.Drawing.Point(604, 325);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 29;
@@ -289,7 +291,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(799, 254);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(799, 238);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -373,7 +375,7 @@
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 324);
+            this.grp_filters.Location = new System.Drawing.Point(9, 308);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(552, 137);
             this.grp_filters.TabIndex = 20;
@@ -458,7 +460,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.cbo_sup_divi);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.dtp_date_from);
@@ -473,6 +474,7 @@
             this.tabPage1.Controls.Add(this.cbo_report_type);
             this.tabPage1.Controls.Add(this.grp_filters);
             this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -480,17 +482,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(399, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 17);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "SUPPLIER/DIVISION";
             // 
             // cbo_sup_divi
             // 
@@ -502,6 +493,27 @@
             this.cbo_sup_divi.Size = new System.Drawing.Size(136, 25);
             this.cbo_sup_divi.TabIndex = 39;
             this.cbo_sup_divi.SelectedIndexChanged += new System.EventHandler(this.cbo_sup_divi_SelectedIndexChanged);
+            this.cbo_sup_divi.TextChanged += new System.EventHandler(this.cbo_sup_divi_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lbl_sup_div);
+            this.panel1.Location = new System.Drawing.Point(420, 15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(105, 22);
+            this.panel1.TabIndex = 41;
+            // 
+            // lbl_sup_div
+            // 
+            this.lbl_sup_div.AutoSize = true;
+            this.lbl_sup_div.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_sup_div.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_sup_div.Location = new System.Drawing.Point(40, 0);
+            this.lbl_sup_div.Name = "lbl_sup_div";
+            this.lbl_sup_div.Size = new System.Drawing.Size(65, 17);
+            this.lbl_sup_div.TabIndex = 40;
+            this.lbl_sup_div.Text = "SUPPLIER";
             // 
             // btn_Print
             // 
@@ -608,6 +620,8 @@
             this.grp_filters.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -653,8 +667,9 @@
         private System.Windows.Forms.Button btn_Print_Preview;
         private System.Windows.Forms.Button btn_Batch;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_sup_div;
         private System.Windows.Forms.ComboBox cbo_sup_divi;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

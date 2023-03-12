@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -114,7 +115,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             }
             lbl_total_items.Text = rows_count.ToString();
             lbl_total_quantity.Text = quantity1.ToString();
-            lbl_total_value.Text = total_val.ToString();
+            lbl_total_value.Text = total_val.ToString("#,##0.00");
         }
 
         public void Calculate_Filtering(string preview_or_print, string report_type)
@@ -390,21 +391,24 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             dtg_PreviewPage.Columns["Description"].DisplayIndex = 4;
             dtg_PreviewPage.Columns["Quantity"].DisplayIndex = 5;
             dtg_PreviewPage.Columns["Price"].DisplayIndex = 6;
+            dtg_PreviewPage.Columns["Total"].DisplayIndex = 7;
 
             if (cbo_report_type.Text == "Stock In")
             {
-                dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 7;
-                dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 8;
+                dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 8;
+                dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 9;
                 dtg_PreviewPage.Columns["Image Path"].Visible = false;
             }
 
             dtg_PreviewPage.Columns["count"].Visible = false;
 
-            dtg_PreviewPage.Columns["User ID"].DisplayIndex = 9;
-            dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 10;
-            dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 11;
-            dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 12;
+            dtg_PreviewPage.Columns["User ID"].DisplayIndex = 10;
+            dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 11;
+            dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 12;
+            dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 13;
 
+            dtg_PreviewPage.Columns["Price"].DefaultCellStyle.Format = "#,##0.00";
+            dtg_PreviewPage.Columns["Total"].DefaultCellStyle.Format = "#,##0.00";
 
 
 
@@ -466,6 +470,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
         private void dtp_date_to_ValueChanged(object sender, EventArgs e)
         {
             Calculate_Filtering("load", cbo_report_type.Text);
+        }
+
+        private void lbl_total_value_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, lbl_total_value);
         }
 
         private void btn_Batch_Click(object sender, EventArgs e)

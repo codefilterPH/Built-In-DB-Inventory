@@ -24,44 +24,29 @@ namespace Inventory_System02.Admin
         {
             InitializeComponent();
         }
-        double sum = 0, val1 = 0, val2 = 0, val3 = 0, val4 = 0 , val5 = 0;
+      
         private void btn_validate_Click(object sender, EventArgs e)
         {
             if ( cbo_extend_type.Text == "Trial" )
             {
-                sql = "Update `Administration` set Date = '"+dtp_date_extend.Value.ToString(Includes.AppSettings.DateFormatRetrieve)+"' , Status = 'Trial' where Count = '0' ";
+                sql = "Update `Administration` set Date = '"+dtp_date_extend.Value.ToString(Includes.AppSettings.DateFormatRetrieve)+"' , Status = 'Trial' ";
                 config.Execute_CUD(sql, "Unable to extend trial! Please try again.", "Successfully extended trial!");
-                Application.Exit();
+                Application.Restart();
             }
             else
             {
-                double.TryParse(txt_1.Text, out val1);
-                double.TryParse(txt_2.Text, out val2);
-                double.TryParse(txt_3.Text, out val3);
-                double.TryParse(txt_4.Text, out val4);
-                double.TryParse(txt_5.Text, out val5);
-
-                sum = val1 + val2 + val3 + val4 + val5;
-
-                sql = "Select Value from Administration";
-                config.singleResult(sql);
-                if(config.dt.Rows.Count > 0 )
+                if ( txt_1.Text == Includes.AppSettings.app_value)
                 {
-                    double value_code = Convert.ToDouble(config.dt.Rows[0].Field<string>("Value"));
-                    if (sum == value_code)
-                    {
 
-                        sql = "Update Administration set Status = 'Full' where Count = '0' ";
-                        config.Execute_CUD(sql,"Unable to register! Please contact administrator.", "Software successfully registered! Welcome Full Pack Version.");
-                        Application.Exit();
-                    }
-                    else
-                    {
-                        MessageBox.Show("The activation key is incorrect please try again!", "Warning Prompt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txt_1.Focus(); 
-                    }
+                    sql = "Update Administration set Status = 'Full' where Count = '0' ";
+                    config.Execute_CUD(sql, "Unable to register! Please contact administrator.", "Software successfully registered! Welcome Full Pack Version.");
+                    Application.Restart();
                 }
-
+                else
+                {
+                    MessageBox.Show("The activation key is incorrect please try again!", "Warning Prompt", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt_1.Focus();
+                }
             }
             btn_validate.Enabled = false;
         }
@@ -91,20 +76,12 @@ namespace Inventory_System02.Admin
         private void EnableActivationKey()
         {
             txt_1.Visible = true;
-            txt_2.Visible = true;
-            txt_3.Visible = true;
-            txt_4.Visible = true;
-            txt_5.Visible = true;
             lbl_activation_key.Visible = true;
         }
 
         private void DisableActivaitonKey()
         {
             txt_1.Visible = false;
-            txt_2.Visible = false;
-            txt_3.Visible = false;
-            txt_4.Visible = false;
-            txt_5.Visible = false;
             lbl_activation_key.Visible = false;
         }
 
@@ -131,7 +108,7 @@ namespace Inventory_System02.Admin
             if (config.dt.Rows.Count > 0)
             {
                 string info = config.dt.Rows[0].Field<string>("Employee ID");
-                if ( info != "admin")
+                if (info != "admin")
                 {
                     btn_Unlock.Enabled = false;
                 }
@@ -140,11 +117,6 @@ namespace Inventory_System02.Admin
                     btn_Unlock.Enabled = true;
                 }
             }
-        }
-
-        private void KeyPress_DoNotAcceptLetters(object sender, KeyPressEventArgs e)
-        {
-           func.KeyPress_Textbox_Numberonly(sender, e);
         }
 
         private void DisableTrialDate()

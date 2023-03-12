@@ -134,47 +134,53 @@ namespace Inventory_System02
                 }
                 else
                 {
-                    func.Reload_Images(Company_Logo, "Company_Logo1", @"CommonSql\Pictures\Company\");
+                    func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
 
 
-                    sql = "Select * from Administration";
+                    sql = "Select Date, Status from Administration";
                     config.singleResult(sql);
                     if (config.dt.Rows.Count == 1)
-                    {
+                    {            
                         status = config.dt.Rows[0]["Status"].ToString();
                         date = config.dt.Rows[0]["Date"].ToString();
 
-                        if (status == "Full")
+                        if (string.IsNullOrWhiteSpace(status))
+                        {
+                            Admin.Verify frm = new Admin.Verify();
+                            frm.ShowDialog();
+                        }
+                        if (string.IsNullOrWhiteSpace(date))
+                        {
+                            sql = "Update Administration set Date = '" + DateTime.Now.AddDays(14).ToString(Includes.AppSettings.DateFormatRetrieve) + "' "; ;
+                            config.Execute_Query(sql);
+                        }
+
+                        if (status == "Trial")
+                        {
+                            string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+                            if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
+                            {
+                                Admin.Verify frm = new Admin.Verify();
+                                frm.ShowDialog();
+                            }
+                            else
+                            {
+                                txt_Username.Focus();
+                            }
+                        }
+                        else if (status == "Full")
                         {
                             txt_Username.Focus();
                         }
                         else
                         {
-                            if (date == "")
-                            {
-                                sql = "Update Administration set Date = '" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormatSave) + "' where Count = '0'";
-                                config.Execute_Query(sql);
-                                txt_Username.Focus();
-                            }
-                            else
-                            {
-                                string date1 = DateTime.Now.ToString(Includes.AppSettings.DateFormatSave);
-                                if (Convert.ToDateTime(date1) >= Convert.ToDateTime(date))
-                                {
-                                    Admin.Verify frm = new Admin.Verify();
-                                    frm.ShowDialog();
-                                }
-                                else
-                                {
-                                    txt_Username.Focus();
-                                }
-                               
-                            }
+                            Admin.Verify frm = new Admin.Verify();
+                            frm.ShowDialog();
                         }
                     }
                     else
                     {
-                        sql = "Insert into Administration ( Date, Value ) values ('" + DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormatSave) + "' , '100' ) ";
+                        sql = "Insert into Administration ( Date ) values ( '" + DateTime.Now.AddDays(14).ToString(Includes.AppSettings.DateFormatRetrieve) + "' ) ";
                         config.Execute_Query(sql);
                         txt_Username.Focus();
                     }

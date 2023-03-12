@@ -126,10 +126,12 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 chk_Sup_ID.Visible = true;
                 chk_Sup_Name.Visible = true;
                 chk_Sup_Name.Checked = true;
+                lbl_sup_div.Text = "SUPPLIER";
                 Load_Supplier();
             }
             else
             {
+                lbl_sup_div.Text = "DIVISION";
                 chk_Cust_ID.Visible = true;
                 chk_Cust_Name.Visible = true;
                 chk_Cust_Address.Visible = true;
@@ -183,7 +185,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
 
                 lbl_total_items.Text = dtg_PreviewPage.Rows.Count.ToString();
                 lbl_total_quantity.Text = total_qty.ToString();
-                lbl_total_value.Text = total_val.ToString();
+                lbl_total_value.Text = total_val.ToString("#,##0.00");
             }
             else
             {
@@ -524,6 +526,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         private void lbl_total_value_TextChanged(object sender, EventArgs e)
         {
             func.Label_Two_Decimal_Places(sender, e, lbl_total_value);
+        }
+
+        private void cbo_sup_divi_TextChanged(object sender, EventArgs e)
+        {
+            Calculate_Filtering("load", cbo_report_type.Text);
         }
     }
 }

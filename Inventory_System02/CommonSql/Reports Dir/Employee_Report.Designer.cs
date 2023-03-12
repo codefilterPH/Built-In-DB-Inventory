@@ -202,7 +202,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(164, 218);
+            this.lbl_Personnel.Location = new System.Drawing.Point(164, 214);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(17, 17);
             this.lbl_Personnel.TabIndex = 24;
@@ -240,7 +240,7 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 166);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 162);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // label7
@@ -248,7 +248,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 218);
+            this.label7.Location = new System.Drawing.Point(6, 214);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 17);
             this.label7.TabIndex = 23;
@@ -256,7 +256,7 @@ namespace Inventory_System02.Reports_Dir
             // 
             // grp_filters
             // 
-            this.grp_filters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.grp_filters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grp_filters.Controls.Add(this.chk_HiredDate);
             this.grp_filters.Controls.Add(this.chk_JobRole);
             this.grp_filters.Controls.Add(this.chk_Address);
@@ -265,7 +265,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_LN);
             this.grp_filters.Controls.Add(this.chk_FN);
             this.grp_filters.Controls.Add(this.chk_Emp_ID);
-            this.grp_filters.Location = new System.Drawing.Point(271, 218);
+            this.grp_filters.Location = new System.Drawing.Point(271, 214);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(475, 82);
             this.grp_filters.TabIndex = 20;

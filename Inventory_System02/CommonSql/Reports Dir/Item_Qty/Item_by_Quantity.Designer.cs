@@ -94,7 +94,7 @@
             // 
             this.chk_Cust_Address.AutoSize = true;
             this.chk_Cust_Address.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Cust_Address.Location = new System.Drawing.Point(297, 112);
+            this.chk_Cust_Address.Location = new System.Drawing.Point(244, 112);
             this.chk_Cust_Address.Name = "chk_Cust_Address";
             this.chk_Cust_Address.Size = new System.Drawing.Size(119, 17);
             this.chk_Cust_Address.TabIndex = 22;
@@ -105,7 +105,7 @@
             // 
             this.chk_Job.AutoSize = true;
             this.chk_Job.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Job.Location = new System.Drawing.Point(470, 64);
+            this.chk_Job.Location = new System.Drawing.Point(382, 64);
             this.chk_Job.Name = "chk_Job";
             this.chk_Job.Size = new System.Drawing.Size(70, 17);
             this.chk_Job.TabIndex = 21;
@@ -116,7 +116,7 @@
             // 
             this.chk_Staff_Name.AutoSize = true;
             this.chk_Staff_Name.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Staff_Name.Location = new System.Drawing.Point(470, 43);
+            this.chk_Staff_Name.Location = new System.Drawing.Point(382, 43);
             this.chk_Staff_Name.Name = "chk_Staff_Name";
             this.chk_Staff_Name.Size = new System.Drawing.Size(83, 17);
             this.chk_Staff_Name.TabIndex = 20;
@@ -172,27 +172,30 @@
             // 
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
-            this.lbl_total_value.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(685, 405);
+            this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_value.Location = new System.Drawing.Point(617, 429);
             this.lbl_total_value.Name = "lbl_total_value";
-            this.lbl_total_value.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total_value.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_value.TabIndex = 34;
+            this.lbl_total_value.Text = "0";
+            this.lbl_total_value.TextChanged += new System.EventHandler(this.lbl_total_value_TextChanged);
             // 
             // lbl_total_quantity
             // 
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
-            this.lbl_total_quantity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(686, 388);
+            this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_quantity.Location = new System.Drawing.Point(618, 398);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
-            this.lbl_total_quantity.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total_quantity.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_quantity.TabIndex = 33;
+            this.lbl_total_quantity.Text = "0";
             // 
             // chk_Sup_Name
             // 
             this.chk_Sup_Name.AutoSize = true;
             this.chk_Sup_Name.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Sup_Name.Location = new System.Drawing.Point(297, 44);
+            this.chk_Sup_Name.Location = new System.Drawing.Point(244, 44);
             this.chk_Sup_Name.Name = "chk_Sup_Name";
             this.chk_Sup_Name.Size = new System.Drawing.Size(101, 17);
             this.chk_Sup_Name.TabIndex = 18;
@@ -203,7 +206,7 @@
             // 
             this.chk_Sup_ID.AutoSize = true;
             this.chk_Sup_ID.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Sup_ID.Location = new System.Drawing.Point(297, 22);
+            this.chk_Sup_ID.Location = new System.Drawing.Point(244, 22);
             this.chk_Sup_ID.Name = "chk_Sup_ID";
             this.chk_Sup_ID.Size = new System.Drawing.Size(82, 17);
             this.chk_Sup_ID.TabIndex = 17;
@@ -214,20 +217,21 @@
             // 
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
-            this.lbl_total_items.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(685, 368);
+            this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_items.Location = new System.Drawing.Point(618, 373);
             this.lbl_total_items.Name = "lbl_total_items";
-            this.lbl_total_items.Size = new System.Drawing.Size(0, 15);
+            this.lbl_total_items.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_items.TabIndex = 32;
+            this.lbl_total_items.Text = "0";
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(610, 405);
+            this.label8.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(491, 429);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 15);
+            this.label8.Size = new System.Drawing.Size(128, 18);
             this.label8.TabIndex = 31;
             this.label8.Text = "Total Value:";
             // 
@@ -235,23 +239,23 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(593, 388);
+            this.label7.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(491, 398);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 15);
+            this.label7.Size = new System.Drawing.Size(79, 16);
             this.label7.TabIndex = 30;
-            this.label7.Text = "Total Quantity:";
+            this.label7.Text = "Quantity:";
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(609, 370);
+            this.label6.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(491, 373);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 15);
+            this.label6.Size = new System.Drawing.Size(95, 16);
             this.label6.TabIndex = 29;
-            this.label6.Text = "Total Items:";
+            this.label6.Text = "Rows count:";
             // 
             // dtg_PreviewPage
             // 
@@ -286,7 +290,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 248);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 240);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -309,7 +313,7 @@
             // 
             this.chk_User_ID.AutoSize = true;
             this.chk_User_ID.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_User_ID.Location = new System.Drawing.Point(470, 22);
+            this.chk_User_ID.Location = new System.Drawing.Point(382, 22);
             this.chk_User_ID.Name = "chk_User_ID";
             this.chk_User_ID.Size = new System.Drawing.Size(63, 17);
             this.chk_User_ID.TabIndex = 19;
@@ -320,7 +324,7 @@
             // 
             this.chk_Price.AutoSize = true;
             this.chk_Price.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Price.Location = new System.Drawing.Point(142, 44);
+            this.chk_Price.Location = new System.Drawing.Point(121, 44);
             this.chk_Price.Name = "chk_Price";
             this.chk_Price.Size = new System.Drawing.Size(50, 17);
             this.chk_Price.TabIndex = 16;
@@ -370,9 +374,9 @@
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 327);
+            this.grp_filters.Location = new System.Drawing.Point(9, 330);
             this.grp_filters.Name = "grp_filters";
-            this.grp_filters.Size = new System.Drawing.Size(560, 137);
+            this.grp_filters.Size = new System.Drawing.Size(476, 137);
             this.grp_filters.TabIndex = 20;
             this.grp_filters.TabStop = false;
             this.grp_filters.Text = "Data Fields";
@@ -381,7 +385,7 @@
             // 
             this.chk_total.AutoSize = true;
             this.chk_total.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_total.Location = new System.Drawing.Point(142, 66);
+            this.chk_total.Location = new System.Drawing.Point(121, 66);
             this.chk_total.Name = "chk_total";
             this.chk_total.Size = new System.Drawing.Size(51, 17);
             this.chk_total.TabIndex = 28;
@@ -392,7 +396,7 @@
             // 
             this.chk_Quantity.AutoSize = true;
             this.chk_Quantity.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Quantity.Location = new System.Drawing.Point(142, 22);
+            this.chk_Quantity.Location = new System.Drawing.Point(121, 22);
             this.chk_Quantity.Name = "chk_Quantity";
             this.chk_Quantity.Size = new System.Drawing.Size(69, 17);
             this.chk_Quantity.TabIndex = 27;
@@ -403,7 +407,7 @@
             // 
             this.chk_Cust_Name.AutoSize = true;
             this.chk_Cust_Name.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Cust_Name.Location = new System.Drawing.Point(297, 89);
+            this.chk_Cust_Name.Location = new System.Drawing.Point(244, 89);
             this.chk_Cust_Name.Name = "chk_Cust_Name";
             this.chk_Cust_Name.Size = new System.Drawing.Size(108, 17);
             this.chk_Cust_Name.TabIndex = 26;
@@ -414,7 +418,7 @@
             // 
             this.chk_Cust_ID.AutoSize = true;
             this.chk_Cust_ID.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Cust_ID.Location = new System.Drawing.Point(297, 66);
+            this.chk_Cust_ID.Location = new System.Drawing.Point(244, 66);
             this.chk_Cust_ID.Name = "chk_Cust_ID";
             this.chk_Cust_ID.Size = new System.Drawing.Size(89, 17);
             this.chk_Cust_ID.TabIndex = 25;
@@ -425,7 +429,7 @@
             // 
             this.chk_Trans_Ref.AutoSize = true;
             this.chk_Trans_Ref.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_Trans_Ref.Location = new System.Drawing.Point(142, 89);
+            this.chk_Trans_Ref.Location = new System.Drawing.Point(121, 89);
             this.chk_Trans_Ref.Name = "chk_Trans_Ref";
             this.chk_Trans_Ref.Size = new System.Drawing.Size(105, 17);
             this.chk_Trans_Ref.TabIndex = 24;
@@ -455,6 +459,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbl_total_value);
+            this.tabPage1.Controls.Add(this.lbl_total_quantity);
+            this.tabPage1.Controls.Add(this.lbl_total_items);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.txt_qty_to);
@@ -462,9 +469,6 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.dtp_date_from);
             this.tabPage1.Controls.Add(this.dtp_date_to);
-            this.tabPage1.Controls.Add(this.lbl_total_value);
-            this.tabPage1.Controls.Add(this.lbl_total_quantity);
-            this.tabPage1.Controls.Add(this.lbl_total_items);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);

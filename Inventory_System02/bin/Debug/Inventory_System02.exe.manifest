@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mteY+uhchiQIB+yCgKi+PBakfbJHu3NdwHWMkS/lA4M=</dsig:DigestValue>
+        <dsig:DigestValue>ftvxYuUG8Bw/0EyUI1q+EL8hekH0KjRjlmJz22IqdIs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,19 +98,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>99hbrQc+orORNvObUJjilrDaz28vxw5OsM3/YzRl7SM=</dsig:DigestValue>
+        <dsig:DigestValue>24cKLj5unLvKu8JeSwE7UjW0ub+BU7kAqeFz6DnkGB8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory_System02.exe" size="2560992">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory_System02.exe" size="2605024">
       <assemblyIdentity name="Inventory_System02" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XKJqrnnQjFWEbX3UuxB+dpw6e+DVg3Jun/gndXGws6w=</dsig:DigestValue>
+        <dsig:DigestValue>uYmNk/ZKbbDK8uNxGCEfoB0HMtfQP7whnCa5Qtbc5/Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
