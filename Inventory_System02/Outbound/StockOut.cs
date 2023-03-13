@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ToolTip = System.Windows.Forms.ToolTip;
 using System.Threading;
+using Inventory_System02.Invoice_Code;
+using Inventory_System02.Reports_Dir;
+using Microsoft.Reporting.WinForms;
 
 namespace Inventory_System02
 {
@@ -99,15 +102,22 @@ namespace Inventory_System02
                     }
                     else
                     {
-                        try
+                        string imagePath = Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE";
+                        string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                        foreach (string ext in extensions)
                         {
-                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE.JPG");
+                            if (File.Exists(imagePath + ext))
+                            {
+                                rw["Image"] = File.ReadAllBytes(imagePath + ext);
+                                break;
+                            }
                         }
-                        catch
+                        // If none of the image files exist, set the image to null or an empty byte array
+                        if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
                         {
-                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE.PNG");
+                            rw["Image"] = null;
+                            // rw["Image"] = new byte[0];
                         }
-                      
                     }
                 }
 
@@ -140,7 +150,7 @@ namespace Inventory_System02
                 //STOCK OUTBOUND
                 dtg_AddedStocks.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_AddedStocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-               // dtg_AddedStocks.Columns[5].DefaultCellStyle.Format = "#,##0.00";
+                dtg_AddedStocks.Columns[5].DefaultCellStyle.Format = "#,##0.00";
 
             }
         }
@@ -654,6 +664,62 @@ namespace Inventory_System02
             }
         }
         string Gen_Trans;
+
+        private void previewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dtg_AddedStocks.Rows.Count == 0)
+            {
+                MessageBox.Show("Table is empty! Please add some items to return", "Nothing to Return", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
+            Generate_Trans();
+
+            Report_Viewer frm = new Report_Viewer();
+            ReportDataSource rs = new ReportDataSource();
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+
+            string report_date = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            string cust_name = txt_Cust_Name.Text;
+            string address = txt_Cust_SAddress.Text;
+            List<Items_DataSet> list2 = new List<Items_DataSet>();
+            if (dtg_AddedStocks.Rows.Count >= 1)
+            {
+                list2 = dtg_AddedStocks.Rows.Cast<DataGridViewRow>()
+                .Select(row => new Items_DataSet
+                {
+                    Item_Name = row.Cells["ItemName"].Value.ToString(),
+                    Description = row.Cells["ItemName"].Value.ToString(),
+                    Brand = row.Cells["Brand"].Value.ToString(),
+                    Quantity = row.Cells["Quantity"].Value.ToString(),
+                    Price = row.Cells["pprice"].Value.ToString(),
+                    Amount = row.Cells["Total"].Value.ToString(),
+                }).ToList();
+            }
+
+            rs.Name = "Out_DataSet";
+            rs.Value = list2;
+
+
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            frm.reportViewer1.LocalReport.DataSources.Add(rs);
+            frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            frm.reportViewer1.LocalReport.ReportPath = Includes.AppSettings.Invoice_RDLC_Path + @"Invoice_out.rdlc";
+
+            reportParameters.Add(new ReportParameter("ReportDate", report_date));
+            reportParameters.Add(new ReportParameter("TransRef", Gen_Trans));
+            reportParameters.Add(new ReportParameter("Customer_Name", cust_name));
+            reportParameters.Add(new ReportParameter("Address", address));
+            reportParameters.Add(new ReportParameter("Total_Items", dtg_AddedStocks.Rows.Count.ToString()));
+            reportParameters.Add(new ReportParameter("Total_QTY", out_qty.Text));
+            reportParameters.Add(new ReportParameter("Total", out_amt.Text));
+
+            frm.reportViewer1.LocalReport.SetParameters(reportParameters);
+            frm.reportViewer1.RefreshReport();
+            frm.ShowDialog();
+        }
+
         private void Generate_Trans()
         {
             ID_Generator gen = new ID_Generator();
@@ -795,8 +861,7 @@ namespace Inventory_System02
                 {
                     MessageBox.Show("Successfully updated \"inbound records\" and Item(s) moved to \"outbound stock\" list! \n\nTransaction Successful!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    Invoice_Silent.Invoice_Silent silent_batch = new Invoice_Silent.Invoice_Silent();
-                    silent_batch.Invoice("out", Gen_Trans, "preview");
+                    previewToolStripMenuItem_Click(sender, e);
                     dtg_AddedStocks.Rows.Clear();
 
                     cbo_CustID.Text = "";

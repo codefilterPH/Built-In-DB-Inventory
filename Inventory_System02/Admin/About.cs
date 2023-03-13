@@ -22,7 +22,7 @@ namespace Inventory_System02
         {
            
             SQLConfig config = new SQLConfig();
-            string sql = "Select Status from Administration";
+            string sql = "Select Date, Status from Administration";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {

@@ -74,6 +74,7 @@ namespace Inventory_System02
             this.outboundListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.btn_Saved = new System.Windows.Forms.ToolStripMenuItem();
+            this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -497,7 +498,8 @@ namespace Inventory_System02
             this.menuStrip2.BackColor = System.Drawing.Color.White;
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_Saved});
+            this.btn_Saved,
+            this.previewToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 549);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(863, 29);
@@ -515,6 +517,18 @@ namespace Inventory_System02
             this.btn_Saved.Size = new System.Drawing.Size(173, 25);
             this.btn_Saved.Text = "Confirm Stock Out";
             this.btn_Saved.Click += new System.EventHandler(this.btn_Saved_Click);
+            // 
+            // previewToolStripMenuItem
+            // 
+            this.previewToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.previewToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.previewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.previewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.previewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("previewToolStripMenuItem.Image")));
+            this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
+            this.previewToolStripMenuItem.Size = new System.Drawing.Size(95, 25);
+            this.previewToolStripMenuItem.Text = "Preview";
+            this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -824,5 +838,6 @@ namespace Inventory_System02
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn pprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
     }
 }

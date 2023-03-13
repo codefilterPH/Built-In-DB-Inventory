@@ -519,7 +519,7 @@ namespace Inventory_System02.Profiles
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(pictureBox1, txt_ID.Text, Includes.AppSettings.Employee_DIR);
+            func.DoubleClick_Picture_Then_Replace_Existing(pictureBox1, txt_ID.Text, Includes.AppSettings.Employee_DIR);
             reloadTableToolStripMenuItem_Click(sender, e);
             reloadTableToolStripMenuItem_Click(sender, e);
             timer1.Start();

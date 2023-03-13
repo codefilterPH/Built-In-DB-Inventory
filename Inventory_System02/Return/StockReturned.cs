@@ -1,11 +1,18 @@
 ﻿using Inventory_System02.Includes;
+using Inventory_System02.Invoice_Code;
+using Inventory_System02.Reports_Dir;
 using Microsoft.Office.Interop.Word;
+using Microsoft.Reporting.WinForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using static Inventory_System02.Includes.Load_DTG_VBPrint;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using DataTable = System.Data.DataTable;
 using TextBox = System.Windows.Forms.TextBox;
 using ToolTip = System.Windows.Forms.ToolTip;
 
@@ -127,10 +134,10 @@ namespace Inventory_System02
 
                 foreach (DataRow rw in config.dt.Rows)
                 {
-                    Console.WriteLine(item_image_location + rw[5].ToString()+".PNG");
-                    if (File.Exists(item_image_location + rw[5].ToString() + ".PNG"))
+                    string imagePath = item_image_location + rw[5].ToString() + ".PNG";
+                    if (File.Exists(imagePath))
                     {
-                        rw["Image"] = File.ReadAllBytes(item_image_location + rw[5].ToString() + ".PNG");
+                        rw["Image"] = File.ReadAllBytes(imagePath);
                     }
                     else
                     {
@@ -146,6 +153,7 @@ namespace Inventory_System02
                 }
 
                 dtg_Items.Columns["Image"].DisplayIndex = 0;
+
 
                 for (int i = 0; i < dtg_Items.Columns.Count; i++)
                 {
@@ -175,6 +183,7 @@ namespace Inventory_System02
                 //Stock Return
                 dtg_Return.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_Return.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_Return.Columns[5].DefaultCellStyle.Format = "#,##0.00";
 
                 TOTALS();
             }
@@ -546,6 +555,65 @@ namespace Inventory_System02
             func.Label_Two_Decimal_Places(sender, e, out_amt);
         }
 
+        private void previewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dtg_Return.Rows.Count == 0)
+            {
+                MessageBox.Show("Table is empty! Please add some items to return", "Nothing to Return", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
+            Generate_Trans("insert2return");
+
+            Report_Viewer frm = new Report_Viewer();
+            ReportDataSource rs = new ReportDataSource();
+            ReportParameterCollection reportParameters = new ReportParameterCollection();
+
+            string report_date = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            string cust_name = txt_CustName.Text;
+            string address = txt_CustAddress.Text;
+            List<Items_DataSet> list2 = new List<Items_DataSet>();
+            if (dtg_Return.Rows.Count >= 1 )
+            {
+                list2 = dtg_Return.Rows.Cast<DataGridViewRow>()
+                .Select(row => new Items_DataSet
+                {
+                    Item_Name = row.Cells["ItemName"].Value.ToString(),
+                    Description = row.Cells["ItemName"].Value.ToString(),
+                    Brand = row.Cells["Brand"].Value.ToString(),
+                    Quantity = row.Cells["Quantity"].Value.ToString(),
+                    Price = row.Cells["price111"].Value.ToString(),
+                    Amount = row.Cells["amoun11"].Value.ToString(),
+                }).ToList();
+            }
+
+            rs.Name = "Out_DataSet";
+            rs.Value = list2;
+
+            frm.reportViewer1.LocalReport.DataSources.Clear();
+            frm.reportViewer1.LocalReport.DataSources.Add(rs);
+            frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            frm.reportViewer1.LocalReport.ReportPath = Includes.AppSettings.Invoice_RDLC_Path + @"Invoice_return.rdlc";
+
+            reportParameters.Add(new ReportParameter("ReportDate", report_date));
+            reportParameters.Add(new ReportParameter("TransRef", Gen_Trans));
+            reportParameters.Add(new ReportParameter("Customer_Name", cust_name));
+            reportParameters.Add(new ReportParameter("Address", address));
+            reportParameters.Add(new ReportParameter("Total_Items", dtg_Return.Rows.Count.ToString()));
+            reportParameters.Add(new ReportParameter("Total_QTY", out_qty.Text));
+            reportParameters.Add(new ReportParameter("Total", out_amt.Text));
+
+            frm.reportViewer1.LocalReport.SetParameters(reportParameters);
+            frm.reportViewer1.RefreshReport();
+            frm.ShowDialog();
+
+        }
+
+        private void out_amt_TextChanged(object sender, EventArgs e)
+        {
+            func.Label_Two_Decimal_Places(sender, e, out_amt);
+        }
+
         private void btn_sup_delete_Click(object sender, EventArgs e)
         {
             if (dtg_Return.SelectedRows.Count > 0)
@@ -719,7 +787,6 @@ namespace Inventory_System02
             if (MessageBox.Show("All items will be recorded. Please confirm stock return?", "Important Message", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                gen.Generate_Transaction();
 
                 if (txt_Reasons.Text == "Manufacturing Defect ( Sent back to suppliers )")
                 {
@@ -756,10 +823,10 @@ namespace Inventory_System02
                 }
                 else
                 {
+                    Generate_Trans("back2stocks");
                     // Transfer items back to stocks
                     foreach (DataGridViewRow rw in dtg_Return.Rows)
                     {
-
                         sql = "Select Quantity, Price, Total, Status from `Stocks` where `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
                         config.singleResult(sql);
                         if (config.dt.Rows.Count > 0)
@@ -773,7 +840,6 @@ namespace Inventory_System02
                         }
                         else
                         {
-                            Generate_Trans();
 
                             sql = "Insert into Stocks ( " +
                                 " `Entry Date` " +
@@ -806,6 +872,7 @@ namespace Inventory_System02
                         }
                     }
                 }
+            
                 //Update stock out
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
                 {
@@ -818,11 +885,10 @@ namespace Inventory_System02
                         config.Execute_Query(sql);
                     }
                 }
+                Generate_Trans("insert2return");
                 //insert items to return
                 foreach (DataGridViewRow stock_out_row in dtg_Return.Rows)
                 {
-                    Generate_Trans();
-
                     sql = "Insert into `Stock Returned` ( " +
                         " `Entry Date` " +
                         ",`Customer ID` " +
@@ -893,8 +959,7 @@ namespace Inventory_System02
 
                     MessageBox.Show(success_message, "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    Invoice_Silent.Invoice_Silent silent_batch = new Invoice_Silent.Invoice_Silent();
-                    silent_batch.Invoice("return", Gen_Trans, "preview");
+                    previewToolStripMenuItem_Click(sender, e);
 
                     dtg_Return.Rows.Clear();
                     txt_CustID.Text = "";
@@ -917,10 +982,12 @@ namespace Inventory_System02
          
         }
         string Gen_Trans;
-        private void Generate_Trans()
+        private void Generate_Trans(string what_table)
         {
+            Gen_Trans = string.Empty;
             ID_Generator gen = new ID_Generator();
             string id = string.Empty;
+            sql = string.Empty;
             bool hasDuplicate = true;
             while (hasDuplicate)
             {
@@ -930,18 +997,26 @@ namespace Inventory_System02
                 if (config.dt.Rows.Count > 0)
                 {
                     id = Convert.ToString(config.dt.Rows[0]["Transaction Reference"]);
-
-                    sql = "SELECT COUNT(*) FROM `Stock Returned` WHERE `Transaction Reference` = '" + id + "'";
-                    config.singleResult(sql);
-                    if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                    if (what_table == "insert2return")
                     {
-                        gen.Generate_Transaction();
+                        sql = "SELECT COUNT(*) FROM `Stock Returned` WHERE `Transaction Reference` = '" + id + "'";
                     }
-                    else
+                    else if ( what_table == "back2stocks")
                     {
-                        Gen_Trans = id;
-                        hasDuplicate = false;
-
+                        sql = "SELECT COUNT(*) FROM `Stocks` WHERE `Transaction Reference` = '" + id + "'";
+                    }
+                    if (!string.IsNullOrWhiteSpace(sql))
+                    {
+                        config.singleResult(sql);
+                        if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                        {
+                            gen.Generate_Transaction();
+                        }
+                        else
+                        {
+                            Gen_Trans = id;
+                            hasDuplicate = false;
+                        }
                     }
                 }
             }

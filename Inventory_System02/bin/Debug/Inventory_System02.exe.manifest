@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ftvxYuUG8Bw/0EyUI1q+EL8hekH0KjRjlmJz22IqdIs=</dsig:DigestValue>
+        <dsig:DigestValue>J5yuaE05XEwgi/a4G9x6hrL1mv+eBJ+vE3d2kNdLnbc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,19 +98,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>24cKLj5unLvKu8JeSwE7UjW0ub+BU7kAqeFz6DnkGB8=</dsig:DigestValue>
+        <dsig:DigestValue>VWDz8HzVXYhmNLRXoQHkJNKO7FqS5Qjzl4m5Lta8B5M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory_System02.exe" size="2605024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory_System02.exe" size="2696672">
       <assemblyIdentity name="Inventory_System02" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uYmNk/ZKbbDK8uNxGCEfoB0HMtfQP7whnCa5Qtbc5/Y=</dsig:DigestValue>
+        <dsig:DigestValue>YbP+25LyQybW6Zkfdstec0yQNmB1G3Ra1nnvN68kzTQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1017,7 +1017,7 @@
       <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\SQLite.Interop.dll" size="1421496">
+  <file name="CommonSql\Tools\SQLite.Interop.dll" size="1421496">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

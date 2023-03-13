@@ -82,7 +82,7 @@ namespace Inventory_System02.Invoice_Silent
                      Description = dataRow.Field<string>("Description").ToString(),
                      Quantity = dataRow["Quantity"].ToString(),
                      Price = dataRow["Price"].ToString(),
-                     Amount = (Convert.ToDecimal(dataRow["Price"]) * Convert.ToDecimal(dataRow["Quantity"])).ToString("#0.00"),
+                     Amount = dataRow["Total"].ToString(),
 
                  }).ToList();
                 rs.Value = list2;

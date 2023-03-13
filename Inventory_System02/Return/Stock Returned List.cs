@@ -201,6 +201,8 @@ namespace Inventory_System02
                 dtg_return_list.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_return_list.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_return_list.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_return_list.Columns[10].DefaultCellStyle.Format = "#,##0.00";
+                dtg_return_list.Columns[11].DefaultCellStyle.Format = "#,##0.00";
 
                 func.Count_person(dtg_return_list, lbl_items_count);
             }

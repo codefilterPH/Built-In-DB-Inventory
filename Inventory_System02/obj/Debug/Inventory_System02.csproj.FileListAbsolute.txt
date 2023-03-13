@@ -185,7 +185,6 @@ C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.pdb
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\x86\SqlServerSpatial160.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\x64\SqlServerSpatial160.dll
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\SQLite.Interop.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In_Item.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
@@ -330,3 +329,4 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.csproj.CopyComplete
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.pdb
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\SQLite.Interop.dll

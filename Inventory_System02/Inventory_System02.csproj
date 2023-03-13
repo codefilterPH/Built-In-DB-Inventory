@@ -512,7 +512,7 @@
     <Content Include="CommonSql\Pictures\Item\B1109L01.PNG" />
     <Content Include="CommonSql\Pictures\Item\DONOTDELETE_SUBIMAGE.jpg" />
     <Content Include="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" />
-    <Content Include="CommonSql\SQLite.Interop.dll">
+    <Content Include="CommonSql\Tools\SQLite.Interop.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Double-J-Design-Ravenna-3d-Box.ico" />

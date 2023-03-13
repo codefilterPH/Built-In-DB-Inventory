@@ -264,73 +264,70 @@ namespace Inventory_System02.Includes
         string ext;
         public void Reload_Images(PictureBox pictureBox1, string ID, string Brand)
         {
-            //Brand is either Employee, Company, Staff, Cust FOLDER PATH
             try
             {
-                try
+                string imagePath = Brand + ID;
+  
+                ext = Path.GetExtension(imagePath);
+
+                if (string.IsNullOrEmpty(ext))
                 {
-                    ext = Path.GetExtension(Brand + ID);
-                }
-                catch
-                {
-                    if (ext == "")
-                    {
-                        ext = ".PNG";
-                    }
+                    ext = ".PNG";
                 }
 
-                try
-                {
-                    FileStream fs = new System.IO.FileStream(Brand + ID + ext, FileMode.Open, FileAccess.Read);
-                    pictureBox1.Image = Image.FromStream(fs);
-                    fs.Close();
-                }
-                catch
+                string[] possibleExtensions = new string[] { ext, ".PNG", ".JPG", ".jpg", ".png" };
+                bool imageFound = false;
+
+                foreach (string possibleExt in possibleExtensions)
                 {
                     try
                     {
-                        FileStream fs = new System.IO.FileStream(Brand + ID + ".PNG", FileMode.Open, FileAccess.Read);
+                        FileStream fs = new FileStream(imagePath + possibleExt, FileMode.Open, FileAccess.Read);
                         pictureBox1.Image = Image.FromStream(fs);
                         fs.Close();
+                        imageFound = true;
+                        break;
                     }
-                    catch
+                    catch (FileNotFoundException)
                     {
-                        FileStream fs = new System.IO.FileStream(Brand + ID + ".JPG", FileMode.Open, FileAccess.Read);
-                        pictureBox1.Image = Image.FromStream(fs);
-                        fs.Close();
+                        // do nothing, try the next extension
                     }
-            
                 }
 
+                if (!imageFound)
+                {
+                    imagePath = Brand + @"DONOTDELETE_SUBIMAGE";
+                    foreach (string possibleExt in possibleExtensions)
+                    {
+                        try
+                        {
+                            FileStream fs = new FileStream(imagePath + possibleExt, FileMode.Open, FileAccess.Read);
+                            pictureBox1.Image = Image.FromStream(fs);
+                            fs.Close();
+                            imageFound = true;
+                            break;
+                        }
+                        catch (FileNotFoundException)
+                        {
+                            // do nothing, try the next extension
+                        }
+                    }
+
+                    if (!imageFound)
+                    {
+                        MessageBox.Show("The default image are no where to be found! Please contact administrator thank you.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // handle the case where no image was found
+                    }
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                try
-                {
-                    FileStream fs = new System.IO.FileStream(Brand + @"DONOTDELETE_SUBIMAGE" + ext, FileMode.Open, FileAccess.Read);
-                    pictureBox1.Image = Image.FromStream(fs);
-                    fs.Close();
-                }
-                catch
-                {
-                    try
-                    {
-                        FileStream fs = new System.IO.FileStream(Brand + @"DONOTDELETE_SUBIMAGE.PNG", FileMode.Open, FileAccess.Read);
-                        pictureBox1.Image = Image.FromStream(fs);
-                        fs.Close();
-                    }
-                    catch
-                    {
-                        FileStream fs = new System.IO.FileStream(Brand + @"DONOTDELETE_SUBIMAGE.JPG", FileMode.Open, FileAccess.Read);
-                        pictureBox1.Image = Image.FromStream(fs);
-                        fs.Close();
-                    }
-      
-                }
-
+                MessageBox.Show(ex.Message);
+                // handle any other exceptions that might occur
             }
+
         }
-       string dateText, table11;
+        string dateText, table11;
         public void Limit_to_Oldest_Item_date(object sender, EventArgs e, string txt, string report_table)
         {
             if (report_table == "Stock In")
@@ -395,182 +392,69 @@ namespace Inventory_System02.Includes
             }
             catch
             {
-                ext = Path.GetExtension(Brand + ID + ".PNG");
+                ext = "";
             }
 
-
             OpenFileDialog opFile = new OpenFileDialog();
-            opFile.Title = "Select a Image";
-            opFile.Filter = " All Files (*.*)|*.*|PNG files (*.PNG)|*.PNG|JPEG files (*.JPG)|*.JPG ";
-
+            opFile.Title = "Select an Image";
+            opFile.Filter = "All Files (*.*)|*.*|PNG files (*.PNG)|*.PNG|JPEG files (*.JPG;*.JPEG)|*.JPG;*.JPEG";
 
             if (opFile.ShowDialog() == DialogResult.OK)
             {
-                if (ext == "PNG files (*.PNG)|*.PNG" || ext == "JPEG files (*.JPG)|*.JPG" || ext == "")
+                string fileExt = Path.GetExtension(opFile.FileName);
+                if (fileExt.ToLower() == ".png" || fileExt.ToLower() == ".jpg" || fileExt.ToLower() == ".jpeg")
                 {
                     appPath = Brand;
-                    if (Directory.Exists(appPath) == false)
+                    if (!Directory.Exists(appPath))
                     {
                         Directory.CreateDirectory(appPath);
                     }
                     else
                     {
-                        if (ID + ".PNG" != "DONOTDELETE_SUBIMAGE.PNG" || ID + ".JPG" != "DONOTDELETE_SUBIMAGE.PNG" || ID != "DONOTDELETE_SUBIMAGE")
+                        if (ID != "DONOTDELETE_SUBIMAGE" && (ext == ".PNG" || ext == ".JPG" || ext == ".JPEG"))
                         {
-                            if (MessageBox.Show("Are you sure to delete current picture and replace with new image?", "Deleting an existing image", MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (MessageBox.Show("Are you sure you want to delete the current picture and replace it with the new one?", "Deleting an Existing Image", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 try
                                 {
-                                    System.IO.File.Delete(Brand + ID + ext);
+                                    System.IO.File.Delete(appPath + ID + ext);
                                 }
                                 catch (Exception ex)
                                 {
-
                                     MessageBox.Show(ex.Message);
                                     return;
                                 }
-
                             }
                             else
                             {
                                 return;
                             }
                         }
-
-
-
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Invalid File! \n\n Select only .JPG or .PNG files", "Cannot Load Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid File! Please select a .PNG or .JPEG file.", "Cannot Load Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     opFile.Dispose();
                     return;
                 }
-
 
                 try
                 {
-
                     Bitmap bmp1 = new Bitmap(pic.Image);
 
-                    if (System.IO.File.Exists(appPath + ID + ".PNG"))
+                    if (System.IO.File.Exists(appPath + ID + fileExt))
                     {
-                        System.IO.File.Delete(appPath + ID + ".PNG");
-
-
+                        System.IO.File.Delete(appPath + ID + fileExt);
                     }
-                    filepath = opFile.FileName;
-                    File.Copy(filepath, appPath + ID + ".PNG"); // <---
-                    pic.Image = new Bitmap(opFile.OpenFile());
 
+                    filepath = opFile.FileName;
+                    File.Copy(filepath, appPath + ID + fileExt);
+                    pic.Image = new Bitmap(opFile.OpenFile());
                 }
                 catch (Exception exp)
                 {
-                    MessageBox.Show("Unable to open file " + exp.Message);
-                    opFile.Dispose();
-                    return;
-                }
-            }
-            else
-            {
-                opFile.Dispose();
-                return;
-            }
-
-        }
-        public void DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(PictureBox pic, string ID, string Brand)
-        {
-
-            if (ID == null || ID == "")
-            {
-                Error_Message1 = "ID";
-                Error_Message();
-                return;
-
-            }
-            try
-            {
-                ext = Path.GetExtension(Brand + ID);
-
-            }
-            catch
-            {
-                ext = Path.GetExtension(Brand + ID + ".JPG");
-            }
-
-
-            OpenFileDialog opFile = new OpenFileDialog();
-            opFile.Title = "Select a Image";
-            opFile.Filter = " All Files (*.*)|*.*|PNG files (*.PNG)|*.PNG|JPEG files (*.JPG)|*.JPG ";
-
-
-            if (opFile.ShowDialog() == DialogResult.OK)
-            {
-                if (ext == "PNG files (*.PNG)|*.PNG" || ext == "JPEG files (*.JPG)|*.JPG" || ext == "")
-                {
-                    appPath = Brand;
-                    if (Directory.Exists(appPath) == false)
-                    {
-                        Directory.CreateDirectory(appPath);
-                    }
-                    else
-                    {
-                        if (ID + ".PNG" != "DONOTDELETE_SUBIMAGE.PNG" || ID + ".JPG" != "DONOTDELETE_SUBIMAGE.PNG" || ID != "DONOTDELETE_SUBIMAGE")
-                        {
-                            if (MessageBox.Show("Are you sure to delete current picture and replace with new image?", "Deleting an existing image", MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Question) == DialogResult.Yes)
-                            {
-                                try
-                                {
-                                    System.IO.File.Delete(Brand + ID + ext);
-                                }
-                                catch (Exception ex)
-                                {
-
-                                    MessageBox.Show(ex.Message);
-                                    return;
-                                }
-
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-
-
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Invalid File! \n\n Select only .JPG or .PNG files", "Cannot Load Image", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    opFile.Dispose();
-                    return;
-                }
-
-
-                try
-                {
-
-                    Bitmap bmp1 = new Bitmap(pic.Image);
-
-                    if (System.IO.File.Exists(appPath + ID + ".JPG"))
-                    {
-                        System.IO.File.Delete(appPath + ID + ".JPG");
-
-
-                    }
-                    filepath = opFile.FileName;
-                    File.Copy(filepath, appPath + ID + ".JPG"); // <---
-                    pic.Image = new Bitmap(opFile.OpenFile());
-
-                }
-                catch (Exception exp)
-                {
-                    MessageBox.Show("Unable to open file " + exp.Message);
+                    MessageBox.Show("Unable to open file: " + exp.Message);
                     opFile.Dispose();
                     return;
                 }
@@ -579,7 +463,6 @@ namespace Inventory_System02.Includes
             {
                 opFile.Dispose();
             }
-
         }
         public void email_validation(string txt)
         {

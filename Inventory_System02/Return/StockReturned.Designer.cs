@@ -80,14 +80,6 @@ namespace Inventory_System02
             this.chk_all2 = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dtg_Return = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btn_sup_delete = new System.Windows.Forms.Button();
-            this.out_amt = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.btn_StockReturn = new System.Windows.Forms.ToolStripMenuItem();
-            this.bworker_return = new System.ComponentModel.BackgroundWorker();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +87,15 @@ namespace Inventory_System02
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price111 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amoun11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_sup_delete = new System.Windows.Forms.Button();
+            this.out_amt = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.btn_StockReturn = new System.Windows.Forms.ToolStripMenuItem();
+            this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bworker_return = new System.ComponentModel.BackgroundWorker();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
             this.panel2.SuspendLayout();
@@ -654,92 +655,6 @@ namespace Inventory_System02
             this.dtg_Return.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Return_CellEndEdit);
             this.dtg_Return.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtg_Return_EditingControlShowing);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(3, 3);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 21);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "STOCKS TO RETURN";
-            // 
-            // btn_sup_delete
-            // 
-            this.btn_sup_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sup_delete.BackColor = System.Drawing.Color.SlateGray;
-            this.btn_sup_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
-            this.btn_sup_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_sup_delete.Location = new System.Drawing.Point(651, 16);
-            this.btn_sup_delete.Name = "btn_sup_delete";
-            this.btn_sup_delete.Size = new System.Drawing.Size(133, 23);
-            this.btn_sup_delete.TabIndex = 11;
-            this.btn_sup_delete.Text = "Remove selected";
-            this.btn_sup_delete.UseVisualStyleBackColor = false;
-            this.btn_sup_delete.Click += new System.EventHandler(this.btn_sup_delete_Click);
-            // 
-            // out_amt
-            // 
-            this.out_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.out_amt.AutoSize = true;
-            this.out_amt.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.out_amt.Location = new System.Drawing.Point(176, 482);
-            this.out_amt.Name = "out_amt";
-            this.out_amt.Size = new System.Drawing.Size(18, 18);
-            this.out_amt.TabIndex = 86;
-            this.out_amt.Text = "0";
-            this.out_amt.Click += new System.EventHandler(this.out_amt_Click);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(8, 480);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 18);
-            this.label5.TabIndex = 84;
-            this.label5.Text = "Total Amount:";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.Color.Transparent;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_StockReturn});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 502);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(794, 29);
-            this.menuStrip2.TabIndex = 17;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // btn_StockReturn
-            // 
-            this.btn_StockReturn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btn_StockReturn.BackColor = System.Drawing.Color.Green;
-            this.btn_StockReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_StockReturn.ForeColor = System.Drawing.Color.White;
-            this.btn_StockReturn.Image = ((System.Drawing.Image)(resources.GetObject("btn_StockReturn.Image")));
-            this.btn_StockReturn.Name = "btn_StockReturn";
-            this.btn_StockReturn.Size = new System.Drawing.Size(132, 25);
-            this.btn_StockReturn.Text = "Return Stock";
-            this.btn_StockReturn.Click += new System.EventHandler(this.btn_StockReturn_Click);
-            // 
-            // bworker_return
-            // 
-            this.bworker_return.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bworker_return_DoWork);
-            this.bworker_return.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bworker_return_RunWorkerCompleted);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // StockID
             // 
             this.StockID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -804,6 +719,106 @@ namespace Inventory_System02
             this.amoun11.Name = "amoun11";
             this.amoun11.ReadOnly = true;
             this.amoun11.Width = 78;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(3, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(156, 21);
+            this.label8.TabIndex = 34;
+            this.label8.Text = "STOCKS TO RETURN";
+            // 
+            // btn_sup_delete
+            // 
+            this.btn_sup_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_sup_delete.BackColor = System.Drawing.Color.SlateGray;
+            this.btn_sup_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btn_sup_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_sup_delete.Location = new System.Drawing.Point(651, 16);
+            this.btn_sup_delete.Name = "btn_sup_delete";
+            this.btn_sup_delete.Size = new System.Drawing.Size(133, 23);
+            this.btn_sup_delete.TabIndex = 11;
+            this.btn_sup_delete.Text = "Remove selected";
+            this.btn_sup_delete.UseVisualStyleBackColor = false;
+            this.btn_sup_delete.Click += new System.EventHandler(this.btn_sup_delete_Click);
+            // 
+            // out_amt
+            // 
+            this.out_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.out_amt.AutoSize = true;
+            this.out_amt.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.out_amt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.out_amt.Location = new System.Drawing.Point(176, 482);
+            this.out_amt.Name = "out_amt";
+            this.out_amt.Size = new System.Drawing.Size(18, 18);
+            this.out_amt.TabIndex = 86;
+            this.out_amt.Text = "0";
+            this.out_amt.TextChanged += new System.EventHandler(this.out_amt_TextChanged);
+            this.out_amt.Click += new System.EventHandler(this.out_amt_Click);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(8, 480);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 18);
+            this.label5.TabIndex = 84;
+            this.label5.Text = "Total Amount:";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_StockReturn,
+            this.previewToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 502);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(794, 29);
+            this.menuStrip2.TabIndex = 17;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // btn_StockReturn
+            // 
+            this.btn_StockReturn.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btn_StockReturn.BackColor = System.Drawing.Color.Green;
+            this.btn_StockReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_StockReturn.ForeColor = System.Drawing.Color.White;
+            this.btn_StockReturn.Image = ((System.Drawing.Image)(resources.GetObject("btn_StockReturn.Image")));
+            this.btn_StockReturn.Name = "btn_StockReturn";
+            this.btn_StockReturn.Size = new System.Drawing.Size(132, 25);
+            this.btn_StockReturn.Text = "Return Stock";
+            this.btn_StockReturn.Click += new System.EventHandler(this.btn_StockReturn_Click);
+            // 
+            // previewToolStripMenuItem
+            // 
+            this.previewToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.previewToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.previewToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.previewToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.previewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("previewToolStripMenuItem.Image")));
+            this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
+            this.previewToolStripMenuItem.Size = new System.Drawing.Size(95, 25);
+            this.previewToolStripMenuItem.Text = "Preview";
+            this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
+            // 
+            // bworker_return
+            // 
+            this.bworker_return.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bworker_return_DoWork);
+            this.bworker_return.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bworker_return_RunWorkerCompleted);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // StockReturned
             // 
@@ -900,5 +915,6 @@ namespace Inventory_System02
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn price111;
         private System.Windows.Forms.DataGridViewTextBoxColumn amoun11;
+        private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
     }
 }

@@ -64,7 +64,6 @@ namespace Inventory_System02
        
         private void btn_Stocks_Click(object sender, EventArgs e)
         {
-           
              Panel_content_remove();
              AddStock frm = new AddStock(Global_ID, Fullname, JobRole);
              ShowFormInContainerControl(show_panel, frm);
@@ -77,6 +76,8 @@ namespace Inventory_System02
             frm.Dock = DockStyle.Fill;
             frm.Visible = true;
             ctl.Controls.Add(frm);
+
+           
 
 
         }
@@ -150,7 +151,7 @@ namespace Inventory_System02
 
         private void btn_stocks_out_Click_1(object sender, EventArgs e)
         {
-            Panel_content_remove();
+            Panel_content_remove();  
             StockOut frm = new StockOut(Global_ID, Fullname, JobRole);
             ShowFormInContainerControl(show_panel, frm);
             func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);

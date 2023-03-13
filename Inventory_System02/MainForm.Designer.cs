@@ -480,7 +480,7 @@ namespace Inventory_System02
             this.employee_Profile.Location = new System.Drawing.Point(6, 5);
             this.employee_Profile.Name = "employee_Profile";
             this.employee_Profile.Size = new System.Drawing.Size(65, 57);
-            this.employee_Profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.employee_Profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.employee_Profile.TabIndex = 0;
             this.employee_Profile.TabStop = false;
             // 

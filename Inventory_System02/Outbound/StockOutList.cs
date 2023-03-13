@@ -68,7 +68,8 @@ namespace Inventory_System02
                 dtg_outlist.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_outlist.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_outlist.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
+                dtg_outlist.Columns[10].DefaultCellStyle.Format = "#,##0.00";
+                dtg_outlist.Columns[11].DefaultCellStyle.Format = "#,##0.00";
                 // dtg_outlist.Rows[0].Selected = true;
                 func.Count_person(dtg_outlist, lbl_items_count);
                 if (dtg_outlist.Rows.Count > 0)

@@ -63,14 +63,11 @@ namespace Inventory_System02
         double totalrows = 0;
         private void DTG_Property()
         {
-         
 
             //Format to date dtg cell
             dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
             //sorting
             dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
-       
-
             config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
 
             foreach (DataRow rw in config.dt.Rows)
@@ -81,20 +78,27 @@ namespace Inventory_System02
                 }
                 else
                 {
-                    try
+                    string imagePath = item_image_location + "DONOTDELETE_SUBIMAGE";
+                    string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                    foreach (string ext in extensions)
                     {
-                        rw["Image"] = File.ReadAllBytes(item_image_location + "DONOTDELETE_SUBIMAGE.JPG");
+                        if (File.Exists(imagePath + ext))
+                        {
+                            rw["Image"] = File.ReadAllBytes(imagePath + ext);
+                            break;
+                        }
                     }
-                    catch
+                    // If none of the image files exist, set the image to null or an empty byte array
+                    if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
                     {
-                        rw["Image"] = File.ReadAllBytes(item_image_location + "DONOTDELETE_SUBIMAGE.PNG");
-
+                        rw["Image"] = null;
+                        // rw["Image"] = new byte[0];
                     }
-                   
                 }
             }
 
             dtg_Items.Columns["Image"].DisplayIndex = 0;
+
 
             for (int i = 0; i < dtg_Items.Columns.Count; i++)
             {

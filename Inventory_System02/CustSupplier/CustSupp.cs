@@ -383,7 +383,7 @@ namespace Inventory_System02.CustSupplier
 
         private void Cust_Image_DoubleClick(object sender, EventArgs e)
         {
-            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
+            func.DoubleClick_Picture_Then_Replace_Existing(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
             func.Reload_Images(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
             refreshToolStripMenuItem_Click(sender, e);
 
@@ -391,7 +391,7 @@ namespace Inventory_System02.CustSupplier
 
         private void Sup_Image_DoubleClick(object sender, EventArgs e)
         {
-            func.DoubleClick_Picture_Then_Replace_Existing_FOR_JPEG(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
+            func.DoubleClick_Picture_Then_Replace_Existing(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
             func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
             supplier_refresh_Click(sender, e);
         }
