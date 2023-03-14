@@ -240,6 +240,8 @@ namespace Inventory_System02
             this.lbl_weblink.TabIndex = 17;
             this.lbl_weblink.TabStop = true;
             this.lbl_weblink.Text = "https://codefilter.pythonanywhere.com";
+            this.lbl_weblink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_weblink_LinkClicked);
+            this.lbl_weblink.DoubleClick += new System.EventHandler(this.lbl_weblink_DoubleClick);
             // 
             // label17
             // 

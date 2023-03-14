@@ -51,5 +51,19 @@ namespace Inventory_System02
 
 
         }
+
+        private void lbl_weblink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void lbl_weblink_DoubleClick(object sender, EventArgs e)
+        {
+            // Replace the URL below with the website you want to open
+            string url = "https://codefilter.pythonanywhere.com";
+
+            // Launch the default browser and navigate to the URL
+            System.Diagnostics.Process.Start(url);
+        }
     }
 }

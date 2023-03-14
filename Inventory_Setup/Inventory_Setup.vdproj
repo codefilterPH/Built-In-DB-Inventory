@@ -147,12 +147,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4FB56303471343D4AFF0092E75320B7D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5013281210A749A19826ADDC280B862D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -166,6 +160,12 @@
         "Entry"
         {
         "MsmKey" = "8:_557C07A9D281418DA1DD651833C1F7FF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_590D9E43CFA747B1B15113FB455724FB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -213,6 +213,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6E71C61739EB44218B5FD2848FC55E65"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6EB56F1171EE348AB958BADC70AD2124"
         "OwnerKey" = "8:_D77786CF8311B0D8FDF3221AAA8F0715"
         "MsmSig" = "8:_UNDEFINED"
@@ -233,6 +239,12 @@
         {
         "MsmKey" = "8:_775321FA367D42ECC6DF3B38E8546279"
         "OwnerKey" = "8:_65451DE8F5424400AA183F15CC3444F3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8AFE897B59E94C1286DB3323C7178E69"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -333,6 +345,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AECCB21C282948F2BDA7E16D68FB34E7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B114457D5EC07D8427D22B9E624FC523"
         "OwnerKey" = "8:_B987C1DCC45FB8418225E816110BB650"
         "MsmSig" = "8:_UNDEFINED"
@@ -417,12 +435,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CAC0677CE4EF4CD08191A20EF62A7125"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CC5EDC987C8142C99A0E1AA8932B948C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -483,6 +495,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E3907511B9A343AABFFDE505C3E8F66B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E40387B2C5FC46CFA1A8C6FDD0B61142"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E8CFB02E19284152B949511C3230D9EF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -496,6 +520,12 @@
         "Entry"
         {
         "MsmKey" = "8:_EBAC7BDAF935442CA6D5BDB557D44F21"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EBD3BE1DE57F456CB05F0CF298B1C5C1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1176,26 +1206,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4FB56303471343D4AFF0092E75320B7D"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Return TRANS9LCB1L1 022416.pdf"
-            "TargetName" = "8:Return TRANS9LCB1L1 022416.pdf"
-            "Tag" = "8:"
-            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5013281210A749A19826ADDC280B862D"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\9CC0B991.PNG"
@@ -1256,6 +1266,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_590D9E43CFA747B1B15113FB455724FB"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Return TRANS19DL9B0 034044.pdf"
+            "TargetName" = "8:Return TRANS19DL9B0 034044.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5BDC66DBAC1E49509B1C1A45C1B93386"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Item\\Image\\DONOTDELETE_SUBIMAGE.jpg"
@@ -1266,8 +1296,8 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
-            "System" = "11:TRUE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
@@ -1387,6 +1417,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6E71C61739EB44218B5FD2848FC55E65"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Outbound TRANSBDBBB00 091105.pdf"
+            "TargetName" = "8:Outbound TRANSBDBBB00 091105.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EB56F1171EE348AB958BADC70AD2124"
             {
             "SourcePath" = "8:dte80a.olb"
@@ -1417,8 +1467,8 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
-            "System" = "11:TRUE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
@@ -1458,6 +1508,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8AFE897B59E94C1286DB3323C7178E69"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Return TRANS1D10010 102456.pdf"
+            "TargetName" = "8:Return TRANS1D10010 102456.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8B02876C5B5E42C2BFCAE806D6584E79"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Pictures\\Employee\\DONOTDELETE_SUBIMAGE.jpg"
@@ -1468,8 +1538,8 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
-            "System" = "11:TRUE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
@@ -1590,7 +1660,7 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
+            "Hidden" = "11:FALSE"
             "System" = "11:TRUE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
@@ -1733,6 +1803,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AECCB21C282948F2BDA7E16D68FB34E7"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Tools\\tools.dll"
+            "TargetName" = "8:tools.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_AC01495972A444A1A4474D51689B034F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B114457D5EC07D8427D22B9E624FC523"
             {
             "AssemblyRegister" = "3:1"
@@ -1867,8 +1957,8 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
-            "System" = "11:TRUE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
@@ -1958,28 +2048,8 @@
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
             "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
-            "System" = "11:TRUE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CAC0677CE4EF4CD08191A20EF62A7125"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Tools\\tools.dll"
-            "TargetName" = "8:tools.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_AC01495972A444A1A4474D51689B034F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:TRUE"
-            "System" = "11:TRUE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
             "Permanent" = "11:FALSE"
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
@@ -2161,6 +2231,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E3907511B9A343AABFFDE505C3E8F66B"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Outbound TRANS0DDDCL9 102433.pdf"
+            "TargetName" = "8:Outbound TRANS0DDDCL9 102433.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E40387B2C5FC46CFA1A8C6FDD0B61142"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Outbound TRANSBDBBB00 090804.pdf"
+            "TargetName" = "8:Outbound TRANSBDBBB00 090804.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8CFB02E19284152B949511C3230D9EF"
             {
             "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Tools\\SQLite.Interop.dll"
@@ -2207,6 +2317,26 @@
             "TargetName" = "8:Invoice_return.rdlc"
             "Tag" = "8:"
             "Folder" = "8:_897867E29B104DA084C8C3B5A1E9A9CB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EBD3BE1DE57F456CB05F0CF298B1C5C1"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Document Center Files\\Return TRANS0C1C9B0 090904.pdf"
+            "TargetName" = "8:Return TRANS0C1C9B0 090904.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_18C460987FCD4CF692EACC61A5FB6300"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

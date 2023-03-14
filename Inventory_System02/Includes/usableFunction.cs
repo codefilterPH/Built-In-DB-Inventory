@@ -377,18 +377,16 @@ namespace Inventory_System02.Includes
         string appPath, filepath;
         public void DoubleClick_Picture_Then_Replace_Existing(PictureBox pic, string ID, string Brand)
         {
-
             if (ID == null || ID == "")
             {
                 Error_Message1 = "ID";
                 Error_Message();
                 return;
-
             }
+
             try
             {
                 ext = Path.GetExtension(Brand + ID);
-
             }
             catch
             {
@@ -431,6 +429,16 @@ namespace Inventory_System02.Includes
                             }
                         }
                     }
+
+                    // Set the extension to .PNG if Image_DIR is used, otherwise set it to .jpg
+                    if (appPath.Contains(Includes.AppSettings.Image_DIR))
+                    {
+                        fileExt = ".PNG";
+                    }
+                    else
+                    {
+                        fileExt = ".jpg";
+                    }
                 }
                 else
                 {
@@ -464,6 +472,7 @@ namespace Inventory_System02.Includes
                 opFile.Dispose();
             }
         }
+
         public void email_validation(string txt)
         {
             string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"

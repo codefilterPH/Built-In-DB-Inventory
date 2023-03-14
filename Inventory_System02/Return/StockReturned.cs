@@ -66,51 +66,91 @@ namespace Inventory_System02
 
         private void txt_TransRefOut_TextChanged(object sender, EventArgs e)
         {
-            sql = "Select * from `Stock Out` where `Transaction Reference` = '" + txt_TransRefOut.Text + "' ";
-            config.Load_DTG(sql, dtg_Items);
-            DTG_Properties();
-            if (config.dt.Rows.Count > 0)
+            //Suggestions while typing
+
+            try
             {
-                dtg_Items.Rows[0].Selected = true;
-                TOTALS();
-
-            }
-            config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
-            {
-                txt_CustID.Text = config.dt.Rows[0].Field<string>("Customer ID");
-                txt_CustName.Text = config.dt.Rows[0].Field<string>("Customer Name");
-                txt_CustAddress.Text = config.dt.Rows[0].Field<string>("Customer Address");
-                due = config.dt.Rows[0].Field<string>("Warranty Due Date");
-                func.Reload_Images(cust_Image, txt_CustID.Text, sup_image_location);
-
-                if (Convert.ToDateTime(date) >= Convert.ToDateTime(due))
+                config = new SQLConfig();
+                sql = string.Empty;
+                sql = "SELECT `Transaction Reference` FROM `Stock Out` WHERE `Transaction Reference` like '%" + txt_TransRefOut.Text + "%' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count >= 1)
                 {
-                    lbl_DueDate.Text = "Warning Due Date is " + due;
-                }
+                    sql = string.Empty;
+                    config = new SQLConfig();
+                    sql = "Select `Transaction Reference` from `Stock Out` where `Transaction Reference` like '%" + txt_TransRefOut.Text + "%'  order by `Entry Date` limit 10";
+                    config.New_Autocomplete(sql, txt_TransRefOut);
 
-                chk_all.Checked = true;
-                if (dtg_Return.Rows.Count > 0)
-                {
-                    dtg_Return.Rows.Clear();
-
-                    for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                    if (!string.IsNullOrWhiteSpace(txt_TransRefOut.Text))
                     {
-                        lbl_stoksout_qty.Text = "Number of items: " + i.ToString();
+                        sql = string.Empty;
+                        config = new SQLConfig();
+                        //After typing
+
+                        sql = "Select * from `Stock Out` where `Transaction Reference` = '" + txt_TransRefOut.Text + "' ";
+                        config.Load_DTG(sql, dtg_Items);
+                        DTG_Properties();
+                        if (config.dt.Rows.Count > 0)
+                        {
+                            dtg_Items.Rows[0].Selected = true;
+                            TOTALS();
+
+                        }
+                        config.singleResult(sql);
+                        if (config.dt.Rows.Count > 0)
+                        {
+                            txt_CustID.Text = config.dt.Rows[0].Field<string>("Customer ID");
+                            txt_CustName.Text = config.dt.Rows[0].Field<string>("Customer Name");
+                            txt_CustAddress.Text = config.dt.Rows[0].Field<string>("Customer Address");
+                            due = config.dt.Rows[0].Field<string>("Warranty Due Date");
+                            func.Reload_Images(cust_Image, txt_CustID.Text, sup_image_location);
+
+                            if (Convert.ToDateTime(date) >= Convert.ToDateTime(due))
+                            {
+                                lbl_DueDate.Text = "Warning Due Date is " + due;
+                            }
+
+                            chk_all.Checked = true;
+                            if (dtg_Return.Rows.Count > 0)
+                            {
+                                dtg_Return.Rows.Clear();
+
+                                for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                                {
+                                    lbl_stoksout_qty.Text = "Number of items: " + i.ToString();
+                                }
+                            }
+                            else
+                            {
+                                lbl_stoksout_qty.Text = "";
+                            }
+
+                        }
+                        if (string.IsNullOrWhiteSpace(txt_TransRefOut.Text))
+                        {
+                            refreshToolStripMenuItem.Enabled = true;
+                            btn_StockReturn.Enabled = true;
+                        }
+                        TOTALS();
+                    }
+                    else
+                    {
+                        txt_CustID.Text = "";
+                        txt_CustName.Text = "";
+                        txt_CustAddress.Text = "";
+                        this.Refresh();
+                        dtg_Items.Columns.Clear();
+                        chk_all.Checked = false;
+
                     }
                 }
-                else
-                {
-                    lbl_stoksout_qty.Text = "";
-                }
-
             }
-            if (string.IsNullOrWhiteSpace(txt_TransRefOut.Text))
+            catch (Exception ex)
             {
-                refreshToolStripMenuItem.Enabled = true;
-                btn_StockReturn.Enabled = true;
+                MessageBox.Show(ex.Message);
             }
-            TOTALS();
+
+         
         }
 
         private void DTG_Properties()
@@ -130,29 +170,42 @@ namespace Inventory_System02
                 dtg_Items.Columns[16].Visible = false;
                 dtg_Items.Columns[17].Visible = false;
 
-                config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+                config.dt.Columns.Add("Image", typeof(byte[]));
 
-                foreach (DataRow rw in config.dt.Rows)
+                foreach (DataRow row in config.dt.Rows)
                 {
-                    string imagePath = item_image_location + rw[5].ToString() + ".PNG";
+                    string imagePath = Path.Combine(item_image_location, row[5].ToString() + ".PNG");
+
                     if (File.Exists(imagePath))
                     {
-                        rw["Image"] = File.ReadAllBytes(imagePath);
+                        row["Image"] = File.ReadAllBytes(imagePath);
                     }
                     else
                     {
-                        try
+                        string subimagePath = Path.Combine(Includes.AppSettings.Image_DIR, "DONOTDELETE_SUBIMAGE.JPG");
+
+                        if (File.Exists(subimagePath))
                         {
-                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE.JPG");
+                            row["Image"] = File.ReadAllBytes(subimagePath);
                         }
-                        catch
+                        else
                         {
-                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE.PNG");
+                            subimagePath = Path.Combine(Includes.AppSettings.Image_DIR, "DONOTDELETE_SUBIMAGE.PNG");
+
+                            if (File.Exists(subimagePath))
+                            {
+                                row["Image"] = File.ReadAllBytes(subimagePath);
+                            }
+                            else
+                            {
+                                row["Image"] = null; // or new byte[0];
+                            }
                         }
                     }
                 }
 
                 dtg_Items.Columns["Image"].DisplayIndex = 0;
+
 
 
                 for (int i = 0; i < dtg_Items.Columns.Count; i++)

@@ -5,6 +5,7 @@ using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.SqlServer;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -925,35 +926,58 @@ namespace Inventory_System02
         {
             try
             {
-                config = new SQLConfig();
+                SQLConfig config = new SQLConfig();
                 sql = string.Empty;
                 sql = "SELECT `Transaction Reference` FROM `Stocks` WHERE `Transaction Reference` like '%" + txt_TransRef.Text + "%' ";
                 config.singleResult(sql);
                 if ( config.dt.Rows.Count >= 1 )
                 {
-                    sql = string.Empty;
-                    config = new SQLConfig();
                     sql = "Select `Transaction Reference` from `Stocks` where `Transaction Reference` like '%" + txt_TransRef.Text + "%'  order by `Entry Date` limit 10";
                     config.New_Autocomplete(sql, txt_TransRef);
 
                     if (!string.IsNullOrWhiteSpace(txt_TransRef.Text))
                     {
-                        sql = string.Empty;
-                        config = new SQLConfig();
                         sql = "Select `Supplier ID` from Stocks where `Transaction Reference` = '" + txt_TransRef.Text + "' ";
                         config.singleResult(sql);
                         if (config.dt.Rows.Count >= 1)
                         {
                             txt_SupID.Text = config.dt.Rows[0]["Supplier ID"].ToString();
+                            cbo_srch_type.Text = "TRANS REF";
+                          
+                            txt_Search.Text = txt_TransRef.Text;
+                            txt_Search_TextChanged(sender, e);
                         }
+                        else
+                        {
+                            throw new Exception("No supplier ID found for transaction reference: " + txt_TransRef.Text);
+                        }
+                    }
+                    else
+                    {
+                        btn_Clear_Text_Click(sender, e);
+                        txt_Search.Text = "";
+                        txt_Search_TextChanged(sender, e);
                     }
                 }
                 else { txt_SupID.Text = ""; txt_Sup_Name.Text = ""; }
             }
+            catch (SqlException ex)
+            {
+                // Handle MySQL-specific errors
+                MessageBox.Show("SQL error: " + ex.Message);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                // Handle all other exceptions
+                lbl_error_message.Text = ex.Message;
+                timer_Error_message.Enabled = true;
             }
+        }
+
+        private void timer_Error_message_Tick(object sender, EventArgs e)
+        {
+            lbl_error_message.Text = "";
+            timer_Error_message.Enabled = false;
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
