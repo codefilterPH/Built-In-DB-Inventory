@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="https://github.com/codefilterPH/Inventory/tree/main/publish/Inventory%20MS.application" />
+    <deploymentProvider codebase="https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/Inventory%20MS.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
