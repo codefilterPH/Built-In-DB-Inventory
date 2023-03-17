@@ -363,33 +363,33 @@
     <EmbeddedResource Include="MyDocuments\Batch_Form.resx">
       <DependentUpon>Batch_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Invoice\Invoice_In_Item.rdlc">
+    <Content Include="CommonSql\Invoice\Invoice_In_Item.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Invoice\Invoice_In.rdlc">
+    </Content>
+    <Content Include="CommonSql\Invoice\Invoice_In.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc">
+    </Content>
+    <Content Include="CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Division\ItemByDivision_Form.resx">
       <DependentUpon>ItemByDivision_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Edit_QTY.resx">
       <DependentUpon>Edit_QTY.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc">
+    <Content Include="CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Item_by_Quantity.resx">
       <DependentUpon>Item_by_Quantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Supplier_Report.rdlc">
+    <Content Include="CommonSql\Reports Dir\Supplier_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="CustSupplier\CustSupp.resx">
       <DependentUpon>CustSupp.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,12 +399,12 @@
     <EmbeddedResource Include="CustSupplier\CustModels.resx">
       <DependentUpon>CustModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Invoice\Invoice_return.rdlc">
+    <Content Include="CommonSql\Invoice\Invoice_return.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Invoice\Invoice_out.rdlc">
+    </Content>
+    <Content Include="CommonSql\Invoice\Invoice_out.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="Edit_Form\Edit_Form.resx">
       <DependentUpon>Edit_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,18 +438,18 @@
     <EmbeddedResource Include="CommonSql\Reports Dir\Report Viewer.resx">
       <DependentUpon>Report Viewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Employee_Report.rdlc">
+    <Content Include="CommonSql\Reports Dir\Employee_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Customer_Report.rdlc">
+    </Content>
+    <Content Include="CommonSql\Reports Dir\Customer_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="CommonSql\Reports Dir\Supplier_Report.resx">
       <DependentUpon>Supplier_Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Item Report.rdlc">
+    <Content Include="CommonSql\Reports Dir\Item Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="Reports_MainForm.resx">
       <DependentUpon>Reports_MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,9 +486,9 @@
     <EmbeddedResource Include="Return\StockReturned.resx">
       <DependentUpon>StockReturned.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CommonSql\Document Center Files\Outbound Report 015335.pdf">
+    <Content Include="CommonSql\Document Center Files\Outbound Report 015335.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Inventory_System02_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
