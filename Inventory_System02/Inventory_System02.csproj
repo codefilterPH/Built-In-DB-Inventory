@@ -9,7 +9,7 @@
     <ProjectGuid>{B3339EBD-D2AE-4C4E-9789-62DE7C13479B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Inventory_System02</RootNamespace>
-    <AssemblyName>Inventory_System02</AssemblyName>
+    <AssemblyName>Inventory MS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
