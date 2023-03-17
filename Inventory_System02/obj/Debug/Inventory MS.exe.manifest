@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4Qz0GP35x4TN+cWvBtqJmjKqVyCr09Jn9DaRYRCM1Zk=</dsig:DigestValue>
+        <dsig:DigestValue>Vrmaor1pk9C5t4oON47Dpt4TxArmL6oaISJQaO43sPk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MA1nXXZJks+YFRBrSqYhZFYab7UgjZFd06RQzkoR0Wk=</dsig:DigestValue>
+        <dsig:DigestValue>XQNpeaa3e6J1bNeQaBszYKVSZpYQdA2BRedu+BxG9uc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1005,7 +1005,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>gWsc5KEYxsI2d7UB8ZKi3U/19QYKxaywGAo8+OSWBNQ=</dsig:DigestValue>
+      <dsig:DigestValue>LG4nyXg7nJvNh4W6WBgPZk7OP47uFuAJLUZ4QFb93xk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Double-J-Design-Ravenna-3d-Box.ico" size="190673">
