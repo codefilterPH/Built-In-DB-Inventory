@@ -331,3 +331,4 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_Sys
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.pdb
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.Outbound.OutEditForm.resources
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\SQLite.Interop.dll

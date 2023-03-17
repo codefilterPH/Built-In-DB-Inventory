@@ -27,10 +27,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://github.com/codefilterPH/Inventory/tree/main/publish/Inventory_System02.application/</InstallUrl>
+    <InstallUrl>https://github.com/codefilterPH/Inventory/tree/main/publish/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -483,6 +483,7 @@
     <EmbeddedResource Include="Return\StockReturned.resx">
       <DependentUpon>StockReturned.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CommonSql\Document Center Files\Outbound Report 015335.pdf" />
     <None Include="Inventory_System02_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
@@ -514,21 +515,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="box.ico" />
-    <Content Include="CommonSql\Pictures\Company\Company_Logo1.PNG" />
     <Content Include="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" />
+    <Content Include="CommonSql\Pictures\Company\Company_Logo1.PNG" />
     <Content Include="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" />
     <Content Include="CommonSql\Pictures\Employee\admin.JPG" />
     <Content Include="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" />
-    <Content Include="CommonSql\Pictures\Item\091D0001.PNG" />
-    <Content Include="CommonSql\Pictures\Item\091LL1D0.PNG" />
-    <Content Include="CommonSql\Pictures\Item\B1109L01.PNG" />
     <Content Include="CommonSql\Pictures\Item\DONOTDELETE_SUBIMAGE.jpg" />
     <Content Include="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" />
     <Content Include="CommonSql\Tools\SQLite.Interop.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="CommonSql\Tools\tools.dll" />
     <Content Include="Double-J-Design-Ravenna-3d-Box.ico" />
     <Content Include="mybox.ico" />
+    <Content Include="SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AcroPDFLib">
@@ -561,9 +563,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommonSql\Document Center Files\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
