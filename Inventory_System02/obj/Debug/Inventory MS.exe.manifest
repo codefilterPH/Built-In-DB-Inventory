@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pFVsSAy20vT7Sdyn0vn2UV/JR2lB6zF8RXFZt8vRUa8=</dsig:DigestValue>
+        <dsig:DigestValue>4Qz0GP35x4TN+cWvBtqJmjKqVyCr09Jn9DaRYRCM1Zk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>69C+MABLpMmhCzGgyeJTug0bG5E5aIhjVJ1gihnEAN4=</dsig:DigestValue>
+        <dsig:DigestValue>MA1nXXZJks+YFRBrSqYhZFYab7UgjZFd06RQzkoR0Wk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -972,7 +972,7 @@
       <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Item\DONOTDELETE_SUBIMAGE.jpg" size="20162">
+  <file name="CommonSql\Pictures\Item\Image\DONOTDELETE_SUBIMAGE.jpg" size="20162">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
