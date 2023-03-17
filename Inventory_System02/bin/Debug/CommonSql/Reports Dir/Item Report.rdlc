@@ -1562,7 +1562,7 @@
             <Top>1.47967cm</Top>
             <Left>0.50835cm</Left>
             <Height>1.96728cm</Height>
-            <Width>52.08011cm</Width>
+            <Width>52.08012cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2085,6 +2085,15 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
+                      <Value>₱</Value>
+                      <Style>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>18pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>'₱'#,0.00;('₱'#,0.00)</Format>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
                       <Value>=Parameters!Total_Value.Value</Value>
                       <Style>
                         <FontFamily>Courier New</FontFamily>
@@ -2101,7 +2110,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>2.01373cm</Top>
-              <Left>4.79337cm</Left>
+              <Left>4.77573cm</Left>
               <Height>0.9175cm</Height>
               <Width>7.57998cm</Width>
               <ZIndex>5</ZIndex>

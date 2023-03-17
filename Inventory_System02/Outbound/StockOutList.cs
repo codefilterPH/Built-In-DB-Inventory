@@ -1,4 +1,5 @@
 ﻿using Inventory_System02.Includes;
+using Inventory_System02.Outbound;
 using System;
 using System.ComponentModel;
 using System.Data.Entity.Infrastructure;
@@ -127,6 +128,11 @@ namespace Inventory_System02
                     {
                         string sql = "DELETE FROM `Stock Out` WHERE count = '1' ";
                         config.Execute_CUD(sql, "Unable to delete all items. Please try again!", "Successfully deleted all stock outbound!");
+
+                        sql = string.Empty;
+                        sql = "Delete from StockOutStatus";
+                        config.Execute_Query(sql);
+
                         chk_select_all.Checked = false;
                         refreshTableToolStripMenuItem_Click(sender, e);
                         return;
@@ -167,6 +173,10 @@ namespace Inventory_System02
                                 {
                                     sql = "DELETE FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
                                     config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
+
+                                    sql = string.Empty;
+                                    sql = "Delete from StockOutStatus where TransRef = '"+ transactionRef+ "' ";
+                                    config.Execute_Query(sql);
 
                                 }
                                 else
@@ -453,6 +463,7 @@ namespace Inventory_System02
                     txt_Trans_number.Focus();
                     if (dtg_outlist.Rows.Count > 0)
                     {
+                        //Warranty Issue 
                         if (Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[1].Value) >= Convert.ToDateTime(dtg_outlist.CurrentRow.Cells[12].Value))
                         {
                             lbl_DueDate.Text = "Warning this Transaction is due " + dtg_outlist.CurrentRow.Cells[12].Value.ToString();
@@ -461,8 +472,23 @@ namespace Inventory_System02
                         {
                             lbl_DueDate.Text = "";
                         }
-
                         func.Change_Font_DTG(sender, e, dtg_outlist);
+                        //Load Status and Remarks
+                        sql = "Select Status, Remarks from StockOutStatus where TransRef = '" + txt_Trans_number.Text + "' ";
+                        config.singleResult(sql);
+                        if ( config.dt.Rows.Count == 1 )
+                        {
+                            txt_Remarks.Text = config.dt.Rows[0]["Remarks"].ToString();
+                            lbl_status.Text = config.dt.Rows[0]["Status"].ToString();
+                            if (lbl_status.Text == "UNPAID")
+                            {
+                                lbl_status.ForeColor = Color.Red;
+                            }
+                            else
+                            {
+                                lbl_status.ForeColor = Color.Green;
+                            }
+                        }   
                     }
                 }
             }
@@ -489,6 +515,15 @@ namespace Inventory_System02
                         }
                     }
                 }
+            }
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace( txt_Trans_number.Text) )
+            {
+                OutEditForm frm = new OutEditForm(txt_Trans_number.Text); 
+                frm.ShowDialog();
             }
         }
 

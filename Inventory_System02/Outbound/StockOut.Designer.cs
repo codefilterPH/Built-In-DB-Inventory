@@ -92,6 +92,9 @@ namespace Inventory_System02
             this.label8 = new System.Windows.Forms.Label();
             this.backgroundStockOut = new System.ComponentModel.BackgroundWorker();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.chk_paid = new System.Windows.Forms.CheckBox();
+            this.txt_remarks = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Stocks)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
@@ -124,7 +127,7 @@ namespace Inventory_System02
             this.dtg_Stocks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Stocks.EnableHeadersVisualStyles = false;
             this.dtg_Stocks.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_Stocks.Location = new System.Drawing.Point(11, 197);
+            this.dtg_Stocks.Location = new System.Drawing.Point(11, 191);
             this.dtg_Stocks.Name = "dtg_Stocks";
             this.dtg_Stocks.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -281,7 +284,7 @@ namespace Inventory_System02
             this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sup_delete.ForeColor = System.Drawing.Color.White;
-            this.btn_sup_delete.Location = new System.Drawing.Point(721, 382);
+            this.btn_sup_delete.Location = new System.Drawing.Point(721, 363);
             this.btn_sup_delete.Name = "btn_sup_delete";
             this.btn_sup_delete.Size = new System.Drawing.Size(133, 23);
             this.btn_sup_delete.TabIndex = 6;
@@ -297,7 +300,7 @@ namespace Inventory_System02
             this.btn_sup_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_add.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sup_add.ForeColor = System.Drawing.Color.White;
-            this.btn_sup_add.Location = new System.Drawing.Point(719, 168);
+            this.btn_sup_add.Location = new System.Drawing.Point(719, 162);
             this.btn_sup_add.Name = "btn_sup_add";
             this.btn_sup_add.Size = new System.Drawing.Size(132, 22);
             this.btn_sup_add.TabIndex = 3;
@@ -343,7 +346,7 @@ namespace Inventory_System02
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg_AddedStocks.DefaultCellStyle = dataGridViewCellStyle10;
             this.dtg_AddedStocks.EnableHeadersVisualStyles = false;
-            this.dtg_AddedStocks.Location = new System.Drawing.Point(11, 409);
+            this.dtg_AddedStocks.Location = new System.Drawing.Point(11, 390);
             this.dtg_AddedStocks.Name = "dtg_AddedStocks";
             this.dtg_AddedStocks.ReadOnly = true;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -535,7 +538,7 @@ namespace Inventory_System02
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Location = new System.Drawing.Point(13, 347);
+            this.panel1.Location = new System.Drawing.Point(13, 341);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(841, 2);
             this.panel1.TabIndex = 72;
@@ -601,7 +604,7 @@ namespace Inventory_System02
             // 
             this.chk_all.AutoSize = true;
             this.chk_all.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_all.Location = new System.Drawing.Point(13, 177);
+            this.chk_all.Location = new System.Drawing.Point(13, 171);
             this.chk_all.Name = "chk_all";
             this.chk_all.Size = new System.Drawing.Size(72, 17);
             this.chk_all.TabIndex = 12;
@@ -615,7 +618,7 @@ namespace Inventory_System02
             this.chk_all2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chk_all2.AutoSize = true;
             this.chk_all2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_all2.Location = new System.Drawing.Point(11, 388);
+            this.chk_all2.Location = new System.Drawing.Point(11, 369);
             this.chk_all2.Name = "chk_all2";
             this.chk_all2.Size = new System.Drawing.Size(71, 17);
             this.chk_all2.TabIndex = 8;
@@ -688,7 +691,7 @@ namespace Inventory_System02
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_view.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_view.ForeColor = System.Drawing.Color.White;
-            this.btn_view.Location = new System.Drawing.Point(581, 168);
+            this.btn_view.Location = new System.Drawing.Point(581, 162);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(133, 23);
             this.btn_view.TabIndex = 2;
@@ -704,7 +707,7 @@ namespace Inventory_System02
             this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_edit.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edit.ForeColor = System.Drawing.Color.White;
-            this.btn_edit.Location = new System.Drawing.Point(583, 382);
+            this.btn_edit.Location = new System.Drawing.Point(583, 363);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(133, 23);
             this.btn_edit.TabIndex = 5;
@@ -718,11 +721,11 @@ namespace Inventory_System02
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(8, 353);
+            this.label8.Location = new System.Drawing.Point(8, 347);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(221, 21);
+            this.label8.Size = new System.Drawing.Size(212, 21);
             this.label8.TabIndex = 98;
-            this.label8.Text = "OUTBOUND TRANSACTIONS";
+            this.label8.Text = "OUTBOUND TRANSACTION";
             // 
             // backgroundStockOut
             // 
@@ -738,11 +741,50 @@ namespace Inventory_System02
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // chk_paid
+            // 
+            this.chk_paid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chk_paid.AutoSize = true;
+            this.chk_paid.Checked = true;
+            this.chk_paid.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_paid.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_paid.Location = new System.Drawing.Point(487, 367);
+            this.chk_paid.Name = "chk_paid";
+            this.chk_paid.Size = new System.Drawing.Size(92, 17);
+            this.chk_paid.TabIndex = 99;
+            this.chk_paid.Text = "Mark as paid";
+            this.chk_paid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chk_paid.UseVisualStyleBackColor = true;
+            // 
+            // txt_remarks
+            // 
+            this.txt_remarks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_remarks.Location = new System.Drawing.Point(583, 503);
+            this.txt_remarks.Multiline = true;
+            this.txt_remarks.Name = "txt_remarks";
+            this.txt_remarks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt_remarks.Size = new System.Drawing.Size(271, 43);
+            this.txt_remarks.TabIndex = 100;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(528, 503);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 13);
+            this.label10.TabIndex = 101;
+            this.label10.Text = "Remarks";
+            // 
             // StockOut
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(863, 578);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txt_remarks);
+            this.Controls.Add(this.chk_paid);
             this.Controls.Add(this.out_amt);
             this.Controls.Add(this.out_qty);
             this.Controls.Add(this.label6);
@@ -839,5 +881,8 @@ namespace Inventory_System02
         private System.Windows.Forms.DataGridViewTextBoxColumn pprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.ToolStripMenuItem previewToolStripMenuItem;
+        private System.Windows.Forms.CheckBox chk_paid;
+        private System.Windows.Forms.TextBox txt_remarks;
+        private System.Windows.Forms.Label label10;
     }
 }

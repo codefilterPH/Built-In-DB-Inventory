@@ -20,14 +20,16 @@
     <PublishUrl>C:\Users\eugen\source\repos\Inventory\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://eugenereybulahan.pythonanywhere.com/Inventory/publish/Inventory_System02.application/</InstallUrl>
+    <InstallUrl>https://github.com/codefilterPH/Inventory/tree/main/publish/Inventory_System02.application/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
     <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -165,6 +167,7 @@
     <Compile Include="Analytics\dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Includes\RDLCSupportingClass.cs" />
     <Compile Include="MyDocuments\Batch_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +224,12 @@
     <Compile Include="Includes\ID_Generator.cs" />
     <Compile Include="Includes\StringBuilder12.cs" />
     <Compile Include="CommonSql\Invoice\Invoice_Code.cs" />
+    <Compile Include="Outbound\OutEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Outbound\OutEditForm.Designer.cs">
+      <DependentUpon>OutEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Previewing_Forms\Outbound_Preview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Form\Edit_Form.resx">
       <DependentUpon>Edit_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Outbound\OutEditForm.resx">
+      <DependentUpon>OutEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Previewing_Forms\Item_Preview.resx">
       <DependentUpon>Item_Preview.cs</DependentUpon>

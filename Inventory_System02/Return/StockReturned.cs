@@ -91,10 +91,8 @@ namespace Inventory_System02
                         config.Load_DTG(sql, dtg_Items);
                         DTG_Properties();
                         if (config.dt.Rows.Count > 0)
-                        {
-                            dtg_Items.Rows[0].Selected = true;
+                        {   
                             TOTALS();
-
                         }
                         config.singleResult(sql);
                         if (config.dt.Rows.Count > 0)
@@ -441,17 +439,20 @@ namespace Inventory_System02
             {
                 if (dtg_Items.SelectedRows.Count >= 1)
                 {    
-                    Items.Item_Preview frm = new Items.Item_Preview(
+                    Items.Outbound_Preview frm = new Items.Outbound_Preview(
                     dtg_Items.CurrentRow.Cells[1].Value.ToString(),
                     dtg_Items.CurrentRow.Cells[5].Value.ToString(),
                     txt_TransRefOut.Text,
                     dtg_Items.CurrentRow.Cells[3].Value.ToString(),
                     dtg_Items.CurrentRow.Cells[4].Value.ToString(),
-                    dtg_Items.CurrentRow.Cells[5].Value.ToString(),
                     dtg_Items.CurrentRow.Cells[6].Value.ToString(),
                     dtg_Items.CurrentRow.Cells[7].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[8].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[9].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[10].Value.ToString(),
                     dtg_Items.CurrentRow.Cells[11].Value.ToString(),
-                    dtg_Items.CurrentRow.Cells[13].Value.ToString());
+                    dtg_Items.CurrentRow.Cells[15].Value.ToString(),
+                    dtg_Items.CurrentRow.Cells[12].Value.ToString());
 
                     frm.ShowDialog();
                 }

@@ -345,12 +345,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AECCB21C282948F2BDA7E16D68FB34E7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B114457D5EC07D8427D22B9E624FC523"
         "OwnerKey" = "8:_B987C1DCC45FB8418225E816110BB650"
         "MsmSig" = "8:_UNDEFINED"
@@ -442,6 +436,12 @@
         "Entry"
         {
         "MsmKey" = "8:_CD3C7259B85C406684594A6486B2FE4E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CF46725B9C4F40938F488EBA21EB7764"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1803,26 +1803,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AECCB21C282948F2BDA7E16D68FB34E7"
-            {
-            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Tools\\tools.dll"
-            "TargetName" = "8:tools.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_AC01495972A444A1A4474D51689B034F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B114457D5EC07D8427D22B9E624FC523"
             {
             "AssemblyRegister" = "3:1"
@@ -2084,6 +2064,26 @@
             "TargetName" = "8:DIV07070.JPG"
             "Tag" = "8:"
             "Folder" = "8:_42CFD0CA35E5416984F7410A954241AD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CF46725B9C4F40938F488EBA21EB7764"
+            {
+            "SourcePath" = "8:..\\Inventory_System02\\bin\\Debug\\CommonSql\\Tools\\tools.dll"
+            "TargetName" = "8:tools.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_AC01495972A444A1A4474D51689B034F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2635,7 +2635,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inventory Setup"
         "ProductCode" = "8:{74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319}"
-        "PackageCode" = "8:{3F648CC6-373A-4475-9F4A-F526F69DE7AB}"
+        "PackageCode" = "8:{0895281F-C823-4B93-BFA0-A776348C1248}"
         "UpgradeCode" = "8:{CB3894DF-9F2C-4F1C-8087-BD875F362B65}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

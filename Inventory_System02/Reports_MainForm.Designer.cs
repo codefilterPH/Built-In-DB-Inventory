@@ -33,11 +33,11 @@ namespace Inventory_System02
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.itemListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemByQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemBySupplierDivisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.report_panel = new System.Windows.Forms.Panel();
-            this.itemBySupplierDivisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +78,15 @@ namespace Inventory_System02
             this.itemByQuantityToolStripMenuItem.Text = "Item By Quantity";
             this.itemByQuantityToolStripMenuItem.Click += new System.EventHandler(this.itemByQuantityToolStripMenuItem_Click);
             // 
+            // itemBySupplierDivisionToolStripMenuItem
+            // 
+            this.itemBySupplierDivisionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
+            this.itemBySupplierDivisionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.itemBySupplierDivisionToolStripMenuItem.Name = "itemBySupplierDivisionToolStripMenuItem";
+            this.itemBySupplierDivisionToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.itemBySupplierDivisionToolStripMenuItem.Text = "Item By Supplier/Division";
+            this.itemBySupplierDivisionToolStripMenuItem.Click += new System.EventHandler(this.itemBySupplierDivisionToolStripMenuItem_Click);
+            // 
             // employeeListToolStripMenuItem
             // 
             this.employeeListToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
@@ -113,19 +122,10 @@ namespace Inventory_System02
             this.report_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.report_panel.Location = new System.Drawing.Point(12, 27);
+            this.report_panel.Location = new System.Drawing.Point(7, 29);
             this.report_panel.Name = "report_panel";
-            this.report_panel.Size = new System.Drawing.Size(776, 411);
+            this.report_panel.Size = new System.Drawing.Size(781, 411);
             this.report_panel.TabIndex = 1;
-            // 
-            // itemBySupplierDivisionToolStripMenuItem
-            // 
-            this.itemBySupplierDivisionToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
-            this.itemBySupplierDivisionToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.itemBySupplierDivisionToolStripMenuItem.Name = "itemBySupplierDivisionToolStripMenuItem";
-            this.itemBySupplierDivisionToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.itemBySupplierDivisionToolStripMenuItem.Text = "Item By Supplier/Division";
-            this.itemBySupplierDivisionToolStripMenuItem.Click += new System.EventHandler(this.itemBySupplierDivisionToolStripMenuItem_Click);
             // 
             // Reports_MainForm
             // 

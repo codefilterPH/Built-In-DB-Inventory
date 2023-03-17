@@ -133,8 +133,34 @@ namespace Inventory_System02.Invoice_Silent
             reportParameters.Add(new ReportParameter("Total_Items", config.dt.Rows.Count.ToString()));
             reportParameters.Add(new ReportParameter("Total_QTY", new_qty));
             reportParameters.Add(new ReportParameter("Total", formattedtotal));
-      
-         
+
+            //Load out status and remarks
+            RDLCSupportingClass supportingClass = new RDLCSupportingClass();
+            if (out_return == "out")
+            {
+                Invoice invoice = supportingClass.LoadStatusRemarks(Trans_ref);
+                if (invoice != null)
+                {
+                    reportParameters.Add(new ReportParameter("PaymentStatus", invoice.Status));
+                    reportParameters.Add(new ReportParameter("Remarks", invoice.Remarks));
+                }
+                else
+                {
+                    reportParameters.Add(new ReportParameter("PaymentStatus", "none"));
+                    reportParameters.Add(new ReportParameter("Remarks", "none"));
+                }
+            }
+            //load company info
+            CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
+            if (companyinfo != null)
+            {
+                reportParameters.Add(new ReportParameter("Company", companyinfo.Name));
+
+            }
+            else
+            {
+                reportParameters.Add(new ReportParameter("Company", ""));
+            }
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();

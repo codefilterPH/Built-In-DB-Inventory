@@ -2081,6 +2081,15 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
+                      <Value>₱</Value>
+                      <Style>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>18pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>'₱'#,0.00;('₱'#,0.00)</Format>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
                       <Value>=Parameters!Total_Value.Value</Value>
                       <Style>
                         <FontFamily>Courier New</FontFamily>

@@ -772,8 +772,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>2.0253cm</Top>
-              <Left>7.57335cm</Left>
+              <Top>2.14313cm</Top>
+              <Left>7.25585cm</Left>
               <Height>0.82021cm</Height>
               <Width>3.58069cm</Width>
               <Style>
@@ -817,6 +817,15 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
+                      <Value>₱</Value>
+                      <Style>
+                        <FontFamily>Courier New</FontFamily>
+                        <FontSize>18pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>'₱'#,0.00;('₱'#,0.00)</Format>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
                       <Value>=Parameters!TotalAmount.Value</Value>
                       <Style>
                         <FontFamily>Courier New</FontFamily>
@@ -833,9 +842,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>2.12549cm</Top>
-              <Left>11.46682cm</Left>
+              <Left>11.15404cm</Left>
               <Height>0.82021cm</Height>
-              <Width>5cm</Width>
+              <Width>5.31278cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -870,8 +879,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.47308cm</Top>
-              <Left>6.38272cm</Left>
+              <Top>0.59091cm</Top>
+              <Left>6.06522cm</Left>
               <Height>0.60854cm</Height>
               <Width>4.77132cm</Width>
               <ZIndex>4</ZIndex>
@@ -907,9 +916,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.59091cm</Top>
-              <Left>11.46682cm</Left>
+              <Left>11.15404cm</Left>
               <Height>0.60854cm</Height>
-              <Width>5cm</Width>
+              <Width>5.31278cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -943,8 +952,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>1.25801cm</Top>
-              <Left>7.57335cm</Left>
+              <Top>1.37584cm</Top>
+              <Left>7.25585cm</Left>
               <Height>0.60854cm</Height>
               <Width>3.58069cm</Width>
               <ZIndex>6</ZIndex>
@@ -980,9 +989,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>1.30528cm</Top>
-              <Left>11.46682cm</Left>
+              <Left>11.15404cm</Left>
               <Height>0.60854cm</Height>
-              <Width>5cm</Width>
+              <Width>5.31278cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>

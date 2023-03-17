@@ -942,10 +942,8 @@ namespace Inventory_System02
                         if (config.dt.Rows.Count >= 1)
                         {
                             txt_SupID.Text = config.dt.Rows[0]["Supplier ID"].ToString();
-                            cbo_srch_type.Text = "TRANS REF";
-                          
-                            txt_Search.Text = txt_TransRef.Text;
-                            txt_Search_TextChanged(sender, e);
+                            cbo_srch_type.Text = "TRANS REF";                      
+
                         }
                         else
                         {

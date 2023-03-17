@@ -13,6 +13,7 @@ using System.Threading;
 using Inventory_System02.Invoice_Code;
 using Inventory_System02.Reports_Dir;
 using Microsoft.Reporting.WinForms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Inventory_System02
 {
@@ -714,7 +715,31 @@ namespace Inventory_System02
             reportParameters.Add(new ReportParameter("Total_Items", dtg_AddedStocks.Rows.Count.ToString()));
             reportParameters.Add(new ReportParameter("Total_QTY", out_qty.Text));
             reportParameters.Add(new ReportParameter("Total", out_amt.Text));
+            //Load out status and remarks
+            string status = string.Empty;
+            if ( chk_paid.Checked )
+            {
+                status = "PAID";
+            }
+            else
+            {
+                status = "UNPAID";
+            }
+            reportParameters.Add(new ReportParameter("PaymentStatus", status));
+            reportParameters.Add(new ReportParameter("Remarks", txt_remarks.Text));
 
+            RDLCSupportingClass supportingClass = new RDLCSupportingClass();
+            //load company info
+            CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
+            if (companyinfo != null)
+            {
+                reportParameters.Add(new ReportParameter("Company", companyinfo.Name));
+
+            }
+            else
+            {
+                reportParameters.Add(new ReportParameter("Company", ""));
+            }
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();
             frm.ShowDialog();
@@ -750,7 +775,38 @@ namespace Inventory_System02
 
             }
         }
+        private void SaveStatus()
+        {
+            if (!string.IsNullOrWhiteSpace(Gen_Trans))
+            {
+                try
+                {
+                    string status = string.Empty;
+                    if ( chk_paid.Checked )
+                    {
+                        status = "PAID";
+                    }
+                    else
+                    {
+                        status = "UNPAID";
+                    }
 
+                    sql = string.Empty;
+                    SQLConfig config = new SQLConfig();
+                    sql = "Select * from StockOutStatus where TransRef = '"+Gen_Trans+"'";
+                    config.singleResult(sql);
+                    if (config.dt.Rows.Count == 0 )
+                    {
+                        sql = "Insert into StockOutStatus ( TransRef, Status, Remarks ) values ( '" + Gen_Trans + "', '" + status + "', '" + txt_remarks.Text + "') ";
+                        config.Execute_Query(sql);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
         Inventory_System02.Invoice_Code.Invoice_Code out_trans_rec = new Invoice_Code.Invoice_Code();
         private void btn_Saved_Click(object sender, EventArgs e)
         {
@@ -854,11 +910,13 @@ namespace Inventory_System02
                 }
 
                 backgroundStockOut.RunWorkerAsync();
+                SaveStatus();
 
                 sql = "Select * from `Stock Out` where `Transaction Reference` =   '" + Gen_Trans + "' ";
                 config.singleResult(sql);
                 if ( config.dt.Rows.Count > 0 ) 
                 {
+
                     MessageBox.Show("Successfully updated \"inbound records\" and Item(s) moved to \"outbound stock\" list! \n\nTransaction Successful!", "Important Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     previewToolStripMenuItem_Click(sender, e);
