@@ -34,10 +34,10 @@ namespace Inventory_System02.Includes
             bool useClickOnceConnection = ConfigurationManager.AppSettings["UseClickOnceConnection"] == "true";
 
             if (useClickOnceConnection)
-            {
+        { 
                 // Use the ClickOnce connection string approach
                 string path = ApplicationDeployment.CurrentDeployment.DataDirectory;
-                string databasePath = Path.Combine(path, "CommonSql", "Tools", "tools.dll");
+                string databasePath = Path.Combine(path, "Data", "CommonSql", "Tools", "tools.dll");
                 connectionString = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
             }
             else
