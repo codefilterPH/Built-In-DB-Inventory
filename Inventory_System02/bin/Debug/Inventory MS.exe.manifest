@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Vrmaor1pk9C5t4oON47Dpt4TxArmL6oaISJQaO43sPk=</dsig:DigestValue>
+        <dsig:DigestValue>lZx2Jad7zBlXYCSBYUhtDTcrv1M3ZHFfygjEa1BlUgY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XQNpeaa3e6J1bNeQaBszYKVSZpYQdA2BRedu+BxG9uc=</dsig:DigestValue>
+        <dsig:DigestValue>wTqxfC3+IoJIclQLQgI4iVxaASN/z6jFv6tSTeIC5aI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -110,7 +110,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RIxaFuzbMPiqPwkBeQC07eHgJrX7WNnt+HUOwmadJJs=</dsig:DigestValue>
+        <dsig:DigestValue>UBoOjEuwa7z7BFTB79L9wdiR8caaoJzPWoqe3xFeWlQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -927,7 +927,7 @@
       <dsig:DigestValue>8lk34F5qbGWsTHpdjcMRApaOmXNaJu1OrWy/1WwsLYc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Document Center Files\Outbound Report 015335.pdf" size="104292">
+  <file name="CommonSql\Document Center Files\Outbound Report 015335.pdf" size="104292" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -936,7 +936,7 @@
       <dsig:DigestValue>v2OWVvHLdU3OSa0fc46Vgx2W+Yx+qpeyepY/UnjhKVs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Invoice\Invoice_In.rdlc" size="45939">
+  <file name="CommonSql\Invoice\Invoice_In.rdlc" size="45939" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -945,7 +945,7 @@
       <dsig:DigestValue>46Q0IByob9HCSC++xwvKlN5iglCRvtENrFn9ymP81v4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Invoice\Invoice_In_Item.rdlc" size="45925">
+  <file name="CommonSql\Invoice\Invoice_In_Item.rdlc" size="45925" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -954,7 +954,7 @@
       <dsig:DigestValue>jeHPLaSka5+5i0uM9xzHqtlT96a80+eNvqlF9NLmwpU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Invoice\Invoice_out.rdlc" size="51747">
+  <file name="CommonSql\Invoice\Invoice_out.rdlc" size="51747" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -963,7 +963,7 @@
       <dsig:DigestValue>MYwHcqr+5RzF3C4/hxsxYD4JSnC3ATaERz1dLIPBNcQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Invoice\Invoice_return.rdlc" size="45947">
+  <file name="CommonSql\Invoice\Invoice_return.rdlc" size="45947" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -972,7 +972,7 @@
       <dsig:DigestValue>1EWTihgIY8m+KWInb+Apai2565kJLXSKW7KbAacXHys=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985">
+  <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -981,7 +981,7 @@
       <dsig:DigestValue>9nl005Qk6eH3sRcJ1YZE6CBJP9jTnkXvWukOPzY/bOk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="520371">
+  <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="520371" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -990,7 +990,7 @@
       <dsig:DigestValue>z+s9xLUSkyMODsZSTu7i2w0PQiM8223GH2HCApovv+I=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+  <file name="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" size="10941" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -999,7 +999,7 @@
       <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Employee\admin.JPG" size="223880">
+  <file name="CommonSql\Pictures\Employee\admin.JPG" size="223880" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1008,7 +1008,7 @@
       <dsig:DigestValue>GiRwJhMeTv166Yo9+V20CTcMb5iflk6Ne3i7zPtuyCw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+  <file name="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" size="10941" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1017,7 +1017,7 @@
       <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Item\Image\DONOTDELETE_SUBIMAGE.jpg" size="20162">
+  <file name="CommonSql\Pictures\Item\Image\DONOTDELETE_SUBIMAGE.jpg" size="20162" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1026,7 +1026,7 @@
       <dsig:DigestValue>UeQODHhzR5irMXaDFiWqVpFvGDsYyxmGjXA7t4FralY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+  <file name="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" size="10941" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1035,7 +1035,7 @@
       <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Reports Dir\Customer_Report.rdlc" size="42977">
+  <file name="CommonSql\Reports Dir\Customer_Report.rdlc" size="42977" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1044,7 +1044,7 @@
       <dsig:DigestValue>oRCN/LUnG9eO7xpIb+vwbhb57eOtUTpxYgi9tbcByW8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Reports Dir\Employee_Report.rdlc" size="52457">
+  <file name="CommonSql\Reports Dir\Employee_Report.rdlc" size="52457" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1053,7 +1053,7 @@
       <dsig:DigestValue>Zrr3tSHCDDU+W5FPFEXEXtEJXvkI2SDxJ8w8NKDaaz0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Reports Dir\Item Report.rdlc" size="105022">
+  <file name="CommonSql\Reports Dir\Item Report.rdlc" size="105022" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1062,7 +1062,7 @@
       <dsig:DigestValue>+WC5hzbDv81V+RZluBN2ctL1ZobfQAi09crJTRQTrrM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc" size="104198">
+  <file name="CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc" size="104198" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1071,7 +1071,7 @@
       <dsig:DigestValue>YSxn6lk4N2qwP9kyUv9b37CFOA67d6cTF5dvzPM5m/o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc" size="104621">
+  <file name="CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc" size="104621" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1080,7 +1080,7 @@
       <dsig:DigestValue>tvzLnFQgmfxrzzarfddcJZE99WGh8I6wgHUucSkVW64=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Reports Dir\Supplier_Report.rdlc" size="43963">
+  <file name="CommonSql\Reports Dir\Supplier_Report.rdlc" size="43963" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -1098,7 +1098,7 @@
       <dsig:DigestValue>mLDg583jKNIShGh901njakLTmjKdQ1PTw53vmQtGoYs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="CommonSql\Tools\tools.dll" size="114688">
+  <file name="CommonSql\Tools\tools.dll" size="114688" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

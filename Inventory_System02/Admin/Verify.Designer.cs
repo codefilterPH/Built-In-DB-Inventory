@@ -55,7 +55,7 @@ namespace Inventory_System02.Admin
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(351, 64);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Your license is expired BITCH!";
+            this.label1.Text = "Your license is expired!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_activation_key
