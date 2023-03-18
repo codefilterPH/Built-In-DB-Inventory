@@ -927,6 +927,18 @@
       <dsig:DigestValue>8lk34F5qbGWsTHpdjcMRApaOmXNaJu1OrWy/1WwsLYc=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD
+=======
+  <file name="CommonSql\Document Center Files\Outbound Report 015335.pdf" size="104292">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>v2OWVvHLdU3OSa0fc46Vgx2W+Yx+qpeyepY/UnjhKVs=</dsig:DigestValue>
+    </hash>
+  </file>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <file name="CommonSql\Invoice\Invoice_In.rdlc" size="45939">
     <hash>
       <dsig:Transforms>
@@ -963,6 +975,72 @@
       <dsig:DigestValue>1EWTihgIY8m+KWInb+Apai2565kJLXSKW7KbAacXHys=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD
+=======
+  <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9nl005Qk6eH3sRcJ1YZE6CBJP9jTnkXvWukOPzY/bOk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="520371">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>z+s9xLUSkyMODsZSTu7i2w0PQiM8223GH2HCApovv+I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Employee\admin.JPG" size="223880">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GiRwJhMeTv166Yo9+V20CTcMb5iflk6Ne3i7zPtuyCw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Item\Image\DONOTDELETE_SUBIMAGE.jpg" size="20162">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UeQODHhzR5irMXaDFiWqVpFvGDsYyxmGjXA7t4FralY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <file name="CommonSql\Reports Dir\Customer_Report.rdlc" size="42977">
     <hash>
       <dsig:Transforms>
@@ -1017,6 +1095,27 @@
       <dsig:DigestValue>MMpAS1bzP9z+A+qpL/ckCqiTFJZCNxjJ05RsD2AMbSs=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD
+=======
+  <file name="CommonSql\Tools\SQLite.Interop.dll" size="1421496">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mLDg583jKNIShGh901njakLTmjKdQ1PTw53vmQtGoYs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Tools\tools.dll" size="114688">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LG4nyXg7nJvNh4W6WBgPZk7OP47uFuAJLUZ4QFb93xk=</dsig:DigestValue>
+    </hash>
+  </file>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <file name="Double-J-Design-Ravenna-3d-Box.ico" size="190673">
     <hash>
       <dsig:Transforms>

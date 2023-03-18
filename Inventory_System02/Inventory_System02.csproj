@@ -32,8 +32,13 @@
     <PublisherName>Codefilter Technology</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
+<<<<<<< HEAD
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.1</ApplicationVersion>
+=======
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -585,6 +590,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <PublishFile Include="CommonSql\Document Center Files\Outbound Report 015335.pdf">
       <Visible>False</Visible>
@@ -687,6 +693,9 @@
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

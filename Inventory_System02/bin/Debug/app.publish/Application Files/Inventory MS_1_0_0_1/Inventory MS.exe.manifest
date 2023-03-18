@@ -927,6 +927,18 @@
       <dsig:DigestValue>8lk34F5qbGWsTHpdjcMRApaOmXNaJu1OrWy/1WwsLYc=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_1/Inventory MS.exe.manifest
+=======
+  <file name="CommonSql\Document Center Files\Outbound Report 015335.pdf" size="104292">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>v2OWVvHLdU3OSa0fc46Vgx2W+Yx+qpeyepY/UnjhKVs=</dsig:DigestValue>
+    </hash>
+  </file>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_0/Inventory MS.exe.manifest
   <file name="CommonSql\Invoice\Invoice_In.rdlc" size="45939">
     <hash>
       <dsig:Transforms>
@@ -963,6 +975,72 @@
       <dsig:DigestValue>1EWTihgIY8m+KWInb+Apai2565kJLXSKW7KbAacXHys=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_1/Inventory MS.exe.manifest
+=======
+  <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>9nl005Qk6eH3sRcJ1YZE6CBJP9jTnkXvWukOPzY/bOk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="520371">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>z+s9xLUSkyMODsZSTu7i2w0PQiM8223GH2HCApovv+I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Employee\admin.JPG" size="223880">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GiRwJhMeTv166Yo9+V20CTcMb5iflk6Ne3i7zPtuyCw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Item\Image\DONOTDELETE_SUBIMAGE.jpg" size="20162">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UeQODHhzR5irMXaDFiWqVpFvGDsYyxmGjXA7t4FralY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg" size="10941">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
+    </hash>
+  </file>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_0/Inventory MS.exe.manifest
   <file name="CommonSql\Reports Dir\Customer_Report.rdlc" size="42977">
     <hash>
       <dsig:Transforms>
@@ -1017,6 +1095,27 @@
       <dsig:DigestValue>MMpAS1bzP9z+A+qpL/ckCqiTFJZCNxjJ05RsD2AMbSs=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_1/Inventory MS.exe.manifest
+=======
+  <file name="CommonSql\Tools\SQLite.Interop.dll" size="1421496">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mLDg583jKNIShGh901njakLTmjKdQ1PTw53vmQtGoYs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Tools\tools.dll" size="114688">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>LG4nyXg7nJvNh4W6WBgPZk7OP47uFuAJLUZ4QFb93xk=</dsig:DigestValue>
+    </hash>
+  </file>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_0/Inventory MS.exe.manifest
   <file name="Double-J-Design-Ravenna-3d-Box.ico" size="190673">
     <hash>
       <dsig:Transforms>
@@ -1071,4 +1170,8 @@
       <dsig:DigestValue>bNeQA0PY6mYq/JtHgrXmXBRZ4B3GmCeectacSpVP2xg=</dsig:DigestValue>
     </hash>
   </file>
+<<<<<<< HEAD:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_1/Inventory MS.exe.manifest
 <publisherIdentity name="CN=DESKTOP-R8QG5N5\eugen" issuerKeyHash="6ba84ab10565c1a3f0df0c3aa511fd79f22d4a2e" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>m76wBHylYsAgXHcxrpmvtHOuMfg1/RDzCZAtIdC3+ac=</DigestValue></Reference></SignedInfo><SignatureValue>E+OXU4/t8hfS9D8SXI1Q75ntoNP2xzgAAKv1gD+zeFH4Dt/o7jQRyqbo8QOaqkkkmkTc/dRpA3lm/ySStUgjjX6fE/XAAe9gu9wbHHVbCsjak+C/HcwPJ2LuAhkdQn63Z4cCJcSLTr5rtWf7zFCTfYV5V4f8GVXR5kaICtoR37M=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>4ayNR1EdhFMIg8BLS72tIMiQnFFbdEfm6+dUvLXxiTjJ5CcVARuKeADvhxL1ViKjsBirlMA39XNxBQiYAbbEbbmBnp/9+9KMuVuaaN0es42sNHyxL8kYYJeP1oQGLwgABJqyJ2t/YKBsfnTDeh0+5DuqBHh1YeiWebIyvX+4fkE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a7f9b7d0212d9009f310fd35f831ae73b4af99ae31775c20c062a57c04b0be9b" Description="" Url=""><as:assemblyIdentity name="Inventory MS.exe" version="1.0.0.1" publicKeyToken="b9886f6998bceee6" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-R8QG5N5\eugen</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>NEeYdZ+RbmkgowmQRS+gJOIhqrjLb1CDaTKbT77mF/M=</DigestValue></Reference></SignedInfo><SignatureValue>dztSjNmyQq7hLNJbpkBsz6kRqurbr/2L6sErVOQD5sIPUJwUAk2GN/1gpD/IPr87oErfVY7aakPdtMLDr9hytKJplyExgIHHNshsYR46l7b6sZIaUlN6Ll45JSm3B9w5iReHbBcHcO/YrSXP9OFpo8d/5yVS7s7qWfOXQF01PT0=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>4ayNR1EdhFMIg8BLS72tIMiQnFFbdEfm6+dUvLXxiTjJ5CcVARuKeADvhxL1ViKjsBirlMA39XNxBQiYAbbEbbmBnp/9+9KMuVuaaN0es42sNHyxL8kYYJeP1oQGLwgABJqyJ2t/YKBsfnTDeh0+5DuqBHh1YeiWebIyvX+4fkE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQUlOzDeSxhLtFmft2bfjQ6jANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFIAOABRAEcANQBOADUAXABlAHUAZwBlAG4wHhcNMjMwMzA0MTkwOTE3WhcNMjQwMzA0MDEwOTE3WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFIAOABRAEcANQBOADUAXABlAHUAZwBlAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOGsjUdRHYRTCIPAS0u9rSDIkJxRW3RH5uvnVLy18Yk4yeQnFQEbingA74cS9VYio7AYq5TAN/VzcQUImAG2xG25gZ6f/fvSjLlbmmjdHrONrDR8sS/JGGCXj9aEBi8IAASasidrf2CgbH50w3odPuQ7qgR4dWHolnmyMr1/uH5BAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAeIQaOZ48cw8wWKEB4c3gIqs55t4+N7buPL5S+SruNAEpi10WxG8GCDh088IVdmIdMZ73WQr1VYg9TX7Si577GzEp4X+pmn11vGUVF5R9joE5k0xE+vUvKXbevkLuJvDjxVKGMBr+yddJY2Ofjigfy+lahjYMqVROONTk8b3x/dw=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+=======
+<publisherIdentity name="CN=DESKTOP-R8QG5N5\eugen" issuerKeyHash="6ba84ab10565c1a3f0df0c3aa511fd79f22d4a2e" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>+Bx5xU1Y4aQ5/I+TwI7ZSl//mqaWI52iR/X+4LkgKm0=</DigestValue></Reference></SignedInfo><SignatureValue>o3RbakKkjQvvVb7ZHg2jFTrR9FV3qAW+hb9iNY58O6J0Vo3z4JkhishkpcELiV2GM3aOlDRE6/zcG/xTuExuhDMFeiaXEZG0y03rsUU3TPsr7nWaiOkG3gFI9bpqCqap8ZbJeNx3B5/mnu6kCY9pg47uwdHhLaVUCstVOHuz2KM=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>4ayNR1EdhFMIg8BLS72tIMiQnFFbdEfm6+dUvLXxiTjJ5CcVARuKeADvhxL1ViKjsBirlMA39XNxBQiYAbbEbbmBnp/9+9KMuVuaaN0es42sNHyxL8kYYJeP1oQGLwgABJqyJ2t/YKBsfnTDeh0+5DuqBHh1YeiWebIyvX+4fkE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="6d2a20b9e0fef547a29d2396a69aff5f4ad98ec0938ffc39a4e1584dc5791cf8" Description="" Url=""><as:assemblyIdentity name="Inventory MS.exe" version="1.0.0.0" publicKeyToken="b9886f6998bceee6" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-R8QG5N5\eugen</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>f5WWOHaqFr+8aMM+k9UlnQI4UQmTfPw+/uxVECScHWk=</DigestValue></Reference></SignedInfo><SignatureValue>Mrvj2T/8azX2HAchlkQNhtbpqdyVG3POXaiqkDxnEWWY/W7IDtLomld0wexx3ovqOZacYoBOxn5PSISFb5xzPwdQkmQLObV4o6f4I7dYxNCeaWh4g52yUiywS5oUE6fSz3rqfIgtHKn853xnDzdOo4LTx5fqzfkpAFgmHixOBrw=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>4ayNR1EdhFMIg8BLS72tIMiQnFFbdEfm6+dUvLXxiTjJ5CcVARuKeADvhxL1ViKjsBirlMA39XNxBQiYAbbEbbmBnp/9+9KMuVuaaN0es42sNHyxL8kYYJeP1oQGLwgABJqyJ2t/YKBsfnTDeh0+5DuqBHh1YeiWebIyvX+4fkE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQUlOzDeSxhLtFmft2bfjQ6jANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFIAOABRAEcANQBOADUAXABlAHUAZwBlAG4wHhcNMjMwMzA0MTkwOTE3WhcNMjQwMzA0MDEwOTE3WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFIAOABRAEcANQBOADUAXABlAHUAZwBlAG4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOGsjUdRHYRTCIPAS0u9rSDIkJxRW3RH5uvnVLy18Yk4yeQnFQEbingA74cS9VYio7AYq5TAN/VzcQUImAG2xG25gZ6f/fvSjLlbmmjdHrONrDR8sS/JGGCXj9aEBi8IAASasidrf2CgbH50w3odPuQ7qgR4dWHolnmyMr1/uH5BAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAeIQaOZ48cw8wWKEB4c3gIqs55t4+N7buPL5S+SruNAEpi10WxG8GCDh088IVdmIdMZ73WQr1VYg9TX7Si577GzEp4X+pmn11vGUVF5R9joE5k0xE+vUvKXbevkLuJvDjxVKGMBr+yddJY2Ofjigfy+lahjYMqVROONTk8b3x/dw=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
+>>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055:Inventory_System02/bin/Debug/app.publish/Application Files/Inventory MS_1_0_0_0/Inventory MS.exe.manifest
