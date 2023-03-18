@@ -29,13 +29,12 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</UpdateUrl>
-    <TargetCulture>en</TargetCulture>
     <ProductName>Inventory MS</ProductName>
     <PublisherName>Codefilter Technology</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>1.0.0.4</ApplicationVersion>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.5</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -67,13 +66,16 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>5DB62AACB77DF362C7182AA42CB85373733E4AC5</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FCF539029EF8D8A89AEDDACFE5D99A39C05AFA26</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Inventory_System02_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Inventory_System02_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -493,7 +495,7 @@
     <Content Include="CommonSql\Document Center Files\Outbound Report 015335.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Inventory_System02_TemporaryKey.pfx" />
+    <None Include="Inventory_System02_2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint.datasource" />
