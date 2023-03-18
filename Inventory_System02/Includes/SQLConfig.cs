@@ -27,10 +27,8 @@ namespace Inventory_System02.Includes
 
         public void ConnectionString()
         {
-
-            string a = String.Format(Includes.AppSettings.Database);
             //string a = String.Format(@"Data Source = DB\DB_QUERIES\bhms.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;");
-            con = new SQLiteConnection(a, true);
+            con = new SQLiteConnection(Includes.AppSettings.Database(), true);
   
         }
 
