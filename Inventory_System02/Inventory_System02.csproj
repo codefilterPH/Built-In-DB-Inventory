@@ -23,11 +23,12 @@
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdateIntervalUnits>Hours</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</InstallUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</UpdateUrl>
     <ProductName>Inventory MS</ProductName>
     <PublisherName>Codefilter Technology</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
