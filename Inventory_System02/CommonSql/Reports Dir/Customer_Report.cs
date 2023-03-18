@@ -101,121 +101,128 @@ namespace Inventory_System02.Reports_Dir
        
         private void Calculate_Filtering(string what_to_do)
         {
-            rs = new ReportDataSource();
-            reportParameters = new ReportParameterCollection();
-            frm = new Report_Viewer();
-            ds = new DataSet();
-            config = new SQLConfig();
-            func = new usableFunction();
-            Group_Filtering_MustNotEmpty();
-
-            if (string.IsNullOrWhiteSpace(dtp_date_to.Text))
+            try
             {
-                func.Error_Message1 = "Report \'Date To\'";
-                func.Error_Message();
-                dtp_date_to.Focus();
-                return;
-            }
-            else if (string.IsNullOrWhiteSpace(dtp_date_from.Text))
-            {
-                func.Error_Message1 = "Report \'Date From\'";
-                func.Error_Message();
-                dtp_date_from.Focus();
-                return;
-            }
+                rs = new ReportDataSource();
+                reportParameters = new ReportParameterCollection();
+                frm = new Report_Viewer();
+                ds = new DataSet();
+                config = new SQLConfig();
+                func = new usableFunction();
+                Group_Filtering_MustNotEmpty();
 
-            sql = " SELECT * from Customer WHERE DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC"; 
-            config.Load_DTG(sql, dtg_PreviewPage);
-            DTG_Properties();
-  
-            if ( what_to_do != "load")
-            {
-                list2 = new List<Class_Customer_Var>();
-                if (dtg_PreviewPage.DataSource != null)
+                if (string.IsNullOrWhiteSpace(dtp_date_to.Text))
                 {
-                     list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
-                   dataRow => new Class_Customer_Var
-                   {
-                      Cust_ID = dataRow.Field<string>("Customer ID").ToString(),
-                      Name = dataRow.Field<string>("Name").ToString(),
-                      Type = dataRow.Field<string>("Type").ToString(),
-                      Phone = dataRow.Field<string>("Phone Number").ToString(),
-                      Address = dataRow.Field<string>("Address").ToString(),
-                      Entry_Date = dataRow.Field<string>("Entry Date").ToString()
-                   }).ToList();
-                    rs.Value = list2;
-                }
-
-                rs.Name = "DataSet1";
-                frm.reportViewer1.LocalReport.DataSources.Clear();
-                frm.reportViewer1.LocalReport.DataSources.Add(rs);
-                frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-                frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Customer_RDLC_DIR);
-
-                //Load Text to RDLC TextBox
-                reportParameters.Add(new ReportParameter("Report_Date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
-                reportParameters.Add(new ReportParameter("From_Date", dtp_date_from.Text));
-                reportParameters.Add(new ReportParameter("To_Date", dtp_date_to.Text));
-
-                if (dtg_PreviewPage.Rows.Count >= 1)
-                {
-                    reportParameters.Add(new ReportParameter("Total_Person", lbl_Personnel.Text));
-                }
-                else
-                {
-                    reportParameters.Add(new ReportParameter("Total_Person", "0"));
-                }
-                foreach (CheckBox chk2 in grp_filters.Controls)
-                {
-                    if (chk2.Checked == false)
-                    {
-                        reportParameters.Add(new ReportParameter("Total_Person", 0.ToString()));
-                    }
-                }
-                //HIDING COLUMNS
-                reportParameters.Add(new ReportParameter("Hide_Hired_Date", (!chk_Hire_Date.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Name", (!chk_Name.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Phone", (!chk_Phone.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Type", (!chk_Type.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Address", (!chk_Address.Checked).ToString()));
-                reportParameters.Add(new ReportParameter("Hide_Cust_ID", (!chk_Cust_ID.Checked).ToString()));
-
-
-                frm.reportViewer1.LocalReport.SetParameters(reportParameters);
-                frm.reportViewer1.RefreshReport();
-
-                if (what_to_do == "preview")
-                {
-                    frm.ShowDialog();
-
-                }
-                else if (what_to_do == "print")
-                {
-                    Print_To_The_Printer prt = new Print_To_The_Printer();
-                    prt.PrintToPrinter(frm.reportViewer1.LocalReport);
-                }
-                else if (what_to_do == "batch")
-                {
-
-                    string FileName = "Customer Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
-                    string extension;
-                    string encoding;
-                    string mimeType;
-                    string[] streams;
-                    Warning[] warnings;
-
-                    Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
-                                    out extension, out encoding,
-                                    out mimeType, out streams, out warnings); //for exporting to PDF  
-                                                                              //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                    using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
-                    {
-                        fs.Write(mybytes, 0, mybytes.Length);
-
-                        MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    func.Error_Message1 = "Report \'Date To\'";
+                    func.Error_Message();
+                    dtp_date_to.Focus();
                     return;
                 }
+                else if (string.IsNullOrWhiteSpace(dtp_date_from.Text))
+                {
+                    func.Error_Message1 = "Report \'Date From\'";
+                    func.Error_Message();
+                    dtp_date_from.Focus();
+                    return;
+                }
+
+                sql = " SELECT * from Customer WHERE DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
+                config.Load_DTG(sql, dtg_PreviewPage);
+                DTG_Properties();
+
+                if (what_to_do != "load")
+                {
+                    list2 = new List<Class_Customer_Var>();
+                    if (dtg_PreviewPage.DataSource != null)
+                    {
+                        list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                      dataRow => new Class_Customer_Var
+                      {
+                          Cust_ID = dataRow.Field<string>("Customer ID").ToString(),
+                          Name = dataRow.Field<string>("Name").ToString(),
+                          Type = dataRow.Field<string>("Type").ToString(),
+                          Phone = dataRow.Field<string>("Phone Number").ToString(),
+                          Address = dataRow.Field<string>("Address").ToString(),
+                          Entry_Date = dataRow.Field<string>("Entry Date").ToString()
+                      }).ToList();
+                        rs.Value = list2;
+                    }
+
+                    rs.Name = "DataSet1";
+                    frm.reportViewer1.LocalReport.DataSources.Clear();
+                    frm.reportViewer1.LocalReport.DataSources.Add(rs);
+                    frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
+                    frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Customer_RDLC_DIR);
+
+                    //Load Text to RDLC TextBox
+                    reportParameters.Add(new ReportParameter("Report_Date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
+                    reportParameters.Add(new ReportParameter("From_Date", dtp_date_from.Text));
+                    reportParameters.Add(new ReportParameter("To_Date", dtp_date_to.Text));
+
+                    if (dtg_PreviewPage.Rows.Count >= 1)
+                    {
+                        reportParameters.Add(new ReportParameter("Total_Person", lbl_Personnel.Text));
+                    }
+                    else
+                    {
+                        reportParameters.Add(new ReportParameter("Total_Person", "0"));
+                    }
+                    foreach (CheckBox chk2 in grp_filters.Controls)
+                    {
+                        if (chk2.Checked == false)
+                        {
+                            reportParameters.Add(new ReportParameter("Total_Person", 0.ToString()));
+                        }
+                    }
+                    //HIDING COLUMNS
+                    reportParameters.Add(new ReportParameter("Hide_Hired_Date", (!chk_Hire_Date.Checked).ToString()));
+                    reportParameters.Add(new ReportParameter("Hide_Name", (!chk_Name.Checked).ToString()));
+                    reportParameters.Add(new ReportParameter("Hide_Phone", (!chk_Phone.Checked).ToString()));
+                    reportParameters.Add(new ReportParameter("Hide_Type", (!chk_Type.Checked).ToString()));
+                    reportParameters.Add(new ReportParameter("Hide_Address", (!chk_Address.Checked).ToString()));
+                    reportParameters.Add(new ReportParameter("Hide_Cust_ID", (!chk_Cust_ID.Checked).ToString()));
+
+
+                    frm.reportViewer1.LocalReport.SetParameters(reportParameters);
+                    frm.reportViewer1.RefreshReport();
+
+                    if (what_to_do == "preview")
+                    {
+                        frm.ShowDialog();
+
+                    }
+                    else if (what_to_do == "print")
+                    {
+                        Print_To_The_Printer prt = new Print_To_The_Printer();
+                        prt.PrintToPrinter(frm.reportViewer1.LocalReport);
+                    }
+                    else if (what_to_do == "batch")
+                    {
+
+                        string FileName = "Customer Report " + DateTime.Now.ToString("hhmmss") + ".pdf";
+                        string extension;
+                        string encoding;
+                        string mimeType;
+                        string[] streams;
+                        Warning[] warnings;
+
+                        Byte[] mybytes = frm.reportViewer1.LocalReport.Render("PDF", null,
+                                        out extension, out encoding,
+                                        out mimeType, out streams, out warnings); //for exporting to PDF  
+                                                                                  //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
+                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                        {
+                            fs.Write(mybytes, 0, mybytes.Length);
+
+                            MessageBox.Show("Batched!", "Send to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        return;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         private void DTG_Properties()
