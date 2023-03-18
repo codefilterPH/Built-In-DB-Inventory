@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Diagnostics;
+using System.Deployment.Application;
 
 
 namespace Inventory_System02.Includes
@@ -18,8 +19,11 @@ namespace Inventory_System02.Includes
 
         //public static string Database { get; set; } = $"Data Source={Path.Combine(Application.StartupPath, "CommonSql", "Tools", "tools.dll")};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
 
-        //using Clickoncess
-        public static string Database { get; set; } = $"Data Source={Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Inventory MS", "CommonSql", "Tools", "tools.dll")};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
+        //using Clickonces      
+        public  static string path = ApplicationDeployment.CurrentDeployment.DataDirectory;
+        public static string databasePath = Path.Combine(path, "CommonSql", "Tools", "tools.dll");
+        public static string Database = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
+
 
         public static string app_value { get; set; } = "74C50BEC-CBFD-4B91-A5E2-AD9F3AE66319";
         public static string DateFormatRetrieve { get; set; } = "yyyy-MM-dd";
