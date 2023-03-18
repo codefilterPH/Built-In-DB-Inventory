@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Inventory MS.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Inventory MS.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Double-J-Design-Ravenna-3d-Box.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -110,7 +110,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Hbcr0vGjG1ik0Vsk415hihjuWq60t5PA/nGSbJCtPNg=</dsig:DigestValue>
+        <dsig:DigestValue>wdeTvAMcj9LcLWv9Wsoj32dupWnL8bNWw4+xCPW0KSc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -927,8 +927,6 @@
       <dsig:DigestValue>8lk34F5qbGWsTHpdjcMRApaOmXNaJu1OrWy/1WwsLYc=</dsig:DigestValue>
     </hash>
   </file>
-<<<<<<< HEAD
-=======
   <file name="CommonSql\Document Center Files\Outbound Report 015335.pdf" size="104292">
     <hash>
       <dsig:Transforms>
@@ -938,7 +936,6 @@
       <dsig:DigestValue>v2OWVvHLdU3OSa0fc46Vgx2W+Yx+qpeyepY/UnjhKVs=</dsig:DigestValue>
     </hash>
   </file>
->>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <file name="CommonSql\Invoice\Invoice_In.rdlc" size="45939">
     <hash>
       <dsig:Transforms>
@@ -975,8 +972,6 @@
       <dsig:DigestValue>1EWTihgIY8m+KWInb+Apai2565kJLXSKW7KbAacXHys=</dsig:DigestValue>
     </hash>
   </file>
-<<<<<<< HEAD
-=======
   <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985">
     <hash>
       <dsig:Transforms>
@@ -1040,7 +1035,6 @@
       <dsig:DigestValue>b+8xrJvzXyLd8hw6uNg6tY/bsDFHIMqOmzpQb5/LnPw=</dsig:DigestValue>
     </hash>
   </file>
->>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <file name="CommonSql\Reports Dir\Customer_Report.rdlc" size="42977">
     <hash>
       <dsig:Transforms>
@@ -1095,8 +1089,6 @@
       <dsig:DigestValue>MMpAS1bzP9z+A+qpL/ckCqiTFJZCNxjJ05RsD2AMbSs=</dsig:DigestValue>
     </hash>
   </file>
-<<<<<<< HEAD
-=======
   <file name="CommonSql\Tools\SQLite.Interop.dll" size="1421496">
     <hash>
       <dsig:Transforms>
@@ -1115,7 +1107,6 @@
       <dsig:DigestValue>LG4nyXg7nJvNh4W6WBgPZk7OP47uFuAJLUZ4QFb93xk=</dsig:DigestValue>
     </hash>
   </file>
->>>>>>> 8cb8851231589b2cbe3ecb4d83e2a6cb22e29055
   <file name="Double-J-Design-Ravenna-3d-Box.ico" size="190673">
     <hash>
       <dsig:Transforms>
