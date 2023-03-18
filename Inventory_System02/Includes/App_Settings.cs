@@ -9,6 +9,7 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using System.Configuration;
 using System.Deployment.Application;
+using System.Reflection;
 
 namespace Inventory_System02.Includes
 {
@@ -34,10 +35,13 @@ namespace Inventory_System02.Includes
             bool useClickOnceConnection = ConfigurationManager.AppSettings["UseClickOnceConnection"] == "true";
 
             if (useClickOnceConnection)
-        { 
+            {
                 // Use the ClickOnce connection string approach
-                string path = ApplicationDeployment.CurrentDeployment.DataDirectory;
-                string databasePath = Path.Combine(path, "Data", "CommonSql", "Tools", "tools.dll");
+                string relativePath = @"..\..\Data\CommonSql";
+                string executablePath = Assembly.GetEntryAssembly().Location;
+                string fullPath = Path.Combine(Path.GetDirectoryName(executablePath), relativePath);
+
+                string databasePath = Path.Combine(fullPath, "Tools", "tools.db");
                 connectionString = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
             }
             else
