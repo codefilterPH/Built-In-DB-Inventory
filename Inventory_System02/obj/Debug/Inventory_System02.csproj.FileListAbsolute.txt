@@ -185,6 +185,17 @@ C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.pdb
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\x86\SqlServerSpatial160.dll
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\x64\SqlServerSpatial160.dll
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In_Item.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Supplier_Report.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_return.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_out.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Employee_Report.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Customer_Report.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item Report.rdlc
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Document Center Files\Outbound Report 015335.pdf
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Company\Company_Logo1.PNG
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg
@@ -194,18 +205,8 @@ C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pic
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\SQLite.Interop.dll
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\SQLite.Interop.dll
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In_Item.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Supplier_Report.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_return.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_out.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Employee_Report.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Customer_Report.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item Report.rdlc
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Document Center Files\Outbound Report 015335.pdf
+C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\tools.dll
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.exe.config
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.exe.manifest
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.application
@@ -340,4 +341,3 @@ C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\obj\Debug\Inventory MS.
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.csproj.CopyComplete
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\obj\Debug\Inventory MS.exe
 C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\obj\Debug\Inventory MS.pdb
-C:\Users\eugen\Source\Repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\tools.dll

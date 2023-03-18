@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using System.Diagnostics;
+
 
 namespace Inventory_System02.Includes
 {
@@ -36,8 +38,13 @@ namespace Inventory_System02.Includes
         public static string Customer_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Customer_Report.rdlc";
         public static string Item_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\";
         public static string Item_qty_RDLC_DIR { get; set; } = @"CommonSql\Reports Dir\Item_Qty\";
+
         //about
-        public static string App_Version { get; set; } = "1.0.0";
+        //getting the app version 
+        // Retrieve the version information for the current assembly
+        static FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(
+            System.Reflection.Assembly.GetExecutingAssembly().Location);
+        public static string App_Version { get; set; } = versionInfo.ProductVersion;
         public static string Cust_ID { get; set; } = "1";
         public static string Serial { get; set; } = "74C50BEC";
         public static string Developer { get; set; } = "Eugene Rey L Bulahan";
