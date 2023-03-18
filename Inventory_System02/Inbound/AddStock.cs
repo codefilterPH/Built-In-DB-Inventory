@@ -49,12 +49,8 @@ namespace Inventory_System02
             sql = "Select Name from Brand";
             config.fiil_CBO(sql, cbo_brand);
 
-            sql = "Select * from Stocks order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_Items);
-            if (config.dt.Rows.Count > 0)
-            {
-                DTG_Property();
-            }
+            DTG_Property();
+         
             Calculator_Timer.Start();
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -64,77 +60,82 @@ namespace Inventory_System02
         double totalrows = 0;
         private void DTG_Property()
         {
-
-            //Format to date dtg cell
-            dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
-            //sorting
-            dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
-            config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-
-            foreach (DataRow rw in config.dt.Rows)
+            sql = "Select * from Stocks order by `Entry Date` desc";
+            config.Load_DTG(sql, dtg_Items);
+            if (config.dt.Rows.Count >= 1)
             {
-                if (File.Exists(rw[9].ToString()))
+                //Format to date dtg cell
+                dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
+                //sorting
+                dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
+                config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+
+                foreach (DataRow rw in config.dt.Rows)
                 {
-                    rw["Image"] = File.ReadAllBytes(rw[9].ToString());
-                }
-                else
-                {
-                    string imagePath = item_image_location + "DONOTDELETE_SUBIMAGE";
-                    string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
-                    foreach (string ext in extensions)
+                    if (File.Exists(rw["Image Path"].ToString()))
                     {
-                        if (File.Exists(imagePath + ext))
+                        rw["Image"] = File.ReadAllBytes(rw["Image Path"].ToString());
+                    }
+                    else
+                    {
+                        string imagePath = item_image_location + "\\DONOTDELETE_SUBIMAGE";
+                        string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                        foreach (string ext in extensions)
                         {
-                            rw["Image"] = File.ReadAllBytes(imagePath + ext);
-                            break;
+                            if (File.Exists(imagePath + ext))
+                            {
+                                rw["Image"] = File.ReadAllBytes(imagePath + ext);
+                                break;
+                            }
+                        }
+                        // If none of the image files exist, set the image to null or an empty byte array
+                        if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
+                        {
+                            rw["Image"] = null;
+                            // rw["Image"] = new byte[0];
                         }
                     }
-                    // If none of the image files exist, set the image to null or an empty byte array
-                    if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
-                    {
-                        rw["Image"] = null;
-                        // rw["Image"] = new byte[0];
-                    }
                 }
-            }
 
-            dtg_Items.Columns["Image"].DisplayIndex = 0;
+                dtg_Items.Columns["Image"].DisplayIndex = 0;
 
 
-            for (int i = 0; i < dtg_Items.Columns.Count; i++)
-            {
-                if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+                for (int i = 0; i < dtg_Items.Columns.Count; i++)
                 {
-                    ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                    break;
+                    if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+                    {
+                        ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                        break;
+                    }
+
                 }
+                for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                {
+                    totalrows = i;
+                }
+                totalrows += 1;
+                lbl_items_count.Text = totalrows.ToString();
+
+                //Format to add comma separator and two decimal places in dtg
+                dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
+                dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
+                //Hide some columns
+                dtg_Items.Columns[0].Visible = false;
+                dtg_Items.Columns[2].Visible = false;
+                dtg_Items.Columns[9].Visible = false;
+
+                dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Items.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Items.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dtg_Items.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                Calculator_Timer.Start();
 
             }
-            for (int i = 0; i < dtg_Items.Rows.Count; i++)
-            {
-                totalrows = i;
-            }
-            totalrows += 1;
-            lbl_items_count.Text = totalrows.ToString();
-
-            //Format to add comma separator and two decimal places in dtg
-            dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
-            dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
-            //Hide some columns
-            dtg_Items.Columns[0].Visible = false;
-            dtg_Items.Columns[2].Visible = false;
-            dtg_Items.Columns[9].Visible = false;
-
-            dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtg_Items.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtg_Items.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtg_Items.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            Calculator_Timer.Start();
         }
         private void Calculator_Timer_Tick(object sender, EventArgs e)
         {
@@ -315,7 +316,7 @@ namespace Inventory_System02
                 == DialogResult.Yes)
                 {
                     txt_Qty_ValueChanged(sender, e);
-                    img_loc = item_image_location + txt_Barcode.Text + ".PNG";
+                    img_loc = item_image_location + "\\" + txt_Barcode.Text + ".PNG";
 
                     sql = "Update Stocks set " +
                         " `Item Name` = '" + txt_ItemName.Text + "' " +

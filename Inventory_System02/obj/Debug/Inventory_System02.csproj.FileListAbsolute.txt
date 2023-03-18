@@ -183,6 +183,7 @@ C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.csproj.CoreCompileInputs.cache
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.exe
 C:\Users\eugen\Downloads\Inventory App Finished\Inventory App Finished\Inventory_System02\obj\Debug\Inventory_System02.pdb
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\tools.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\x86\SqlServerSpatial160.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\x64\SqlServerSpatial160.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_In_Item.rdlc
@@ -197,7 +198,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Rep
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item Report.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Document Center Files\Outbound Report 015335.pdf
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Company\Company_Logo1.PNG
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Employee\admin.JPG
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg
@@ -206,7 +206,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Pic
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\SQLite.Interop.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\SQLite.Interop.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\tools.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.exe.config
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.exe.manifest
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.application

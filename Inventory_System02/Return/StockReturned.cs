@@ -647,7 +647,7 @@ namespace Inventory_System02
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(rs);
             frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            frm.reportViewer1.LocalReport.ReportPath = Includes.AppSettings.Invoice_RDLC_Path + @"Invoice_return.rdlc";
+            frm.reportViewer1.LocalReport.ReportPath = Includes.AppSettings.Invoice_RDLC_Path + @"\\Invoice_return.rdlc";
 
             reportParameters.Add(new ReportParameter("ReportDate", report_date));
             reportParameters.Add(new ReportParameter("TransRef", Gen_Trans));
@@ -656,6 +656,21 @@ namespace Inventory_System02
             reportParameters.Add(new ReportParameter("Total_Items", dtg_Return.Rows.Count.ToString()));
             reportParameters.Add(new ReportParameter("Total_QTY", out_qty.Text));
             reportParameters.Add(new ReportParameter("Total", out_amt.Text));
+
+
+            //load company info
+            RDLCSupportingClass supportingClass = new RDLCSupportingClass();
+            CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
+            if (companyinfo != null)
+            {
+                reportParameters.Add(new ReportParameter("Company", companyinfo.Name));
+
+            }
+            else
+            {
+                reportParameters.Add(new ReportParameter("Company", ""));
+            }
+
 
             frm.reportViewer1.LocalReport.SetParameters(reportParameters);
             frm.reportViewer1.RefreshReport();

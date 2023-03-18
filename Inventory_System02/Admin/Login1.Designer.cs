@@ -98,7 +98,7 @@ namespace Inventory_System02
             this.Controls.Add(this.txt_Password);
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.Company_Logo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Login1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login1_FormClosed);

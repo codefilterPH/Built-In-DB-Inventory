@@ -125,7 +125,15 @@ namespace Inventory_System02.Profiles
         }
         private void reloadTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "Select * from Employee WHERE `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+            if (JobRole == "Office Manager" && JobRole == "Programmer/Developer")
+            {
+                sql = "Select * from Employee WHERE `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+            }
+            else
+            {
+                sql = "Select * from Employee WHERE `Employee ID` == '" + Global_ID + "' and `Job Role` = '" + JobRole + "'";
+            }
+            
             config.Load_DTG(sql, dtg_User);
             Hideadmin_and_LoadImage();
         }
@@ -152,38 +160,26 @@ namespace Inventory_System02.Profiles
                 }
                 lbl_total_emp.Text = visibleRowCount.ToString();
 
+                string image_path = Includes.AppSettings.Employee_DIR + "\\";
+                byte[] defaultImage = File.ReadAllBytes(image_path + "DONOTDELETE_SUBIMAGE.JPG");
+
                 foreach (DataRow rw in config.dt.Rows)
                 {
-                    try
+                    string imagePath = image_path + rw[2].ToString() + ".JPG";
+                    byte[] imageBytes;
+
+                    if (File.Exists(imagePath))
                     {
-                        if (File.Exists(Includes.AppSettings.Employee_DIR + rw[2].ToString() + ".JPG"))
-                        {
-                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + rw[2].ToString() + ".JPG");
-                        }
-                        else
-                        {
-                            rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + "DONOTDELETE_SUBIMAGE.JPG");
-                        }
+                        imageBytes = File.ReadAllBytes(imagePath);
                     }
-                    catch
+                    else
                     {
-                        for (int i = 0; i < dtg_User.Rows.Count; i++)
-                        {
-                            if (File.Exists(Includes.AppSettings.Employee_DIR + dtg_User.Rows[i].Cells[2].ToString() + ".JPG"))
-                            {
-                                rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + dtg_User.Rows[i].Cells[2].ToString() + ".JPG");
-                            }
-                            else
-                            {
-                                if (0 == dtg_User.Rows.Count)
-                                {
-                                    rw["Image"] = File.ReadAllBytes(Includes.AppSettings.Employee_DIR + "DONOTDELETE_SUBIMAGE.JPG");
-                                }
-                            }
-                        }
+                        imageBytes = defaultImage;
                     }
 
+                    rw["Image"] = imageBytes;
                 }
+
 
                 dtg_User.Columns["Image"].DisplayIndex = 0;
 
@@ -360,10 +356,20 @@ namespace Inventory_System02.Profiles
 
         private void newEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            func.clearTxt(panel2);
-            btn_GenID_Click(sender, e);
-            txt_ID.Focus();
-            txt_ID.SelectionLength = txt_ID.Text.Length;
+            if ( JobRole == "Office Manager" && JobRole == "Programmer/Developer")
+            {
+                func.clearTxt(panel2);
+                btn_GenID_Click(sender, e);
+                txt_ID.Focus();
+                txt_ID.SelectionLength = txt_ID.Text.Length;
+            }
+            else
+            {
+                // Don't allow other employees to update accounts
+                MessageBox.Show("You do not have permission to add new profile.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+         
 
         }
 

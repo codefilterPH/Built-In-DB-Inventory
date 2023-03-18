@@ -253,7 +253,7 @@ namespace Inventory_System02.Reports_Dir
                     frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
 
 
-                    frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Item_RDLC_DIR + @"Item Report.rdlc");
+                    frm.reportViewer1.LocalReport.ReportPath = (Includes.AppSettings.Item_RDLC_DIR);
 
                     //Load Text to RDLC TextBox
                     reportParameters.Add(new ReportParameter("param_report_date", DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve)));
@@ -365,7 +365,7 @@ namespace Inventory_System02.Reports_Dir
                                             out extension, out encoding,
                                             out mimeType, out streams, out warnings); //for exporting to PDF  
                                                                                       //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                            using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR + "\\") + FileName))
                             {
                                 fs.Write(mybytes, 0, mybytes.Length);
 

@@ -76,7 +76,7 @@ namespace Inventory_System02.Includes
                 frm.reportViewer1.LocalReport.DataSources.Add(rs);
                 frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
 
-                string rdlc_path = Includes.AppSettings.Search_DTG;
+                string rdlc_path = Includes.AppSettings.Search_DTG + "\\";
                 frm.reportViewer1.LocalReport.ReportPath = rdlc_path;
 
                 //Load Text to RDLC TextBox
@@ -160,7 +160,7 @@ namespace Inventory_System02.Includes
                                         out extension, out encoding,
                                         out mimeType, out streams, out warnings); //for exporting to PDF  
                                                                                   //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR + "\\") + FileName))
                         {
                             fs.Write(mybytes, 0, mybytes.Length);
                         }

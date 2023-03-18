@@ -26,7 +26,7 @@ namespace Inventory_System02.Invoice_Silent
                 ReportParameterCollection reportParameters = new ReportParameterCollection();
                 usableFunction func = new usableFunction();
                 string report_date = string.Empty, cust_name = string.Empty, address = string.Empty, FileName = string.Empty;
-                string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path;
+                string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path + "\\";
                 string sql = string.Empty;
 
                 decimal total = 0, all_total = 0;
@@ -152,6 +152,7 @@ namespace Inventory_System02.Invoice_Silent
                         reportParameters.Add(new ReportParameter("Remarks", "none"));
                     }
                 }
+               
                 //load company info
                 CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
                 if (companyinfo != null)
@@ -196,7 +197,7 @@ namespace Inventory_System02.Invoice_Silent
                                         out extension, out encoding,
                                         out mimeType, out streams, out warnings); //for exporting to PDF  
                                                                                   //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR + "\\") + FileName))
                         {
                             fs.Write(mybytes, 0, mybytes.Length);
                         }

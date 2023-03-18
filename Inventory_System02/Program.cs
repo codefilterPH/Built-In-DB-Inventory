@@ -24,6 +24,9 @@ namespace Inventory_System02
                 // You can either show a message or bring the existing instance to the foreground.
                 return;
             }
+
+            Includes.AppSettings.My_path();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login1());

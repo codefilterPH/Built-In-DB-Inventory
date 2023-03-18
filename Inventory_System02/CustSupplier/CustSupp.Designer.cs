@@ -187,7 +187,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_cust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_total_cust.AutoSize = true;
             this.lbl_total_cust.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_cust.Location = new System.Drawing.Point(162, 434);
+            this.lbl_total_cust.Location = new System.Drawing.Point(162, 430);
             this.lbl_total_cust.Name = "lbl_total_cust";
             this.lbl_total_cust.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_cust.TabIndex = 78;
@@ -198,7 +198,7 @@ namespace Inventory_System02.CustSupplier
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(6, 433);
+            this.label16.Location = new System.Drawing.Point(6, 429);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(151, 16);
             this.label16.TabIndex = 77;
@@ -212,7 +212,7 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 199);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 222);
+            this.panel2.Size = new System.Drawing.Size(839, 218);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -246,7 +246,7 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_Customer.RowTemplate.Height = 60;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 222);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 218);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -531,10 +531,10 @@ namespace Inventory_System02.CustSupplier
             this.tabPage2.Controls.Add(this.btn_sup_delete);
             this.tabPage2.Controls.Add(this.btn_sup_edit);
             this.tabPage2.Controls.Add(this.btn_sup_add);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(853, 397);
+            this.tabPage2.Size = new System.Drawing.Size(853, 491);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Supplier";
             // 
@@ -612,7 +612,7 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(8, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 120);
+            this.panel1.Size = new System.Drawing.Size(837, 116);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -647,7 +647,7 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_Supplier.RowTemplate.Height = 60;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(837, 120);
+            this.dtg_Supplier.Size = new System.Drawing.Size(837, 116);
             this.dtg_Supplier.TabIndex = 0;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);

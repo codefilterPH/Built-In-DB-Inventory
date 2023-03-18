@@ -258,7 +258,7 @@ namespace Inventory_System02.CustSupplier
             if (dtg_Customer.Rows.Count > 0)
             {
                 dtg_Customer.Columns[0].Visible = false;
-                main_path = Includes.AppSettings.Customer_DIR;
+                main_path = Includes.AppSettings.Customer_DIR + "\\";
                 Load_Images(dtg_Customer);
             }
             if ( dtg_Customer.Columns.Count > 0 )
@@ -289,7 +289,7 @@ namespace Inventory_System02.CustSupplier
             if (dtg_Supplier.Rows.Count > 0)
             {
                 dtg_Supplier.Columns[0].Visible = false;
-                main_path = Includes.AppSettings.Supplier_DIR;
+                main_path = Includes.AppSettings.Supplier_DIR + "\\";
                 Load_Images(dtg_Supplier);
 
             }

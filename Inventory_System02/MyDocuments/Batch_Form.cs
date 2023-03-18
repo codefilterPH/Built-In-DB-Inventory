@@ -12,8 +12,8 @@ namespace Inventory_System02
     public partial class Batch_Form : Form
     {
         SQLConfig config = new SQLConfig();
-        string path = Includes.AppSettings.Doc_DIR; // Replace with the actual path to your inbound directory
-        string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR);
+        string path = Includes.AppSettings.Doc_DIR + "\\"; // Replace with the actual path to your inbound directory
+        string[] files = Directory.GetFiles(Includes.AppSettings.Doc_DIR + "\\");
         //string[] files = Directory.GetFiles(@"\\" + config.computerName + @"\DB\BATCH FILES");
 
         string Global_ID, Fullname, JobRole;
@@ -87,7 +87,7 @@ namespace Inventory_System02
             {
                 if (dtg_batch_form.CurrentRow != null )
                 {
-                    string file = Includes.AppSettings.Doc_DIR + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
+                    string file = Includes.AppSettings.Doc_DIR +"\\" + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
                     axAcroPDF1.LoadFile(file);
                 }
             }

@@ -241,7 +241,7 @@ namespace Inventory_System02
             config.singleResult(sql);
             if ( config.dt.Rows.Count > 0 )
             {
-                sql = "Update Settings set Company_Image = '" + Includes.AppSettings.Company_DIR + "Company_Logo1.PNG" + "' ";
+                sql = "Update Settings set Company_Image = '" + Includes.AppSettings.Company_DIR + "\\" + "Company_Logo1.PNG" + "' ";
                 config.Execute_Query(sql);
             }
 

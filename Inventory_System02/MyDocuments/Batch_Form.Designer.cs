@@ -199,7 +199,7 @@ namespace Inventory_System02
             this.todayToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.todayToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.todayToolStripMenuItem.Name = "todayToolStripMenuItem";
-            this.todayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todayToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.todayToolStripMenuItem.Text = "Today";
             this.todayToolStripMenuItem.Click += new System.EventHandler(this.todayToolStripMenuItem_Click);
             // 
@@ -208,7 +208,7 @@ namespace Inventory_System02
             this.monthToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.monthToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.monthToolStripMenuItem.Name = "monthToolStripMenuItem";
-            this.monthToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.monthToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.monthToolStripMenuItem.Text = "Month";
             this.monthToolStripMenuItem.Click += new System.EventHandler(this.monthToolStripMenuItem_Click);
             // 
@@ -217,7 +217,7 @@ namespace Inventory_System02
             this.yearToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.yearToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.yearToolStripMenuItem.Name = "yearToolStripMenuItem";
-            this.yearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yearToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.yearToolStripMenuItem.Text = "Year";
             this.yearToolStripMenuItem.Click += new System.EventHandler(this.yearToolStripMenuItem_Click);
             // 
@@ -323,7 +323,7 @@ namespace Inventory_System02
             this.returnReportToolStripMenuItem});
             this.itemToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.itemToolStripMenuItem.Text = "Item Report";
             // 
             // inboundReportToolStripMenuItem
@@ -331,7 +331,7 @@ namespace Inventory_System02
             this.inboundReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.inboundReportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.inboundReportToolStripMenuItem.Name = "inboundReportToolStripMenuItem";
-            this.inboundReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inboundReportToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.inboundReportToolStripMenuItem.Text = "Inbound Report";
             this.inboundReportToolStripMenuItem.Click += new System.EventHandler(this.inboundReportToolStripMenuItem_Click);
             // 
@@ -340,7 +340,7 @@ namespace Inventory_System02
             this.outboundReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.outboundReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.outboundReportToolStripMenuItem.Name = "outboundReportToolStripMenuItem";
-            this.outboundReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.outboundReportToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.outboundReportToolStripMenuItem.Text = "Outbound Report";
             this.outboundReportToolStripMenuItem.Click += new System.EventHandler(this.outboundReportToolStripMenuItem_Click);
             // 
@@ -349,7 +349,7 @@ namespace Inventory_System02
             this.returnReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.returnReportToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.returnReportToolStripMenuItem.Name = "returnReportToolStripMenuItem";
-            this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.returnReportToolStripMenuItem.Text = "Return Report";
             this.returnReportToolStripMenuItem.Click += new System.EventHandler(this.returnReportToolStripMenuItem_Click);
             // 
@@ -358,7 +358,7 @@ namespace Inventory_System02
             this.supplierReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.supplierReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.supplierReportToolStripMenuItem.Name = "supplierReportToolStripMenuItem";
-            this.supplierReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplierReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.supplierReportToolStripMenuItem.Text = "Supplier Report";
             this.supplierReportToolStripMenuItem.Click += new System.EventHandler(this.supplierReportToolStripMenuItem_Click);
             // 
@@ -367,7 +367,7 @@ namespace Inventory_System02
             this.customerReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.customerReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.customerReportToolStripMenuItem.Name = "customerReportToolStripMenuItem";
-            this.customerReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customerReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.customerReportToolStripMenuItem.Text = "Customer Report";
             this.customerReportToolStripMenuItem.Click += new System.EventHandler(this.customerReportToolStripMenuItem_Click);
             // 
@@ -376,7 +376,7 @@ namespace Inventory_System02
             this.employeeReportToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.employeeReportToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.employeeReportToolStripMenuItem.Name = "employeeReportToolStripMenuItem";
-            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.employeeReportToolStripMenuItem.Text = "Employee Report";
             this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
             // 

@@ -103,7 +103,7 @@ namespace Inventory_System02
                     }
                     else
                     {
-                        string imagePath = Includes.AppSettings.Image_DIR + "DONOTDELETE_SUBIMAGE";
+                        string imagePath = Includes.AppSettings.Image_DIR + "\\" + "DONOTDELETE_SUBIMAGE";
                         string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
                         foreach (string ext in extensions)
                         {
@@ -706,7 +706,7 @@ namespace Inventory_System02
             frm.reportViewer1.LocalReport.DataSources.Clear();
             frm.reportViewer1.LocalReport.DataSources.Add(rs);
             frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            frm.reportViewer1.LocalReport.ReportPath = Includes.AppSettings.Invoice_RDLC_Path + @"Invoice_out.rdlc";
+            frm.reportViewer1.LocalReport.ReportPath = Includes.AppSettings.Invoice_RDLC_Path + @"\\Invoice_out.rdlc";
 
             reportParameters.Add(new ReportParameter("ReportDate", report_date));
             reportParameters.Add(new ReportParameter("TransRef", Gen_Trans));

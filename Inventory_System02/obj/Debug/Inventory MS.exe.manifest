@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>n6iM14D4BKV2Pds2XVDv+cyeAXw13JJPAk+LX2pueRg=</dsig:DigestValue>
+        <dsig:DigestValue>w0HE+xZlP79ovAqCzK89CBGNeD0hGxXOSjD6VJbHXs0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,19 +98,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JjecW4AuzsoLFSTKcBnnUAUNMx7PP1fFw95OvwZz+yU=</dsig:DigestValue>
+        <dsig:DigestValue>/Tb6XuAT8Sh5sfW3kIbHI33HMvscnBmAtcdDmMLx8x4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory MS.exe" size="2281440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory MS.exe" size="2281952">
       <assemblyIdentity name="Inventory MS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>r5OYotLjmQoqITytDLz8SYHcDTc2avA7JpX3xH8EDWU=</dsig:DigestValue>
+        <dsig:DigestValue>GDU+dWlTy1bSUBXrlM+SMI9nlo/62Z03lKC/hrcsIjQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -970,15 +970,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>1EWTihgIY8m+KWInb+Apai2565kJLXSKW7KbAacXHys=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="CommonSql\Pictures\Company\Company_Logo1.PNG" size="60985" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9nl005Qk6eH3sRcJ1YZE6CBJP9jTnkXvWukOPzY/bOk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="520371" writeableType="applicationData">

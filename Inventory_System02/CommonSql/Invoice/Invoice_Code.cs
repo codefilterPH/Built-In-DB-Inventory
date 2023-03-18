@@ -30,7 +30,7 @@ namespace Inventory_System02.Invoice_Code
                 int qty = 0, all_qty = 0 ;
                 string new_qty =string.Empty, formattedtotal = string.Empty;
 
-                string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path;
+                string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path + "\\";
                 string sql = string.Empty;
                 if (out_return == "out")
                 {
@@ -177,13 +177,13 @@ namespace Inventory_System02.Invoice_Code
                         reportParameters.Add(new ReportParameter("PaymentStatus", "none"));
                         reportParameters.Add(new ReportParameter("Remarks", "none"));
                     }
-                }         
+                }   
                 //load company info
                 CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
                 if (companyinfo != null)
                 {
                     reportParameters.Add(new ReportParameter("Company", companyinfo.Name));
-                
+
                 }
                 else
                 {
@@ -228,7 +228,7 @@ namespace Inventory_System02.Invoice_Code
                                         out extension, out encoding,
                                         out mimeType, out streams, out warnings); //for exporting to PDF  
                                                                                   //using (FileStream fs = File.Create(Server.MapPath("~/Report/") + FileName))
-                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR) + FileName))
+                        using (FileStream fs = File.Create((Includes.AppSettings.Doc_DIR + "\\") + FileName))
                         {
                             fs.Write(mybytes, 0, mybytes.Length);
 
