@@ -79,20 +79,21 @@ namespace Inventory_System02.Includes
 
                 if (randomStringDir != null)
                 {
-                    Image_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Item", "Image");
-                    Customer_DIR =  Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Pictures", "Customers");
-                    Supplier_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Suppliers");
-                    Employee_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Employee");
-                    Company_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Company");
-                    Doc_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Document Center Files");
-                    Search_DTG = Path.Combine(randomStringDir, "Data", "Reports Dir", "Search DTG", "Search_DTG.rdlc");
-                    Invoice_RDLC_Path = Path.Combine(randomStringDir, "Data", "CommonSql", "Invoice");
-                    Invoice_BY_SupDivi = Path.Combine(randomStringDir, "Data", "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
-                    Supplier_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Supplier.rdlc");
-                    Employee_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Employee.rdlc");
-                    Customer_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Customer.rdlc");
-                    Item_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Item Report.rdlc");
-                    Item_qty_RDLC_DIR = Path.Combine(randomStringDir, "Data", "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
+                    string commonSqlDir = Path.Combine(randomStringDir, "Data", "CommonSql");
+                    Image_DIR = Path.Combine(commonSqlDir, "Pictures", "Item", "Image");
+                    Customer_DIR =  Path.Combine(commonSqlDir, "Pictures", "Pictures", "Customers");
+                    Supplier_DIR = Path.Combine(commonSqlDir, "Pictures", "Suppliers");
+                    Employee_DIR = Path.Combine(commonSqlDir, "Pictures", "Employee");
+                    Company_DIR = Path.Combine(commonSqlDir, "Pictures", "Company");
+                    Doc_DIR = Path.Combine(commonSqlDir, "Document Center Files");
+                    Search_DTG = Path.Combine(commonSqlDir, "Reports Dir", "Search DTG", "Search_DTG.rdlc");
+                    Invoice_RDLC_Path = Path.Combine(commonSqlDir, "Invoice");
+                    Invoice_BY_SupDivi = Path.Combine(commonSqlDir, "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
+                    Supplier_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Supplier.rdlc");
+                    Employee_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Employee.rdlc");
+                    Customer_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Customer.rdlc");
+                    Item_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Item Report.rdlc");
+                    Item_qty_RDLC_DIR = Path.Combine(commonSqlDir, "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
                 }
                 else
                 {
@@ -140,7 +141,8 @@ namespace Inventory_System02.Includes
 
                 if (randomStringDir != null)
                 {
-                    string databasePath = Path.Combine(randomStringDir, "Data", "CommonSql", "Tools", "tools.db");
+                    string commonSqlDir = Path.Combine(randomStringDir, "Data", "CommonSql");
+                    string databasePath = Path.Combine(commonSqlDir, "Tools", "tools.db");
                     MessageBox.Show(databasePath);
                     connectionString = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
                 }
