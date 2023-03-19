@@ -133,7 +133,7 @@ namespace Inventory_System02.Includes
             {
 
                 string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                string clickOnceDataDir = Path.Combine(appDataDir, "Apps", "2.0", "Data");
+                string clickOnceDataDir = Path.Combine(appDataDir, "Apps", "2.0");
 
                 string[] clickOnceDirs = Directory.GetDirectories(clickOnceDataDir, "*.*/", SearchOption.TopDirectoryOnly);
                 string randomStringDir = clickOnceDirs.FirstOrDefault(d => Directory.GetDirectories(d, "*", SearchOption.TopDirectoryOnly).Length > 0);
