@@ -134,9 +134,8 @@ namespace Inventory_System02
                 }
                 else
                 {
+
                     func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
-
-
                     sql = "Select Date, Status from Administration";
                     config.singleResult(sql);
                     if (config.dt.Rows.Count == 1)

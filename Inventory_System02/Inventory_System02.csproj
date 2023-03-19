@@ -69,7 +69,8 @@
     <ManifestCertificateThumbprint>FCF539029EF8D8A89AEDDACFE5D99A39C05AFA26</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Inventory_System02_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -502,7 +503,6 @@
     <Content Include="CommonSql\Document Center Files\Outbound Report 015335.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Inventory_System02_2_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Inventory_System02.Includes.Load_DTG_VBPrint+SearchBy_Data.datasource" />
