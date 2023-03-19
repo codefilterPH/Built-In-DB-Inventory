@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+/yfMK25rbaqUT2l1QiuP47qzQwuAVBcEuQMZRSCj1U=</dsig:DigestValue>
+        <dsig:DigestValue>CRLiR1IvMPexD4pDMK9OzuEvDiWS/3n3lVBudm3pxpQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,19 +98,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AqE5ZgTuUYHeBGBcCja/xn4rK2smcABTd5SWAZ1Kisk=</dsig:DigestValue>
+        <dsig:DigestValue>KIz1XXR5qjNbTxE5xc4SNI6SZp50Mq1yhcMSPL0KWQA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory MS.exe" size="2282464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory MS.exe" size="2236384">
       <assemblyIdentity name="Inventory MS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>khXyiC1C6ZDPuYwRvaO6buZ+qJV5mD8w91rIpsE4u4Y=</dsig:DigestValue>
+        <dsig:DigestValue>NHMkzXdKb9LQxR0uPxyMLGnUdKG8F1LCNdfeSj46nGY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1069,6 +1069,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>tvzLnFQgmfxrzzarfddcJZE99WGh8I6wgHUucSkVW64=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc" size="46060" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>WKXop4Eey07Sh3BgKoAnXxLiv8qZMiYvkbrahS2iF+M=</dsig:DigestValue>
     </hash>
   </file>
   <file name="CommonSql\Reports Dir\Supplier_Report.rdlc" size="43963" writeableType="applicationData">

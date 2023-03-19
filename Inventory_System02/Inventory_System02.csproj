@@ -375,7 +375,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Division\ItemByDivision_Form.resx">
       <DependentUpon>ItemByDivision_Form.cs</DependentUpon>
@@ -389,9 +389,9 @@
     <EmbeddedResource Include="CommonSql\Reports Dir\Item_Qty\Item_by_Quantity.resx">
       <DependentUpon>Item_by_Quantity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Content Include="CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="CommonSql\Reports Dir\Supplier_Report.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -739,6 +739,16 @@
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>DataFile</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc">
       <Visible>False</Visible>
       <Group>
       </Group>
