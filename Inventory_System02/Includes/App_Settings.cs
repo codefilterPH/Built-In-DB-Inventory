@@ -99,26 +99,24 @@ namespace Inventory_System02.Includes
                 {
                     throw new Exception("Unable to locate ClickOnce data directory.");
                 }
-
-
             }
             else
             {
              
-                //Image_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Item", "Image");
-                //Customer_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Customers");
-                //Supplier_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Suppliers");
-                //Employee_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Employee");
-                //Company_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Company");
-                //Doc_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Document Center Files");
-                //Search_DTG = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Search DTG", "Search_DTG.rdlc");
-                //Invoice_RDLC_Path = Path.Combine(Application.StartupPath, "CommonSql", "Invoice");
-                //Invoice_BY_SupDivi = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
-                //Supplier_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Supplier.rdlc");
-                //Employee_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Employee.rdlc");
-                //Customer_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Customer.rdlc");
-                //Item_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item Report.rdlc");
-                //Item_qty_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
+                Image_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Item", "Image");
+                Customer_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Customers");
+                Supplier_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Suppliers");
+                Employee_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Employee");
+                Company_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Company");
+                Doc_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Document Center Files");
+                Search_DTG = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Search DTG", "Search_DTG.rdlc");
+                Invoice_RDLC_Path = Path.Combine(Application.StartupPath, "CommonSql", "Invoice");
+                Invoice_BY_SupDivi = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
+                Supplier_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Supplier.rdlc");
+                Employee_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Employee.rdlc");
+                Customer_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Customer.rdlc");
+                Item_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item Report.rdlc");
+                Item_qty_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
             }
 
         }
@@ -154,8 +152,8 @@ namespace Inventory_System02.Includes
             }
             else
             {
-                //// Use the hard-coded connection string approach
-                //connectionString = $"Data Source={Path.Combine(Application.StartupPath, "CommonSql", "Tools", "tools.dll")};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";          
+                // Use the hard-coded connection string approach
+                connectionString = $"Data Source={Path.Combine(Application.StartupPath, "CommonSql", "Tools", "tools.dll")};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";          
             }
 
             return connectionString;

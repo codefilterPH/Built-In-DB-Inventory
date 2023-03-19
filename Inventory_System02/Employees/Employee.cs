@@ -125,7 +125,7 @@ namespace Inventory_System02.Profiles
         }
         private void reloadTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (JobRole == "Office Manager" && JobRole == "Programmer/Developer")
+            if (JobRole == "Office Manager" || JobRole == "Programmer/Developer")
             {
                 sql = "Select * from Employee WHERE `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
             }
