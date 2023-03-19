@@ -134,7 +134,6 @@ namespace Inventory_System02
                 }
                 else
                 {
-              
                     func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
 
 

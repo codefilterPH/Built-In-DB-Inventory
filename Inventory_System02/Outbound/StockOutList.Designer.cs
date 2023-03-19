@@ -80,6 +80,7 @@ namespace Inventory_System02
             this.lbl_status = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Edit = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).BeginInit();
@@ -312,7 +313,7 @@ namespace Inventory_System02
             // txt_Trans_number
             // 
             this.txt_Trans_number.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Trans_number.Location = new System.Drawing.Point(155, 34);
+            this.txt_Trans_number.Location = new System.Drawing.Point(155, 74);
             this.txt_Trans_number.Name = "txt_Trans_number";
             this.txt_Trans_number.Size = new System.Drawing.Size(139, 25);
             this.txt_Trans_number.TabIndex = 7;
@@ -322,7 +323,7 @@ namespace Inventory_System02
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 37);
+            this.label2.Location = new System.Drawing.Point(46, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 17);
             this.label2.TabIndex = 83;
@@ -414,7 +415,7 @@ namespace Inventory_System02
             // txt_Cust_ID
             // 
             this.txt_Cust_ID.BackColor = System.Drawing.Color.White;
-            this.txt_Cust_ID.Location = new System.Drawing.Point(155, 65);
+            this.txt_Cust_ID.Location = new System.Drawing.Point(155, 105);
             this.txt_Cust_ID.Name = "txt_Cust_ID";
             this.txt_Cust_ID.ReadOnly = true;
             this.txt_Cust_ID.Size = new System.Drawing.Size(139, 25);
@@ -423,7 +424,7 @@ namespace Inventory_System02
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 65);
+            this.label4.Location = new System.Drawing.Point(80, 105);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 108;
@@ -642,11 +643,22 @@ namespace Inventory_System02
             this.btn_Edit.UseVisualStyleBackColor = false;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(8, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(196, 25);
+            this.label10.TabIndex = 128;
+            this.label10.Text = "Outbound Summary";
+            // 
             // StockOutList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(807, 462);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_Remarks);
@@ -742,5 +754,6 @@ namespace Inventory_System02
         private System.Windows.Forms.Label lbl_status;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_Edit;
+        private System.Windows.Forms.Label label10;
     }
 }

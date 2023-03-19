@@ -76,7 +76,7 @@ namespace Inventory_System02.Includes
                 frm.reportViewer1.LocalReport.DataSources.Add(rs);
                 frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
 
-                string rdlc_path = Includes.AppSettings.Search_DTG + "\\";
+                string rdlc_path = Includes.AppSettings.Search_DTG;
                 frm.reportViewer1.LocalReport.ReportPath = rdlc_path;
 
                 //Load Text to RDLC TextBox

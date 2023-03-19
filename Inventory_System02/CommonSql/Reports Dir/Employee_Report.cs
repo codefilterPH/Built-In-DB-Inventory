@@ -45,7 +45,7 @@ namespace Inventory_System02.Reports_Dir
 
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            Calculate_Filtering("load");
+            Calculate_Filtering("loadToday");
         }
 
         private void btn_Print_Preview_Click(object sender, EventArgs e)
@@ -139,14 +139,30 @@ namespace Inventory_System02.Reports_Dir
                 }
                 Group_Filtering_MustNotEmpty();
                 sql = string.Empty;
-                if (Global_ID == "admin")
+                
+                if ( what_to_do != "loadToday")
                 {
-                    sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
+                    if (Global_ID == "admin")
+                    {
+                        sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
+                    }
+                    else
+                    {
+                        sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+                    }
                 }
                 else
                 {
-                    sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+                    if (Global_ID == "admin")
+                    {
+                        sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' ORDER BY `Hired Date` DESC";
+                    }
+                    else
+                    {
+                        sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
+                    }
                 }
+             
                 config.Load_DTG(sql, dtg_PreviewPage);
                 DTG_Properties();
                 if (what_to_do != "load")

@@ -546,7 +546,7 @@ namespace Inventory_System02
                 }
             }
         }
-
+        
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {

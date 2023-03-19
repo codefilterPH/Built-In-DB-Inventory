@@ -296,7 +296,7 @@
             this.panel1.Controls.Add(this.txt_name);
             this.panel1.Location = new System.Drawing.Point(28, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(661, 40);
+            this.panel1.Size = new System.Drawing.Size(701, 40);
             this.panel1.TabIndex = 57;
             // 
             // txt_name
@@ -307,7 +307,7 @@
             this.txt_name.Location = new System.Drawing.Point(0, 0);
             this.txt_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(661, 40);
+            this.txt_name.Size = new System.Drawing.Size(701, 40);
             this.txt_name.TabIndex = 32;
             this.txt_name.Text = "None";
             this.txt_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -374,7 +374,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(548, 15);
+            this.label13.Location = new System.Drawing.Point(543, 15);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(159, 17);

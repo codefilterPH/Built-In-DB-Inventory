@@ -42,7 +42,7 @@ namespace Inventory_System02.Reports_Dir
 
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            Calculate_Filtering("load");
+            Calculate_Filtering("loadToday");
         }
     
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)
@@ -108,7 +108,15 @@ namespace Inventory_System02.Reports_Dir
                     return;
                 }
                 sql = string.Empty;
-                sql = " SELECT * from Supplier where DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' and DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC ";
+                if ( what_to_do != "loadToday")
+                {
+                    sql = " SELECT * from Supplier where DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' and DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC ";
+                }
+                else
+                {
+                    sql = " SELECT * from Supplier where DATE(`Entry Date`) >= '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' ORDER BY `Entry Date` DESC ";
+                }
+             
                 config.Load_DTG(sql, dtg_PreviewPage);
                 DTG_Properties();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -25,7 +26,12 @@ namespace Inventory_System02
                 return;
             }
 
-
+            RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\codefilterPH\\InventoryMS");
+            if (key == null)
+            {
+                // Registry key does not exist, create it
+                Includes.MyInstaller.CreateRegistry();
+            }
             Includes.AppSettings.My_path();
 
             Application.EnableVisualStyles();

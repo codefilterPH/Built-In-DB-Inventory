@@ -356,7 +356,7 @@ namespace Inventory_System02.Profiles
 
         private void newEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( JobRole == "Office Manager" && JobRole == "Programmer/Developer")
+            if ( JobRole == "Office Manager" || JobRole == "Programmer/Developer")
             {
                 func.clearTxt(panel2);
                 btn_GenID_Click(sender, e);

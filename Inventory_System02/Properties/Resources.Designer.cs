@@ -63,6 +63,16 @@ namespace Inventory_System02.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        public static System.Drawing.Icon box {
+            get {
+                object obj = ResourceManager.GetObject("box", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         public static System.Drawing.Icon Double_J_Design_Ravenna_3d_Box {
             get {
                 object obj = ResourceManager.GetObject("Double_J_Design_Ravenna_3d_Box", resourceCulture);

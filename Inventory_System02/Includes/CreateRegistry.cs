@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration.Install;
 using System.Runtime.Remoting.Contexts;
 using Microsoft.Win32;
+using System.IO;
 
 namespace Inventory_System02.Includes
 {
@@ -20,16 +21,41 @@ namespace Inventory_System02.Includes
             }
         }
 
-        private static void CreateRegistry()
+        public static void CreateRegistry()
         {
             // Get the current user's registry key
             RegistryKey key = Registry.CurrentUser;
 
             // Create a subkey for your application
-            RegistryKey subkey = key.CreateSubKey("Software\\codefilterPH\\InventoryMS");
+            RegistryKey inventoryKey = key.CreateSubKey(@"Software\codefilterPH\InventoryMS");
 
             // Save the computer name as a string value
-            subkey.SetValue("ServerName", Environment.MachineName);
+            inventoryKey.SetValue("ServerName", Environment.MachineName);
+
+            // Save the common directory path as a string value
+            inventoryKey.SetValue("CommonPath", @"\CommonSql\");
+
+
+            // Save the invoice directory path as a string value
+            string toolsDir = Path.Combine(inventoryKey.GetValue("CommonPath").ToString(), "Tools", "tools.dll");
+            inventoryKey.SetValue("ToolsDir", toolsDir);
+
+            // Save the image directory path as a string value
+            string imageDir = Path.Combine(inventoryKey.GetValue("CommonPath").ToString(), "Pictures");
+            inventoryKey.SetValue("ImageDir", imageDir);
+
+            // Save the image directory path as a string value
+            string reportsDir = Path.Combine(inventoryKey.GetValue("CommonPath").ToString(), "Reports Dir");
+            inventoryKey.SetValue("ReportsDir", reportsDir);
+
+            // Save the image directory path as a string value
+            string documentDir = Path.Combine(inventoryKey.GetValue("CommonPath").ToString(), "Document Center Files");
+            inventoryKey.SetValue("DocumentsDir", documentDir);
+
+
+            // Save the invoice directory path as a string value
+            string invoiceDir = Path.Combine(inventoryKey.GetValue("CommonPath").ToString(), "Invoice");
+            inventoryKey.SetValue("InvoiceDir", invoiceDir);
         }
     }
 

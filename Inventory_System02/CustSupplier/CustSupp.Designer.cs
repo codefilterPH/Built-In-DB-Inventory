@@ -87,6 +87,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_GenerateID = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.Sup_ID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.sup_CName = new System.Windows.Forms.TextBox();
@@ -97,7 +98,8 @@ namespace Inventory_System02.CustSupplier
             this.btn_sup_add = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,6 +130,7 @@ namespace Inventory_System02.CustSupplier
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.cust_Phone);
             this.tabPage1.Controls.Add(this.btn_cusid_select);
             this.tabPage1.Controls.Add(this.lbl_total_cust);
@@ -160,7 +163,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // cust_Phone
             // 
-            this.cust_Phone.Location = new System.Drawing.Point(138, 73);
+            this.cust_Phone.Location = new System.Drawing.Point(279, 101);
             this.cust_Phone.MaxLength = 11;
             this.cust_Phone.Name = "cust_Phone";
             this.cust_Phone.Size = new System.Drawing.Size(185, 25);
@@ -176,7 +179,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_cusid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_cusid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cusid_select.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_cusid_select.Location = new System.Drawing.Point(604, 170);
+            this.btn_cusid_select.Location = new System.Drawing.Point(733, 185);
             this.btn_cusid_select.Name = "btn_cusid_select";
             this.btn_cusid_select.Size = new System.Drawing.Size(111, 23);
             this.btn_cusid_select.TabIndex = 1;
@@ -189,7 +192,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_cust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_total_cust.AutoSize = true;
             this.lbl_total_cust.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_cust.Location = new System.Drawing.Point(197, 458);
+            this.lbl_total_cust.Location = new System.Drawing.Point(197, 454);
             this.lbl_total_cust.Name = "lbl_total_cust";
             this.lbl_total_cust.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_cust.TabIndex = 78;
@@ -200,7 +203,7 @@ namespace Inventory_System02.CustSupplier
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 458);
+            this.label16.Location = new System.Drawing.Point(3, 454);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(188, 18);
             this.label16.TabIndex = 77;
@@ -212,9 +215,9 @@ namespace Inventory_System02.CustSupplier
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.dtg_Customer);
-            this.panel2.Location = new System.Drawing.Point(6, 206);
+            this.panel2.Location = new System.Drawing.Point(6, 219);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 243);
+            this.panel2.Size = new System.Drawing.Size(839, 226);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -248,7 +251,7 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_Customer.RowTemplate.Height = 60;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 243);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 226);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -257,7 +260,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(5, 174);
+            this.label15.Location = new System.Drawing.Point(5, 195);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 13);
             this.label15.TabIndex = 75;
@@ -266,7 +269,7 @@ namespace Inventory_System02.CustSupplier
             // txt_Search
             // 
             this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(50, 168);
+            this.txt_Search.Location = new System.Drawing.Point(50, 189);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(137, 25);
             this.txt_Search.TabIndex = 14;
@@ -276,7 +279,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(343, 76);
+            this.label13.Location = new System.Drawing.Point(484, 104);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(35, 17);
             this.label13.TabIndex = 73;
@@ -286,7 +289,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.cbo_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbo_type.FormattingEnabled = true;
-            this.cbo_type.Location = new System.Drawing.Point(410, 73);
+            this.cbo_type.Location = new System.Drawing.Point(551, 101);
             this.cbo_type.Name = "cbo_type";
             this.cbo_type.Size = new System.Drawing.Size(160, 25);
             this.cbo_type.TabIndex = 6;
@@ -294,9 +297,9 @@ namespace Inventory_System02.CustSupplier
             // Cust_Image
             // 
             this.Cust_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cust_Image.Location = new System.Drawing.Point(721, 41);
+            this.Cust_Image.Location = new System.Drawing.Point(8, 61);
             this.Cust_Image.Name = "Cust_Image";
-            this.Cust_Image.Size = new System.Drawing.Size(124, 128);
+            this.Cust_Image.Size = new System.Drawing.Size(133, 120);
             this.Cust_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Cust_Image.TabIndex = 71;
             this.Cust_Image.TabStop = false;
@@ -311,7 +314,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Clear_Text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Clear_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Clear_Text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Clear_Text.Location = new System.Drawing.Point(604, 144);
+            this.btn_Clear_Text.Location = new System.Drawing.Point(733, 159);
             this.btn_Clear_Text.Name = "btn_Clear_Text";
             this.btn_Clear_Text.Size = new System.Drawing.Size(111, 23);
             this.btn_Clear_Text.TabIndex = 13;
@@ -322,7 +325,7 @@ namespace Inventory_System02.CustSupplier
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 104);
+            this.label12.Location = new System.Drawing.Point(157, 132);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(111, 17);
             this.label12.TabIndex = 66;
@@ -332,7 +335,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.cust_SAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cust_SAddress.Location = new System.Drawing.Point(138, 104);
+            this.cust_SAddress.Location = new System.Drawing.Point(279, 132);
             this.cust_SAddress.Multiline = true;
             this.cust_SAddress.Name = "cust_SAddress";
             this.cust_SAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -347,7 +350,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Gen_ID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Gen_ID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Gen_ID.ForeColor = System.Drawing.Color.White;
-            this.btn_Gen_ID.Location = new System.Drawing.Point(604, 40);
+            this.btn_Gen_ID.Location = new System.Drawing.Point(733, 55);
             this.btn_Gen_ID.Name = "btn_Gen_ID";
             this.btn_Gen_ID.Size = new System.Drawing.Size(111, 23);
             this.btn_Gen_ID.TabIndex = 9;
@@ -359,7 +362,7 @@ namespace Inventory_System02.CustSupplier
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(343, 44);
+            this.label11.Location = new System.Drawing.Point(484, 72);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 17);
             this.label11.TabIndex = 63;
@@ -368,7 +371,7 @@ namespace Inventory_System02.CustSupplier
             // cust_ID
             // 
             this.cust_ID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cust_ID.Location = new System.Drawing.Point(439, 41);
+            this.cust_ID.Location = new System.Drawing.Point(580, 69);
             this.cust_ID.Name = "cust_ID";
             this.cust_ID.Size = new System.Drawing.Size(131, 25);
             this.cust_ID.TabIndex = 3;
@@ -378,7 +381,7 @@ namespace Inventory_System02.CustSupplier
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 76);
+            this.label3.Location = new System.Drawing.Point(157, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 17);
             this.label3.TabIndex = 31;
@@ -387,7 +390,7 @@ namespace Inventory_System02.CustSupplier
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 44);
+            this.label1.Location = new System.Drawing.Point(157, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 27;
@@ -395,7 +398,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // cust_FN
             // 
-            this.cust_FN.Location = new System.Drawing.Point(138, 41);
+            this.cust_FN.Location = new System.Drawing.Point(279, 69);
             this.cust_FN.Name = "cust_FN";
             this.cust_FN.Size = new System.Drawing.Size(185, 25);
             this.cust_FN.TabIndex = 4;
@@ -409,7 +412,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Cust_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cust_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cust_Delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Cust_Delete.Location = new System.Drawing.Point(604, 118);
+            this.btn_Cust_Delete.Location = new System.Drawing.Point(733, 133);
             this.btn_Cust_Delete.Name = "btn_Cust_Delete";
             this.btn_Cust_Delete.Size = new System.Drawing.Size(111, 23);
             this.btn_Cust_Delete.TabIndex = 12;
@@ -426,7 +429,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Cust_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cust_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cust_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Cust_edit.Location = new System.Drawing.Point(604, 92);
+            this.btn_Cust_edit.Location = new System.Drawing.Point(733, 107);
             this.btn_Cust_edit.Name = "btn_Cust_edit";
             this.btn_Cust_edit.Size = new System.Drawing.Size(111, 23);
             this.btn_Cust_edit.TabIndex = 11;
@@ -443,7 +446,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Cust_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Cust_add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cust_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Cust_add.Location = new System.Drawing.Point(604, 66);
+            this.btn_Cust_add.Location = new System.Drawing.Point(733, 81);
             this.btn_Cust_add.Name = "btn_Cust_add";
             this.btn_Cust_add.Size = new System.Drawing.Size(111, 23);
             this.btn_Cust_add.TabIndex = 10;
@@ -515,9 +518,10 @@ namespace Inventory_System02.CustSupplier
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.lbl_total_sup);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.sup_Phone);
             this.tabPage2.Controls.Add(this.btn_supid_select);
-            this.tabPage2.Controls.Add(this.lbl_total_sup);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.txt_Search_sup);
@@ -548,7 +552,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_Phone
             // 
-            this.sup_Phone.Location = new System.Drawing.Point(116, 65);
+            this.sup_Phone.Location = new System.Drawing.Point(254, 99);
             this.sup_Phone.MaxLength = 11;
             this.sup_Phone.Name = "sup_Phone";
             this.sup_Phone.Size = new System.Drawing.Size(205, 25);
@@ -564,7 +568,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_supid_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_supid_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_supid_select.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_supid_select.Location = new System.Drawing.Point(585, 164);
+            this.btn_supid_select.Location = new System.Drawing.Point(713, 179);
             this.btn_supid_select.Name = "btn_supid_select";
             this.btn_supid_select.Size = new System.Drawing.Size(128, 23);
             this.btn_supid_select.TabIndex = 1;
@@ -577,7 +581,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_sup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_total_sup.AutoSize = true;
             this.lbl_total_sup.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_sup.Location = new System.Drawing.Point(197, 459);
+            this.lbl_total_sup.Location = new System.Drawing.Point(197, 455);
             this.lbl_total_sup.Name = "lbl_total_sup";
             this.lbl_total_sup.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_sup.TabIndex = 82;
@@ -588,7 +592,7 @@ namespace Inventory_System02.CustSupplier
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 458);
+            this.label18.Location = new System.Drawing.Point(8, 454);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(188, 18);
             this.label18.TabIndex = 81;
@@ -609,7 +613,7 @@ namespace Inventory_System02.CustSupplier
             this.txt_Search_sup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Search_sup.Location = new System.Drawing.Point(55, 196);
             this.txt_Search_sup.Name = "txt_Search_sup";
-            this.txt_Search_sup.Size = new System.Drawing.Size(117, 22);
+            this.txt_Search_sup.Size = new System.Drawing.Size(141, 22);
             this.txt_Search_sup.TabIndex = 13;
             this.txt_Search_sup.TextChanged += new System.EventHandler(this.txt_Search_sup_TextChanged);
             // 
@@ -620,9 +624,9 @@ namespace Inventory_System02.CustSupplier
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.dtg_Supplier);
-            this.panel1.Location = new System.Drawing.Point(6, 224);
+            this.panel1.Location = new System.Drawing.Point(11, 224);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(835, 222);
+            this.panel1.Size = new System.Drawing.Size(830, 218);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -657,7 +661,7 @@ namespace Inventory_System02.CustSupplier
             this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_Supplier.RowTemplate.Height = 60;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(835, 222);
+            this.dtg_Supplier.Size = new System.Drawing.Size(830, 218);
             this.dtg_Supplier.TabIndex = 0;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);
@@ -665,7 +669,7 @@ namespace Inventory_System02.CustSupplier
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(369, 68);
+            this.label14.Location = new System.Drawing.Point(507, 102);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 17);
             this.label14.TabIndex = 72;
@@ -673,7 +677,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_Email
             // 
-            this.sup_Email.Location = new System.Drawing.Point(425, 65);
+            this.sup_Email.Location = new System.Drawing.Point(563, 99);
             this.sup_Email.Name = "sup_Email";
             this.sup_Email.Size = new System.Drawing.Size(141, 25);
             this.sup_Email.TabIndex = 6;
@@ -681,9 +685,9 @@ namespace Inventory_System02.CustSupplier
             // Sup_Image
             // 
             this.Sup_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Sup_Image.Location = new System.Drawing.Point(717, 34);
+            this.Sup_Image.Location = new System.Drawing.Point(11, 62);
             this.Sup_Image.Name = "Sup_Image";
-            this.Sup_Image.Size = new System.Drawing.Size(124, 127);
+            this.Sup_Image.Size = new System.Drawing.Size(128, 110);
             this.Sup_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Sup_Image.TabIndex = 70;
             this.Sup_Image.TabStop = false;
@@ -698,7 +702,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Clear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Clear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Clear.Location = new System.Drawing.Point(585, 138);
+            this.btn_Clear.Location = new System.Drawing.Point(713, 153);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(128, 23);
             this.btn_Clear.TabIndex = 12;
@@ -763,7 +767,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_GenerateID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_GenerateID.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GenerateID.ForeColor = System.Drawing.Color.White;
-            this.btn_GenerateID.Location = new System.Drawing.Point(585, 34);
+            this.btn_GenerateID.Location = new System.Drawing.Point(713, 49);
             this.btn_GenerateID.Name = "btn_GenerateID";
             this.btn_GenerateID.Size = new System.Drawing.Size(128, 23);
             this.btn_GenerateID.TabIndex = 8;
@@ -774,7 +778,7 @@ namespace Inventory_System02.CustSupplier
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(388, 39);
+            this.label10.Location = new System.Drawing.Point(526, 73);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 17);
             this.label10.TabIndex = 59;
@@ -782,16 +786,25 @@ namespace Inventory_System02.CustSupplier
             // 
             // Sup_ID
             // 
-            this.Sup_ID.Location = new System.Drawing.Point(425, 36);
+            this.Sup_ID.Location = new System.Drawing.Point(563, 70);
             this.Sup_ID.Name = "Sup_ID";
             this.Sup_ID.Size = new System.Drawing.Size(141, 25);
             this.Sup_ID.TabIndex = 3;
             this.Sup_ID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Sup_ID_KeyDown);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(144, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Phone Number";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 68);
+            this.label5.Location = new System.Drawing.Point(150, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 56;
@@ -800,7 +813,7 @@ namespace Inventory_System02.CustSupplier
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 39);
+            this.label4.Location = new System.Drawing.Point(144, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 17);
             this.label4.TabIndex = 54;
@@ -808,7 +821,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_CName
             // 
-            this.sup_CName.Location = new System.Drawing.Point(116, 36);
+            this.sup_CName.Location = new System.Drawing.Point(254, 70);
             this.sup_CName.Name = "sup_CName";
             this.sup_CName.Size = new System.Drawing.Size(205, 25);
             this.sup_CName.TabIndex = 4;
@@ -816,7 +829,7 @@ namespace Inventory_System02.CustSupplier
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 114);
+            this.label6.Location = new System.Drawing.Point(144, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 46;
@@ -824,7 +837,7 @@ namespace Inventory_System02.CustSupplier
             // 
             // sup_Address
             // 
-            this.sup_Address.Location = new System.Drawing.Point(116, 111);
+            this.sup_Address.Location = new System.Drawing.Point(254, 132);
             this.sup_Address.Multiline = true;
             this.sup_Address.Name = "sup_Address";
             this.sup_Address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -840,7 +853,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_sup_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sup_delete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_sup_delete.Location = new System.Drawing.Point(585, 112);
+            this.btn_sup_delete.Location = new System.Drawing.Point(713, 127);
             this.btn_sup_delete.Name = "btn_sup_delete";
             this.btn_sup_delete.Size = new System.Drawing.Size(128, 23);
             this.btn_sup_delete.TabIndex = 11;
@@ -857,7 +870,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_sup_edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sup_edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_sup_edit.Location = new System.Drawing.Point(585, 86);
+            this.btn_sup_edit.Location = new System.Drawing.Point(713, 101);
             this.btn_sup_edit.Name = "btn_sup_edit";
             this.btn_sup_edit.Size = new System.Drawing.Size(128, 23);
             this.btn_sup_edit.TabIndex = 10;
@@ -874,7 +887,7 @@ namespace Inventory_System02.CustSupplier
             this.btn_sup_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_sup_add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sup_add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_sup_add.Location = new System.Drawing.Point(585, 60);
+            this.btn_sup_add.Location = new System.Drawing.Point(713, 75);
             this.btn_sup_add.Name = "btn_sup_add";
             this.btn_sup_add.Size = new System.Drawing.Size(128, 23);
             this.btn_sup_add.TabIndex = 9;
@@ -890,14 +903,25 @@ namespace Inventory_System02.CustSupplier
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // label2
+            // label7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Phone Number";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(5, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(258, 25);
+            this.label7.TabIndex = 79;
+            this.label7.Text = "Division Management Form";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(1, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(275, 25);
+            this.label8.TabIndex = 83;
+            this.label8.Text = "Supplier\'s Management Form";
             // 
             // CustSupp
             // 
@@ -994,5 +1018,7 @@ namespace Inventory_System02.CustSupplier
         private System.Windows.Forms.TextBox sup_Phone;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
