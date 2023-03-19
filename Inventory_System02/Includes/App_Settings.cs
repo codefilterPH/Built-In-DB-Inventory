@@ -139,7 +139,7 @@ namespace Inventory_System02.Includes
 
                 if (randomStringDir != null)
                 {
-                    string commonSqlDir = Path.Combine(randomStringDir, "Data", "CommonSql");
+                    string commonSqlDir = Path.Combine(randomStringDir, "CommonSql");
                     string databasePath = Path.Combine(commonSqlDir, "Tools", "tools.db");
                     MessageBox.Show(databasePath);
                     connectionString = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
