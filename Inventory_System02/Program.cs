@@ -25,6 +25,7 @@ namespace Inventory_System02
                 return;
             }
 
+
             Includes.AppSettings.My_path();
 
             Application.EnableVisualStyles();

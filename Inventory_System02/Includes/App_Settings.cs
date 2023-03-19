@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Configuration;
 using System.Deployment.Application;
 using System.Reflection;
+using Microsoft.Win32;
 
 namespace Inventory_System02.Includes
 {
@@ -53,8 +54,7 @@ namespace Inventory_System02.Includes
         public static string Customer_RDLC_DIR { get; set; }
         public static string Item_RDLC_DIR { get; set; }
         public static string Item_qty_RDLC_DIR { get; set; }
-        
-       
+
         public static void My_path()
         {
             Image_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Pictures", "Item", "Image");
