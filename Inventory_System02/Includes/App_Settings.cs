@@ -70,21 +70,36 @@ namespace Inventory_System02.Includes
             if (useClickOnceConnection)
             {
                 // Update the paths for the other fields
-              
-                Image_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Pictures", "Item", "Image");
-                Customer_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Pictures", "Customers");
-                Supplier_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Pictures", "Suppliers");
-                Employee_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Pictures", "Employee");
-                Company_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Pictures", "Company");
-                Doc_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Document Center Files");
-                Search_DTG = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Reports Dir", "Search DTG", "Search_DTG.rdlc");
-                Invoice_RDLC_Path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Invoice");
-                Invoice_BY_SupDivi = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
-                Supplier_RDLC_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Reports Dir", "Supplier.rdlc");
-                Employee_RDLC_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Reports Dir",  "Employee.rdlc");
-                Customer_RDLC_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Reports Dir", "Customer.rdlc");
-                Item_RDLC_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Reports Dir", "Item Report.rdlc");
-                Item_qty_RDLC_DIR = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
+
+                string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string clickOnceDataDir = Path.Combine(appDataDir, "Apps", "2.0", "Data");
+
+                string[] clickOnceDirs = Directory.GetDirectories(clickOnceDataDir, "*.*/", SearchOption.TopDirectoryOnly);
+                string randomStringDir = clickOnceDirs.FirstOrDefault(d => Directory.GetDirectories(d, "*", SearchOption.TopDirectoryOnly).Length > 0);
+
+                if (randomStringDir != null)
+                {
+                    Image_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Item", "Image");
+                    Customer_DIR =  Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Pictures", "Customers");
+                    Supplier_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Suppliers");
+                    Employee_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Employee");
+                    Company_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Pictures", "Company");
+                    Doc_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Document Center Files");
+                    Search_DTG = Path.Combine(randomStringDir, "Data", "Reports Dir", "Search DTG", "Search_DTG.rdlc");
+                    Invoice_RDLC_Path = Path.Combine(randomStringDir, "Data", "CommonSql", "Invoice");
+                    Invoice_BY_SupDivi = Path.Combine(randomStringDir, "Data", "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
+                    Supplier_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Supplier.rdlc");
+                    Employee_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Employee.rdlc");
+                    Customer_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Customer.rdlc");
+                    Item_RDLC_DIR = Path.Combine(randomStringDir, "Data", "CommonSql", "Reports Dir", "Item Report.rdlc");
+                    Item_qty_RDLC_DIR = Path.Combine(randomStringDir, "Data", "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
+                }
+                else
+                {
+                    throw new Exception("Unable to locate ClickOnce data directory.");
+                }
+
+
             }
             else
             {
@@ -116,9 +131,24 @@ namespace Inventory_System02.Includes
 
             if (useClickOnceConnection)
             {
-                string databasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "CommonSql", "Tools", "tools.db");
-                MessageBox.Show(databasePath);
-                connectionString = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";        
+
+                string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string clickOnceDataDir = Path.Combine(appDataDir, "Apps", "2.0", "Data");
+
+                string[] clickOnceDirs = Directory.GetDirectories(clickOnceDataDir, "*.*/", SearchOption.TopDirectoryOnly);
+                string randomStringDir = clickOnceDirs.FirstOrDefault(d => Directory.GetDirectories(d, "*", SearchOption.TopDirectoryOnly).Length > 0);
+
+                if (randomStringDir != null)
+                {
+                    string databasePath = Path.Combine(randomStringDir, "Data", "CommonSql", "Tools", "tools.db");
+                    MessageBox.Show(databasePath);
+                    connectionString = $"Data Source={databasePath};Version=3;New=False;Read Only=False;Compress=True;Journal Mode=Off;providerName=System.Data.SQLite;";
+                }
+                else
+                {
+                    throw new Exception("Unable to locate ClickOnce data directory.");
+                }
+                   
             }
             else
             {
