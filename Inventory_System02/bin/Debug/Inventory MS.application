@@ -14,14 +14,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Inventory MS.exe.manifest" size="67218">
+    <dependentAssembly dependencyType="install" codebase="Inventory MS.exe.manifest" size="66578">
       <assemblyIdentity name="Inventory MS.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>e9drUEjM1OTE77EwCyGsMrKHY+gCsB1jX3dxB3GZteI=</dsig:DigestValue>
+        <dsig:DigestValue>fJZmdmwAda64xZY0+5Onv9YaNUw3enI5pVS05FXbjeY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
