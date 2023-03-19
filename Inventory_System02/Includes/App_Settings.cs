@@ -70,7 +70,7 @@ namespace Inventory_System02.Includes
             if (useClickOnceConnection)
             {
                 // Update the paths for the other fields
-                string relativePath = @"..\..\Data\CommonSql";
+                string relativePath = @"..\..\..\Data\CommonSql";
                 Image_DIR = Path.Combine(relativePath, "Pictures", "Item", "Image");
                 Customer_DIR = Path.Combine(relativePath, "Pictures", "Customers");
                 Supplier_DIR = Path.Combine(relativePath, "Pictures", "Suppliers");
@@ -117,7 +117,7 @@ namespace Inventory_System02.Includes
             if (useClickOnceConnection)
             {
                 // Use the ClickOnce connection string approach
-                string relativePath = @"..\..\Data\CommonSql";
+                string relativePath = @"..\..\..\Data\CommonSql";
                 string executablePath = Assembly.GetEntryAssembly().Location;
                 string fullPath = Path.Combine(Path.GetDirectoryName(executablePath), relativePath);
 
