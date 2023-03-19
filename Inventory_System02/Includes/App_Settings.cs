@@ -65,7 +65,7 @@ namespace Inventory_System02.Includes
         {
 
             // Check the configuration setting to determine which connection string to use
-            bool useClickOnceConnection = ConfigurationManager.AppSettings["UseClickOnceConnection"] == "true";
+            bool useClickOnceConnection = ConfigurationManager.AppSettings["UseClickOnceConnection"] == "false";
 
             if (useClickOnceConnection)
             {
@@ -126,7 +126,7 @@ namespace Inventory_System02.Includes
             string connectionString = "";
 
             // Check the configuration setting to determine which connection string to use
-            bool useClickOnceConnection = ConfigurationManager.AppSettings["UseClickOnceConnection"] == "true";
+            bool useClickOnceConnection = ConfigurationManager.AppSettings["UseClickOnceConnection"] == "false";
 
             if (useClickOnceConnection)
             {
