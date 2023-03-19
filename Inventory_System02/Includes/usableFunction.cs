@@ -266,7 +266,7 @@ namespace Inventory_System02.Includes
         {
             try
             {
-                string imagePath = Brand + "\\" + ID;
+                string imagePath = Brand + ID;
                 ext = Path.GetExtension(imagePath);
 
                 if (string.IsNullOrEmpty(ext))
@@ -296,7 +296,7 @@ namespace Inventory_System02.Includes
                 if (!imageFound)
                 {
 
-                    imagePath = Brand + "\\" + @"DONOTDELETE_SUBIMAGE";
+                    imagePath = Brand + @"DONOTDELETE_SUBIMAGE";
                     foreach (string possibleExt in possibleExtensions)
                     {
                         try
@@ -386,7 +386,7 @@ namespace Inventory_System02.Includes
 
             try
             {
-                ext = Path.GetExtension(Brand + "\\" + ID);
+                ext = Path.GetExtension(Brand + ID);
             }
             catch
             {
@@ -402,7 +402,7 @@ namespace Inventory_System02.Includes
                 string fileExt = Path.GetExtension(opFile.FileName);
                 if (fileExt.ToLower() == ".png" || fileExt.ToLower() == ".jpg" || fileExt.ToLower() == ".jpeg")
                 {
-                    appPath = Brand + "\\";
+                    appPath = Brand;
                     if (!Directory.Exists(appPath))
                     {
                         Directory.CreateDirectory(appPath);
@@ -451,13 +451,13 @@ namespace Inventory_System02.Includes
                 {
                     Bitmap bmp1 = new Bitmap(pic.Image);
 
-                    if (System.IO.File.Exists(appPath + "\\" + ID + fileExt))
+                    if (System.IO.File.Exists(appPath + ID + fileExt))
                     {
-                        System.IO.File.Delete(appPath + "\\" + ID + fileExt);
+                        System.IO.File.Delete(appPath + ID + fileExt);
                     }
 
                     filepath = opFile.FileName;
-                    File.Copy(filepath, appPath + "\\" + ID + fileExt);
+                    File.Copy(filepath, appPath + ID + fileExt);
                     pic.Image = new Bitmap(opFile.OpenFile());
                 }
                 catch (Exception exp)
