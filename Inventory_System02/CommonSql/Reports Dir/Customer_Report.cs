@@ -40,6 +40,9 @@ namespace Inventory_System02.Reports_Dir
        
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+
+
+            Calculate_Filtering("load");
         }
 
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)
@@ -125,7 +128,7 @@ namespace Inventory_System02.Reports_Dir
                     dtp_date_from.Focus();
                     return;
                 }
-
+                sql = string.Empty;
                 sql = " SELECT * from Customer WHERE DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
                 config.Load_DTG(sql, dtg_PreviewPage);
                 DTG_Properties();

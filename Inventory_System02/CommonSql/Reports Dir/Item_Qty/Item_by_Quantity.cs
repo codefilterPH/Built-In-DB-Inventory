@@ -59,6 +59,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            Calculate_Filtering("load", cbo_report_type.Text);
         }
 
         private void Group_Filtering_MustNotEmpty()
@@ -148,7 +149,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                 Group_Filtering_MustNotEmpty();
                 WhatTable_To_Select();
 
-
+                sql = string.Empty;
                 sql = "SELECT * FROM " + db_table + " WHERE  DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' AND CAST(Quantity AS INT) >= '" + filter_qty_from.ToString() + "' AND CAST(Quantity as INT) <= '" + filter_qty_to.ToString() + "' ORDER BY `Entry Date` DESC";
 
                 config.Load_DTG(sql, dtg_PreviewPage);
@@ -250,7 +251,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                         reportParameters.Add(new ReportParameter("Total_Items", lbl_total_items.Text));
                         calculate_Total();
                         reportParameters.Add(new ReportParameter("Total_Quantity", quantity1.ToString()));
-                        reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString()));
+                        reportParameters.Add(new ReportParameter("Total_Value", total_val.ToString("#,##0.00")));
 
                     }
                     else if (dtg_PreviewPage.Rows.Count <= 0)

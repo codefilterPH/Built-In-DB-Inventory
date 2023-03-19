@@ -73,6 +73,7 @@
             this.btn_Print_Preview = new System.Windows.Forms.Button();
             this.btn_Batch = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_PreviewPage)).BeginInit();
             this.grp_filters.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -173,7 +174,7 @@
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
             this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(617, 429);
+            this.lbl_total_value.Location = new System.Drawing.Point(617, 425);
             this.lbl_total_value.Name = "lbl_total_value";
             this.lbl_total_value.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_value.TabIndex = 34;
@@ -185,7 +186,7 @@
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
             this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(618, 398);
+            this.lbl_total_quantity.Location = new System.Drawing.Point(618, 394);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
             this.lbl_total_quantity.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_quantity.TabIndex = 33;
@@ -218,7 +219,7 @@
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
             this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(618, 373);
+            this.lbl_total_items.Location = new System.Drawing.Point(618, 369);
             this.lbl_total_items.Name = "lbl_total_items";
             this.lbl_total_items.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_items.TabIndex = 32;
@@ -229,7 +230,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(491, 429);
+            this.label8.Location = new System.Drawing.Point(491, 425);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 18);
             this.label8.TabIndex = 31;
@@ -240,7 +241,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(491, 398);
+            this.label7.Location = new System.Drawing.Point(491, 394);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 16);
             this.label7.TabIndex = 30;
@@ -251,7 +252,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(491, 373);
+            this.label6.Location = new System.Drawing.Point(491, 369);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 16);
             this.label6.TabIndex = 29;
@@ -290,7 +291,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 240);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 236);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -374,7 +375,7 @@
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 330);
+            this.grp_filters.Location = new System.Drawing.Point(9, 326);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(476, 137);
             this.grp_filters.TabIndex = 20;
@@ -459,6 +460,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.lbl_total_value);
             this.tabPage1.Controls.Add(this.lbl_total_quantity);
             this.tabPage1.Controls.Add(this.lbl_total_items);
@@ -604,6 +606,17 @@
             this.tabControl1.Size = new System.Drawing.Size(823, 524);
             this.tabControl1.TabIndex = 46;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(573, 312);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(232, 25);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Inventory\'s Report Form";
+            // 
             // Item_by_Quantity
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -615,6 +628,7 @@
             this.Controls.Add(this.btn_Batch);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Item_by_Quantity";
             this.Text = "Goods By Quantity";
@@ -673,5 +687,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_qty_to;
         private System.Windows.Forms.TextBox txt_qty_from;
+        private System.Windows.Forms.Label label5;
     }
 }

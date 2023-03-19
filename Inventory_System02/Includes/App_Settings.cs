@@ -89,9 +89,9 @@ namespace Inventory_System02.Includes
                     Search_DTG = Path.Combine(commonSqlDir, "Reports Dir", "Search DTG", "Search_DTG.rdlc");
                     Invoice_RDLC_Path = Path.Combine(commonSqlDir, "Invoice");
                     Invoice_BY_SupDivi = Path.Combine(commonSqlDir, "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
-                    Supplier_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Supplier.rdlc");
-                    Employee_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Employee.rdlc");
-                    Customer_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Customer.rdlc");
+                    Supplier_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Supplier_Report.rdlc");
+                    Employee_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Employee_Report.rdlc");
+                    Customer_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Customer_Report.rdlc");
                     Item_RDLC_DIR = Path.Combine(commonSqlDir, "CommonSql", "Reports Dir", "Item Report.rdlc");
                     Item_qty_RDLC_DIR = Path.Combine(commonSqlDir, "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
                 }
@@ -112,9 +112,9 @@ namespace Inventory_System02.Includes
                 Search_DTG = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Search DTG", "Search_DTG.rdlc");
                 Invoice_RDLC_Path = Path.Combine(Application.StartupPath, "CommonSql", "Invoice");
                 Invoice_BY_SupDivi = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item_Division", "Item_Divisup_Report.rdlc");
-                Supplier_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Supplier.rdlc");
-                Employee_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Employee.rdlc");
-                Customer_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Customer.rdlc");
+                Supplier_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Supplier_Report.rdlc");
+                Employee_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Employee_Report.rdlc");
+                Customer_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Customer_Report.rdlc");
                 Item_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item Report.rdlc");
                 Item_qty_RDLC_DIR = Path.Combine(Application.StartupPath, "CommonSql", "Reports Dir", "Item_Qty", "ItemQTY_Report.rdlc");
             }

@@ -54,6 +54,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_from.Text =  DateTime.Now.AddMonths(-1).ToString(Includes.AppSettings.DateFormatRetrieve);
             Load_Supplier();
+            Calculate_Filtering("load", cbo_report_type.Text);
         }
 
         private void Group_Filtering_MustNotEmpty()
@@ -294,7 +295,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 }
                 Group_Filtering_MustNotEmpty();
                 WhatTable_To_Select();
-
+                sql = string.Empty;
                 if (cbo_report_type.Text == "Stock In")
                 {
 

@@ -64,6 +64,7 @@ namespace Inventory_System02.Reports_Dir
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            Calculate_Filtering("load", cbo_report_type.Text);
 
         }
         private void Group_Filtering_MustNotEmpty()
@@ -184,7 +185,7 @@ namespace Inventory_System02.Reports_Dir
                 }
                 Group_Filtering_MustNotEmpty();
                 WhatTable_To_Select();
-
+                sql = string.Empty;
                 sql = "SELECT * FROM " + db_table + " WHERE  DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND  DATE(`Entry Date`) <= '" + dtp_date_to.Text + "'  ORDER BY `Entry Date` DESC";
 
                 config.Load_DTG(sql, dtg_PreviewPage);

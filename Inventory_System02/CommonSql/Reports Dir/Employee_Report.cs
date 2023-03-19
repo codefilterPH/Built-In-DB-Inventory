@@ -45,6 +45,7 @@ namespace Inventory_System02.Reports_Dir
 
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            Calculate_Filtering("load");
         }
 
         private void btn_Print_Preview_Click(object sender, EventArgs e)
@@ -137,6 +138,7 @@ namespace Inventory_System02.Reports_Dir
                     return;
                 }
                 Group_Filtering_MustNotEmpty();
+                sql = string.Empty;
                 if (Global_ID == "admin")
                 {
                     sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Hired Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Hired Date` DESC";
