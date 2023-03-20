@@ -18,8 +18,8 @@ namespace Inventory_System02
     public partial class AddStock : Form
     {
         Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
-        SQLConfig config = new SQLConfig();
-        usableFunction func = new usableFunction();
+        SQLConfig config;
+        usableFunction func;
         Calculations cal = new Calculations();
         ID_Generator gen = new ID_Generator();
         string sql, Item_ID1, Global_ID, Fullname, JobRole, item_image_location = string.Empty, img_loc = string.Empty;
@@ -43,79 +43,27 @@ namespace Inventory_System02
 
         private void AddStock_Load(object sender, EventArgs e)
         {
+            config = new SQLConfig();
+            sql = string.Empty;
+            func = new usableFunction();
             sql = "Select Name from `Product Name`";
             config.fiil_CBO(sql, txt_ItemName);
-
+    
             sql = "Select Name from Brand";
             config.fiil_CBO(sql, cbo_brand);
+            sql = "Select * from Stocks order by `Entry Date` desc";
+            config.Load_DTG(sql, dtg_Items);
 
             DTG_Property();
-         
-            Calculator_Timer.Start();
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
             enable_them = true;
-
         }
         double totalrows = 0;
         private void DTG_Property()
         {
-            sql = "Select * from Stocks order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_Items);
-            if (config.dt.Rows.Count >= 1)
+            if ( dtg_Items.Columns.Count > 1)
             {
-                //Format to date dtg cell
-                dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
-                //sorting
-                dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
-                config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-
-                foreach (DataRow rw in config.dt.Rows)
-                {
-                    if (File.Exists(rw["Image Path"].ToString()))
-                    {
-                        rw["Image"] = File.ReadAllBytes(rw["Image Path"].ToString());
-                    }
-                    else
-                    {
-                        string imagePath = item_image_location + "\\DONOTDELETE_SUBIMAGE";
-                        string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
-                        foreach (string ext in extensions)
-                        {
-                            if (File.Exists(imagePath + ext))
-                            {
-                                rw["Image"] = File.ReadAllBytes(imagePath + ext);
-                                break;
-                            }
-                        }
-                        // If none of the image files exist, set the image to null or an empty byte array
-                        if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
-                        {
-                            rw["Image"] = null;
-                            // rw["Image"] = new byte[0];
-                        }
-                    }
-                }
-
-                dtg_Items.Columns["Image"].DisplayIndex = 0;
-
-
-                for (int i = 0; i < dtg_Items.Columns.Count; i++)
-                {
-                    if (dtg_Items.Columns[i] is DataGridViewImageColumn)
-                    {
-                        ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                        break;
-                    }
-
-                }
-                for (int i = 0; i < dtg_Items.Rows.Count; i++)
-                {
-                    totalrows = i;
-                }
-                totalrows += 1;
-                lbl_items_count.Text = totalrows.ToString();
-
                 //Format to add comma separator and two decimal places in dtg
                 dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
                 dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
@@ -132,19 +80,83 @@ namespace Inventory_System02
                 dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            }
+            if (dtg_Items.Rows.Count >= 1)
+            {
+                try
+                {
+                    //Format to date dtg cell
+                    dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
+                    //sorting
+                    dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
 
-                Calculator_Timer.Start();
+                    if (!config.dt.Columns.Contains("Image"))
+                    {
+                        config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+                    }
+                    foreach (DataRow rw in config.dt.Rows)
+                    {
+                        if (File.Exists(rw["Image Path"].ToString()))
+                        {
+                            rw["Image"] = File.ReadAllBytes(rw["Image Path"].ToString());
+                        }
+                        else
+                        {
+                            string imagePath = item_image_location + "DONOTDELETE_SUBIMAGE";
+                            string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                            foreach (string ext in extensions)
+                            {
+                                if (File.Exists(imagePath + ext))
+                                {
+                                    rw["Image"] = File.ReadAllBytes(imagePath + ext);
+                                    break;
+                                }
+                            }
+                            // If none of the image files exist, set the image to null or an empty byte array
+                            if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
+                            {
+                                rw["Image"] = null;
+                                // rw["Image"] = new byte[0];
+                            }
+                        }
+                    }
+                    dtg_Items.Columns["Image"].DisplayIndex = 0;
+                    for (int i = 0; i < dtg_Items.Columns.Count; i++)
+                    {
+                        if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+                        {
+                            ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                            break;
+                        }
 
+                    }
+                    for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                    {
+                        totalrows = i;
+                    }
+                    totalrows += 1;
+                    lbl_items_count.Text = totalrows.ToString();
+
+                  
+
+                    Calculator_Timer.Start();
+                }
+                catch (Exception ex)
+                {
+                    lbl_error_message.Text = ex.Message;
+                    timer_Error_message.Enabled = true;
+                }
             }
         }
         private void Calculator_Timer_Tick(object sender, EventArgs e)
         {
+            config = new SQLConfig();
             Calculations();
-          
+           
             //STOCK LOW DETECTION
             sql = "Select Low_Detection from Settings";
             config.singleResult(sql);
-            if (config.dt.Rows.Count > 0)
+            if (config.dt.Rows.Count >= 1)
             {
                 
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
@@ -163,16 +175,33 @@ namespace Inventory_System02
         decimal my_total;
         public void Calculations()
         {
-            if ( dtg_Items.Rows.Count > 0)
+            try
             {
-                my_qty = 0;
-                my_total = 0;
-
-                foreach (DataGridViewRow rw in dtg_Items.Rows)
+                if (dtg_Items.Rows.Count > 0)
                 {
-                    if (Convert.ToDateTime(rw.Cells[1].Value.ToString()).ToString(Includes.AppSettings.DateFormatRetrieve) == DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve))
+                    my_qty = 0;
+                    my_total = 0;
+
+                    foreach (DataGridViewRow rw in dtg_Items.Rows)
                     {
-                    
+                        if (Convert.ToDateTime(rw.Cells[1].Value.ToString()).ToString(Includes.AppSettings.DateFormatRetrieve) == DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve))
+                        {
+
+                            int qty = 0;
+                            decimal total = 0;
+                            int.TryParse(rw.Cells[6].Value.ToString(), out qty);
+                            decimal.TryParse(rw.Cells[8].Value.ToString(), out total);
+                            my_qty += qty;
+                            my_total += total;
+                        }
+                        lbl_Today_Qty.Text = my_qty.ToString();
+                        lbl_Today_Amt.Text = my_total.ToString();
+                    }
+
+                    my_qty = 0;
+                    my_total = 0;
+                    foreach (DataGridViewRow rw in dtg_Items.Rows)
+                    {
                         int qty = 0;
                         decimal total = 0;
                         int.TryParse(rw.Cells[6].Value.ToString(), out qty);
@@ -180,23 +209,13 @@ namespace Inventory_System02
                         my_qty += qty;
                         my_total += total;
                     }
-                    lbl_Today_Qty.Text = my_qty.ToString();
-                    lbl_Today_Amt.Text = my_total.ToString();
+                    lbl_TotalQty.Text = my_qty.ToString();
+                    lbl_TotalAmt.Text = my_total.ToString();
                 }
-
-                my_qty = 0;
-                my_total = 0;
-                foreach ( DataGridViewRow rw in dtg_Items.Rows )
-                {
-                    int qty = 0;
-                    decimal total = 0;
-                    int.TryParse(rw.Cells[6].Value.ToString(), out qty);
-                    decimal.TryParse(rw.Cells[8].Value.ToString(), out total);
-                    my_qty += qty;
-                    my_total += total;
-                }
-                lbl_TotalQty.Text = my_qty.ToString();
-                lbl_TotalAmt.Text = my_total.ToString();
+            }
+            catch(Exception ex)
+            {
+                lbl_error_message.Text = ex.Message;
             }
         }
 
@@ -208,6 +227,9 @@ namespace Inventory_System02
 
         private void btn_Gen_Click(object sender, EventArgs e)
         {
+            sql = string.Empty;
+            config = new SQLConfig();
+
             string id = string.Empty;
             bool hasDuplicate = true;
             while (hasDuplicate)
@@ -277,6 +299,8 @@ namespace Inventory_System02
         }
         private void SupplierChangeDisabler()
         {
+            sql = string.Empty;
+            config = new SQLConfig();
             if (!string.IsNullOrWhiteSpace(txt_TransRef.Text))
             {
                 sql = "Select `Transaction Reference` from Stocks WHERE `Transaction Reference` = '" + txt_TransRef.Text + "' ";
@@ -308,6 +332,9 @@ namespace Inventory_System02
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
+
+            sql = "";
+            config = new SQLConfig();
 
             chk_select_all.Checked = false;
             if (txt_Barcode.Text != "")
@@ -346,13 +373,13 @@ namespace Inventory_System02
             {
                 dtg_Items.Columns.Clear();
             }
-            this.Refresh();
+            
             AddStock_Load(sender, e);
             SupplierChangeDisabler();
             enable_them = true;
             SpecialFilterDisabler();
-
             chk_select_all.Checked = false;
+            this.Refresh();
         }
 
         private void btn_Clear_Text_Click(object sender, EventArgs e)
@@ -460,6 +487,9 @@ namespace Inventory_System02
             {
                 search_for = "`Transaction Reference`";
             }
+
+            sql = "";
+            config = new SQLConfig();
             sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_Items);
             Calculator_Timer.Start();
@@ -569,6 +599,10 @@ namespace Inventory_System02
             txt_Qty.Text = "0";
             lbl_ProductValue.Text = "0.00";
             cbo_desc.Text = "None";
+
+            lbl_error_message.Text = "New barcode is generated! " + txt_Barcode.Text;
+            lbl_error_message.ForeColor = Color.Green;
+            timer_Error_message.Enabled = true;
         }
         private void Barcode_Generator()
         {
@@ -793,6 +827,8 @@ namespace Inventory_System02
         }
         private void TableRefresher()
         {
+            sql = "";
+            config = new SQLConfig();
             chk_select_all.Checked = false;
             //Refresh and clear the columns this is important to remain the sorting
             if (dtg_Items.Columns.Count > 0)
@@ -869,6 +905,8 @@ namespace Inventory_System02
                 {
                     if (MessageBox.Show("You are about to delete selected item(s) from the table. Please confirm deletion.", "Warning Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
+                        config = new SQLConfig();
+                        sql = "";
                         if (chk_select_all.Checked)
                         {
                             string sql = "DELETE FROM `Stocks` WHERE count = '1' ";
@@ -979,6 +1017,19 @@ namespace Inventory_System02
             timer_Error_message.Enabled = false;
         }
 
+        private void todayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql = "";
+            config = new SQLConfig();
+            TableRefresher();
+            sql = "Select * from Stocks where DATE(`Entry Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' order by `Entry Date` desc";
+            config.Load_DTG(sql, dtg_Items);
+            DTG_Property();
+            enable_them = true;
+            SpecialFilterDisabler();
+
+        }
+
         private void txt_Price_Click(object sender, EventArgs e)
         {
             txt_Price.SelectionStart = 0;
@@ -1004,6 +1055,8 @@ namespace Inventory_System02
 
         private void txt_SupID_TextChanged(object sender, EventArgs e)
         {
+            sql = "";
+            config = new SQLConfig();
             sql = "Select `Company Name` from Supplier where `Company ID` = '" + txt_SupID.Text + "' ";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
@@ -1028,6 +1081,8 @@ namespace Inventory_System02
             }
             else
             {
+                config = new SQLConfig();
+                sql = "";
                 sql = "Select `Stock ID` from Stocks where `Stock ID` = '" + txt_Barcode.Text + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
@@ -1108,7 +1163,8 @@ namespace Inventory_System02
             else
             {
                 img_loc = item_image_location + txt_Barcode.Text + ".PNG";
-
+                sql = "";
+                config = new SQLConfig();
                 sql = "Insert into Stocks ( " +
                     " `Entry Date` " +
                     ",`Stock ID` " +
@@ -1147,7 +1203,7 @@ namespace Inventory_System02
                 newItemToolStripMenuItem_Click(sender, e);
                 txt_ItemName.Focus();
                 txt_Search_TextChanged(sender, e);
-                Calculator_Timer.Start();
+                DTG_Property();
                 txt_TransRef.Text = save_Ref;
                 if ( dtg_Items.Rows.Count > 0)
                 {

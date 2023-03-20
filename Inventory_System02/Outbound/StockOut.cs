@@ -93,8 +93,10 @@ namespace Inventory_System02
                 dtg_Stocks.Columns[15].Visible = false;
                 dtg_Stocks.Columns[16].Visible = false;
 
-                config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-
+                if (!config.dt.Columns.Contains("Image"))
+                {
+                    config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+                }
                 foreach (DataRow rw in config.dt.Rows)
                 {
                     if (File.Exists(rw[9].ToString()))

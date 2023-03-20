@@ -168,8 +168,10 @@ namespace Inventory_System02
                 dtg_Items.Columns[16].Visible = false;
                 dtg_Items.Columns[17].Visible = false;
 
-                config.dt.Columns.Add("Image", typeof(byte[]));
-
+                if (!config.dt.Columns.Contains("Image"))
+                {
+                    config.dt.Columns.Add("Image", typeof(byte[]));
+                }
                 foreach (DataRow row in config.dt.Rows)
                 {
                     string imagePath = Path.Combine(item_image_location, row[5].ToString() + ".PNG");
