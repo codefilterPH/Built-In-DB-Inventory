@@ -34,6 +34,7 @@ namespace Inventory_System02.Profiles
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employees));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtp_Hired_date = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txt_Search = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@ namespace Inventory_System02.Profiles
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Address = new System.Windows.Forms.TextBox();
             this.txt_Job_role = new System.Windows.Forms.ComboBox();
-            this.dtp_Hired_date = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_GenID = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@ namespace Inventory_System02.Profiles
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.dtp_Hired_date);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.txt_Search);
@@ -95,7 +96,6 @@ namespace Inventory_System02.Profiles
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txt_Address);
             this.panel2.Controls.Add(this.txt_Job_role);
-            this.panel2.Controls.Add(this.dtp_Hired_date);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.btn_GenID);
             this.panel2.Controls.Add(this.label5);
@@ -114,15 +114,25 @@ namespace Inventory_System02.Profiles
             this.panel2.Controls.Add(this.dtg_User);
             this.panel2.Location = new System.Drawing.Point(6, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(835, 420);
+            this.panel2.Size = new System.Drawing.Size(835, 472);
             this.panel2.TabIndex = 1;
+            // 
+            // dtp_Hired_date
+            // 
+            this.dtp_Hired_date.CustomFormat = "yyyy-MM-dd";
+            this.dtp_Hired_date.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_Hired_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Hired_date.Location = new System.Drawing.Point(85, 16);
+            this.dtp_Hired_date.Name = "dtp_Hired_date";
+            this.dtp_Hired_date.Size = new System.Drawing.Size(152, 26);
+            this.dtp_Hired_date.TabIndex = 12;
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Right;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(551, 190);
+            this.label10.Location = new System.Drawing.Point(562, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(273, 25);
             this.label10.TabIndex = 83;
@@ -132,7 +142,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(13, 197);
+            this.label19.Location = new System.Drawing.Point(11, 208);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(41, 13);
             this.label19.TabIndex = 82;
@@ -141,7 +151,7 @@ namespace Inventory_System02.Profiles
             // txt_Search
             // 
             this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(60, 194);
+            this.txt_Search.Location = new System.Drawing.Point(58, 205);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(126, 22);
             this.txt_Search.TabIndex = 81;
@@ -153,7 +163,7 @@ namespace Inventory_System02.Profiles
             this.btn_Change_pass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Change_pass.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Change_pass.ForeColor = System.Drawing.Color.White;
-            this.btn_Change_pass.Location = new System.Drawing.Point(243, 46);
+            this.btn_Change_pass.Location = new System.Drawing.Point(243, 76);
             this.btn_Change_pass.Name = "btn_Change_pass";
             this.btn_Change_pass.Size = new System.Drawing.Size(113, 23);
             this.btn_Change_pass.TabIndex = 5;
@@ -166,7 +176,7 @@ namespace Inventory_System02.Profiles
             this.lbl_total_emp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_emp.AutoSize = true;
             this.lbl_total_emp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_emp.Location = new System.Drawing.Point(787, 399);
+            this.lbl_total_emp.Location = new System.Drawing.Point(787, 451);
             this.lbl_total_emp.Name = "lbl_total_emp";
             this.lbl_total_emp.Size = new System.Drawing.Size(0, 15);
             this.lbl_total_emp.TabIndex = 45;
@@ -176,7 +186,7 @@ namespace Inventory_System02.Profiles
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(689, 399);
+            this.label9.Location = new System.Drawing.Point(689, 451);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(94, 15);
             this.label9.TabIndex = 44;
@@ -193,7 +203,7 @@ namespace Inventory_System02.Profiles
             this.btn_upload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_upload.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_upload.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_upload.Location = new System.Drawing.Point(523, 158);
+            this.btn_upload.Location = new System.Drawing.Point(534, 174);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(133, 23);
             this.btn_upload.TabIndex = 17;
@@ -212,7 +222,7 @@ namespace Inventory_System02.Profiles
             this.btn_Clear_Text.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Clear_Text.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Clear_Text.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Clear_Text.Location = new System.Drawing.Point(523, 132);
+            this.btn_Clear_Text.Location = new System.Drawing.Point(534, 148);
             this.btn_Clear_Text.Name = "btn_Clear_Text";
             this.btn_Clear_Text.Size = new System.Drawing.Size(133, 23);
             this.btn_Clear_Text.TabIndex = 16;
@@ -223,7 +233,7 @@ namespace Inventory_System02.Profiles
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 49);
+            this.label8.Location = new System.Drawing.Point(10, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 17);
             this.label8.TabIndex = 41;
@@ -231,7 +241,7 @@ namespace Inventory_System02.Profiles
             // 
             // txt_Pass
             // 
-            this.txt_Pass.Location = new System.Drawing.Point(85, 46);
+            this.txt_Pass.Location = new System.Drawing.Point(85, 76);
             this.txt_Pass.Name = "txt_Pass";
             this.txt_Pass.Size = new System.Drawing.Size(152, 25);
             this.txt_Pass.TabIndex = 4;
@@ -240,9 +250,9 @@ namespace Inventory_System02.Profiles
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(662, 54);
+            this.pictureBox1.Location = new System.Drawing.Point(673, 71);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 127);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
@@ -251,7 +261,7 @@ namespace Inventory_System02.Profiles
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 151);
+            this.label7.Location = new System.Drawing.Point(10, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 17);
             this.label7.TabIndex = 38;
@@ -261,7 +271,7 @@ namespace Inventory_System02.Profiles
             // 
             this.txt_Address.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Address.Location = new System.Drawing.Point(85, 148);
+            this.txt_Address.Location = new System.Drawing.Point(85, 165);
             this.txt_Address.Multiline = true;
             this.txt_Address.Name = "txt_Address";
             this.txt_Address.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -270,28 +280,16 @@ namespace Inventory_System02.Profiles
             // 
             // txt_Job_role
             // 
-            this.txt_Job_role.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_Job_role.FormattingEnabled = true;
-            this.txt_Job_role.Location = new System.Drawing.Point(363, 45);
+            this.txt_Job_role.Location = new System.Drawing.Point(243, 16);
             this.txt_Job_role.Name = "txt_Job_role";
-            this.txt_Job_role.Size = new System.Drawing.Size(131, 25);
+            this.txt_Job_role.Size = new System.Drawing.Size(113, 25);
             this.txt_Job_role.TabIndex = 6;
-            // 
-            // dtp_Hired_date
-            // 
-            this.dtp_Hired_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_Hired_date.CustomFormat = "yyyy-MM-dd";
-            this.dtp_Hired_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Hired_date.Location = new System.Drawing.Point(714, 13);
-            this.dtp_Hired_date.Name = "dtp_Hired_date";
-            this.dtp_Hired_date.Size = new System.Drawing.Size(110, 25);
-            this.dtp_Hired_date.TabIndex = 12;
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(637, 16);
+            this.label6.Location = new System.Drawing.Point(10, 19);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 17);
             this.label6.TabIndex = 34;
@@ -303,7 +301,7 @@ namespace Inventory_System02.Profiles
             this.btn_GenID.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_GenID.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_GenID.ForeColor = System.Drawing.Color.White;
-            this.btn_GenID.Location = new System.Drawing.Point(243, 17);
+            this.btn_GenID.Location = new System.Drawing.Point(243, 47);
             this.btn_GenID.Name = "btn_GenID";
             this.btn_GenID.Size = new System.Drawing.Size(113, 23);
             this.btn_GenID.TabIndex = 3;
@@ -314,7 +312,7 @@ namespace Inventory_System02.Profiles
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 22);
+            this.label5.Location = new System.Drawing.Point(10, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 17);
             this.label5.TabIndex = 31;
@@ -322,7 +320,7 @@ namespace Inventory_System02.Profiles
             // 
             // txt_ID
             // 
-            this.txt_ID.Location = new System.Drawing.Point(85, 17);
+            this.txt_ID.Location = new System.Drawing.Point(85, 47);
             this.txt_ID.Name = "txt_ID";
             this.txt_ID.Size = new System.Drawing.Size(152, 25);
             this.txt_ID.TabIndex = 2;
@@ -331,7 +329,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(267, 122);
+            this.label4.Location = new System.Drawing.Point(267, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 17);
             this.label4.TabIndex = 29;
@@ -340,7 +338,7 @@ namespace Inventory_System02.Profiles
             // txt_Phone
             // 
             this.txt_Phone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Phone.Location = new System.Drawing.Point(326, 118);
+            this.txt_Phone.Location = new System.Drawing.Point(326, 135);
             this.txt_Phone.MaxLength = 11;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.Size = new System.Drawing.Size(168, 25);
@@ -350,7 +348,7 @@ namespace Inventory_System02.Profiles
             // txt_Email
             // 
             this.txt_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_Email.Location = new System.Drawing.Point(326, 88);
+            this.txt_Email.Location = new System.Drawing.Point(326, 105);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(168, 25);
             this.txt_Email.TabIndex = 8;
@@ -360,7 +358,7 @@ namespace Inventory_System02.Profiles
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(280, 93);
+            this.label3.Location = new System.Drawing.Point(280, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 26;
@@ -369,7 +367,7 @@ namespace Inventory_System02.Profiles
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 122);
+            this.label2.Location = new System.Drawing.Point(10, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 25;
@@ -377,7 +375,7 @@ namespace Inventory_System02.Profiles
             // 
             // txt_LN
             // 
-            this.txt_LN.Location = new System.Drawing.Point(85, 119);
+            this.txt_LN.Location = new System.Drawing.Point(85, 136);
             this.txt_LN.Name = "txt_LN";
             this.txt_LN.Size = new System.Drawing.Size(176, 25);
             this.txt_LN.TabIndex = 9;
@@ -385,7 +383,7 @@ namespace Inventory_System02.Profiles
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 93);
+            this.label1.Location = new System.Drawing.Point(10, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 23;
@@ -393,7 +391,7 @@ namespace Inventory_System02.Profiles
             // 
             // txt_FN
             // 
-            this.txt_FN.Location = new System.Drawing.Point(85, 90);
+            this.txt_FN.Location = new System.Drawing.Point(85, 107);
             this.txt_FN.Name = "txt_FN";
             this.txt_FN.Size = new System.Drawing.Size(176, 25);
             this.txt_FN.TabIndex = 7;
@@ -409,7 +407,7 @@ namespace Inventory_System02.Profiles
             this.btn_Del.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Del.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Del.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Del.Location = new System.Drawing.Point(523, 106);
+            this.btn_Del.Location = new System.Drawing.Point(534, 122);
             this.btn_Del.Name = "btn_Del";
             this.btn_Del.Size = new System.Drawing.Size(133, 23);
             this.btn_Del.TabIndex = 15;
@@ -428,7 +426,7 @@ namespace Inventory_System02.Profiles
             this.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Edit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Edit.Location = new System.Drawing.Point(523, 80);
+            this.btn_Edit.Location = new System.Drawing.Point(534, 96);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(133, 23);
             this.btn_Edit.TabIndex = 14;
@@ -447,7 +445,7 @@ namespace Inventory_System02.Profiles
             this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Add.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Add.Location = new System.Drawing.Point(523, 54);
+            this.btn_Add.Location = new System.Drawing.Point(534, 70);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(133, 23);
             this.btn_Add.TabIndex = 13;
@@ -467,10 +465,10 @@ namespace Inventory_System02.Profiles
             this.dtg_User.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtg_User.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtg_User.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtg_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_User.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dtg_User.Location = new System.Drawing.Point(13, 222);
+            this.dtg_User.Location = new System.Drawing.Point(13, 233);
             this.dtg_User.Name = "dtg_User";
             this.dtg_User.ReadOnly = true;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -480,7 +478,7 @@ namespace Inventory_System02.Profiles
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_User.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_User.RowTemplate.Height = 60;
-            this.dtg_User.Size = new System.Drawing.Size(811, 172);
+            this.dtg_User.Size = new System.Drawing.Size(811, 213);
             this.dtg_User.TabIndex = 0;
             this.dtg_User.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_User_CellClick);
             // 
@@ -528,7 +526,7 @@ namespace Inventory_System02.Profiles
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(846, 450);
+            this.ClientSize = new System.Drawing.Size(846, 502);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -66,7 +66,7 @@ namespace Inventory_System02
         private void btn_Stocks_Click(object sender, EventArgs e)
         {
              Panel_content_remove();
-             AddStock frm = new AddStock(Global_ID, Fullname, JobRole);
+             AddStock frm = new AddStock(Global_ID, Fullname, JobRole); 
              ShowFormInContainerControl(show_panel, frm);
 
         }

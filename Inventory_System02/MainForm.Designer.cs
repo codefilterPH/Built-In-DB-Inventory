@@ -72,6 +72,7 @@ namespace Inventory_System02
             this.sideBar = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btn_Logout = new System.Windows.Forms.Button();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Company_Logo)).BeginInit();
             this.panel15.SuspendLayout();
@@ -486,11 +487,13 @@ namespace Inventory_System02
             // 
             // show_panel
             // 
+            this.show_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.show_panel.BackColor = System.Drawing.Color.White;
-            this.show_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.show_panel.Location = new System.Drawing.Point(213, 72);
             this.show_panel.Name = "show_panel";
-            this.show_panel.Size = new System.Drawing.Size(899, 566);
+            this.show_panel.Size = new System.Drawing.Size(899, 538);
             this.show_panel.TabIndex = 1;
             // 
             // panel2
@@ -652,11 +655,22 @@ namespace Inventory_System02
             this.btn_Logout.UseVisualStyleBackColor = true;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
+            // panel18
+            // 
+            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel18.BackColor = System.Drawing.Color.White;
+            this.panel18.Location = new System.Drawing.Point(213, 608);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(899, 30);
+            this.panel18.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1112, 638);
             this.Controls.Add(this.show_panel);
+            this.Controls.Add(this.panel18);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sideBar);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -736,5 +750,6 @@ namespace Inventory_System02
         private System.Windows.Forms.Panel sideBar;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.Panel panel18;
     }
 }

@@ -8,6 +8,7 @@ using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -24,6 +25,7 @@ namespace Inventory_System02
         ID_Generator gen = new ID_Generator();
         string sql, Item_ID1, Global_ID, Fullname, JobRole, item_image_location = string.Empty, img_loc = string.Empty;
         int quantity;
+        int rowcounter = 0;
         public AddStock(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
@@ -40,21 +42,29 @@ namespace Inventory_System02
             Settings frm = new Settings(Global_ID, Fullname, JobRole);
             frm.ShowDialog();
         }
-
+    
         private void AddStock_Load(object sender, EventArgs e)
         {
+
             config = new SQLConfig();
             sql = string.Empty;
             func = new usableFunction();
+
             sql = "Select Name from `Product Name`";
             config.fiil_CBO(sql, txt_ItemName);
-    
+
             sql = "Select Name from Brand";
             config.fiil_CBO(sql, cbo_brand);
+
             sql = "Select * from Stocks order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_Items);
 
+            progressBar1.Visible = true;
+            rowcounter = config.dt.Rows.Count;
+            backgroundWorker1.RunWorkerAsync();
+
             DTG_Property();
+
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
             enable_them = true;
@@ -275,7 +285,15 @@ namespace Inventory_System02
                     func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
                     txt_SupID.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
                     txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[11].Value.ToString();
+                    // Unsubscribe the event temporarily
+                    txt_TransRef.TextChanged -= txt_TransRef_SelectedIndexChanged;
+
+                    // Assign the selected value to the combo box
                     txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
+
+                    // Resubscribe the event
+                    //txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
+                   
 
                     func.Change_Font_DTG(sender, e, dtg_Items);
                     txt_Qty_ValueChanged(sender, e);
@@ -492,7 +510,11 @@ namespace Inventory_System02
             config = new SQLConfig();
             sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_Items);
-            Calculator_Timer.Start();
+            //show progress bar
+            rowcounter = config.dt.Rows.Count;
+            progressBar1.Visible = true;
+            backgroundWorker1.RunWorkerAsync();
+
             DTG_Property();
 
             if (txt_Search.Text == "")
@@ -960,7 +982,10 @@ namespace Inventory_System02
                 }
             }
         }
-
+        private void txt_TransRef_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_Search.Text = txt_TransRef.Text;
+        }
         private void txt_TransRef_TextChanged(object sender, EventArgs e)
         {
             try
@@ -981,8 +1006,8 @@ namespace Inventory_System02
                         if (config.dt.Rows.Count >= 1)
                         {
                             txt_SupID.Text = config.dt.Rows[0]["Supplier ID"].ToString();
-                            cbo_srch_type.Text = "TRANS REF";                      
-
+                            cbo_srch_type.Text = "TRANS REF";
+                            txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
                         }
                         else
                         {
@@ -1015,19 +1040,69 @@ namespace Inventory_System02
         {
             lbl_error_message.Text = "";
             timer_Error_message.Enabled = false;
+            if ( progressBar1.Visible )
+            {
+                progressBar1.Visible = false;
+            }
         }
 
         private void todayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sql = "";
-            config = new SQLConfig();
-            TableRefresher();
-            sql = "Select * from Stocks where DATE(`Entry Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_Items);
-            DTG_Property();
-            enable_them = true;
-            SpecialFilterDisabler();
+            try
+            {
+                sql = "";
+                config = new SQLConfig();
+                TableRefresher();
+                sql = "Select * from Stocks where DATE(`Entry Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' order by `Entry Date` desc";
+                config.Load_DTG(sql, dtg_Items);
 
+                //show progress bar
+                rowcounter = config.dt.Rows.Count;
+                progressBar1.Visible = true;
+
+                backgroundWorker1.RunWorkerAsync();
+
+                DTG_Property();
+                enable_them = true;
+                SpecialFilterDisabler();
+
+            }
+            catch (SqlException ex)
+            {
+                lbl_error_message.Text = ex.Message;
+                timer_Error_message.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                lbl_error_message.Text = ex.Message;
+                timer_Error_message.Enabled = true;
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            for (int i = 0; i < rowcounter; i++)
+            {
+                // Perform your background task here
+                // Report progress back to the UI thread
+                // Update the progress
+                int progress = (int)((i / (double)rowcounter) * 100);
+                backgroundWorker1.ReportProgress(progress);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Update the UI with the progress value
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        { 
+           progressBar1.Value = 100;
+           lbl_error_message.Text = "Load to table progress completed.";
+           lbl_error_message.ForeColor = Color.Green;
+           timer_Error_message.Enabled = true;
         }
 
         private void txt_Price_Click(object sender, EventArgs e)

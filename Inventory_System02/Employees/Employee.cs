@@ -142,7 +142,10 @@ namespace Inventory_System02.Profiles
             if (dtg_User.Columns.Count > 0)
             {
                 dtg_User.Columns[0].Visible = false;
-                config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+                if (!config.dt.Columns.Contains("Image"))
+                {
+                    config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+                }
                 int visibleRowCount = 0;
                 foreach (DataGridViewRow row in dtg_User.Rows)
                 {
@@ -192,6 +195,7 @@ namespace Inventory_System02.Profiles
                         break;
                     }
                 }
+                dtg_User.Columns["Password"].Visible = false;
             }
             dtg_User.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtp_Hired_date.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
@@ -501,8 +505,7 @@ namespace Inventory_System02.Profiles
             if (dtg_User.Rows.Count > 0)
             {
                 dtp_Hired_date.Text = dtg_User.CurrentRow.Cells[1].Value.ToString();
-                txt_ID.Text = dtg_User.CurrentRow.Cells[2].Value.ToString();
-                txt_Pass.Text = dtg_User.CurrentRow.Cells[3].Value.ToString();
+                txt_ID.Text = dtg_User.CurrentRow.Cells[2].Value.ToString();  
                 txt_FN.Text = dtg_User.CurrentRow.Cells[4].Value.ToString();
                 txt_LN.Text = dtg_User.CurrentRow.Cells[5].Value.ToString();
                 txt_Email.Text = dtg_User.CurrentRow.Cells[6].Value.ToString();

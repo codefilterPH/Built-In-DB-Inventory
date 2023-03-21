@@ -219,6 +219,7 @@ namespace Inventory_System02
             this.cbo_CustID.Name = "cbo_CustID";
             this.cbo_CustID.Size = new System.Drawing.Size(172, 25);
             this.cbo_CustID.TabIndex = 1;
+            this.cbo_CustID.SelectedIndexChanged += new System.EventHandler(this.cbo_CustID_SelectedIndexChanged);
             this.cbo_CustID.TextChanged += new System.EventHandler(this.cbo_CustID_TextChanged);
             // 
             // txt_Cust_SAddress

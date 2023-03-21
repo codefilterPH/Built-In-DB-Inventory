@@ -159,7 +159,7 @@ namespace Inventory_System02
         }
         private void TOTALS()
         {
-            if (dtg_AddedStocks.Rows.Count > 0)
+            if (dtg_AddedStocks.Rows.Count >= 1)
             {
                 HashSet<double> distinctQuantities = new HashSet<double>();
                 int totalQty = 0;
@@ -185,12 +185,12 @@ namespace Inventory_System02
             }
             else
             {
-                lbl_numb_out_items.Text = "";
-                out_qty.Text = "";
-                out_amt.Text = "";
+                lbl_numb_out_items.Text = "Rows count: 0";
+                out_qty.Text = "0";
+                out_amt.Text = "0.00";
             }
 
-            if (dtg_Stocks.Rows.Count > 0)
+            if (dtg_Stocks.Rows.Count >= 1)
             {
                 quan = 0;
                 for (int i = 0; i < dtg_Stocks.Rows.Count; i++)
@@ -202,7 +202,7 @@ namespace Inventory_System02
             }
             else
             {
-                lbl_items_qty.Text = "";
+                lbl_items_qty.Text = "0";
             }
         }
 
@@ -777,6 +777,12 @@ namespace Inventory_System02
 
             }
         }
+
+        private void cbo_CustID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void SaveStatus()
         {
             if (!string.IsNullOrWhiteSpace(Gen_Trans))

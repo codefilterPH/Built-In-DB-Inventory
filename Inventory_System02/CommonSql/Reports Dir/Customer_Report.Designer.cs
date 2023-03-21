@@ -35,7 +35,6 @@ namespace Inventory_System02.Reports_Dir
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer_Report));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_date_from = new System.Windows.Forms.DateTimePicker();
             this.dtp_date_to = new System.Windows.Forms.DateTimePicker();
@@ -50,6 +49,7 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Phone = new System.Windows.Forms.CheckBox();
             this.chk_Name = new System.Windows.Forms.CheckBox();
             this.chk_Cust_ID = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.chk_Unselect = new System.Windows.Forms.CheckBox();
             this.btn_Print_Preview = new System.Windows.Forms.Button();
@@ -67,16 +67,15 @@ namespace Inventory_System02.Reports_Dir
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(2, 4);
+            this.tabControl1.Location = new System.Drawing.Point(2, 12);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(748, 365);
+            this.tabControl1.Size = new System.Drawing.Size(748, 357);
             this.tabControl1.TabIndex = 41;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.dtp_date_from);
             this.tabPage1.Controls.Add(this.dtp_date_to);
@@ -88,21 +87,10 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(740, 335);
+            this.tabPage1.Size = new System.Drawing.Size(740, 327);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(507, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 25);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "Customer\'s Report Form";
             // 
             // label3
             // 
@@ -153,7 +141,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(173, 226);
+            this.lbl_Personnel.Location = new System.Drawing.Point(173, 210);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(17, 17);
             this.lbl_Personnel.TabIndex = 23;
@@ -164,7 +152,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 226);
+            this.label7.Location = new System.Drawing.Point(6, 210);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 17);
             this.label7.TabIndex = 22;
@@ -201,7 +189,7 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(725, 175);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(725, 159);
             this.dtg_PreviewPage.TabIndex = 21;
             // 
             // grp_filters
@@ -213,7 +201,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Phone);
             this.grp_filters.Controls.Add(this.chk_Name);
             this.grp_filters.Controls.Add(this.chk_Cust_ID);
-            this.grp_filters.Location = new System.Drawing.Point(369, 218);
+            this.grp_filters.Location = new System.Drawing.Point(369, 202);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(358, 85);
             this.grp_filters.TabIndex = 20;
@@ -285,6 +273,18 @@ namespace Inventory_System02.Reports_Dir
             this.chk_Cust_ID.TabIndex = 12;
             this.chk_Cust_ID.Text = "Customer ID";
             this.chk_Cust_ID.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(521, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 25);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Customer\'s Report Form";
             // 
             // chk_Select_All
             // 
@@ -361,6 +361,7 @@ namespace Inventory_System02.Reports_Dir
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(751, 406);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Print);
             this.Controls.Add(this.chk_Select_All);
             this.Controls.Add(this.chk_Unselect);

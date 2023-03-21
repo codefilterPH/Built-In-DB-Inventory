@@ -310,9 +310,10 @@ namespace Inventory_System02.CustSupplier
         }
         private void Load_Images(DataGridView dtg)
         {
-
-            config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-
+            if (!config.dt.Columns.Contains("Image"))
+            {
+                config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
+            }
             foreach (DataRow rw in config.dt.Rows)
             {
                 if (File.Exists(main_path + rw[2].ToString() + ".JPG"))
