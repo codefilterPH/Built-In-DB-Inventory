@@ -25,6 +25,7 @@ namespace Inventory_System02
         ID_Generator gen = new ID_Generator();
         string sql, Item_ID1, Global_ID, Fullname, JobRole, item_image_location = string.Empty, img_loc = string.Empty;
         int quantity;
+        bool isWorkerBusy = false;
         int rowcounter = 0;
         public AddStock(string global_id, string fullname, string jobrole)
         {
@@ -59,9 +60,13 @@ namespace Inventory_System02
             sql = "Select * from Stocks order by `Entry Date` desc";
             config.Load_DTG(sql, dtg_Items);
 
-            progressBar1.Visible = true;
-            rowcounter = config.dt.Rows.Count;
-            backgroundWorker1.RunWorkerAsync();
+            if (!isWorkerBusy)
+            {
+                isWorkerBusy = true;
+                progressBar1.Visible = true;
+                rowcounter = config.dt.Rows.Count;
+                backgroundWorker1.RunWorkerAsync();
+            }
 
             DTG_Property();
 
@@ -510,10 +515,14 @@ namespace Inventory_System02
             config = new SQLConfig();
             sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_Items);
-            //show progress bar
-            rowcounter = config.dt.Rows.Count;
-            progressBar1.Visible = true;
-            backgroundWorker1.RunWorkerAsync();
+            if (!isWorkerBusy)
+            {
+                isWorkerBusy = true;
+                //show progress bar
+                rowcounter = config.dt.Rows.Count;
+                progressBar1.Visible = true;
+                backgroundWorker1.RunWorkerAsync();
+            }
 
             DTG_Property();
 
@@ -1055,12 +1064,15 @@ namespace Inventory_System02
                 TableRefresher();
                 sql = "Select * from Stocks where DATE(`Entry Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' order by `Entry Date` desc";
                 config.Load_DTG(sql, dtg_Items);
+                if (!isWorkerBusy)
+                {
+                    isWorkerBusy = true;
+                    //show progress bar
+                    rowcounter = config.dt.Rows.Count;
+                    progressBar1.Visible = true;
 
-                //show progress bar
-                rowcounter = config.dt.Rows.Count;
-                progressBar1.Visible = true;
-
-                backgroundWorker1.RunWorkerAsync();
+                    backgroundWorker1.RunWorkerAsync();
+                }
 
                 DTG_Property();
                 enable_them = true;
@@ -1103,6 +1115,7 @@ namespace Inventory_System02
            lbl_error_message.Text = "Load to table progress completed.";
            lbl_error_message.ForeColor = Color.Green;
            timer_Error_message.Enabled = true;
+           isWorkerBusy = false;
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
