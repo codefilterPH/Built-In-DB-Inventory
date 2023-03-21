@@ -511,6 +511,13 @@ namespace Inventory_System02
                 search_for = "`Transaction Reference`";
             }
 
+
+            if (txt_Search.Text == "")
+            {
+                refreshToolStripMenuItem_Click(sender, e);
+                return;
+            }
+
             sql = "";
             config = new SQLConfig();
             sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
@@ -526,10 +533,7 @@ namespace Inventory_System02
 
             DTG_Property();
 
-            if (txt_Search.Text == "")
-            {
-                refreshToolStripMenuItem_Click(sender, e);
-            }
+       
         }
 
         private void btn_searchSup_Click(object sender, EventArgs e)
