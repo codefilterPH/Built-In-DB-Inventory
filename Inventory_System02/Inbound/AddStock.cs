@@ -1134,8 +1134,6 @@ namespace Inventory_System02
                     totalrows += 1;
                     lbl_items_count.Text = totalrows.ToString();
 
-                    MessageBox.Show(dtg_Items.Rows.Count.ToString());
-
                     Calculator_Timer.Start();
                 }
                 catch (Exception ex)
