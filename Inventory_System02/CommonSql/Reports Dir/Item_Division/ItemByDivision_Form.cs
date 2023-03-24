@@ -1,16 +1,21 @@
 ﻿using Inventory_System02.Includes;
 using Inventory_System02.Reports_Dir;
+using Microsoft.Office.Interop.Word;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CheckBox = System.Windows.Forms.CheckBox;
+using DataTable = System.Data.DataTable;
 
 namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
 {
@@ -53,8 +58,16 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_from.Text =  DateTime.Now.AddMonths(-1).ToString(Includes.AppSettings.DateFormatRetrieve);
-            Load_Supplier();
-            Calculate_Filtering("load", cbo_report_type.Text);
+           
+            if ( !isWorkerBusy)
+            {
+                progressBar1.Visible = true;
+                isWorkerBusy = true;
+                load_sup = true;
+                backgroundWorker1.RunWorkerAsync();
+            }
+           // Calculate_Filtering("load", cbo_report_type.Text);
+         
         }
 
         private void Group_Filtering_MustNotEmpty()
@@ -128,7 +141,14 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 chk_Sup_Name.Visible = true;
                 chk_Sup_Name.Checked = true;
                 lbl_sup_div.Text = "SUPPLIER";
-                Load_Supplier();
+
+                if (!isWorkerBusy)
+                {
+                    progressBar1.Visible = true;
+                    isWorkerBusy = true;
+                    load_sup = true;
+                    backgroundWorker1.RunWorkerAsync();
+                }
             }
             else
             {
@@ -142,7 +162,14 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 chk_Sup_Name.Visible = false;
                 chk_Sup_ID.Checked = false;
                 chk_Sup_Name.Checked = false;
-                Load_Division();
+
+                if (!isWorkerBusy)
+                {
+                    progressBar1.Visible = true;
+                    isWorkerBusy = true;
+                    load_sup = false;
+                    backgroundWorker1.RunWorkerAsync();
+                }
             }
             calculate_Total();
             Calculate_Filtering("load_todtg", cbo_report_type.Text);
@@ -253,17 +280,6 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         private void btn_Print_Preview_Click(object sender, EventArgs e)
         {
             Calculate_Filtering("preview", cbo_report_type.Text);
-        }
-
-        private void Load_Division()
-        {
-            sql = "Select Name from Customer ORDER BY `Name` ASC";
-            config.fiil_CBO(sql, cbo_sup_divi);
-        }
-        private void Load_Supplier()
-        {
-            sql = "Select `Company Name` from Supplier ORDER BY `Company Name` ASC";
-            config.fiil_CBO(sql, cbo_sup_divi);
         }
 
         public void Calculate_Filtering(string preview_or_print, string report_type)
@@ -538,6 +554,80 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         private void cbo_sup_divi_TextChanged(object sender, EventArgs e)
         {
             Calculate_Filtering("load", cbo_report_type.Text);
+        }
+      
+        bool load_sup = true;
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                SQLConfig config = new SQLConfig();
+                string sql;
+                if (load_sup)
+                {
+                    sql = string.Empty;
+                    sql = "Select `Company Name` from `Supplier` ORDER BY `Company Name` ASC";
+                }
+                else
+                {
+                    sql = string.Empty;
+                    sql = "SELECT Name FROM Customer WHERE COUNT = 1 ORDER BY Name ASC";
+                    
+                }
+
+                this.Invoke(new MethodInvoker(delegate { config.fiil_CBO(sql, cbo_sup_divi); }));
+
+
+
+                for (int i = 0; i < config.dt.Rows.Count; i++)
+                {
+                    // Perform your background task here
+                    // Report progress back to the UI thread
+                    // Update the progress
+                    int progress = (int)((i / (double)config.dt.Rows.Count) * 100);
+                    backgroundWorker1.ReportProgress(progress);
+                }
+                e.Result = "Successfully loaded names";
+            }
+            catch (Exception ex)
+            {
+                e.Result = ex.Message;
+            }
+        }
+        bool isWorkerBusy = false;
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    lbl_error_message.Text = e.Error.Message;
+                    lbl_error_message.ForeColor = Color.Red;
+                    timer_error.Enabled = true;
+                }));
+            }
+            else
+            {
+                progressBar1.Value = 100;
+                isWorkerBusy = false;
+                lbl_error_message.Text = e.Result.ToString();
+                lbl_error_message.ForeColor = Color.Green;
+                timer_error.Enabled = true;
+            }
+        
+        }
+
+        private void timer_error_Tick(object sender, EventArgs e)
+        {
+            lbl_error_message.Text = "";
+            timer_error.Enabled = false;
+            progressBar1.Visible = false;
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Update the UI with the progress value
+            progressBar1.Value = e.ProgressPercentage;
         }
     }
 }

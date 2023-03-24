@@ -203,7 +203,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_cust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_total_cust.AutoSize = true;
             this.lbl_total_cust.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_cust.Location = new System.Drawing.Point(197, 446);
+            this.lbl_total_cust.Location = new System.Drawing.Point(197, 442);
             this.lbl_total_cust.Name = "lbl_total_cust";
             this.lbl_total_cust.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_cust.TabIndex = 78;
@@ -214,7 +214,7 @@ namespace Inventory_System02.CustSupplier
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 446);
+            this.label16.Location = new System.Drawing.Point(3, 442);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(188, 18);
             this.label16.TabIndex = 77;
@@ -228,7 +228,7 @@ namespace Inventory_System02.CustSupplier
             this.panel2.Controls.Add(this.dtg_Customer);
             this.panel2.Location = new System.Drawing.Point(6, 219);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 218);
+            this.panel2.Size = new System.Drawing.Size(839, 214);
             this.panel2.TabIndex = 76;
             // 
             // dtg_Customer
@@ -260,9 +260,9 @@ namespace Inventory_System02.CustSupplier
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Customer.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtg_Customer.RowTemplate.Height = 60;
+            this.dtg_Customer.RowTemplate.Height = 40;
             this.dtg_Customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Customer.Size = new System.Drawing.Size(839, 218);
+            this.dtg_Customer.Size = new System.Drawing.Size(839, 214);
             this.dtg_Customer.TabIndex = 0;
             this.dtg_Customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellClick);
             this.dtg_Customer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Customer_CellContentDoubleClick);
@@ -565,7 +565,7 @@ namespace Inventory_System02.CustSupplier
             this.lbl_total_sup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_total_sup.AutoSize = true;
             this.lbl_total_sup.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_sup.Location = new System.Drawing.Point(197, 447);
+            this.lbl_total_sup.Location = new System.Drawing.Point(197, 443);
             this.lbl_total_sup.Name = "lbl_total_sup";
             this.lbl_total_sup.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_sup.TabIndex = 82;
@@ -613,7 +613,7 @@ namespace Inventory_System02.CustSupplier
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(8, 446);
+            this.label18.Location = new System.Drawing.Point(8, 442);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(188, 18);
             this.label18.TabIndex = 81;
@@ -647,7 +647,7 @@ namespace Inventory_System02.CustSupplier
             this.panel1.Controls.Add(this.dtg_Supplier);
             this.panel1.Location = new System.Drawing.Point(11, 224);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 210);
+            this.panel1.Size = new System.Drawing.Size(830, 206);
             this.panel1.TabIndex = 73;
             // 
             // dtg_Supplier
@@ -680,9 +680,9 @@ namespace Inventory_System02.CustSupplier
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Supplier.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dtg_Supplier.RowTemplate.Height = 60;
+            this.dtg_Supplier.RowTemplate.Height = 40;
             this.dtg_Supplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Supplier.Size = new System.Drawing.Size(830, 210);
+            this.dtg_Supplier.Size = new System.Drawing.Size(830, 206);
             this.dtg_Supplier.TabIndex = 0;
             this.dtg_Supplier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             this.dtg_Supplier.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Supplier_CellContentDoubleClick);

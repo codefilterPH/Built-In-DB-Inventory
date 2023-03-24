@@ -14,6 +14,7 @@ using Inventory_System02.Invoice_Code;
 using Inventory_System02.Reports_Dir;
 using Microsoft.Reporting.WinForms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Data.SqlClient;
 
 namespace Inventory_System02
 {
@@ -51,30 +52,15 @@ namespace Inventory_System02
             }
         }
 
+        bool isWorkerBusy = false;
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Refresh();
-            sql = "Select * from Stocks order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_Stocks);
-         
-            DTG_Property();
-
-            sql = "Select Low_Detection from Settings";
-            config.singleResult(sql);
-            //DTG STOCKS LOW DETECTION
-            if (config.dt.Rows.Count > 0)
+            if ( !isWorkerBusy )
             {
-                foreach (DataGridViewRow rw in dtg_Stocks.Rows)
-                {
-                    int qty;
-                    int.TryParse(Convert.ToString(config.dt.Rows[0]["Low_Detection"]), out qty);
-                    if (Convert.ToInt32(rw.Cells[6].Value) <= qty)
-                    {
-                        rw.DefaultCellStyle.ForeColor = Color.Red;
-                    }
-                }
+                isWorkerBusy = true;
+                PreloadWorker.RunWorkerAsync();
             }
-            TOTALS();
+            
         }
 
         private void DTG_Property()
@@ -781,6 +767,68 @@ namespace Inventory_System02
         private void cbo_CustID_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void PreloadWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            try
+            {
+                sql = "Select * from Stocks order by `Entry Date` desc limit 10";
+                this.Invoke(new MethodInvoker(delegate { config.Load_DTG(sql, dtg_Stocks); }));
+
+
+                this.Invoke(new MethodInvoker(delegate { DTG_Property(); }));
+                sql = "Select Low_Detection from Settings";
+                config.singleResult(sql);
+                //DTG STOCKS LOW DETECTION
+                if (config.dt.Rows.Count > 0)
+                {
+                    foreach (DataGridViewRow rw in dtg_Stocks.Rows)
+                    {
+                        int qty;
+                        int.TryParse(Convert.ToString(config.dt.Rows[0]["Low_Detection"]), out qty);
+                        if (Convert.ToInt32(rw.Cells[6].Value) <= qty)
+                        {
+                            //rw.DefaultCellStyle.ForeColor = Color.Red;
+                            this.Invoke(new MethodInvoker(delegate { rw.DefaultCellStyle.ForeColor = Color.Red; }));
+                        }
+                    }
+                }
+                TOTALS();
+            }
+            catch(SqlException ex)
+            {
+                e.Result = ex.Message;
+            }
+            catch(Exception exc)
+            {
+                e.Result = exc.Message;
+            }
+        
+        }
+
+        private void PreloadWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            if ( e.Error != null )
+            {
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    lbl_error_message.Text = e.Error.Message;
+                    lbl_error_message.ForeColor = Color.Red;
+                    timer_error.Enabled = true;
+                }));
+            }
+            isWorkerBusy = false;
+            lbl_error_message.Text = "Inventory item list limit by 10. Please search for the exact item. Thank you";
+            lbl_error_message.ForeColor = Color.Green;
+            timer_error.Enabled = true;
+
+        }
+
+        private void timer_error_Tick(object sender, EventArgs e)
+        {
+            lbl_error_message.Text = "";
+            timer_error.Enabled = false;
         }
 
         private void SaveStatus()

@@ -60,7 +60,7 @@ namespace Inventory_System02.Reports_Dir
                 foreach (CheckBox ch in grp_filters.Controls)
                 {
                     if (ch is CheckBox)
-                    {
+                    {   
                         ch.Checked = true;
                         chk_Unselect.Checked = false;
                     }
@@ -266,7 +266,7 @@ namespace Inventory_System02.Reports_Dir
         }
         private void DTG_Properties()
         {
-            if ( dtg_PreviewPage.Rows.Count > 0 )
+            if ( dtg_PreviewPage.Columns.Count >= 1 )
             {
                 func = new usableFunction();
                 dtg_PreviewPage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

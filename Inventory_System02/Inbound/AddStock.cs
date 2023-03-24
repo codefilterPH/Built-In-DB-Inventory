@@ -68,6 +68,7 @@ namespace Inventory_System02
                 backgroundWorker1.RunWorkerAsync();
             }
 
+            LoadImageWorker.RunWorkerAsync();
             DTG_Property();
 
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
@@ -95,73 +96,18 @@ namespace Inventory_System02
                 dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            }
-            if (dtg_Items.Rows.Count >= 1)
-            {
-                try
+
+                for (int i = 0; i < dtg_Items.Rows.Count; i++)
                 {
-                    //Format to date dtg cell
-                    dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
-                    //sorting
-                    dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
-
-                    if (!config.dt.Columns.Contains("Image"))
-                    {
-                        config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-                    }
-                    foreach (DataRow rw in config.dt.Rows)
-                    {
-                        if (File.Exists(rw["Image Path"].ToString()))
-                        {
-                            rw["Image"] = File.ReadAllBytes(rw["Image Path"].ToString());
-                        }
-                        else
-                        {
-                            string imagePath = item_image_location + "DONOTDELETE_SUBIMAGE";
-                            string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
-                            foreach (string ext in extensions)
-                            {
-                                if (File.Exists(imagePath + ext))
-                                {
-                                    rw["Image"] = File.ReadAllBytes(imagePath + ext);
-                                    break;
-                                }
-                            }
-                            // If none of the image files exist, set the image to null or an empty byte array
-                            if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
-                            {
-                                rw["Image"] = null;
-                                // rw["Image"] = new byte[0];
-                            }
-                        }
-                    }
-                    dtg_Items.Columns["Image"].DisplayIndex = 0;
-                    for (int i = 0; i < dtg_Items.Columns.Count; i++)
-                    {
-                        if (dtg_Items.Columns[i] is DataGridViewImageColumn)
-                        {
-                            ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                            break;
-                        }
-
-                    }
-                    for (int i = 0; i < dtg_Items.Rows.Count; i++)
-                    {
-                        totalrows = i;
-                    }
-                    totalrows += 1;
-                    lbl_items_count.Text = totalrows.ToString();
-
-                  
-
-                    Calculator_Timer.Start();
+                    totalrows = i;
                 }
-                catch (Exception ex)
-                {
-                    lbl_error_message.Text = ex.Message;
-                    timer_Error_message.Enabled = true;
-                }
+                totalrows += 1;
+                lbl_items_count.Text = totalrows.ToString();
+
+
+                Calculator_Timer.Start();
             }
+           
         }
         private void Calculator_Timer_Tick(object sender, EventArgs e)
         {
@@ -1105,6 +1051,7 @@ namespace Inventory_System02
                 int progress = (int)((i / (double)rowcounter) * 100);
                 backgroundWorker1.ReportProgress(progress);
             }
+
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1114,12 +1061,185 @@ namespace Inventory_System02
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        { 
-           progressBar1.Value = 100;
-           lbl_error_message.Text = "Load to table progress completed.";
-           lbl_error_message.ForeColor = Color.Green;
-           timer_Error_message.Enabled = true;
-           isWorkerBusy = false;
+        {
+            progressBar1.Value = 100;
+            lbl_error_message.Text = "Load to table progress completed.";
+            lbl_error_message.ForeColor = Color.Green;
+            timer_Error_message.Enabled = true;
+            isWorkerBusy = false;
+
+           
+        }
+
+        private void LoadImageWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+      
+            if (dtg_Items.Rows.Count >= 1)
+            {
+                try
+                {
+                    //Format to date dtg cell
+                    dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
+                    //sorting
+                    dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
+
+                    if (!dtg_Items.Columns.Contains("Image"))
+                    {
+                        dtg_Items.Columns.Add(new DataGridViewImageColumn() { Name = "Image", DataPropertyName = "Image", ImageLayout = DataGridViewImageCellLayout.Zoom });
+                    }
+
+                    //Load image
+                    foreach (DataGridViewRow row in dtg_Items.Rows)
+                    {
+                        if (File.Exists(row.Cells["Image Path"].Value.ToString()))
+                        {
+                            row.Cells["Image"].Value = File.ReadAllBytes(row.Cells["Image Path"].Value.ToString());
+                        }
+                        else
+                        {
+                            string imagePath = item_image_location + "DONOTDELETE_SUBIMAGE";
+                            string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                            foreach (string ext in extensions)
+                            {
+                                if (File.Exists(imagePath + ext))
+                                {
+                                    row.Cells["Image"].Value = File.ReadAllBytes(imagePath + ext);
+                                    break;
+                                }
+                            }
+                            // If none of the image files exist, set the image to null or an empty byte array
+                            if (row.Cells["Image"].Value == null || ((byte[])row.Cells["Image"].Value).Length == 0)
+                            {
+                                row.Cells["Image"].Value = null;
+                                // row.Cells["Image"].Value = new byte[0];
+                            }
+                        }
+                    }
+                    dtg_Items.Columns["Image"].DisplayIndex = 0;
+
+
+                    for (int i = 0; i < dtg_Items.Columns.Count; i++)
+                    {
+                        if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+                        {
+                            ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                            break;
+                        }
+
+                    }
+                    for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                    {
+                        totalrows = i;
+                    }
+                    totalrows += 1;
+                    lbl_items_count.Text = totalrows.ToString();
+
+                    MessageBox.Show(dtg_Items.Rows.Count.ToString());
+
+                    Calculator_Timer.Start();
+                }
+                catch (Exception ex)
+                {
+                    e.Result = ex.Message;
+                }
+            }
+        }
+
+        private void LoadImageWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                lbl_error_message.Text = e.Error.Message;
+                lbl_error_message.ForeColor = Color.Red;
+                timer_Error_message.Enabled = true;
+            }
+        }
+
+        private void LoadImageWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            int rowIndex = e.ProgressPercentage;
+            byte[] image = (byte[])e.UserState;
+
+            DataGridViewRow row = dtg_Items.Rows[rowIndex];
+            if (row.Cells["Image"].Value == null)
+            {
+                row.Cells["Image"].Value = image;
+                row.Cells["Image"].ValueType = typeof(DataGridViewImageCell);
+            }
+            else
+            {
+                ((DataGridViewImageCell)row.Cells["Image"]).Value = Image.FromStream(new MemoryStream(image));
+            }
+
+            // Refresh the row to reflect the changes
+           // dtg_Items.Refresh();
+
+        }
+
+        private void loadImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dtg_Items.Rows.Count >= 1)
+            {
+                try
+                {
+                    //Format to date dtg cell
+                    dtg_Items.Columns["Entry Date"].DefaultCellStyle.Format = Includes.AppSettings.DateFormatRetrieve;
+                    //sorting
+                    dtg_Items.Sort(dtg_Items.Columns["Entry Date"], ListSortDirection.Descending);
+
+                    if (!dtg_Items.Columns.Contains("Image"))
+                    {
+                        dtg_Items.Columns.Add(new DataGridViewImageColumn() { Name = "Image", DataPropertyName = "Image", ImageLayout = DataGridViewImageCellLayout.Zoom });
+                    }
+
+                    //Load image
+                    foreach (DataGridViewRow row in dtg_Items.Rows)
+                    {
+                        if (File.Exists(row.Cells["Image Path"].Value.ToString()))
+                        {
+                            row.Cells["Image"].Value = File.ReadAllBytes(row.Cells["Image Path"].Value.ToString());
+                        }
+                        else
+                        {
+                            string imagePath = item_image_location + "DONOTDELETE_SUBIMAGE";
+                            string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                            foreach (string ext in extensions)
+                            {
+                                if (File.Exists(imagePath + ext))
+                                {
+                                    row.Cells["Image"].Value = File.ReadAllBytes(imagePath + ext);
+                                    break;
+                                }
+                            }
+                            // If none of the image files exist, set the image to null or an empty byte array
+                            if (row.Cells["Image"].Value == null || ((byte[])row.Cells["Image"].Value).Length == 0)
+                            {
+                                row.Cells["Image"].Value = null;
+                                // row.Cells["Image"].Value = new byte[0];
+                            }
+                        }
+                    }
+                    dtg_Items.Columns["Image"].DisplayIndex = 0;
+
+
+                    for (int i = 0; i < dtg_Items.Columns.Count; i++)
+                    {
+                        if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+                        {
+                            ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                            break;
+                        }
+
+                    }
+                 
+                }
+                catch (Exception ex)
+                {
+                    lbl_error_message.Text = ex.Message;
+                    lbl_error_message.ForeColor = Color.Red;
+                    timer_Error_message.Enabled = true;
+                }
+            }
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
