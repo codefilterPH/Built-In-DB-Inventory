@@ -78,36 +78,43 @@ namespace Inventory_System02
         double totalrows = 0;
         private void DTG_Property()
         {
-            if ( dtg_Items.Columns.Count > 1)
+            try
             {
-                //Format to add comma separator and two decimal places in dtg
-                dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
-                dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
-                //Hide some columns
-                dtg_Items.Columns[0].Visible = false;
-                dtg_Items.Columns[2].Visible = false;
-                dtg_Items.Columns[9].Visible = false;
-
-                dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-                dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                if (dtg_Items.Columns.Count > 1)
                 {
-                    totalrows = i;
+                    //Format to add comma separator and two decimal places in dtg
+                    dtg_Items.Columns[7].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_Items.Columns[8].DefaultCellStyle.Format = "#,##0.00";
+                    //Hide some columns
+                    dtg_Items.Columns[0].Visible = false;
+                    dtg_Items.Columns[2].Visible = false;
+                    dtg_Items.Columns[9].Visible = false;
+
+                    dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                    dtg_Items.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_Items.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_Items.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                    for (int i = 0; i < dtg_Items.Rows.Count; i++)
+                    {
+                        totalrows = i;
+                    }
+                    totalrows += 1;
+                    lbl_items_count.Text = totalrows.ToString();
+
+                    Calculator_Timer.Start();
                 }
-                totalrows += 1;
-                lbl_items_count.Text = totalrows.ToString();
-
-
-                Calculator_Timer.Start();
             }
-           
+            catch ( InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Property();
+            }
         }
         private void Calculator_Timer_Tick(object sender, EventArgs e)
         {

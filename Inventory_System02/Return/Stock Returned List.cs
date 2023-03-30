@@ -66,22 +66,29 @@ namespace Inventory_System02
         int total_qty;
         private void CalculateValue()
         {
-            total_qty = 0;
-            total_val = 0;
-            for (int i = 0; i < dtg_return_list.Rows.Count; i++)
+            try
             {
-                int qty = 0;
-                decimal amount = 0;
-             
-                int.TryParse(dtg_return_list.Rows[i].Cells[9].Value.ToString(), out qty);
-                decimal.TryParse(dtg_return_list.Rows[i].Cells[11].Value.ToString(), out amount);
+                total_qty = 0;
+                total_val = 0;
+                for (int i = 0; i < dtg_return_list.Rows.Count; i++)
+                {
+                    int qty = 0;
+                    decimal amount = 0;
 
-                total_qty += qty;
-                total_val += amount;
+                    int.TryParse(dtg_return_list.Rows[i].Cells[9].Value.ToString(), out qty);
+                    decimal.TryParse(dtg_return_list.Rows[i].Cells[11].Value.ToString(), out amount);
 
+                    total_qty += qty;
+                    total_val += amount;
+
+                }
+                out_qty.Text = total_qty.ToString();
+                out_amt.Text = total_val.ToString();
             }
-            out_qty.Text = total_qty.ToString();
-            out_amt.Text = total_val.ToString();
+            catch ( InvalidOperationException ex )
+            {
+                lbl_exception.Text = "Error: " + ex.Message;
+            } 
         }
 
         private void Stock_Returned_Load(object sender, EventArgs e)
@@ -131,7 +138,7 @@ namespace Inventory_System02
                                 // Check if the config object is initialized properly
                                 if (config == null)
                                 {
-                                    MessageBox.Show("Config object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    lbl_exception.Text = "Error: Config object is null. Please check the initialization.";
                                     break;
                                 }
 
@@ -140,7 +147,7 @@ namespace Inventory_System02
                                 // Check if the transaction reference is null or empty
                                 if (string.IsNullOrEmpty(transactionRef))
                                 {
-                                    MessageBox.Show("Transaction reference is null or empty. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    lbl_exception.Text = "Error: Transaction reference is null or empty. Please check the data.";
                                     continue;
                                 }
 
@@ -150,7 +157,7 @@ namespace Inventory_System02
                                 // Check if the dt object is properly initialized
                                 if (config.dt == null)
                                 {
-                                    MessageBox.Show("DT object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    lbl_exception.Text = "Error: DT object is null. Please check the initialization.";
                                     break;
                                 }
 
@@ -190,21 +197,29 @@ namespace Inventory_System02
         }
         private void DTG_Property()
         {
-
-            if (dtg_return_list.Columns.Count > 0)
+            try
             {
-                dtg_return_list.Columns[0].Visible = false;
-                dtg_return_list.Columns[2].Visible = false;
-                dtg_return_list.Columns[5].Visible = false;
-                dtg_return_list.Columns[8].Visible = false;
-                dtg_return_list.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_return_list.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_return_list.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_return_list.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_return_list.Columns[10].DefaultCellStyle.Format = "#,##0.00";
-                dtg_return_list.Columns[11].DefaultCellStyle.Format = "#,##0.00";
+                if (dtg_return_list.Columns.Count > 0)
+                {
+                    dtg_return_list.Columns[0].Visible = false;
+                    dtg_return_list.Columns[2].Visible = false;
+                    dtg_return_list.Columns[5].Visible = false;
+                    dtg_return_list.Columns[8].Visible = false;
+                    dtg_return_list.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_return_list.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_return_list.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_return_list.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_return_list.Columns[10].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_return_list.Columns[11].DefaultCellStyle.Format = "#,##0.00";
 
-                func.Count_person(dtg_return_list, lbl_items_count);
+                    func.Count_person(dtg_return_list, lbl_items_count);
+                }
+            }
+            catch ( System.InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Property();
             }
         }
 
@@ -487,7 +502,11 @@ namespace Inventory_System02
                                 if (Convert.ToInt32(dtg_return_list.CurrentRow.Cells["Quantity"].Value) != 0)
                                 {
                                     ReturnToStocks frm = new ReturnToStocks(Global_ID, Fullname, JobRole, txt_Trans_number.Text, dtg_return_list.CurrentRow.Cells[5].Value.ToString());
-                                    frm.ShowDialog();
+                                    DialogResult result = frm.ShowDialog();
+                                    if (result == DialogResult.OK)
+                                    {
+                                        Stock_Returned_Load(sender, e);
+                                    }
                                     dtg_clicked = false;
                                 }
                                 else

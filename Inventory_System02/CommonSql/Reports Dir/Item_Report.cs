@@ -109,51 +109,57 @@ namespace Inventory_System02.Reports_Dir
         int total_qty;
         private void calculate_Total()
         {
-            if ( dtg_PreviewPage.Rows.Count > 0 )
+            try
             {
-                decimal amount = 0;
-                int quantity = 0;
-                total_val = 0;
-                total_qty = 0;
-                if (cbo_report_type.Text == "Stock In")
+                if (dtg_PreviewPage.Rows.Count > 0)
                 {
-                    foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
+                    decimal amount = 0;
+                    int quantity = 0;
+                    total_val = 0;
+                    total_qty = 0;
+                    if (cbo_report_type.Text == "Stock In")
                     {
-                        quantity = 0;
-                        amount = 0;
-                        int.TryParse(rw.Cells[6].Value.ToString(), out quantity);
-                        decimal.TryParse(rw.Cells[8].Value.ToString(), out amount);
+                        foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
+                        {
+                            quantity = 0;
+                            amount = 0;
+                            int.TryParse(rw.Cells[6].Value.ToString(), out quantity);
+                            decimal.TryParse(rw.Cells[8].Value.ToString(), out amount);
 
-                        total_qty += quantity;
-                        total_val += amount;
+                            total_qty += quantity;
+                            total_val += amount;
+                        }
                     }
+                    else
+                    {
+                        foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
+                        {
+                            quantity = 0;
+                            amount = 0;
+                            int.TryParse(rw.Cells[9].Value.ToString(), out quantity);
+                            decimal.TryParse(rw.Cells[11].Value.ToString(), out amount);
+
+                            total_qty += quantity;
+                            total_val += amount;
+                        }
+                    }
+
+                    lbl_total_items.Text = dtg_PreviewPage.Rows.Count.ToString();
+                    lbl_total_quantity.Text = total_qty.ToString();
+                    lbl_total_value.Text = total_val.ToString("#,##0.00");
                 }
                 else
                 {
-                    foreach (DataGridViewRow rw in dtg_PreviewPage.Rows)
-                    {
-                        quantity = 0;
-                        amount = 0;
-                        int.TryParse(rw.Cells[9].Value.ToString(), out quantity);
-                        decimal.TryParse(rw.Cells[11].Value.ToString(), out amount);
+                    lbl_total_items.Text = "0";
+                    lbl_total_quantity.Text = "0";
+                    lbl_total_value.Text = "0";
 
-                        total_qty += quantity;
-                        total_val += amount;
-                    }
                 }
-
-                lbl_total_items.Text = dtg_PreviewPage.Rows.Count.ToString();
-                lbl_total_quantity.Text = total_qty.ToString();
-                lbl_total_value.Text = total_val.ToString("#,##0.00");
             }
-            else
+            catch (NullReferenceException ex)
             {
-                lbl_total_items.Text = "0";
-                lbl_total_quantity.Text = "0";
-                lbl_total_value.Text = "0";
-
-            }
-            
+                lbl_exception.Text = "Warning: Null reference exception in calculation function, " + ex.Message;
+            } 
         }
 
         public void Calculate_Filtering(string preview_or_print, string report_type)
@@ -195,57 +201,79 @@ namespace Inventory_System02.Reports_Dir
                 {
                     if (cbo_report_type.Text == "Stock In")
                     {
-                        if (dtg_PreviewPage.DataSource != null)
+                        try
                         {
-                            list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
-                             dataRow => new Class_Item_Var
-                             {
-                                 Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
-                                 Item_ID = dataRow.Field<string>("Stock ID").ToString(),
-                                 Item_Name = dataRow.Field<string>("Item Name").ToString(),
-                                 Brand = dataRow.Field<string>("Brand").ToString(),
-                                 Description = dataRow.Field<string>("Description").ToString(),
-                                 Quantity = dataRow["Quantity"].ToString(),
-                                 Price = dataRow["Price"].ToString(),
-                                 Amount = dataRow["Total"].ToString(),
-                                 Supplier_ID = dataRow.Field<string>("Supplier ID").ToString(),
-                                 Supplier_Name = dataRow.Field<string>("Supplier Name").ToString(),
-                                 Use_ID = dataRow.Field<string>("User ID").ToString(),
-                                 Staff_Name = dataRow.Field<string>("Warehouse Staff Name").ToString(),
-                                 Job_Role = dataRow.Field<string>("Job Role").ToString(),
-                                 Trans_Ref = dataRow.Field<string>("Transaction Reference").ToString(),
-
-
-                             }).ToList();
-                            rs.Value = list2;
+                            if (dtg_PreviewPage.DataSource != null)
+                            {
+                                list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                                 dataRow => new Class_Item_Var
+                                 {
+                                     Entry_Date = dataRow["Entry Date"].ToString(),
+                                     Item_ID = dataRow["Stock ID"].ToString(),
+                                     Item_Name = dataRow["Item Name"].ToString(),
+                                     Brand = dataRow["Brand"].ToString(),
+                                     Description = dataRow["Description"].ToString(),
+                                     Quantity = dataRow["Quantity"].ToString(),
+                                     Price = dataRow["Price"].ToString(),
+                                     Amount = dataRow["Total"].ToString(),
+                                     Supplier_ID = dataRow["Supplier ID"].ToString(),
+                                     Supplier_Name = dataRow["Supplier Name"].ToString(),
+                                     Use_ID = dataRow["User ID"].ToString(),
+                                     Staff_Name = dataRow["Warehouse Staff Name"].ToString(),
+                                     Job_Role = dataRow["Job Role"].ToString(),
+                                     Trans_Ref = dataRow["Transaction Reference"].ToString(),
+                                 }).ToList();
+                                rs.Value = list2;
+                            }
+                            else
+                            {
+                                lbl_exception.Text = "Error: The data source is null.";
+                            }
                         }
+                        catch ( NullReferenceException ex)
+                        {
+                            lbl_exception.Text = "Error: " + ex.Message;
+                        }   
                     }
                     else
                     {
-                        if (dtg_PreviewPage.DataSource != null)
+                        try
                         {
-                            list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
-                          dataRow => new Class_Item_Var
-                          {
-                              Entry_Date = dataRow.Field<string>("Entry Date"),
-                              Item_ID = dataRow.Field<string>("Stock ID"),
-                              Item_Name = dataRow.Field<string>("Item Name"),
-                              Brand = dataRow.Field<string>("Brand"),
-                              Description = dataRow.Field<string>("Description"),
-                              Quantity = dataRow["Quantity"].ToString(),
-                              Price = dataRow["Price"].ToString(),
-                              Amount = dataRow["Total"].ToString(),
-                              Customer_ID = dataRow.Field<string>("Customer ID"),
-                              Customer_Name = dataRow.Field<string>("Customer Name"),
-                              Customer_Address = dataRow.Field<string>("Customer Address"),
-                              Use_ID = dataRow.Field<string>("User ID"),
-                              Staff_Name = dataRow.Field<string>("Warehouse Staff Name"),
-                              Job_Role = dataRow.Field<string>("Job Role"),
-                              Trans_Ref = dataRow.Field<string>("Transaction Reference"),
 
-                          }).ToList();
-                            rs.Value = list2;
+                            if (dtg_PreviewPage.DataSource != null)
+                            {
+                                list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                                  dataRow => new Class_Item_Var
+                                  {
+                                      Entry_Date = dataRow["Entry Date"].ToString(),
+                                      Item_ID = dataRow["Stock ID"].ToString(),
+                                      Item_Name = dataRow["Item Name"].ToString(),
+                                      Brand = dataRow["Brand"].ToString(),
+                                      Description = dataRow["Description"].ToString(),
+                                      Quantity = dataRow["Quantity"].ToString(),
+                                      Price = dataRow["Price"].ToString(),
+                                      Amount = dataRow["Total"].ToString(),
+                                      Customer_ID = dataRow["Customer ID"].ToString(),
+                                      Customer_Name = dataRow["Customer Name"].ToString(),
+                                      Customer_Address = dataRow["Customer Address"].ToString(),
+                                      Use_ID = dataRow["User ID"].ToString(),
+                                      Staff_Name = dataRow["Warehouse Staff Name"].ToString(),
+                                      Job_Role = dataRow["Job Role"].ToString(),
+                                      Trans_Ref = dataRow["Transaction Reference"].ToString()
+
+                                  }).ToList();
+                                    rs.Value = list2;
+                            }
+                            else
+                            {
+                                lbl_exception.Text = "Error: The data source is null.";
+                            }
                         }
+                        catch (NullReferenceException ex)
+                        {
+                            lbl_exception.Text = "Error: " + ex.Message;
+                        }
+
                     }
 
                     rs.Name = "DataSet1";
@@ -403,68 +431,81 @@ namespace Inventory_System02.Reports_Dir
 
         private void cbo_report_type_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (cbo_report_type.Text == "Stock In")
+            try
             {
-                chk_Sup_ID.Visible = true;
-                chk_Sup_Name.Visible = true;
-                chk_Sup_Name.Checked = true;
+                if (cbo_report_type.Text == "Stock In")
+                {
+                    chk_Sup_ID.Visible = true;
+                    chk_Sup_Name.Visible = true;
+                    chk_Sup_Name.Checked = true;
 
-                chk_Cust_ID.Visible = false;
-                chk_Cust_Name.Visible = false;
-                chk_Cust_Address.Visible = false;
+                    chk_Cust_ID.Visible = false;
+                    chk_Cust_Name.Visible = false;
+                    chk_Cust_Address.Visible = false;
 
-                chk_Cust_ID.Checked = false;
-                chk_Cust_Name.Checked = false;
-                chk_Cust_Address.Checked = false;
+                    chk_Cust_ID.Checked = false;
+                    chk_Cust_Name.Checked = false;
+                    chk_Cust_Address.Checked = false;
+                }
+                else
+                {
+                    chk_Cust_ID.Visible = true;
+                    chk_Cust_Name.Visible = true;
+                    chk_Cust_Address.Visible = true;
+                    chk_Cust_Name.Checked = true;
+
+
+                    chk_Sup_ID.Visible = false;
+                    chk_Sup_Name.Visible = false;
+                    chk_Sup_Name.Checked = false;
+                    chk_Sup_ID.Checked = false;
+                }
+                calculate_Total();
+                Calculate_Filtering("load_todtg", cbo_report_type.Text);
             }
-            else
+            catch ( Exception ex )
             {
-                chk_Cust_ID.Visible = true;
-                chk_Cust_Name.Visible = true;
-                chk_Cust_Address.Visible = true;
-                chk_Cust_Name.Checked = true;
-
-
-                chk_Sup_ID.Visible = false;
-                chk_Sup_Name.Visible = false;
-                chk_Sup_Name.Checked = false;
-                chk_Sup_ID.Checked = false;
-            }
-            calculate_Total();
-            Calculate_Filtering("load_todtg", cbo_report_type.Text);
-
+                lbl_exception.Text = "Error: " + ex.Message;
+            }     
         }
 
         private void Dtg_Properties()
         {
-            dtg_PreviewPage.Columns["Entry Date"].DisplayIndex = 0;
-            dtg_PreviewPage.Columns["Stock ID"].DisplayIndex = 1;
-            dtg_PreviewPage.Columns["Item Name"].DisplayIndex = 2;
-            dtg_PreviewPage.Columns["Brand"].DisplayIndex = 3;
-            dtg_PreviewPage.Columns["Description"].DisplayIndex = 4;
-            dtg_PreviewPage.Columns["Quantity"].DisplayIndex = 5;
-            dtg_PreviewPage.Columns["Price"].DisplayIndex = 6;
-            dtg_PreviewPage.Columns["Total"].DisplayIndex = 7;
-
-            if (cbo_report_type.Text == "Stock In")
+            try
             {
-                dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 8;
-                dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 9;
-                dtg_PreviewPage.Columns["Image Path"].Visible = false;
+                dtg_PreviewPage.Columns["Entry Date"].DisplayIndex = 0;
+                dtg_PreviewPage.Columns["Stock ID"].DisplayIndex = 1;
+                dtg_PreviewPage.Columns["Item Name"].DisplayIndex = 2;
+                dtg_PreviewPage.Columns["Brand"].DisplayIndex = 3;
+                dtg_PreviewPage.Columns["Description"].DisplayIndex = 4;
+                dtg_PreviewPage.Columns["Quantity"].DisplayIndex = 5;
+                dtg_PreviewPage.Columns["Price"].DisplayIndex = 6;
+                dtg_PreviewPage.Columns["Total"].DisplayIndex = 7;
+
+                if (cbo_report_type.Text == "Stock In")
+                {
+                    dtg_PreviewPage.Columns["Supplier ID"].DisplayIndex = 8;
+                    dtg_PreviewPage.Columns["Supplier Name"].DisplayIndex = 9;
+                    dtg_PreviewPage.Columns["Image Path"].Visible = false;
+                }
+
+                dtg_PreviewPage.Columns["count"].Visible = false;
+
+                dtg_PreviewPage.Columns["User ID"].DisplayIndex = 10;
+                dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 11;
+                dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 12;
+                dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 13;
+
+                dtg_PreviewPage.Columns["Price"].DefaultCellStyle.Format = "#,##0.00";
+                dtg_PreviewPage.Columns["Total"].DefaultCellStyle.Format = "#,##0.00";
+
             }
-
-            dtg_PreviewPage.Columns["count"].Visible = false;
-
-            dtg_PreviewPage.Columns["User ID"].DisplayIndex = 10;
-            dtg_PreviewPage.Columns["Warehouse Staff Name"].DisplayIndex = 11;
-            dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 12;
-            dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 13;
-
-            dtg_PreviewPage.Columns["Price"].DefaultCellStyle.Format = "#,##0.00";
-            dtg_PreviewPage.Columns["Total"].DefaultCellStyle.Format = "#,##0.00";
-
-
-
+            catch ( InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                Dtg_Properties();
+            }
         }
 
         private void chk_Select_All_CheckedChanged_1(object sender, EventArgs e)

@@ -205,7 +205,6 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Too
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\SQLite.Interop.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Tools\tools.dll
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.exe.config
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.exe.manifest
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\Inventory MS.application

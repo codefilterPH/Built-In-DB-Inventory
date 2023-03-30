@@ -65,130 +65,146 @@ namespace Inventory_System02
 
         private void DTG_Property()
         {
-            if (dtg_Stocks.Columns.Count > 0)
+            try
             {
-                dtg_Stocks.Columns[0].Visible = false;
-                dtg_Stocks.Columns[1].Visible = false;
-                dtg_Stocks.Columns[2].Visible = false;
-                dtg_Stocks.Columns[9].Visible = false;
-                dtg_Stocks.Columns[10].Visible = false;
-                dtg_Stocks.Columns[11].Visible = false;
-                dtg_Stocks.Columns[12].Visible = false;
-                dtg_Stocks.Columns[13].Visible = false;
-                dtg_Stocks.Columns[14].Visible = false;
-                dtg_Stocks.Columns[15].Visible = false;
-                dtg_Stocks.Columns[16].Visible = false;
+                if (dtg_Stocks.Columns.Count > 0)
+                {
+                    dtg_Stocks.Columns[0].Visible = false;
+                    dtg_Stocks.Columns[1].Visible = false;
+                    dtg_Stocks.Columns[2].Visible = false;
+                    dtg_Stocks.Columns[9].Visible = false;
+                    dtg_Stocks.Columns[10].Visible = false;
+                    dtg_Stocks.Columns[11].Visible = false;
+                    dtg_Stocks.Columns[12].Visible = false;
+                    dtg_Stocks.Columns[13].Visible = false;
+                    dtg_Stocks.Columns[14].Visible = false;
+                    dtg_Stocks.Columns[15].Visible = false;
+                    dtg_Stocks.Columns[16].Visible = false;
 
-                if (!config.dt.Columns.Contains("Image"))
-                {
-                    config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
-                }
-                foreach (DataRow rw in config.dt.Rows)
-                {
-                    if (File.Exists(rw[9].ToString()))
+                    if (!config.dt.Columns.Contains("Image"))
                     {
-                        rw["Image"] = File.ReadAllBytes(rw[9].ToString());
+                        config.dt.Columns.Add("Image", Type.GetType("System.Byte[]"));
                     }
-                    else
+                    foreach (DataRow rw in config.dt.Rows)
                     {
-                        string imagePath = Includes.AppSettings.Image_DIR + "\\" + "DONOTDELETE_SUBIMAGE";
-                        string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
-                        foreach (string ext in extensions)
+                        if (File.Exists(rw[9].ToString()))
                         {
-                            if (File.Exists(imagePath + ext))
+                            rw["Image"] = File.ReadAllBytes(rw[9].ToString());
+                        }
+                        else
+                        {
+                            string imagePath = Includes.AppSettings.Image_DIR + "\\" + "DONOTDELETE_SUBIMAGE";
+                            string[] extensions = { ".jpg", ".JPG", ".png", ".PNG" };
+                            foreach (string ext in extensions)
                             {
-                                rw["Image"] = File.ReadAllBytes(imagePath + ext);
-                                break;
+                                if (File.Exists(imagePath + ext))
+                                {
+                                    rw["Image"] = File.ReadAllBytes(imagePath + ext);
+                                    break;
+                                }
+                            }
+                            // If none of the image files exist, set the image to null or an empty byte array
+                            if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
+                            {
+                                rw["Image"] = null;
+                                // rw["Image"] = new byte[0];
                             }
                         }
-                        // If none of the image files exist, set the image to null or an empty byte array
-                        if (rw["Image"] == null || ((byte[])rw["Image"]).Length == 0)
+                    }
+
+                    dtg_Stocks.Columns["Image"].DisplayIndex = 0;
+
+                    for (int i = 0; i < dtg_Stocks.Columns.Count; i++)
+                    {
+                        if (dtg_Stocks.Columns[i] is DataGridViewImageColumn)
                         {
-                            rw["Image"] = null;
-                            // rw["Image"] = new byte[0];
+                            ((DataGridViewImageColumn)dtg_Stocks.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                            break;
                         }
                     }
+
+                    dtg_Stocks.Columns[7].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_Stocks.Columns[8].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_Stocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                    dtg_Stocks.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Stocks.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_Stocks.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_Stocks.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Stocks.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Stocks.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
+                    dtg_Stocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_Stocks.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_Stocks.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    //STOCK OUTBOUND
+                    dtg_AddedStocks.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_AddedStocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_AddedStocks.Columns[5].DefaultCellStyle.Format = "#,##0.00";
+
                 }
-
-                dtg_Stocks.Columns["Image"].DisplayIndex = 0;
-
-                for (int i = 0; i < dtg_Stocks.Columns.Count; i++)
-                {
-                    if (dtg_Stocks.Columns[i] is DataGridViewImageColumn)
-                    {
-                        ((DataGridViewImageColumn)dtg_Stocks.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                        break;
-                    }
-                }
-
-                dtg_Stocks.Columns[7].DefaultCellStyle.Format = "#,##0.00";
-                dtg_Stocks.Columns[8].DefaultCellStyle.Format = "#,##0.00";
-                dtg_Stocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                dtg_Stocks.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Stocks.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_Stocks.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_Stocks.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Stocks.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Stocks.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-                dtg_Stocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_Stocks.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_Stocks.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;   
-                //STOCK OUTBOUND
-                dtg_AddedStocks.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_AddedStocks.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_AddedStocks.Columns[5].DefaultCellStyle.Format = "#,##0.00";
-
+            }
+            catch ( InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Property();
             }
         }
         private void TOTALS()
         {
-            if (dtg_AddedStocks.Rows.Count >= 1)
+            try
             {
-                HashSet<double> distinctQuantities = new HashSet<double>();
-                int totalQty = 0;
-                decimal totalAmt = 0;
-                int qty = 0;
-                decimal price = 0;
-
-                for (int i = 0; i < dtg_AddedStocks.Rows.Count; i++)
+                if (dtg_AddedStocks.Rows.Count >= 1)
                 {
-                    int.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out qty);
-                    decimal.TryParse(dtg_AddedStocks.Rows[i].Cells[5].Value.ToString(), out price);
+                    HashSet<double> distinctQuantities = new HashSet<double>();
+                    int totalQty = 0;
+                    decimal totalAmt = 0;
+                    int qty = 0;
+                    decimal price = 0;
 
-                    totalQty += qty;
-                    totalAmt += qty * price;
+                    for (int i = 0; i < dtg_AddedStocks.Rows.Count; i++)
+                    {
+                        int.TryParse(dtg_AddedStocks.Rows[i].Cells[4].Value.ToString(), out qty);
+                        decimal.TryParse(dtg_AddedStocks.Rows[i].Cells[5].Value.ToString(), out price);
 
-                    distinctQuantities.Add(qty);
+                        totalQty += qty;
+                        totalAmt += qty * price;
+
+                        distinctQuantities.Add(qty);
+                    }
+
+                    out_qty.Text = totalQty.ToString();
+                    out_amt.Text = totalAmt.ToString();
+                    lbl_numb_out_items.Text = "Rows count: " + dtg_AddedStocks.Rows.Count.ToString();
+
+                }
+                else
+                {
+                    lbl_numb_out_items.Text = "Rows count: 0";
+                    out_qty.Text = "0";
+                    out_amt.Text = "0.00";
                 }
 
-                out_qty.Text = totalQty.ToString();
-                out_amt.Text = totalAmt.ToString();
-                lbl_numb_out_items.Text = "Rows count: " + dtg_AddedStocks.Rows.Count.ToString();
-
-            }
-            else
-            {
-                lbl_numb_out_items.Text = "Rows count: 0";
-                out_qty.Text = "0";
-                out_amt.Text = "0.00";
-            }
-
-            if (dtg_Stocks.Rows.Count >= 1)
-            {
-                quan = 0;
-                for (int i = 0; i < dtg_Stocks.Rows.Count; i++)
+                if (dtg_Stocks.Rows.Count >= 1)
                 {
-                    quan = i;
+                    quan = 0;
+                    for (int i = 0; i < dtg_Stocks.Rows.Count; i++)
+                    {
+                        quan = i;
+                    }
+                    quan += 1;
+                    lbl_items_qty.Text = "Number of items: " + quan.ToString();
                 }
-                quan += 1;
-                lbl_items_qty.Text = "Number of items: " + quan.ToString();
+                else
+                {
+                    lbl_items_qty.Text = "0";
+                }
             }
-            else
+            catch(Exception ex)
             {
-                lbl_items_qty.Text = "0";
+                lbl_error_message.Text = "Error: " + ex.Message;
             }
         }
 

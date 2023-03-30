@@ -43,6 +43,10 @@ namespace Inventory_System02.Reports_Dir
 
 
             Calculate_Filtering("loadToday");
+            if ( dtg_PreviewPage.Rows.Count == 0 )
+            {
+                lbl_Personnel.Text = "0";
+            }
         }
 
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)
@@ -139,23 +143,33 @@ namespace Inventory_System02.Reports_Dir
                 }
                 config.Load_DTG(sql, dtg_PreviewPage);
                 DTG_Properties();
-
+                list2 = new List<Class_Customer_Var>();
                 if (what_to_do != "load")
                 {
-                    list2 = new List<Class_Customer_Var>();
-                    if (dtg_PreviewPage.DataSource != null)
+                    try
                     {
-                        list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
-                      dataRow => new Class_Customer_Var
-                      {
-                          Cust_ID = dataRow.Field<string>("Customer ID").ToString(),
-                          Name = dataRow.Field<string>("Name").ToString(),
-                          Type = dataRow.Field<string>("Type").ToString(),
-                          Phone = dataRow.Field<string>("Phone Number").ToString(),
-                          Address = dataRow.Field<string>("Address").ToString(),
-                          Entry_Date = dataRow.Field<string>("Entry Date").ToString()
-                      }).ToList();
-                        rs.Value = list2;
+                        if ( dtg_PreviewPage.DataSource != null )
+                        {                      
+                            list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                            dataRow => new Class_Customer_Var
+                            {
+                                Cust_ID = dataRow["Customer ID"].ToString(),
+                                Name = dataRow["Name"].ToString(),
+                                Type = dataRow["Type"].ToString(),
+                                Phone = dataRow["Phone Number"].ToString(),
+                                Address = dataRow["Address"].ToString(),
+                                Entry_Date = dataRow["Entry Date"].ToString()
+                            }).ToList();
+                            rs.Value = list2;
+                        }
+                        else
+                        {
+                            lbl_exception.Text = "Error: The data source is empty";
+                        }
+                    }
+                    catch ( NullReferenceException ex )
+                    {
+                        lbl_exception.Text = "Error: " + ex.Message;
                     }
 
                     rs.Name = "DataSet1";
@@ -232,7 +246,7 @@ namespace Inventory_System02.Reports_Dir
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                lbl_exception.Text = "Error: " + ex.Message;
             }
         }
         private void DTG_Properties()

@@ -58,56 +58,71 @@ namespace Inventory_System02
         }
         private void DTG_Property()
         {
-            if (config.dt.Columns.Count > 0)
+            try
             {
-                dtg_outlist.Columns[0].Visible = false;
-                dtg_outlist.Columns[2].Visible = false;
-                dtg_outlist.Columns[5].Visible = false;
-                dtg_outlist.Columns[8].Visible = false;
-                dtg_outlist.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_outlist.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_outlist.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_outlist.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_outlist.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_outlist.Columns[10].DefaultCellStyle.Format = "#,##0.00";
-                dtg_outlist.Columns[11].DefaultCellStyle.Format = "#,##0.00";
-                // dtg_outlist.Rows[0].Selected = true;
-                func.Count_person(dtg_outlist, lbl_items_count);
-                if (dtg_outlist.Rows.Count > 0)
+                if (config.dt.Columns.Count > 0)
                 {
-                    foreach (DataGridViewRow rw in dtg_outlist.Rows)
+                    dtg_outlist.Columns[0].Visible = false;
+                    dtg_outlist.Columns[2].Visible = false;
+                    dtg_outlist.Columns[5].Visible = false;
+                    dtg_outlist.Columns[8].Visible = false;
+                    dtg_outlist.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_outlist.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_outlist.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_outlist.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_outlist.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_outlist.Columns[10].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_outlist.Columns[11].DefaultCellStyle.Format = "#,##0.00";
+                    // dtg_outlist.Rows[0].Selected = true;
+                    func.Count_person(dtg_outlist, lbl_items_count);
+                    if (dtg_outlist.Rows.Count > 0)
                     {
-                        if (!string.IsNullOrEmpty(rw.Cells[12].Value.ToString()))
+                        foreach (DataGridViewRow rw in dtg_outlist.Rows)
                         {
-                            if (Convert.ToDateTime(rw.Cells[1].Value) >= Convert.ToDateTime(rw.Cells[12].Value))
+                            if (!string.IsNullOrEmpty(rw.Cells[12].Value.ToString()))
                             {
-                                rw.DefaultCellStyle.ForeColor = Color.Red;
+                                if (Convert.ToDateTime(rw.Cells[1].Value) >= Convert.ToDateTime(rw.Cells[12].Value))
+                                {
+                                    rw.DefaultCellStyle.ForeColor = Color.Red;
+                                }
                             }
                         }
                     }
                 }
+
+            }
+            catch ( InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Property();
             }
         }
 
-
         private void CalculateValue()
         {
-
-            decimal total_val = 0;
-            int total_qty = 0;
-            for (int i = 0; i < dtg_outlist.Rows.Count; i++)
+            try
             {
-                int qty = 0;
-                decimal amount = 0;
-                int.TryParse(dtg_outlist.Rows[i].Cells[9].Value.ToString(), out qty);
-                decimal.TryParse(dtg_outlist.Rows[i].Cells[11].Value.ToString(), out amount);
+                decimal total_val = 0;
+                int total_qty = 0;
+                for (int i = 0; i < dtg_outlist.Rows.Count; i++)
+                {
+                    int qty = 0;
+                    decimal amount = 0;
+                    int.TryParse(dtg_outlist.Rows[i].Cells[9].Value.ToString(), out qty);
+                    decimal.TryParse(dtg_outlist.Rows[i].Cells[11].Value.ToString(), out amount);
 
-                total_qty += qty;
-                total_val += amount;
+                    total_qty += qty;
+                    total_val += amount;
 
+                }
+                out_qty.Text = total_qty.ToString();
+                out_amt.Text = total_val.ToString();
             }
-            out_qty.Text = total_qty.ToString();
-            out_amt.Text = total_val.ToString();
+            catch ( InvalidOperationException ex )
+            {
+                lbl_exception.Text = "Error: " + ex.Message;
+            }  
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
@@ -121,83 +136,88 @@ namespace Inventory_System02
                     return;
                 }
 
-                if (MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                try
                 {
-                    if ( chk_select_all.Checked )
+                    if (MessageBox.Show("This will delete an entire transaction reference which might consist of 1 or more items on it. Continue?", "Warning Message",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        string sql = "DELETE FROM `Stock Out` WHERE count = '1' ";
-                        config.Execute_CUD(sql, "Unable to delete all items. Please try again!", "Successfully deleted all stock outbound!");
-
-                        sql = string.Empty;
-                        sql = "Delete from StockOutStatus";
-                        config.Execute_Query(sql);
-
-                        chk_select_all.Checked = false;
-                        refreshTableToolStripMenuItem_Click(sender, e);
-                        return;
-                    }
-                    else
-                    {
-                        if (dtg_outlist.SelectedRows.Count >= 1)
+                        if (chk_select_all.Checked)
                         {
-                            foreach (DataGridViewRow rw in dtg_outlist.SelectedRows)
-                            {
-                                // Check if the config object is initialized properly
-                                if (config == null)
-                                {
-                                    MessageBox.Show("Config object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    break;
-                                }
+                            string sql = "DELETE FROM `Stock Out` WHERE count = '1' ";
+                            config.Execute_CUD(sql, "Unable to delete all items. Please try again!", "Successfully deleted all stock outbound!");
 
-                                string transactionRef = rw.Cells[13].Value?.ToString();
+                            sql = string.Empty;
+                            sql = "Delete from StockOutStatus";
+                            config.Execute_Query(sql);
 
-                                // Check if the transaction reference is null or empty
-                                if (string.IsNullOrEmpty(transactionRef))
-                                {
-                                    MessageBox.Show("Transaction reference is null or empty. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    continue;
-                                }
-
-                                string sql = "SELECT * FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
-                                config.singleResult(sql);
-
-                                // Check if the dt object is properly initialized
-                                if (config.dt == null)
-                                {
-                                    MessageBox.Show("DT object is null. Please check the initialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    break;
-                                }
-
-                                if (config.dt.Rows.Count > 0)
-                                {
-                                    sql = "DELETE FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
-                                    config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
-
-                                    sql = string.Empty;
-                                    sql = "Delete from StockOutStatus where TransRef = '"+ transactionRef+ "' ";
-                                    config.Execute_Query(sql);
-
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-
-                            }
                             chk_select_all.Checked = false;
                             refreshTableToolStripMenuItem_Click(sender, e);
+                            return;
                         }
                         else
                         {
-                            MessageBox.Show("No selection from the table", "Nothing to Delete", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                            chk_select_all.Checked = false;
-                            return;
+                            if (dtg_outlist.SelectedRows.Count >= 1)
+                            {
+                                foreach (DataGridViewRow rw in dtg_outlist.SelectedRows)
+                                {
+                                    // Check if the config object is initialized properly
+                                    if (config == null)
+                                    {
+                                        lbl_exception.Text = "Error: Config object is null. Please check the initialization.";
+                                        break;
+                                    }
+
+                                    string transactionRef = rw.Cells[13].Value?.ToString();
+
+                                    // Check if the transaction reference is null or empty
+                                    if (string.IsNullOrEmpty(transactionRef))
+                                    {
+                                        lbl_exception.Text = "Error: Transaction reference is null or empty. Please check the data.";
+                                        continue;
+                                    }
+
+                                    string sql = "SELECT * FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
+                                    config.singleResult(sql);
+
+                                    // Check if the dt object is properly initialized
+                                    if (config.dt == null)
+                                    {
+                                        lbl_exception.Text = "Error: DT object is null. Please check the initialization.";
+                                        break;
+                                    }
+
+                                    if (config.dt.Rows.Count > 0)
+                                    {
+                                        sql = "DELETE FROM `Stock Out` WHERE `Transaction Reference` = '" + transactionRef + "'";
+                                        config.Execute_CUD(sql, "Unable to delete selected transaction", "Transaction successfully deleted!");
+
+                                        sql = string.Empty;
+                                        sql = "Delete from StockOutStatus where TransRef = '" + transactionRef + "' ";
+                                        config.Execute_Query(sql);
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Unsucessful deletion of transaction, Please review and try again.", "Warning Message",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+
+                                }
+                                chk_select_all.Checked = false;
+                                refreshTableToolStripMenuItem_Click(sender, e);
+                            }
+                            else
+                            {
+                                MessageBox.Show("No selection from the table", "Nothing to Delete", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                chk_select_all.Checked = false;
+                                return;
+                            }
                         }
                     }
-
-                   
+                }
+                catch ( Exception ex )
+                {
+                    lbl_exception.Text = "Error: " + ex.Message;
                 }
             }
         }

@@ -64,6 +64,9 @@
             this.chk_Item_ID = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_error_message = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cbo_sup_divi = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_sup_div = new System.Windows.Forms.Label();
@@ -75,16 +78,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_error_message = new System.Windows.Forms.Label();
             this.timer_error = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_exception = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_PreviewPage)).BeginInit();
             this.grp_filters.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // chk_Entry_Date
@@ -181,7 +182,7 @@
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
             this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(673, 340);
+            this.lbl_total_value.Location = new System.Drawing.Point(673, 336);
             this.lbl_total_value.Name = "lbl_total_value";
             this.lbl_total_value.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_value.TabIndex = 34;
@@ -193,7 +194,7 @@
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
             this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(673, 314);
+            this.lbl_total_quantity.Location = new System.Drawing.Point(673, 310);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
             this.lbl_total_quantity.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_quantity.TabIndex = 33;
@@ -226,7 +227,7 @@
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
             this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(672, 287);
+            this.lbl_total_items.Location = new System.Drawing.Point(672, 283);
             this.lbl_total_items.Name = "lbl_total_items";
             this.lbl_total_items.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_items.TabIndex = 32;
@@ -237,7 +238,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(596, 340);
+            this.label8.Location = new System.Drawing.Point(596, 336);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 17);
             this.label8.TabIndex = 31;
@@ -248,7 +249,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(578, 314);
+            this.label7.Location = new System.Drawing.Point(578, 310);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 17);
             this.label7.TabIndex = 30;
@@ -259,7 +260,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(604, 287);
+            this.label6.Location = new System.Drawing.Point(604, 283);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 29;
@@ -298,7 +299,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(799, 200);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(799, 196);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -382,7 +383,7 @@
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 270);
+            this.grp_filters.Location = new System.Drawing.Point(9, 266);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(552, 137);
             this.grp_filters.TabIndex = 20;
@@ -491,6 +492,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lbl_exception);
+            this.panel2.Controls.Add(this.lbl_error_message);
+            this.panel2.Location = new System.Drawing.Point(9, 469);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(685, 19);
+            this.panel2.TabIndex = 104;
+            // 
+            // lbl_error_message
+            // 
+            this.lbl_error_message.AutoSize = true;
+            this.lbl_error_message.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_error_message.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_error_message.Location = new System.Drawing.Point(685, 0);
+            this.lbl_error_message.Name = "lbl_error_message";
+            this.lbl_error_message.Size = new System.Drawing.Size(0, 13);
+            this.lbl_error_message.TabIndex = 103;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.progressBar1.Location = new System.Drawing.Point(700, 472);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(113, 10);
+            this.progressBar1.TabIndex = 96;
             // 
             // cbo_sup_divi
             // 
@@ -626,39 +657,21 @@
             this.label1.TabIndex = 52;
             this.label1.Text = "Inventory\'s Report Form";
             // 
-            // lbl_error_message
-            // 
-            this.lbl_error_message.AutoSize = true;
-            this.lbl_error_message.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbl_error_message.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_error_message.Location = new System.Drawing.Point(685, 0);
-            this.lbl_error_message.Name = "lbl_error_message";
-            this.lbl_error_message.Size = new System.Drawing.Size(0, 13);
-            this.lbl_error_message.TabIndex = 103;
-            // 
             // timer_error
             // 
             this.timer_error.Interval = 3000;
             this.timer_error.Tick += new System.EventHandler(this.timer_error_Tick);
             // 
-            // progressBar1
+            // lbl_exception
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.progressBar1.Location = new System.Drawing.Point(700, 476);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(113, 10);
-            this.progressBar1.TabIndex = 96;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.lbl_error_message);
-            this.panel2.Location = new System.Drawing.Point(9, 473);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(685, 19);
-            this.panel2.TabIndex = 104;
+            this.lbl_exception.AutoSize = true;
+            this.lbl_exception.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_exception.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exception.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_exception.Location = new System.Drawing.Point(0, 5);
+            this.lbl_exception.Name = "lbl_exception";
+            this.lbl_exception.Size = new System.Drawing.Size(0, 14);
+            this.lbl_exception.TabIndex = 104;
             // 
             // ItemByDivision_Form
             // 
@@ -682,11 +695,11 @@
             this.grp_filters.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -740,5 +753,6 @@
         private System.Windows.Forms.Timer timer_error;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbl_exception;
     }
 }

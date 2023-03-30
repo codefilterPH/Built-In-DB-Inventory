@@ -153,44 +153,38 @@ namespace Inventory_System02
 
         private void DTG_Properties()
         {
-            if (dtg_Items.Columns.Count > 0)
+            try
             {
-                dtg_Items.Columns[0].Visible = false;
-                dtg_Items.Columns[1].Visible = false;
-                dtg_Items.Columns[2].Visible = false;
-                dtg_Items.Columns[3].Visible = false;
-                dtg_Items.Columns[4].Visible = false;
-                dtg_Items.Columns[5].Visible = false;
-                dtg_Items.Columns[12].Visible = false;
-                dtg_Items.Columns[13].Visible = false;
-                dtg_Items.Columns[14].Visible = false;
-                dtg_Items.Columns[15].Visible = false;
-                dtg_Items.Columns[16].Visible = false;
-                dtg_Items.Columns[17].Visible = false;
-
-                if (!config.dt.Columns.Contains("Image"))
+                if (dtg_Items.Columns.Count > 0)
                 {
-                    config.dt.Columns.Add("Image", typeof(byte[]));
-                }
-                foreach (DataRow row in config.dt.Rows)
-                {
-                    string imagePath = Path.Combine(item_image_location, row[5].ToString() + ".PNG");
+                    dtg_Items.Columns[0].Visible = false;
+                    dtg_Items.Columns[1].Visible = false;
+                    dtg_Items.Columns[2].Visible = false;
+                    dtg_Items.Columns[3].Visible = false;
+                    dtg_Items.Columns[4].Visible = false;
+                    dtg_Items.Columns[5].Visible = false;
+                    dtg_Items.Columns[12].Visible = false;
+                    dtg_Items.Columns[13].Visible = false;
+                    dtg_Items.Columns[14].Visible = false;
+                    dtg_Items.Columns[15].Visible = false;
+                    dtg_Items.Columns[16].Visible = false;
+                    dtg_Items.Columns[17].Visible = false;
 
-                    if (File.Exists(imagePath))
+                    if (!config.dt.Columns.Contains("Image"))
                     {
-                        row["Image"] = File.ReadAllBytes(imagePath);
+                        config.dt.Columns.Add("Image", typeof(byte[]));
                     }
-                    else
+                    foreach (DataRow row in config.dt.Rows)
                     {
-                        string subimagePath = Path.Combine(Includes.AppSettings.Image_DIR, "DONOTDELETE_SUBIMAGE.JPG");
+                        string imagePath = Path.Combine(item_image_location, row[5].ToString() + ".PNG");
 
-                        if (File.Exists(subimagePath))
+                        if (File.Exists(imagePath))
                         {
-                            row["Image"] = File.ReadAllBytes(subimagePath);
+                            row["Image"] = File.ReadAllBytes(imagePath);
                         }
                         else
                         {
-                            subimagePath = Path.Combine(Includes.AppSettings.Image_DIR, "DONOTDELETE_SUBIMAGE.PNG");
+                            string subimagePath = Path.Combine(Includes.AppSettings.Image_DIR, "DONOTDELETE_SUBIMAGE.JPG");
 
                             if (File.Exists(subimagePath))
                             {
@@ -198,48 +192,63 @@ namespace Inventory_System02
                             }
                             else
                             {
-                                row["Image"] = null; // or new byte[0];
+                                subimagePath = Path.Combine(Includes.AppSettings.Image_DIR, "DONOTDELETE_SUBIMAGE.PNG");
+
+                                if (File.Exists(subimagePath))
+                                {
+                                    row["Image"] = File.ReadAllBytes(subimagePath);
+                                }
+                                else
+                                {
+                                    row["Image"] = null; // or new byte[0];
+                                }
                             }
                         }
                     }
-                }
 
-                dtg_Items.Columns["Image"].DisplayIndex = 0;
-
+                    dtg_Items.Columns["Image"].DisplayIndex = 0;
 
 
-                for (int i = 0; i < dtg_Items.Columns.Count; i++)
-                {
-                    if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+
+                    for (int i = 0; i < dtg_Items.Columns.Count; i++)
                     {
-                        ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                        break;
+                        if (dtg_Items.Columns[i] is DataGridViewImageColumn)
+                        {
+                            ((DataGridViewImageColumn)dtg_Items.Columns[i]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                            break;
+                        }
                     }
+
+                    //Stock Outbound
+                    //dtg_Items.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_Items.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dtg_Items.Columns[10].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_Items.Columns[11].DefaultCellStyle.Format = "#,##0.00";
+
+                    dtg_Items.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_Items.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+                    dtg_Items.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_Items.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_Items.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_Items.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    //Stock Return
+                    dtg_Return.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_Return.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_Return.Columns[5].DefaultCellStyle.Format = "#,##0.00";
+
+                    TOTALS();
                 }
-
-                //Stock Outbound
-                //dtg_Items.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_Items.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dtg_Items.Columns[10].DefaultCellStyle.Format = "#,##0.00";
-                dtg_Items.Columns[11].DefaultCellStyle.Format = "#,##0.00";
-
-                dtg_Items.Columns["Image"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_Items.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-
-                dtg_Items.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_Items.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_Items.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_Items.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                //Stock Return
-                dtg_Return.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_Return.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_Return.Columns[5].DefaultCellStyle.Format = "#,##0.00";
-
-                TOTALS();
             }
+            catch( NullReferenceException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Properties();
+            }   
         }
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)

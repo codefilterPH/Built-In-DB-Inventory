@@ -33,8 +33,8 @@
     <PublisherName>Codefilter Technology</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>7</ApplicationRevision>
-    <ApplicationVersion>1.0.0.7</ApplicationVersion>
+    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationVersion>1.0.0.8</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -555,9 +555,7 @@
     <Content Include="CommonSql\Tools\SQLite.Interop.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CommonSql\Tools\tools.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="CommonSql\Tools\tools.dll" />
     <Content Include="Double-J-Design-Ravenna-3d-Box.ico" />
     <Content Include="mybox.ico" />
     <Content Include="SQLite.Interop.dll">

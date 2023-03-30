@@ -29,26 +29,39 @@ namespace Inventory_System02.Return
         }
         private void btn_change_Click(object sender, EventArgs e)
         {
-            if (dtg_tobe_returned.Columns.Count > 1)
+            try
             {
-                if (dtg_tobe_returned.Rows.Count == 1 )
+                if (dtg_tobe_returned.Columns.Count > 1)
                 {
-                    if ( num_qty.Value > Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value) )
+                    if (dtg_tobe_returned.Rows.Count == 1)
                     {
-                        MessageBox.Show("Quantity must not greater than the original! Thank you.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        return;
-                    }
-                    if ( num_qty.Value == 0 )
-                    {
-                        MessageBox.Show("Quantity must not equal to zero! Thank you.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        return;
-                    }
+                        if (num_qty.Value > Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value))
+                        {
+                            if ( MessageBox.Show("Quantity must not greater than the original! Thank you. Reset?", "Error Message", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                            {
+                                btn_reset_Click(sender, e);
+                            }
+                            return;
+                        }
+                        if (num_qty.Value == 0)
+                        {
+                            MessageBox.Show("Quantity must not equal to zero! Thank you.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            return;
+                        }
 
-                    dtg_tobe_returned.Rows[0].Cells[4].Value = num_qty.Text;
-                    dtg_tobe_returned.Rows[0].Cells[6].Value = Convert.ToDecimal(num_qty.Value) * Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[5].Value);
-                    btn_return.Enabled = true;
+                        dtg_tobe_returned.Rows[0].Cells[4].Value = num_qty.Text;
+                        dtg_tobe_returned.Rows[0].Cells[6].Value = Convert.ToDecimal(num_qty.Value) * Convert.ToDecimal(dtg_tobe_returned.Rows[0].Cells[5].Value);
+                        btn_return.Enabled = true;
+                        dtg_tobe_returned.Rows[0].Cells[4].Selected = true;
+                        lbl_status.Text = "Successfully changed quantity!";
+                    }
                 }
             }
+            catch ( InvalidOperationException ex )
+            {
+                lbl_status.Text = "Error: change button. " + ex.Message;
+                lbl_status.ForeColor = Color.Red;
+            }       
         }
 
         private void num_qty_KeyDown(object sender, KeyEventArgs e)
@@ -61,6 +74,7 @@ namespace Inventory_System02.Return
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
         string Gen_Trans_To_Stocks;
@@ -329,6 +343,8 @@ namespace Inventory_System02.Return
             DTG_Properties();
             Calculate();
             btn_return.Enabled = false;
+
+            lbl_status.Text = "";
         }
 
         private void num_qty_KeyPress(object sender, KeyPressEventArgs e)
@@ -345,6 +361,12 @@ namespace Inventory_System02.Return
         private void return_amt_Click(object sender, EventArgs e)
         {
             func.Label_Two_Decimal_Places(sender, e, return_amt);
+        }
+
+        private void ReturnToStocks_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         int total_qty;
@@ -383,25 +405,32 @@ namespace Inventory_System02.Return
 
         private void DTG_Properties()
         {
-            if (dtg_tobe_returned.Columns.Count > 0)
+            try
             {
-                dtg_tobe_returned.Columns[5].DefaultCellStyle.Format = "#,##0.00";
-                dtg_tobe_returned.Columns[6].DefaultCellStyle.Format = "#,##0.00";
-                dtg_tobe_returned.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_tobe_returned.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_tobe_returned.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_tobe_returned.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_tobe_returned.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_tobe_returned.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_tobe_returned.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dtg_tobe_returned.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dtg_tobe_returned.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dtg_tobe_returned.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dtg_tobe_returned.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dtg_tobe_returned.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
+                if (dtg_tobe_returned.Columns.Count > 0)
+                {
+                    dtg_tobe_returned.Columns[5].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_tobe_returned.Columns[6].DefaultCellStyle.Format = "#,##0.00";
+                    dtg_tobe_returned.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_tobe_returned.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_tobe_returned.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_tobe_returned.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_tobe_returned.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_tobe_returned.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_tobe_returned.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dtg_tobe_returned.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    dtg_tobe_returned.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dtg_tobe_returned.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dtg_tobe_returned.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dtg_tobe_returned.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                }
             }
-        }
-      
+            catch (InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Properties();
+            }    
+        }    
     }
 }

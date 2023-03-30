@@ -123,20 +123,31 @@ namespace Inventory_System02.Reports_Dir
                 if (what_to_do != "load")
                 {
                     list2 = new List<Class_Supplier_Var>();
-                    if (dtg_PreviewPage.DataSource != null)
+                    try
                     {
-                        list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
-                      dataRow => new Class_Supplier_Var
-                      {
-                          Entry_Date = dataRow.Field<string>("Entry Date").ToString(),
-                          Supplier_Id = dataRow.Field<string>("Company ID").ToString(),
-                          Supplier_Name = dataRow.Field<string>("Company Name").ToString(),
-                          Email = dataRow.Field<string>("Email").ToString(),
-                          Phone = dataRow.Field<string>("Phone").ToString(),
-                          Address = dataRow.Field<string>("Address").ToString(),
+                        if (dtg_PreviewPage.DataSource != null)
+                        {
+                            list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                              dataRow => new Class_Supplier_Var
+                              {
+                                  Entry_Date = dataRow["Entry Date"].ToString(),
+                                  Supplier_Id = dataRow["Company ID"].ToString(),
+                                  Supplier_Name = dataRow["Company Name"].ToString(),
+                                  Email = dataRow["Email"].ToString(),
+                                  Phone = dataRow["Phone"].ToString(),
+                                  Address = dataRow["Address"].ToString(),
 
-                      }).ToList();
-                        rs.Value = list2;
+                              }).ToList();
+                            rs.Value = list2;
+                        }
+                        else
+                        {
+                            lbl_exception.Text = "Error: The data source is empty";
+                        }
+                    } 
+                    catch ( NullReferenceException ex )
+                    {
+                        lbl_exception.Text = "Error: " + ex.Message;
                     }
 
                     rs.Name = "DataSet1";
@@ -220,22 +231,29 @@ namespace Inventory_System02.Reports_Dir
 
         private void Group_Filtering_MustNotEmpty()
         {
-            foreach (Control c in grp_filters.Controls)
+            try
             {
-                CheckBox chkbox = c as CheckBox;
-                if (chkbox != null && chkbox.Checked)
+                foreach (Control c in grp_filters.Controls)
                 {
-                    count++;
+                    CheckBox chkbox = c as CheckBox;
+                    if (chkbox != null && chkbox.Checked)
+                    {
+                        count++;
+                    }
+                }
+                if (count == 0)
+                {
+                    func.Error_Message1 = "Have atleast one column selected, Filters";
+                    chk_Supplier_ID.Checked = true;
+                    chk_Supplier_Name.Checked = true;
+                    chk_Address.Checked = true;
+                    func.Error_Message();
+                    return;
                 }
             }
-            if (count == 0)
+            catch ( Exception ex)
             {
-                func.Error_Message1 = "Have atleast one column selected, Filters";
-                chk_Supplier_ID.Checked = true;
-                chk_Supplier_Name.Checked = true;
-                chk_Address.Checked = true;
-                func.Error_Message();
-                return;
+                lbl_exception.Text = "Error: " + ex.Message;
             }
         }
         private void dtp_date_from_ValueChanged(object sender, EventArgs e)

@@ -39,6 +39,7 @@ namespace Inventory_System02.Reports_Dir
             this.btn_Batch = new System.Windows.Forms.Button();
             this.btn_Print = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lbl_exception = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_date_from = new System.Windows.Forms.DateTimePicker();
             this.dtp_date_to = new System.Windows.Forms.DateTimePicker();
@@ -150,6 +151,7 @@ namespace Inventory_System02.Reports_Dir
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbl_exception);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.dtp_date_from);
             this.tabPage1.Controls.Add(this.dtp_date_to);
@@ -170,6 +172,17 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lbl_exception
+            // 
+            this.lbl_exception.AutoSize = true;
+            this.lbl_exception.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_exception.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exception.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_exception.Location = new System.Drawing.Point(3, 471);
+            this.lbl_exception.Name = "lbl_exception";
+            this.lbl_exception.Size = new System.Drawing.Size(0, 14);
+            this.lbl_exception.TabIndex = 96;
             // 
             // label3
             // 
@@ -210,7 +223,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
             this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(670, 372);
+            this.lbl_total_value.Location = new System.Drawing.Point(670, 352);
             this.lbl_total_value.Name = "lbl_total_value";
             this.lbl_total_value.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_value.TabIndex = 34;
@@ -222,7 +235,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
             this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(670, 346);
+            this.lbl_total_quantity.Location = new System.Drawing.Point(670, 326);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
             this.lbl_total_quantity.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_quantity.TabIndex = 33;
@@ -233,7 +246,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
             this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(669, 319);
+            this.lbl_total_items.Location = new System.Drawing.Point(669, 299);
             this.lbl_total_items.Name = "lbl_total_items";
             this.lbl_total_items.Size = new System.Drawing.Size(17, 17);
             this.lbl_total_items.TabIndex = 32;
@@ -244,7 +257,7 @@ namespace Inventory_System02.Reports_Dir
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(593, 372);
+            this.label8.Location = new System.Drawing.Point(593, 352);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 17);
             this.label8.TabIndex = 31;
@@ -255,7 +268,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(575, 346);
+            this.label7.Location = new System.Drawing.Point(575, 326);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 17);
             this.label7.TabIndex = 30;
@@ -266,7 +279,7 @@ namespace Inventory_System02.Reports_Dir
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(601, 319);
+            this.label6.Location = new System.Drawing.Point(601, 299);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 29;
@@ -305,7 +318,7 @@ namespace Inventory_System02.Reports_Dir
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 253);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 233);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -345,7 +358,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 302);
+            this.grp_filters.Location = new System.Drawing.Point(9, 282);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(560, 137);
             this.grp_filters.TabIndex = 20;
@@ -642,5 +655,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtp_date_from;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_exception;
     }
 }

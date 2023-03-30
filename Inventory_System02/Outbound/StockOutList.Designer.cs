@@ -30,8 +30,8 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StockOutList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Search = new System.Windows.Forms.TextBox();
             this.btn_Delete = new System.Windows.Forms.Button();
@@ -81,6 +81,7 @@ namespace Inventory_System02
             this.txt_Trans_number = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Cust_ID = new System.Windows.Forms.TextBox();
+            this.lbl_exception = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_outlist)).BeginInit();
@@ -511,11 +512,11 @@ namespace Inventory_System02
             // 
             this.dtg_outlist.AllowUserToAddRows = false;
             this.dtg_outlist.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.DimGray;
-            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
+            this.dtg_outlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_outlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -524,14 +525,14 @@ namespace Inventory_System02
             this.dtg_outlist.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_outlist.Location = new System.Drawing.Point(12, 214);
             this.dtg_outlist.Name = "dtg_outlist";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dtg_outlist.RowTemplate.Height = 60;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtg_outlist.RowTemplate.Height = 40;
             this.dtg_outlist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_outlist.Size = new System.Drawing.Size(784, 180);
             this.dtg_outlist.TabIndex = 121;
@@ -655,11 +656,23 @@ namespace Inventory_System02
             this.txt_Cust_ID.Size = new System.Drawing.Size(139, 25);
             this.txt_Cust_ID.TabIndex = 8;
             // 
+            // lbl_exception
+            // 
+            this.lbl_exception.AutoSize = true;
+            this.lbl_exception.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_exception.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exception.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_exception.Location = new System.Drawing.Point(0, 448);
+            this.lbl_exception.Name = "lbl_exception";
+            this.lbl_exception.Size = new System.Drawing.Size(0, 14);
+            this.lbl_exception.TabIndex = 129;
+            // 
             // StockOutList
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(807, 462);
+            this.Controls.Add(this.lbl_exception);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.panel1);
@@ -757,5 +770,6 @@ namespace Inventory_System02
         private System.Windows.Forms.TextBox txt_Trans_number;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Cust_ID;
+        private System.Windows.Forms.Label lbl_exception;
     }
 }

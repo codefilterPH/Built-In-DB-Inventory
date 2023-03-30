@@ -63,17 +63,18 @@
             this.chk_Item_ID = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_qty_to = new System.Windows.Forms.TextBox();
             this.txt_qty_from = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btn_Print = new System.Windows.Forms.Button();
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.chk_Unselect = new System.Windows.Forms.CheckBox();
             this.btn_Print_Preview = new System.Windows.Forms.Button();
             this.btn_Batch = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.lbl_exception = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_PreviewPage)).BeginInit();
             this.grp_filters.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -174,7 +175,7 @@
             this.lbl_total_value.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_value.AutoSize = true;
             this.lbl_total_value.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_value.Location = new System.Drawing.Point(617, 409);
+            this.lbl_total_value.Location = new System.Drawing.Point(617, 405);
             this.lbl_total_value.Name = "lbl_total_value";
             this.lbl_total_value.Size = new System.Drawing.Size(18, 18);
             this.lbl_total_value.TabIndex = 34;
@@ -186,7 +187,7 @@
             this.lbl_total_quantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_quantity.AutoSize = true;
             this.lbl_total_quantity.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_quantity.Location = new System.Drawing.Point(618, 383);
+            this.lbl_total_quantity.Location = new System.Drawing.Point(618, 379);
             this.lbl_total_quantity.Name = "lbl_total_quantity";
             this.lbl_total_quantity.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_quantity.TabIndex = 33;
@@ -219,7 +220,7 @@
             this.lbl_total_items.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_total_items.AutoSize = true;
             this.lbl_total_items.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_items.Location = new System.Drawing.Point(618, 358);
+            this.lbl_total_items.Location = new System.Drawing.Point(618, 354);
             this.lbl_total_items.Name = "lbl_total_items";
             this.lbl_total_items.Size = new System.Drawing.Size(15, 16);
             this.lbl_total_items.TabIndex = 32;
@@ -230,7 +231,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(491, 409);
+            this.label8.Location = new System.Drawing.Point(491, 405);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 18);
             this.label8.TabIndex = 31;
@@ -241,7 +242,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(491, 383);
+            this.label7.Location = new System.Drawing.Point(491, 379);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 16);
             this.label7.TabIndex = 30;
@@ -252,7 +253,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(491, 358);
+            this.label6.Location = new System.Drawing.Point(491, 354);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 16);
             this.label6.TabIndex = 29;
@@ -291,7 +292,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 240);
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(796, 236);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // cbo_report_type
@@ -375,7 +376,7 @@
             this.grp_filters.Controls.Add(this.chk_Brand);
             this.grp_filters.Controls.Add(this.chk_Item_Name);
             this.grp_filters.Controls.Add(this.chk_Item_ID);
-            this.grp_filters.Location = new System.Drawing.Point(9, 319);
+            this.grp_filters.Location = new System.Drawing.Point(9, 315);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(476, 137);
             this.grp_filters.TabIndex = 20;
@@ -460,6 +461,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbl_exception);
             this.tabPage1.Controls.Add(this.lbl_total_value);
             this.tabPage1.Controls.Add(this.lbl_total_quantity);
             this.tabPage1.Controls.Add(this.lbl_total_items);
@@ -484,17 +486,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(609, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(232, 25);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "Inventory\'s Report Form";
             // 
             // label4
             // 
@@ -531,6 +522,17 @@
             this.txt_qty_from.Size = new System.Drawing.Size(117, 25);
             this.txt_qty_from.TabIndex = 39;
             this.txt_qty_from.TextChanged += new System.EventHandler(this.txt_qty_from_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(609, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(232, 25);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Inventory\'s Report Form";
             // 
             // btn_Print
             // 
@@ -616,6 +618,17 @@
             this.tabControl1.Size = new System.Drawing.Size(823, 521);
             this.tabControl1.TabIndex = 46;
             // 
+            // lbl_exception
+            // 
+            this.lbl_exception.AutoSize = true;
+            this.lbl_exception.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_exception.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exception.ForeColor = System.Drawing.Color.Firebrick;
+            this.lbl_exception.Location = new System.Drawing.Point(3, 474);
+            this.lbl_exception.Name = "lbl_exception";
+            this.lbl_exception.Size = new System.Drawing.Size(0, 14);
+            this.lbl_exception.TabIndex = 105;
+            // 
             // Item_by_Quantity
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -688,5 +701,6 @@
         private System.Windows.Forms.TextBox txt_qty_to;
         private System.Windows.Forms.TextBox txt_qty_from;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_exception;
     }
 }

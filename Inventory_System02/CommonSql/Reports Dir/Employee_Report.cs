@@ -46,6 +46,10 @@ namespace Inventory_System02.Reports_Dir
             dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
             Calculate_Filtering("loadToday");
+            if( dtg_PreviewPage.Rows.Count == 0 )
+            {
+                lbl_Personnel.Text = "0";
+            } 
         }
 
         private void btn_Print_Preview_Click(object sender, EventArgs e)
@@ -168,23 +172,33 @@ namespace Inventory_System02.Reports_Dir
                 if (what_to_do != "load")
                 {
                     list2 = new List<Class_Employee_Var>();
-                    if (dtg_PreviewPage.DataSource != null)
+                    try
                     {
-                        list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
-                      dataRow => new Class_Employee_Var
-                      {
-                          Emp_ID = dataRow.Field<string>("Employee ID").ToString(),
-                          FN = dataRow.Field<string>("First Name").ToString(),
-                          LN = dataRow.Field<string>("Last Name").ToString(),
-                          Email = dataRow.Field<string>("Email").ToString(),
-                          Phone = dataRow.Field<string>("Phone Number").ToString(),
-                          Address = dataRow.Field<string>("Address").ToString(),
-                          JobRole = dataRow.Field<string>("Job Role").ToString(),
-                          HiredDate = dataRow.Field<string>("Hired Date").ToString()
-                      }).ToList();
-                        rs.Value = list2;
+                        if (dtg_PreviewPage.DataSource != null)
+                        {
+                            list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
+                              dataRow => new Class_Employee_Var
+                              {
+                                  Emp_ID = dataRow["Employee ID"].ToString(),
+                                  FN = dataRow["First Name"].ToString(),
+                                  LN = dataRow["Last Name"].ToString(),
+                                  Email = dataRow["Email"].ToString(),
+                                  Phone = dataRow["Phone Number"].ToString(),
+                                  Address = dataRow["Address"].ToString(),
+                                  JobRole = dataRow["Job Role"].ToString(),
+                                  HiredDate = dataRow["Hired Date"].ToString()
+                              }).ToList();
+                            rs.Value = list2;
+                        }
+                        else
+                        {
+                            lbl_exception.Text = "Error: The data source is empty";
+                        }
                     }
-
+                    catch ( NullReferenceException ex )
+                    {
+                        lbl_exception.Text = "Error: " + ex.Message;
+                    }
 
                     rs.Name = "DataSet1";
                     frm.reportViewer1.LocalReport.DataSources.Clear();
@@ -261,19 +275,28 @@ namespace Inventory_System02.Reports_Dir
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                lbl_exception.Text = "Error: " + ex.Message;
             }
         }
         private void DTG_Properties()
         {
-            if ( dtg_PreviewPage.Columns.Count >= 1 )
+            try
             {
-                func = new usableFunction();
-                dtg_PreviewPage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dtg_PreviewPage.Columns[0].Visible = false;
-                dtg_PreviewPage.Columns["Password"].Visible = false;
-                func.Count_person(dtg_PreviewPage, lbl_Personnel);
-            }     
+                if (dtg_PreviewPage.Columns.Count >= 1)
+                {
+                    func = new usableFunction();
+                    dtg_PreviewPage.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dtg_PreviewPage.Columns[0].Visible = false;
+                    dtg_PreviewPage.Columns["Password"].Visible = false;
+                    func.Count_person(dtg_PreviewPage, lbl_Personnel);
+                }
+            }
+            catch ( InvalidOperationException )
+            {
+                // Handle the exception by waiting for a short period of time and then trying the operation again
+                System.Threading.Thread.Sleep(500);
+                DTG_Properties();
+            }  
         }
 
         private void btn_Print_Click(object sender, EventArgs e)
