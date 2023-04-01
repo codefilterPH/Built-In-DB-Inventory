@@ -98,12 +98,14 @@ namespace Inventory_System02
             this.PreloadWorker = new System.ComponentModel.BackgroundWorker();
             this.lbl_error_message = new System.Windows.Forms.Label();
             this.timer_error = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Stocks)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cust_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_AddedStocks)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtg_Stocks
@@ -222,7 +224,6 @@ namespace Inventory_System02
             this.cbo_CustID.Name = "cbo_CustID";
             this.cbo_CustID.Size = new System.Drawing.Size(172, 25);
             this.cbo_CustID.TabIndex = 1;
-            this.cbo_CustID.SelectedIndexChanged += new System.EventHandler(this.cbo_CustID_SelectedIndexChanged);
             this.cbo_CustID.TextChanged += new System.EventHandler(this.cbo_CustID_TextChanged);
             // 
             // txt_Cust_SAddress
@@ -439,7 +440,7 @@ namespace Inventory_System02
             // 
             // txt_Search
             // 
-            this.txt_Search.Location = new System.Drawing.Point(60, 141);
+            this.txt_Search.Location = new System.Drawing.Point(60, 137);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(136, 25);
             this.txt_Search.TabIndex = 9;
@@ -449,7 +450,7 @@ namespace Inventory_System02
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 145);
+            this.label4.Location = new System.Drawing.Point(13, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 68;
@@ -658,7 +659,7 @@ namespace Inventory_System02
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(206, 147);
+            this.label16.Location = new System.Drawing.Point(206, 143);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(56, 13);
             this.label16.TabIndex = 95;
@@ -680,7 +681,7 @@ namespace Inventory_System02
             "Supplier",
             "Job",
             "Trans Ref"});
-            this.cbo_srch_type.Location = new System.Drawing.Point(263, 144);
+            this.cbo_srch_type.Location = new System.Drawing.Point(263, 140);
             this.cbo_srch_type.Name = "cbo_srch_type";
             this.cbo_srch_type.Size = new System.Drawing.Size(93, 21);
             this.cbo_srch_type.TabIndex = 10;
@@ -697,7 +698,7 @@ namespace Inventory_System02
             this.btn_view.ForeColor = System.Drawing.Color.White;
             this.btn_view.Location = new System.Drawing.Point(581, 162);
             this.btn_view.Name = "btn_view";
-            this.btn_view.Size = new System.Drawing.Size(133, 23);
+            this.btn_view.Size = new System.Drawing.Size(133, 22);
             this.btn_view.TabIndex = 2;
             this.btn_view.Text = "View item";
             this.btn_view.UseVisualStyleBackColor = false;
@@ -789,8 +790,9 @@ namespace Inventory_System02
             // lbl_error_message
             // 
             this.lbl_error_message.AutoSize = true;
+            this.lbl_error_message.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_error_message.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_error_message.Location = new System.Drawing.Point(91, 172);
+            this.lbl_error_message.Location = new System.Drawing.Point(0, 0);
             this.lbl_error_message.Name = "lbl_error_message";
             this.lbl_error_message.Size = new System.Drawing.Size(0, 13);
             this.lbl_error_message.TabIndex = 102;
@@ -800,12 +802,22 @@ namespace Inventory_System02
             this.timer_error.Interval = 3000;
             this.timer_error.Tick += new System.EventHandler(this.timer_error_Tick);
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lbl_error_message);
+            this.panel2.Location = new System.Drawing.Point(89, 171);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(486, 16);
+            this.panel2.TabIndex = 102;
+            // 
             // StockOut
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(863, 578);
-            this.Controls.Add(this.lbl_error_message);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_remarks);
             this.Controls.Add(this.chk_paid);
@@ -849,6 +861,8 @@ namespace Inventory_System02
             this.menuStrip1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -911,5 +925,6 @@ namespace Inventory_System02
         private System.ComponentModel.BackgroundWorker PreloadWorker;
         private System.Windows.Forms.Label lbl_error_message;
         private System.Windows.Forms.Timer timer_error;
+        private System.Windows.Forms.Panel panel2;
     }
 }
