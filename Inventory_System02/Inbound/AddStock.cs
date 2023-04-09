@@ -594,33 +594,40 @@ namespace Inventory_System02
         }
         private void Barcode_Generator()
         {
-            string id = string.Empty;
-            bool hasDuplicate = true;
-            ID_Generator gen = new ID_Generator();
-            while (hasDuplicate)
+            try  
             {
-                chk_select_all.Checked = false;
-                gen.Item_ID();
-                sql = "Select `Item ID` from ID_Generated";
-                config.singleResult(sql);
-                if (config.dt.Rows.Count > 0)
+                string id = string.Empty;
+                bool hasDuplicate = true;
+                ID_Generator gen = new ID_Generator();
+                while (hasDuplicate)
                 {
-                    id = Convert.ToString(config.dt.Rows[0]["Item ID"]);
-
-                    sql = "SELECT COUNT(*) FROM `Stocks` WHERE `Stock ID` = '" + id + "'";
+                    chk_select_all.Checked = false;
+                    gen.Item_ID();
+                    sql = "Select `Item ID` from ID_Generated";
                     config.singleResult(sql);
-                    if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                    if (config.dt.Rows.Count > 0)
                     {
-                        gen.Item_ID();
-                    }
-                    else
-                    {
-                        txt_Barcode.Text = id;
-                        txt_Barcode.Focus();
-                        hasDuplicate = false;
+                        id = Convert.ToString(config.dt.Rows[0]["Item ID"]);
+
+                        sql = "SELECT COUNT(*) FROM `Stocks` WHERE `Stock ID` = '" + id + "'";
+                        config.singleResult(sql);
+                        if (Convert.ToInt32(config.dt.Rows[0][0]) > 0)
+                        {
+                            gen.Item_ID();
+                        }
+                        else
+                        {
+                            txt_Barcode.Text = id;
+                            txt_Barcode.Focus();
+                            hasDuplicate = false;
+                        }
                     }
                 }
             }
+            catch ( Exception ex )
+            {
+                lbl_error_message.Text = "An error occurred: " + ex.Message;
+            }   
         }
 
         private void txt_Qty_ValueChanged(object sender, EventArgs e)
@@ -880,51 +887,58 @@ namespace Inventory_System02
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (dtg_Items.Rows.Count >= 1)
+            try
             {
-                if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
+                if (dtg_Items.Rows.Count >= 1)
                 {
-                    MessageBox.Show("No permission to delete item!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    chk_select_all.Checked = false;
-                    return;
-                }
-
-                if (dtg_Items.SelectedRows.Count >= 1)
-                {
-                    if (MessageBox.Show("You are about to delete selected item(s) from the table. Please confirm deletion.", "Warning Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
                     {
-                        config = new SQLConfig();
-                        sql = "";
-                        if (chk_select_all.Checked)
-                        {
-                            string sql = "DELETE FROM `Stocks` WHERE count = '1' ";
-                            config.Execute_CUD(sql, "Unable to delete all items. Please try again!", "Successfully deleted all items!");
-                            chk_select_all.Checked = false;
-                            refreshToolStripMenuItem_Click(sender, e);
-                            return;
-                        }
-                        else
-                        {
-                            foreach (DataGridViewRow rw in dtg_Items.SelectedRows)
-                            {
-                                sql = "DELETE FROM Stocks WHERE `Stock ID` = '" + rw.Cells[2].Value.ToString() + "'";
-                                config.Execute_Query(sql);
-                            }
-                            MessageBox.Show("Deleted from inbound stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            refreshToolStripMenuItem_Click(sender, e);
-                            chk_select_all.Checked = false;
-                            return;
+                        MessageBox.Show("No permission to delete item!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        chk_select_all.Checked = false;
+                        return;
+                    }
 
+                    if (dtg_Items.SelectedRows.Count >= 1)
+                    {
+                        if (MessageBox.Show("You are about to delete selected item(s) from the table. Please confirm deletion.", "Warning Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            config = new SQLConfig();
+                            sql = "";
+                            if (chk_select_all.Checked)
+                            {
+                                string sql = "DELETE FROM `Stocks` WHERE count = '1' ";
+                                config.Execute_CUD(sql, "Unable to delete all items. Please try again!", "Successfully deleted all items!");
+                                chk_select_all.Checked = false;
+                                refreshToolStripMenuItem_Click(sender, e);
+                                return;
+                            }
+                            else
+                            {
+                                foreach (DataGridViewRow rw in dtg_Items.SelectedRows)
+                                {
+                                    sql = "DELETE FROM Stocks WHERE `Stock ID` = '" + rw.Cells[2].Value.ToString() + "'";
+                                    config.Execute_Query(sql);
+                                }
+                                MessageBox.Show("Deleted from inbound stocks!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                refreshToolStripMenuItem_Click(sender, e);
+                                chk_select_all.Checked = false;
+                                return;
+
+                            }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("No selection from the table", "Nothing to Delete", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        chk_select_all.Checked = false;
+                        return;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("No selection from the table", "Nothing to Delete", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    chk_select_all.Checked = false;
-                    return;    
-                }
-            }     
+            }
+            catch ( Exception ex)
+            {
+                lbl_error_message.Text = "An error occurred: " + ex.Message;
+            } 
         }
 
         private void chk_select_all_CheckedChanged(object sender, EventArgs e)
