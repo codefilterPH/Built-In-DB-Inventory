@@ -591,6 +591,7 @@ namespace Inventory_System02
             lbl_error_message.Text = "New barcode is generated! " + txt_Barcode.Text;
             lbl_error_message.ForeColor = Color.Green;
             timer_Error_message.Enabled = true;
+            txt_ItemName.Focus();
         }
         private void Barcode_Generator()
         {
@@ -1393,6 +1394,7 @@ namespace Inventory_System02
             }
             else
             {
+                string stat_info = "Inbound from supplier " + txt_Sup_Name.Text;
                 img_loc = item_image_location + txt_Barcode.Text + ".PNG";
                 sql = "";
                 config = new SQLConfig();
@@ -1428,7 +1430,7 @@ namespace Inventory_System02
                     ",'" + Fullname + "' " +
                     ",'" + JobRole + "' " +
                     ",'" + txt_TransRef.Text + "'" +
-                    ",'Inbound from Supplier'  )";
+                    ",'" +stat_info+"' )";
                 config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to database!");
                 save_Ref = txt_TransRef.Text;
                 newItemToolStripMenuItem_Click(sender, e);
