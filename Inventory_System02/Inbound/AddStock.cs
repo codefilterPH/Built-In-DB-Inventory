@@ -116,20 +116,17 @@ namespace Inventory_System02
                 DTG_Property();
             }
         }
-        private void Calculator_Timer_Tick(object sender, EventArgs e)
+        private void ProcessStockLow()
         {
-            config = new SQLConfig();
-            Calculations();
-           
+            quantity = 0;
             //STOCK LOW DETECTION
             sql = "Select Low_Detection from Settings";
             config.singleResult(sql);
             if (config.dt.Rows.Count >= 1)
             {
-                
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
                 {
-                    int.TryParse ( Convert.ToString( config.dt.Rows[0]["Low_Detection"] ), out quantity);
+                    int.TryParse(Convert.ToString(config.dt.Rows[0]["Low_Detection"]), out quantity);
                     if (Convert.ToInt32(rw.Cells[6].Value) <= quantity)
                     {
                         //STOCK LOW DETECT CHANGE FONT COLOR
@@ -137,6 +134,12 @@ namespace Inventory_System02
                     }
                 }
             }
+        }
+        private void Calculator_Timer_Tick(object sender, EventArgs e)
+        {
+            config = new SQLConfig();
+            Calculations();
+            ProcessStockLow();
             Calculator_Timer.Stop();
         }
         int my_qty;
@@ -179,6 +182,8 @@ namespace Inventory_System02
                     }
                     lbl_TotalQty.Text = my_qty.ToString();
                     lbl_TotalAmt.Text = my_total.ToString();
+
+                    lbl_items_count.Text = dtg_Items.Rows.Count.ToString();
                 }
             }
             catch(Exception ex)
@@ -1260,6 +1265,21 @@ namespace Inventory_System02
                     timer_Error_message.Enabled = true;
                 }
             }
+        }
+
+        private void stockLowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sql = "Select * from Stocks where Quantity <= '" + quantity + "' order by `Entry Date` desc";
+                config.Load_DTG(sql, dtg_Items);
+                Calculator_Timer.Start();
+                lbl_stock_low.Text = "Stock Low Detected!";
+            }
+            catch (Exception ex)
+            {
+                lbl_error_message.Text = "An error occurred: " + ex.Message;
+            }    
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
