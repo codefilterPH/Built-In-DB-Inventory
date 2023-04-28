@@ -975,6 +975,7 @@ namespace Inventory_System02
             this.cbo_num_records.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbo_num_records.FormattingEnabled = true;
             this.cbo_num_records.Items.AddRange(new object[] {
+            "5",
             "10",
             "20",
             "50",

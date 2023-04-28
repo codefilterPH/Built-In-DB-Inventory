@@ -56,8 +56,8 @@ namespace Inventory_System02
 
             sql = "Select Name from Brand";
             config.fiil_CBO(sql, cbo_brand);
-
-            Load_Items();
+            sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
+            Load_Items(sql);
 
             if (!isWorkerBusy)
             {
@@ -105,6 +105,7 @@ namespace Inventory_System02
                     lbl_items_count.Text = totalrows.ToString();
 
                     Calculator_Timer.Start();
+                   
                 }
             }
             catch ( InvalidOperationException )
@@ -484,7 +485,8 @@ namespace Inventory_System02
             sql = "";
             config = new SQLConfig();
             sql = $"Select * from Stocks where {search_for} like '%{txt_Search.Text}%' ORDER BY `Entry Date` DESC ";
-            config.Load_DTG(sql, dtg_Items);
+            Load_Items(sql);
+
             if (!isWorkerBusy)
             {
                 isWorkerBusy = true;
@@ -494,7 +496,6 @@ namespace Inventory_System02
                 backgroundWorker1.RunWorkerAsync();
             }
 
-            DTG_Property();
 
        
         }
@@ -1049,7 +1050,9 @@ namespace Inventory_System02
                 config = new SQLConfig();
                 TableRefresher();
                 sql = "Select * from Stocks where DATE(`Entry Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' order by `Entry Date` desc";
-                config.Load_DTG(sql, dtg_Items);
+                //config.Load_DTG(sql, dtg_Items);
+                Load_Items(sql);
+
                 if (!isWorkerBusy)
                 {
                     isWorkerBusy = true;
@@ -1059,10 +1062,9 @@ namespace Inventory_System02
 
                     backgroundWorker1.RunWorkerAsync();
                 }
-
-                DTG_Property();
                 enable_them = true;
                 SpecialFilterDisabler();
+                current_page_val.Text = "0";
 
             }
             catch (SqlException ex)
@@ -1281,22 +1283,22 @@ namespace Inventory_System02
             try
             {
                 sql = "Select * from Stocks where Quantity <= '" + quantity + "' order by `Entry Date` desc";
-                config.Load_DTG(sql, dtg_Items);
+                Load_Items(sql);
                 Calculator_Timer.Start();
                 lbl_stock_low.Text = "Stock Low Detected!";
+                current_page_val.Text = "0";
             }
             catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occurred: " + ex.Message;
             }    
         }
-        private void Load_Items()
+        private void Load_Items(string sql)
         {
-            // Get total records
-            string sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
 
             // calculate the total number of records and pages
             int totalRecords = config.GetTotalRecords(sql);
+          
             double num_records = 0;
             double.TryParse(cbo_num_records.Text, out num_records);
 
@@ -1313,8 +1315,6 @@ namespace Inventory_System02
 
             // build the sql query based on the search criteria
 
-            sql = $"SELECT * FROM stocks ORDER BY `Entry Date` DESC";
-
             // load the data into the datagridview with pagination
             config = new SQLConfig();
             config.Load_DTG_Paginator(sql, dtg_Items, currentpage, recordsperpage);
@@ -1330,9 +1330,12 @@ namespace Inventory_System02
 
         private void current_page_val_ValueChanged(object sender, EventArgs e)
         {
+            ToolTip tooltip = new ToolTip();
             if ( current_page_val.Value <= num_max_pages.Value )
             {
-                Load_Items();
+                tooltip.SetToolTip(current_page_val, "Hit \'ENTER\' key to apply changes.");
+                sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
+                Load_Items(sql);
             }
             else
             {
@@ -1343,7 +1346,8 @@ namespace Inventory_System02
 
         private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Load_Items();
+            sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
+            Load_Items(sql);
         }
 
         private void txt_Price_Click(object sender, EventArgs e)

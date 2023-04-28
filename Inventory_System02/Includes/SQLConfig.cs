@@ -179,6 +179,7 @@ namespace Inventory_System02.Includes
 
         public int GetTotalRecords(string sql)
         {
+            ConnectionString();
             int totalRecords = 0;
 
             try
@@ -186,6 +187,7 @@ namespace Inventory_System02.Includes
                 // remove the ORDER BY and LIMIT clauses from the SQL query
                 string countSql = Regex.Replace(sql, @"ORDER BY .+?$", "", RegexOptions.IgnoreCase);
                 countSql = Regex.Replace(countSql, @"LIMIT .+?$", "", RegexOptions.IgnoreCase);
+        
 
                 // add a SELECT COUNT(*) clause to the SQL query
                 countSql = $"SELECT COUNT(*) FROM ({countSql})";
