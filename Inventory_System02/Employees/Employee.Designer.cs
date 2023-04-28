@@ -430,7 +430,7 @@ namespace Inventory_System02.Profiles
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(133, 23);
             this.btn_Edit.TabIndex = 14;
-            this.btn_Edit.Text = "Save Text";
+            this.btn_Edit.Text = "Save Current";
             this.btn_Edit.UseVisualStyleBackColor = false;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 

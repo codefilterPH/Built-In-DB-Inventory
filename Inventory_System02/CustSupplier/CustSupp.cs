@@ -344,7 +344,15 @@ namespace Inventory_System02.CustSupplier
 
             if (Sup_ID.Text != "")
             {
-                sql = "Update Supplier set " +
+                sql = "Select * from Supplier where `Company ID` = '" + Sup_ID.Text + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count <= 0)
+                {
+                    btn_sup_add_Click(sender, e);
+                    return;
+                }
+
+                    sql = "Update Supplier set " +
                     "`Company Name` = '" + sup_CName.Text + "'" +
                     ", Email = '" + sup_Email.Text + "' " +
                     ", Phone = '" + sup_Phone.Text + "'" +
@@ -649,6 +657,14 @@ namespace Inventory_System02.CustSupplier
             }
             else
             {
+                sql = "Select * from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count <= 0)
+                {
+                    btn_Cust_add_Click(sender, e);
+                    return;
+                }
+
                 sql = "Update Customer set " +
                     "`Name` = '" + cust_FN.Text + "'" +
                     ",`Phone Number` = '" + cust_Phone.Text + "'" +

@@ -8,6 +8,10 @@ using System.Security.Cryptography;
 using System.Collections.Generic;
 using Microsoft.ReportingServices.Diagnostics.Internal;
 using DataSet = System.Data.DataSet;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
+using TextBox = System.Windows.Forms.TextBox;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace Inventory_System02.Includes
 {
@@ -172,6 +176,73 @@ namespace Inventory_System02.Includes
                 con.Close();
             }
         }
+
+        public int GetTotalRecords(string sql)
+        {
+            int totalRecords = 0;
+
+            try
+            {
+                // remove the ORDER BY and LIMIT clauses from the SQL query
+                string countSql = Regex.Replace(sql, @"ORDER BY .+?$", "", RegexOptions.IgnoreCase);
+                countSql = Regex.Replace(countSql, @"LIMIT .+?$", "", RegexOptions.IgnoreCase);
+
+                // add a SELECT COUNT(*) clause to the SQL query
+                countSql = $"SELECT COUNT(*) FROM ({countSql})";
+
+                cmd = new SQLiteCommand(countSql, con);
+                con.Open();
+                totalRecords = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return totalRecords;
+        }
+
+        public void Load_DTG_Paginator(string sql, DataGridView dtg, int currentPage, int recordsPerPage)
+        {
+            ConnectionString();
+
+            try
+            {
+                con.Open();
+
+                // calculate the offset based on the current page and records per page
+                int offset = (currentPage - 1) * recordsPerPage;
+
+                // add LIMIT and OFFSET clauses to the SQL query
+                sql += $" LIMIT {recordsPerPage} OFFSET {offset}";
+
+                cmd = new SQLiteCommand();
+                da = new SQLiteDataAdapter();
+                dt = new DataTable();
+
+                cmd.Connection = con;
+                cmd.CommandText = sql;
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                dtg.DataSource = dt;
+
+                funct.ResponsiveDtg(dtg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                da.Dispose();
+                con.Close();
+            }
+        }
+
         public void Load_Datasource(string sql, DataSet dtg)
         {
             ConnectionString();

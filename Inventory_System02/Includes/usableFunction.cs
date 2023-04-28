@@ -16,6 +16,7 @@ using System.Drawing.Imaging;
 using Inventory_System02.Reports_Dir;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
+using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace Inventory_System02.Includes
 {
@@ -106,6 +107,26 @@ namespace Inventory_System02.Includes
         {
             dtg.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
+
+
+        //Comboboxes
+
+
+        public void combobox_numbers_only(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as ComboBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+
         //textboxes
         public void TextBox_Readonly(object sender, EventArgs e, TextBox txt)
         {

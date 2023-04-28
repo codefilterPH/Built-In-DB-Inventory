@@ -57,8 +57,7 @@ namespace Inventory_System02
             sql = "Select Name from Brand";
             config.fiil_CBO(sql, cbo_brand);
 
-            sql = "Select * from Stocks order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_Items);
+            Load_Items();
 
             if (!isWorkerBusy)
             {
@@ -69,8 +68,7 @@ namespace Inventory_System02
             }
 
             LoadImageWorker.RunWorkerAsync();
-            DTG_Property();
-
+          
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
             enable_them = true;
@@ -313,13 +311,20 @@ namespace Inventory_System02
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-
             sql = "";
             config = new SQLConfig();
 
             chk_select_all.Checked = false;
             if (txt_Barcode.Text != "")
             {
+                sql = "Select `Stock ID` from Stocks where `Stock ID` = '" + txt_Barcode.Text + "' ";
+                config.singleResult(sql);
+                if (config.dt.Rows.Count <= 0)
+                {
+                    btn_AddStock_Click(sender, e);
+                    return;
+                }
+
                 if (MessageBox.Show("Are you sure you want to update current item? \n\nContinue?", "Warning Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
                 {
@@ -478,7 +483,7 @@ namespace Inventory_System02
 
             sql = "";
             config = new SQLConfig();
-            sql = "Select * from Stocks where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC ";
+            sql = $"Select * from Stocks where {search_for} like '%{txt_Search.Text}%' ORDER BY `Entry Date` DESC ";
             config.Load_DTG(sql, dtg_Items);
             if (!isWorkerBusy)
             {
@@ -1281,6 +1286,61 @@ namespace Inventory_System02
                 lbl_error_message.Text = "An error occurred: " + ex.Message;
             }    
         }
+        private void Load_Items()
+        {
+            // Get total records
+            string sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
+
+            // calculate the total number of records and pages
+            int totalRecords = config.GetTotalRecords(sql);
+            double num_records = 0;
+            double.TryParse(cbo_num_records.Text, out num_records);
+
+            double totalPages = (int)Math.Ceiling((double)totalRecords / num_records);
+
+            // update the maximum number
+            num_max_pages.Maximum = Convert.ToDecimal(totalPages);
+            num_max_pages.Value = Convert.ToDecimal(totalPages);
+
+            // get the current page number and records per page from the paginator control
+
+            int currentpage = (int)current_page_val.Value;
+            int recordsperpage = (int)num_records;
+
+            // build the sql query based on the search criteria
+
+            sql = $"SELECT * FROM stocks ORDER BY `Entry Date` DESC";
+
+            // load the data into the datagridview with pagination
+            config = new SQLConfig();
+            config.Load_DTG_Paginator(sql, dtg_Items, currentpage, recordsperpage);
+
+            DTG_Property();
+        }
+
+        private void cbo_num_records_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            func = new usableFunction();
+            func.combobox_numbers_only(sender, e);
+        }
+
+        private void current_page_val_ValueChanged(object sender, EventArgs e)
+        {
+            if ( current_page_val.Value <= num_max_pages.Value )
+            {
+                Load_Items();
+            }
+            else
+            {
+                current_page_val.Text = "0";
+            }
+        
+        }
+
+        private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Load_Items();
+        }
 
         private void txt_Price_Click(object sender, EventArgs e)
         {
@@ -1321,10 +1381,9 @@ namespace Inventory_System02
                 txt_Sup_Name.Text = "";
             }
         }
-
         private void btn_AddStock_Click(object sender, EventArgs e)
         {
-
+              
             chk_select_all.Checked = false;
             if (string.IsNullOrWhiteSpace(txt_Barcode.Text))
             {
@@ -1339,7 +1398,7 @@ namespace Inventory_System02
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {
-                    if ( MessageBox.Show("Barcode already exists! Would you like to generate new id and save the item?", "Duplicate ID", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("Barcode already exists! Would you like to generate new id and save the item?", "Duplicate Found", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
                         Barcode_Generator();
                         txt_Barcode.Focus();
@@ -1355,7 +1414,7 @@ namespace Inventory_System02
                 else
                 {
                     Item_ID1 = txt_Barcode.Text;
-                }
+                }          
             }
 
             if (string.IsNullOrWhiteSpace(txt_Barcode.Text))
@@ -1451,7 +1510,7 @@ namespace Inventory_System02
                     ",'" + JobRole + "' " +
                     ",'" + txt_TransRef.Text + "'" +
                     ",'" +stat_info+"' )";
-                config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to database!");
+                config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to record!");
                 save_Ref = txt_TransRef.Text;
                 newItemToolStripMenuItem_Click(sender, e);
                 txt_ItemName.Focus();
@@ -1462,7 +1521,8 @@ namespace Inventory_System02
                 {
                     dtg_Items.Rows[0].Selected = true;
                 }
-            }
+                return;
+            }   
         }
         string save_Ref = string.Empty;
     }

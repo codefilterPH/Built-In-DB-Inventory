@@ -42,12 +42,14 @@ namespace Inventory_System02.Reports_Dir
         public Item_Report(string userid, string name, string jobrole)
         {
             InitializeComponent();
+            bw_cbo_dates.WorkerReportsProgress = true;
+            bw_cbo_dates.WorkerSupportsCancellation = true;
             Global_ID = userid;
             Fullname = name;
             JobRole = jobrole;
 
         }
-
+        bool isWorkerBusy = false;
         private void Item_Report_Load_1(object sender, EventArgs e)
         {
             chk_Cust_ID.Visible = false;
@@ -62,10 +64,11 @@ namespace Inventory_System02.Reports_Dir
             chk_Sup_Name.Checked = true;
 
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            //Calculate_Filtering("load", cbo_report_type.Text);
-
+            if (!isWorkerBusy)
+            {
+                isWorkerBusy = true;
+                bw_cbo_dates.RunWorkerAsync();
+            }
         }
         private void Group_Filtering_MustNotEmpty()
         {
@@ -558,6 +561,25 @@ namespace Inventory_System02.Reports_Dir
         private void lbl_total_value_TextChanged(object sender, EventArgs e)
         {
             func.Label_Two_Decimal_Places(sender, e, lbl_total_value);
+        }
+
+        private void bw_cbo_dates_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            // Set the date range in the background worker
+            dtp_date_to.Invoke(new Action(() =>
+            {
+                dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+
+            dtp_date_from.Invoke(new Action(() =>
+            {
+                dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+        }
+
+        private void bw_cbo_dates_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            isWorkerBusy = false;
         }
 
         private void btn_Batch_Click_1(object sender, EventArgs e)

@@ -87,6 +87,7 @@ namespace Inventory_System02.Profiles
                     ", '" + txt_Address.Text + "' " +
                     ", '" + txt_Job_role.Text + "' ) ";
                     config.Execute_CUD(sql, "Unsuccessful to Record " + txt_Job_role.Text, "Successfully recorded " + txt_Job_role.Text);
+                    return;
                 }
                 else
                 {
@@ -299,6 +300,18 @@ namespace Inventory_System02.Profiles
 
         }
 
+        private void PersonExistsVerifier(object sender, EventArgs e)
+        {
+            //When user clicks the update button and if the user not exists it will create the person instead
+            sql = "Select * from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
+            config.singleResult(sql);
+            if (config.dt.Rows.Count < 1)
+            {
+                btn_Add_Click(sender, e);
+                return;
+            }
+        }
+
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace ( txt_ID.Text ) )
@@ -312,6 +325,7 @@ namespace Inventory_System02.Profiles
                 }
                 else if (txt_Job_role.Text == JobRole && txt_ID.Text == Global_ID)
                 {
+                    PersonExistsVerifier(sender, e);
                     // Allow the user to update their own account
                     if (MessageBox.Show("Are you sure to update your profile? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                         == DialogResult.Yes)
@@ -332,6 +346,7 @@ namespace Inventory_System02.Profiles
                 }
                 else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
                 {
+                    PersonExistsVerifier(sender, e);
                     // Allow managers and admin to update other employees' accounts
                     if (MessageBox.Show("Are you sure to update this user? \n\nContinue?", "Update confirmation message", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                         == DialogResult.Yes)
