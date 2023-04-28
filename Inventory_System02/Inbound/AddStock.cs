@@ -590,6 +590,10 @@ namespace Inventory_System02
 
         private void newItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_TransRef.Text))
+            {
+                btn_Gen_Click(sender, e);
+            }
             Barcode_Generator();
             cbo_brand.Text = "Replace me!";
             txt_ItemName.Text = "Replace me!";
