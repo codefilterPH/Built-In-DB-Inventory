@@ -32,8 +32,8 @@ namespace Inventory_System02
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel16 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.btn_nav = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.Company_Logo = new System.Windows.Forms.PictureBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.btn_About = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@ namespace Inventory_System02
             this.sideBar = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btn_Logout = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
+            this.lower_panel = new System.Windows.Forms.Panel();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Company_Logo)).BeginInit();
             this.panel15.SuspendLayout();
@@ -97,12 +97,30 @@ namespace Inventory_System02
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.label1);
             this.panel16.Controls.Add(this.btn_nav);
+            this.panel16.Controls.Add(this.label1);
             this.panel16.Location = new System.Drawing.Point(3, 2);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(205, 64);
             this.panel16.TabIndex = 0;
+            // 
+            // btn_nav
+            // 
+            this.btn_nav.BackgroundImage = global::Inventory_System02.Properties.Resources.nav;
+            this.btn_nav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_nav.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nav.FlatAppearance.BorderSize = 0;
+            this.btn_nav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nav.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nav.ForeColor = System.Drawing.Color.White;
+            this.btn_nav.Location = new System.Drawing.Point(9, 10);
+            this.btn_nav.Name = "btn_nav";
+            this.btn_nav.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_nav.Size = new System.Drawing.Size(40, 44);
+            this.btn_nav.TabIndex = 11;
+            this.btn_nav.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_nav.UseVisualStyleBackColor = true;
+            this.btn_nav.Click += new System.EventHandler(this.btn_nav_Click);
             // 
             // label1
             // 
@@ -110,29 +128,11 @@ namespace Inventory_System02
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(69, 21);
+            this.label1.Location = new System.Drawing.Point(72, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 25);
             this.label1.TabIndex = 12;
             this.label1.Text = "Menu";
-            // 
-            // btn_nav
-            // 
-            this.btn_nav.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_nav.BackgroundImage")));
-            this.btn_nav.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_nav.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_nav.FlatAppearance.BorderSize = 0;
-            this.btn_nav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_nav.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nav.ForeColor = System.Drawing.Color.White;
-            this.btn_nav.Location = new System.Drawing.Point(0, 13);
-            this.btn_nav.Name = "btn_nav";
-            this.btn_nav.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_nav.Size = new System.Drawing.Size(58, 51);
-            this.btn_nav.TabIndex = 11;
-            this.btn_nav.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_nav.UseVisualStyleBackColor = true;
-            this.btn_nav.Click += new System.EventHandler(this.btn_nav_Click);
             // 
             // Company_Logo
             // 
@@ -487,13 +487,11 @@ namespace Inventory_System02
             // 
             // show_panel
             // 
-            this.show_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.show_panel.BackColor = System.Drawing.Color.White;
+            this.show_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.show_panel.Location = new System.Drawing.Point(213, 72);
             this.show_panel.Name = "show_panel";
-            this.show_panel.Size = new System.Drawing.Size(899, 538);
+            this.show_panel.Size = new System.Drawing.Size(899, 536);
             this.show_panel.TabIndex = 1;
             // 
             // panel2
@@ -655,23 +653,22 @@ namespace Inventory_System02
             this.btn_Logout.UseVisualStyleBackColor = true;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
-            // panel18
+            // lower_panel
             // 
-            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel18.BackColor = System.Drawing.Color.White;
-            this.panel18.Location = new System.Drawing.Point(213, 608);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(899, 30);
-            this.panel18.TabIndex = 4;
+            this.lower_panel.BackColor = System.Drawing.Color.White;
+            this.lower_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lower_panel.Location = new System.Drawing.Point(213, 608);
+            this.lower_panel.Name = "lower_panel";
+            this.lower_panel.Size = new System.Drawing.Size(899, 30);
+            this.lower_panel.TabIndex = 4;
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1112, 638);
             this.Controls.Add(this.show_panel);
-            this.Controls.Add(this.panel18);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lower_panel);
             this.Controls.Add(this.sideBar);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -750,6 +747,6 @@ namespace Inventory_System02
         private System.Windows.Forms.Panel sideBar;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btn_Logout;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel lower_panel;
     }
 }

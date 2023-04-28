@@ -17,7 +17,7 @@ namespace Inventory_System02
     public partial class MainForm : Form
     {
         private Login1 _loginForm;
-        bool sidebarExpand;
+        private bool sidebarExpand = false;
         string Global_ID, Fullname, JobRole;
         usableFunction func = new usableFunction();
 
@@ -125,7 +125,7 @@ namespace Inventory_System02
 
         private void sideBarTimer_Tick(object sender, EventArgs e)
         {
-  
+
             if (sidebarExpand)
             {
                 sideBar.Width -= 45;
@@ -133,6 +133,7 @@ namespace Inventory_System02
                 {
                     sidebarExpand = false;
                     sideBarTimer.Stop();
+                    btn_nav.BackgroundImage = Properties.Resources.expand2;
                 }
             }
             else
@@ -142,8 +143,10 @@ namespace Inventory_System02
                 {
                     sidebarExpand = true;
                     sideBarTimer.Stop();
-                }
+                    btn_nav.BackgroundImage= Properties.Resources.nav; // assign an image to the button
+                }       
             }
+            btn_nav.BackgroundImageLayout = ImageLayout.Zoom;
         }
 
         private void btn_stocks_out_Click_1(object sender, EventArgs e)
