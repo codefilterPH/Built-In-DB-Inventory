@@ -125,20 +125,30 @@ namespace Inventory_System02
             {
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
                 {
-                    int.TryParse(Convert.ToString(config.dt.Rows[0]["Low_Detection"]), out quantity);
-                    if (Convert.ToInt32(rw.Cells[6].Value) <= quantity)
+                    try
                     {
-                        //STOCK LOW DETECT CHANGE FONT COLOR
-                        rw.DefaultCellStyle.ForeColor = Color.Red;
+                        int.TryParse(Convert.ToString(config.dt.Rows[0]["Low_Detection"]), out quantity);
+                        int cellValue;
+                        if (int.TryParse(Convert.ToString(rw.Cells[6].Value), out cellValue) && cellValue <= quantity)
+                        {
+                            //STOCK LOW DETECT CHANGE FONT COLOR
+                            rw.DefaultCellStyle.ForeColor = Color.Red;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //Handle the exception here. For example, you could log it, show an error message to the user, or take other appropriate action.
+                        lbl_error_message.Text = $"An error occured: {ex.Message}";
                     }
                 }
             }
         }
+
         private void Calculator_Timer_Tick(object sender, EventArgs e)
         {
             config = new SQLConfig();
             Calculations();
-            ProcessStockLow();
+            // ProcessStockLow();
             Calculator_Timer.Stop();
         }
         int my_qty;
@@ -366,7 +376,22 @@ namespace Inventory_System02
             enable_them = true;
             SpecialFilterDisabler();
             chk_select_all.Checked = false;
+            EnablePaginatorControl();
             this.Refresh();
+        }
+        private void EnablePaginatorControl()
+        {
+            num_max_pages.Enabled = true;
+            current_page_val.Enabled = true;
+            cbo_num_records.Enabled = true;
+            btn_load.Enabled = true;
+        }
+        private void DisablePaginatorControl() 
+        {
+            num_max_pages.Enabled = false;
+            current_page_val.Enabled = false;
+            cbo_num_records.Enabled = false;
+            btn_load.Enabled = false;
         }
 
         private void btn_Clear_Text_Click(object sender, EventArgs e)
@@ -1267,7 +1292,8 @@ namespace Inventory_System02
                         }
 
                     }
-                 
+
+                    DisablePaginatorControl();
                 }
                 catch (Exception ex)
                 {
@@ -1348,6 +1374,11 @@ namespace Inventory_System02
         {
             sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
             Load_Items(sql);
+        }
+
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+            current_page_val_ValueChanged(sender, e);
         }
 
         private void txt_Price_Click(object sender, EventArgs e)

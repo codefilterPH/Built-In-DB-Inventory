@@ -97,6 +97,7 @@ namespace Inventory_System02
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Qty = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_load = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.cbo_num_records = new System.Windows.Forms.ComboBox();
             this.num_max_pages = new System.Windows.Forms.NumericUpDown();
@@ -334,7 +335,7 @@ namespace Inventory_System02
             this.loadImagesToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.loadImagesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.loadImagesToolStripMenuItem.Name = "loadImagesToolStripMenuItem";
-            this.loadImagesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.loadImagesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadImagesToolStripMenuItem.Text = "Load Images";
             this.loadImagesToolStripMenuItem.Click += new System.EventHandler(this.loadImagesToolStripMenuItem_Click);
             // 
@@ -943,6 +944,7 @@ namespace Inventory_System02
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btn_load);
             this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.cbo_num_records);
             this.panel2.Controls.Add(this.num_max_pages);
@@ -958,6 +960,22 @@ namespace Inventory_System02
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(856, 299);
             this.panel2.TabIndex = 21;
+            // 
+            // btn_load
+            // 
+            this.btn_load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_load.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_load.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_load.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_load.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_load.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_load.Location = new System.Drawing.Point(613, 27);
+            this.btn_load.Name = "btn_load";
+            this.btn_load.Size = new System.Drawing.Size(40, 25);
+            this.btn_load.TabIndex = 132;
+            this.btn_load.Text = "Load";
+            this.btn_load.UseVisualStyleBackColor = false;
+            this.btn_load.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // label21
             // 
@@ -992,7 +1010,7 @@ namespace Inventory_System02
             // 
             this.num_max_pages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.num_max_pages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.num_max_pages.Location = new System.Drawing.Point(610, 27);
+            this.num_max_pages.Location = new System.Drawing.Point(561, 27);
             this.num_max_pages.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1018,7 +1036,7 @@ namespace Inventory_System02
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(586, 31);
+            this.label20.Location = new System.Drawing.Point(537, 31);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(20, 17);
             this.label20.TabIndex = 125;
@@ -1029,7 +1047,7 @@ namespace Inventory_System02
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(492, 29);
+            this.label19.Location = new System.Drawing.Point(443, 29);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(37, 17);
             this.label19.TabIndex = 74;
@@ -1039,7 +1057,7 @@ namespace Inventory_System02
             // 
             this.current_page_val.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.current_page_val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.current_page_val.Location = new System.Drawing.Point(535, 27);
+            this.current_page_val.Location = new System.Drawing.Point(486, 27);
             this.current_page_val.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1396,6 +1414,7 @@ namespace Inventory_System02
         private System.Windows.Forms.NumericUpDown num_max_pages;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cbo_num_records;
+        private System.Windows.Forms.Button btn_load;
     }
 }
 
