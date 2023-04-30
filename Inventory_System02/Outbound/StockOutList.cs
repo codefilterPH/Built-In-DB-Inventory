@@ -28,6 +28,33 @@ namespace Inventory_System02
 
             refreshTableToolStripMenuItem_Click(sender, e);
         }
+        private void Load_Items(string sql)
+        {
+
+            // calculate the total number of records and pages
+            int totalRecords = config.GetTotalRecords(sql);
+
+            double num_records = 0;
+            double.TryParse(cbo_num_records.Text, out num_records);
+
+            double totalPages = (int)Math.Ceiling((double)totalRecords / num_records);
+
+            // update the maximum number
+            num_max_pages.Maximum = Convert.ToDecimal(totalPages);
+            num_max_pages.Value = Convert.ToDecimal(totalPages);
+
+            // get the current page number and records per page from the paginator control
+
+            int currentpage = (int)current_page_val.Value;
+            int recordsperpage = (int)num_records;
+
+            // build the sql query based on the search criteria
+
+            // load the data into the datagridview with pagination
+            config = new SQLConfig();
+            config.Load_DTG_Paginator(sql, dtg_outlist, currentpage, recordsperpage);
+            DTG_Property();
+        }
 
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -37,7 +64,7 @@ namespace Inventory_System02
             }
             this.Refresh();
             sql = "Select * from `Stock Out` ORDER BY `Entry Date` DESC";
-            config.Load_DTG(sql, dtg_outlist);
+            Load_Items(sql);
             if (config.dt.Rows.Count > 0)
             {
                 CalculateValue();
@@ -49,7 +76,7 @@ namespace Inventory_System02
                 out_qty.Text = "0";
             }
 
-            DTG_Property();
+           
             //Enable everyone because they are not using specialfilters
             enable_them = true;
             SpecialFilterDisabler();
@@ -547,6 +574,32 @@ namespace Inventory_System02
             }
         }
 
+        private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            sql = "Select * from `Stock Out` ORDER BY `Entry Date` DESC";
+            Load_Items(sql);
+        }
+
+        private void current_page_val_ValueChanged(object sender, EventArgs e)
+        {
+            ToolTip tooltip = new ToolTip();
+            if (current_page_val.Value <= num_max_pages.Value)
+            {
+                tooltip.SetToolTip(current_page_val, "Hit \'ENTER\' key to apply changes.");
+                sql = "Select * from `Stock Out` ORDER BY `Entry Date` DESC";
+                Load_Items(sql);
+            }
+            else
+            {
+                current_page_val.Text = "0";
+            }
+        }
+
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+            current_page_val_ValueChanged(sender, e);
+        }
+
         private void btn_select_Click(object sender, EventArgs e)
         {
             if (dtg_outlist.Rows.Count >= 1)
@@ -632,7 +685,7 @@ namespace Inventory_System02
                 search_for = "`Customer Name`";
             }
             sql = "Select * from `Stock Out` where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC";
-            config.Load_DTG(sql, dtg_outlist);
+            Load_Items(sql);
             if (config.dt.Rows.Count > 0 )
             {
                 CalculateValue();

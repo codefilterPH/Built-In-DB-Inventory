@@ -335,7 +335,7 @@ namespace Inventory_System02
             this.loadImagesToolStripMenuItem.BackColor = System.Drawing.Color.SteelBlue;
             this.loadImagesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.loadImagesToolStripMenuItem.Name = "loadImagesToolStripMenuItem";
-            this.loadImagesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadImagesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.loadImagesToolStripMenuItem.Text = "Load Images";
             this.loadImagesToolStripMenuItem.Click += new System.EventHandler(this.loadImagesToolStripMenuItem_Click);
             // 
