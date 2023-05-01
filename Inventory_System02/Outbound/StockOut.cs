@@ -1006,20 +1006,20 @@ namespace Inventory_System02
                 }
                 else if (string.IsNullOrWhiteSpace(cbo_CustID.Text))
                 {
-                    MessageBox.Show("Customer or Division \"ID\" should not be emty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Customer or Division \"ID\" should not be empty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cbo_CustID.Focus();
 
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(txt_Cust_Name.Text))
                 {
-                    MessageBox.Show("Customer or Division \"NAME\" should not be emty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Customer or Division \"NAME\" should not be empty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txt_Cust_Name.Focus();
                     return;
                 }
                 else if (string.IsNullOrWhiteSpace(txt_Cust_SAddress.Text))
                 {
-                    MessageBox.Show("Customer or Division \"ADDRESS\" should not be emty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Customer or Division \"ADDRESS\" should not be empty. Thank you", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txt_Cust_SAddress.Focus();
 
                     return;
