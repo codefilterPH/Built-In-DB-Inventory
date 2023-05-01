@@ -30,10 +30,10 @@ namespace Inventory_System02
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStock));
             this.dtg_Items = new System.Windows.Forms.DataGridView();
             this.txt_Search = new System.Windows.Forms.TextBox();
@@ -139,24 +139,24 @@ namespace Inventory_System02
             // 
             this.dtg_Items.AllowUserToAddRows = false;
             this.dtg_Items.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
-            this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.DimGray;
+            this.dtg_Items.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtg_Items.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_Items.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtg_Items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Items.EnableHeadersVisualStyles = false;
             this.dtg_Items.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -164,21 +164,21 @@ namespace Inventory_System02
             this.dtg_Items.Name = "dtg_Items";
             this.dtg_Items.ReadOnly = true;
             this.dtg_Items.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Items.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtg_Items.RowTemplate.Height = 40;
             this.dtg_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_Items.Size = new System.Drawing.Size(850, 240);
@@ -945,10 +945,8 @@ namespace Inventory_System02
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btn_load);
-            this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.cbo_num_records);
             this.panel2.Controls.Add(this.num_max_pages);
-            this.panel2.Controls.Add(this.label20);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.current_page_val);
             this.panel2.Controls.Add(this.lbl_error_message);
@@ -956,6 +954,8 @@ namespace Inventory_System02
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.lbl_ProductValue);
             this.panel2.Controls.Add(this.dtg_Items);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.label20);
             this.panel2.Location = new System.Drawing.Point(6, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(856, 299);
@@ -968,10 +968,10 @@ namespace Inventory_System02
             this.btn_load.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_load.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_load.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_load.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_load.Location = new System.Drawing.Point(613, 27);
+            this.btn_load.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_load.Location = new System.Drawing.Point(486, 26);
             this.btn_load.Name = "btn_load";
-            this.btn_load.Size = new System.Drawing.Size(40, 25);
+            this.btn_load.Size = new System.Drawing.Size(52, 25);
             this.btn_load.TabIndex = 132;
             this.btn_load.Text = "Load";
             this.btn_load.UseVisualStyleBackColor = false;
@@ -981,16 +981,18 @@ namespace Inventory_System02
             // 
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label21.Location = new System.Drawing.Point(670, 29);
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label21.Location = new System.Drawing.Point(696, 31);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(114, 17);
+            this.label21.Size = new System.Drawing.Size(97, 13);
             this.label21.TabIndex = 131;
             this.label21.Text = "Records per page";
             // 
             // cbo_num_records
             // 
             this.cbo_num_records.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbo_num_records.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cbo_num_records.FormattingEnabled = true;
             this.cbo_num_records.Items.AddRange(new object[] {
             "5",
@@ -998,7 +1000,7 @@ namespace Inventory_System02
             "20",
             "50",
             "100"});
-            this.cbo_num_records.Location = new System.Drawing.Point(790, 27);
+            this.cbo_num_records.Location = new System.Drawing.Point(792, 26);
             this.cbo_num_records.Name = "cbo_num_records";
             this.cbo_num_records.Size = new System.Drawing.Size(60, 25);
             this.cbo_num_records.TabIndex = 130;
@@ -1009,8 +1011,8 @@ namespace Inventory_System02
             // num_max_pages
             // 
             this.num_max_pages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.num_max_pages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.num_max_pages.Location = new System.Drawing.Point(561, 27);
+            this.num_max_pages.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.num_max_pages.Location = new System.Drawing.Point(646, 27);
             this.num_max_pages.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1035,10 +1037,11 @@ namespace Inventory_System02
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(537, 31);
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label20.Location = new System.Drawing.Point(624, 32);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(20, 17);
+            this.label20.Size = new System.Drawing.Size(18, 13);
             this.label20.TabIndex = 125;
             this.label20.Text = "of";
             // 
@@ -1046,18 +1049,19 @@ namespace Inventory_System02
             // 
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(443, 29);
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label19.Location = new System.Drawing.Point(542, 32);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(37, 17);
+            this.label19.Size = new System.Drawing.Size(32, 13);
             this.label19.TabIndex = 74;
             this.label19.Text = "Page";
             // 
             // current_page_val
             // 
             this.current_page_val.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.current_page_val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.current_page_val.Location = new System.Drawing.Point(486, 27);
+            this.current_page_val.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.current_page_val.Location = new System.Drawing.Point(574, 27);
             this.current_page_val.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -1093,6 +1097,7 @@ namespace Inventory_System02
             // 
             this.chk_select_all.AutoSize = true;
             this.chk_select_all.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.chk_select_all.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.chk_select_all.Location = new System.Drawing.Point(3, 35);
             this.chk_select_all.Name = "chk_select_all";
             this.chk_select_all.Size = new System.Drawing.Size(71, 17);

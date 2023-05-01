@@ -1372,8 +1372,7 @@ namespace Inventory_System02
 
         private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
-            Load_Items(sql);
+            current_page_val_ValueChanged(sender, e);
         }
 
         private void btn_load_Click(object sender, EventArgs e)

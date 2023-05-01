@@ -101,7 +101,7 @@ namespace Inventory_System02
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 202);
+            this.label1.Location = new System.Drawing.Point(10, 171);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 1;
@@ -110,7 +110,7 @@ namespace Inventory_System02
             // txt_Search
             // 
             this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Search.Location = new System.Drawing.Point(51, 198);
+            this.txt_Search.Location = new System.Drawing.Point(51, 167);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(121, 22);
             this.txt_Search.TabIndex = 5;
@@ -124,7 +124,7 @@ namespace Inventory_System02
             this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Delete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Delete.Location = new System.Drawing.Point(675, 161);
+            this.btn_Delete.Location = new System.Drawing.Point(733, 198);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(84, 25);
             this.btn_Delete.TabIndex = 3;
@@ -143,7 +143,7 @@ namespace Inventory_System02
             this.filtersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(771, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -325,7 +325,7 @@ namespace Inventory_System02
             this.out_amt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.out_amt.AutoSize = true;
             this.out_amt.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_amt.Location = new System.Drawing.Point(576, 487);
+            this.out_amt.Location = new System.Drawing.Point(634, 487);
             this.out_amt.Name = "out_amt";
             this.out_amt.Size = new System.Drawing.Size(18, 18);
             this.out_amt.TabIndex = 90;
@@ -337,7 +337,7 @@ namespace Inventory_System02
             this.out_qty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.out_qty.AutoSize = true;
             this.out_qty.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.out_qty.Location = new System.Drawing.Point(576, 460);
+            this.out_qty.Location = new System.Drawing.Point(634, 460);
             this.out_qty.Name = "out_qty";
             this.out_qty.Size = new System.Drawing.Size(18, 18);
             this.out_qty.TabIndex = 89;
@@ -348,7 +348,7 @@ namespace Inventory_System02
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(432, 487);
+            this.label5.Location = new System.Drawing.Point(490, 487);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(138, 18);
             this.label5.TabIndex = 88;
@@ -359,7 +359,7 @@ namespace Inventory_System02
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(412, 460);
+            this.label9.Location = new System.Drawing.Point(470, 460);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(158, 18);
             this.label9.TabIndex = 87;
@@ -408,7 +408,7 @@ namespace Inventory_System02
             this.cust_Image.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cust_Image.BackColor = System.Drawing.Color.Transparent;
             this.cust_Image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cust_Image.Location = new System.Drawing.Point(650, 61);
+            this.cust_Image.Location = new System.Drawing.Point(708, 61);
             this.cust_Image.Name = "cust_Image";
             this.cust_Image.Size = new System.Drawing.Size(110, 87);
             this.cust_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -452,7 +452,7 @@ namespace Inventory_System02
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(178, 201);
+            this.label7.Location = new System.Drawing.Point(176, 171);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(18, 13);
             this.label7.TabIndex = 120;
@@ -478,9 +478,9 @@ namespace Inventory_System02
             "JOB",
             "WARRANTY DUE DATE",
             "TRANS REF"});
-            this.cbo_srch_type.Location = new System.Drawing.Point(199, 198);
+            this.cbo_srch_type.Location = new System.Drawing.Point(196, 167);
             this.cbo_srch_type.Name = "cbo_srch_type";
-            this.cbo_srch_type.Size = new System.Drawing.Size(89, 21);
+            this.cbo_srch_type.Size = new System.Drawing.Size(92, 21);
             this.cbo_srch_type.TabIndex = 6;
             this.cbo_srch_type.Text = "DIVISION";
             this.cbo_srch_type.SelectedIndexChanged += new System.EventHandler(this.cbo_srch_type_SelectedIndexChanged);
@@ -493,7 +493,7 @@ namespace Inventory_System02
             this.btn_view.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_view.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_view.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_view.Location = new System.Drawing.Point(405, 161);
+            this.btn_view.Location = new System.Drawing.Point(463, 198);
             this.btn_view.Name = "btn_view";
             this.btn_view.Size = new System.Drawing.Size(84, 25);
             this.btn_view.TabIndex = 2;
@@ -509,7 +509,7 @@ namespace Inventory_System02
             this.btn_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_select.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_select.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_select.Location = new System.Drawing.Point(495, 161);
+            this.btn_select.Location = new System.Drawing.Point(553, 198);
             this.btn_select.Name = "btn_select";
             this.btn_select.Size = new System.Drawing.Size(84, 25);
             this.btn_select.TabIndex = 1;
@@ -543,7 +543,7 @@ namespace Inventory_System02
             this.dtg_outlist.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_outlist.RowTemplate.Height = 40;
             this.dtg_outlist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_outlist.Size = new System.Drawing.Size(748, 207);
+            this.dtg_outlist.Size = new System.Drawing.Size(806, 207);
             this.dtg_outlist.TabIndex = 121;
             this.dtg_outlist.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_outlist_CellClick);
             this.dtg_outlist.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_outlist_CellContentDoubleClick_1);
@@ -552,7 +552,7 @@ namespace Inventory_System02
             // 
             this.chk_select_all.AutoSize = true;
             this.chk_select_all.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.chk_select_all.Location = new System.Drawing.Point(294, 201);
+            this.chk_select_all.Location = new System.Drawing.Point(11, 201);
             this.chk_select_all.Name = "chk_select_all";
             this.chk_select_all.Size = new System.Drawing.Size(71, 17);
             this.chk_select_all.TabIndex = 122;
@@ -588,7 +588,7 @@ namespace Inventory_System02
             this.btn_Edit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_Edit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Edit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Edit.Location = new System.Drawing.Point(585, 161);
+            this.btn_Edit.Location = new System.Drawing.Point(643, 198);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(84, 25);
             this.btn_Edit.TabIndex = 127;
@@ -602,7 +602,7 @@ namespace Inventory_System02
             this.label10.Dock = System.Windows.Forms.DockStyle.Right;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(575, 24);
+            this.label10.Location = new System.Drawing.Point(633, 24);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(196, 25);
             this.label10.TabIndex = 128;
@@ -662,10 +662,10 @@ namespace Inventory_System02
             this.btn_load.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_load.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_load.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_load.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btn_load.Location = new System.Drawing.Point(533, 197);
+            this.btn_load.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_load.Location = new System.Drawing.Point(247, 197);
             this.btn_load.Name = "btn_load";
-            this.btn_load.Size = new System.Drawing.Size(40, 25);
+            this.btn_load.Size = new System.Drawing.Size(41, 25);
             this.btn_load.TabIndex = 139;
             this.btn_load.Text = "Load";
             this.btn_load.UseVisualStyleBackColor = false;
@@ -674,15 +674,17 @@ namespace Inventory_System02
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label21.Location = new System.Drawing.Point(581, 200);
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label21.Location = new System.Drawing.Point(295, 204);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(114, 17);
+            this.label21.Size = new System.Drawing.Size(97, 13);
             this.label21.TabIndex = 138;
             this.label21.Text = "Records per page";
             // 
             // cbo_num_records
             // 
+            this.cbo_num_records.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cbo_num_records.FormattingEnabled = true;
             this.cbo_num_records.Items.AddRange(new object[] {
             "5",
@@ -690,7 +692,7 @@ namespace Inventory_System02
             "20",
             "50",
             "100"});
-            this.cbo_num_records.Location = new System.Drawing.Point(698, 197);
+            this.cbo_num_records.Location = new System.Drawing.Point(398, 198);
             this.cbo_num_records.Name = "cbo_num_records";
             this.cbo_num_records.Size = new System.Drawing.Size(62, 25);
             this.cbo_num_records.TabIndex = 137;
@@ -699,8 +701,8 @@ namespace Inventory_System02
             // 
             // num_max_pages
             // 
-            this.num_max_pages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.num_max_pages.Location = new System.Drawing.Point(481, 197);
+            this.num_max_pages.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.num_max_pages.Location = new System.Drawing.Point(196, 197);
             this.num_max_pages.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -712,7 +714,7 @@ namespace Inventory_System02
             0,
             0});
             this.num_max_pages.Name = "num_max_pages";
-            this.num_max_pages.Size = new System.Drawing.Size(46, 25);
+            this.num_max_pages.Size = new System.Drawing.Size(45, 25);
             this.num_max_pages.TabIndex = 136;
             this.num_max_pages.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.num_max_pages.Value = new decimal(new int[] {
@@ -724,27 +726,29 @@ namespace Inventory_System02
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(457, 199);
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label20.Location = new System.Drawing.Point(175, 201);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(20, 17);
+            this.label20.Size = new System.Drawing.Size(18, 13);
             this.label20.TabIndex = 135;
             this.label20.Text = "of";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(365, 199);
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label19.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label19.Location = new System.Drawing.Point(92, 202);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(37, 17);
+            this.label19.Size = new System.Drawing.Size(32, 13);
             this.label19.TabIndex = 133;
             this.label19.Text = "Page";
             // 
             // current_page_val
             // 
-            this.current_page_val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.current_page_val.Location = new System.Drawing.Point(408, 197);
+            this.current_page_val.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.current_page_val.Location = new System.Drawing.Point(125, 197);
             this.current_page_val.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -756,7 +760,7 @@ namespace Inventory_System02
             0,
             0});
             this.current_page_val.Name = "current_page_val";
-            this.current_page_val.Size = new System.Drawing.Size(46, 25);
+            this.current_page_val.Size = new System.Drawing.Size(47, 25);
             this.current_page_val.TabIndex = 134;
             this.current_page_val.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.current_page_val.Value = new decimal(new int[] {
@@ -770,9 +774,9 @@ namespace Inventory_System02
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.lbl_status);
-            this.panel3.Location = new System.Drawing.Point(294, 154);
+            this.panel3.Location = new System.Drawing.Point(708, 152);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(104, 40);
+            this.panel3.Size = new System.Drawing.Size(110, 40);
             this.panel3.TabIndex = 140;
             // 
             // lbl_status
@@ -782,7 +786,7 @@ namespace Inventory_System02
             this.lbl_status.ForeColor = System.Drawing.Color.Green;
             this.lbl_status.Location = new System.Drawing.Point(0, 0);
             this.lbl_status.Name = "lbl_status";
-            this.lbl_status.Size = new System.Drawing.Size(104, 40);
+            this.lbl_status.Size = new System.Drawing.Size(110, 40);
             this.lbl_status.TabIndex = 125;
             this.lbl_status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -790,18 +794,16 @@ namespace Inventory_System02
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(771, 521);
+            this.ClientSize = new System.Drawing.Size(829, 521);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txt_Search);
             this.Controls.Add(this.btn_load);
             this.Controls.Add(this.chk_select_all);
-            this.Controls.Add(this.label21);
             this.Controls.Add(this.cbo_num_records);
             this.Controls.Add(this.lbl_exception);
             this.Controls.Add(this.num_max_pages);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btn_Edit);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.current_page_val);
             this.Controls.Add(this.txt_Remarks);
             this.Controls.Add(this.label8);
@@ -830,6 +832,8 @@ namespace Inventory_System02
             this.Controls.Add(this.btn_Delete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label21);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory MS.exe" size="2324448">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory MS.exe" size="2327008">
       <assemblyIdentity name="Inventory MS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>g0eInNvVeQEYWoEEr7KZKL13DrPVfcHHEQMjom7QCt8=</dsig:DigestValue>
+        <dsig:DigestValue>a2RqqrPR/UsXY7Zsx3tnH600enf7jekGHBI87MLzD+Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

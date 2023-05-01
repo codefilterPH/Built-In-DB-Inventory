@@ -576,8 +576,7 @@ namespace Inventory_System02
 
         private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sql = "Select * from `Stock Out` ORDER BY `Entry Date` DESC";
-            Load_Items(sql);
+            current_page_val_ValueChanged(sender, e);
         }
 
         private void current_page_val_ValueChanged(object sender, EventArgs e)

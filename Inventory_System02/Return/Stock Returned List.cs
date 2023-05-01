@@ -41,7 +41,7 @@ namespace Inventory_System02
             this.Refresh();
 
             sql = "Select * from `Stock Returned` order by `Entry Date` desc";
-            config.Load_DTG(sql, dtg_return_list);
+            Load_Items(sql);
             if ( dtg_return_list.Columns.Count > 0 )
             {
                 dtg_return_list.Columns[0].Visible = false;
@@ -96,7 +96,33 @@ namespace Inventory_System02
             refreshTableToolStripMenuItem_Click(sender, e);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+        private void Load_Items(string sql)
+        {
 
+            // calculate the total number of records and pages
+            int totalRecords = config.GetTotalRecords(sql);
+
+            double num_records = 0;
+            double.TryParse(cbo_num_records.Text, out num_records);
+
+            double totalPages = (int)Math.Ceiling((double)totalRecords / num_records);
+
+            // update the maximum number
+            num_max_pages.Maximum = Convert.ToDecimal(totalPages);
+            num_max_pages.Value = Convert.ToDecimal(totalPages);
+
+            // get the current page number and records per page from the paginator control
+
+            int currentpage = (int)current_page_val.Value;
+            int recordsperpage = (int)num_records;
+
+            // build the sql query based on the search criteria
+
+            // load the data into the datagridview with pagination
+            config = new SQLConfig();
+            config.Load_DTG_Paginator(sql, dtg_return_list, currentpage, recordsperpage);
+            DTG_Property();
+        }
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             if (dtg_return_list.Rows.Count >= 1)
@@ -565,7 +591,32 @@ namespace Inventory_System02
                 }
             }
         }
-        
+
+        private void current_page_val_ValueChanged(object sender, EventArgs e)
+        {
+            ToolTip tooltip = new ToolTip();
+            if (current_page_val.Value <= num_max_pages.Value)
+            {
+                tooltip.SetToolTip(current_page_val, "Hit \'ENTER\' key to apply changes.");
+                sql = "Select * from `Stock Returned` order by `Entry Date` desc";
+                Load_Items(sql);
+            }
+            else
+            {
+                current_page_val.Text = "0";
+            }
+        }
+
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+            current_page_val_ValueChanged(sender, e);
+        }
+
+        private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            current_page_val_ValueChanged(sender, e);
+        }
+
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
