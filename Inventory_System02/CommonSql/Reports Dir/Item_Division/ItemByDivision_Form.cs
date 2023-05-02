@@ -40,7 +40,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         {
             InitializeComponent();
         }
-
+        bool isWorkerBusy2 = false;
         private void ItemByDivision_Form_Load(object sender, EventArgs e)
         {
             chk_Cust_ID.Visible = false;
@@ -56,9 +56,13 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             chk_Sup_Name.Checked=true;
 
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            dtp_date_from.Text =  DateTime.Now.AddMonths(-1).ToString(Includes.AppSettings.DateFormatRetrieve);
-           
+
+            if (!isWorkerBusy2)
+            {
+                isWorkerBusy = true;
+                backgroundWorker2.RunWorkerAsync();
+            }
+
             if ( !isWorkerBusy)
             {
                 progressBar1.Visible = true;
@@ -66,8 +70,9 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 load_sup = true;
                 backgroundWorker1.RunWorkerAsync();
             }
-           // Calculate_Filtering("load", cbo_report_type.Text);
-         
+
+            // Calculate_Filtering("load", cbo_report_type.Text);
+
         }
 
         private void Group_Filtering_MustNotEmpty()
@@ -608,13 +613,13 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 else
                 {
                     sql = string.Empty;
-                    sql = "SELECT Name FROM Customer WHERE COUNT = 1 ORDER BY Name ASC";
+                    sql = "SELECT Name FROM Customer ORDER BY Name ASC";
                     
                 }
 
                 this.Invoke(new MethodInvoker(delegate { config.fiil_CBO(sql, cbo_sup_divi); }));
-
-
+                
+                Console.WriteLine("Test");
 
                 for (int i = 0; i < config.dt.Rows.Count; i++)
                 {
@@ -651,7 +656,13 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 lbl_error_message.ForeColor = Color.Green;
                 timer_error.Enabled = true;
             }
-        
+            load_sup = false;
+            isWorkerBusy = false;
+        }
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Update the UI with the progress value
+            progressBar1.Value = e.ProgressPercentage;
         }
 
         private void timer_error_Tick(object sender, EventArgs e)
@@ -661,10 +672,23 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             progressBar1.Visible = false;
         }
 
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Update the UI with the progress value
-            progressBar1.Value = e.ProgressPercentage;
+            // Set the date range in the background worker
+            dtp_date_to.Invoke(new Action(() =>
+            {
+                dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+
+            dtp_date_from.Invoke(new Action(() =>
+            {
+                dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+        }
+
+        private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            isWorkerBusy2 = false;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Inventory_System02.Reports_Dir
             JobRole = jobrole;
 
         }
-
+        bool isWorkerBusy = false;
         private void Employee_Report_Load(object sender, EventArgs e)
         {           
             chk_Emp_ID.Checked = false;
@@ -43,8 +43,11 @@ namespace Inventory_System02.Reports_Dir
             chk_LN.Checked = true;
             chk_Emp_ID.Checked = true;
 
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            if (!isWorkerBusy)
+            {
+                isWorkerBusy = true;
+                backgroundWorker_date_formatter.RunWorkerAsync();
+            }
             Calculate_Filtering("loadToday");
             if( dtg_PreviewPage.Rows.Count == 0 )
             {
@@ -303,6 +306,26 @@ namespace Inventory_System02.Reports_Dir
         {
             Calculate_Filtering("print");
         }
+
+        private void backgroundWorker_date_formatter_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            // Set the date range in the background worker
+            dtp_date_to.Invoke(new Action(() =>
+            {
+                dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+
+            dtp_date_from.Invoke(new Action(() =>
+            {
+                dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+        }
+
+        private void backgroundWorker_date_formatter_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            isWorkerBusy = false;
+        }
+
         private void btn_Batch_Click(object sender, EventArgs e)
         {
             Calculate_Filtering("batch");

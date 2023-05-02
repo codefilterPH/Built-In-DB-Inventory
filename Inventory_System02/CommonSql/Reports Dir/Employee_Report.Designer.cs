@@ -30,9 +30,9 @@ namespace Inventory_System02.Reports_Dir
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee_Report));
             this.chk_Select_All = new System.Windows.Forms.CheckBox();
             this.chk_Unselect = new System.Windows.Forms.CheckBox();
@@ -61,6 +61,7 @@ namespace Inventory_System02.Reports_Dir
             this.jobRolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_Print = new System.Windows.Forms.Button();
             this.classEmployeeVarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.backgroundWorker_date_formatter = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_PreviewPage)).BeginInit();
@@ -130,11 +131,11 @@ namespace Inventory_System02.Reports_Dir
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(-4, 12);
+            this.tabControl1.Location = new System.Drawing.Point(-4, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(764, 331);
+            this.tabControl1.Size = new System.Drawing.Size(764, 343);
             this.tabControl1.TabIndex = 47;
             // 
             // tabPage1
@@ -151,7 +152,7 @@ namespace Inventory_System02.Reports_Dir
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(756, 301);
+            this.tabPage1.Size = new System.Drawing.Size(756, 313);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Filter Page";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -162,7 +163,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_exception.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbl_exception.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_exception.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_exception.Location = new System.Drawing.Point(3, 284);
+            this.lbl_exception.Location = new System.Drawing.Point(3, 296);
             this.lbl_exception.Name = "lbl_exception";
             this.lbl_exception.Size = new System.Drawing.Size(0, 14);
             this.lbl_exception.TabIndex = 98;
@@ -216,7 +217,7 @@ namespace Inventory_System02.Reports_Dir
             this.lbl_Personnel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbl_Personnel.AutoSize = true;
             this.lbl_Personnel.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Personnel.Location = new System.Drawing.Point(164, 145);
+            this.lbl_Personnel.Location = new System.Drawing.Point(164, 149);
             this.lbl_Personnel.Name = "lbl_Personnel";
             this.lbl_Personnel.Size = new System.Drawing.Size(17, 17);
             this.lbl_Personnel.TabIndex = 24;
@@ -227,34 +228,34 @@ namespace Inventory_System02.Reports_Dir
             this.dtg_PreviewPage.AllowUserToAddRows = false;
             this.dtg_PreviewPage.AllowUserToDeleteRows = false;
             this.dtg_PreviewPage.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dtg_PreviewPage.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtg_PreviewPage.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_PreviewPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtg_PreviewPage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_PreviewPage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_PreviewPage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_PreviewPage.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtg_PreviewPage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_PreviewPage.Location = new System.Drawing.Point(9, 37);
             this.dtg_PreviewPage.Name = "dtg_PreviewPage";
             this.dtg_PreviewPage.ReadOnly = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 93);
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumSpringGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dtg_PreviewPage.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dtg_PreviewPage.Size = new System.Drawing.Size(737, 97);
             this.dtg_PreviewPage.TabIndex = 22;
             // 
             // label7
@@ -262,7 +263,7 @@ namespace Inventory_System02.Reports_Dir
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 145);
+            this.label7.Location = new System.Drawing.Point(6, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 17);
             this.label7.TabIndex = 23;
@@ -279,7 +280,7 @@ namespace Inventory_System02.Reports_Dir
             this.grp_filters.Controls.Add(this.chk_LN);
             this.grp_filters.Controls.Add(this.chk_FN);
             this.grp_filters.Controls.Add(this.chk_Emp_ID);
-            this.grp_filters.Location = new System.Drawing.Point(271, 145);
+            this.grp_filters.Location = new System.Drawing.Point(271, 149);
             this.grp_filters.Name = "grp_filters";
             this.grp_filters.Size = new System.Drawing.Size(475, 82);
             this.grp_filters.TabIndex = 20;
@@ -412,10 +413,15 @@ namespace Inventory_System02.Reports_Dir
             // 
             this.classEmployeeVarBindingSource.DataSource = typeof(Inventory_System02.Reports_Dir.Class_Employee_Var);
             // 
+            // backgroundWorker_date_formatter
+            // 
+            this.backgroundWorker_date_formatter.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_date_formatter_DoWork);
+            this.backgroundWorker_date_formatter.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker_date_formatter_RunWorkerCompleted);
+            // 
             // Employee_Report
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(762, 382);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Print);
@@ -472,5 +478,6 @@ namespace Inventory_System02.Reports_Dir
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_exception;
+        private System.ComponentModel.BackgroundWorker backgroundWorker_date_formatter;
     }
 }

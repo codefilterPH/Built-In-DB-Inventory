@@ -41,7 +41,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             txt_qty_from.Text = qty_from.ToString();
             txt_qty_to.Text = qty_to.ToString();
         }
-
+        bool isWorkerBusy = false;
         private void Item_by_Quantity_Load(object sender, EventArgs e)
         {
             chk_Cust_ID.Visible = false;
@@ -55,8 +55,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             chk_total.Checked = true;
 
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
-            dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
-            dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            if (!isWorkerBusy)
+            {
+                isWorkerBusy = true;
+                backgroundWorker1.RunWorkerAsync();
+            }
             Calculate_Filtering("load", cbo_report_type.Text);
         }
 
@@ -556,6 +559,25 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
         private void btn_Print_Preview_Click(object sender, EventArgs e)
         {
             Calculate_Filtering("preview", cbo_report_type.Text);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            // Set the date range in the background worker
+            dtp_date_to.Invoke(new Action(() =>
+            {
+                dtp_date_to.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+
+            dtp_date_from.Invoke(new Action(() =>
+            {
+                dtp_date_from.Text = DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve);
+            }));
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            isWorkerBusy = false;
         }
     }
 }
