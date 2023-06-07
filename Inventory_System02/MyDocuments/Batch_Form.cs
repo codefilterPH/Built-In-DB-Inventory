@@ -128,7 +128,7 @@ namespace Inventory_System02
                         return;
                     }
 
-                    // Get the filenames from the DataGridView control
+                    // Get the filenames from the DataGridView control 
                     List<string> filenames = new List<string>();
                     foreach (DataGridViewRow row in dtg_batch_form.Rows)
                     {
