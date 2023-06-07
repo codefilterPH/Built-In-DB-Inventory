@@ -60,7 +60,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Double-J-Design-Ravenna-3d-Box.ico</ApplicationIcon>
+    <ApplicationIcon>InventoryMS.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -556,8 +556,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CommonSql\Tools\tools.dll" />
-    <Content Include="Double-J-Design-Ravenna-3d-Box.ico" />
-    <Content Include="mybox.ico" />
+    <Content Include="InventoryMS.ico" />
     <None Include="Resources\Flaticon\expand.png" />
     <None Include="Resources\Flaticon\nav.png" />
     <None Include="Resources\resize.png" />

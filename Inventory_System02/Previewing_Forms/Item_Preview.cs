@@ -88,7 +88,7 @@ namespace Inventory_System02.Items
             Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
             if (txt_id.Text != "")
             {
-                rdlc.Invoice("in-single-print", txt_id.Text, "single-item-print");
+                System.Threading.Tasks.Task task = rdlc.Invoice("in-single-print", txt_id.Text, "single-item-print");
             }
             else
             {
@@ -102,7 +102,7 @@ namespace Inventory_System02.Items
             Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();
             if (txt_id.Text != "")
             {
-                rdlc.Invoice("in-single-view", txt_id.Text, "single-item-view");
+                System.Threading.Tasks.Task task = rdlc.Invoice("in-single-view", txt_id.Text, "single-item-view");
             }
             else
             {

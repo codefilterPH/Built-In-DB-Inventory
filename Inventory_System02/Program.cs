@@ -36,7 +36,12 @@ namespace Inventory_System02
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login1());
+            //Application.Run(new Login1());
+            Login1 loginForm = new Login1();
+            loginForm.TopMost = true; // Set the form to be always on top
+            loginForm.ShowDialog();
+
+            mutex.ReleaseMutex();
         }
     }
 }

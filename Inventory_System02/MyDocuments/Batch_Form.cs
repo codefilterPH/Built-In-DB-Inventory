@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using AxAcroPDFLib;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace Inventory_System02
@@ -83,15 +84,16 @@ namespace Inventory_System02
         }
         private void Load_to_Adobe()
         {
-            if ( dtg_batch_form.Rows.Count >=1 )
+            if (dtg_batch_form.Rows.Count >= 1)
             {
-                if (dtg_batch_form.CurrentRow != null )
+                if (dtg_batch_form.CurrentRow != null)
                 {
-                    string file = Includes.AppSettings.Doc_DIR +"\\" + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
+                    string file = Includes.AppSettings.Doc_DIR + "\\" + dtg_batch_form.CurrentRow.Cells[1].Value.ToString();
                     axAcroPDF1.LoadFile(file);
                 }
             }
         }
+
         private void btn_Delete_Click_1(object sender, EventArgs e)
         {
 

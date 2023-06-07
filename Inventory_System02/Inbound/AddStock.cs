@@ -709,7 +709,7 @@ namespace Inventory_System02
    
             if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
-                rdlc.Invoice("in", txt_TransRef.Text, "preview");
+                System.Threading.Tasks.Task task = rdlc.Invoice("in", txt_TransRef.Text, "preview");
                 chk_select_all.Checked = false;
             }
             else
@@ -724,7 +724,7 @@ namespace Inventory_System02
             if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
                 chk_select_all.Checked = false;
-                rdlc.Invoice("in", txt_TransRef.Text, "batch");
+                System.Threading.Tasks.Task task = rdlc.Invoice("in", txt_TransRef.Text, "batch");
             }
             else
             {
@@ -738,7 +738,7 @@ namespace Inventory_System02
             if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
                 chk_select_all.Checked = false;
-                rdlc.Invoice("in", txt_TransRef.Text, "print");
+                System.Threading.Tasks.Task task = rdlc.Invoice("in", txt_TransRef.Text, "print");
             }
             else
             {

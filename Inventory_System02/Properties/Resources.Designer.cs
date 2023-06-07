@@ -71,16 +71,6 @@ namespace Inventory_System02.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        public static System.Drawing.Icon Double_J_Design_Ravenna_3d_Box {
-            get {
-                object obj = ResourceManager.GetObject("Double_J_Design_Ravenna_3d_Box", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap expand {
@@ -107,6 +97,16 @@ namespace Inventory_System02.Properties {
             get {
                 object obj = ResourceManager.GetObject("expand2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon InventoryMS {
+            get {
+                object obj = ResourceManager.GetObject("InventoryMS", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

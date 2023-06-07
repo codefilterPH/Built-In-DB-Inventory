@@ -539,7 +539,7 @@ namespace Inventory_System02
             if (Gen_Trans != "")
             {
                 Invoice_Silent.Invoice_Silent silent_batch = new Invoice_Silent.Invoice_Silent();
-                silent_batch.Invoice("return", Gen_Trans, "batch");
+                System.Threading.Tasks.Task task = silent_batch.Invoice("return", Gen_Trans, "batch");
                 e.Result = "Transaction Sent To \"My Documents\"!";
             }
             else
@@ -1021,7 +1021,7 @@ namespace Inventory_System02
                 {
                     if (Gen_Trans != "")
                     {
-                        return_trans_rec.Invoice("return", Gen_Trans, "print");
+                        System.Threading.Tasks.Task task = return_trans_rec.Invoice("return", Gen_Trans, "print");
                     }
                     else
                     {

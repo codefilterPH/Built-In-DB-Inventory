@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -13,14 +14,12 @@ namespace Inventory_System02.Invoice_Code
 {
     class Invoice_Code
     {   
-        public void Invoice(string out_return, string Trans_ref, string what_to_do)
+        public async Task Invoice(string out_return, string Trans_ref, string what_to_do)
         {
             try
             {
                 SQLConfig config = new SQLConfig();
-
                 DataSet ds = new DataSet();
-
                 Report_Viewer frm = new Report_Viewer();
                 ReportDataSource rs = new ReportDataSource();
                 ReportParameterCollection reportParameters = new ReportParameterCollection();
@@ -34,9 +33,9 @@ namespace Inventory_System02.Invoice_Code
                 string sql = string.Empty;
                 if (out_return == "out")
                 {
-                    sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    sql = $"Select * from `Stock Out` where `Transaction Reference` = '{Trans_ref}' ORDER BY `Item Name` ASC";
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() =>  config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -46,9 +45,9 @@ namespace Inventory_System02.Invoice_Code
                 }
                 else if ( out_return == "return" )
                 {
-                    sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    sql = $"Select * from `Stock Returned` where `Transaction Reference` = '{Trans_ref}' ORDER BY `Item Name` ASC";
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -58,9 +57,9 @@ namespace Inventory_System02.Invoice_Code
                 }
                 else if ( out_return == "in-single-print" && what_to_do == "single-item-print" )
                 {
-                    sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    sql = $"Select * from `Stocks` where `Stock ID` = '{Trans_ref}' ORDER BY `Item Name` ASC";
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -70,9 +69,9 @@ namespace Inventory_System02.Invoice_Code
                 }
                 else if (out_return == "in-single-view" && what_to_do == "single-item-view")
                 {
-                    sql = "Select * from `Stocks` where `Stock ID` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    sql = $"Select * from `Stocks` where `Stock ID` = '{Trans_ref}' ORDER BY `Item Name` ASC";
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -82,9 +81,9 @@ namespace Inventory_System02.Invoice_Code
                 }
                 else
                 {
-                    sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC ";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    sql = $"Select * from `Stocks` where `Transaction Reference` = '{Trans_ref}' ORDER BY `Item Name` ASC ";
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -93,7 +92,7 @@ namespace Inventory_System02.Invoice_Code
                     }
 
                 }
-
+                await Task.Delay(0);
 
                 if (ds != null)
                 {

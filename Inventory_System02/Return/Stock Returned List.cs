@@ -334,7 +334,7 @@ namespace Inventory_System02
         {
             if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
-                voice.Invoice("return", txt_Trans_number.Text, "preview");
+                System.Threading.Tasks.Task task = voice.Invoice("return", txt_Trans_number.Text, "preview");
             }
             else
             {
@@ -347,7 +347,7 @@ namespace Inventory_System02
         {
             if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
-                voice.Invoice("return", txt_Trans_number.Text, "batch");
+                System.Threading.Tasks.Task task = voice.Invoice("return", txt_Trans_number.Text, "batch");
             }
             else
             {
@@ -360,7 +360,7 @@ namespace Inventory_System02
         {
             if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text) && txt_Trans_number.Text != "Empty Field!")
             {
-                voice.Invoice("return", txt_Trans_number.Text, "print");
+                System.Threading.Tasks.Task task = voice.Invoice("return", txt_Trans_number.Text, "print");
             }
             else
             {

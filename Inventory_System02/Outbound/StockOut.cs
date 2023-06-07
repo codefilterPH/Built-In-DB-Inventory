@@ -709,7 +709,7 @@ namespace Inventory_System02
                 if (Gen_Trans != "")
                 {
                     Invoice_Silent.Invoice_Silent silent_batch = new Invoice_Silent.Invoice_Silent();
-                    silent_batch.Invoice("out", Gen_Trans, "batch");
+                    System.Threading.Tasks.Task task = silent_batch.Invoice("out", Gen_Trans, "batch");
 
                     e.Result = "Transaction Sent To \"My Documents\"!";
                 }
@@ -1088,7 +1088,7 @@ namespace Inventory_System02
                     {
                         if (Gen_Trans != "")
                         {
-                            out_trans_rec.Invoice("out", Gen_Trans, "print");
+                            System.Threading.Tasks.Task task = out_trans_rec.Invoice("out", Gen_Trans, "print");
                         }
                         else
                         {

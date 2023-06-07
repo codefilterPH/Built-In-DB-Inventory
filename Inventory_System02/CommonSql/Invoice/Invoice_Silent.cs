@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -13,7 +14,7 @@ namespace Inventory_System02.Invoice_Silent
 {
     class Invoice_Silent
     {
-        public void Invoice(string out_return, string Trans_ref, string what_to_do)
+        public async Task Invoice(string out_return, string Trans_ref, string what_to_do)
         {
             try
             {
@@ -36,8 +37,8 @@ namespace Inventory_System02.Invoice_Silent
                 if (out_return == "out")
                 {
                     sql = "Select * from `Stock Out` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -49,8 +50,8 @@ namespace Inventory_System02.Invoice_Silent
                 else if (out_return == "return")
                 {
                     sql = "Select * from `Stock Returned` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -61,8 +62,8 @@ namespace Inventory_System02.Invoice_Silent
                 else
                 {
                     sql = "Select * from `Stocks` where `Transaction Reference` = '" + Trans_ref + "' ORDER BY `Item Name` ASC ";
-                    config.Load_Datasource(sql, ds);
-                    config.singleResult(sql);
+                    await Task.Run(() => config.Load_Datasource(sql, ds));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -71,7 +72,7 @@ namespace Inventory_System02.Invoice_Silent
                     }
 
                 }
-
+                //await Task.Delay(0);
                 List<Invoice_Code.Items_DataSet> list2 = new List<Invoice_Code.Items_DataSet>();
                 if (ds != null)
                 {

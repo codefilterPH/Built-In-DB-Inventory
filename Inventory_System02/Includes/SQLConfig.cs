@@ -33,7 +33,7 @@ namespace Inventory_System02.Includes
         {
             //string a = String.Format(@"Data Source = DB\DB_QUERIES\bhms.db;Version=3;New=False;Read Only = False;Compress=True;Journal Mode=Off;providerName=System.Data.SQlite;");
             con = new SQLiteConnection(Includes.AppSettings.Database(), true);
-  
+
         }
 
 
@@ -187,7 +187,7 @@ namespace Inventory_System02.Includes
                 // remove the ORDER BY and LIMIT clauses from the SQL query
                 string countSql = Regex.Replace(sql, @"ORDER BY .+?$", "", RegexOptions.IgnoreCase);
                 countSql = Regex.Replace(countSql, @"LIMIT .+?$", "", RegexOptions.IgnoreCase);
-        
+
 
                 // add a SELECT COUNT(*) clause to the SQL query
                 countSql = $"SELECT COUNT(*) FROM ({countSql})";
@@ -470,6 +470,6 @@ namespace Inventory_System02.Includes
                 con.Close();
             }
         }
-       
+
     }
 }
