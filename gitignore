@@ -1,2 +1,9 @@
 SerialKey.txt
 /SerialKey.txt
+.SerialKey
+
+.vscode
+
+/Doc
+/Doc/
+.Doc

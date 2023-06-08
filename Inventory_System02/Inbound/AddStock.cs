@@ -1482,7 +1482,8 @@ namespace Inventory_System02
                 cbo_desc.Text = "None";
 
             }
-            else if (txt_Qty.Value == 0 || txt_Qty.Text == null)
+            //else if (txt_Qty.Value == 0 || txt_Qty.Text == null)
+            else if (string.IsNullOrWhiteSpace(txt_Qty.Text))
             {
                 func.Error_Message1 = "Item Quantity";
                 txt_Qty.Focus();
