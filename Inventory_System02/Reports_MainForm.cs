@@ -1,21 +1,13 @@
-﻿using Inventory_System02.Analytics;
+﻿using Inventory_System02.CommonSql.Reports_Dir.Item_Qty;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Inventory_System02.CommonSql.Reports_Dir.Item_Qty;
-using Inventory_System02.Includes;
 
 namespace Inventory_System02
 {
     public partial class Reports_MainForm : Form
     {
-        public Reports_MainForm(string global_id,string fullname, string jobrole)
+        public Reports_MainForm(string global_id, string fullname, string jobrole)
         {
             InitializeComponent();
             Global_ID = global_id;
@@ -76,7 +68,7 @@ namespace Inventory_System02
 
         private void itemByQuantityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             Edit_QTY frm = new Edit_QTY();
             DialogResult result = frm.ShowDialog();
             if (result == DialogResult.OK)
@@ -86,7 +78,7 @@ namespace Inventory_System02
                 // Get the data entered by the user from the MyData property of the form
                 from_Qty = frm.from_qty;
                 to_Qty = frm.to_qty;
-               
+
                 Panel_content_remove();
                 Item_by_Quantity new_frm = new Item_by_Quantity(from_Qty, to_Qty);
                 ShowFormInContainerControl(report_panel, new_frm);

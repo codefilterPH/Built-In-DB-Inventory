@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Inventory_System02.Includes;
+using System;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
 
 namespace Inventory_System02.CustSupplier
 {
@@ -50,30 +43,30 @@ namespace Inventory_System02.CustSupplier
                 RefreshandLoadTable();
                 txt_Id.Focus();
             }
-              
+
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (cbo_def_text.Text == null || cbo_def_text.Text == "" )
+            if (cbo_def_text.Text == null || cbo_def_text.Text == "")
             {
                 MessageBox.Show("Empty fields!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbo_def_text.Focus();
 
             }
-            else if ( cust_id == "" || cust_id == null )
+            else if (cust_id == "" || cust_id == null)
             {
                 MessageBox.Show("No user selected! Unable to add models please close and select customer and open again.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
             else
             {
-                sql = "Delete from `Customer Model Entries` where Id = '" + cust_id + "' and Model = '" + cbo_def_text.Text + "' and Count = '" + txt_Id .Text +"' ";
+                sql = "Delete from `Customer Model Entries` where Id = '" + cust_id + "' and Model = '" + cbo_def_text.Text + "' and Count = '" + txt_Id.Text + "' ";
                 config.Execute_CUD(sql, "Unable to delete! Please try again.", "Successfully deleted record!");
                 RefreshandLoadTable();
                 txt_Id.Focus();
             }
-      
+
         }
 
         private void btn_Clear_Text_Click(object sender, EventArgs e)
@@ -85,10 +78,10 @@ namespace Inventory_System02.CustSupplier
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            sql = "Select * from `Customer Model Entries` where `Model` like '%"+cbo_def_text.Text+ "%' and Id = '" + cust_id + "' ";
+            sql = "Select * from `Customer Model Entries` where `Model` like '%" + cbo_def_text.Text + "%' and Id = '" + cust_id + "' ";
             config.Load_DTG(sql, dtg_models);
-       
-            if ( txt_search.Text == "" || txt_search.Text == null )
+
+            if (txt_search.Text == "" || txt_search.Text == null)
             {
                 RefreshandLoadTable();
                 txt_search.Focus();
@@ -99,7 +92,7 @@ namespace Inventory_System02.CustSupplier
 
         private void dtg_models_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtg_models.Rows.Count > 0 )
+            if (dtg_models.Rows.Count > 0)
             {
                 txt_Id.Text = dtg_models.CurrentRow.Cells[0].Value.ToString();
                 cbo_def_text.Text = dtg_models.CurrentRow.Cells[2].Value.ToString();
@@ -119,12 +112,12 @@ namespace Inventory_System02.CustSupplier
         }
         private void DTG_properties()
         {
-            if ( dtg_models.Rows.Count > 0 )
+            if (dtg_models.Rows.Count > 0)
             {
                 dtg_models.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 dtg_models.Columns[1].Visible = false;
                 dtg_models.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }    
+            }
 
         }
         private void RefreshandLoadTable()
@@ -134,31 +127,31 @@ namespace Inventory_System02.CustSupplier
             DTG_properties();
 
 
-            if ( dtg_models.Rows.Count > 0)
+            if (dtg_models.Rows.Count > 0)
             {
                 for (int i = 0; i < dtg_models.Rows.Count; i++)
                 {
                     txt_Id.Text = Convert.ToString(dtg_models.Rows.Count + 1);
                 }
             }
-      
+
 
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if ( cbo_def_text.Text == null || cbo_def_text.Text == "" )
+            if (cbo_def_text.Text == null || cbo_def_text.Text == "")
             {
                 MessageBox.Show("Empty fields!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbo_def_text.Focus();
                 return;
             }
-            else if ( cust_id == "" )
+            else if (cust_id == "")
             {
                 MessageBox.Show("No user selected! Unable to add models please close and select customer and open again.", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
-            else if ( txt_Id.Text == "" || txt_Id.Text == null)
+            else if (txt_Id.Text == "" || txt_Id.Text == null)
             {
 
                 MessageBox.Show("Empty fields!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -167,7 +160,7 @@ namespace Inventory_System02.CustSupplier
             }
             else
             {
-             
+
 
                 sql = " Select * from `Customer Model Entries` where `Id` = '" + cust_id + "' and Model = '" + cbo_def_text.Text + "' ";
                 config.singleResult(sql);
@@ -175,13 +168,13 @@ namespace Inventory_System02.CustSupplier
                 {
                     sql = "Insert into `Customer Model Entries` ( `Count`, `Id`, `Model` ) values (" +
                        " '" + txt_Id.Text + "' , '" + cust_id + "', '" + cbo_def_text.Text + "' ) ";
-                    config.Execute_CUD(sql, "Unable to add to Database! Please try again.", "Successfully added to record!");             
+                    config.Execute_CUD(sql, "Unable to add to Database! Please try again.", "Successfully added to record!");
 
                 }
                 RefreshandLoadTable();
                 txt_Id.Focus();
             }
-   
+
         }
     }
 }

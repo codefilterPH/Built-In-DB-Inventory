@@ -1,10 +1,8 @@
-﻿using System.Collections;
+﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
-using System.Runtime.Remoting.Contexts;
-using Microsoft.Win32;
 using System.IO;
 
 namespace Inventory_System02.Includes

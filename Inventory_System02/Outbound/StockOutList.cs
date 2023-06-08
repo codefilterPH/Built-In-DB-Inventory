@@ -1,8 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using Inventory_System02.Outbound;
 using System;
-using System.ComponentModel;
-using System.Data.Entity.Infrastructure;
 using System.Drawing;
 using System.Windows.Forms;
 namespace Inventory_System02
@@ -76,7 +74,7 @@ namespace Inventory_System02
                 out_qty.Text = "0";
             }
 
-           
+
             //Enable everyone because they are not using specialfilters
             enable_them = true;
             SpecialFilterDisabler();
@@ -118,7 +116,7 @@ namespace Inventory_System02
                 }
 
             }
-            catch ( InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
@@ -146,17 +144,17 @@ namespace Inventory_System02
                 out_qty.Text = total_qty.ToString();
                 out_amt.Text = total_val.ToString();
             }
-            catch ( InvalidOperationException ex )
+            catch (InvalidOperationException ex)
             {
                 lbl_exception.Text = "Error: " + ex.Message;
-            }  
+            }
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if ( dtg_outlist.Rows.Count >= 1)
+            if (dtg_outlist.Rows.Count >= 1)
             {
-                if ( JobRole != "Programmer/Developer" && JobRole != "Office Manager")
+                if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
                 {
                     MessageBox.Show("No permission to delete all transactions!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     chk_select_all.Checked = false;
@@ -242,7 +240,7 @@ namespace Inventory_System02
                         }
                     }
                 }
-                catch ( Exception ex )
+                catch (Exception ex)
                 {
                     lbl_exception.Text = "Error: " + ex.Message;
                 }
@@ -280,7 +278,7 @@ namespace Inventory_System02
         {
             if (dtg_outlist.Rows.Count >= 1)
             {
-                if ( dtg_outlist.SelectedRows.Count <= 0)
+                if (dtg_outlist.SelectedRows.Count <= 0)
                 {
                     dtg_outlist.CurrentRow.Selected = true;
                 }
@@ -399,9 +397,9 @@ namespace Inventory_System02
         }
         bool enable_them = false;
         private void SpecialFilterDisabler()
-        { 
+        {
             if (enable_them == false)
-            { 
+            {
                 printInvoiceToolStripMenuItem.Enabled = false;
                 batchTransactionToolStripMenuItem.Enabled = false;
                 view_main_btn.Enabled = false;
@@ -409,14 +407,14 @@ namespace Inventory_System02
                 btn_select.Enabled = false;
                 btn_Delete.Enabled = false;
                 txt_Search.Enabled = false;
-                
-                if ( dtg_outlist.Columns.Count > 0 )
+
+                if (dtg_outlist.Columns.Count > 0)
                 {
                     dtg_outlist.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dtg_outlist.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dtg_outlist.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 }
-  
+
                 lbl_items_count.Text = dtg_outlist.Rows.Count.ToString();
                 out_amt.Text = "0";
                 out_qty.Text = "0";
@@ -497,7 +495,7 @@ namespace Inventory_System02
         private void dtg_outlist_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             chk_select_all.Checked = false;
-            if ( enable_them == true )
+            if (enable_them == true)
             {
                 if (dtg_outlist.Columns.Count > 0)
                 {
@@ -523,7 +521,7 @@ namespace Inventory_System02
                         //Load Status and Remarks
                         sql = "Select Status, Remarks from StockOutStatus where TransRef = '" + txt_Trans_number.Text + "' ";
                         config.singleResult(sql);
-                        if ( config.dt.Rows.Count == 1 )
+                        if (config.dt.Rows.Count == 1)
                         {
                             txt_Remarks.Text = config.dt.Rows[0]["Remarks"].ToString();
                             lbl_status.Text = config.dt.Rows[0]["Status"].ToString();
@@ -535,7 +533,7 @@ namespace Inventory_System02
                             {
                                 lbl_status.ForeColor = Color.Green;
                             }
-                        }   
+                        }
                     }
                 }
             }
@@ -543,11 +541,11 @@ namespace Inventory_System02
 
         private void chk_select_all_CheckedChanged(object sender, EventArgs e)
         {
-            if ( dtg_outlist.Columns.Count >= 1 )
+            if (dtg_outlist.Columns.Count >= 1)
             {
-                if (dtg_outlist.Rows.Count >= 1 )
+                if (dtg_outlist.Rows.Count >= 1)
                 {
-                    if ( chk_select_all.Checked )
+                    if (chk_select_all.Checked)
                     {
                         foreach (DataGridViewRow rw in dtg_outlist.Rows)
                         {
@@ -567,9 +565,9 @@ namespace Inventory_System02
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace( txt_Trans_number.Text) )
+            if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text))
             {
-                OutEditForm frm = new OutEditForm(txt_Trans_number.Text); 
+                OutEditForm frm = new OutEditForm(txt_Trans_number.Text);
                 frm.ShowDialog();
             }
         }
@@ -603,9 +601,9 @@ namespace Inventory_System02
         {
             if (dtg_outlist.Rows.Count >= 1)
             {
-                if (dtg_outlist.SelectedRows.Count == 1 )
+                if (dtg_outlist.SelectedRows.Count == 1)
                 {
-                    if ( txt_Trans_number.Text != "Empty Field!" && !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
+                    if (txt_Trans_number.Text != "Empty Field!" && !string.IsNullOrWhiteSpace(txt_Trans_number.Text))
                     {
                         txt_Trans_number.Text = dtg_outlist.CurrentRow.Cells[13].Value.ToString();
                         passed_trans_ref = txt_Trans_number.Text;
@@ -671,11 +669,11 @@ namespace Inventory_System02
             {
                 search_for = "`Job Role`";
             }
-            else if ( cbo_srch_type.Text == "WARRANTY DUE DATE")
+            else if (cbo_srch_type.Text == "WARRANTY DUE DATE")
             {
                 search_for = "`Warranty Due Date`";
             }
-            else if ( cbo_srch_type.Text == "TRANS REF")
+            else if (cbo_srch_type.Text == "TRANS REF")
             {
                 search_for = "`Transaction Reference`";
             }
@@ -685,7 +683,7 @@ namespace Inventory_System02
             }
             sql = "Select * from `Stock Out` where " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `Entry Date` DESC";
             Load_Items(sql);
-            if (config.dt.Rows.Count > 0 )
+            if (config.dt.Rows.Count > 0)
             {
                 CalculateValue();
             }

@@ -153,7 +153,7 @@ namespace Inventory_System02.Invoice_Silent
                         reportParameters.Add(new ReportParameter("Remarks", "none"));
                     }
                 }
-               
+
                 //load company info
                 CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
                 if (companyinfo != null)

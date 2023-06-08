@@ -1,18 +1,13 @@
 ﻿using Inventory_System02.Includes;
 using Inventory_System02.Invoice_Code;
 using Inventory_System02.Reports_Dir;
-using Microsoft.Office.Interop.Word;
 using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static Inventory_System02.Includes.Load_DTG_VBPrint;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using DataTable = System.Data.DataTable;
 using TextBox = System.Windows.Forms.TextBox;
 using ToolTip = System.Windows.Forms.ToolTip;
 
@@ -91,7 +86,7 @@ namespace Inventory_System02
                         config.Load_DTG(sql, dtg_Items);
                         DTG_Properties();
                         if (config.dt.Rows.Count > 0)
-                        {   
+                        {
                             TOTALS();
                         }
                         config.singleResult(sql);
@@ -148,7 +143,7 @@ namespace Inventory_System02
                 MessageBox.Show(ex.Message);
             }
 
-         
+
         }
 
         private void DTG_Properties()
@@ -243,12 +238,12 @@ namespace Inventory_System02
                     TOTALS();
                 }
             }
-            catch( NullReferenceException )
+            catch (NullReferenceException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
                 DTG_Properties();
-            }   
+            }
         }
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
@@ -342,7 +337,7 @@ namespace Inventory_System02
                             return;
                         }
                     }
-                  
+
 
 
                     if (!found && rw.Cells[9].Value.ToString() != "0")
@@ -356,13 +351,13 @@ namespace Inventory_System02
                        rw.Cells[10].Value.ToString(),
                        rw.Cells[11].Value.ToString()
                       );
-                       
+
                         Update_Qty_Stocks();
                         TOTALS();
                         chk_all.Checked = false;
                         btn_edit.Focus();
                     }
-                   else if (!found && rw.Cells[9].Value.ToString() == "0")
+                    else if (!found && rw.Cells[9].Value.ToString() == "0")
                     {
                         MessageBox.Show("Cannot add " + rw.Cells[9].Value.ToString() + " because \'quantity\' is zero.", "Error Prompt", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
@@ -449,7 +444,7 @@ namespace Inventory_System02
             if (dtg_Items.Rows.Count > 0)
             {
                 if (dtg_Items.SelectedRows.Count >= 1)
-                {    
+                {
                     Items.Outbound_Preview frm = new Items.Outbound_Preview(
                     dtg_Items.CurrentRow.Cells[1].Value.ToString(),
                     dtg_Items.CurrentRow.Cells[5].Value.ToString(),
@@ -496,7 +491,7 @@ namespace Inventory_System02
                     dtg_Return.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     dtg_Return.Rows[0].Selected = true;
                 }
-            }       
+            }
         }
 
         private ToolTip toolTip;
@@ -512,7 +507,7 @@ namespace Inventory_System02
         }
         private void EnableAll()
         {
-  
+
             chk_all.Enabled = true;
             chk_all2.Enabled = true;
             txt_TransRefOut.Enabled = true;
@@ -638,7 +633,7 @@ namespace Inventory_System02
             string cust_name = txt_CustName.Text;
             string address = txt_CustAddress.Text;
             List<Items_DataSet> list2 = new List<Items_DataSet>();
-            if (dtg_Return.Rows.Count >= 1 )
+            if (dtg_Return.Rows.Count >= 1)
             {
                 list2 = dtg_Return.Rows.Cast<DataGridViewRow>()
                 .Select(row => new Items_DataSet
@@ -716,7 +711,7 @@ namespace Inventory_System02
                     dtg_Return.ClearSelection();
                 }
             }
-            else if ( dtg_Return.Rows.Count >= 1)
+            else if (dtg_Return.Rows.Count >= 1)
             {
                 dtg_Return.CurrentRow.Selected = true;
             }
@@ -731,26 +726,26 @@ namespace Inventory_System02
         private void Update_Qty_Stocks()
         {
             //check if there are existing rows added in return dtg
-            if (dtg_Return.Rows.Count >= 1 )
+            if (dtg_Return.Rows.Count >= 1)
             {
                 //do the ff code to each rows
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
                 {
                     //i will be used as row # in dtg_return
                     for (int i = 0; i < dtg_Return.Rows.Count; i++)
-                    {   
-                   
+                    {
+
                         //verify if the item is already added below cell 2 is item id of the stock table
                         if (rw.Cells[5].Value.ToString() == dtg_Return.Rows[i].Cells[0].Value.ToString())
                         {
                             //if added get the quantity based on every item row id and reference #
-                           
+
                             sql = "Select Quantity from `Stock Out` where `Stock ID` = '" + dtg_Return.Rows[i].Cells[0].Value.ToString() + "' and `Transaction Reference` = '" + txt_TransRefOut.Text + "'  ";
                             config.singleResult(sql);
                             //there are any items found
                             if (config.dt.Rows.Count > 0)
                             {
-                               //assign the result from the stock out table
+                                //assign the result from the stock out table
                                 rw.Cells[9].Value = config.dt.Rows[0]["Quantity"].ToString();
                                 //check the quantity if its greater or equal to added stocks
                                 if (Convert.ToInt32(rw.Cells[9].Value) >= Convert.ToInt32(dtg_Return.Rows[i].Cells[4].Value))
@@ -765,7 +760,7 @@ namespace Inventory_System02
                                 }
                                 else
                                 {
-                                    
+
                                     MessageBox.Show("Quantity is more than Stocks, Invalid Quantity!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     if (Convert.ToInt32(rw.Cells[9].Value) == 0)
                                     {
@@ -781,7 +776,7 @@ namespace Inventory_System02
                                 }
                                 if (Convert.ToDouble(dtg_Return.Rows[i].Cells[4].Value) == 0)
                                 {
-                                   
+
                                     func.Error_Message1 = "Quantiy is zero";
                                     dtg_Return.Rows[i].Cells[4].Value = 1;
                                     func.Error_Message();
@@ -809,7 +804,7 @@ namespace Inventory_System02
             {
                 refreshToolStripMenuItem.Enabled = true;
             }
-         
+
         }
 
         Inventory_System02.Invoice_Code.Invoice_Code return_trans_rec = new Invoice_Code.Invoice_Code();
@@ -873,7 +868,7 @@ namespace Inventory_System02
                     status_words = "No return to inbound tag as Manufacturing Defect. Item sent back to supplier.";
                     success_message = "Successfully sent back to suppliers! Thank you";
                 }
-                else if ( txt_Reasons.Text == "Damage ( Investigated or Repair )")
+                else if (txt_Reasons.Text == "Damage ( Investigated or Repair )")
                 {
                     status_words = "Pending return to inbound tag as Damaged. It will be investigated before return or sent back to supplier.";
                     success_message = "Successfully processed return and mark as pending. This record will be temporarily not added back to stocks! Thank you.";
@@ -883,17 +878,17 @@ namespace Inventory_System02
                     status_words = "A return transaction was made with the recent reference number " + Gen_Trans + ".";
                     success_message = "Successfully added to \"inbound stock record\" and item(s) moved back to \"inbound stock\" list! \n\nTransaction Successful!";
                 }
-                
-               
-                if ( txt_Reasons.Text == "Manufacturing Defect ( Sent back to suppliers )" )
+
+
+                if (txt_Reasons.Text == "Manufacturing Defect ( Sent back to suppliers )")
                 {
                     if (MessageBox.Show("Manufacturing Defect will not be returned to inventory rather it will be sent to the supplier. Proceed?", "Return Type Choice", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                     {
                         EnableAll();
                         return;
                     }
-                } 
-                else if ( txt_Reasons.Text == "Damage ( Investigated or Repair )" )
+                }
+                else if (txt_Reasons.Text == "Damage ( Investigated or Repair )")
                 {
                     if (MessageBox.Show("Damage return type will be investigated first and tag as pending. Therefore, it will not be returned immediately to the stock list. Proceed?", "Return Type Choice", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                     {
@@ -914,7 +909,7 @@ namespace Inventory_System02
                             string status_info = "Item was altered, a return transaction was made! ref " + Gen_Trans;
                             int quant = Convert.ToInt32(rw.Cells[4].Value.ToString()) + Convert.ToInt32(config.dt.Rows[0]["Quantity"].ToString());
                             decimal new_total = Convert.ToDecimal(quant) * Convert.ToDecimal(config.dt.Rows[0]["Price"].ToString());
-                            sql = "Update `Stocks` set Quantity = '" + quant + "', Total = '"+ new_total +"', Status = '"+ status_info + "' where `Stock ID` = '" + rw.Cells[0].Value.ToString() +"' ";
+                            sql = "Update `Stocks` set Quantity = '" + quant + "', Total = '" + new_total + "', Status = '" + status_info + "' where `Stock ID` = '" + rw.Cells[0].Value.ToString() + "' ";
                             config.Execute_Query(sql);
 
                         }
@@ -947,12 +942,12 @@ namespace Inventory_System02
                                 ",'" + Fullname + "' " +
                                 ",'" + JobRole + "' " +
                                 ",'" + Gen_Trans + "'  " +
-                                ",'" + status_words +"' )";
+                                ",'" + status_words + "' )";
                             config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to database!");
                         }
                     }
                 }
-            
+
                 //Update stock out
                 foreach (DataGridViewRow rw in dtg_Items.Rows)
                 {
@@ -1002,11 +997,11 @@ namespace Inventory_System02
                         ",'" + Fullname + "' " +
                         ",'" + JobRole + "'" +
                         ",'" + status_words + "' )";
-                        
+
                     config.Execute_Query(sql);
                 }
                 string reason = string.Empty;
-                if ( txt_Reasons.Text == "Return to Stocks" ) 
+                if (txt_Reasons.Text == "Return to Stocks")
                 {
                     reason = "Returned to Stocks";
                     cal.ReturnReason(Gen_Trans, txt_CustID.Text, reason, txt_remarks.Text);
@@ -1059,7 +1054,7 @@ namespace Inventory_System02
             {
                 EnableAll();
             }
-         
+
         }
         string Gen_Trans;
         private void Generate_Trans(string what_table)
@@ -1081,7 +1076,7 @@ namespace Inventory_System02
                     {
                         sql = "SELECT COUNT(*) FROM `Stock Returned` WHERE `Transaction Reference` = '" + id + "'";
                     }
-                    else if ( what_table == "back2stocks")
+                    else if (what_table == "back2stocks")
                     {
                         sql = "SELECT COUNT(*) FROM `Stocks` WHERE `Transaction Reference` = '" + id + "'";
                     }

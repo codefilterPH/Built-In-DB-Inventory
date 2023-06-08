@@ -1,17 +1,13 @@
 ﻿using Inventory_System02.Includes;
 using Inventory_System02.Items;
 using System;
-using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity.SqlServer;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace Inventory_System02
@@ -43,7 +39,7 @@ namespace Inventory_System02
             Settings frm = new Settings(Global_ID, Fullname, JobRole);
             frm.ShowDialog();
         }
-    
+
         private void AddStock_Load(object sender, EventArgs e)
         {
 
@@ -68,7 +64,7 @@ namespace Inventory_System02
             }
 
             LoadImageWorker.RunWorkerAsync();
-          
+
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
             enable_them = true;
@@ -105,10 +101,10 @@ namespace Inventory_System02
                     lbl_items_count.Text = totalrows.ToString();
 
                     Calculator_Timer.Start();
-                   
+
                 }
             }
-            catch ( InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
@@ -195,7 +191,7 @@ namespace Inventory_System02
                     lbl_items_count.Text = dtg_Items.Rows.Count.ToString();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = ex.Message;
             }
@@ -203,7 +199,7 @@ namespace Inventory_System02
 
         private void txt_Price_Leave(object sender, EventArgs e)
         {
-            txt_Qty_ValueChanged(sender,e);
+            txt_Qty_ValueChanged(sender, e);
             func.Two_Decimal_Places(sender, e, txt_Price);
         }
 
@@ -231,9 +227,9 @@ namespace Inventory_System02
                     }
                     else
                     {
-                       txt_TransRef.Text = id;
-                       hasDuplicate = false;
-                       SupplierChangeDisabler();
+                        txt_TransRef.Text = id;
+                        hasDuplicate = false;
+                        SupplierChangeDisabler();
                     }
                 }
 
@@ -243,7 +239,7 @@ namespace Inventory_System02
         bool dtg_was_clicked = false;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ( enable_them == true)
+            if (enable_them == true)
             {
                 if (dtg_Items.Rows.Count > 0)
                 {
@@ -265,7 +261,7 @@ namespace Inventory_System02
 
                     // Resubscribe the event
                     //txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
-                   
+
 
                     func.Change_Font_DTG(sender, e, dtg_Items);
                     txt_Qty_ValueChanged(sender, e);
@@ -368,11 +364,11 @@ namespace Inventory_System02
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( dtg_Items.Columns.Count >=1 )
+            if (dtg_Items.Columns.Count >= 1)
             {
                 dtg_Items.Columns.Clear();
             }
-            
+
             AddStock_Load(sender, e);
             SupplierChangeDisabler();
             enable_them = true;
@@ -388,7 +384,7 @@ namespace Inventory_System02
             cbo_num_records.Enabled = true;
             btn_load.Enabled = true;
         }
-        private void DisablePaginatorControl() 
+        private void DisablePaginatorControl()
         {
             num_max_pages.Enabled = false;
             current_page_val.Enabled = false;
@@ -399,7 +395,7 @@ namespace Inventory_System02
         private void btn_Clear_Text_Click(object sender, EventArgs e)
         {
 
-            chk_select_all.Checked = false; 
+            chk_select_all.Checked = false;
             txt_TransRef.Text = "";
             txt_ItemName.Text = "";
             txt_Barcode.Text = "";
@@ -452,7 +448,7 @@ namespace Inventory_System02
                 MessageBox.Show("Please click again the item from the table. Thank you.", "Data Inconsistent", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-        
+
         }
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
@@ -553,7 +549,7 @@ namespace Inventory_System02
             chk_select_all.Checked = false;
             if (dtg_Items.Rows.Count >= 1)
             {
-                if ( dtg_was_clicked )
+                if (dtg_was_clicked)
                 {
                     if (dtg_Items.SelectedRows.Count == 1)
                     {
@@ -561,17 +557,17 @@ namespace Inventory_System02
                         {
                             if (dtg_Items.CurrentRow != null)
                             {
-                                 Item_Preview frm = new Item_Preview(
-                                 dtg_Items.CurrentRow.Cells[1].Value.ToString(),
-                                 txt_Barcode.Text,
-                                 txt_TransRef.Text,
-                                 txt_ItemName.Text,
-                                 cbo_brand.Text,
-                                 cbo_desc.Text,
-                                 txt_Qty.Text,
-                                 txt_Price.Text,
-                                 lbl_ProductValue.Text,
-                                 dtg_Items.CurrentRow.Cells[13].Value.ToString());
+                                Item_Preview frm = new Item_Preview(
+                                dtg_Items.CurrentRow.Cells[1].Value.ToString(),
+                                txt_Barcode.Text,
+                                txt_TransRef.Text,
+                                txt_ItemName.Text,
+                                cbo_brand.Text,
+                                cbo_desc.Text,
+                                txt_Qty.Text,
+                                txt_Price.Text,
+                                lbl_ProductValue.Text,
+                                dtg_Items.CurrentRow.Cells[13].Value.ToString());
 
                                 frm.ShowDialog();
                             }
@@ -582,7 +578,7 @@ namespace Inventory_System02
                     {
                         dtg_Items.CurrentRow.Selected = true;
                     }
-                }      
+                }
             }
         }
 
@@ -636,7 +632,7 @@ namespace Inventory_System02
         }
         private void Barcode_Generator()
         {
-            try  
+            try
             {
                 string id = string.Empty;
                 bool hasDuplicate = true;
@@ -666,10 +662,10 @@ namespace Inventory_System02
                     }
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occurred: " + ex.Message;
-            }   
+            }
         }
 
         private void txt_Qty_ValueChanged(object sender, EventArgs e)
@@ -684,7 +680,7 @@ namespace Inventory_System02
             }
             decimal.TryParse(Convert.ToString(txt_Qty.Value), out value1);
             decimal.TryParse(txt_Price.Text, out value2);
- 
+
 
             total_product = value1 * value2;
             lbl_ProductValue.Text = total_product.ToString();
@@ -707,7 +703,7 @@ namespace Inventory_System02
 
         private void view_trans_in_Click(object sender, EventArgs e)
         {
-   
+
             if (!string.IsNullOrWhiteSpace(txt_TransRef.Text) && txt_TransRef.Text != "Empty Field!")
             {
                 System.Threading.Tasks.Task task = rdlc.Invoice("in", txt_TransRef.Text, "preview");
@@ -751,7 +747,7 @@ namespace Inventory_System02
         private void view_tbl_in_Click(object sender, EventArgs e)
         {
 
-            if ( dtg_Items.Rows.Count >= 1)
+            if (dtg_Items.Rows.Count >= 1)
             {
                 chk_select_all.Checked = false;
                 Load_DTG_VBPrint frm = new Load_DTG_VBPrint();
@@ -808,7 +804,7 @@ namespace Inventory_System02
         }
         bool enable_them = false;
         private void SpecialFilterDisabler()
-        {      
+        {
             if (enable_them == false)
             {
                 printTransactionToolStripMenuItem.Enabled = false;
@@ -819,7 +815,7 @@ namespace Inventory_System02
                 btn_delete.Enabled = false;
                 btn_upload.Enabled = false;
                 btn_preview.Enabled = false;
-              
+
                 txt_Search.Enabled = false;
                 btn_Clear_Text.Enabled = false;
 
@@ -830,7 +826,7 @@ namespace Inventory_System02
                     dtg_Items.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dtg_Items.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
                 }
-                
+
                 lbl_items_count.Text = dtg_Items.Rows.Count.ToString();
                 lbl_Today_Amt.Text = "0";
                 lbl_Today_Qty.Text = "0";
@@ -856,11 +852,11 @@ namespace Inventory_System02
                 btn_delete.Enabled = true;
                 btn_upload.Enabled = true;
                 btn_preview.Enabled = true;
-               
+
                 txt_Search.Enabled = true;
                 btn_Clear_Text.Enabled = true;
             }
-           
+
         }
         private void TableRefresher()
         {
@@ -977,21 +973,21 @@ namespace Inventory_System02
                     }
                 }
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occurred: " + ex.Message;
-            } 
+            }
         }
 
         private void chk_select_all_CheckedChanged(object sender, EventArgs e)
         {
-            if ( dtg_Items.Columns.Count >= 1)
+            if (dtg_Items.Columns.Count >= 1)
             {
-                if (dtg_Items.Rows.Count >= 1 )
+                if (dtg_Items.Rows.Count >= 1)
                 {
                     foreach (DataGridViewRow rw in dtg_Items.Rows)
-                    { 
-                        if ( chk_select_all.Checked )
+                    {
+                        if (chk_select_all.Checked)
                         {
                             rw.Selected = true;
                         }
@@ -999,7 +995,7 @@ namespace Inventory_System02
                         {
                             rw.Selected = false;
                         }
-                       
+
                     }
                 }
             }
@@ -1016,7 +1012,7 @@ namespace Inventory_System02
                 sql = string.Empty;
                 sql = "SELECT `Transaction Reference` FROM `Stocks` WHERE `Transaction Reference` like '%" + txt_TransRef.Text + "%' ";
                 config.singleResult(sql);
-                if ( config.dt.Rows.Count >= 1 )
+                if (config.dt.Rows.Count >= 1)
                 {
                     sql = "Select `Transaction Reference` from `Stocks` where `Transaction Reference` like '%" + txt_TransRef.Text + "%'  order by `Entry Date` limit 10";
                     config.New_Autocomplete(sql, txt_TransRef);
@@ -1062,7 +1058,7 @@ namespace Inventory_System02
         {
             lbl_error_message.Text = "";
             timer_Error_message.Enabled = false;
-            if ( progressBar1.Visible )
+            if (progressBar1.Visible)
             {
                 progressBar1.Visible = false;
             }
@@ -1132,12 +1128,12 @@ namespace Inventory_System02
             timer_Error_message.Enabled = true;
             isWorkerBusy = false;
 
-           
+
         }
 
         private void LoadImageWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-      
+
             if (dtg_Items.Rows.Count >= 1)
             {
                 try
@@ -1234,7 +1230,7 @@ namespace Inventory_System02
             }
 
             // Refresh the row to reflect the changes
-           // dtg_Items.Refresh();
+            // dtg_Items.Refresh();
 
         }
 
@@ -1318,14 +1314,14 @@ namespace Inventory_System02
             catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occurred: " + ex.Message;
-            }    
+            }
         }
         private void Load_Items(string sql)
         {
 
             // calculate the total number of records and pages
             int totalRecords = config.GetTotalRecords(sql);
-          
+
             double num_records = 0;
             double.TryParse(cbo_num_records.Text, out num_records);
 
@@ -1358,7 +1354,7 @@ namespace Inventory_System02
         private void current_page_val_ValueChanged(object sender, EventArgs e)
         {
             ToolTip tooltip = new ToolTip();
-            if ( current_page_val.Value <= num_max_pages.Value )
+            if (current_page_val.Value <= num_max_pages.Value)
             {
                 tooltip.SetToolTip(current_page_val, "Hit \'ENTER\' key to apply changes.");
                 sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
@@ -1368,7 +1364,7 @@ namespace Inventory_System02
             {
                 current_page_val.Text = "0";
             }
-        
+
         }
 
         private void cbo_num_records_SelectedIndexChanged(object sender, EventArgs e)
@@ -1395,7 +1391,7 @@ namespace Inventory_System02
         private void supplierListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustSupplier.CustSupp frm = new CustSupplier.CustSupp(Global_ID, Fullname, JobRole, "Sup");
-           
+
             DialogResult result = frm.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -1422,7 +1418,7 @@ namespace Inventory_System02
         }
         private void btn_AddStock_Click(object sender, EventArgs e)
         {
-              
+
             chk_select_all.Checked = false;
             if (string.IsNullOrWhiteSpace(txt_Barcode.Text))
             {
@@ -1453,7 +1449,7 @@ namespace Inventory_System02
                 else
                 {
                     Item_ID1 = txt_Barcode.Text;
-                }          
+                }
             }
 
             if (string.IsNullOrWhiteSpace(txt_Barcode.Text))
@@ -1540,7 +1536,7 @@ namespace Inventory_System02
                     ",'" + cbo_desc.Text + "' " +
                     ",'" + Convert.ToInt32(txt_Qty.Text) + "' " +
                     ",'" + Convert.ToDecimal(txt_Price.Text) + "' " +
-                    ",'" + Convert.ToDecimal(lbl_ProductValue.Text) +"' " +
+                    ",'" + Convert.ToDecimal(lbl_ProductValue.Text) + "' " +
                     ",'" + img_loc + "' " +
                     ",'" + txt_SupID.Text + "' " +
                     ",'" + txt_Sup_Name.Text + "' " +
@@ -1548,7 +1544,7 @@ namespace Inventory_System02
                     ",'" + Fullname + "' " +
                     ",'" + JobRole + "' " +
                     ",'" + txt_TransRef.Text + "'" +
-                    ",'" +stat_info+"' )";
+                    ",'" + stat_info + "' )";
                 config.Execute_CUD(sql, "Unable to Record Item!", "Item successfully added to record!");
                 save_Ref = txt_TransRef.Text;
                 newItemToolStripMenuItem_Click(sender, e);
@@ -1556,12 +1552,12 @@ namespace Inventory_System02
                 txt_Search_TextChanged(sender, e);
                 DTG_Property();
                 txt_TransRef.Text = save_Ref;
-                if ( dtg_Items.Rows.Count > 0)
+                if (dtg_Items.Rows.Count > 0)
                 {
                     dtg_Items.Rows[0].Selected = true;
                 }
                 return;
-            }   
+            }
         }
         string save_Ref = string.Empty;
     }

@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SQLite;
+﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
-using System.Configuration;
-using System.Deployment.Application;
-using System.Reflection;
-using Microsoft.Win32;
 
 namespace Inventory_System02.Includes
 {
@@ -40,7 +30,7 @@ namespace Inventory_System02.Includes
         public static string Email { get; set; } = "eugenereybulahan@gmail.com";
 
         // Update the paths for the other fields
-        public static string Image_DIR { get; set; } 
+        public static string Image_DIR { get; set; }
         public static string Customer_DIR { get; set; }
         public static string Supplier_DIR { get; set; }
         public static string Employee_DIR { get; set; }
@@ -99,7 +89,7 @@ namespace Inventory_System02.Includes
             string employee_pic = null;
             string company_pic = null;
             if (!string.IsNullOrEmpty(ServerRegistryValue) && !string.IsNullOrEmpty(ImageRegistryValue))
-            { 
+            {
                 item_pic = $@"\\{ServerRegistryValue}{ImageRegistryValue}\Item\Image\";
                 customer_pic = $@"\\{ServerRegistryValue}{ImageRegistryValue}\Customers\";
                 supplier_pic = $@"\\{ServerRegistryValue}{ImageRegistryValue}\Suppliers\";
@@ -136,7 +126,7 @@ namespace Inventory_System02.Includes
             }
             //Reports
             string search_dtg_rdlc = null;
-            string supplier_rdlc= null;
+            string supplier_rdlc = null;
             string employee_rdlc = null;
             string customer_rdlc = null;
             string item_rdlc = null;
@@ -191,7 +181,7 @@ namespace Inventory_System02.Includes
             if (!string.IsNullOrEmpty(company_pic))
             {
                 Company_DIR = company_pic;
-              
+
             }
             else
             {

@@ -1,18 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Inventory_System02.Includes;
-using ZXing;
-using System.IO;
-using System.Diagnostics;
-using System.Data.SQLite;
-using System.Security.Cryptography;
 
 namespace Inventory_System02.Includes
 {
@@ -24,10 +10,10 @@ namespace Inventory_System02.Includes
         string sql = string.Empty;
         decimal total_amt;
         int total_qty;
-        public void Calculate_Todays_Entry_StockIn(string Type_Of_Process )
+        public void Calculate_Todays_Entry_StockIn(string Type_Of_Process)
         {
 
-            sql = "Select * from "+ Type_Of_Process + " where `Entry Date` = '"+DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) +"' ";
+            sql = "Select * from " + Type_Of_Process + " where `Entry Date` = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' ";
             config.singleResult(sql);
 
             if (config.dt.Rows.Count >= 1)
@@ -42,7 +28,7 @@ namespace Inventory_System02.Includes
                     decimal.TryParse(Convert.ToString(config.dt.Rows[i]["Price"]), out price);
 
                     decimal amount = qty * price;
-      
+
                     total_qty += qty;
                     total_amt += amount;
                 }
@@ -59,7 +45,7 @@ namespace Inventory_System02.Includes
                     sql = "Insert into Calculations ( `Total Quantity`,  `Total Value` ) values ( '" + total_qty + "', '" + total_amt + "') ";
                     config.singleResult(sql);
                 }
-            }   
+            }
         }
         public void Over_All()
         {
@@ -67,10 +53,10 @@ namespace Inventory_System02.Includes
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-               
+
                 total_amt = 0;
                 total_qty = 0;
-                for (int i = 0; i < config.dt.Rows.Count; i++ )
+                for (int i = 0; i < config.dt.Rows.Count; i++)
                 {
                     int qty = 0;
                     decimal price = 0;
@@ -86,13 +72,13 @@ namespace Inventory_System02.Includes
 
                 if (config.dt.Rows.Count > 0)
                 {
-                    sql = "UPDATE Calculations SET Overall_Qty = '"+ total_qty+"', Overall_Total = '"+total_amt+"'";
+                    sql = "UPDATE Calculations SET Overall_Qty = '" + total_qty + "', Overall_Total = '" + total_amt + "'";
                     config.Execute_Query(sql);
 
                 }
                 else
                 {
-                    sql = "INSERT INTO Calculations (Overall_Qty, Overall_Total) VALUES ('"+ total_qty+ "', '"+total_amt+"')";
+                    sql = "INSERT INTO Calculations (Overall_Qty, Overall_Total) VALUES ('" + total_qty + "', '" + total_amt + "')";
                     config.Execute_Query(sql);
                 }
             }
@@ -104,15 +90,15 @@ namespace Inventory_System02.Includes
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-               
-                sql = " Update `Return Reasons` set Reason = '" + type + "', Remarks = '"+ remarks +"' where `Transaction Ref` = '" + trans_ref + "' and `Customer ID` = '" + cust_id + "' ";
+
+                sql = " Update `Return Reasons` set Reason = '" + type + "', Remarks = '" + remarks + "' where `Transaction Ref` = '" + trans_ref + "' and `Customer ID` = '" + cust_id + "' ";
                 config.Execute_Query(sql);
             }
             else
             {
-               
-                sql = " Insert into `Return Reasons` ( `Transaction Ref`, `Customer ID`, `Reason`, Remarks ) values ( '"+trans_ref+"', '"+cust_id+"', '" + type + "', '"+ remarks +"' )  ";
-                config.Execute_Query(sql); 
+
+                sql = " Insert into `Return Reasons` ( `Transaction Ref`, `Customer ID`, `Reason`, Remarks ) values ( '" + trans_ref + "', '" + cust_id + "', '" + type + "', '" + remarks + "' )  ";
+                config.Execute_Query(sql);
             }
         }
     }

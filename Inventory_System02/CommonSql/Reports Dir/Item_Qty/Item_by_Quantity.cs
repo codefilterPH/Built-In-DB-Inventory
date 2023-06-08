@@ -5,12 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
@@ -30,7 +26,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
         string company_address = string.Empty;
         string db_table = string.Empty;
         string FileName = string.Empty;
-        decimal  total_val = 0;
+        decimal total_val = 0;
         int filter_qty_from = 0;
         int filter_qty_to = 0;
         public Item_by_Quantity(int qty_from, int qty_to)
@@ -227,7 +223,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                                 lbl_exception.Text = "Error: The data source is empty";
                             }
                         }
-                        catch ( NullReferenceException ex )
+                        catch (NullReferenceException ex)
                         {
                             lbl_exception.Text = "Error: Loading datagrid to list class item var, " + ex.Message;
                         }
@@ -266,11 +262,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
                                 lbl_exception.Text = "Error: The data source is empty";
                             }
                         }
-                        catch ( NullReferenceException ex )
+                        catch (NullReferenceException ex)
                         {
                             lbl_exception.Text = "Error: Loading datagrid to list class item var, " + ex.Message;
                         }
-                      
+
                     }
 
                     rs.Name = "DataSet1";
@@ -425,7 +421,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
             }
 
         }
-    
+
         private void cbo_report_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbo_report_type.Text == "Stock In")

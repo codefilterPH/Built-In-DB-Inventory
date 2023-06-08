@@ -1,15 +1,5 @@
 ﻿using Inventory_System02.Includes;
-using Inventory_System02.Reports_Dir;
-using Microsoft.Reporting.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Inventory_System02.Return
@@ -40,7 +30,7 @@ namespace Inventory_System02.Return
         }
         private void DTG_Properties()
         {
-            if ( dtg_return_list.Columns.Count >= 1 )
+            if (dtg_return_list.Columns.Count >= 1)
             {
                 dtg_return_list.Columns[0].Visible = false;
             }
@@ -93,7 +83,7 @@ namespace Inventory_System02.Return
                 }
                 else
                 {
-                    if (MessageBox.Show("Deleting record will not be retrieved again. Continue?", "Delete Form", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
+                    if (MessageBox.Show("Deleting record will not be retrieved again. Continue?", "Delete Form", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         foreach (DataGridViewRow rw in dtg_return_list.SelectedRows)
                         {
@@ -105,7 +95,7 @@ namespace Inventory_System02.Return
                         refreshTableToolStripMenuItem_Click(sender, e);
                         return;
                     }
-                   
+
                 }
             }
         }

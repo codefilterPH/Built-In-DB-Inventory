@@ -1,15 +1,11 @@
-﻿using Inventory_System02.Includes;
-using Microsoft.Reporting.WinForms;
+﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
+using System.Text;
 
 namespace Inventory_System02.Includes
 {
@@ -23,10 +19,10 @@ namespace Inventory_System02.Includes
 
         LocalReport report = new LocalReport();
 
-       //report.ReportPath = path;
-       //report.DataSources.Add(new Print(dsName, ds.table[0]));
-      // report.SetParameters(parameters);
-       //Print(report);
+        //report.ReportPath = path;
+        //report.DataSources.Add(new Print(dsName, ds.table[0]));
+        // report.SetParameters(parameters);
+        //Print(report);
 
         public void PrintToPrinter(LocalReport report)
         {

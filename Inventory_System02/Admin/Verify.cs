@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Inventory_System02.Includes;
+using System;
 using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
-using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 
 namespace Inventory_System02.Admin
@@ -24,18 +16,18 @@ namespace Inventory_System02.Admin
         {
             InitializeComponent();
         }
-      
+
         private void btn_validate_Click(object sender, EventArgs e)
         {
-            if ( cbo_extend_type.Text == "Trial" )
+            if (cbo_extend_type.Text == "Trial")
             {
-                sql = "Update `Administration` set Date = '"+dtp_date_extend.Value.ToString(Includes.AppSettings.DateFormatRetrieve)+"' , Status = 'Trial' ";
+                sql = "Update `Administration` set Date = '" + dtp_date_extend.Value.ToString(Includes.AppSettings.DateFormatRetrieve) + "' , Status = 'Trial' ";
                 config.Execute_CUD(sql, "Unable to extend trial! Please try again.", "Successfully extended trial!");
                 Application.Restart();
             }
             else
             {
-                if ( txt_1.Text == Includes.AppSettings.app_value)
+                if (txt_1.Text == Includes.AppSettings.app_value)
                 {
 
                     sql = "Update Administration set Status = 'Full' where Count = '0' ";
@@ -58,13 +50,13 @@ namespace Inventory_System02.Admin
         private void cbo_extend_type_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if ( cbo_extend_type.Text == "Trial")
+            if (cbo_extend_type.Text == "Trial")
             {
                 DisableActivaitonKey();
                 EnableTrialDate();
                 dtp_date_extend.Text = DateTime.Now.AddDays(90).ToString(Includes.AppSettings.DateFormatRetrieve);
                 dtp_date_extend.Focus();
-              
+
             }
             else
             {
@@ -87,7 +79,7 @@ namespace Inventory_System02.Admin
 
         private void txt_Username_KeyDown(object sender, KeyEventArgs e)
         {
-            if ( e.KeyCode == Keys.Enter )
+            if (e.KeyCode == Keys.Enter)
             {
                 btn_Unlock_Click(sender, e);
             }
@@ -140,12 +132,12 @@ namespace Inventory_System02.Admin
         }
 
         private void btn_Unlock_Click(object sender, EventArgs e)
-        {        
+        {
             sql = "Select * from Employee where `Employee ID` = '" + txt_Username.Text + "' and `Password` = SHA512('" + txt_Password.Text + "') ";
             config.singleResult(sql);
-            if (config.dt.Rows.Count > 0 )
+            if (config.dt.Rows.Count > 0)
             {
-                if ( config.dt.Rows[0].Field<string>("Employee ID") != "admin" )
+                if (config.dt.Rows[0].Field<string>("Employee ID") != "admin")
                 {
                     btn_validate.Enabled = false;
                 }
@@ -153,7 +145,7 @@ namespace Inventory_System02.Admin
                 {
                     btn_validate.Enabled = true;
                 }
-            } 
+            }
             else
             {
                 MessageBox.Show("Invalid Credentials! Please try again.", "Authentication Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);

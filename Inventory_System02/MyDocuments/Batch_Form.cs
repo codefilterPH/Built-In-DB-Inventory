@@ -1,12 +1,10 @@
 ﻿using Inventory_System02.Includes;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
-using AxAcroPDFLib;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace Inventory_System02
 {
@@ -24,7 +22,7 @@ namespace Inventory_System02
             backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
             Global_ID = global_id;
             Fullname = fullname;
-            JobRole = jobrole;      
+            JobRole = jobrole;
         }
 
         public void PATH()
@@ -79,7 +77,7 @@ namespace Inventory_System02
             what_to_del = "specific";
             chk_Select_all.Checked = false;
             DTG_Properties();
-          
+
 
         }
         private void Load_to_Adobe()
@@ -104,9 +102,9 @@ namespace Inventory_System02
                 return;
             }
 
-            if (dtg_batch_form.Rows.Count > 0 )
+            if (dtg_batch_form.Rows.Count > 0)
             {
-                if ( what_to_del != "all" )
+                if (what_to_del != "all")
                 {
                     if (dtg_batch_form.SelectedRows.Count == 0 || dtg_batch_form.CurrentRow.Cells[0].Selected == true)
                     {
@@ -114,7 +112,7 @@ namespace Inventory_System02
                         dtg_batch_form.CurrentRow.Cells[0].Selected = false;
                         what_to_del = "specific";
                     }
-                }        
+                }
             }
 
             string dir = Includes.AppSettings.Doc_DIR;
@@ -159,12 +157,12 @@ namespace Inventory_System02
                     dtg_batch_form.Columns.Clear();
                     todayToolStripMenuItem_Click(sender, e);
                 }
-           
+
             }
             else if (what_to_del == "specific")
             {
 
-                if (MessageBox.Show("Are you sure to delete file "+ dtg_batch_form.CurrentRow.Cells[1].Value.ToString()+ "?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure to delete file " + dtg_batch_form.CurrentRow.Cells[1].Value.ToString() + "?", "Deletion Prompt", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     if (dtg_batch_form.Rows.Count == 0)
@@ -203,7 +201,7 @@ namespace Inventory_System02
             what_to_del = "";
             this.Refresh();
         }
-     
+
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -489,7 +487,7 @@ namespace Inventory_System02
                 this.Invoke(new MethodInvoker(DTG_Properties));
                 return;
             }
-            if ( dtg_batch_form.Rows.Count >= 1 )
+            if (dtg_batch_form.Rows.Count >= 1)
             {
                 dtg_batch_form.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 dtg_batch_form.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -661,7 +659,7 @@ namespace Inventory_System02
 
             if (count > 0)
             {
-                if (!IsDisposed && IsHandleCreated )
+                if (!IsDisposed && IsHandleCreated)
                 {
                     if (dtg_batch_form != null)
                     {

@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Inventory_System02.Includes;
-using Inventory_System02.Invoice_Code;
+﻿using Inventory_System02.Includes;
 using Inventory_System02.Return;
+using System;
+using System.Windows.Forms;
 
 namespace Inventory_System02
 {
@@ -22,7 +13,7 @@ namespace Inventory_System02
         string sql, Global_ID, Fullname, JobRole;
 
         Inventory_System02.Invoice_Code.Invoice_Code voice = new Invoice_Code.Invoice_Code();
-    
+
 
         public Stock_Returned(string global_id, string fullname, string jobrole)
         {
@@ -31,7 +22,7 @@ namespace Inventory_System02
             Fullname = fullname;
             JobRole = jobrole;
         }
-        
+
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dtg_return_list.Columns.Count >= 1)
@@ -42,11 +33,11 @@ namespace Inventory_System02
 
             sql = "Select * from `Stock Returned` order by `Entry Date` desc";
             Load_Items(sql);
-            if ( dtg_return_list.Columns.Count > 0 )
+            if (dtg_return_list.Columns.Count > 0)
             {
                 dtg_return_list.Columns[0].Visible = false;
                 dtg_return_list.Columns[2].Visible = false;
-             
+
                 if (config.dt.Rows.Count > 0)
                 {
                     CalculateValue();
@@ -85,10 +76,10 @@ namespace Inventory_System02
                 out_qty.Text = total_qty.ToString();
                 out_amt.Text = total_val.ToString();
             }
-            catch ( InvalidOperationException ex )
+            catch (InvalidOperationException ex)
             {
                 lbl_exception.Text = "Error: " + ex.Message;
-            } 
+            }
         }
 
         private void Stock_Returned_Load(object sender, EventArgs e)
@@ -157,7 +148,7 @@ namespace Inventory_System02
                             {
                                 string transactionRef = rw.Cells[12].Value?.ToString();
 
-                                sql = "DELETE FROM `Return Reasons` WHERE `Transaction Ref` = '"+ transactionRef + "' ";
+                                sql = "DELETE FROM `Return Reasons` WHERE `Transaction Ref` = '" + transactionRef + "' ";
                                 config.Execute_Query(sql);
 
 
@@ -168,7 +159,7 @@ namespace Inventory_System02
                                     break;
                                 }
 
-                               
+
 
                                 // Check if the transaction reference is null or empty
                                 if (string.IsNullOrEmpty(transactionRef))
@@ -241,7 +232,7 @@ namespace Inventory_System02
                     func.Count_person(dtg_return_list, lbl_items_count);
                 }
             }
-            catch ( System.InvalidOperationException )
+            catch (System.InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
@@ -260,21 +251,21 @@ namespace Inventory_System02
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if ( txt_Trans_number.Text == "" || txt_Trans_number.Text == null )
+            if (txt_Trans_number.Text == "" || txt_Trans_number.Text == null)
             {
                 func.Error_Message1 = "Transaction Number Field";
                 func.Error_Message();
                 txt_Trans_number.Focus();
                 return;
             }
-            else if ( txt_Cust_ID.Text == "" || txt_Cust_ID.Text == null )
+            else if (txt_Cust_ID.Text == "" || txt_Cust_ID.Text == null)
             {
                 func.Error_Message1 = "Customer ID Field";
                 func.Error_Message();
                 txt_Cust_ID.Focus();
                 return;
             }
-            else if ( txt_Remarks.Text == "" || txt_Remarks.Text == null )
+            else if (txt_Remarks.Text == "" || txt_Remarks.Text == null)
             {
                 func.Error_Message1 = "Return Reason";
                 func.Error_Message();
@@ -284,7 +275,7 @@ namespace Inventory_System02
             else
             {
 
-                cal.ReturnReason(txt_Trans_number.Text, txt_Cust_ID.Text, lbl_return_type.Text, txt_Remarks.Text );
+                cal.ReturnReason(txt_Trans_number.Text, txt_Cust_ID.Text, lbl_return_type.Text, txt_Remarks.Text);
                 MessageBox.Show("Reason Updated!", "Update Successful Prompt", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -293,7 +284,7 @@ namespace Inventory_System02
         {
             if (dtg_return_list.Rows.Count >= 1)
             {
-                if ( dtg_return_list.SelectedRows.Count <= 0 )
+                if (dtg_return_list.SelectedRows.Count <= 0)
                 {
                     dtg_return_list.CurrentRow.Selected = true;
                 }
@@ -464,7 +455,7 @@ namespace Inventory_System02
             config.Load_DTG(sql, dtg_return_list);
             enable_them = false;
             SpecialFilterDisabler();
-     
+
         }
 
         private void least_brand_return_tool_Click(object sender, EventArgs e)
@@ -523,7 +514,7 @@ namespace Inventory_System02
                     {
                         if (!string.IsNullOrWhiteSpace(txt_Trans_number.Text))
                         {
-                            if ( dtg_return_list.SelectedRows.Count == 1 )
+                            if (dtg_return_list.SelectedRows.Count == 1)
                             {
                                 if (Convert.ToInt32(dtg_return_list.CurrentRow.Cells["Quantity"].Value) != 0)
                                 {
@@ -537,19 +528,19 @@ namespace Inventory_System02
                                 }
                                 else
                                 {
-                                   if ( MessageBox.Show("Quantity is zero nothing to return! Open the \"investigated return list\" instead?", "Error Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand) == DialogResult.OK )
+                                    if (MessageBox.Show("Quantity is zero nothing to return! Open the \"investigated return list\" instead?", "Error Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Hand) == DialogResult.OK)
                                     {
                                         damageToolStripMenuItem_Click(sender, e);
                                     }
-                                   else
+                                    else
                                     {
                                         return;
                                     }
 
                                 }
-                              
+
                             }
-                        }             
+                        }
                     }
                 }
             }
@@ -572,13 +563,13 @@ namespace Inventory_System02
 
         private void chk_select_all_CheckedChanged(object sender, EventArgs e)
         {
-            if ( dtg_return_list.Columns.Count >= 1 )
+            if (dtg_return_list.Columns.Count >= 1)
             {
-                if ( dtg_return_list.Rows.Count >= 1 )
+                if (dtg_return_list.Rows.Count >= 1)
                 {
-                    foreach (DataGridViewRow rw in dtg_return_list.Rows )
+                    foreach (DataGridViewRow rw in dtg_return_list.Rows)
                     {
-                        if ( chk_select_all.Checked )
+                        if (chk_select_all.Checked)
                         {
                             rw.Selected = true;
                         }
@@ -689,7 +680,7 @@ namespace Inventory_System02
         private void dtg_return_list_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             chk_select_all.Checked = false;
-            if ( enable_them == true )
+            if (enable_them == true)
             {
                 if (dtg_return_list.Rows.Count > 0)
                 {
@@ -708,7 +699,7 @@ namespace Inventory_System02
                         {
                             lbl_return_type.Text = config.dt.Rows[0]["Reason"].ToString();
                             txt_Remarks.Text = config.dt.Rows[0]["Remarks"].ToString();
-                            if ( lbl_return_type.Text == "Damage ( Investigated or Repair )")
+                            if (lbl_return_type.Text == "Damage ( Investigated or Repair )")
                             {
                                 btn_return_to_stocks.Visible = true;
                             }

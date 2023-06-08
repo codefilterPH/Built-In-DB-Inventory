@@ -1,16 +1,9 @@
 ﻿using Inventory_System02.Includes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Inventory_System02.Items
-{  
+{
 
     public partial class Return_Preview : Form
     {

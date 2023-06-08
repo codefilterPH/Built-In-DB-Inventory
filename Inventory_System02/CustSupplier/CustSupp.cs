@@ -1,13 +1,9 @@
 ﻿using Inventory_System02.Includes;
-using Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel;
 using System;
-using System.Data;
-using System.Drawing.Imaging;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 using System.ComponentModel;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Inventory_System02.CustSupplier
 {
@@ -29,7 +25,7 @@ namespace Inventory_System02.CustSupplier
             Fullname = fullname;
             JobRole = jobrole;
             CustSup = Type_of_Need;
-          
+
             string main_path = string.Empty;
 
         }
@@ -54,7 +50,7 @@ namespace Inventory_System02.CustSupplier
                 tabControl1.SelectedTab = tabPage2;
                 func.Reload_Images(Sup_Image, Sup_ID.Text, Includes.AppSettings.Supplier_DIR);
                 Sup_ID.Focus();
-                
+
             }
             else
             {
@@ -64,8 +60,8 @@ namespace Inventory_System02.CustSupplier
             }
             timer1.Start();
             UnlockModels();
-     
-        
+
+
 
         }
         private void UnlockModels()
@@ -105,7 +101,7 @@ namespace Inventory_System02.CustSupplier
             {
                 sql = "Select * from Supplier where `Company ID` = '" + Sup_ID.Text + "' ";
                 config.singleResult(sql);
-                if ( config.dt.Rows.Count > 0 )
+                if (config.dt.Rows.Count > 0)
                 {
                     MessageBox.Show("There is an existing supplier using this ID. Please replace the ID.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -124,7 +120,7 @@ namespace Inventory_System02.CustSupplier
                     supplier_refresh_Click(sender, e);
 
                 }
-           
+
             }
         }
 
@@ -218,7 +214,7 @@ namespace Inventory_System02.CustSupplier
             {
                 sql = "Select * from Customer where `Customer ID` = '" + cust_ID.Text + "' ";
                 config.singleResult(sql);
-                if ( config.dt.Rows.Count == 0 )
+                if (config.dt.Rows.Count == 0)
                 {
                     sql = "Insert into Customer ( " +
                     " `Entry Date` " +
@@ -242,7 +238,7 @@ namespace Inventory_System02.CustSupplier
                     MessageBox.Show(cust_ID.Text + " is already added to the list", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-               
+
             }
 
         }
@@ -261,7 +257,7 @@ namespace Inventory_System02.CustSupplier
                 main_path = Includes.AppSettings.Customer_DIR + "\\";
                 Load_Images(dtg_Customer);
             }
-            if ( dtg_Customer.Columns.Count > 0 )
+            if (dtg_Customer.Columns.Count > 0)
             {
                 dtg_Customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dtg_Customer.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -273,7 +269,7 @@ namespace Inventory_System02.CustSupplier
                 dtg_Customer.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             }
-           
+
             func.Count_person(dtg_Customer, lbl_total_cust);
         }
 
@@ -305,7 +301,7 @@ namespace Inventory_System02.CustSupplier
                 dtg_Supplier.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             }
-           
+
             func.Count_person(dtg_Supplier, lbl_total_sup);
         }
         private void Load_Images(DataGridView dtg)
@@ -352,12 +348,12 @@ namespace Inventory_System02.CustSupplier
                     return;
                 }
 
-                    sql = "Update Supplier set " +
-                    "`Company Name` = '" + sup_CName.Text + "'" +
-                    ", Email = '" + sup_Email.Text + "' " +
-                    ", Phone = '" + sup_Phone.Text + "'" +
-                    ", Address = '" + sup_Address.Text + "'" +
-                    "where `Company ID` ='" + Sup_ID.Text + "' ";
+                sql = "Update Supplier set " +
+                "`Company Name` = '" + sup_CName.Text + "'" +
+                ", Email = '" + sup_Email.Text + "' " +
+                ", Phone = '" + sup_Phone.Text + "'" +
+                ", Address = '" + sup_Address.Text + "'" +
+                "where `Company ID` ='" + Sup_ID.Text + "' ";
                 config.Execute_CUD(sql, "Unable to update supplier\'s profile!", "Supplier\'s Profile successfully updated");
                 supplier_refresh_Click(sender, e);
             }
@@ -456,7 +452,7 @@ namespace Inventory_System02.CustSupplier
         private void btn_new_supplier_Click(object sender, EventArgs e)
         {
             supplier_refresh_Click(sender, e);
-            btn_Clear_Click(sender,e);
+            btn_Clear_Click(sender, e);
             btn_GenerateID_Click(sender, e);
             Sup_ID.Focus();
             Sup_ID.SelectionLength = Sup_ID.Text.Length;
@@ -503,7 +499,7 @@ namespace Inventory_System02.CustSupplier
                 Sup_ID.Focus();
             }
         }
-    
+
         private void dtg_Customer_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             cusID = cust_ID.Text;
@@ -522,7 +518,7 @@ namespace Inventory_System02.CustSupplier
         {
             if (dtg_Customer.Rows.Count >= 1)
             {
-                if (dtg_Customer.SelectedRows.Count > 0 )
+                if (dtg_Customer.SelectedRows.Count > 0)
                 {
                     if (cust_ID.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(cust_ID.Text))
                     {
@@ -539,7 +535,7 @@ namespace Inventory_System02.CustSupplier
         {
             if (dtg_Supplier.Rows.Count >= 1)
             {
-                if ( dtg_Supplier.SelectedRows.Count > 0 )
+                if (dtg_Supplier.SelectedRows.Count > 0)
                 {
                     if (Sup_ID.Text != "Empty Field!" || !string.IsNullOrWhiteSpace(Sup_ID.Text))
                     {
@@ -566,12 +562,12 @@ namespace Inventory_System02.CustSupplier
         {
             // Execute the UI code on the UI thread
             //dtg_Customer.Invoke((MethodInvoker)delegate {
-                //dtg_Customer.Columns["Image"].Width = 100;
-           // });
+            //dtg_Customer.Columns["Image"].Width = 100;
+            // });
 
             //dtg_Supplier.Invoke((MethodInvoker)delegate {
-           //     dtg_Supplier.Columns["Image"].Width = 100;
-           //});
+            //     dtg_Supplier.Columns["Image"].Width = 100;
+            //});
 
         }
 
@@ -582,7 +578,7 @@ namespace Inventory_System02.CustSupplier
 
         private void btn_Cust_Delete_Click(object sender, EventArgs e)
         {
-            if ( JobRole != "Programmer/Developer" && JobRole != "Office Manager" )
+            if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
             {
                 MessageBox.Show("No permission to delete customer! Thank you.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
@@ -603,7 +599,7 @@ namespace Inventory_System02.CustSupplier
                 }
                 else if (dtg_Customer.SelectedRows.Count > 1)
                 {
- 
+
                     if (MessageBox.Show("Are you sure you want to delete selected?", "Warning Deletion Prompt",
                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
@@ -630,7 +626,7 @@ namespace Inventory_System02.CustSupplier
                 cbo_type.Text = dtg_Customer.CurrentRow.Cells[6].Value.ToString();
 
                 func.Reload_Images(Cust_Image, cust_ID.Text, Includes.AppSettings.Customer_DIR);
-                func.Change_Font_DTG(sender, e, dtg_Customer );
+                func.Change_Font_DTG(sender, e, dtg_Customer);
                 cust_ID.Focus();
             }
         }
@@ -641,15 +637,15 @@ namespace Inventory_System02.CustSupplier
             {
                 MessageBox.Show("Customer \"ID\" should not be empty!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cust_ID.Focus();
-                return;   
+                return;
             }
-            else if ( string.IsNullOrWhiteSpace(cust_FN.Text))
+            else if (string.IsNullOrWhiteSpace(cust_FN.Text))
             {
                 MessageBox.Show("Customer \"NAME\" should not be empty!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cust_FN.Focus();
                 return;
             }
-            else if ( string.IsNullOrWhiteSpace(cust_SAddress.Text))
+            else if (string.IsNullOrWhiteSpace(cust_SAddress.Text))
             {
                 MessageBox.Show("Customer \"ADDRESS\" should not be empty!", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cust_SAddress.Focus();

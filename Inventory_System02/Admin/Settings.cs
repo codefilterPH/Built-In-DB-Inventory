@@ -1,7 +1,7 @@
 ﻿using Inventory_System02.Includes;
 using System;
-using System.Windows.Forms;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Inventory_System02
 {
@@ -18,7 +18,7 @@ namespace Inventory_System02
             Global_ID = global_id;
             Fullname = fullname;
             JobRole = jobrole;
-            
+
             func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
         }
 
@@ -26,14 +26,14 @@ namespace Inventory_System02
         {
             sql = "Select * from Settings";
             config.singleResult(sql);
-            if( config.dt.Rows.Count > 0 )
+            if (config.dt.Rows.Count > 0)
             {
                 txt_company_name.Text = config.dt.Rows[0].Field<string>("Company_Name");
                 num_SL_Detection.Text = config.dt.Rows[0]["Low_Detection"].ToString();
                 num_Warranty.Text = config.dt.Rows[0]["Warranty"].ToString();
                 txt_Com_Address.Text = config.dt.Rows[0].Field<string>("Company Address");
             }
-        
+
             dtg_settings.Columns.Clear();
             timer1.Start();
             if (cbo_type.Text == "Product Name")
@@ -54,7 +54,7 @@ namespace Inventory_System02
             cbo_type_SelectedIndexChanged(sender, e);
 
         }
-       
+
         private void btn_add_Click(object sender, EventArgs e)
         {
             setting_name = string.Empty;
@@ -63,9 +63,9 @@ namespace Inventory_System02
             if (txt_Def_text.Text != null || txt_Def_text.Text != string.Empty)
             {
                 Check_What_Table();
-                sql = "Select * from " + setting_name + " where Count = '"+txt_ID.Text+"' ";
+                sql = "Select * from " + setting_name + " where Count = '" + txt_ID.Text + "' ";
                 config.singleResult(sql);
-                if ( config.dt.Rows.Count > 0 )
+                if (config.dt.Rows.Count > 0)
                 {
                     MessageBox.Show("Count already exist!");
                     txt_ID.Focus();
@@ -73,7 +73,7 @@ namespace Inventory_System02
                     txt_Def_text.Enabled = true;
                     return;
                 }
-                sql = "Select * from " + setting_name + " where "+col+" = '" + txt_Def_text.Text + "' ";
+                sql = "Select * from " + setting_name + " where " + col + " = '" + txt_Def_text.Text + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count > 0)
                 {
@@ -83,22 +83,22 @@ namespace Inventory_System02
                     txt_Def_text.Enabled = true;
                     return;
                 }
-                
-                    sql = "Insert into " + setting_name + " ( Count,  " + col + " ) values ( '" + txt_ID.Text + "' , '" + txt_Def_text.Text + "'  )";
-                    config.Execute_CUD(sql, "Unsuccessful to add settings \n\nEither an error occured or Needs to Highlight from the table!",
-                        "Settings for product name successfully added");
-                    btn_Clear_Text_Click(sender, e);
-               
+
+                sql = "Insert into " + setting_name + " ( Count,  " + col + " ) values ( '" + txt_ID.Text + "' , '" + txt_Def_text.Text + "'  )";
+                config.Execute_CUD(sql, "Unsuccessful to add settings \n\nEither an error occured or Needs to Highlight from the table!",
+                    "Settings for product name successfully added");
+                btn_Clear_Text_Click(sender, e);
+
             }
             else
             {
                 MessageBox.Show("The Definition text is empty!");
                 txt_Def_text.Focus();
             }
-            sql = "Select * from `" + cbo_type.Text +"` ";
+            sql = "Select * from `" + cbo_type.Text + "` ";
             config.Load_DTG(sql, dtg_settings);
             timer1.Start();
-            btn_Clear_Text_Click( sender,  e);
+            btn_Clear_Text_Click(sender, e);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -146,19 +146,19 @@ namespace Inventory_System02
             {
                 setting_name = "`Employee Role`";
                 col = "Type";
-            }  
+            }
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txt_Def_text.Text))
             {
-               
+
 
                 string selectedType = string.Empty;
                 foreach (DataGridViewRow rw in dtg_settings.SelectedRows)
                 {
-                   
+
                     selectedType = rw.Cells[1].Value.ToString();
                     break;
                 }
@@ -233,13 +233,13 @@ namespace Inventory_System02
 
         private void btn_Browse_Click(object sender, EventArgs e)
         {
-  
+
             func.DoubleClick_Picture_Then_Replace_Existing(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
             func.Reload_Images(Company_Logo, "Company_Logo1", Includes.AppSettings.Company_DIR);
 
             sql = "Select Company_Image from Settings";
             config.singleResult(sql);
-            if ( config.dt.Rows.Count > 0 )
+            if (config.dt.Rows.Count > 0)
             {
                 sql = "Update Settings set Company_Image = '" + Includes.AppSettings.Company_DIR + "\\" + "Company_Logo1.PNG" + "' ";
                 config.Execute_Query(sql);
@@ -248,7 +248,7 @@ namespace Inventory_System02
             Application.Exit();
             Application.Restart();
 
-         
+
         }
 
         private void btn_company_name_Click(object sender, EventArgs e)
@@ -267,7 +267,7 @@ namespace Inventory_System02
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
             {
-             
+
                 sql = "Update Settings set Company_Name = '" + txt_company_name.Text + "' ";
                 config.Execute_CUD(sql, "No way to change company name. Failed!", "Name of business successfully modified! Thank you.");
                 Settings_Load(sender, e);
@@ -360,7 +360,7 @@ namespace Inventory_System02
             if (txt_Com_Address.Enabled == false)
             {
                 txt_Com_Address.Enabled = true;
-                btn_Address.Focus(); 
+                btn_Address.Focus();
             }
             else
             {
@@ -399,7 +399,7 @@ namespace Inventory_System02
             txt_Def_text.Text = "";
 
             txt_Def_text.Enabled = false;
-            txt_ID.Enabled = false; 
+            txt_ID.Enabled = false;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -447,7 +447,7 @@ namespace Inventory_System02
             else
             {
                 sql = "Select * from `Employee Role`";
-                config.Load_DTG(sql, dtg_settings);     
+                config.Load_DTG(sql, dtg_settings);
 
             }
             timer1.Start();

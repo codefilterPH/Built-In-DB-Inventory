@@ -3,9 +3,8 @@ using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.IO;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Inventory_System02.Reports_Dir
@@ -32,7 +31,7 @@ namespace Inventory_System02.Reports_Dir
         }
         bool isWorkerBusy = false;
         private void Customer_Report_Load(object sender, EventArgs e)
-        {     
+        {
             chk_Cust_ID.Checked = true;
             chk_Name.Checked = true;
             chk_Address.Checked = true;
@@ -45,7 +44,7 @@ namespace Inventory_System02.Reports_Dir
             }
 
             Calculate_Filtering("loadToday");
-            if ( dtg_PreviewPage.Rows.Count == 0 )
+            if (dtg_PreviewPage.Rows.Count == 0)
             {
                 lbl_Personnel.Text = "0";
             }
@@ -107,7 +106,7 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
         }
-       
+
         private void Calculate_Filtering(string what_to_do)
         {
             try
@@ -135,7 +134,7 @@ namespace Inventory_System02.Reports_Dir
                     return;
                 }
                 sql = string.Empty;
-                if ( what_to_do != "loadToday")
+                if (what_to_do != "loadToday")
                 {
                     sql = " SELECT * from Customer WHERE DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' AND DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC";
                 }
@@ -150,8 +149,8 @@ namespace Inventory_System02.Reports_Dir
                 {
                     try
                     {
-                        if ( dtg_PreviewPage.DataSource != null )
-                        {                      
+                        if (dtg_PreviewPage.DataSource != null)
+                        {
                             list2 = ((DataTable)dtg_PreviewPage.DataSource).AsEnumerable().Select(
                             dataRow => new Class_Customer_Var
                             {
@@ -169,7 +168,7 @@ namespace Inventory_System02.Reports_Dir
                             lbl_exception.Text = "Error: The data source is empty";
                         }
                     }
-                    catch ( NullReferenceException ex )
+                    catch (NullReferenceException ex)
                     {
                         lbl_exception.Text = "Error: " + ex.Message;
                     }

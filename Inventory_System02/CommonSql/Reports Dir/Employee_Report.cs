@@ -3,10 +3,9 @@ using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Inventory_System02.Reports_Dir
 {
@@ -34,7 +33,7 @@ namespace Inventory_System02.Reports_Dir
         }
         bool isWorkerBusy = false;
         private void Employee_Report_Load(object sender, EventArgs e)
-        {           
+        {
             chk_Emp_ID.Checked = false;
             chk_FN.Checked = false;
             chk_LN.Checked = false;
@@ -49,10 +48,10 @@ namespace Inventory_System02.Reports_Dir
                 backgroundWorker_date_formatter.RunWorkerAsync();
             }
             Calculate_Filtering("loadToday");
-            if( dtg_PreviewPage.Rows.Count == 0 )
+            if (dtg_PreviewPage.Rows.Count == 0)
             {
                 lbl_Personnel.Text = "0";
-            } 
+            }
         }
 
         private void btn_Print_Preview_Click(object sender, EventArgs e)
@@ -67,7 +66,7 @@ namespace Inventory_System02.Reports_Dir
                 foreach (CheckBox ch in grp_filters.Controls)
                 {
                     if (ch is CheckBox)
-                    {   
+                    {
                         ch.Checked = true;
                         chk_Unselect.Checked = false;
                     }
@@ -118,7 +117,7 @@ namespace Inventory_System02.Reports_Dir
                 return;
             }
         }
-        
+
         private void Calculate_Filtering(string what_to_do)
         {
             try
@@ -146,8 +145,8 @@ namespace Inventory_System02.Reports_Dir
                 }
                 Group_Filtering_MustNotEmpty();
                 sql = string.Empty;
-                
-                if ( what_to_do != "loadToday")
+
+                if (what_to_do != "loadToday")
                 {
                     if (Global_ID == "admin")
                     {
@@ -169,7 +168,7 @@ namespace Inventory_System02.Reports_Dir
                         sql = "SELECT * FROM Employee WHERE DATE(`Hired Date`) = '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' AND `Employee ID` <> 'admin' ORDER BY `Hired Date` DESC";
                     }
                 }
-             
+
                 config.Load_DTG(sql, dtg_PreviewPage);
                 DTG_Properties();
                 if (what_to_do != "load")
@@ -198,7 +197,7 @@ namespace Inventory_System02.Reports_Dir
                             lbl_exception.Text = "Error: The data source is empty";
                         }
                     }
-                    catch ( NullReferenceException ex )
+                    catch (NullReferenceException ex)
                     {
                         lbl_exception.Text = "Error: " + ex.Message;
                     }
@@ -276,7 +275,7 @@ namespace Inventory_System02.Reports_Dir
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lbl_exception.Text = "Error: " + ex.Message;
             }
@@ -294,12 +293,12 @@ namespace Inventory_System02.Reports_Dir
                     func.Count_person(dtg_PreviewPage, lbl_Personnel);
                 }
             }
-            catch ( InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
                 DTG_Properties();
-            }  
+            }
         }
 
         private void btn_Print_Click(object sender, EventArgs e)

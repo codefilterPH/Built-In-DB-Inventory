@@ -1,18 +1,13 @@
 ﻿using Inventory_System02.Includes;
 using Inventory_System02.Reports_Dir;
-using Microsoft.Office.Interop.Word;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CheckBox = System.Windows.Forms.CheckBox;
 using DataTable = System.Data.DataTable;
@@ -28,7 +23,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         Report_Viewer frm;
         usableFunction func;
         List<Class_Item_Var> list2;
-    
+
         string sql;
         string company_name = string.Empty;
         string company_address = string.Empty;
@@ -53,7 +48,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             chk_Price.Checked = true;
             chk_total.Checked = true;
             chk_Cust_Name.Checked = false;
-            chk_Sup_Name.Checked=true;
+            chk_Sup_Name.Checked = true;
 
             cbo_report_type.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -63,7 +58,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 backgroundWorker2.RunWorkerAsync();
             }
 
-            if ( !isWorkerBusy)
+            if (!isWorkerBusy)
             {
                 progressBar1.Visible = true;
                 isWorkerBusy = true;
@@ -237,7 +232,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
 
                 }
             }
-            catch ( InvalidOperationException ex )
+            catch (InvalidOperationException ex)
             {
                 lbl_exception.Text = "Error: " + ex.Message;
             }
@@ -372,13 +367,13 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                             }
                             else
                             {
-                                lbl_exception.Text = "Error: The data source is empty!"; 
+                                lbl_exception.Text = "Error: The data source is empty!";
                             }
                         }
-                        catch ( NullReferenceException ex )
+                        catch (NullReferenceException ex)
                         {
                             lbl_exception.Text = "Error: " + ex.Message;
-                        } 
+                        }
                     }
                     else
                     {
@@ -409,10 +404,10 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                                 rs.Value = list2;
                             }
                         }
-                        catch ( NullReferenceException ex )
+                        catch (NullReferenceException ex)
                         {
                             lbl_exception.Text = "Error: " + ex.Message;
-                        }       
+                        }
                     }
 
                     rs.Name = "DataSet1";
@@ -575,7 +570,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 dtg_PreviewPage.Columns["Job Role"].DisplayIndex = 12;
                 dtg_PreviewPage.Columns["Transaction Reference"].DisplayIndex = 13;
             }
-            catch( InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
@@ -597,7 +592,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         {
             Calculate_Filtering("load", cbo_report_type.Text);
         }
-      
+
         bool load_sup = true;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -614,11 +609,11 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 {
                     sql = string.Empty;
                     sql = "SELECT Name FROM Customer ORDER BY Name ASC";
-                    
+
                 }
 
                 this.Invoke(new MethodInvoker(delegate { config.fiil_CBO(sql, cbo_sup_divi); }));
-                
+
                 Console.WriteLine("Test");
 
                 for (int i = 0; i < config.dt.Rows.Count; i++)

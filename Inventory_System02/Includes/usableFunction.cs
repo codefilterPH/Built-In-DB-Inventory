@@ -5,25 +5,15 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
-using Microsoft.Reporting.WinForms;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing.Printing;
-using System.Drawing.Imaging;
-using Inventory_System02.Reports_Dir;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using TextBox = System.Windows.Forms.TextBox;
 using ComboBox = System.Windows.Forms.ComboBox;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Inventory_System02.Includes
 {
     class usableFunction
     {
 
-        
+
 
         //initialize the validating method
         static Regex Valid_Name = StringOnly();
@@ -273,7 +263,7 @@ namespace Inventory_System02.Includes
             }
 
         }
-       
+
         public string Error_Message1;
         public void Error_Message()
         {
@@ -508,7 +498,7 @@ namespace Inventory_System02.Includes
             }
         }
         int Due1 = 0; string Due;
-        public void Due_Date_Warranty (string TransRef)
+        public void Due_Date_Warranty(string TransRef)
         {
 
             SQLConfig config = new SQLConfig();
@@ -520,9 +510,9 @@ namespace Inventory_System02.Includes
             {
                 Due1 = Convert.ToInt32(config.dt.Rows[0]["Warranty"]);
 
-            }         
-            Due = DateTime.Now.AddDays(Due1).ToString(Includes.AppSettings.DateFormatRetrieve);     
-            
+            }
+            Due = DateTime.Now.AddDays(Due1).ToString(Includes.AppSettings.DateFormatRetrieve);
+
             sql = "Select * from `Stock Out` where `Transaction Reference` = '" + TransRef + "' ";
             config.singleResult(sql);
             if (config.dt.Rows.Count > 0)
@@ -548,7 +538,7 @@ namespace Inventory_System02.Includes
                 {
                     c.DefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Regular);
                 }
-                else 
+                else
                 {
                     c.DefaultCellStyle.Font = new Font("Segoe UI", (float)7.75, FontStyle.Regular);
                 }
@@ -567,7 +557,7 @@ namespace Inventory_System02.Includes
             tx.Text = count1.ToString();
         }
 
-        public void Select_All_Dtg( DataGridView dtg, CheckBox bx)
+        public void Select_All_Dtg(DataGridView dtg, CheckBox bx)
         {
             if (dtg.RowCount > 0)
             {
@@ -582,7 +572,7 @@ namespace Inventory_System02.Includes
                 }
             }
         }
-   
+
 
 
     }

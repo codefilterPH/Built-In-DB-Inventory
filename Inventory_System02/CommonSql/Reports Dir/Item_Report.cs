@@ -3,19 +3,11 @@ using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices.ComTypes;
-using Microsoft.Office.Interop.Word;
-using DataTable = System.Data.DataTable;
+using System.Linq;
+using System.Windows.Forms;
 using CheckBox = System.Windows.Forms.CheckBox;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using ComboBox = System.Windows.Forms.ComboBox;
+using DataTable = System.Data.DataTable;
 
 namespace Inventory_System02.Reports_Dir
 {
@@ -162,7 +154,7 @@ namespace Inventory_System02.Reports_Dir
             catch (NullReferenceException ex)
             {
                 lbl_exception.Text = "Warning: Null reference exception in calculation function, " + ex.Message;
-            } 
+            }
         }
 
         public void Calculate_Filtering(string preview_or_print, string report_type)
@@ -233,10 +225,10 @@ namespace Inventory_System02.Reports_Dir
                                 lbl_exception.Text = "Error: The data source is null.";
                             }
                         }
-                        catch ( NullReferenceException ex)
+                        catch (NullReferenceException ex)
                         {
                             lbl_exception.Text = "Error: " + ex.Message;
-                        }   
+                        }
                     }
                     else
                     {
@@ -265,7 +257,7 @@ namespace Inventory_System02.Reports_Dir
                                       Trans_Ref = dataRow["Transaction Reference"].ToString()
 
                                   }).ToList();
-                                    rs.Value = list2;
+                                rs.Value = list2;
                             }
                             else
                             {
@@ -410,7 +402,7 @@ namespace Inventory_System02.Reports_Dir
                 }
 
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -466,10 +458,10 @@ namespace Inventory_System02.Reports_Dir
                 calculate_Total();
                 Calculate_Filtering("load_todtg", cbo_report_type.Text);
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_exception.Text = "Error: " + ex.Message;
-            }     
+            }
         }
 
         private void Dtg_Properties()
@@ -503,7 +495,7 @@ namespace Inventory_System02.Reports_Dir
                 dtg_PreviewPage.Columns["Total"].DefaultCellStyle.Format = "#,##0.00";
 
             }
-            catch ( InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);

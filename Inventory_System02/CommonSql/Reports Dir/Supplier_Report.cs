@@ -3,10 +3,9 @@ using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 
 namespace Inventory_System02.Reports_Dir
@@ -48,7 +47,7 @@ namespace Inventory_System02.Reports_Dir
             }
             Calculate_Filtering("loadToday");
         }
-    
+
         private void chk_Select_All_CheckedChanged(object sender, EventArgs e)
         {
             if (chk_Select_All.Checked == true)
@@ -112,7 +111,7 @@ namespace Inventory_System02.Reports_Dir
                     return;
                 }
                 sql = string.Empty;
-                if ( what_to_do != "loadToday")
+                if (what_to_do != "loadToday")
                 {
                     sql = " SELECT * from Supplier where DATE(`Entry Date`) >= '" + dtp_date_from.Text + "' and DATE(`Entry Date`) <= '" + dtp_date_to.Text + "' ORDER BY `Entry Date` DESC ";
                 }
@@ -120,7 +119,7 @@ namespace Inventory_System02.Reports_Dir
                 {
                     sql = " SELECT * from Supplier where DATE(`Entry Date`) >= '" + DateTime.Now.ToString(Includes.AppSettings.DateFormatRetrieve) + "' ORDER BY `Entry Date` DESC ";
                 }
-             
+
                 config.Load_DTG(sql, dtg_PreviewPage);
                 DTG_Properties();
 
@@ -148,8 +147,8 @@ namespace Inventory_System02.Reports_Dir
                         {
                             lbl_exception.Text = "Error: The data source is empty";
                         }
-                    } 
-                    catch ( NullReferenceException ex )
+                    }
+                    catch (NullReferenceException ex)
                     {
                         lbl_exception.Text = "Error: " + ex.Message;
                     }
@@ -255,7 +254,7 @@ namespace Inventory_System02.Reports_Dir
                     return;
                 }
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 lbl_exception.Text = "Error: " + ex.Message;
             }

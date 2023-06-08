@@ -1,12 +1,5 @@
 ﻿using Inventory_System02.Includes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Inventory_System02.Items
@@ -45,16 +38,16 @@ namespace Inventory_System02.Items
             trans_ref = rec_trans_ref;
             name = rec_name;
             brand = rec_brand;
-            description= rec_desc;
+            description = rec_desc;
             quantity = rec_qty;
             price = rec_price;
             total_amt = rec_value;
-            person_name = rec_person_name; 
+            person_name = rec_person_name;
         }
 
         private void Item_Preview_Load(object sender, EventArgs e)
         {
-            if ( id != string.Empty )
+            if (id != string.Empty)
             {
                 txt_id.Text = id;
                 txt_date.Text = entry_date;
@@ -75,14 +68,14 @@ namespace Inventory_System02.Items
                 SQLConfig config = new SQLConfig();
                 string sql = "SELECT Status FROM `STOCKS` WHERE `Stock ID` = '" + id + "' and `Transaction Reference` = '" + trans_ref + "' ";
                 config.singleResult(sql);
-                if (config.dt.Rows.Count >= 1 )
+                if (config.dt.Rows.Count >= 1)
                 {
                     txt_Status.Text = config.dt.Rows[0]["Status"].ToString();
                 }
             }
         }
 
-       
+
         private void btn_print_Click(object sender, EventArgs e)
         {
             Invoice_Code.Invoice_Code rdlc = new Invoice_Code.Invoice_Code();

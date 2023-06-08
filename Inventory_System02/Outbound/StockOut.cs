@@ -1,20 +1,16 @@
 ﻿using Inventory_System02.Includes;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Input;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using ToolTip = System.Windows.Forms.ToolTip;
-using System.Threading;
 using Inventory_System02.Invoice_Code;
 using Inventory_System02.Reports_Dir;
 using Microsoft.Reporting.WinForms;
-using System.Windows.Forms.DataVisualization.Charting;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using ToolTip = System.Windows.Forms.ToolTip;
 
 namespace Inventory_System02
 {
@@ -32,11 +28,11 @@ namespace Inventory_System02
             InitializeComponent();
             Global_ID = global_id;
             Fullname = fullname;
-            JobRole = jobrole;  
+            JobRole = jobrole;
         }
 
         private void StockOut_Load(object sender, EventArgs e)
-        {   
+        {
             refreshTableToolStripMenuItem_Click(sender, e);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -53,22 +49,22 @@ namespace Inventory_System02
                     cbo_CustID.Text = config.dt.Rows[0].Field<string>("Customer ID");
                 }
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occurred: " + ex.Message;
             }
-          
+
         }
 
         bool isWorkerBusy = false;
         private void refreshTableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( !isWorkerBusy )
+            if (!isWorkerBusy)
             {
                 isWorkerBusy = true;
                 PreloadWorker.RunWorkerAsync();
             }
-            
+
         }
 
         private void DTG_Property()
@@ -153,7 +149,7 @@ namespace Inventory_System02
 
                 }
             }
-            catch ( InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
@@ -210,7 +206,7 @@ namespace Inventory_System02
                     lbl_items_qty.Text = "0";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "Error: " + ex.Message;
             }
@@ -269,11 +265,11 @@ namespace Inventory_System02
                     TOTALS();
                 }
             }
-            catch( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
             }
-           
+
         }
         double quan = 0;
         private void btn_sup_delete_Click(object sender, EventArgs e)
@@ -309,7 +305,7 @@ namespace Inventory_System02
                 Update_Qty_Stocks();
                 chk_all2.Checked = false;
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "Am error occred: " + ex.Message;
             }
@@ -318,7 +314,7 @@ namespace Inventory_System02
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 if (cbo_srch_type.Text == "Date")
                 {
@@ -373,12 +369,12 @@ namespace Inventory_System02
                     refreshTableToolStripMenuItem_Click(sender, e);
                 }
             }
-            catch ( Exception ex ) 
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
-            } 
+            }
         }
-  
+
         private void cbo_CustID_TextChanged(object sender, EventArgs e)
         {
             sql = "Select * from `Customer` where `Customer ID` = '" + cbo_CustID.Text + "' ";
@@ -415,7 +411,7 @@ namespace Inventory_System02
             if (dtg_Stocks.Rows.Count > 0)
             {
                 func.Change_Font_DTG(sender, e, dtg_Stocks);
-                chk_all.Checked = false; 
+                chk_all.Checked = false;
             }
         }
 
@@ -433,9 +429,9 @@ namespace Inventory_System02
         {
             func.Select_All_Dtg(dtg_AddedStocks, chk_all2);
         }
-   
+
         private void dtg_AddedStocks_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        { 
+        {
             try
             {
                 //Copy and pasting dot not included as well as typing it.
@@ -462,7 +458,7 @@ namespace Inventory_System02
                     }
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
             }
@@ -513,7 +509,7 @@ namespace Inventory_System02
                     }
                 }
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An exception error occured: " + ex.Message;
             }
@@ -544,7 +540,7 @@ namespace Inventory_System02
                     }
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
             }
@@ -552,12 +548,12 @@ namespace Inventory_System02
         private ToolTip toolTip;
         private void btn_searchCustomer_MouseHover(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 toolTip = new ToolTip();
                 toolTip.SetToolTip(btn_searchCustomer, "Click to search for an existing customer.");
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
             }
@@ -661,7 +657,7 @@ namespace Inventory_System02
         }
         private void EnableAll()
         {
-           try
+            try
             {
                 chk_all.Enabled = true;
                 chk_all2.Enabled = true;
@@ -682,10 +678,10 @@ namespace Inventory_System02
 
                 return;
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured from enable all: " + ex.Message;
-            }  
+            }
         }
 
         private void outboundListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -699,7 +695,7 @@ namespace Inventory_System02
             catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
-            } 
+            }
         }
 
         private void backgroundStockOut_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -718,9 +714,9 @@ namespace Inventory_System02
                     e.Result = "No Transaction Reference Number Generated, Batching Failed";
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
-                e.Result = "Error: " + ex.Message; 
+                e.Result = "Error: " + ex.Message;
             }
         }
 
@@ -762,7 +758,7 @@ namespace Inventory_System02
                     cbo_CustID.Text = frm.cusID;
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
             }
@@ -848,10 +844,10 @@ namespace Inventory_System02
                 frm.reportViewer1.RefreshReport();
                 frm.ShowDialog();
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An exception error occured: " + ex.Message;
-            }  
+            }
         }
 
         private void Generate_Trans()
@@ -886,10 +882,10 @@ namespace Inventory_System02
 
                 }
             }
-            catch ( SqlException ex )
+            catch (SqlException ex)
             {
-                lbl_error_message.Text = "A sql exception error occured: " + ex.Message; 
-            }  
+                lbl_error_message.Text = "A sql exception error occured: " + ex.Message;
+            }
         }
 
         private void PreloadWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -919,20 +915,20 @@ namespace Inventory_System02
                 }
                 TOTALS();
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 e.Result = ex.Message;
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 e.Result = exc.Message;
             }
-        
+
         }
 
         private void PreloadWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            if ( e.Error != null )
+            if (e.Error != null)
             {
                 this.Invoke(new MethodInvoker(delegate
                 {
@@ -988,7 +984,7 @@ namespace Inventory_System02
                     }
                 }
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An exception error occured at saving status: " + ex.Message;
             }
@@ -1132,7 +1128,7 @@ namespace Inventory_System02
                 }
                 TOTALS();
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 lbl_error_message.Text = "An error occured: " + ex.Message;
             }

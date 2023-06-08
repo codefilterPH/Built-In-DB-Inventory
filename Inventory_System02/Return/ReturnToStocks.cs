@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Inventory_System02.Includes;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
 
 namespace Inventory_System02.Return
 {
@@ -37,7 +30,7 @@ namespace Inventory_System02.Return
                     {
                         if (num_qty.Value > Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value))
                         {
-                            if ( MessageBox.Show("Quantity must not greater than the original! Thank you. Reset?", "Error Message", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
+                            if (MessageBox.Show("Quantity must not greater than the original! Thank you. Reset?", "Error Message", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
                             {
                                 btn_reset_Click(sender, e);
                             }
@@ -57,16 +50,16 @@ namespace Inventory_System02.Return
                     }
                 }
             }
-            catch ( InvalidOperationException ex )
+            catch (InvalidOperationException ex)
             {
                 lbl_status.Text = "Error: change button. " + ex.Message;
                 lbl_status.ForeColor = Color.Red;
-            }       
+            }
         }
 
         private void num_qty_KeyDown(object sender, KeyEventArgs e)
         {
-            if ( e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btn_change_Click(sender, e);
             }
@@ -142,7 +135,7 @@ namespace Inventory_System02.Return
         {
             if (dtg_return_list.Rows.Count >= 1)
             {
-                if ( JobRole != "Programmer/Developer" && JobRole != "Office Manager")
+                if (JobRole != "Programmer/Developer" && JobRole != "Office Manager")
                 {
                     MessageBox.Show("No permission to delete transactions! Thank you.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
@@ -171,9 +164,9 @@ namespace Inventory_System02.Return
 
         private void chk_select_all_CheckedChanged(object sender, EventArgs e)
         {
-            if ( dtg_return_list.Rows.Count >= 1 )
+            if (dtg_return_list.Rows.Count >= 1)
             {
-                foreach(DataGridViewRow rw in dtg_return_list.Rows )
+                foreach (DataGridViewRow rw in dtg_return_list.Rows)
                 {
                     if (chk_select_all.Checked)
                     {
@@ -184,7 +177,7 @@ namespace Inventory_System02.Return
                         rw.Selected = false;
                     }
                 }
-            }  
+            }
         }
 
         private void dtg_return_list_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -198,12 +191,12 @@ namespace Inventory_System02.Return
             {
                 if (dtg_tobe_returned.DataSource != null)
                 {
-                    if (Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value) == 0 )
+                    if (Convert.ToInt32(dtg_tobe_returned.Rows[0].Cells[4].Value) == 0)
                     {
                         MessageBox.Show("Quantity is zero!", "Nothing to Return", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         return;
                     }
-                    if (MessageBox.Show("Are you sure you want to return this pending transaction?", "Confirm Stock Return", MessageBoxButtons.YesNo, MessageBoxIcon.Question )==DialogResult.Yes )
+                    if (MessageBox.Show("Are you sure you want to return this pending transaction?", "Confirm Stock Return", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Generate_Trans_To_Inbound();
                         string mydate = DateTime.Now.ToString(Includes.AppSettings.DateFormatSave);
@@ -314,7 +307,7 @@ namespace Inventory_System02.Return
                     {
                         return;
                     }
-                   
+
                 }
             }
         }
@@ -327,7 +320,7 @@ namespace Inventory_System02.Return
             //ready the item
             string sql2 = "SELECT `Stock ID`, `Item Name`, Brand, Description, Quantity, Price, Total, `Customer Name`, `Customer Address` FROM `Stock Returned` WHERE `Stock ID` = '" + item_id + "' and `Transaction Reference` = '" + trans_ref + "' ";
             config.Load_DTG(sql2, dtg_tobe_returned);
-            if ( config.dt.Rows.Count == 1 )
+            if (config.dt.Rows.Count == 1)
             {
                 name = string.Empty;
                 address = string.Empty;
@@ -374,15 +367,15 @@ namespace Inventory_System02.Return
         private void Calculate()
         {
 
-            if (dtg_return_list.Columns.Count >= 1 )
+            if (dtg_return_list.Columns.Count >= 1)
             {
-                if (dtg_return_list.Rows.Count >= 1 )
+                if (dtg_return_list.Rows.Count >= 1)
                 {
                     total_qty = 0;
                     total_amount = 0;
                     int qty;
                     decimal total;
-                    for(int i = 0; i < dtg_return_list.Rows.Count; i++ )
+                    for (int i = 0; i < dtg_return_list.Rows.Count; i++)
                     {
                         int.TryParse(dtg_return_list.Rows[i].Cells["Quantity"].Value.ToString(), out qty);
                         total_qty += qty;
@@ -425,12 +418,12 @@ namespace Inventory_System02.Return
                     dtg_tobe_returned.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 }
             }
-            catch (InvalidOperationException )
+            catch (InvalidOperationException)
             {
                 // Handle the exception by waiting for a short period of time and then trying the operation again
                 System.Threading.Thread.Sleep(500);
                 DTG_Properties();
-            }    
-        }    
+            }
+        }
     }
 }

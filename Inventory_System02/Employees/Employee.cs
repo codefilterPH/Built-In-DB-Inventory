@@ -1,8 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 
@@ -22,7 +20,7 @@ namespace Inventory_System02.Profiles
             Fullname = fullname;
             JobRole = jobrole;
 
-           
+
         }
         private void Error_PermissionDenied()
         {
@@ -51,17 +49,17 @@ namespace Inventory_System02.Profiles
             }
             else if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
             {
-                if ( JobRole == "Programmer/Developer" && txt_Job_role.Text == "Programmer/Developer")
+                if (JobRole == "Programmer/Developer" && txt_Job_role.Text == "Programmer/Developer")
                 {
                     Error_PermissionDenied();
                     return;
                 }
-                else if ( JobRole == "Office Manager" && txt_Job_role.Text == "Programmer/Developer")
+                else if (JobRole == "Office Manager" && txt_Job_role.Text == "Programmer/Developer")
                 {
                     Error_PermissionDenied();
                     return;
                 }
-              
+
                 sql = "Select * from Employee where `Employee ID` = '" + txt_ID.Text + "' ";
                 config.singleResult(sql);
                 if (config.dt.Rows.Count < 1)
@@ -94,7 +92,7 @@ namespace Inventory_System02.Profiles
                     MessageBox.Show("This user is already added to the Database!", "Unable to add duplicate user", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-                
+
             }
             else
             {
@@ -134,7 +132,7 @@ namespace Inventory_System02.Profiles
             {
                 sql = "Select * from Employee WHERE `Employee ID` == '" + Global_ID + "' and `Job Role` = '" + JobRole + "'";
             }
-            
+
             config.Load_DTG(sql, dtg_User);
             Hideadmin_and_LoadImage();
         }
@@ -292,7 +290,7 @@ namespace Inventory_System02.Profiles
                     MessageBox.Show("You cannot delete multiple accounts. Thank you!", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
-                else if ( dtg_User.SelectedRows.Count <= 0)
+                else if (dtg_User.SelectedRows.Count <= 0)
                 {
                     dtg_User.CurrentRow.Selected = true;
                 }
@@ -314,7 +312,7 @@ namespace Inventory_System02.Profiles
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace ( txt_ID.Text ) )
+            if (!string.IsNullOrWhiteSpace(txt_ID.Text))
             {
                 if (txt_ID.Text == "admin")
                 {
@@ -375,7 +373,7 @@ namespace Inventory_System02.Profiles
 
         private void newEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( JobRole == "Office Manager" || JobRole == "Programmer/Developer")
+            if (JobRole == "Office Manager" || JobRole == "Programmer/Developer")
             {
                 func.clearTxt(panel2);
                 btn_GenID_Click(sender, e);
@@ -388,7 +386,7 @@ namespace Inventory_System02.Profiles
                 MessageBox.Show("You do not have permission to add new profile.", "No Permission", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
-         
+
 
         }
 
@@ -416,7 +414,7 @@ namespace Inventory_System02.Profiles
                 else
                 {
                     // Others can only change their own picture
-                    if (txt_ID.Text == Global_ID && txt_Job_role.Text == JobRole )
+                    if (txt_ID.Text == Global_ID && txt_Job_role.Text == JobRole)
                     {
                         pictureBox1_DoubleClick(sender, e);
                     }
@@ -426,7 +424,7 @@ namespace Inventory_System02.Profiles
                     }
                 }
             }
-          
+
         }
 
         private void btn_Change_pass_Click(object sender, EventArgs e)
@@ -510,7 +508,7 @@ namespace Inventory_System02.Profiles
 
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            sql = "Select * from Employee WHERE ( `Employee ID` LIKE '%" + txt_Search.Text + "%' OR `First Name` LIKE '%"+ txt_Search.Text +"%' OR `Last Name` LIKE '%"+ txt_Search.Text +"%' OR `Job Role` LIKE '%"+ txt_Search.Text + "%' ) AND `Employee ID` != 'admin' AND `Job Role` != 'Programmer/Developer' ORDER BY `Hired Date` DESC";
+            sql = "Select * from Employee WHERE ( `Employee ID` LIKE '%" + txt_Search.Text + "%' OR `First Name` LIKE '%" + txt_Search.Text + "%' OR `Last Name` LIKE '%" + txt_Search.Text + "%' OR `Job Role` LIKE '%" + txt_Search.Text + "%' ) AND `Employee ID` != 'admin' AND `Job Role` != 'Programmer/Developer' ORDER BY `Hired Date` DESC";
             config.Load_DTG(sql, dtg_User);
             Hideadmin_and_LoadImage();
         }
@@ -520,7 +518,7 @@ namespace Inventory_System02.Profiles
             if (dtg_User.Rows.Count > 0)
             {
                 dtp_Hired_date.Text = dtg_User.CurrentRow.Cells[1].Value.ToString();
-                txt_ID.Text = dtg_User.CurrentRow.Cells[2].Value.ToString();  
+                txt_ID.Text = dtg_User.CurrentRow.Cells[2].Value.ToString();
                 txt_FN.Text = dtg_User.CurrentRow.Cells[4].Value.ToString();
                 txt_LN.Text = dtg_User.CurrentRow.Cells[5].Value.ToString();
                 txt_Email.Text = dtg_User.CurrentRow.Cells[6].Value.ToString();

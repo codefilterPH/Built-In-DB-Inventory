@@ -1,14 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
 {
@@ -46,7 +38,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Qty
         {
             if (e.KeyCode == Keys.Enter)
             {
-                 btn_ok_Click(sender, e);
+                btn_ok_Click(sender, e);
             }
         }
 

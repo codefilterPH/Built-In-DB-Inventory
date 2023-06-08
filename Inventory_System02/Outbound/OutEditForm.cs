@@ -1,12 +1,6 @@
 ﻿using Inventory_System02.Includes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Inventory_System02.Outbound
@@ -17,7 +11,7 @@ namespace Inventory_System02.Outbound
         public OutEditForm(string TransRef)
         {
             InitializeComponent();
-            trans_reference = TransRef; 
+            trans_reference = TransRef;
         }
 
         private void OutEditForm_Load(object sender, EventArgs e)
@@ -34,31 +28,31 @@ namespace Inventory_System02.Outbound
                     txt_remarks.Text = config.dt.Rows[0]["Remarks"].ToString();
                     string out_status = config.dt.Rows[0]["Status"].ToString();
                     lbl_status.Text = out_status;
-                    if ( out_status == "PAID")
+                    if (out_status == "PAID")
                     {
                         chk_paid.Checked = true;
                         lbl_status.ForeColor = Color.Green;
                     }
-                    else 
+                    else
                     {
                         lbl_status.ForeColor = Color.Red;
-                        chk_paid.Checked = false; 
+                        chk_paid.Checked = false;
                     }
                 }
 
                 //Load Items from current transaction
                 sql = "Select `Item Name`, Quantity, Price, Total from `Stock Out` where `Transaction Reference` = '" + trans_reference + "' ";
                 config.Load_DTG(sql, dtg_outlist);
-                if ( config.dt.Columns.Count >= 1 )
+                if (config.dt.Columns.Count >= 1)
                 {
                     DTG_Properties();
                 }
-                if(!string.IsNullOrWhiteSpace(trans_reference))
+                if (!string.IsNullOrWhiteSpace(trans_reference))
                 {
                     lbl_reference.Text = trans_reference;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -83,10 +77,10 @@ namespace Inventory_System02.Outbound
                 lbl_status.ForeColor = Color.Green;
                 lbl_status.Text = "PAID";
             }
-            else 
+            else
             {
                 lbl_status.ForeColor = Color.Red;
-                lbl_status.Text = "UNPAID"; 
+                lbl_status.Text = "UNPAID";
             }
 
         }
@@ -101,7 +95,7 @@ namespace Inventory_System02.Outbound
                 config.singleResult(sql);
                 if (config.dt.Rows.Count == 1)
                 {
-                    sql = "Update StockOutStatus set Status = '" + lbl_status.Text + "', Remarks = '" + txt_remarks.Text + "' where TransRef = '"+ trans_reference+"' ";
+                    sql = "Update StockOutStatus set Status = '" + lbl_status.Text + "', Remarks = '" + txt_remarks.Text + "' where TransRef = '" + trans_reference + "' ";
                     config.Execute_CUD(sql, "Unable to update transaction! Please contact administrator. Thank you", "Successfully updated transaction " + trans_reference + "' ");
                 }
                 else

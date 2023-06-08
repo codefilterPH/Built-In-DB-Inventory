@@ -1,17 +1,14 @@
 ﻿
 using System;
-using System.Text;
 using System.Data;
-using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Security.Cryptography;
-using System.Collections.Generic;
-using Microsoft.ReportingServices.Diagnostics.Internal;
-using DataSet = System.Data.DataSet;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text;
 using System.Text.RegularExpressions;
-using TextBox = System.Windows.Forms.TextBox;
+using System.Windows.Forms;
 using ComboBox = System.Windows.Forms.ComboBox;
+using DataSet = System.Data.DataSet;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Inventory_System02.Includes
 {

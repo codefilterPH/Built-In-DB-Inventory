@@ -1,7 +1,4 @@
-﻿using Inventory_System02.Invoice_Code;
-using Inventory_System02.Reports_Dir;
-using Microsoft.Office.Interop.Word;
-using Microsoft.Reporting.Map.WebForms.BingMaps;
+﻿using Inventory_System02.Reports_Dir;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
@@ -62,8 +59,8 @@ namespace Inventory_System02.Includes
                          }).ToList();
                         rs.Value = list2;
                     }
-         
-             
+
+
                 }
 
                 // Create a new ReportDataSource object and set its Value property to the DataTable
@@ -110,18 +107,18 @@ namespace Inventory_System02.Includes
                     prt.PrintToPrinter(frm.reportViewer1.LocalReport);
                 }
                 else
-                {     
+                {
                     if (trans_process == "OUTBOUND SUMMARY")
                     {
                         if (string.IsNullOrWhiteSpace(search_by))
                         {
-                            FileName = "Outbound Summary "+ DateTime.Now.ToString("hhmmss") + ".pdf";
+                            FileName = "Outbound Summary " + DateTime.Now.ToString("hhmmss") + ".pdf";
                         }
                         else
                         {
                             FileName = "Outbound Summary " + search_by + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                         }
-                   
+
                     }
                     else if (trans_process == "RETURN SUMMARY")
                     {
@@ -133,7 +130,7 @@ namespace Inventory_System02.Includes
                         {
                             FileName = "Return Summary " + search_by + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                         }
-                  
+
                     }
                     else
                     {
@@ -146,7 +143,7 @@ namespace Inventory_System02.Includes
                         {
                             FileName = "Inbound Summary " + search_by + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                         }
-                   
+
                     }
                     if (FileName != null)
                     {
@@ -173,9 +170,9 @@ namespace Inventory_System02.Includes
                 MessageBox.Show(ex.Message);
             }
         }
-       
-            
-            
+
+
+
         public class SearchBy_Data
 
 

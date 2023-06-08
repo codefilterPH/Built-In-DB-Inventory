@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Inventory_System02.Includes;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Button = System.Windows.Forms.Button;
 
 namespace Inventory_System02
 {
@@ -23,15 +15,15 @@ namespace Inventory_System02
 
 
 
-        public MainForm(string userid,string name,string acctype, string phone, string email )
+        public MainForm(string userid, string name, string acctype, string phone, string email)
         {
             InitializeComponent();
             _loginForm = new Login1();
 
-            this.Text = "Inventory System - Welcome "+ name;
+            this.Text = "Inventory System - Welcome " + name;
             Global_ID = userid;
             lbl_Fullname.Text = userid.ToUpper() + " - " + name.ToUpper();
-           
+
             Fullname = name;
             JobRole = acctype;
 
@@ -65,9 +57,9 @@ namespace Inventory_System02
 
         private void btn_Stocks_Click(object sender, EventArgs e)
         {
-             Panel_content_remove();
-             AddStock frm = new AddStock(Global_ID, Fullname, JobRole); 
-             ShowFormInContainerControl(show_panel, frm);
+            Panel_content_remove();
+            AddStock frm = new AddStock(Global_ID, Fullname, JobRole);
+            ShowFormInContainerControl(show_panel, frm);
 
         }
         public static void ShowFormInContainerControl(Control ctl, Form frm)
@@ -96,12 +88,12 @@ namespace Inventory_System02
 
         }
         SQLConfig config = new SQLConfig();
-        public void  Load_Company_name()
+        public void Load_Company_name()
         {
             string sql = string.Empty;
             sql = "Select * from Settings";
             config.singleResult(sql);
-            if ( config.dt.Rows.Count > 0 )
+            if (config.dt.Rows.Count > 0)
             {
                 company_Name.Text = config.dt.Rows[0].Field<string>("Company_Name");
             }
@@ -143,8 +135,8 @@ namespace Inventory_System02
                 {
                     sidebarExpand = true;
                     sideBarTimer.Stop();
-                    btn_nav.BackgroundImage= Properties.Resources.nav; // assign an image to the button
-                }       
+                    btn_nav.BackgroundImage = Properties.Resources.nav; // assign an image to the button
+                }
             }
             btn_nav.BackgroundImageLayout = ImageLayout.Zoom;
         }
@@ -183,7 +175,7 @@ namespace Inventory_System02
 
         private void btn_settings_Click_1(object sender, EventArgs e)
         {
-            if ( JobRole == "Programmer/Developer" || JobRole == "Office Manager")
+            if (JobRole == "Programmer/Developer" || JobRole == "Office Manager")
             {
                 Settings frm = new Settings(Global_ID, Fullname, JobRole);
                 frm.ShowDialog();
@@ -245,14 +237,14 @@ namespace Inventory_System02
             func.Reload_Images(employee_Profile, Global_ID, Includes.AppSettings.Employee_DIR);
         }
 
-    
+
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
             this.Close();
             Login1 frm = new Login1();
             frm.ShowDialog();
-           
+
 
         }
 

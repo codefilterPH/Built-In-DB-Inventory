@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Inventory_System02.Includes;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
 
 namespace Inventory_System02
 {
@@ -20,7 +14,7 @@ namespace Inventory_System02
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
             SQLConfig config = new SQLConfig();
             string sql = "Select Date, Status from Administration";
             config.singleResult(sql);
@@ -35,7 +29,7 @@ namespace Inventory_System02
                 {
                     lbl_exp.Text = "Unlimited";
                 }
-               
+
             }
 
             lbl_version.Text = Includes.AppSettings.App_Version;

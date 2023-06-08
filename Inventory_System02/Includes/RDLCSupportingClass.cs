@@ -1,18 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Inventory_System02.Includes;
-using Inventory_System02.Reports_Dir;
-using Microsoft.Reporting.WinForms;
-using System.Data;
-using System.IO;
-using System.Windows.Forms;
-
-
-namespace Inventory_System02.Includes
+﻿namespace Inventory_System02.Includes
 {
     internal class RDLCSupportingClass
     {
@@ -45,7 +31,7 @@ namespace Inventory_System02.Includes
                 return new CompanyInfo { Name = company };
             }
             return null;
-        } 
+        }
     }
     public class Invoice
     {
@@ -54,7 +40,7 @@ namespace Inventory_System02.Includes
     }
     public class CompanyInfo
     {
-        public string Name { get; set; }    
+        public string Name { get; set; }
     }
 
 }

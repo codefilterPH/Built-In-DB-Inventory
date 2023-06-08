@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace Inventory_System02.Invoice_Code
 {
     class Invoice_Code
-    {   
+    {
         public async Task Invoice(string out_return, string Trans_ref, string what_to_do)
         {
             try
@@ -26,8 +26,8 @@ namespace Inventory_System02.Invoice_Code
                 usableFunction func = new usableFunction();
                 string report_date = string.Empty, cust_name = string.Empty, address = string.Empty, FileName = string.Empty;
                 decimal total = 0, all_total = 0;
-                int qty = 0, all_qty = 0 ;
-                string new_qty =string.Empty, formattedtotal = string.Empty;
+                int qty = 0, all_qty = 0;
+                string new_qty = string.Empty, formattedtotal = string.Empty;
 
                 string rdlc_path = Includes.AppSettings.Invoice_RDLC_Path + "\\";
                 string sql = string.Empty;
@@ -35,7 +35,7 @@ namespace Inventory_System02.Invoice_Code
                 {
                     sql = $"Select * from `Stock Out` where `Transaction Reference` = '{Trans_ref}' ORDER BY `Item Name` ASC";
                     await Task.Run(() => config.Load_Datasource(sql, ds));
-                    await Task.Run(() =>  config.singleResult(sql));
+                    await Task.Run(() => config.singleResult(sql));
                     if (config.dt.Rows.Count > 0)
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
@@ -43,7 +43,7 @@ namespace Inventory_System02.Invoice_Code
                         address = config.dt.Rows[0].Field<string>("Customer Address");
                     }
                 }
-                else if ( out_return == "return" )
+                else if (out_return == "return")
                 {
                     sql = $"Select * from `Stock Returned` where `Transaction Reference` = '{Trans_ref}' ORDER BY `Item Name` ASC";
                     await Task.Run(() => config.Load_Datasource(sql, ds));
@@ -55,7 +55,7 @@ namespace Inventory_System02.Invoice_Code
                         address = config.dt.Rows[0].Field<string>("Customer Address");
                     }
                 }
-                else if ( out_return == "in-single-print" && what_to_do == "single-item-print" )
+                else if (out_return == "in-single-print" && what_to_do == "single-item-print")
                 {
                     sql = $"Select * from `Stocks` where `Stock ID` = '{Trans_ref}' ORDER BY `Item Name` ASC";
                     await Task.Run(() => config.Load_Datasource(sql, ds));
@@ -88,7 +88,7 @@ namespace Inventory_System02.Invoice_Code
                     {
                         report_date = config.dt.Rows[0].Field<string>("Entry Date");
                         cust_name = config.dt.Rows[0].Field<string>("Supplier ID");
-                        address = config.dt.Rows[0].Field<string>("Supplier Name");        
+                        address = config.dt.Rows[0].Field<string>("Supplier Name");
                     }
 
                 }
@@ -123,7 +123,7 @@ namespace Inventory_System02.Invoice_Code
                          Description = dataRow.Field<string>("Description").ToString(),
                          Quantity = dataRow["Quantity"].ToString(),
                          Price = dataRow["Price"].ToString(),
-                         Amount = ( Convert.ToDecimal(dataRow["Price"]) * Convert.ToDecimal( dataRow["Quantity"]) ).ToString("#0.00"),
+                         Amount = (Convert.ToDecimal(dataRow["Price"]) * Convert.ToDecimal(dataRow["Quantity"])).ToString("#0.00"),
 
                      }).ToList();
                     rs.Value = list2;
@@ -135,7 +135,7 @@ namespace Inventory_System02.Invoice_Code
                 frm.reportViewer1.LocalReport.DataSources.Add(rs);
                 frm.reportViewer1.ProcessingMode = ProcessingMode.Local;
 
-                if ( out_return == "out")
+                if (out_return == "out")
                 {
                     frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_out.rdlc");
                 }
@@ -143,11 +143,11 @@ namespace Inventory_System02.Invoice_Code
                 {
                     frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_return.rdlc");
                 }
-                else if ( out_return == "in")
+                else if (out_return == "in")
                 {
                     frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_In.rdlc");
                 }
-                else if (out_return == "in-single-print" || out_return == "in-single-view" )
+                else if (out_return == "in-single-print" || out_return == "in-single-view")
                 {
                     frm.reportViewer1.LocalReport.ReportPath = (rdlc_path + @"Invoice_In_Item.rdlc");
                 }
@@ -163,7 +163,7 @@ namespace Inventory_System02.Invoice_Code
 
                 //Load out status and remarks
                 RDLCSupportingClass supportingClass = new RDLCSupportingClass();
-                if ( out_return == "out" )
+                if (out_return == "out")
                 {
                     Invoice invoice = supportingClass.LoadStatusRemarks(Trans_ref);
                     if (invoice != null)
@@ -176,7 +176,7 @@ namespace Inventory_System02.Invoice_Code
                         reportParameters.Add(new ReportParameter("PaymentStatus", "none"));
                         reportParameters.Add(new ReportParameter("Remarks", "none"));
                     }
-                }   
+                }
                 //load company info
                 CompanyInfo companyinfo = supportingClass.LoadCompanyInfo();
                 if (companyinfo != null)
@@ -196,26 +196,26 @@ namespace Inventory_System02.Invoice_Code
                 {
                     frm.ShowDialog();
                 }
-                else if ( what_to_do == "print" || what_to_do == "single-item-print" )
+                else if (what_to_do == "print" || what_to_do == "single-item-print")
                 {
                     Print_To_The_Printer prt = new Print_To_The_Printer();
                     prt.PrintToPrinter(frm.reportViewer1.LocalReport);
                 }
                 else
                 {
-                    if ( out_return == "out")
+                    if (out_return == "out")
                     {
                         FileName = "Outbound " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                     }
-                    else if ( out_return == "return")
+                    else if (out_return == "return")
                     {
                         FileName = "Return " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                     }
-                    else if ( out_return == "in")
+                    else if (out_return == "in")
                     {
                         FileName = "Inbound " + Trans_ref + " " + DateTime.Now.ToString("hhmmss") + ".pdf";
                     }
-                    if (FileName != null )
+                    if (FileName != null)
                     {
                         string extension;
                         string encoding;
@@ -234,7 +234,7 @@ namespace Inventory_System02.Invoice_Code
                             MessageBox.Show("Batched!", "Sent to Document Center", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         return;
-                    }   
+                    }
                 }
             }
             catch (Exception ex)

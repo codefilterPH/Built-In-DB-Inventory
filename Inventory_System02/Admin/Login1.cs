@@ -1,14 +1,10 @@
 ﻿using Inventory_System02.Includes;
+using Microsoft.Win32;
 using System;
 using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
-using Microsoft.Win32;
 using System.Text.RegularExpressions;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Threading;
-using Microsoft.Office.Interop.Word;
-using System.Security.AccessControl;
+using System.Windows.Forms;
 
 namespace Inventory_System02
 {
@@ -51,14 +47,14 @@ namespace Inventory_System02
                 if (config.dt.Rows.Count == 1)
                 {
 
-                     string id = config.dt.Rows[0].Field<string>("Employee ID");
-                     string name = config.dt.Rows[0].Field<string>("First Name") + " " + config.dt.Rows[0].Field<string>("Last Name");
-                     string acctype = config.dt.Rows[0].Field<string>("Job Role");
-                     string phone = config.dt.Rows[0].Field<string>("Phone Number");
-                     string email = config.dt.Rows[0].Field<string>("Email");
-                     MainForm frm = new MainForm(id, name, acctype, phone, email);
-                     this.Hide();
-                     frm.ShowDialog();
+                    string id = config.dt.Rows[0].Field<string>("Employee ID");
+                    string name = config.dt.Rows[0].Field<string>("First Name") + " " + config.dt.Rows[0].Field<string>("Last Name");
+                    string acctype = config.dt.Rows[0].Field<string>("Job Role");
+                    string phone = config.dt.Rows[0].Field<string>("Phone Number");
+                    string email = config.dt.Rows[0].Field<string>("Email");
+                    MainForm frm = new MainForm(id, name, acctype, phone, email);
+                    this.Hide();
+                    frm.ShowDialog();
                 }
                 else
                 {
@@ -93,7 +89,7 @@ namespace Inventory_System02
 
         private void Login1_FormClosed(object sender, FormClosedEventArgs e)
         {
-           System.Windows.Forms.Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
         string date = string.Empty;
         string status = string.Empty;
@@ -139,7 +135,7 @@ namespace Inventory_System02
                     sql = "Select Date, Status from Administration";
                     config.singleResult(sql);
                     if (config.dt.Rows.Count == 1)
-                    {            
+                    {
                         status = config.dt.Rows[0]["Status"].ToString();
                         date = config.dt.Rows[0]["Date"].ToString();
 
@@ -183,7 +179,7 @@ namespace Inventory_System02
                         config.Execute_Query(sql);
                         txt_Username.Focus();
                     }
-                }  
+                }
             }
             else
             {
@@ -201,7 +197,7 @@ namespace Inventory_System02
         }
         private Mutex mutex = new Mutex(false, "Inventory_System02");
         private void Login1_FormClosing(object sender, FormClosingEventArgs e)
-        { 
+        {
             try
             {
                 // Acquire the mutex before releasing it
@@ -214,7 +210,7 @@ namespace Inventory_System02
             {
                 System.Windows.Forms.Application.Exit();
             }
-         
+
         }
     }
 }

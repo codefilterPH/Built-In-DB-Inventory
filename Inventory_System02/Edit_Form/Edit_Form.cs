@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Inventory_System02.Includes;
+using System;
 using System.Windows.Forms;
-using Inventory_System02.Includes;
 
 namespace Inventory_System02.Edit_Form
 {
@@ -25,7 +18,7 @@ namespace Inventory_System02.Edit_Form
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            if ( txt_qty.Text != "" )
+            if (txt_qty.Text != "")
             {
                 MyData_qty = txt_qty.Text;
                 this.DialogResult = DialogResult.OK;
@@ -41,7 +34,7 @@ namespace Inventory_System02.Edit_Form
 
         private void txt_qty_KeyDown(object sender, KeyEventArgs e)
         {
-            if ( e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 btn_ok_Click(sender, e);
             }
@@ -55,7 +48,7 @@ namespace Inventory_System02.Edit_Form
         private void txt_qty_KeyPress(object sender, KeyPressEventArgs e)
         {
             usableFunction func = new usableFunction();
-            func.KeyPress_Textbox_NumbersOnlyNoDot(sender,e);
+            func.KeyPress_Textbox_NumbersOnlyNoDot(sender, e);
         }
     }
 }
