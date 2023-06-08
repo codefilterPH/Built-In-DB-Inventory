@@ -522,7 +522,7 @@ namespace Inventory_System02
                 progressBar1.Visible = true;
                 backgroundWorker1.RunWorkerAsync();
             }
-            DTG_Property();
+            DTG_Property();  //Issue on path error
 
         }
 
