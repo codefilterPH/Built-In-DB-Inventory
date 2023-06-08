@@ -269,6 +269,8 @@ namespace Inventory_System02
 
                     func.Change_Font_DTG(sender, e, dtg_Items);
                     txt_Qty_ValueChanged(sender, e);
+
+
                 }
 
 
@@ -520,9 +522,8 @@ namespace Inventory_System02
                 progressBar1.Visible = true;
                 backgroundWorker1.RunWorkerAsync();
             }
+            DTG_Property();
 
-
-       
         }
 
         private void btn_searchSup_Click(object sender, EventArgs e)
