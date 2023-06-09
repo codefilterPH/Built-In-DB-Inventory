@@ -130,6 +130,7 @@ namespace Inventory_System02
                             //STOCK LOW DETECT CHANGE FONT COLOR
                             rw.DefaultCellStyle.ForeColor = Color.Red;
                         }
+                        DTG_Property();
                     }
                     catch (Exception ex)
                     {
@@ -144,7 +145,7 @@ namespace Inventory_System02
         {
             config = new SQLConfig();
             Calculations();
-            // ProcessStockLow();
+            ProcessStockLow();
             Calculator_Timer.Stop();
         }
         int my_qty;
