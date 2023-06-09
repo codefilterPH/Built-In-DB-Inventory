@@ -239,51 +239,58 @@ namespace Inventory_System02
         bool dtg_was_clicked = false;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (enable_them == true)
+            try
             {
-                if (dtg_Items.Rows.Count > 0)
+                if (enable_them == true)
                 {
-                    txt_Barcode.Text = dtg_Items.CurrentRow.Cells[2].Value.ToString();
-                    txt_ItemName.Text = dtg_Items.CurrentRow.Cells[3].Value.ToString();
-                    cbo_brand.Text = dtg_Items.CurrentRow.Cells[4].Value.ToString();
-                    cbo_desc.Text = dtg_Items.CurrentRow.Cells[5].Value.ToString();
-                    txt_Qty.Text = dtg_Items.CurrentRow.Cells[6].Value.ToString();
-                    txt_Price.Text = dtg_Items.CurrentRow.Cells[7].Value.ToString();
-                    lbl_ProductValue.Text = dtg_Items.CurrentRow.Cells[8].Value.ToString();
-                    func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
-                    txt_SupID.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
-                    txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[11].Value.ToString();
-                    // Unsubscribe the event temporarily
-                    txt_TransRef.TextChanged -= txt_TransRef_SelectedIndexChanged;
+                    if (dtg_Items.Rows.Count > 0)
+                    {
+                        DTG_Property();
+                        txt_Barcode.Text = dtg_Items.CurrentRow.Cells[2].Value.ToString();
+                        txt_ItemName.Text = dtg_Items.CurrentRow.Cells[3].Value.ToString();
+                        cbo_brand.Text = dtg_Items.CurrentRow.Cells[4].Value.ToString();
+                        cbo_desc.Text = dtg_Items.CurrentRow.Cells[5].Value.ToString();
+                        txt_Qty.Text = dtg_Items.CurrentRow.Cells[6].Value.ToString();
+                        txt_Price.Text = dtg_Items.CurrentRow.Cells[7].Value.ToString();
+                        lbl_ProductValue.Text = dtg_Items.CurrentRow.Cells[8].Value.ToString();
+                        func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
+                        txt_SupID.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
+                        txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[11].Value.ToString();
+                        // Unsubscribe the event temporarily
+                        txt_TransRef.TextChanged -= txt_TransRef_SelectedIndexChanged;
 
-                    // Assign the selected value to the combo box
-                    txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
+                        // Assign the selected value to the combo box
+                        txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
 
-                    // Resubscribe the event
-                    //txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
-
-
-                    func.Change_Font_DTG(sender, e, dtg_Items);
-                    txt_Qty_ValueChanged(sender, e);
+                        // Resubscribe the event
+                        //txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
 
 
+                        func.Change_Font_DTG(sender, e, dtg_Items);
+                        txt_Qty_ValueChanged(sender, e);
+
+
+                    }
+
+
+                    if (txt_Qty.Value <= Convert.ToDecimal(quantity))
+                    {
+                        lbl_stock_low.Text = "Stock Low Detected!";
+                    }
+                    else
+                    {
+                        lbl_stock_low.Text = "";
+                    }
+
+                    SupplierChangeDisabler();
+                    dtg_was_clicked = true;
+                    chk_select_all.Checked = false;
                 }
-
-
-                if (txt_Qty.Value <= Convert.ToDecimal(quantity))
-                {
-                    lbl_stock_low.Text = "Stock Low Detected!";
-                }
-                else
-                {
-                    lbl_stock_low.Text = "";
-                }
-
-                SupplierChangeDisabler();
-                dtg_was_clicked = true;
-                chk_select_all.Checked = false;
             }
-
+            catch (Exception ex)
+            {
+                lbl_error_message.Text = ex.Message;
+            } 
         }
         private void SupplierChangeDisabler()
         {
