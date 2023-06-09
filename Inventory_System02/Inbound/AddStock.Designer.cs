@@ -190,7 +190,7 @@ namespace Inventory_System02
             // 
             this.txt_Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txt_Search.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_Search.Location = new System.Drawing.Point(53, 181);
+            this.txt_Search.Location = new System.Drawing.Point(53, 180);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(117, 25);
             this.txt_Search.TabIndex = 17;
