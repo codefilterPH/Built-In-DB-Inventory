@@ -460,73 +460,78 @@ namespace Inventory_System02
         string search_for = string.Empty;
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            if (cbo_srch_type.Text == "DATE")
+            try
             {
-                search_for = "`Entry Date`";
-            }
-            else if (cbo_srch_type.Text == "ID")
-            {
-                search_for = "`Stock ID`";
-            }
-            else if (cbo_srch_type.Text == "NAME")
-            {
-                search_for = "`Item Name`";
-            }
-            else if (cbo_srch_type.Text == "BRAND")
-            {
-                search_for = "`Brand`";
-            }
-            else if (cbo_srch_type.Text == "DESCRIPTION")
-            {
-                search_for = "`Description`";
-            }
-            else if (cbo_srch_type.Text == "QUANTITY")
-            {
-                search_for = "`QUANTITY`";
-            }
-            else if (cbo_srch_type.Text == "PRICE")
-            {
-                search_for = "`Price`";
-            }
-            else if (cbo_srch_type.Text == "SUPPLIER")
-            {
-                search_for = "`Supplier Name`";
-            }
-            else if (cbo_srch_type.Text == "JOB")
-            {
-                search_for = "`Job Role`";
-            }
-            else if (cbo_srch_type.Text == "TRANS REF")
-            {
-                search_for = "`Transaction Reference`";
-            }
-            else
-            {
-                search_for = "`Transaction Reference`";
-            }
+                if (cbo_srch_type.Text == "DATE")
+                {
+                    search_for = "`Entry Date`";
+                }
+                else if (cbo_srch_type.Text == "ID")
+                {
+                    search_for = "`Stock ID`";
+                }
+                else if (cbo_srch_type.Text == "NAME")
+                {
+                    search_for = "`Item Name`";
+                }
+                else if (cbo_srch_type.Text == "BRAND")
+                {
+                    search_for = "`Brand`";
+                }
+                else if (cbo_srch_type.Text == "DESCRIPTION")
+                {
+                    search_for = "`Description`";
+                }
+                else if (cbo_srch_type.Text == "QUANTITY")
+                {
+                    search_for = "`QUANTITY`";
+                }
+                else if (cbo_srch_type.Text == "PRICE")
+                {
+                    search_for = "`Price`";
+                }
+                else if (cbo_srch_type.Text == "SUPPLIER")
+                {
+                    search_for = "`Supplier Name`";
+                }
+                else if (cbo_srch_type.Text == "JOB")
+                {
+                    search_for = "`Job Role`";
+                }
+                else if (cbo_srch_type.Text == "TRANS REF")
+                {
+                    search_for = "`Transaction Reference`";
+                }
+                else
+                {
+                    search_for = "`Transaction Reference`";
+                }
 
 
-            if (txt_Search.Text == "")
-            {
-                refreshToolStripMenuItem_Click(sender, e);
-                return;
+                if (txt_Search.Text == "")
+                {
+                    refreshToolStripMenuItem_Click(sender, e);
+                    return;
+                }
+                DTG_Property();
+                sql = "";
+                config = new SQLConfig();
+                sql = $"Select * from Stocks where {search_for} like '%{txt_Search.Text}%' ORDER BY `Entry Date` DESC ";
+                Load_Items(sql);
+
+                if (!isWorkerBusy)
+                {
+                    isWorkerBusy = true;
+                    //show progress bar
+                    rowcounter = config.dt.Rows.Count;
+                    progressBar1.Visible = true;
+                    backgroundWorker1.RunWorkerAsync();
+                }
             }
-
-            sql = "";
-            config = new SQLConfig();
-            sql = $"Select * from Stocks where {search_for} like '%{txt_Search.Text}%' ORDER BY `Entry Date` DESC ";
-            Load_Items(sql);
-
-            if (!isWorkerBusy)
+            catch (Exception ex)
             {
-                isWorkerBusy = true;
-                //show progress bar
-                rowcounter = config.dt.Rows.Count;
-                progressBar1.Visible = true;
-                backgroundWorker1.RunWorkerAsync();
+                lbl_error_message.Text = ex.Message;
             }
-
-            DTG_Property();
 
         }
 
