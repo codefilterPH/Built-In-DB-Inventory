@@ -35,6 +35,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
         {
             InitializeComponent();
         }
+        bool isWorkerBusy1 = false;
         bool isWorkerBusy2 = false;
         private void ItemByDivision_Form_Load(object sender, EventArgs e)
         {
@@ -54,14 +55,15 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
 
             if (!isWorkerBusy2)
             {
-                isWorkerBusy = true;
+                progressBar1.Visible = true;
+                isWorkerBusy2 = true;
                 backgroundWorker2.RunWorkerAsync();
             }
 
-            if (!isWorkerBusy)
+            if (!isWorkerBusy1)
             {
                 progressBar1.Visible = true;
-                isWorkerBusy = true;
+                isWorkerBusy1 = true;
                 load_sup = true;
                 backgroundWorker1.RunWorkerAsync();
             }
@@ -144,10 +146,10 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                     chk_Sup_Name.Checked = true;
                     lbl_sup_div.Text = "SUPPLIER";
 
-                    if (!isWorkerBusy)
+                    if (!isWorkerBusy1)
                     {
                         progressBar1.Visible = true;
-                        isWorkerBusy = true;
+                        isWorkerBusy1 = true;
                         load_sup = true;
                         backgroundWorker1.RunWorkerAsync();
                     }
@@ -165,10 +167,10 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                     chk_Sup_ID.Checked = false;
                     chk_Sup_Name.Checked = false;
 
-                    if (!isWorkerBusy)
+                    if (!isWorkerBusy2)
                     {
                         progressBar1.Visible = true;
-                        isWorkerBusy = true;
+                        isWorkerBusy2 = true;
                         load_sup = false;
                         backgroundWorker1.RunWorkerAsync();
                     }
@@ -631,7 +633,7 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
                 e.Result = ex.Message;
             }
         }
-        bool isWorkerBusy = false;
+
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Error != null)
@@ -646,13 +648,13 @@ namespace Inventory_System02.CommonSql.Reports_Dir.Item_Division
             else
             {
                 progressBar1.Value = 100;
-                isWorkerBusy = false;
+                isWorkerBusy1 = false;
                 lbl_error_message.Text = e.Result.ToString();
                 lbl_error_message.ForeColor = Color.Green;
                 timer_error.Enabled = true;
             }
             load_sup = false;
-            isWorkerBusy = false;
+            isWorkerBusy1 = false;
         }
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
