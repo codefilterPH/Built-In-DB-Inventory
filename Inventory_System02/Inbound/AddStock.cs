@@ -530,11 +530,12 @@ namespace Inventory_System02
                     refreshToolStripMenuItem_Click(sender, e);
                     return;
                 }
-                DTG_Property();
+        
                 sql = "";
                 config = new SQLConfig();
                 sql = $"Select * from Stocks where {search_for} like '%{txt_Search.Text}%' ORDER BY `Entry Date` DESC ";
-                Load_Items(sql);
+                config.Load_DTG(sql, dtg_Items);
+                DTG_Property();
 
                 if (!isWorkerBusy)
                 {
@@ -1348,7 +1349,6 @@ namespace Inventory_System02
         }
         private void Load_Items(string sql)
         {
-
             // calculate the total number of records and pages
             int totalRecords = config.GetTotalRecords(sql);
 

@@ -17,7 +17,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\Users\eugen\source\repos\Inventory\publish\</PublishUrl>
+    <PublishUrl>C:\Users\eugen\source\repos\InventoryProduction\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -27,14 +27,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</InstallUrl>
+    <InstallUrl>https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</UpdateUrl>
     <ProductName>Inventory MS</ProductName>
     <PublisherName>Codefilter Technology</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>1.0.0.6</ApplicationVersion>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.0.0.7</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -556,12 +556,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CommonSql\Tools\tools.dll" />
+    <Content Include="development.txt" />
     <Content Include="InventoryMS.ico" />
     <None Include="Resources\Flaticon\expand.png" />
     <None Include="Resources\Flaticon\nav.png" />
     <None Include="Resources\resize.png" />
     <None Include="Resources\expand.png" />
     <None Include="Resources\expand1.png" />
+    <Content Include="production.txt" />
     <Content Include="SQLite.Interop.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
