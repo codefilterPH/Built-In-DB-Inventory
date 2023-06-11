@@ -17,7 +17,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\Users\eugen\source\repos\Inventory\publish\</PublishUrl>
+    <PublishUrl>C:\Users\eugen\source\repos\InventoryProduction\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -27,14 +27,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</InstallUrl>
-    <UpdateUrl>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/</UpdateUrl>
+    <InstallUrl>https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/</InstallUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/</UpdateUrl>
     <ProductName>Inventory MS</ProductName>
     <PublisherName>Codefilter Technology</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.0.0.2</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>

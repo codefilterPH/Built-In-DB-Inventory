@@ -1,0 +1,156 @@
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\x86\SqlServerSpatial160.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\x64\SqlServerSpatial160.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Invoice\Invoice_In_Item.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Invoice\Invoice_In.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Item_Qty\ItemQTY_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Supplier_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Invoice\Invoice_return.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Invoice\Invoice_out.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Employee_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Customer_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Item Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Document Center Files\Outbound Report 015335.pdf
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Pictures\Customers\DONOTDELETE_SUBIMAGE.jpg
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Pictures\Employee\admin.JPG
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Pictures\Employee\DONOTDELETE_SUBIMAGE.jpg
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Pictures\Item\Image\DONOTDELETE_SUBIMAGE.jpg
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Pictures\Suppliers\DONOTDELETE_SUBIMAGE.jpg
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Tools\SQLite.Interop.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\SQLite.Interop.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Item_Division\Item_Divisup_Report.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\CommonSql\Reports Dir\Search DTG\Search_DTG.rdlc
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Inventory MS.exe.config
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Inventory MS.exe.manifest
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Inventory MS.application
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Inventory MS.exe
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Inventory MS.pdb
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\EntityFramework.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.Extensions.Configuration.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.Extensions.Primitives.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.ReportViewer.Common.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.ReportViewer.Design.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.ReportViewer.WinForms.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.SqlServer.Types.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Buffers.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Data.SQLite.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Memory.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Numerics.Vectors.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.ValueTuple.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zxing.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zxing.presentation.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\EnvDTE.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\EntityFramework.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.Extensions.Configuration.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Microsoft.Extensions.Primitives.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Buffers.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Data.SQLite.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Memory.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Numerics.Vectors.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\System.ValueTuple.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zxing.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zxing.presentation.xml
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\Interop.AcroPDFLib.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Release\AxInterop.AcroPDFLib.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.csproj.AssemblyReference.cache
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.csproj.SuggestedBindingRedirects.cache
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Interop.AcroPDFLib.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\AxInterop.AcroPDFLib.dll
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.csproj.ResolveComReference.cache
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.AddStock.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Admin.Verify.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Analytics.dashboard.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Batch_Form.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.CommonSql.Reports_Dir.Item_Division.ItemByDivision_Form.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.CommonSql.Reports_Dir.Item_Qty.Edit_QTY.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.CommonSql.Reports_Dir.Item_Qty.Item_by_Quantity.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.CustSupplier.CustSupp.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.About.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.CustSupplier.CustModels.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Edit_Form.Edit_Form.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Outbound.OutEditForm.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Items.Item_Preview.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Items.Outbound_Preview.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Items.Return_Preview.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Login1.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.MainForm.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Reports_Dir.Customer_Report.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Reports_Dir.Employee_Report.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Reports_Dir.Item_Report.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Reports_Dir.Report_Viewer.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Reports_Dir.Supplier_Report.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Reports_MainForm.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Return.Investigated_Return_Records.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Return.ReturnToStocks.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Stock_Returned.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.StockOutList.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Profiles.Employees.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Properties.Resources.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.Settings.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.StockOut.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.StockReturned.resources
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.csproj.GenerateResource.cache
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.csproj.CoreCompileInputs.cache
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory MS.exe.manifest
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory MS.application
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory_System02.csproj.CopyComplete
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory MS.exe
+C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Release\Inventory MS.pdb
