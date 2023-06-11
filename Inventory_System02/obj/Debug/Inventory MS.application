@@ -8,7 +8,7 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/Inventory%20MS.application" />
+    <deploymentProvider codebase="https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/Inventory%20MS.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
@@ -21,7 +21,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3qtn+q58/okRovkIGde8dB+yWcxPVGogi6FhGsIItoY=</dsig:DigestValue>
+        <dsig:DigestValue>5y/mMVdQLD5whilaUi2bQMyFrWf5QnXqRy3IuBJLrgM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

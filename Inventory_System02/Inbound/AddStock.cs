@@ -64,7 +64,7 @@ namespace Inventory_System02
                 backgroundWorker1.RunWorkerAsync();
             }
 
-            LoadImageWorker.RunWorkerAsync();
+            //LoadImageWorker.RunWorkerAsync();
 
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
