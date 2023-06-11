@@ -1,0 +1,4 @@
+C:\Users\eugen\source\repos\Inventory\publish\
+https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/
+
+Clearing Nuget Cache Visual studio: dotnet nuget locals all --clear

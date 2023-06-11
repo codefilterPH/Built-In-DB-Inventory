@@ -4,11 +4,11 @@
     <PublishUrlHistory>C:\Users\eugen\source\repos\Inventory\publish\|C:\Users\eugen\source\repos\InventoryProduction\publish\|C:\Users\eugen\source\reposII\publish\|C:\Users\eugen\source\repos\InventoryProduction\Publish\|C:\Users\eugen\source\repos\InventoryProduction\</PublishUrlHistory>
     <InstallUrlHistory>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/|https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/|\\server\publish\|https://github.com/codefilterPH/Inventory/tree/main/publish/|http://eugenereybulahan.pythonanywhere.com/Inventory/publish/Inventory_System02.application/</InstallUrlHistory>
     <SupportUrlHistory />
-    <UpdateUrlHistory>https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/|https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/|\\server\publish\</UpdateUrlHistory>
+    <UpdateUrlHistory>https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/|https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/|\\server\publish\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
-    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
