@@ -8,20 +8,20 @@
         <beforeApplicationStartup />
       </update>
     </subscription>
-    <deploymentProvider codebase="https://raw.githubusercontent.com/codefilterPH/Inventory/main/publish/Inventory%20MS.application" />
+    <deploymentProvider codebase="https://raw.githubusercontent.com/codefilterPH/InventoryProduction/main/publish/Inventory%20MS.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Inventory MS.exe.manifest" size="68291">
+    <dependentAssembly dependencyType="install" codebase="Inventory MS.exe.manifest" size="68038">
       <assemblyIdentity name="Inventory MS.exe" version="1.0.0.6" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EHQR1iOxtZcVDmDI/kE5PDGv/1p0fTQb20nEpW+spJc=</dsig:DigestValue>
+        <dsig:DigestValue>s5ff2tgFR4hs07K39k4BO5cEnWZt+qbBpuauNhnr3vM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

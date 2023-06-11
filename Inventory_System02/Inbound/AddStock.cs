@@ -54,6 +54,7 @@ namespace Inventory_System02
             config.fiil_CBO(sql, cbo_brand);
             sql = $"Select * from Stocks ORDER BY `Entry Date` DESC ";
             Load_Items(sql);
+            ProcessStockLow();
 
             if (!isWorkerBusy)
             {
@@ -68,6 +69,7 @@ namespace Inventory_System02
             func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
             cbo_srch_type.DropDownStyle = ComboBoxStyle.DropDownList;
             enable_them = true;
+            Calculator_Timer.Start();
         }
         double totalrows = 0;
         private void DTG_Property()
@@ -105,10 +107,11 @@ namespace Inventory_System02
                         totalrows += 1;
                         lbl_items_count.Text = totalrows.ToString();
 
+                        //Calculator_Timer.Start();
                         Calculator_Timer.Start();
-
                         success = true; // If no exception is thrown, mark the attempt as successful
                         break; // Break out of the while loop since we don't need further attempts
+                       
                     }
                 }
                 catch (InvalidOperationException)
@@ -116,7 +119,7 @@ namespace Inventory_System02
                     attempts++;
                     // Handle the exception by waiting for a short period of time and then trying the operation again
                     System.Threading.Thread.Sleep(500);
-                    DTG_Property();
+                    //DTG_Property();
                 }
             }
 
@@ -146,7 +149,7 @@ namespace Inventory_System02
                             //STOCK LOW DETECT CHANGE FONT COLOR
                             rw.DefaultCellStyle.ForeColor = Color.Red;
                         }
-                        DTG_Property();
+                        //DTG_Property();
                     }
                     catch (Exception ex)
                     {
@@ -161,7 +164,7 @@ namespace Inventory_System02
         {
             config = new SQLConfig();
             Calculations();
-            ProcessStockLow();
+            //ProcessStockLow();
             Calculator_Timer.Stop();
         }
         int my_qty;
@@ -254,61 +257,7 @@ namespace Inventory_System02
         }
 
         bool dtg_was_clicked = false;
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (enable_them == true)
-                {
-                    if (dtg_Items.Rows.Count > 0)
-                    {
-                        DTG_Property();
-                        txt_Barcode.Text = dtg_Items.CurrentRow.Cells[2].Value.ToString();
-                        txt_ItemName.Text = dtg_Items.CurrentRow.Cells[3].Value.ToString();
-                        cbo_brand.Text = dtg_Items.CurrentRow.Cells[4].Value.ToString();
-                        cbo_desc.Text = dtg_Items.CurrentRow.Cells[5].Value.ToString();
-                        txt_Qty.Text = dtg_Items.CurrentRow.Cells[6].Value.ToString();
-                        txt_Price.Text = dtg_Items.CurrentRow.Cells[7].Value.ToString();
-                        lbl_ProductValue.Text = dtg_Items.CurrentRow.Cells[8].Value.ToString();
-                        func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
-                        txt_SupID.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
-                        txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[11].Value.ToString();
-                        // Unsubscribe the event temporarily
-                        txt_TransRef.TextChanged -= txt_TransRef_SelectedIndexChanged;
 
-                        // Assign the selected value to the combo box
-                        txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
-
-                        // Resubscribe the event
-                        //txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
-
-
-                        func.Change_Font_DTG(sender, e, dtg_Items);
-                        txt_Qty_ValueChanged(sender, e);
-
-
-                    }
-
-
-                    if (txt_Qty.Value <= Convert.ToDecimal(quantity))
-                    {
-                        lbl_stock_low.Text = "Stock Low Detected!";
-                    }
-                    else
-                    {
-                        lbl_stock_low.Text = "";
-                    }
-
-                    SupplierChangeDisabler();
-                    dtg_was_clicked = true;
-                    chk_select_all.Checked = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                lbl_error_message.Text = ex.Message;
-            } 
-        }
         private void SupplierChangeDisabler()
         {
             sql = string.Empty;
@@ -474,12 +423,23 @@ namespace Inventory_System02
             }
 
         }
-        string search_for = string.Empty;
+
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
+
             try
             {
-                if (cbo_srch_type.Text == "DATE")
+                if (dtg_Items.Columns.Count >= 1)
+                {
+                    dtg_Items.Columns.Clear();
+                }
+
+                string search_for = string.Empty;
+                if (cbo_srch_type.Text == "NAME")
+                {
+                    search_for = "`Item Name`";
+                }
+                else if (cbo_srch_type.Text == "ID")
                 {
                     search_for = "`Entry Date`";
                 }
@@ -487,10 +447,7 @@ namespace Inventory_System02
                 {
                     search_for = "`Stock ID`";
                 }
-                else if (cbo_srch_type.Text == "NAME")
-                {
-                    search_for = "`Item Name`";
-                }
+
                 else if (cbo_srch_type.Text == "BRAND")
                 {
                     search_for = "`Brand`";
@@ -515,42 +472,61 @@ namespace Inventory_System02
                 {
                     search_for = "`Job Role`";
                 }
-                else if (cbo_srch_type.Text == "TRANS REF")
-                {
-                    search_for = "`Transaction Reference`";
-                }
                 else
                 {
                     search_for = "`Transaction Reference`";
                 }
 
-
-                if (txt_Search.Text == "")
+                if (string.IsNullOrWhiteSpace(txt_Search.Text))
                 {
                     refreshToolStripMenuItem_Click(sender, e);
                     return;
                 }
-        
-                sql = "";
+
+
+                sql = string.Empty;
                 config = new SQLConfig();
-                sql = $"Select * from Stocks where {search_for} like '%{txt_Search.Text}%' ORDER BY `Entry Date` DESC ";
+                sql = "SELECT " +
+                    "`COUNT`, " +
+                    "`ENTRY DATE`," +
+                    "`STOCK ID`, " +
+                    "`ITEM NAME`," +
+                    "`BRAND`," +
+                    "`DESCRIPTION`," +
+                    "`QUANTITY`," +
+                    "`PRICE`," +
+                    "`TOTAL`," +
+                    "`IMAGE PATH`, " +
+                    "`SUPPLIER ID`, " +
+                    "`SUPPLIER NAME`," +
+                    "`USER ID`," +
+                    "`WAREHOUSE STAFF NAME`," +
+                    "`JOB ROLE`," +
+                    "`TRANSACTION REFERENCE`," +
+                    "`STATUS` FROM Stocks WHERE " + search_for + " like '%" + txt_Search.Text + "%' ORDER BY `ENTRY DATE` DESC";
                 config.Load_DTG(sql, dtg_Items);
-                DTG_Property();
+                ProcessStockLow();
+                //DTG_Property();
+                //LoadImageWorker.RunWorkerAsync();
+                dtg_Items.Columns["COUNT"].Visible = false;
+                dtg_Items.Columns["STOCK ID"].Visible = false;
+                dtg_Items.Columns["IMAGE PATH"].Visible = false;
 
                 if (!isWorkerBusy)
                 {
                     isWorkerBusy = true;
                     //show progress bar
                     rowcounter = config.dt.Rows.Count;
+                    //Console.WriteLine(rowcounter.ToString());
                     progressBar1.Visible = true;
                     backgroundWorker1.RunWorkerAsync();
                 }
+                Calculator_Timer.Start();
             }
             catch (Exception ex)
             {
                 lbl_error_message.Text = ex.Message;
             }
-
         }
 
         private void btn_searchSup_Click(object sender, EventArgs e)
@@ -1373,6 +1349,7 @@ namespace Inventory_System02
             config.Load_DTG_Paginator(sql, dtg_Items, currentpage, recordsperpage);
 
             DTG_Property();
+
         }
 
         private void cbo_num_records_KeyPress(object sender, KeyPressEventArgs e)
@@ -1405,6 +1382,62 @@ namespace Inventory_System02
         private void btn_load_Click(object sender, EventArgs e)
         {
             current_page_val_ValueChanged(sender, e);
+        }
+
+        private void dtg_Items_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (enable_them == true)
+                {
+                    if (dtg_Items.Rows.Count > 0)
+                    {
+
+                        txt_Barcode.Text = dtg_Items.CurrentRow.Cells[2].Value.ToString();
+                        txt_ItemName.Text = dtg_Items.CurrentRow.Cells[3].Value.ToString();
+                        cbo_brand.Text = dtg_Items.CurrentRow.Cells[4].Value.ToString();
+                        cbo_desc.Text = dtg_Items.CurrentRow.Cells[5].Value.ToString();
+                        txt_Qty.Text = dtg_Items.CurrentRow.Cells[6].Value.ToString();
+                        txt_Price.Text = dtg_Items.CurrentRow.Cells[7].Value.ToString();
+                        lbl_ProductValue.Text = dtg_Items.CurrentRow.Cells[8].Value.ToString();
+                        func.Reload_Images(Item_Image, txt_Barcode.Text, item_image_location);
+                        txt_SupID.Text = dtg_Items.CurrentRow.Cells[10].Value.ToString();
+                        txt_Sup_Name.Text = dtg_Items.CurrentRow.Cells[11].Value.ToString();
+                        // Unsubscribe the event temporarily
+                        txt_TransRef.TextChanged -= txt_TransRef_SelectedIndexChanged;
+
+                        // Assign the selected value to the combo box
+                        txt_TransRef.Text = dtg_Items.CurrentRow.Cells[15].Value.ToString();
+
+                        // Resubscribe the event
+                        //txt_TransRef.TextChanged += txt_TransRef_SelectedIndexChanged;
+
+
+                        //func.Change_Font_DTG(sender, e, dtg_Items);
+                        //txt_Qty_ValueChanged(sender, e);
+
+
+                    }
+
+
+                    if (txt_Qty.Value <= Convert.ToDecimal(quantity))
+                    {
+                        lbl_stock_low.Text = "Stock Low Detected!";
+                    }
+                    else
+                    {
+                        lbl_stock_low.Text = "";
+                    }
+
+                    SupplierChangeDisabler();
+                    dtg_was_clicked = true;
+                    chk_select_all.Checked = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                lbl_error_message.Text = ex.Message;
+            }
         }
 
         private void txt_Price_Click(object sender, EventArgs e)
