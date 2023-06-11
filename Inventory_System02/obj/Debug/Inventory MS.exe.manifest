@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1nl+G4+HIey8dPL0o1BPKh1J0FcDoalbu9nXGdSKx8g=</dsig:DigestValue>
+        <dsig:DigestValue>yit+Vq0t/dpE3id7yzPzjJOqmzj6zIzuG+rX6TKekGw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wdbK+0l1bK2Ow1ZKQXkPUo+6BNqlphmnXGaUSKFkQG8=</dsig:DigestValue>
+        <dsig:DigestValue>Dt7d4nOZ336na6L26kh4ldNZKQDiGq84NVndfPwPk6I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -961,15 +961,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>MYwHcqr+5RzF3C4/hxsxYD4JSnC3ATaERz1dLIPBNcQ=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="CommonSql\Invoice\Invoice_return.rdlc" size="45947">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>1EWTihgIY8m+KWInb+Apai2565kJLXSKW7KbAacXHys=</dsig:DigestValue>
     </hash>
   </file>
   <file name="CommonSql\Pictures\Company\DONOTDELETE_SUBIMAGE.PNG" size="520371">
