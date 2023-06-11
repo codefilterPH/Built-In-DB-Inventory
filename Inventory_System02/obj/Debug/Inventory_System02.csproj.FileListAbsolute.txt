@@ -338,4 +338,3 @@ C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory MS.
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory_System02.csproj.CopyComplete
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory MS.exe
 C:\Users\eugen\source\repos\Inventory\Inventory_System02\obj\Debug\Inventory MS.pdb
-C:\Users\eugen\source\repos\Inventory\Inventory_System02\bin\Debug\CommonSql\Invoice\Invoice_return.rdlc
